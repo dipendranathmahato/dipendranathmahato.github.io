@@ -1,5 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+<header class="top-nav">
+  <div class="brand">
+    <img src="Tulane_University_Logo.svg.png" class="nav-logo" alt="Tulane University Logo" />
+    <a href="index.html" class="brand-name-link">
+      <span>Dipendranath Mahato</span>
+    </a>
+  </div>
+  <nav class="top-nav-links">
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="controls">
+    <a href="My_Curriculum_Vitae.pdf" class="pill-button primary">
+      <i class="fa-solid fa-file-lines"></i>
+      <span>CV</span>
+    </a>
+  </div>
+</header>
+
+
+<aside class="sidebar">
+  <div class="avatar">
+    <img src="PXL_20250330_220427523-1575x2800-compressed.jpg" alt="Dipendranath Mahato" />
+    <div class="status-chip">
+      <span></span>
+      In JOB MARKET
+    </div>
+  </div>
+  <div class="name">Dipendranath Mahato</div>
+  <div class="title">Ph.D. Candidate in Mathematics</div>
+  <div class="affiliation">
+    <strong>Tulane University</strong><br />
+    Department of Mathematics
+  </div>
+
+  <div class="tag-list">
+    <div class="tag">Commutative Algebra</div>
+    <div class="tag">Algebraic Geometry</div>
+    <div class="tag">Symbolic &amp; Rational Powers</div>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Contact</h3>
+    <ul class="info-list">
+      <li>
+        <i class="fa-regular fa-envelope"></i>
+        <span><a href="mailto:you@tulane.edu">you@tulane.edu</a></span>
+      </li>
+      <li>
+        <i class="fa-solid fa-location-dot"></i>
+        <span>New Orleans, LA, USA</span>
+      </li>
+      <li>
+        <i class="fa-regular fa-building"></i>
+        <span>Office XXX, Gibson Hall / Math Dept.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Online</h3>
+    <div class="social-links">
+      <a href="https://github.com/your-handle" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://scholar.google.com/citations?user=XXXX" aria-label="Google Scholar">
+        <i class="fa-brands fa-google"></i>
+      </a>
+      <a href="https://orcid.org/0000-0000-0000-0000" aria-label="ORCID">
+        <i class="fa-brands fa-orcid"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/your-handle" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Research Interests</h3>
+    <ul class="info-list">
+      <li>
+        <i class="fa-solid fa-circle-dot"></i>
+        <span>Symbolic and rational symbolic powers of ideals</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-circle-dot"></i>
+        <span>Fat-point configurations &amp; interpolation in $\mathbb{P}^n$</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-circle-dot"></i>
+        <span>Asymptotic invariants (Waldschmidt constants, resurgence)</span>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+
+  
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Dipendranath Mahato | Academic Homepage</title>
@@ -7,18 +110,12 @@
   <meta name="description" content="Academic homepage of Dipendranath Mahato" />
 
   <!-- Google Font -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-  />
-
-  <!-- Font Awesome for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-
-  <!-- MathJax for LaTeX -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- MathJax -->
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -27,610 +124,25 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
-  <style>
-    :root {
-      --bg: #f7f7fb;
-      --bg-alt: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.06);
-      --border: #e5e7eb;
-      --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.08);
-      --radius-lg: 18px;
-      --radius-xl: 24px;
-      --radius-pill: 999px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #dbeafe 0, transparent 55%),
-                  radial-gradient(circle at bottom right, #fee2e2 0, transparent 55%),
-                  var(--bg);
-      color: var(--text);
-      scroll-behavior: smooth;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .page {
-      max-width: 1120px;
-      margin: 32px auto 48px;
-      padding: 0 16px;
-    }
-
-    /* Top navigation bar */
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      padding: 10px 18px;
-      border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-logo {
-      height: 35px;
-      width: 25px;
-      margin-right: 4px;
-      border-radius: 4px;
-      object-fit: contain;
-    }
-
-    .top-nav-links {
-      display: flex;
-      gap: 18px;
-      font-size: 0.9rem;
-    }
-
-    .top-nav-links a {
-      padding: 4px 0;
-      position: relative;
-    }
-    .top-nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #2563eb, #22c55e);
-      border-radius: 999px;
-      transition: width 0.2s ease;
-    }
-    .top-nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .controls {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .pill-button {
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border);
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      background: rgba(255, 255, 255, 0.8);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .pill-button i {
-      font-size: 0.85rem;
-    }
-
-    .pill-button.primary {
-      background: radial-gradient(circle at top left, #60a5fa 0, #2563eb 45%, #1d4ed8 100%);
-      border-color: transparent;
-      color: white;
-      box-shadow: 0 16px 28px rgba(37, 99, 235, 0.4);
-    }
-
-    .pill-button.primary:hover {
-      filter: brightness(1.08);
-    }
-
-    .pill-button.secondary {
-      background: rgba(15, 23, 42, 0.04);
-      color: var(--muted);
-    }
-
-    .pill-button.secondary:hover {
-      background: rgba(15, 23, 42, 0.08);
-    }
-
-    /* Layout: sidebar + main */
-    .layout {
-      display: grid;
-      grid-template-columns: 320px minmax(0, 1fr);
-      gap: 22px;
-      align-items: flex-start;
-    }
-
-    /* Sidebar: profile card */
-    .sidebar {
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(226, 232, 240, 0.95));
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 22px 22px 18px;
-      box-shadow: var(--shadow-soft);
-      position: sticky;
-      top: 16px;
-    }
-
-    .avatar {
-      width: 260px;
-      height: 260px;
-      border-radius: 60px;
-      margin-bottom: 34px;
-      background: radial-gradient(circle at 30% 20%, #bfdbfe 0, #1d4ed8 38%, #0f172a 76%);
-      position: center;
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.65);
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .status-chip {
-      position: relative;
-      bottom: 30px;
-      left: 62px;
-      padding: 3px 10px;
-      font-size: 0.85rem;
-      border-radius: var(--radius-pill);
-      background: rgba(255, 13, 42, 0.8);
-      color: #e5e7eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      backdrop-filter: blur(10px);
-    }
-
-    .status-chip span {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.35);
-    }
-
-    .name {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .title {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .affiliation {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      padding: 4px 9px;
-      border-radius: var(--radius-pill);
-      background: rgba(37, 99, 235, 0.07);
-      color: #1d4ed8;
-    }
-
-    .sidebar-section {
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
-      margin-top: 14px;
-      padding-top: 12px;
-    }
-
-    .sidebar-section h3 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin: 0 0 8px;
-    }
-
-    .info-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .info-list li {
-      margin-bottom: 6px;
-      display: flex;
-      gap: 8px;
-      align-items: baseline;
-    }
-
-    .info-list li i {
-      width: 14px;
-      text-align: center;
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.9rem;
-    }
-
-    .social-links a {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-      background: rgba(255, 255, 255, 0.55);
-    }
-
-    /* Main content */
-    .main {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .hero-card {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), #1e293b);
-      border-radius: var(--radius-xl);
-      padding: 22px 22px 18px;
-      color: #e5e7eb;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top right, rgba(56, 189, 248, 0.2), transparent 60%),
-        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.18), transparent 55%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-topline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      padding: 3px 10px;
-      border-radius: var(--radius-pill);
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      margin-bottom: 10px;
-    }
-
-    .hero-topline i {
-      color: #facc15;
-    }
-
-    .hero-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .hero-subtitle {
-      font-size: 0.98rem;
-      color: #cbd5f5;
-      max-width: 620px;
-      margin-bottom: 12px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .hero-actions .pill-button {
-      font-size: 0.85rem;
-      padding: 7px 16px;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin-top: 10px;
-    }
-
-    .hero-meta strong {
-      color: #e5e7eb;
-      font-weight: 500;
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* Content cards */
-    .card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 18px 20px 14px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-    }
-
-    .card-title {
-      font-size: 1rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card-title i {
-      font-size: 0.95rem;
-      color: var(--accent);
-    }
-
-    .card-subtitle {
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .pill-label {
-      font-size: 0.7rem;
-      padding: 3px 8px;
-      border-radius: var(--radius-pill);
-      background: var(--accent-soft);
-      border: 1px solid rgba(37, 99, 235, 0.35);
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .card-body {
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 18px;
-      margin-top: 10px;
-    }
-
-    .list-unstyled {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .list-tight li {
-      margin-bottom: 6px;
-    }
-
-    .timeline {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      border-left: 1px solid var(--border);
-    }
-
-    .timeline-item {
-      margin-left: 12px;
-      padding-left: 12px;
-      padding-bottom: 10px;
-      position: relative;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -6px;
-      top: 4px;
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 2px solid var(--accent);
-    }
-
-    .timeline-title {
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .timeline-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 1px;
-    }
-
-    .pub-list, .teaching-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      font-size: 0.9rem;
-    }
-
-    .pub-item, .teaching-item {
-      margin-bottom: 8px;
-      padding-bottom: 6px;
-      border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
-    }
-
-    .pub-item:last-child,
-    .teaching-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .pub-title {
-      font-weight: 500;
-    }
-
-    .pub-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .pub-links {
-      font-size: 0.8rem;
-      margin-top: 2px;
-    }
-
-    .pub-links a {
-      margin-right: 10px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.76rem;
-      padding: 3px 9px;
-      border-radius: var(--radius-pill);
-      background: rgba(15, 23, 42, 0.03);
-      border: 1px dashed rgba(148, 163, 184, 0.7);
-      color: var(--muted);
-    }
-
-    .badge i {
-      font-size: 0.75rem;
-    }
-
-    .footer {
-      margin-top: 24px;
-      font-size: 0.78rem;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .footer a {
-      color: var(--muted);
-      text-decoration: underline;
-      text-decoration-style: dotted;
-    }
-
-    /* Responsive */
-    @media (max-width: 880px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .sidebar {
-        position: static;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .top-nav {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .top-nav-links {
-        display: none;
-      }
-      .page {
-        margin-top: 18px;
-      }
-      .hero-title {
-        font-size: 1.3rem;
-      }
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .sidebar, .card, .hero-card {
-        padding: 18px 16px 14px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
-  
 <body>
   <div class="page">
     <!-- Top nav -->
+    <!-- (shared header) -->
     <header class="top-nav">
       <div class="brand">
-        <!-- University Logo (replace src with your file) -->
-        <!-- Example: <img src="tulane-logo.png" class="nav-logo" alt="Tulane University Logo" /> -->
-        <img src="Tulane_University_Logo.svg.png" class="nav-logo" alt="University Logo" />
-        <span>Dipendranath Mahato</span>
+        <img src="Tulane_University_Logo.svg.png" class="nav-logo" alt="Tulane University Logo" />
+        <a href="index.html" class="brand-name-link">
+          <span>Dipendranath Mahato</span>
+        </a>
       </div>
       <nav class="top-nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#contact">Contact</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="contact.html">Contact</a>
       </nav>
       <div class="controls">
         <a href="My_Curriculum_Vitae.pdf" class="pill-button primary">
@@ -641,10 +153,10 @@
     </header>
 
     <main class="layout">
-      <!-- Sidebar: profile -->
+      <!-- Sidebar -->
+      <!-- (shared sidebar) -->
       <aside class="sidebar">
         <div class="avatar">
-          <!-- Replace with your photo if you like -->
           <img src="PXL_20250330_220427523-1575x2800-compressed.jpg" alt="Dipendranath Mahato" />
           <div class="status-chip">
             <span></span>
@@ -661,7 +173,7 @@
         <div class="tag-list">
           <div class="tag">Commutative Algebra</div>
           <div class="tag">Algebraic Geometry</div>
-          <div class="tag">Symbolic & Rational Powers</div>
+          <div class="tag">Symbolic &amp; Rational Powers</div>
         </div>
 
         <div class="sidebar-section">
@@ -709,7 +221,7 @@
             </li>
             <li>
               <i class="fa-solid fa-circle-dot"></i>
-              <span>Fat-point configurations & interpolation in $\mathbb{P}^n$</span>
+              <span>Fat-point configurations &amp; interpolation in $\mathbb{P}^n$</span>
             </li>
             <li>
               <i class="fa-solid fa-circle-dot"></i>
@@ -719,10 +231,9 @@
         </div>
       </aside>
 
-      <!-- Main content -->
+      <!-- Main: hero only -->
       <section class="main">
-        <!-- Hero -->
-        <section class="hero-card" id="about">
+        <section class="hero-card">
           <div class="hero-inner">
             <div class="hero-topline">
               <i class="fa-solid fa-flask"></i>
@@ -738,16 +249,27 @@
               Chudnovsky and Demailly.
             </p>
 
+            <p style="font-size:0.95rem; color:#e5e7eb;">
+              <strong>More about me:</strong> I am currently a fourth-year Ph.D. candidate at Tulane University and
+              will be on the academic job market, seeking research-oriented and teaching-focused positions. I am
+              especially interested in combinatorial and geometric approaches to symbolic powers and interpolation
+              problems, and in collaborating across commutative algebra, algebraic geometry, and related areas.
+            </p>
+
             <div class="hero-actions">
-              <a href="#research" class="pill-button primary">
-                <i class="fa-solid fa-rocket"></i>
-                <span>Explore research</span>
+              <a href="about.html" class="pill-button primary">
+                <i class="fa-solid fa-user"></i>
+                <span>About me</span>
               </a>
-              <a href="#publications" class="pill-button secondary">
+              <a href="research.html" class="pill-button secondary">
+                <i class="fa-solid fa-microscope"></i>
+                <span>Research</span>
+              </a>
+              <a href="publications.html" class="pill-button secondary">
                 <i class="fa-solid fa-book-open"></i>
-                <span>View publications</span>
+                <span>Publications</span>
               </a>
-              <a href="#teaching" class="pill-button secondary">
+              <a href="teaching.html" class="pill-button secondary">
                 <i class="fa-solid fa-chalkboard-user"></i>
                 <span>Teaching</span>
               </a>
@@ -767,213 +289,6 @@
           </div>
         </section>
 
-        <!-- Research -->
-        <section class="card" id="research">
-          <div class="card-header">
-            <div>
-              <div class="card-title">
-                <i class="fa-solid fa-microscope"></i>
-                Research
-              </div>
-              <div class="card-subtitle">
-                A snapshot of current projects and long-term directions.
-              </div>
-            </div>
-            <span class="pill-label">Overview</span>
-          </div>
-          <div class="card-body">
-            <div class="two-col">
-              <div>
-                <p>
-                  Broadly, I work at the interface of <strong>commutative algebra</strong> and
-                  <strong>algebraic geometry</strong>, using algebraic, combinatorial, and geometric methods to study
-                  the asymptotic behavior of powers of ideals associated to configurations of points.
-                </p>
-                <p>Current themes include:</p>
-                <ul class="list-unstyled list-tight">
-                  <li>● Containments between symbolic, ordinary, and rational symbolic powers of ideals of points in $\mathbb{P}^n$.</li>
-                  <li>● Waldschmidt constants, resurgence, and related invariants for fat-point schemes.</li>
-                  <li>● Polyhedral and valuation-theoretic approaches (e.g., Newton polyhedra, Newton–Okounkov bodies).</li>
-                  <li>● Links with interpolation problems, Seshadri constants, and birational geometry.</li>
-                </ul>
-              </div>
-              <div>
-                <ul class="timeline">
-                  <li class="timeline-item">
-                    <div class="timeline-title">
-                      Rational symbolic powers and interpolation
-                    </div>
-                    <div class="timeline-meta">
-                      Preprint in preparation, 2025 (with collaborators)
-                    </div>
-                    <div style="font-size:0.82rem; margin-top:4px;">
-                      Developing a framework for $I^{(\alpha)}$ with $\alpha \in \mathbb{Q}$ via valuations and
-                      Newton–Okounkov bodies, motivated by interpolation problems for fat points on projective spaces.
-                    </div>
-                  </li>
-                  <li class="timeline-item">
-                    <div class="timeline-title">
-                      Asymptotic invariants of fat-point configurations
-                    </div>
-                    <div class="timeline-meta">
-                      Ongoing project
-                    </div>
-                    <div style="font-size:0.82rem; margin-top:4px;">
-                      Studying the interaction among Waldschmidt constants, resurgence, and Castelnuovo–Mumford
-                      regularity in families of general and special configurations of points.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Publications -->
-        <section class="card" id="publications">
-          <div class="card-header">
-            <div>
-              <div class="card-title">
-                <i class="fa-solid fa-book"></i>
-                Publications & Preprints
-              </div>
-              <div class="card-subtitle">
-                A selection of papers and preprints. See CV for the full list.
-              </div>
-            </div>
-            <span class="pill-label">Papers</span>
-          </div>
-          <div class="card-body">
-            <ul class="pub-list">
-              <li class="pub-item">
-                <div class="pub-title">
-                  1. Title of your paper on symbolic powers and fat points
-                </div>
-                <div class="pub-meta">
-                  D. Mahato, Coauthor Name · <em>Journal Name</em>, Volume (Year), pages.
-                </div>
-                <div class="pub-links">
-                  <a href="#">PDF</a>
-                  <a href="#">arXiv</a>
-                  <a href="#">BibTeX</a>
-                </div>
-              </li>
-              <li class="pub-item">
-                <div class="pub-title">
-                  2. Title of your preprint on rational symbolic powers
-                </div>
-                <div class="pub-meta">
-                  D. Mahato, Coauthor Name · preprint, 2025.
-                </div>
-                <div class="pub-links">
-                  <a href="#">arXiv</a>
-                  <a href="#">Slides</a>
-                </div>
-              </li>
-              <!-- Add more items as needed -->
-            </ul>
-          </div>
-        </section>
-
-        <!-- Teaching -->
-        <section class="card" id="teaching">
-          <div class="card-header">
-            <div>
-              <div class="card-title">
-                <i class="fa-solid fa-chalkboard-teacher"></i>
-                Teaching
-              </div>
-              <div class="card-subtitle">
-                Courses and mentoring activities.
-              </div>
-            </div>
-            <span class="pill-label">Teaching</span>
-          </div>
-          <div class="card-body">
-            <div class="two-col">
-              <div>
-                <ul class="teaching-list">
-                  <li class="teaching-item">
-                    <strong>Calculus I</strong> – Primary Instructor<br />
-                    <span class="pub-meta">Tulane University, Fall 2023 (in person)</span>
-                  </li>
-                  <li class="teaching-item">
-                    <strong>Calculus I</strong> – Primary Instructor<br />
-                    <span class="pub-meta">Tulane University, Summer 2022 (online)</span>
-                  </li>
-                  <li class="teaching-item">
-                    <strong>Linear Algebra, Real Analysis, Discrete Mathematics, Probability &amp; Statistics</strong><br />
-                    <span class="pub-meta">Teaching Assistant, various semesters</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <div class="badge" style="margin-bottom:6px;">
-                  <i class="fa-solid fa-users-line"></i>
-                  Mentoring
-                </div>
-                <p style="font-size:0.88rem; margin-top:4px;">
-                  I mentor students through Directed Reading Programs (DRP) and research-style projects in commutative
-                  algebra and algebraic geometry, introducing topics such as primary decomposition, Hilbert functions,
-                  and symbolic powers in $\mathbb{P}^2$ and beyond.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Talks & Conferences (optional) -->
-        <section class="card" id="talks">
-          <div class="card-header">
-            <div>
-              <div class="card-title">
-                <i class="fa-solid fa-podium"></i>
-                Selected Talks & Conferences
-              </div>
-              <div class="card-subtitle">
-                Recent presentations and upcoming travel.
-              </div>
-            </div>
-            <span class="pill-label">Talks</span>
-          </div>
-          <div class="card-body">
-            <ul class="list-unstyled list-tight">
-              <li>
-                ● “Title of your talk on symbolic powers” – Conference / Seminar Name, Location, Year.
-              </li>
-              <li>
-                ● “Title of your talk on interpolation and fat points” – Conference / Seminar Name, Location, Year.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Contact / Footer card -->
-        <section class="card" id="contact">
-          <div class="card-header">
-            <div>
-              <div class="card-title">
-                <i class="fa-solid fa-paper-plane"></i>
-                Contact
-              </div>
-              <div class="card-subtitle">
-                I’m happy to discuss potential collaborations or visits.
-              </div>
-            </div>
-            <span class="pill-label">Get in touch</span>
-          </div>
-          <div class="card-body">
-            <p style="font-size:0.9rem; margin-bottom:8px;">
-              The best way to reach me is by email. If you are a student interested in research projects in commutative
-              algebra or algebraic geometry, please include a brief description of your background and interests.
-            </p>
-            <p style="font-size:0.9rem;">
-              <strong>Email:</strong> <a href="mailto:you@tulane.edu">you@tulane.edu</a><br />
-              <strong>Office:</strong> Office XXX, Department of Mathematics, Tulane University
-            </p>
-          </div>
-        </section>
-
         <div class="footer">
           © <span id="year"></span> Dipendranath Mahato ·
           Built with a custom static template inspired by academic layouts.
@@ -984,7 +299,6 @@
   </div>
 
   <script>
-    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
