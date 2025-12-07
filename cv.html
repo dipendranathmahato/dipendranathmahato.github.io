@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Curriculum Vitae | Dipendranath Mahato</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Curriculum Vitae of Dipendranath Mahato" />
+
+  <!-- Google Font -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+  />
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <!-- MathJax for LaTeX -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <!-- Top nav (same as other pages, CV button points to cv.html) -->
+    <header class="top-nav">
+      <div class="brand">
+        <img src="Tulane_University_Logo.svg.png" class="nav-logo" alt="Tulane University Logo" />
+        <a href="index.html" class="brand-name-link">
+          <span>Dipendranath Mahato</span>
+        </a>
+      </div>
+      <nav class="top-nav-links">
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="controls">
+        <!-- On the CV page, this can either stay as cv.html or link to PDF directly -->
+        <a href="My_Curriculum_Vitae.pdf" class="pill-button primary">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Download CV (PDF)</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- Sidebar (same content/structure as other pages) -->
+      <aside class="sidebar">
+        <div class="avatar">
+          <img src="PXL_20250330_220427523-1575x2800-compressed.jpg" alt="Dipendranath Mahato" />
+          <div class="status-chip">
+            <span></span>
+            In JOB MARKET
+          </div>
+        </div>
+        <div class="name">Dipendranath Mahato</div>
+        <div class="title">Ph.D. Candidate in Mathematics</div>
+        <div class="affiliation">
+          <strong>Tulane University</strong><br />
+          Department of Mathematics
+        </div>
+
+        <div class="tag-list">
+          <div class="tag">Commutative Algebra</div>
+          <div class="tag">Algebraic Geometry</div>
+          <div class="tag">Symbolic &amp; Rational Powers</div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Contact</h3>
+          <ul class="info-list">
+            <li>
+              <i class="fa-regular fa-envelope"></i>
+              <span><a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a></span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>New Orleans, LA, USA</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-building"></i>
+              <span>Office XXX, Gibson Hall / Math Dept.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Online</h3>
+          <div class="social-links">
+            <a href="https://github.com/your-handle" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://scholar.google.com/citations?user=XXXX" aria-label="Google Scholar">
+              <i class="fa-brands fa-google"></i>
+            </a>
+            <a href="https://orcid.org/0000-0000-0000-0000" aria-label="ORCID">
+              <i class="fa-brands fa-orcid"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/your-handle" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Research Interests</h3>
+          <ul class="info-list">
+            <li>
+              <i class="fa-solid fa-circle-dot"></i>
+              <span>Symbolic and rational symbolic powers of ideals</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-dot"></i>
+              <span>Fat-point configurations &amp; interpolation in $\mathbb{P}^n$</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-dot"></i>
+              <span>Asymptotic invariants (Waldschmidt constants, resurgence)</span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main CV content -->
+      <section class="main">
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-file-lines"></i>
+                Curriculum Vitae
+              </div>
+              <div class="card-subtitle">
+                Academic record, research, teaching, and professional activities.
+              </div>
+            </div>
+            <span class="pill-label">CV</span>
+          </div>
+
+          <div class="card-body">
+            <!-- Optional PDF link at top -->
+            <p style="font-size:0.9rem; margin-bottom:1.2rem;">
+              A printable version is available here:
+              <a href="My_Curriculum_Vitae.pdf" target="_blank">Download full CV (PDF)</a>.
+            </p>
+
+            <!-- Education -->
+            <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+            <ul class="list-unstyled list-tight" style="margin-bottom:1rem;">
+              <li>
+                <strong>Ph.D. in Mathematics</strong>, Tulane University, New Orleans, LA, USA  
+                <span class="pub-meta">Expected: [Year] &nbsp;·&nbsp; Advisor: Prof. Tài Huy Hà (if applicable)</span>
+              </li>
+              <li>
+                <strong>M.Sc. in Mathematics</strong>, Tezpur University, Assam, India  
+                <span class="pub-meta">Year: [Year]</span>
+              </li>
+              <!-- Add B.Sc. or other degrees if you want -->
+            </ul>
+
+            <!-- Research Interests -->
+            <h3><i class="fa-solid fa-microscope"></i> Research Interests</h3>
+            <ul class="list-unstyled list-tight" style="margin-bottom:1rem;">
+              <li>Commutative algebra and algebraic geometry</li>
+              <li>Symbolic and rational symbolic powers of ideals</li>
+              <li>Fat-point configurations and interpolation problems in $\mathbb{P}^n$</li>
+              <li>Asymptotic invariants: Waldschmidt constants, resurgence, regularity</li>
+              <li>Valuations, Newton polyhedra, and Newton–Okounkov bodies</li>
+            </ul>
+
+            <!-- Awards & Honors -->
+            <h3><i class="fa-solid fa-award"></i> Awards &amp; Honors</h3>
+            <ul class="list-unstyled list-tight" style="margin-bottom:1rem;">
+              <li>[Award name], [Institution or organization], [Year]</li>
+              <li>[Award name], [Institution or organization], [Year]</li>
+              <!-- Replace with details from your real CV -->
+            </ul>
+
+            <!-- Publications & Preprints -->
+            <h3><i class="fa-solid fa-book-open"></i> Publications &amp; Preprints</h3>
+            <ul class="pub-list" style="margin-bottom:1rem;">
+              <li class="pub-item">
+                <div class="pub-title">
+                  1. [Title of your paper on symbolic powers and fat points]
+                </div>
+                <div class="pub-meta">
+                  D. Mahato, [Coauthor] · <em>[Journal Name]</em>, [Volume] ([Year]), [pages].
+                </div>
+                <div class="pub-links">
+                  <a href="#">PDF</a>
+                  <a href="#">arXiv</a>
+                  <a href="#">BibTeX</a>
+                </div>
+              </li>
+              <li class="pub-item">
+                <div class="pub-title">
+                  2. [Title of your preprint on rational symbolic powers]
+                </div>
+                <div class="pub-meta">
+                  D. Mahato, [Coauthor] · preprint, [Year].
+                </div>
+                <div class="pub-links">
+                  <a href="#">arXiv</a>
+                  <a href="#">Slides</a>
+                </div>
+              </li>
+              <!-- Add remaining items here -->
+            </ul>
+
+            <!-- Teaching Experience -->
+            <h3><i class="fa-solid fa-chalkboard-teacher"></i> Teaching Experience</h3>
+            <ul class="teaching-list" style="margin-bottom:1rem;">
+              <li class="teaching-item">
+                <strong>Primary Instructor</strong>, Calculus I  
+                <span class="pub-meta">Tulane University, Fall 2023 (in person)</span>
+              </li>
+              <li class="teaching-item">
+                <strong>Primary Instructor</strong>, Calculus I  
+                <span class="pub-meta">Tulane University, Summer 2022 (online)</span>
+              </li>
+              <li class="teaching-item">
+                <strong>Teaching Assistant</strong>, Linear Algebra, Real Analysis, Discrete Mathematics, Probability &amp; Statistics  
+                <span class="pub-meta">Tulane University, various semesters</span>
+              </li>
+            </ul>
+
+            <!-- Invited Talks & Posters -->
+            <h3><i class="fa-solid fa-podium"></i> Invited Talks &amp; Posters</h3>
+            <ul class="list-unstyled list-tight" style="margin-bottom:1rem;">
+              <li>“[Title of your talk on symbolic powers]” – [Conference/Seminar], [Location], [Year].</li>
+              <li>“[Title of your talk on interpolation and fat points]” – [Conference/Seminar], [Location], [Year].</li>
+              <!-- Fill in with actual entries from your CV -->
+            </ul>
+
+            <!-- Conferences & Workshops -->
+            <h3><i class="fa-solid fa-people-group"></i> Conferences &amp; Workshops</h3>
+            <ul class="list-unstyled list-tight" style="margin-bottom:1rem;">
+              <li>[Conference/Workshop Name], [Location], [Year].</li>
+              <li>[Conference/Workshop Name], [Location], [Year].</li>
+            </ul>
+
+            <!-- Service & Outreach -->
+            <h3><i class="fa-solid fa-handshake-angle"></i> Service &amp; Outreach</h3>
+            <ul class="list-unstyled list-tight" style="margin-bottom:1rem;">
+              <li>Mentor, Directed Reading Program (DRP), Tulane University, [Years].</li>
+              <li>[Any organizing, tutoring center work, student mentoring, etc.]</li>
+            </ul>
+
+            <!-- Professional Memberships -->
+            <h3><i class="fa-solid fa-users"></i> Professional Memberships</h3>
+            <ul class="list-unstyled list-tight">
+              <li>Member, [Mathematical Society], [Years].</li>
+              <li>Member, [Other Organization], [Years].</li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="footer">
+          © <span id="year"></span> Dipendranath Mahato ·
+          Built with a custom static template inspired by academic layouts.
+          Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
