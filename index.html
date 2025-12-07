@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name | Academic Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Academic homepage of Your Name" />
+
+  <!-- Google Font -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+  />
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <!-- MathJax for LaTeX -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --bg-alt: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.06);
+      --border: #e5e7eb;
+      --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.08);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-pill: 999px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #020617;
+      --bg-alt: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #60a5fa;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --border: #1f2937;
+      --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #dbeafe 0, transparent 55%),
+                  radial-gradient(circle at bottom right, #fee2e2 0, transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 32px auto 48px;
+      padding: 0 16px;
+    }
+
+    /* Top navigation bar */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(135deg, #2563eb, #22c55e);
+      border-radius: 50%;
+      box-shadow: 0 0 0 7px rgba(37, 99, 235, 0.15);
+    }
+
+    .top-nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .top-nav-links a {
+      padding: 4px 0;
+      position: relative;
+    }
+    .top-nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #2563eb, #22c55e);
+      border-radius: 999px;
+      transition: width 0.2s ease;
+    }
+    .top-nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .pill-button {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pill-button i {
+      font-size: 0.85rem;
+    }
+
+    .pill-button.primary {
+      background: radial-gradient(circle at top left, #60a5fa 0, #2563eb 45%, #1d4ed8 100%);
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 16px 28px rgba(37, 99, 235, 0.4);
+    }
+
+    .pill-button.primary:hover {
+      filter: brightness(1.08);
+    }
+
+    .pill-button.secondary {
+      background: rgba(15, 23, 42, 0.04);
+      color: var(--muted);
+    }
+
+    .pill-button.secondary:hover {
+      background: rgba(15, 23, 42, 0.08);
+    }
+
+    /* Layout: sidebar + main */
+    .layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    /* Sidebar: profile card */
+    .sidebar {
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(226, 232, 240, 0.95));
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 22px 22px 18px;
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 16px;
+    }
+
+    [data-theme="dark"] .sidebar {
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.4), rgba(15, 23, 42, 0.98));
+      border-color: rgba(30, 64, 175, 0.8);
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+      background: radial-gradient(circle at 30% 20%, #bfdbfe 0, #1d4ed8 38%, #0f172a 76%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.65);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .status-chip {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      padding: 3px 10px;
+      font-size: 0.65rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      backdrop-filter: blur(10px);
+    }
+
+    .status-chip span {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.35);
+    }
+
+    .name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .title {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .affiliation {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 4px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(37, 99, 235, 0.07);
+      color: #1d4ed8;
+    }
+
+    [data-theme="dark"] .tag {
+      background: rgba(56, 189, 248, 0.18);
+      color: #e0f2fe;
+    }
+
+    .sidebar-section {
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      margin-top: 14px;
+      padding-top: 12px;
+    }
+
+    .sidebar-section h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .info-list li {
+      margin-bottom: 6px;
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .info-list li i {
+      width: 14px;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .social-links a {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    [data-theme="dark"] .social-links a {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.55);
+    }
+
+    /* Main content */
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), #1e293b);
+      border-radius: var(--radius-xl);
+      padding: 22px 22px 18px;
+      color: #e5e7eb;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.2), transparent 60%),
+        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.18), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-topline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      margin-bottom: 10px;
+    }
+
+    .hero-topline i {
+      color: #facc15;
+    }
+
+    .hero-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: #cbd5f5;
+      max-width: 620px;
+      margin-bottom: 12px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .hero-actions .pill-button {
+      font-size: 0.85rem;
+      padding: 7px 16px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 10px;
+    }
+
+    .hero-meta strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Content cards */
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 18px 20px 14px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    [data-theme="dark"] .card {
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.95));
+      border-color: rgba(30, 64, 175, 0.8);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title i {
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+
+    [data-theme="dark"] .card-title i {
+      color: #38bdf8;
+    }
+
+    .card-subtitle {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .pill-label {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    [data-theme="dark"] .pill-label {
+      border-color: rgba(56, 189, 248, 0.55);
+      color: #bae6fd;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    [data-theme="dark"] .card-body {
+      color: #e5e7eb;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .list-unstyled {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .list-tight li {
+      margin-bottom: 6px;
+    }
+
+    .timeline {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      border-left: 1px solid var(--border);
+    }
+
+    .timeline-item {
+      margin-left: 12px;
+      padding-left: 12px;
+      padding-bottom: 10px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 2px solid var(--accent);
+    }
+
+    .timeline-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .pub-list, .teaching-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .pub-item, .teaching-item {
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
+    }
+
+    .pub-item:last-child,
+    .teaching-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .pub-title {
+      font-weight: 500;
+    }
+
+    .pub-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .pub-links {
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+
+    .pub-links a {
+      margin-right: 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.76rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.03);
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      color: var(--muted);
+    }
+
+    .badge i {
+      font-size: 0.75rem;
+    }
+
+    .footer {
+      margin-top: 24px;
+      font-size: 0.78rem;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .top-nav-links {
+        display: none;
+      }
+      .page {
+        margin-top: 18px;
+      }
+      .hero-title {
+        font-size: 1.3rem;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .sidebar, .card, .hero-card {
+        padding: 18px 16px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Top nav -->
+    <header class="top-nav">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <span>Your Name</span>
+      </div>
+      <nav class="top-nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="controls">
+        <button class="pill-button secondary" id="themeToggle" type="button">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+          <span>Theme</span>
+        </button>
+        <a href="cv.pdf" class="pill-button primary">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>CV</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- Sidebar: profile -->
+      <aside class="sidebar">
+        <div class="avatar">
+          <!-- Replace with your photo -->
+          <!-- <img src="your-photo.jpg" alt="Your Name" /> -->
+          <div class="status-chip">
+            <span></span>
+            Open to collaboration
+          </div>
+        </div>
+        <div class="name">Your Name</div>
+        <div class="title">Ph.D. Candidate in Mathematics</div>
+        <div class="affiliation">
+          <strong>Your University</strong><br />
+          Department of Mathematics
+        </div>
+
+        <div class="tag-list">
+          <div class="tag">Commutative Algebra</div>
+          <div class="tag">Algebraic Geometry</div>
+          <div class="tag">Symbolic Powers</div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Contact</h3>
+          <ul class="info-list">
+            <li>
+              <i class="fa-regular fa-envelope"></i>
+              <span><a href="mailto:you@university.edu">you@university.edu</a></span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>City, Country</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-building"></i>
+              <span>Office XXX, Building/Department</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Online</h3>
+          <div class="social-links">
+            <a href="https://github.com/your-handle" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://scholar.google.com/citations?user=XXXX" aria-label="Google Scholar">
+              <i class="fa-brands fa-google"></i>
+            </a>
+            <a href="https://orcid.org/0000-0000-0000-0000" aria-label="ORCID">
+              <i class="fa-brands fa-orcid"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/your-handle" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Research Interests</h3>
+          <ul class="info-list">
+            <li>
+              <i class="fa-solid fa-circle-small"></i>
+              <span>Symbolic and rational powers of ideals</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-small"></i>
+              <span>Fat-point schemes & interpolation</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-small"></i>
+              <span>Asymptotic invariants (Waldschmidt constants, resurgence)</span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <section class="main">
+        <!-- Hero -->
+        <section class="hero-card" id="about">
+          <div class="hero-inner">
+            <div class="hero-topline">
+              <i class="fa-solid fa-flask"></i>
+              <span>Algebra & Geometry · Research & Teaching</span>
+            </div>
+            <h1 class="hero-title">
+              I study symbolic powers, interpolation, and asymptotic invariants in algebraic geometry.
+            </h1>
+            <p class="hero-subtitle">
+              My work focuses on understanding how the geometry of fat-point schemes and blowups of projective spaces
+              controls containment thresholds between ordinary and symbolic powers of ideals, with connections to
+              conjectures of Chudnovsky and Demailly.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#research" class="pill-button primary">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Explore research</span>
+              </a>
+              <a href="#publications" class="pill-button secondary">
+                <i class="fa-solid fa-book-open"></i>
+                <span>View publications</span>
+              </a>
+              <a href="#teaching" class="pill-button secondary">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Teaching</span>
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span>
+                <strong>Current position:</strong> Ph.D. Candidate, Your University
+              </span>
+              <span>
+                <strong>Advisor:</strong> Prof. Advisor Name
+              </span>
+              <span>
+                <strong>Keywords:</strong> symbolic powers, fat points, Waldschmidt constants
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Research -->
+        <section class="card" id="research">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-microscope"></i>
+                Research
+              </div>
+              <div class="card-subtitle">
+                A snapshot of my current projects and long-term agenda.
+              </div>
+            </div>
+            <span class="pill-label">Overview</span>
+          </div>
+          <div class="card-body">
+            <div class="two-col">
+              <div>
+                <p>
+                  Broadly, I work at the interface of <strong>commutative algebra</strong> and
+                  <strong>algebraic geometry</strong>, using algebraic, combinatorial, and geometric techniques to
+                  study the asymptotic behavior of powers of ideals.
+                </p>
+                <p>
+                  Current themes include:
+                </p>
+                <ul class="list-unstyled list-tight">
+                  <li>● Containments between symbolic and ordinary powers of ideals of points in $\mathbb{P}^n$.</li>
+                  <li>● Waldschmidt constants, resurgence, and related invariants for fat-point schemes.</li>
+                  <li>● Polyhedral and valuation-theoretic approaches to rational symbolic powers.</li>
+                  <li>● Connections with interpolation, Seshadri constants, and birational geometry.</li>
+                </ul>
+              </div>
+              <div>
+                <ul class="timeline">
+                  <li class="timeline-item">
+                    <div class="timeline-title">
+                      Rational symbolic powers and interpolation
+                    </div>
+                    <div class="timeline-meta">
+                      Preprint in preparation, 2025 (with A. Collaborator, B. Collaborator)
+                    </div>
+                    <div style="font-size:0.82rem; margin-top:4px;">
+                      Developing a framework for $I^{(\alpha)}$ with $\alpha \in \mathbb{Q}$ via valuations and
+                      Newton–Okounkov bodies, motivated by interpolation for fat points.
+                    </div>
+                  </li>
+                  <li class="timeline-item">
+                    <div class="timeline-title">
+                      Asymptotic invariants of fat-point schemes
+                    </div>
+                    <div class="timeline-meta">
+                      Ongoing project
+                    </div>
+                    <div style="font-size:0.82rem; margin-top:4px;">
+                      Studying the interaction between Waldschmidt constants, resurgence, and Castelnuovo–Mumford
+                      regularity in families of configurations.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Publications -->
+        <section class="card" id="publications">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-book"></i>
+                Publications & Preprints
+              </div>
+              <div class="card-subtitle">
+                A selection of papers and preprints. See CV for full list.
+              </div>
+            </div>
+            <span class="pill-label">Papers</span>
+          </div>
+          <div class="card-body">
+            <ul class="pub-list">
+              <li class="pub-item">
+                <div class="pub-title">
+                  1. Title of your paper on symbolic powers and fat points
+                </div>
+                <div class="pub-meta">
+                  Your Name, Coauthor Name · <em>Journal Name</em>, Volume (Year), pages.
+                </div>
+                <div class="pub-links">
+                  <a href="#">PDF</a>
+                  <a href="#">arXiv</a>
+                  <a href="#">BibTeX</a>
+                </div>
+              </li>
+              <li class="pub-item">
+                <div class="pub-title">
+                  2. Title of your preprint on rational symbolic powers
+                </div>
+                <div class="pub-meta">
+                  Your Name, Coauthor Name · preprint, 2025.
+                </div>
+                <div class="pub-links">
+                  <a href="#">arXiv</a>
+                  <a href="#">Slides</a>
+                </div>
+              </li>
+              <!-- Add more items as needed -->
+            </ul>
+          </div>
+        </section>
+
+        <!-- Teaching -->
+        <section class="card" id="teaching">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-chalkboard-teacher"></i>
+                Teaching
+              </div>
+              <div class="card-subtitle">
+                Courses and mentoring activities.
+              </div>
+            </div>
+            <span class="pill-label">Teaching</span>
+          </div>
+          <div class="card-body">
+            <div class="two-col">
+              <div>
+                <ul class="teaching-list">
+                  <li class="teaching-item">
+                    <strong>Calculus I</strong> – Primary Instructor<br />
+                    <span class="pub-meta">Your University, Fall 2023 (in person)</span>
+                  </li>
+                  <li class="teaching-item">
+                    <strong>Calculus I</strong> – Primary Instructor<br />
+                    <span class="pub-meta">Your University, Summer 2022 (online)</span>
+                  </li>
+                  <li class="teaching-item">
+                    <strong>Linear Algebra, Real Analysis, Discrete Mathematics</strong><br />
+                    <span class="pub-meta">Teaching Assistant, various semesters</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <div class="badge" style="margin-bottom:6px;">
+                  <i class="fa-solid fa-users-line"></i>
+                  Mentoring
+                </div>
+                <p style="font-size:0.88rem; margin-top:4px;">
+                  I co-lead Directed Reading Program (DRP) projects on commutative algebra and algebraic geometry,
+                  guiding undergraduates through topics such as primary decomposition, Hilbert functions, and symbolic
+                  powers in $\mathbb{P}^2$.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Talks & Conferences (optional) -->
+        <section class="card" id="talks">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-podium"></i>
+                Selected Talks & Conferences
+              </div>
+              <div class="card-subtitle">
+                Recent presentations and upcoming travel.
+              </div>
+            </div>
+            <span class="pill-label">Talks</span>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled list-tight">
+              <li>
+                ● “Title of your talk on symbolic powers” – Conference / Seminar Name, Location, Year.
+              </li>
+              <li>
+                ● “Title of your talk on interpolation and fat points” – Conference / Seminar Name, Location, Year.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Contact / Footer card -->
+        <section class="card" id="contact">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-paper-plane"></i>
+                Contact
+              </div>
+              <div class="card-subtitle">
+                I’m happy to discuss potential collaborations or visits.
+              </div>
+            </div>
+            <span class="pill-label">Get in touch</span>
+          </div>
+          <div class="card-body">
+            <p style="font-size:0.9rem; margin-bottom:8px;">
+              The best way to reach me is by email. If you are a student interested in research projects in commutative
+              algebra or algebraic geometry, please include a brief description of your background and interests.
+            </p>
+            <p style="font-size:0.9rem;">
+              <strong>Email:</strong> <a href="mailto:you@university.edu">you@university.edu</a><br />
+              <strong>Office:</strong> Office XXX, Department of Mathematics, Your University
+            </p>
+          </div>
+        </section>
+
+        <div class="footer">
+          © <span id="year"></span> Your Name ·
+          Built with a custom static template inspired by academic layouts.
+          Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle with localStorage
+    const root = document.documentElement;
+    const toggle = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark" || savedTheme === "light") {
+      root.setAttribute("data-theme", savedTheme);
+    }
+
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") || "light";
+      const next = current === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  </script>
+</body>
+</html>
