@@ -237,49 +237,48 @@
 
   <!-- ================= SCRIPTS ================= -->
   <script>
-    // Set footer year (if present)
-    const yearSpan = document.getElementById("year");
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
+  // Set footer year (if present)
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-    // Mobile hamburger toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks  = document.querySelector('.top-nav-links');
+  // Mobile hamburger toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.top-nav-links');
 
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-      });
-
-      // Optional: close nav when a link is clicked (nice on mobile)
-      navLinks.addEventListener('click', (event) => {
-        if (event.target.tagName.toLowerCase() === 'a') {
-          navLinks.classList.remove('open');
-        }
-      });
-    }
-
-    // "More" dropdown click toggle (desktop)
-    document.addEventListener('DOMContentLoaded', () => {
-      const dropdown = document.querySelector('.dropdown.desktop-only');
-      const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
-
-      if (dropbtn) {
-        dropbtn.addEventListener('click', (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          dropdown.classList.toggle('dropdown-open');
-        });
-      }
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', (event) => {
-        if (dropdown && !dropdown.contains(event.target)) {
-          dropdown.classList.remove('dropdown-open');
-        }
-      });
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
     });
-  </script>
+
+    // Optional: close nav when a link is clicked (nice on mobile)
+    navLinks.addEventListener('click', (event) => {
+      if (event.target.tagName.toLowerCase() === 'a') {
+        navLinks.classList.remove('open');
+      }
+    });
+  }
+
+  // "More" dropdown click toggle (desktop; CSS flattens it on mobile)
+  const dropdown = document.querySelector('.dropdown');
+  const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+  if (dropbtn) {
+    dropbtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      dropdown.classList.toggle('dropdown-open');
+    });
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (event) => {
+    if (dropdown && !dropdown.contains(event.target)) {
+      dropdown.classList.remove('dropdown-open');
+    }
+  });
+</script>
+
 </body>
 </html>
