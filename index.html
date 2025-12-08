@@ -44,13 +44,13 @@
     <a href="research.html">Research</a>
     <a href="teaching.html">Teaching</a>
     <a href="presentations.html">Presentations</a>
+    
     <div class="dropdown">
   <button class="dropbtn">More ▾</button>
   <div class="dropdown-content">
     <a href="outreach & services.html">Outreach & Services</a>
     <a href="blogs.html">Blogs</a>
     <a href="resources.html">Resources</a>
-    <!-- add more here -->
   </div>
 </div>
     </nav>
@@ -235,6 +235,30 @@
       navLinks.classList.toggle('open');
     });
   }
+</script>
+<script>
+  // Mobile hamburger toggle already exists above
+  // Now add the CLICK dropdown toggle:
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn  = dropdown?.querySelector('.dropbtn');
+
+    if (dropbtn) {
+      dropbtn.addEventListener('click', (event) => {
+        event.preventDefault(); // prevent page jump
+
+        // Toggle the dropdown-open class
+        dropdown.classList.toggle('dropdown-open');
+      });
+    }
+
+    // Optional: close dropdown when clicking anywhere else
+    document.addEventListener('click', (event) => {
+      if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('dropdown-open');
+      }
+    });
+  });
 </script>
 
 </body>
