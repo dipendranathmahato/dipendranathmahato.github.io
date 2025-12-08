@@ -5,13 +5,15 @@
   <title>About | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Fonts & Icons -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" />
 
+  <!-- MathJax -->
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -20,57 +22,74 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
+  <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-
-  
 <body>
   <div class="page">
-    <!-- header -->
+    <!-- ================= HEADER / NAV ================= -->
     <header class="top-nav">
-  <div class="brand">
-    <img src="Tulane_University_Logo.svg.png" class="nav-logo" alt="Tulane University Logo" />
-    <a href="index.html" class="brand-name-link">
-      <span>Dipendranath Mahato</span>
-    </a>
-  </div>
+      <div class="brand">
+        <img src="Tulane_University_Logo.svg.png"
+             class="nav-logo"
+             alt="Tulane University Logo" />
+        <a href="index.html" class="brand-name-link">
+          <span>Dipendranath Mahato</span>
+        </a>
+      </div>
 
-  <!-- Mobile menu button -->
-  <button class="nav-toggle" aria-label="Toggle navigation">
-    <i class="fa-solid fa-bars"></i>
-  </button>
+      <!-- Mobile menu button -->
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-  <nav class="top-nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html">Teaching</a>
-    <a href="presentations.html">Presentations</a>
-    <a href="outreach & services.html">Outreach & Services</a>
-    <a href="blogs.html">Blogs</a>
-    <a href="resources.html">Resources</a>
-    </nav>
+      <nav class="top-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="presentations.html">Presentations</a>
 
-  <div class="controls">
-    <a href="cv.html" class="pill-button primary">
-      <i class="fa-solid fa-file-lines"></i>
-      <span>CV</span>
-    </a>
-  </div>
-</header>
-
-
-    <main class="layout">
-      <!-- sidebar -->
-      <!-- reuse same sidebar as index -->
-      <aside class="sidebar">
-        <div class="avatar">
-          <img src="PXL_20250330_220427523-1575x2800-compressed.jpg" alt="Dipendranath Mahato" />
-          <div class="status-chip">
-            <span></span>
-            In JOB MARKET
+        <!-- Desktop-only dropdown -->
+        <div class="dropdown desktop-only">
+          <button class="dropbtn">
+            More <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="outreach & services.html">Outreach &amp; Services</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="resources.html">Resources</a>
           </div>
         </div>
+
+        <!-- Mobile-only expanded links (no More button) -->
+        <div class="mobile-only mobile-more">
+          <a href="outreach & services.html">Outreach &amp; Services</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="resources.html">Resources</a>
+        </div>
+      </nav>
+
+      <div class="controls">
+        <a href="cv.html" class="pill-button primary">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>CV</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- ================= LAYOUT ================= -->
+    <main class="layout">
+      <!-- Sidebar (same as index) -->
+      <aside class="sidebar">
+        <div class="avatar">
+          <img src="PXL_20250330_220427523-1575x2800-compressed.jpg"
+               alt="Dipendranath Mahato" />
+          <div class="status-chip">
+            IN JOB MARKET
+          </div>
+        </div>
+
         <div class="name">Dipendranath Mahato</div>
         <div class="title">Ph.D. Candidate in Mathematics</div>
         <div class="affiliation">
@@ -81,7 +100,7 @@
         <div class="tag-list">
           <div class="tag">Commutative Algebra</div>
           <div class="tag">Algebraic Geometry</div>
-          <div class="tag">Symbolic &amp; Rational Powers</div>
+          <div class="tag">Combinatorial Algebra</div>
         </div>
 
         <div class="sidebar-section">
@@ -89,15 +108,19 @@
           <ul class="info-list">
             <li>
               <i class="fa-regular fa-envelope"></i>
-              <span><a href="mailto:you@tulane.edu">you@tulane.edu</a></span>
+              <span><a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a></span>
             </li>
             <li>
-              <i class="fa-solid fa-location-dot"></i>
-              <span>New Orleans, LA, USA</span>
+              <i class="fa-regular fa-envelope"></i>
+              <span><a href="mailto:dipendranathmahato@gmail.com">dipendranathmahato@gmail.com</a></span>
             </li>
             <li>
               <i class="fa-regular fa-building"></i>
-              <span>Office XXX, Gibson Hall / Math Dept.</span>
+              <span>Office 416-J, Gibson Hall<br />Department of Mathematics</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>New Orleans-70118, LA, USA</span>
             </li>
           </ul>
         </div>
@@ -105,103 +128,177 @@
         <div class="sidebar-section">
           <h3>Online</h3>
           <div class="social-links">
-            <a href="https://github.com/your-handle" aria-label="GitHub">
+            <a href="https://github.com/dipendranathmahato" aria-label="GitHub">
               <i class="fa-brands fa-github"></i>
             </a>
-            <a href="https://scholar.google.com/citations?user=XXXX" aria-label="Google Scholar">
-              <i class="fa-brands fa-google"></i>
+            <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=dRoXm28AAAAJ"
+               aria-label="Google Scholar">
+              <i class="ai ai-google-scholar"></i>
             </a>
-            <a href="https://orcid.org/0000-0000-0000-0000" aria-label="ORCID">
+            <a href="https://orcid.org/0000-0003-4122-2622" aria-label="ORCID">
               <i class="fa-brands fa-orcid"></i>
             </a>
-            <a href="https://www.linkedin.com/in/your-handle" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/dipendranathmahato"
+               aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin-in"></i>
             </a>
+            <a href="https://www.researchgate.net/profile/Dipendranath-Mahato-2"
+               aria-label="ResearchGate">
+              <i class="fa-brands fa-researchgate"></i>
+            </a>
+            <a href="https://arxiv.org/search/?query=Mahato%2C+Dipendranath&searchtype=author&abstracts=show&order=-announced_date_first&size=50"
+               aria-label="arXiv">
+              <i class="ai ai-arxiv"></i>
+            </a>
+            <a href="https://tulane.academia.edu/DipendranathMahato"
+               aria-label="Academia">
+              <i class="ai ai-academia"></i>
+            </a>
           </div>
-        </div>
-
-        <div class="sidebar-section">
-          <h3>Research Interests</h3>
-          <ul class="info-list">
-            <li>
-              <i class="fa-solid fa-circle-dot"></i>
-              <span>Symbolic and rational symbolic powers of ideals</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-circle-dot"></i>
-              <span>Fat-point configurations &amp; interpolation in $\mathbb{P}^n$</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-circle-dot"></i>
-              <span>Asymptotic invariants (Waldschmidt constants, resurgence)</span>
-            </li>
-          </ul>
         </div>
       </aside>
 
+      <!-- Main ABOUT content -->
       <section class="main">
-        <section class="card">
-          <div class="card-header">
-            <div>
-              <div class="card-title">
-                <i class="fa-solid fa-user"></i>
-                About Me
-              </div>
-              <div class="card-subtitle">
-                Background, motivation, and academic journey.
-              </div>
+        <!-- Hero -->
+        <section class="hero-card" id="about">
+          <div class="hero-inner">
+            <div class="hero-topline">
+              <i class="fa-solid fa-user-astronaut"></i>
+              <span>Mathematician · Mentor · First-generation scholar</span>
             </div>
-          </div>
-          <div class="card-body">
-            <p>
-              I am a Ph.D. candidate in Mathematics at Tulane University, working in commutative algebra and algebraic
-              geometry. My research focuses on symbolic and rational symbolic powers of ideals, fat-point schemes,
-              interpolation problems, and asymptotic invariants such as Waldschmidt constants and resurgence.
-            </p>
-            <p>
-              Much of my work is motivated by classical and modern questions about containments between ordinary and
-              symbolic powers, and by conjectures of Chudnovsky and Demailly. I am particularly interested in how
-              the geometry of multipoint blowups of projective spaces reflects subtle algebraic behaviors of these
-              powers and their asymptotic invariants.
-            </p>
-            <p>
-              I am originally from Assam, India. Before joining Tulane, I completed my Master's studies at Tezpur
-              University, where I was first drawn to the study of ideals of fat points, interpolation problems, and
-              their connections to algebraic geometry. These early projects naturally evolved into my current work on
-              rational symbolic powers and valuation-theoretic approaches.
-            </p>
-            <p>
-              Beyond research, I am deeply committed to teaching and mentoring. I have served as both primary instructor
-              and teaching assistant for a range of undergraduate courses, and I enjoy guiding students through Directed
-              Reading Programs on topics in commutative algebra and algebraic geometry.
-            </p>
-            <p>
-              Outside of mathematics, I enjoy [add your hobbies here—reading, music, travel, outreach, etc.], and I am
-              always excited about opportunities to collaborate and learn from new mathematical communities.
+            <h1 class="hero-title">
+              From Kolkata to New Orleans: my journey into commutative algebra and algebraic geometry.
+            </h1>
+            <p class="hero-subtitle">
+              I am a Ph.D. candidate in Mathematics at Tulane University, working with Prof. Tai Hà.
+              My path runs through Dinabandhu Andrews College (University of Calcutta) and Tezpur University,
+              and it is shaped by a long-standing fascination with algebra, geometry, and teaching.
             </p>
           </div>
         </section>
 
+        <!-- About content card -->
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <span class="card-title">
+                <i class="fa-solid fa-id-card"></i> Short Biography
+              </span>
+              <div class="card-subtitle">
+                A brief snapshot of my academic journey and interests.
+              </div>
+            </div>
+            <span class="pill-label">ABOUT</span>
+          </div>
+
+          <div class="card-body two-col">
+            <div>
+              <h3>Background</h3>
+              <p>
+                I grew up in West Bengal, India, and completed my B.Sc. in Mathematics at Dinabandhu Andrews
+                College (University of Calcutta). I then moved to Tezpur University for my M.Sc. in
+                Mathematical Sciences, where I developed a serious interest in algebra, number theory,
+                and geometry.
+              </p>
+              <p>
+                Since Fall 2021, I have been a doctoral student at Tulane University. My research lives at
+                the intersection of commutative algebra and algebraic geometry, focusing on interpolation
+                problems, symbolic powers of ideals, and asymptotic invariants attached to configurations
+                of points in projective spaces.
+              </p>
+
+              <h3>Current Focus</h3>
+              <p>
+                I am currently working on problems related to symbolic and rational symbolic powers,
+                containment questions, Waldschmidt constants, and resurgence, often motivated by
+                conjectures of Chudnovsky and Demailly. I like thinking about these questions through
+                valuations, Newton polyhedra, and combinatorial structures.
+              </p>
+            </div>
+
+            <div>
+              <h3>Education</h3>
+              <ul class="timeline">
+                <li class="timeline-item">
+                  <div class="timeline-title">Ph.D. in Mathematics</div>
+                  <div class="timeline-meta">
+                    Tulane University · 2021–present · Advisor: Prof. Tai Hà
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-title">M.Sc. in Mathematical Sciences</div>
+                  <div class="timeline-meta">
+                    Tezpur University, India · 2018–2020
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-title">B.Sc. in Mathematics</div>
+                  <div class="timeline-meta">
+                    Dinabandhu Andrews College (University of Calcutta), India
+                  </div>
+                </li>
+              </ul>
+
+              <h3 style="margin-top:10px;">Beyond math</h3>
+              <p style="font-size:0.9rem;">
+                Outside research and teaching, I enjoy talking about mathematics with students from
+                different backgrounds, mentoring early-career students, and participating in outreach
+                activities that make higher mathematics feel more approachable.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <div class="footer">
-          © <span id="year"></span> Dipendranath Mahato · Hosted on GitHub Pages.
+          © <span id="year"></span> Copyright @ Dipendranath Mahato —
+          Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
       </section>
     </main>
   </div>
 
+  <!-- ================= SCRIPTS ================= -->
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script>
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.top-nav-links');
+    // Set footer year (if present)
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+    // Mobile hamburger toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks  = document.querySelector('.top-nav-links');
+
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
+      navLinks.addEventListener('click', (event) => {
+        if (event.target.tagName.toLowerCase() === 'a') {
+          navLinks.classList.remove('open');
+        }
+      });
+    }
+
+    // "More" dropdown click toggle (desktop)
+    const dropdown = document.querySelector('.dropdown.desktop-only');
+    const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+    if (dropbtn) {
+      dropbtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropdown.classList.toggle('dropdown-open');
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('dropdown-open');
+      }
     });
-  }
-</script>
-
+  </script>
 </body>
 </html>
