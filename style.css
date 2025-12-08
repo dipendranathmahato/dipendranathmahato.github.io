@@ -59,7 +59,9 @@ a:hover {
   border: 1px solid rgba(148, 163, 184, 0.4);
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
   position: relative;
+  z-index: 100;   /* 🔹 ensure nav (and dropdown) sit above hero */
 }
+
 
 .brand {
   display: flex;
