@@ -171,8 +171,8 @@ a:hover {
   transition: width 0.2s ease;
 }
 
-.dropdown:hover .dropbtn::after {
-  width: 100%;
+.dropdown.dropdown-open .dropdown-content {
+  display: block;
 }
 
 /* floating dropdown panel (desktop) */
