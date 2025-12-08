@@ -192,7 +192,7 @@ a:hover {
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
-  background-color: transparent;
+  background-color: #ffffff;
   min-width: 170px;
   border-radius: 10px;
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
@@ -753,7 +753,7 @@ a:hover {
     width: 100%;
     margin-top: 6px;
     gap: 10px;
-    align-items: flex-start;   /* ✅ make all nav items left-aligned */
+    align-items: flex-start;   /* left-align all mobile nav items */
   }
 
   .top-nav-links a {
@@ -786,6 +786,7 @@ a:hover {
     border-radius: 0;
     padding: 0;
     min-width: 100%;
+    background-color: transparent;  /* ✅ remove white box background on mobile */
   }
 
   .dropdown-content a {
