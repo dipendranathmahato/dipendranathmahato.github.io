@@ -811,3 +811,42 @@ a:hover {
     padding: 18px 16px 14px;
   }
 }
+
+/* === unify navigation link styling (blue academic style) === */
+
+.top-nav-links a,
+.dropbtn,
+.dropdown-content a {
+  color: var(--accent) !important;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* hover underline stays consistent */
+.top-nav-links a:hover,
+.dropbtn:hover,
+.dropdown-content a:hover {
+  color: var(--accent) !important;
+}
+
+/* dropdown gets the same underline animation */
+.dropdown-content a {
+  position: relative;
+}
+
+.dropdown-content a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb, #22c55e);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.dropdown-content a:hover::after {
+  width: 100%;
+}
