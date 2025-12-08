@@ -43,6 +43,15 @@ a:hover {
   padding: 0 16px;
 }
 
+/* desktop/mobile helper classes */
+.desktop-only {
+  display: inline-block;
+}
+
+.mobile-only {
+  display: none;
+}
+
 /* =========================
    TOP NAVIGATION
    ========================= */
@@ -759,37 +768,23 @@ a:hover {
     padding: 6px 0;
   }
 
+  /* When JS toggles .open on mobile */
   .top-nav-links.open {
     display: flex;
   }
 
-  /* 🔽 updated mobile dropdown behavior */
-  .dropdown {
+  /* hide desktop-only bits, show mobile-only links */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    padding-bottom: 0;
+    padding-left: 6px;
+    gap: 4px;
   }
-
-  .dropbtn {
-    width: 100%;
-    justify-content: space-between;
-    text-align: left;
-  }
-
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    border-radius: 0;
-    padding-left: 12px;
-    min-width: 100%;
-    top: auto;
-    left: auto;
-  }
-
-  /* if you want rotation on mobile, remove this; otherwise it stays upright
-  .dropbtn i {
-    transform: none;
-  }
-  */
 
   .page {
     margin-top: 18px;
@@ -807,27 +802,5 @@ a:hover {
   .card,
   .hero-card {
     padding: 18px 16px 14px;
-  }
-}
-
-/* Desktop */
-.desktop-only {
-  display: inline-block;
-}
-
-/* Mobile */
-.mobile-only {
-  display: none;
-}
-
-@media (max-width: 640px) {
-  .desktop-only {
-    display: none !important;
-  }
-  .mobile-only {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-left: 6px;
   }
 }
