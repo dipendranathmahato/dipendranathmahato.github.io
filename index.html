@@ -5,13 +5,15 @@
   <title>About | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Fonts & Icons -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" />
 
+  <!-- MathJax -->
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -20,61 +22,67 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
+  <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page">
-    <!-- header -->
+    <!-- ================= HEADER / NAV ================= -->
     <header class="top-nav">
-  <div class="brand">
-    <img src="Tulane_University_Logo.svg.png" class="nav-logo" alt="Tulane University Logo" />
-    <a href="index.html" class="brand-name-link">
-      <span>Dipendranath Mahato</span>
-    </a>
-  </div>
+      <div class="brand">
+        <img src="Tulane_University_Logo.svg.png"
+             class="nav-logo"
+             alt="Tulane University Logo" />
+        <a href="index.html" class="brand-name-link">
+          <span>Dipendranath Mahato</span>
+        </a>
+      </div>
 
-  <!-- Mobile menu button -->
-  <button class="nav-toggle" aria-label="Toggle navigation">
-    <i class="fa-solid fa-bars"></i>
-  </button>
+      <!-- Mobile menu button -->
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-  <nav class="top-nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html">Teaching</a>
-    <a href="presentations.html">Presentations</a>
-    
-    <div class="dropdown">
-  <button class="dropbtn">More <i class="fa-solid fa-chevron-down"></i></button>
-  <div class="dropdown-content">
-    <a href="outreach & services.html">Outreach & Services</a>
-    <a href="blogs.html">Blogs</a>
-    <a href="resources.html">Resources</a>
-  </div>
-</div>
-    </nav>
+      <nav class="top-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="presentations.html">Presentations</a>
 
-  <div class="controls">
-    <a href="cv.html" class="pill-button primary">
-      <i class="fa-solid fa-file-lines"></i>
-      <span>CV</span>
-    </a>
-  </div>
-</header>
-
-
-    <main class="layout">
-      <!-- sidebar -->
-      <!-- reuse same sidebar as index -->
-      <aside class="sidebar">
-        <div class="avatar">
-          <img src="PXL_20250330_220427523-1575x2800-compressed.jpg" alt="Dipendranath Mahato" />
-          <div class="status-chip">
-            <span></span>
-            In JOB MARKET
+        <div class="dropdown">
+          <button class="dropbtn">
+            More <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <!-- Keep filename as you currently have it -->
+            <a href="outreach & services.html">Outreach &amp; Services</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="resources.html">Resources</a>
           </div>
         </div>
+      </nav>
+
+      <div class="controls">
+        <a href="cv.html" class="pill-button primary">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>CV</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- ================= LAYOUT ================= -->
+    <main class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="avatar">
+          <img src="PXL_20250330_220427523-1575x2800-compressed.jpg"
+               alt="Dipendranath Mahato" />
+          <div class="status-chip">
+            IN JOB MARKET
+          </div>
+        </div>
+
         <div class="name">Dipendranath Mahato</div>
         <div class="title">Ph.D. Candidate in Mathematics</div>
         <div class="affiliation">
@@ -101,7 +109,7 @@
             </li>
             <li>
               <i class="fa-regular fa-building"></i>
-              <span>Office 416-J, Gibson Hall <br> Department of Mathematics</span>
+              <span>Office 416-J, Gibson Hall<br />Department of Mathematics</span>
             </li>
             <li>
               <i class="fa-solid fa-location-dot"></i>
@@ -113,40 +121,44 @@
         <div class="sidebar-section">
           <h3>Online</h3>
           <div class="social-links">
-            <a href="https://https://github.com/dipendranathmahato" aria-label="GitHub">
+            <a href="https://github.com/dipendranathmahato" aria-label="GitHub">
               <i class="fa-brands fa-github"></i>
             </a>
-            <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=dRoXm28AAAAJ" aria-label="Google Scholar">
+            <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=dRoXm28AAAAJ"
+               aria-label="Google Scholar">
               <i class="ai ai-google-scholar"></i>
             </a>
             <a href="https://orcid.org/0000-0003-4122-2622" aria-label="ORCID">
               <i class="fa-brands fa-orcid"></i>
             </a>
-            <a href="www.linkedin.com/in/dipendranathmahato" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/dipendranathmahato"
+               aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin-in"></i>
             </a>
-            <a href="https://www.researchgate.net/profile/Dipendranath-Mahato-2" aria-label="ResearchGate">
+            <a href="https://www.researchgate.net/profile/Dipendranath-Mahato-2"
+               aria-label="ResearchGate">
               <i class="fa-brands fa-researchgate"></i>
             </a>
-            <a href="https://arxiv.org/search/?query=Mahato%2C+Dipendranath&searchtype=author&abstracts=show&order=-announced_date_first&size=50" aria-label="arXiv">
+            <a href="https://arxiv.org/search/?query=Mahato%2C+Dipendranath&searchtype=author&abstracts=show&order=-announced_date_first&size=50"
+               aria-label="arXiv">
               <i class="ai ai-arxiv"></i>
             </a>
-            <a href="https://tulane.academia.edu/DipendranathMahato" aria-label="Academia">
+            <a href="https://tulane.academia.edu/DipendranathMahato"
+               aria-label="Academia">
               <i class="ai ai-academia"></i>
             </a>
           </div>
         </div>
       </aside>
 
-
-      <!-- Main HOME content -->
-            <section class="main">
+      <!-- Main ABOUT content -->
+      <section class="main">
         <!-- Hero -->
         <section class="hero-card" id="about">
           <div class="hero-inner">
             <div class="hero-topline">
               <i class="fa-solid fa-flask"></i>
-              <span>Algebra & Geometry · Research & Teaching</span>
+              <span>Algebra &amp; Geometry · Research &amp; Teaching</span>
             </div>
             <h1 class="hero-title">
               I study symbolic powers, interpolation, and asymptotic invariants in algebraic geometry.
@@ -158,15 +170,15 @@
             </p>
 
             <div class="hero-actions">
-              <a href="#research" class="pill-button primary">
+              <a href="research.html" class="pill-button primary">
                 <i class="fa-solid fa-rocket"></i>
                 <span>Explore research</span>
               </a>
-              <a href="#publications" class="pill-button secondary">
+              <a href="presentations.html" class="pill-button secondary">
                 <i class="fa-solid fa-book-open"></i>
-                <span>View publications</span>
+                <span>Presentations</span>
               </a>
-              <a href="#teaching" class="pill-button secondary">
+              <a href="teaching.html" class="pill-button secondary">
                 <i class="fa-solid fa-chalkboard-user"></i>
                 <span>Teaching</span>
               </a>
@@ -174,10 +186,10 @@
 
             <div class="hero-meta">
               <span>
-                <strong>Current position:</strong> Ph.D. Candidate, Your University
+                <strong>Current position:</strong> Ph.D. Candidate, Tulane University
               </span>
               <span>
-                <strong>Advisor:</strong> Prof. Advisor Name
+                <strong>Advisor:</strong> Prof. [Advisor Name]
               </span>
               <span>
                 <strong>Keywords:</strong> symbolic powers, fat points, Waldschmidt constants
@@ -197,7 +209,7 @@
                 Navigate directly to key information.
               </div>
             </div>
-            <span class="pill-label">HOME</span>
+            <span class="pill-label">ABOUT</span>
           </div>
 
           <div class="card-body">
@@ -206,61 +218,67 @@
               <li><a href="research.html">Research</a> — current projects, focus areas, publications</li>
               <li><a href="teaching.html">Teaching</a> — courses and mentoring</li>
               <li><a href="presentations.html">Presentations</a> — talks, poster presentations</li>
-              <li><a href="outreach & services.html">Outreach & Services</a> — academic & non-academic outreach</li>
+              <li><a href="outreach & services.html">Outreach &amp; Services</a> — academic &amp; non-academic outreach</li>
               <li><a href="blogs.html">Blogs</a> — my opinions</li>
-              <li><a href="resources.html">Resources</a> — nice math books, imporant websites</li>
+              <li><a href="resources.html">Resources</a> — nice math books, important websites</li>
               <li><a href="cv.html">Curriculum Vitae</a> — full academic CV</li>
             </ul>
           </div>
         </section>
 
         <div class="footer">
-          © <span id="year"></span> Copyright@ Dipendranath Mahato —
+          © <span id="year"></span> Copyright @ Dipendranath Mahato —
           Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
-
       </section>
     </main>
   </div>
 
+  <!-- ================= SCRIPTS ================= -->
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-<script>
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.top-nav-links');
+    // Set footer year (if present)
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-  }
-</script>
-<script>
-  // Mobile hamburger toggle already exists above
-  // Now add the CLICK dropdown toggle:
-  document.addEventListener('DOMContentLoaded', () => {
-    const dropdown = document.querySelector('.dropdown');
-    const dropbtn  = dropdown?.querySelector('.dropbtn');
+    // Mobile hamburger toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks  = document.querySelector('.top-nav-links');
 
-    if (dropbtn) {
-      dropbtn.addEventListener('click', (event) => {
-        event.preventDefault(); // prevent page jump
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
 
-        // Toggle the dropdown-open class
-        dropdown.classList.toggle('dropdown-open');
+      // Optional: close nav when a link is clicked (nice on mobile)
+      navLinks.addEventListener('click', (event) => {
+        if (event.target.tagName.toLowerCase() === 'a') {
+          navLinks.classList.remove('open');
+        }
       });
     }
 
-    // Optional: close dropdown when clicking anywhere else
-    document.addEventListener('click', (event) => {
-      if (dropdown && !dropdown.contains(event.target)) {
-        dropdown.classList.remove('dropdown-open');
-      }
-    });
-  });
-</script>
+    // "More" dropdown click toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropdown = document.querySelector('.dropdown');
+      const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
 
+      if (dropbtn) {
+        dropbtn.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          dropdown.classList.toggle('dropdown-open');
+        });
+      }
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (event) => {
+        if (dropdown && !dropdown.contains(event.target)) {
+          dropdown.classList.remove('dropdown-open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
