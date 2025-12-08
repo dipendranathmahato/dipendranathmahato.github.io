@@ -43,15 +43,6 @@ a:hover {
   padding: 0 16px;
 }
 
-/* desktop/mobile helper classes */
-.desktop-only {
-  display: inline-block;
-}
-
-.mobile-only {
-  display: none;
-}
-
 /* =========================
    TOP NAVIGATION
    ========================= */
@@ -144,7 +135,7 @@ a:hover {
 }
 
 /* =========================
-   DROPDOWN (More – click + chevron)
+   DROPDOWN (More – click + chevron on desktop)
    ========================= */
 .dropdown {
   position: relative;
@@ -773,17 +764,30 @@ a:hover {
     display: flex;
   }
 
-  /* hide desktop-only bits, show mobile-only links */
-  .desktop-only {
-    display: none !important;
+  /* Mobile behavior for dropdown:
+     - Hide the "More" button
+     - Show its links as normal stacked items
+  */
+  .dropdown {
+    width: 100%;
   }
 
-  .mobile-only {
-    display: flex;
+  .dropbtn {
+    display: none;
+  }
+
+  .dropdown-content {
+    position: static;
+    display: flex !important;
     flex-direction: column;
-    width: 100%;
-    padding-left: 0;   /* ✅ no extra indent now */
-    gap: 4px;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    min-width: 100%;
+  }
+
+  .dropdown-content a {
+    padding: 6px 0;
   }
 
   .page {
