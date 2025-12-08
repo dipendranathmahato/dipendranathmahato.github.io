@@ -676,3 +676,40 @@ a:hover {
     padding: 18px 16px 14px;
   }
 }
+
+.dropbtn {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  color: var(--text);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+
+  display: inline-block;
+  position: relative;
+}
+
+/* Same underline animation as nav links */
+.dropbtn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb, #22c55e);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+/* When hovered, show the colored underline */
+.dropdown:hover .dropbtn::after {
+  width: 100%;
+}
+
+.dropdown {
+  padding: 4px 0;
+}
