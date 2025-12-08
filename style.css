@@ -782,7 +782,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-left: 6px;
+    padding-left: 0;   /* ✅ no extra indent now */
     gap: 4px;
   }
 
