@@ -809,3 +809,25 @@ a:hover {
     padding: 18px 16px 14px;
   }
 }
+
+/* Desktop */
+.desktop-only {
+  display: inline-block;
+}
+
+/* Mobile */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 6px;
+  }
+}
