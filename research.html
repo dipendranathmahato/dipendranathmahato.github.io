@@ -22,6 +22,7 @@
 
   <link rel="stylesheet" href="style.css" />
 </head>
+  
 <body>
   <div class="page">
     <!-- header -->
@@ -235,5 +236,15 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.top-nav-links');
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
+</script>
 </body>
 </html>
