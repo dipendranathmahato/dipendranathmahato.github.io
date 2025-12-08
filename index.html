@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>About | Dipendranath Mahato</title>
+  <title>Home | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts & Icons -->
@@ -50,16 +50,23 @@
         <a href="teaching.html">Teaching</a>
         <a href="presentations.html">Presentations</a>
 
-        <div class="dropdown">
+        <!-- Desktop-only dropdown -->
+        <div class="dropdown desktop-only">
           <button class="dropbtn">
             More <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="dropdown-content">
-            <!-- Keep filename as you currently have it -->
             <a href="outreach & services.html">Outreach &amp; Services</a>
             <a href="blogs.html">Blogs</a>
             <a href="resources.html">Resources</a>
           </div>
+        </div>
+
+        <!-- Mobile-only expanded links (no More button) -->
+        <div class="mobile-only mobile-more">
+          <a href="outreach & services.html">Outreach &amp; Services</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="resources.html">Resources</a>
         </div>
       </nav>
 
@@ -151,10 +158,10 @@
         </div>
       </aside>
 
-      <!-- Main ABOUT content -->
+      <!-- Main HOME content -->
       <section class="main">
         <!-- Hero -->
-        <section class="hero-card" id="about">
+        <section class="hero-card" id="home">
           <div class="hero-inner">
             <div class="hero-topline">
               <i class="fa-solid fa-flask"></i>
@@ -209,7 +216,7 @@
                 Navigate directly to key information.
               </div>
             </div>
-            <span class="pill-label">ABOUT</span>
+            <span class="pill-label">HOME</span>
           </div>
 
           <div class="card-body">
@@ -259,9 +266,9 @@
       });
     }
 
-    // "More" dropdown click toggle
+    // "More" dropdown click toggle (desktop)
     document.addEventListener('DOMContentLoaded', () => {
-      const dropdown = document.querySelector('.dropdown');
+      const dropdown = document.querySelector('.dropdown.desktop-only');
       const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
 
       if (dropbtn) {
