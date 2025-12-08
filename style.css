@@ -186,7 +186,7 @@ a:hover {
   transform: rotate(180deg);
 }
 
-/* dropdown panel */
+/* dropdown panel (desktop) */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -753,6 +753,7 @@ a:hover {
     width: 100%;
     margin-top: 6px;
     gap: 10px;
+    align-items: flex-start;   /* ✅ make all nav items left-aligned */
   }
 
   .top-nav-links a {
@@ -766,10 +767,11 @@ a:hover {
 
   /* Mobile behavior for dropdown:
      - Hide the "More" button
-     - Show its links as normal stacked items
+     - Show its links as normal stacked items, aligned with others
   */
   .dropdown {
     width: 100%;
+    padding-bottom: 0;
   }
 
   .dropbtn {
