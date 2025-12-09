@@ -518,6 +518,88 @@ a:hover {
   margin: 0 0 8px;
 }
 
+/* ======================================================
+   Sidebar "Research Topics" mini-card
+   ====================================================== */
+.research-mini-card {
+  margin: 14px 0 18px;
+  padding: 10px 12px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.research-mini-card-header {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.research-mini-card-header i {
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.research-mini-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* clickable tag */
+.research-tag {
+  display: block;
+  font-size: 0.8rem;
+  padding: 5px 9px;
+  border-radius: 8px;
+  background: rgba(37, 99, 235, 0.06);
+  color: #1d4ed8;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.research-tag:hover {
+  filter: brightness(1.15);
+  transform: translateX(2px);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.25);
+}
+
+
+/* ======================================================
+   Dark Mode overrides
+   ====================================================== */
+[data-theme="dark"] .research-mini-card {
+  background: rgba(15, 23, 42, 0.96);
+  border-color: rgba(55, 65, 81, 0.9);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.85);
+}
+
+[data-theme="dark"] .research-mini-card-header {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .research-mini-card-header i {
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .research-tag {
+  background: rgba(37, 99, 235, 0.26);
+  color: #dde9ff;
+}
+
+[data-theme="dark"] .research-tag:hover {
+  filter: brightness(1.25);
+  background: rgba(64,130,255,0.33);
+}
+
+
 .info-list {
   list-style: none;
   padding: 0;
