@@ -427,8 +427,8 @@ a:hover {
   display: block;
 }
 
-/* MOVING + GLOWING STATUS  */
-.status- {
+/* ===== Moving + glowing IN JOB MARKET chip under avatar ===== */
+.status-chip {
   position: relative;
   bottom: 30px;
   left: 62px;
@@ -441,14 +441,17 @@ a:hover {
   color: #ffffff;
   white-space: nowrap;
 
-  animation: slide 8s linear infinite, pulseGlow 2.3s ease-in-out infinite;
+  /* This makes it move + glow */
+  animation: slideChip 8s linear infinite, pulseGlow 2.3s ease-in-out infinite;
 }
 
-@keyframes slide {
+/* Horizontal slide from right to left across the avatar */
+@keyframes slideChip {
   0%   { transform: translateX(120%); }
   100% { transform: translateX(-120%); }
 }
 
+/* Red pulsing glow */
 @keyframes pulseGlow {
   0% {
     box-shadow: 0 0 8px rgba(255,0,20,0.35),
@@ -467,6 +470,7 @@ a:hover {
   }
 }
 
+/* Optional: pause when hovered so it’s readable */
 .status-chip:hover {
   animation-play-state: paused;
 }
