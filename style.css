@@ -113,6 +113,14 @@
   font-size: 0.9rem;
 }
 
+/* Dark mode: make the hamburger (three lines) light */
+[data-theme="dark"] .nav-toggle {
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .nav-toggle i {
+  color: #e5e7eb;
+}
 
 
 * {
