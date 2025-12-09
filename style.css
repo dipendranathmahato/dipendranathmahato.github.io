@@ -235,6 +235,7 @@ a:hover {
   cursor: pointer;
   padding: 4px 8px;
   margin-left: 16px;
+  color: #111827; /* ensure visible in light theme */
 }
 
 /* =========================
