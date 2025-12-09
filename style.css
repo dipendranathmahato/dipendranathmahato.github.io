@@ -115,11 +115,11 @@
 
 /* Dark mode: make the hamburger (three lines) light */
 [data-theme="dark"] .nav-toggle {
-  color: #e5e7eb;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .nav-toggle i {
-  color: #e5e7eb;
+  color: #ffffff;
 }
 
 
