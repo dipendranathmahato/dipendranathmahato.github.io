@@ -12,6 +12,79 @@
   --radius-pill: 999px;
 }
 
+/* ===== THEME: DARK MODE VARIANTS (overrides) ===== */
+[data-theme="dark"] {
+  --bg: #020617;          /* overall bg */
+  --bg-alt: #0b1220;      /* card / surfaces */
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #60a5fa;
+  --accent-soft: rgba(37, 99, 235, 0.15);
+  --border: #1f2937;
+}
+
+/* ===== DARK MODE SPECIFIC OVERRIDES ===== */
+[data-theme="dark"] body {
+  background: radial-gradient(circle at top left, #0f172a 0, transparent 55%),
+              radial-gradient(circle at bottom right, #111827 0, transparent 55%),
+              var(--bg);
+  color: var(--text);
+}
+
+[data-theme="dark"] .top-nav {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(55, 65, 81, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .sidebar {
+  background: radial-gradient(circle at top left, #020617, #020617);
+  border-color: rgba(55, 65, 81, 0.9);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+}
+
+[data-theme="dark"] .card {
+  background: rgba(15, 23, 42, 0.96);
+  border-color: rgba(55, 65, 81, 0.9);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .hero-card {
+  background: radial-gradient(circle at top left, #020617, #020617);
+  border-color: rgba(55, 65, 81, 0.8);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.85);
+}
+
+[data-theme="dark"] .hero-subtitle {
+  color: #cbd5f5;
+}
+
+[data-theme="dark"] .footer {
+  color: #6b7280;
+}
+
+[data-theme="dark"] .footer a {
+  color: #9ca3af;
+}
+
+[data-theme="dark"] .social-links a {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(55, 65, 81, 0.9);
+}
+
+/* Make secondary button darker in dark mode */
+[data-theme="dark"] .pill-button.secondary {
+  background: rgba(15, 23, 42, 0.8);
+  color: var(--muted);
+}
+
+/* Theme toggle specific style (optional subtle tweak) */
+.theme-toggle i {
+  font-size: 0.9rem;
+}
+
+
+
 * {
   box-sizing: border-box;
 }
@@ -743,9 +816,21 @@ a:hover {
     display: block;
   }
 
-  .controls {
-    display: none;
-  }
+ .controls {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Hide the CV button on small screens to save space, but keep the theme toggle */
+.controls .cv-button {
+  display: none;
+}
+
+.controls .theme-toggle {
+  display: inline-flex;
+}
+
 
   .top-nav-links {
     display: none;
