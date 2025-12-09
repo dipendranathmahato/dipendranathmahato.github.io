@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <title>Home | Dipendranath Mahato</title>
@@ -65,11 +66,19 @@
 
 
       <div class="controls">
-        <a href="cv.html" class="pill-button primary">
-          <i class="fa-solid fa-file-lines"></i>
-          <span>CV</span>
-        </a>
-      </div>
+  <!-- Dark mode toggle button -->
+  <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
+    <i class="fa-solid fa-moon"></i>
+    <span>Dark</span>
+  </button>
+
+  <!-- CV button (add cv-button class so we can hide it on small screens if needed) -->
+  <a href="cv.html" class="pill-button primary cv-button">
+    <i class="fa-solid fa-file-lines"></i>
+    <span>CV</span>
+  </a>
+</div>
+
     </header>
 
     <!-- ================= LAYOUT ================= -->
@@ -237,13 +246,13 @@
 
   <!-- ================= SCRIPTS ================= -->
   <script>
-  // Set footer year (if present)
+  // ----- Footer year -----
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // Mobile hamburger toggle
+  // ----- Mobile hamburger toggle -----
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks  = document.querySelector('.top-nav-links');
 
@@ -252,7 +261,6 @@
       navLinks.classList.toggle('open');
     });
 
-    // Optional: close nav when a link is clicked (nice on mobile)
     navLinks.addEventListener('click', (event) => {
       if (event.target.tagName.toLowerCase() === 'a') {
         navLinks.classList.remove('open');
@@ -260,7 +268,7 @@
     });
   }
 
-  // "More" dropdown click toggle (desktop; CSS flattens it on mobile)
+  // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
   const dropdown = document.querySelector('.dropdown');
   const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
 
@@ -272,12 +280,50 @@
     });
   }
 
-  // Close dropdown when clicking outside
   document.addEventListener('click', (event) => {
     if (dropdown && !dropdown.contains(event.target)) {
       dropdown.classList.remove('dropdown-open');
     }
   });
+
+  // ----- DARK MODE TOGGLE -----
+  const root        = document.documentElement; // <html>
+  const themeToggle = document.querySelector('.theme-toggle');
+  const THEME_KEY   = 'dm-theme';
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+
+    if (!themeToggle) return;
+
+    const icon  = themeToggle.querySelector('i');
+    const label = themeToggle.querySelector('span');
+
+    if (theme === 'dark') {
+      if (icon) icon.className = 'fa-solid fa-sun';
+      if (label) label.textContent = 'Light';
+    } else {
+      if (icon) icon.className = 'fa-solid fa-moon';
+      if (label) label.textContent = 'Dark';
+    }
+  }
+
+  // Initial theme (from localStorage or default "light")
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
+    ? savedTheme
+    : 'light';
+
+  applyTheme(initialTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next    = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    });
+  }
 </script>
 
 </body>
