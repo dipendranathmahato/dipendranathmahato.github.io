@@ -220,34 +220,95 @@
           </div>
         </section>
 
-        <!-- Quick Links -->
-        <section class="card">
-          <div class="card-header">
-            <div>
-              <span class="card-title">
-                <i class="fa-solid fa-bolt"></i> Quick Access
-              </span>
-              <div class="card-subtitle">
-                Navigate directly to key information.
+        
+        <!-- ===== QUICK ACCESS + UPCOMING EVENTS ROW ===== -->
+        <section class="home-cards">
+          <!-- Quick Links -->
+          <section class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">
+                  <i class="fa-solid fa-bolt"></i> Quick Access
+                </span>
+                <div class="card-subtitle">
+                  Navigate directly to key information.
+                </div>
+              </div>
+              <span class="pill-label">HOME</span>
+            </div>
+
+            <div class="card-body">
+              <ul class="list-unstyled list-tight">
+                <li><a href="about.html">About Me</a> — short biography, interests, media spotlight, my math-family</li>
+                <li><a href="research.html">Research</a> — current projects, focus areas, publications</li>
+                <li><a href="teaching.html">Teaching</a> — courses and mentoring</li>
+                <li><a href="presentations.html">Presentations</a> — talks, poster presentations</li>
+                <li><a href="outreach & services.html">Outreach &amp; Services</a> — academic &amp; non-academic outreach</li>
+                <li><a href="blogs.html">Blogs</a> — my opinions</li>
+                <li><a href="resources.html">Resources</a> — nice math books, important websites</li>
+                <li><a href="cv.html">Curriculum Vitae</a> — full academic CV</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Upcoming Events (scrolling ticker) -->
+          <section class="card events-card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">
+                  <i class="fa-solid fa-calendar-days"></i> Upcoming Events
+                </span>
+                <div class="card-subtitle">
+                  Automatically scrolling — hover to pause.
+                </div>
               </div>
             </div>
-            <span class="pill-label">HOME</span>
-          </div>
 
-          <div class="card-body">
-            <ul class="list-unstyled list-tight">
-              <li><a href="about.html">About Me</a> — short biography, interests, media spotlight, my math-family</li>
-              <li><a href="research.html">Research</a> — current projects, focus areas, publications</li>
-              <li><a href="teaching.html">Teaching</a> — courses and mentoring</li>
-              <li><a href="presentations.html">Presentations</a> — talks, poster presentations</li>
-              <li><a href="outreach & services.html">Outreach &amp; Services</a> — academic &amp; non-academic outreach</li>
-              <li><a href="blogs.html">Blogs</a> — my opinions</li>
-              <li><a href="resources.html">Resources</a> — nice math books, important websites</li>
-              <li><a href="cv.html">Curriculum Vitae</a> — full academic CV</li>
-            </ul>
-          </div>
+            <div class="card-body">
+              <div class="events-ticker">
+                <div class="events-track">
+                  <!-- Duplicate / edit these items as needed -->
+                  <div class="event-item">
+                    <div class="event-date">January 5–9, 2026</div>
+                    <div class="event-title">Mathematical Congress of the Americas (MCA 2025)</div>
+                    <div class="event-location">Poster &amp; special sessions on Commutative Algebra &amp; Algebraic Geometry</div>
+                  </div>
+
+                  <div class="event-item">
+                    <div class="event-date">Spring 2026</div>
+                    <div class="event-title">Job Market Applications</div>
+                    <div class="event-location">Research talks &amp; teaching demos for postdoctoral positions</div>
+                  </div>
+
+                  <div class="event-item">
+                    <div class="event-date">April 2026</div>
+                    <div class="event-title">AMS Sectional Meeting</div>
+                    <div class="event-location">Special session on symbolic powers, interpolation, and asymptotic invariants</div>
+                  </div>
+
+                  <div class="event-item">
+                    <div class="event-date">Ongoing</div>
+                    <div class="event-title">Directed Reading &amp; Mentoring</div>
+                    <div class="event-location">Projects in commutative algebra &amp; algebraic geometry with undergraduate and graduate students</div>
+                  </div>
+
+                  <!-- Repeat items to make the loop feel continuous -->
+                  <div class="event-item">
+                    <div class="event-date">January 5–9, 2026</div>
+                    <div class="event-title">Mathematical Congress of the Americas (MCA 2025)</div>
+                    <div class="event-location">Poster &amp; special sessions on Commutative Algebra &amp; Algebraic Geometry</div>
+                  </div>
+
+                  <div class="event-item">
+                    <div class="event-date">Spring 2026</div>
+                    <div class="event-title">Job Market Applications</div>
+                    <div class="event-location">Research talks &amp; teaching demos for postdoctoral positions</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </section>
-
         <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
           Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
