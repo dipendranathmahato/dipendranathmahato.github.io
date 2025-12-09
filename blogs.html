@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
-  <title>About | Dipendranath Mahato</title>
+  <title>Home | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Fonts & Icons -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" />
 
+  <!-- MathJax -->
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -20,52 +23,251 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
+  <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="page">
-    <!-- header -->
+    <!-- ================= HEADER / NAV ================= -->
     <header class="top-nav">
-  <div class="brand">
-    <img src="Tulane_University_Logo.svg.png" class="nav-logo" alt="Tulane University Logo" />
-    <a href="index.html" class="brand-name-link">
-      <span>Dipendranath Mahato</span>
-    </a>
-  </div>
+      <div class="brand">
+        <img src="Tulane_University_Logo.svg.png"
+             class="nav-logo"
+             alt="Tulane University Logo" />
+        <a href="index.html" class="brand-name-link">
+          <span>Dipendranath Mahato</span>
+        </a>
+      </div>
 
-  <!-- Mobile menu button -->
-  <button class="nav-toggle" aria-label="Toggle navigation">
-    <i class="fa-solid fa-bars"></i>
+      <!-- Mobile menu button -->
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="top-nav-links">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="research.html">Research</a>
+  <a href="teaching.html">Teaching</a>
+  <a href="presentations.html">Presentations</a>
+
+  <!-- Single dropdown (desktop), will flatten on mobile via CSS -->
+  <div class="dropdown">
+    <button class="dropbtn">
+      More <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="outreach & services.html">Outreach &amp; Services</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="resources.html">Resources</a>
+    </div>
+  </div>
+</nav>
+
+
+      <div class="controls">
+  <!-- Dark mode toggle button -->
+  <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
+    <i class="fa-solid fa-moon"></i>
+    <span>Dark</span>
   </button>
 
-  <nav class="top-nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="research.html">Research</a>
-    <a href="publications.html">Publications</a>
-    <a href="teaching.html">Teaching</a>
-    <a href="cv.html">CV</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <!-- CV button (add cv-button class so we can hide it on small screens if needed) -->
+  <a href="cv.html" class="pill-button primary cv-button">
+    <i class="fa-solid fa-file-lines"></i>
+    <span>CV</span>
+  </a>
+</div>
 
-  <div class="controls">
-    <a href="cv.html" class="pill-button primary">
-      <i class="fa-solid fa-file-lines"></i>
-      <span>CV</span>
-    </a>
+    </header>
+
+    <!-- ================= LAYOUT ================= -->
+    <main class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="avatar">
+          <img src="PXL_20250330_220427523-1575x2800-compressed.jpg"
+               alt="Dipendranath Mahato" />
+          <div class="status-chip">
+            IN JOB MARKET
+          </div>
+        </div>
+
+        <div class="name">Dipendranath Mahato</div>
+        <div class="title">Ph.D. Candidate in Mathematics</div>
+        <div class="affiliation">
+          <strong>Tulane University</strong><br />
+          Department of Mathematics
+        </div>
+
+        <!-- Research area padded block -->
+        <div class="research-area-block">
+        
+          <div class="research-area-title">
+            <i class="ai ai-academic-cap"></i>
+            <span>Research Areas</span>
+          </div>
+        
+          <div class="research-chips">
+            <a href="research.html#commutative" class="chip">Commutative Algebra</a>
+            <a href="research.html#algebraic-geometry" class="chip">Algebraic Geometry</a>
+            <a href="research.html#combinatorial" class="chip">Combinatorial Algebra</a>
+          </div>
+        
+        </div>
+
+
+
+        <div class="sidebar-section">
+          <h3>Contact</h3>
+          <ul class="info-list">
+            <li>
+              <i class="fa-regular fa-envelope"></i>
+              <span><a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a></span>
+            </li>
+            <li>
+              <i class="fa-regular fa-envelope"></i>
+              <span><a href="mailto:dipendranathmahato@gmail.com">dipendranathmahato@gmail.com</a></span>
+            </li>
+            <li>
+              <i class="fa-regular fa-building"></i>
+              <span>Office 416-J, Gibson Hall<br />Department of Mathematics</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>New Orleans-70118, LA, USA</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Online</h3>
+          <div class="social-links">
+            <a href="https://github.com/dipendranathmahato" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=dRoXm28AAAAJ"
+               aria-label="Google Scholar">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+            <a href="https://orcid.org/0000-0003-4122-2622" aria-label="ORCID">
+              <i class="fa-brands fa-orcid"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/dipendranathmahato"
+               aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.researchgate.net/profile/Dipendranath-Mahato-2"
+               aria-label="ResearchGate">
+              <i class="fa-brands fa-researchgate"></i>
+            </a>
+            <a href="https://arxiv.org/search/?query=Mahato%2C+Dipendranath&searchtype=author&abstracts=show&order=-announced_date_first&size=50"
+               aria-label="arXiv">
+              <i class="ai ai-arxiv"></i>
+            </a>
+            <a href="https://tulane.academia.edu/DipendranathMahato"
+               aria-label="Academia">
+              <i class="ai ai-academia"></i>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+
+      <!-- Main HOME content -->
+
+
+
+
+      <div class="footer">
+          © <span id="year"></span> Copyright @ Dipendranath Mahato —
+          Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+        </div>
+      </section>
+    </main>
   </div>
-</header>
 
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+  // ----- Footer year -----
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-<script>
+  // ----- Mobile hamburger toggle -----
   const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.top-nav-links');
+  const navLinks  = document.querySelector('.top-nav-links');
 
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('open');
     });
+
+    navLinks.addEventListener('click', (event) => {
+      if (event.target.tagName.toLowerCase() === 'a') {
+        navLinks.classList.remove('open');
+      }
+    });
+  }
+
+  // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
+  const dropdown = document.querySelector('.dropdown');
+  const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+  if (dropbtn) {
+    dropbtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      dropdown.classList.toggle('dropdown-open');
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    if (dropdown && !dropdown.contains(event.target)) {
+      dropdown.classList.remove('dropdown-open');
+    }
+  });
+
+  // ----- DARK MODE TOGGLE -----
+  const root        = document.documentElement; // <html>
+  const themeToggle = document.querySelector('.theme-toggle');
+  const THEME_KEY   = 'dm-theme';
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+
+    if (!themeToggle) return;
+
+    const icon  = themeToggle.querySelector('i');
+    const label = themeToggle.querySelector('span');
+
+    if (theme === 'dark') {
+      if (icon) icon.className = 'fa-solid fa-sun';
+      if (label) label.textContent = 'Light';
+    } else {
+      if (icon) icon.className = 'fa-solid fa-moon';
+      if (label) label.textContent = 'Dark';
+    }
+  }
+
+  // Initial theme (from localStorage or default "light")
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
+    ? savedTheme
+    : 'light';
+
+  applyTheme(initialTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next    = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    });
   }
 </script>
-  </body>
+
+</body>
 </html>
