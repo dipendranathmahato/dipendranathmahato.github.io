@@ -427,8 +427,8 @@ a:hover {
   display: block;
 }
 
-/* MOVING + GLOWING STATUS CHIP */
-.status-chip {
+/* MOVING + GLOWING STATUS  */
+.status- {
   position: relative;
   bottom: 30px;
   left: 62px;
@@ -441,10 +441,10 @@ a:hover {
   color: #ffffff;
   white-space: nowrap;
 
-  animation: slideChip 8s linear infinite, pulseGlow 2.3s ease-in-out infinite;
+  animation: slide 8s linear infinite, pulseGlow 2.3s ease-in-out infinite;
 }
 
-@keyframes slideChip {
+@keyframes slide {
   0%   { transform: translateX(120%); }
   100% { transform: translateX(-120%); }
 }
@@ -519,26 +519,30 @@ a:hover {
 }
 
 /* ==============================
-   Research Area padded block
+   Research Area transparent block
    ============================== */
 .research-area-block {
   margin: 20px 0;
-  padding: 14px 14px 18px;
+  padding: 6px 0 10px;
   border-radius: var(--radius-xl);
   background: transparent;
-  border: 1px solid rgba(148,163,184,0.3);
-  box-shadow: var(--shadow-soft);
+  border: none;
+  box-shadow: none;
 }
 
 .research-area-title {
-  font-size: 0.90rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--muted);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.research-area-title span {
+  font-weight: 700;    /* bold Research Areas */
 }
 
 .research-area-title i {
@@ -552,27 +556,25 @@ a:hover {
   gap: 8px;
 }
 
-/* Chip style like hero block buttons */
+/* ===================================
+   Chips — refined gray-ish design
+   =================================== */
 .chip {
   display: inline-flex;
   align-items: center;
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
-  background: radial-gradient(
-    circle at top left,
-    #60a5fa 0,
-    #2563eb 45%,
-    #1d4ed8 100%
-  );
-  color: white !important;
+  color: #ffffff !important;
   text-decoration: none;
   font-weight: 500;
-  box-shadow: 0 12px 24px rgba(37,99,235,0.3);
-  transition: 0.18s ease;
+  background: linear-gradient(135deg, #6b7280, #4b5563 60%, #374151);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+  transition: 0.2s ease;
 }
+
 .chip:hover {
-  filter: brightness(1.08);
+  filter: brightness(1.12);
   transform: translateY(-2px);
 }
 
@@ -678,9 +680,18 @@ a:hover {
   );
   box-shadow: 0 12px 32px rgba(0,0,0,0.6);
 }
+
+/* Dark chips (slightly cooler gray, readable text) */
+[data-theme="dark"] .chip {
+  background: linear-gradient(135deg, #9ca3af, #4b5563 60%, #374151);
+  color: #f3f4f6 !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.6);
+}
+
 [data-theme="dark"] .chip:hover {
   filter: brightness(1.2);
 }
+
 
 
 
