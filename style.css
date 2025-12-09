@@ -887,6 +887,101 @@ a:hover {
   color: var(--text);
 }
 
+
+/* ===== HOME CARDS ROW: QUICK ACCESS + UPCOMING EVENTS ===== */
+
+.home-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.6fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  align-items: flex-start;
+}
+
+/* Upcoming events card specifics */
+
+.events-card .card-body {
+  padding-top: 0.75rem;
+}
+
+/* Vertical ticker container */
+.events-ticker {
+  position: relative;
+  height: 220px;            /* controls visible area height */
+  overflow: hidden;
+  padding: 0.25rem 0;
+}
+
+/* The track that moves from bottom to top */
+.events-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: events-scroll-up 18s linear infinite;
+}
+
+/* Pause scrolling when hovering over the ticker area */
+.events-ticker:hover .events-track {
+  animation-play-state: paused;
+}
+
+/* Individual event styling */
+.event-item {
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.75rem;
+  background: var(--card-bg, rgba(15, 23, 42, 0.02));
+  border: 1px solid var(--border-subtle, rgba(15, 23, 42, 0.06));
+  box-shadow: var(--shadow-soft, 0 4px 10px rgba(15, 23, 42, 0.06));
+}
+
+[data-theme="dark"] .event-item {
+  background: var(--card-bg-dark, rgba(15, 23, 42, 0.6));
+  border-color: var(--border-subtle-dark, rgba(148, 163, 184, 0.4));
+}
+
+/* Event text */
+.event-date {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+  margin-bottom: 0.12rem;
+}
+
+.event-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.event-location {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+/* Scroll animation: items start below and move upward */
+@keyframes events-scroll-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Responsive: stack cards on small screens */
+@media (max-width: 900px) {
+  .home-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .events-ticker {
+    height: 210px; /* slight tweak for mobile */
+  }
+}
+
+
 .two-col {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
