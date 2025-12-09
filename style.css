@@ -72,6 +72,36 @@
   border-color: rgba(55, 65, 81, 0.9);
 }
 
+/* ======================================================
+   DARK MODE — hero card lighter background
+   ====================================================== */
+[data-theme="dark"] .hero-card {
+  background: radial-gradient(circle at top left, #162231 0%, #0d1624 60%, #0a1120 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* Make title pop slightly more */
+[data-theme="dark"] .hero-card .hero-title {
+  color: #e9edf5; /* soft white */
+}
+
+/* Make subtitle less grey and more readable */
+[data-theme="dark"] .hero-card .hero-subtitle {
+  color: #cdd8e6;
+}
+
+/* Slightly lighten the hero-topline text */
+[data-theme="dark"] .hero-card .hero-topline {
+  color: #becad8;
+}
+
+/* Optional: muted icon tone */
+[data-theme="dark"] .hero-card .hero-topline i {
+  color: #90caf9;
+}
+
+
 /* Make secondary button darker in dark mode */
 [data-theme="dark"] .pill-button.secondary {
   background: rgba(15, 23, 42, 0.8);
