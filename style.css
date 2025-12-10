@@ -837,6 +837,210 @@ a:hover {
   gap: 6px;
 }
 
+/* ========= HERO CARD DECORATION ========= */
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  padding: 2rem 2.25rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 55%),
+              radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.16), transparent 55%),
+              #f9fafb;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+}
+
+[data-theme="dark"] .hero-card {
+  border-color: rgba(148, 163, 184, 0.4);
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.45), transparent 55%),
+              radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.40), transparent 55%),
+              rgba(15, 23, 42, 0.96);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtle math overlay in the background */
+.hero-card::before {
+  content: "∑ 𝒪_{\u2119^n}(-D) \u2192 I^{(m)} \u2286 I^{r} ";
+  position: absolute;
+  right: -15%;
+  bottom: -8%;
+  font-size: clamp(2.6rem, 7vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.06;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: rotate(-8deg);
+}
+
+[data-theme="dark"] .hero-card::before {
+  opacity: 0.11;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Topline already exists, just refine slightly if you like */
+.hero-topline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.9;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="dark"] .hero-topline {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+/* Highlight row under topline */
+
+.hero-highlight-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-highlight-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(37, 99, 235, 0.09);
+  color: #1e293b;
+}
+
+.hero-highlight-pill i {
+  font-size: 0.8rem;
+}
+
+.hero-highlight-pill-outline {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  color: inherit;
+}
+
+[data-theme="dark"] .hero-highlight-pill {
+  background: rgba(59, 130, 246, 0.18);
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .hero-highlight-pill-outline {
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+/* Title + subtitle refinements */
+
+.hero-title {
+  margin-top: 0.75rem;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  max-width: 46rem;
+  line-height: 1.6;
+}
+
+/* Moving research chips strip (bringing back the moving chip idea) */
+
+.hero-chip-strip-wrapper {
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 0.4rem 0;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.hero-chip-strip {
+  display: inline-flex;
+  gap: 0.5rem;
+  white-space: nowrap;
+  animation: hero-chip-scroll 22s linear infinite;
+}
+
+/* Pause chips on hover so users can actually read them */
+.hero-chip-strip-wrapper:hover .hero-chip-strip {
+  animation-play-state: paused;
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.16rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  border: 1px dashed rgba(148, 163, 184, 0.8);
+  backdrop-filter: blur(4px);
+  background: rgba(248, 250, 252, 0.8);
+}
+
+[data-theme="dark"] .hero-chip {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(148, 163, 184, 0.65);
+}
+
+/* Horizontal scrolling animation */
+@keyframes hero-chip-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Ensure hero actions/meta breathe nicely with new layout */
+
+.hero-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-meta {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  font-size: 0.85rem;
+  opacity: 0.95;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero-card {
+    padding: 1.4rem 1.3rem;
+  }
+
+  .hero-card::before {
+    right: -30%;
+    bottom: -12%;
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
+  .hero-meta {
+    flex-direction: column;
+  }
+}
+
+
 /* Generic cards */
 .card {
   background: rgba(255, 255, 255, 0.9);
