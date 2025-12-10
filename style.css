@@ -1250,3 +1250,52 @@ a:hover {
     padding: 18px 16px 14px;
   }
 }
+
+
+/* ===========================
+   Neon Highlight (Non-Link)
+   =========================== */
+
+.neon-highlight {
+  font-weight: 700;
+  color: #ff4da6;
+  text-shadow: 
+    0 0 4px rgba(255, 77, 166, 0.7),
+    0 0 8px rgba(255, 77, 166, 0.5);
+  letter-spacing: 0.5px;
+}
+
+[data-theme="dark"] .neon-highlight {
+  color: #ff80c8;
+  text-shadow: 
+    0 0 6px rgba(255, 128, 200, 0.9),
+    0 0 12px rgba(255, 128, 200, 0.7);
+}
+
+/* ===========================
+   Neon Highlight URL (Link)
+   =========================== */
+
+.neon-highlighturl {
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #1d4ed8;
+  text-decoration: none;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+  transition: 0.25s ease-in-out;
+}
+
+[data-theme="dark"] .neon-highlighturl {
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 10px rgba(147, 197, 253, 0.8);
+}
+
+.neon-highlighturl:hover {
+  background: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
+  transform: translateY(-1px);
+}
+
