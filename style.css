@@ -1252,33 +1252,36 @@ a:hover {
 }
 
 
-/* Clean minimal highlight (non-link) */
-.neon-highlight {
+/* Soft white highlight (light mode) */
+.highlight {
   font-weight: 700;
-  color: #0f766e; /* teal-700 (clean + readable) */
+  color: #1f2937; /* very dark gray like hero text */
+  background: rgba(255, 255, 255, 0.7); /* soft white */
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
-[data-theme="dark"] .neon-highlight {
-  color: #5eead4; /* teal-300 in dark mode */
+/* Dark mode uses colored highlight for visibility */
+[data-theme="dark"] .highlight {
+  color: #6ee7b7; /* emerald-300 */
+  background: rgba(255, 255, 255, 0.12);
 }
 
-/* Clean highlighted URL (link) */
-.neon-highlighturl {
+
+
+/* Soft white highlighted URL */
+.highlighturl {
   font-weight: 700;
-  color: #1d4ed8; /* blue-700: standard academic link */
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #1f2937; /* hero-style dark gray */
+  background: rgba(255, 255, 255, 0.75); /* soft white */
+  border: 1px solid rgba(209, 213, 219, 0.6); /* subtle gray */
 }
 
-.neon-highlighturl:hover {
-  color: #1e40af; /* darker blue on hover */
+.highlighturl:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(156, 163, 175, 0.9);
 }
 
-[data-theme="dark"] .neon-highlighturl {
-  color: #93c5fd; /* blue-300 (readable in dark) */
-}
-
-[data-theme="dark"] .neon-highlighturl:hover {
-  color: #bfdbfe; /* blue-200 */
-}
