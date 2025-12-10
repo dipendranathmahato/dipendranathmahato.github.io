@@ -892,7 +892,7 @@ a:hover {
 
 .home-cards {
   display: grid;
-  grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.4fr);
   gap: 1.5rem;
   margin-top: 1.5rem;
   align-items: flex-start;
