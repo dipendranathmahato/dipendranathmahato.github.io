@@ -1061,7 +1061,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  animation: events-scroll-up 18s linear infinite;
+  animation: events-scroll-up 10s linear infinite;
 }
 
 /* Pause scrolling when hovering over the ticker area */
