@@ -1292,16 +1292,15 @@ a:hover { text-decoration: underline; }
   color: #e5e7eb;
 }
 
-/* ===== Twemoji flags: force text-size behavior ===== */
+/* Twemoji emoji sizing (fallback) */
 img.emoji {
-  height: 1em;
-  width: 1em;
-  max-height: 1em;
-  max-width: 1em;
-
-  vertical-align: -0.15em; /* aligns nicely with text baseline */
-  margin: 0 0.1em;
-
-  display: inline-block;
+  width: 1em !important;
+  height: 1em !important;
+  max-width: 1em !important;
+  max-height: 1em !important;
+  vertical-align: -0.15em !important;
+  margin: 0 0.1em !important;
+  display: inline-block !important;
 }
+
 
