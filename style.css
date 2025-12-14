@@ -1457,3 +1457,71 @@ img.emoji {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* Divider inside a card */
+.soft-divider{
+  border: 0;
+  height: 1px;
+  margin: 14px 0;
+  background: rgba(148, 163, 184, 0.35);
+}
+[data-theme="dark"] .soft-divider{
+  background: rgba(148, 163, 184, 0.18);
+}
+
+/* Use the SAME two-col grid, but allow our chips to look like chips */
+.academic-family .advisor-chip,
+.academic-family .siblings-chip{
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.62);
+  padding: 12px;
+}
+
+[data-theme="dark"] .academic-family .advisor-chip,
+[data-theme="dark"] .academic-family .siblings-chip{
+  background: rgba(15, 23, 42, 0.42);
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+/* Smaller advisor photo on desktop */
+.advisor-photo{
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+/* Siblings grid */
+.siblings-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+@media (min-width: 980px){
+  .siblings-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Initial circles for ALL siblings */
+.sib-photo.sib-fallback{
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: rgba(15, 23, 42, 0.78);
+  background: linear-gradient(135deg, rgba(148,163,184,0.35), rgba(203,213,225,0.55));
+  border: 1px solid rgba(148, 163, 184, 0.45);
+}
+[data-theme="dark"] .sib-photo.sib-fallback{
+  color: rgba(229,231,235,0.95);
+  background: linear-gradient(135deg, rgba(148,163,184,0.18), rgba(203,213,225,0.12));
+  border-color: rgba(148,163,184,0.22);
+}
+
