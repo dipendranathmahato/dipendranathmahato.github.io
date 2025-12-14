@@ -1281,22 +1281,57 @@ a:hover {
 }
 
 /* Soft fade-in for hero quote chip */
+/* Soft fade-in for hero quote chip (with safe fallbacks) */
 .fade-in-quote {
-  opacity: 0;
-  transform: translateY(8px);
-  animation: fadeInUp 1.2s ease-out forwards;
-  animation-delay: 0.4s;
+  opacity: 1;                 /* fallback: visible even if animation fails */
+  transform: translateY(0);
+  animation: fadeInUp 1.1s ease-out both;
+  animation-delay: 0.35s;
 }
 
+/* Start state handled by keyframes */
 @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.highlighturl:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: rgba(156, 163, 175, 0.9);
+/* If user prefers reduced motion, always show it */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-quote {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
+/* ===== Make the quote chip readable in LIGHT mode ===== */
+[data-theme="light"] .fade-in-quote {
+  color: #111827; /* dark text */
+}
+
+[data-theme="light"] .fade-in-quote .quote-chip-label {
+  background: rgba(15, 23, 42, 0.06);
+  color: #111827;
+}
+
+[data-theme="light"] .fade-in-quote .quote-chip-box {
+  background: rgba(15, 23, 42, 0.04);
+  color: #111827;
+}
+
+/* ===== Keep your DARK mode look ===== */
+[data-theme="dark"] .fade-in-quote .quote-chip-label {
+  background: rgba(255, 255, 255, 0.12);
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .fade-in-quote .quote-chip-box {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e5e7eb;
+}
