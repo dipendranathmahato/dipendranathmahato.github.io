@@ -1332,13 +1332,23 @@ img.emoji {
   align-items:center;
 }
 
-.advisor-photo{
-  width: 66px;
-  height: 66px;
-  border-radius: 16px;
+/* Advisor photo – refined sizing */
+.advisor-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   object-fit: cover;
   border: 1px solid rgba(148, 163, 184, 0.35);
 }
+
+/* Slightly larger on mobile for touch friendliness */
+@media (max-width: 900px) {
+  .advisor-photo {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 
 .advisor-role{
   font-size: 0.74rem;
