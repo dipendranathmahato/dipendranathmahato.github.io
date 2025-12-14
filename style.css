@@ -263,6 +263,12 @@ html[data-theme="light"] .hero-card .hero-timeline-horizontal::before {
   color: var(--muted);
 }
 
+/* Prevent the Education timeline dot from affecting the Hero timeline */
+.hero-timeline-horizontal .timeline-item::before {
+  content: none !important;
+}
+
+
 /* Theme toggle specific style (optional subtle tweak) */
 .theme-toggle i {
   font-size: 0.9rem;
