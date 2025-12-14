@@ -268,6 +268,30 @@ html[data-theme="light"] .hero-card .hero-timeline-horizontal::before {
   content: none !important;
 }
 
+/* ===== HERO TIMELINE DOT COLORS ===== */
+
+/* Inactive dots: past locations */
+.hero-timeline-horizontal .timeline-dot {
+  background: rgba(148, 163, 184, 0.55); /* slate-400 like */
+}
+
+/* Active dot: current location */
+.hero-timeline-horizontal .timeline-dot.active {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.25);
+}
+
+/* Dark mode: slightly brighter inactive dots */
+html[data-theme="dark"] .hero-timeline-horizontal .timeline-dot {
+  background: rgba(203, 213, 225, 0.45); /* light slate */
+}
+
+/* Light mode: slightly darker inactive dots */
+html[data-theme="light"] .hero-timeline-horizontal .timeline-dot {
+  background: rgba(71, 85, 105, 0.35);
+}
+
+
 
 /* Theme toggle specific style (optional subtle tweak) */
 .theme-toggle i {
