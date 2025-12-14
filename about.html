@@ -28,17 +28,23 @@
     </head>
     
     <!-- Twemoji for consistent flag rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"
-            crossorigin="anonymous"></script>
-    
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        twemoji.parse(document.body, {
-          folder: "svg",
-          ext: ".svg"
-        });
-      });
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"
+        crossorigin="anonymous"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    twemoji.parse(document.body, {
+      folder: "svg",
+      ext: ".svg",
+      attributes: function () {
+        return {
+          style: "width:1em;height:1em;max-width:1em;max-height:1em;vertical-align:-0.15em;margin:0 0.1em;display:inline-block;"
+        };
+      }
+    });
+  });
+</script>
+
 
   
 <body>
