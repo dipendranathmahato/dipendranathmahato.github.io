@@ -1525,3 +1525,67 @@ img.emoji {
   border-color: rgba(148,163,184,0.22);
 }
 
+/* =========================
+   Research card: split headings + spacing
+   ========================= */
+.card-body h3 {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* subtle underline accent under section headings */
+.card-body h3::after {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 34px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(37,99,235,0.55), rgba(34,197,94,0.55));
+  opacity: 0.65;
+  transform: translateY(1px);
+}
+
+/* Make paragraphs slightly tighter in that research split */
+#research .card-body p {
+  margin: 0 0 10px;
+  line-height: 1.55;
+}
+
+/* Keep the last paragraph from adding extra space */
+#research .card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Make the left bullet list feel cleaner */
+#research .list-tight li {
+  margin-bottom: 8px;
+}
+
+/* Right-side timeline: slightly softer line + dot in light mode */
+#research .timeline {
+  border-left: 1px solid rgba(148, 163, 184, 0.45);
+}
+#research .timeline-item::before {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(37, 99, 235, 0.85);
+}
+
+/* Dark mode: ensure heading is readable, underline a bit brighter */
+[data-theme="dark"] .card-body h3 {
+  color: rgba(203, 213, 225, 0.9);
+}
+[data-theme="dark"] .card-body h3::after {
+  opacity: 0.85;
+}
+
+/* Optional: make the "Full Research Page" button sit nicely */
+#research .pill-button.secondary {
+  margin-top: 6px;
+}
