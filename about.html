@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
   <title>Home | Dipendranath Mahato</title>
@@ -24,29 +23,22 @@
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <!-- Site CSS -->
-      <link rel="stylesheet" href="style.css" />
-    </head>
-    
-    <!-- Twemoji for consistent flag rendering -->
-<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"
-        crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    twemoji.parse(document.body, {
-      folder: "svg",
-      ext: ".svg",
-      attributes: function () {
-        return {
-          style: "width:1em;height:1em;max-width:1em;max-height:1em;vertical-align:-0.15em;margin:0 0.1em;display:inline-block;"
-        };
-      }
-    });
-  });
-</script>
+  <!-- Local-only small tweak: hero subtitle advisor link slightly whiter -->
+  <style>
+    .hero-card .hero-subtitle a {
+      color: rgba(229, 231, 235, 0.92);
+      font-weight: 600;
+      text-decoration-color: rgba(229, 231, 235, 0.45);
+    }
+    .hero-card .hero-subtitle a:hover {
+      color: #ffffff;
+      text-decoration-color: rgba(255, 255, 255, 0.75);
+    }
+  </style>
+</head>
 
-
-  
 <body>
   <div class="page">
     <!-- ================= HEADER / NAV ================= -->
@@ -66,40 +58,38 @@
       </button>
 
       <nav class="top-nav-links">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="teaching.html">Teaching</a>
-  <a href="presentations.html">Presentations</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="presentations.html">Presentations</a>
 
-  <!-- Single dropdown (desktop), will flatten on mobile via CSS -->
-  <div class="dropdown">
-    <button class="dropbtn">
-      More <i class="fa-solid fa-chevron-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="outreach & services.html">Outreach &amp; Services</a>
-      <a href="blogs.html">Blogs</a>
-      <a href="resources.html">Resources</a>
-    </div>
-  </div>
-</nav>
-
+        <!-- Single dropdown (desktop), will flatten on mobile via CSS -->
+        <div class="dropdown">
+          <button class="dropbtn">
+            More <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="outreach & services.html">Outreach &amp; Services</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="resources.html">Resources</a>
+          </div>
+        </div>
+      </nav>
 
       <div class="controls">
-  <!-- Dark mode toggle button -->
-  <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
-    <i class="fa-solid fa-moon"></i>
-    <span>Dark</span>
-  </button>
+        <!-- Dark mode toggle button -->
+        <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+          <span>Dark</span>
+        </button>
 
-  <!-- CV button (add cv-button class so we can hide it on small screens if needed) -->
-  <a href="cv.html" class="pill-button primary cv-button">
-    <i class="fa-solid fa-file-lines"></i>
-    <span>CV</span>
-  </a>
-</div>
-
+        <!-- CV button -->
+        <a href="cv.html" class="pill-button primary cv-button">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>CV</span>
+        </a>
+      </div>
     </header>
 
     <!-- ================= LAYOUT ================= -->
@@ -123,21 +113,17 @@
 
         <!-- Research area padded block -->
         <div class="research-area-block">
-        
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
             <span>Research Areas</span>
           </div>
-        
+
           <div class="research-chips">
             <a href="research.html#commutative" class="chip">Commutative Algebra</a>
             <a href="research.html#algebraic-geometry" class="chip">Algebraic Geometry</a>
             <a href="research.html#combinatorial" class="chip">Combinatorial Algebra</a>
           </div>
-        
         </div>
-
-
 
         <div class="sidebar-section">
           <h3>Contact</h3>
@@ -203,49 +189,48 @@
               <i class="fa-solid fa-user-graduate"></i>
               <span>Mathematician · First-Generation Scholar</span>
             </div>
+
             <h3 class="hero-title">
               My Math Journey:<br>
               🇮🇳 Kolkata 🇮🇳 &nbsp;→&nbsp; 🇮🇳 Tezpur 🇮🇳 &nbsp;→&nbsp; 🇺🇸 New Orleans 🇺🇸
             </h3>
 
-            
-
-            <!--------------- Journey Timeline (Horizontal) -------------------->
-              <div class="hero-timeline hero-timeline-horizontal">
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <span class="timeline-year">1995–2018</span>
-                    <span class="timeline-place">
-                      <i class="fa-solid fa-map-marker-line"></i> Kolkata, India
-                    </span>
-                  </div>
-                </div>
-              
-                <div class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-content">
-                    <span class="timeline-year">2018–2021</span>
-                    <span class="timeline-place">
-                      <i class="fa-solid fa-map-marker-line"></i> Tezpur, Assam
-                    </span>
-                  </div>
-                </div>
-              
-                <div class="timeline-item">
-                  <div class="timeline-dot active"></div>
-                  <div class="timeline-content">
-                    <span class="timeline-year">2021–Present</span>
-                    <span class="timeline-place">
-                      <i class="fa-solid fa-map-marker-line"></i> New Orleans, USA
-                    </span>
-                  </div>
+            <!-- Journey Timeline (Horizontal) -->
+            <div class="hero-timeline hero-timeline-horizontal">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">1995–2018</span>
+                  <span class="timeline-place">
+                    <i class="fa-solid fa-map-marker-line"></i> Kolkata, India
+                  </span>
                 </div>
               </div>
 
-            
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2018–2021</span>
+                  <span class="timeline-place">
+                    <i class="fa-solid fa-map-marker-line"></i> Tezpur, Assam
+                  </span>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot active"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">2021–Present</span>
+                  <span class="timeline-place">
+                    <i class="fa-solid fa-map-marker-line"></i> New Orleans, USA
+                  </span>
+                </div>
+              </div>
+            </div>
+
             <p class="hero-subtitle">
-              I am a Ph.D. candidate in Mathematics at Tulane University, working with <a href="https://www.math.tulane.edu/~tai/"><font color=#ffffff">Prof. Tài Huy Hà</font></a>.
+              I am a Ph.D. candidate in Mathematics at Tulane University, working with
+              <a href="https://www.math.tulane.edu/~tai/" target="_blank" rel="noopener">Prof. Tài Huy Hà</a>.
               My path runs through Dinabandhu Andrews College (University of Calcutta) and Tezpur University,
               and it is shaped by a long-standing fascination with algebra, geometry, and teaching.
             </p>
@@ -281,25 +266,25 @@
                   Since Fall 2021, I have been a doctoral student at Tulane University. My research lives at
                   the intersection of commutative algebra and algebraic geometry, focusing on interpolation
                   problems, symbolic powers of ideals, and asymptotic invariants attached to configurations
-                  of points in projective spaces, polyderal descriptions, valuative description, and etc.
+                  of points in projective spaces, polyhedral descriptions, valuative description, and etc.
                 </p>
               </div>
-          
+
               <div>
                 <h3>Education</h3>
                 <ul class="timeline">
                   <li class="timeline-item">
                     <div class="timeline-title">Ph.D. in Mathematics</div>
                     <div class="timeline-meta">
-                      Tulane University · 2021–present<br> Advisor:
-                      <a href="https://www.math.tulane.edu/~tai/">Prof. Tài Huy Hà</a>
+                      Tulane University · 2021–present<br>
+                      Advisor: <a href="https://www.math.tulane.edu/~tai/" target="_blank" rel="noopener">Prof. Tài Huy Hà</a>
                     </div>
                   </li>
                   <li class="timeline-item">
                     <div class="timeline-title">M.Sc. in Mathematical Sciences</div>
                     <div class="timeline-meta">
-                      Tezpur University, India · 2018–2020 <br> Advisor:
-                      <a href="http://www.tezu.ernet.in/dmaths/">Prof. Dhiren Kumar Basnet</a>
+                      Tezpur University, India · 2018–2020<br>
+                      Advisor: <a href="http://www.tezu.ernet.in/dmaths/" target="_blank" rel="noopener">Prof. Dhiren Kumar Basnet</a>
                     </div>
                   </li>
                   <li class="timeline-item">
@@ -311,213 +296,210 @@
                 </ul>
               </div>
             </div>
-          
+
             <!-- Full-width row below both columns -->
             <h3 style="margin-top:14px;">Beyond math</h3>
             <p style="font-size:0.9rem;">
               Beyond research and teaching, I enjoy having informal conversations about mathematics with students from different backgrounds, especially those who are just beginning to explore the subject. I find that relaxed, curiosity-driven discussions often help make higher mathematics feel less intimidating and more accessible.<br><br>
               I also enjoy mentoring early-career students and supporting them as they build confidence, mathematical maturity, and a sense of direction. Outside the classroom, I love organizing activities, events, and collaborative spaces that bring people together and enrich the academic community. I am particularly drawn to community-building and outreach efforts that emphasize shared learning, inclusivity, and the human side of mathematics.
             </p>
-          </div>
 
-          <hr class="soft-divider">
+            <hr class="soft-divider">
 
-          <div class="card-header">
-            <div>
-              <span class="card-title">
-                <i class="fa-solid fa-people-group"></i> Advisor & Math Siblings
-              </span>
-              <div class="card-subtitle">
-                My academic family tree (advisor + siblings).
+            <!-- Advisor & Siblings header -->
+            <div class="card-header" style="margin-top:2px;">
+              <div>
+                <span class="card-title">
+                  <i class="fa-solid fa-people-group"></i> Advisor &amp; Math Siblings
+                </span>
+                <div class="card-subtitle">
+                  My academic family tree (advisor + siblings).
+                </div>
               </div>
+              <span class="pill-label">ACADEMIC FAMILY</span>
             </div>
-            <span class="pill-label">ACADEMIC FAMILY</span>
-          </div>
-        
-          
-          <div class="academic-family two-col">
-            <!-- Left column aligns with Background -->
-            <div class="advisor-chip">
-              <div class="advisor-top">
-                <img class="advisor-photo"
-                     src="https://www.math.tulane.edu/~tai/Tai2022.jpg"
-                     alt="Prof. Tài Huy Hà"
-                     loading="lazy" />
-                <div class="advisor-text">
-                  <div class="advisor-role">Ph.D. Advisor</div>
-                  <a class="advisor-name" href="https://www.math.tulane.edu/~tai/" target="_blank" rel="noopener">
-                    Prof. Tài Huy Hà
+
+            <!-- Advisor + Siblings aligned to Short Biography columns -->
+            <div class="academic-family two-col" style="margin-top:10px;">
+              <!-- Left column (Background width) -->
+              <div class="advisor-chip">
+                <div class="advisor-top">
+                  <img class="advisor-photo"
+                       src="https://www.math.tulane.edu/~tai/Tai2022.jpg"
+                       alt="Prof. Tài Huy Hà"
+                       loading="lazy" />
+                  <div class="advisor-text">
+                    <div class="advisor-role">Ph.D. Advisor</div>
+                    <a class="advisor-name" href="https://www.math.tulane.edu/~tai/" target="_blank" rel="noopener">
+                      Prof. Tài Huy Hà
+                    </a>
+                    <div class="advisor-meta">Tulane University</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right column (Education width) -->
+              <div class="siblings-chip">
+                <div class="siblings-title">
+                  <i class="fa-solid fa-diagram-project"></i>
+                  <span>Math Siblings</span>
+                </div>
+
+                <div class="siblings-grid">
+                  <a class="sib" href="https://www.conncoll.edu/directories/faculty-profiles/augustine-okeefe/" target="_blank" rel="noopener">
+                    <div class="sib-photo sib-fallback">AO</div>
+                    <span class="sib-name">Augustine B. “Tina” O&#39;Keefe</span>
                   </a>
-                  <div class="advisor-meta">Tulane University</div>
+
+                  <a class="sib" href="#" onclick="return false;">
+                    <div class="sib-photo sib-fallback">MS</div>
+                    <span class="sib-name">Mengyao Sun</span>
+                  </a>
+
+                  <a class="sib" href="https://www.selvikara.com" target="_blank" rel="noopener">
+                    <div class="sib-photo sib-fallback">SK</div>
+                    <span class="sib-name">Selvi Kara</span>
+                  </a>
+
+                  <a class="sib" href="https://www.jonathanorourke.com" target="_blank" rel="noopener">
+                    <div class="sib-photo sib-fallback">JO</div>
+                    <span class="sib-name">Jonathan O&#39;Rourke</span>
+                  </a>
+
+                  <a class="sib" href="https://www.abuthomas.com" target="_blank" rel="noopener">
+                    <div class="sib-photo sib-fallback">AT</div>
+                    <span class="sib-name">Abu C. Thomas</span>
+                  </a>
+
+                  <a class="sib" href="https://sites.google.com/view/sankhaneelbisui/home" target="_blank" rel="noopener">
+                    <div class="sib-photo sib-fallback">SB</div>
+                    <span class="sib-name">Sankhaneel Bisui</span>
+                  </a>
+
+                  <a class="sib" href="https://sites.google.com/view/joseph-skelton" target="_blank" rel="noopener">
+                    <div class="sib-photo sib-fallback">JS</div>
+                    <span class="sib-name">Joseph Skelton</span>
+                  </a>
+
+                  <a class="sib" href="https://sites.google.com/view/thainguyenmath/home" target="_blank" rel="noopener">
+                    <div class="sib-photo sib-fallback">TN</div>
+                    <span class="sib-name">Thanh Thai Nguyen</span>
+                  </a>
+
+                  <a class="sib" href="https://anhvinhpham.com/" target="_blank" rel="noopener">
+                    <div class="sib-photo sib-fallback">AP</div>
+                    <span class="sib-name">Anh Vinh Pham</span>
+                  </a>
+
+                  <a class="sib" href="https://sites.google.com/view/haoxi-hu/" target="_blank" rel="noopener">
+                    <div class="sib-photo sib-fallback">HH</div>
+                    <span class="sib-name">Haoxi Hu</span>
+                  </a>
                 </div>
               </div>
             </div>
-
-            <!-- Math siblings -->
-            <div class="siblings-chip">
-              <div class="siblings-title">
-                <i class="fa-solid fa-diagram-project"></i>
-                <span>Math Siblings</span>
-              </div>
-          
-            <!-- Right column aligns with Education -->
-            <div class="siblings-grid">
-                <!-- 1 -->
-                <a class="sib" href="https://www.conncoll.edu/directories/faculty-profiles/augustine-okeefe/" target="_blank" rel="noopener">
-                  <img class="sib-photo" src="https://www.conncoll.edu/media/website-media/faculty/okeefe.jpg" alt="Augustine B. “Tina” O'Keefe" loading="lazy">
-                  <span class="sib-name">Augustine B. “Tina” O&#39;Keefe</span>
-                </a>
-        
-                <!-- 2 (no reliable image on source page: keep placeholder) -->
-                <a class="sib" href="#" onclick="return false;">
-                  <div class="sib-photo sib-fallback">MS</div>
-                  <span class="sib-name">Mengyao Sun</span>
-                </a>
-        
-                <!-- 3 -->
-                <a class="sib" href="https://www.selvikara.com" target="_blank" rel="noopener">
-                  <img class="sib-photo" src="https://www.selvikara.com/images/Selvi_new.png" alt="Selvi Kara" loading="lazy">
-                  <span class="sib-name">Selvi Kara</span>
-                </a>
-        
-                <!-- 4 -->
-                <a class="sib" href="https://www.jonathanorourke.com" target="_blank" rel="noopener">
-                  <img class="sib-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP2bemKY9foWINpUvmIGELslklcK-_C_zt8LCSAjHvslOFc_sMvm74DBJeBgfUDeRN0Ei4sXIRu59qGzg-I9IZHqeEhpF3Kc2DfBMfFE2njUX-cjSgfnWrubGSF44EAVIOSwrCLznsbzw/s1600/thumbnail_IMG_1890.jpg" alt="Jonathan O'Rourke" loading="lazy">
-                  <span class="sib-name">Jonathan O&#39;Rourke</span>
-                </a>
-        
-                <!-- 5 -->
-                <a class="sib" href="https://www.abuthomas.com" target="_blank" rel="noopener">
-                  <img class="sib-photo" src="https://lh3.googleusercontent.com/sitesv/AAzXCkd3ItiE5W5ua0_RWl13D-zEcPjAXwMhbI9yRn6dednRP_dTgBinJ-6k4dVY_4Dc_xaCiO2dGFT_ImHTeoRXSC5zwWQsIywjnTS9bSMYGmj0lJpL4yB2N94SjMriVrXegAuQdrq5iAqDS2ITePqXkKAQ9PDYdnEz11cVMUHKFdcNDKUOHkM5yyWzPSaTs0jvbIj0Vv8briaatslLwtjA8i6RRrEHdFrBNMep=w1280" alt="Abu C. Thomas" loading="lazy">
-                  <span class="sib-name">Abu C. Thomas</span>
-                </a>
-        
-                <!-- 6 -->
-                <a class="sib" href="https://sites.google.com/view/sankhaneelbisui/home" target="_blank" rel="noopener">
-                  <img class="sib-photo" src="https://lh3.googleusercontent.com/sitesv/AAzXCkfLFP8ZyoBPjguQmaMQe0eTG6Yd0_MB7M05mevUMYOlIT_X-WklGnybZFmCsanirBzJ1MG6vFZTSJe4FqpWFdpq12XKJ9HsmHiXd2U8wQC-sC8T8Xk59E1NzM1zvMAo56n8yJzdp6gjpVN2qsROlqM-hSVz_9hKivOQnwIdgCuhYSn_mQioCs5EYezWiVznEJAvWJeJQfhRQo6M_7OX6Q-x8Ir0S4jLyH01Na0=w1280" alt="Sankhaneel Bisui" loading="lazy">
-                  <span class="sib-name">Sankhaneel Bisui</span>
-                </a>
-        
-                <!-- 7 -->
-                <a class="sib" href="https://sites.google.com/view/joseph-skelton" target="_blank" rel="noopener">
-                  <img class="sib-photo" src="https://lh3.googleusercontent.com/sitesv/AAzXCkeNXybnSd4wkEjOZulmeqZfGDAnt6Q5X8fELTW9P0rcVshFJ4LQ_OQD3a-PaG1kN4Y2j8x3lmBwXbKOVW5-aJNpF54ciGSxNBC4EEyGsPnQuRupOS6IwctnF5xGnnNbpNy_-KgQ_ode5K8VzDMhROzMAXgqt9nWLm7OahIwE2ZOySPcWYInR0HEcU4EIwETd51EzHNXu6BViKw=w1280" alt="Joseph Skelton" loading="lazy">
-                  <span class="sib-name">Joseph Skelton</span>
-                </a>
-        
-                <!-- 8 -->
-                <a class="sib" href="https://sites.google.com/view/thainguyenmath/home" target="_blank" rel="noopener">
-                  <img class="sib-photo" src="https://udayton.edu/directory/artssciences/mathematics/images/nguyen-thanh-thai-2025.jpg" alt="Thanh Thai Nguyen" loading="lazy">
-                  <span class="sib-name">Thanh Thai Nguyen</span>
-                </a>
-        
-                <!-- 9 -->
-                <a class="sib" href="https://anhvinhpham.com/" target="_blank" rel="noopener">
-                  <img class="sib-photo" src="https://horizons-cdn.hostinger.com/c8b37ccb-2542-41f4-bdb5-0b0aa6328b0b/2a9c90e3bb69d64dd917bb0467f73fbb.jpg" alt="Anh Vinh Pham" loading="lazy">
-                  <span class="sib-name">Anh Vinh Pham</span>
-                </a>
-        
-                <!-- 10 (no reliable image on source page: keep fallback) -->
-                <a class="sib" href="https://sites.google.com/view/haoxi-hu/" target="_blank" rel="noopener">
-                  <div class="sib-photo sib-fallback">HH</div>
-                  <span class="sib-name">Haoxi Hu</span>
-                </a>
-              </div>
-            </div>
-          </div>
-            
-          </div>          
-        
-
-            <div class="footer">
-            © <span id="year"></span> Copyright @ Dipendranath Mahato —
-            Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
           </div>
         </section>
+
+        <!-- Footer (outside the card, like your base page) -->
+        <div class="footer">
+          © <span id="year"></span> Copyright @ Dipendranath Mahato —
+          Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+        </div>
       </section>
     </main>
   </div>
 
   <!-- ================= SCRIPTS ================= -->
   <script>
-  // ----- Footer year -----
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+    // ----- Footer year -----
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // ----- Mobile hamburger toggle -----
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks  = document.querySelector('.top-nav-links');
+    // ----- Mobile hamburger toggle -----
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks  = document.querySelector('.top-nav-links');
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
 
-    navLinks.addEventListener('click', (event) => {
-      if (event.target.tagName.toLowerCase() === 'a') {
-        navLinks.classList.remove('open');
+      navLinks.addEventListener('click', (event) => {
+        if (event.target.tagName.toLowerCase() === 'a') {
+          navLinks.classList.remove('open');
+        }
+      });
+    }
+
+    // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+    if (dropbtn) {
+      dropbtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropdown.classList.toggle('dropdown-open');
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('dropdown-open');
       }
     });
-  }
 
-  // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
-  const dropdown = document.querySelector('.dropdown');
-  const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+    // ----- DARK MODE TOGGLE -----
+    const root        = document.documentElement; // <html>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const THEME_KEY   = 'dm-theme';
 
-  if (dropbtn) {
-    dropbtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      dropdown.classList.toggle('dropdown-open');
-    });
-  }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
 
-  document.addEventListener('click', (event) => {
-    if (dropdown && !dropdown.contains(event.target)) {
-      dropdown.classList.remove('dropdown-open');
+      if (!themeToggle) return;
+      const icon  = themeToggle.querySelector('i');
+      const label = themeToggle.querySelector('span');
+
+      if (theme === 'dark') {
+        if (icon) icon.className = 'fa-solid fa-sun';
+        if (label) label.textContent = 'Light';
+      } else {
+        if (icon) icon.className = 'fa-solid fa-moon';
+        if (label) label.textContent = 'Dark';
+      }
     }
-  });
 
-  // ----- DARK MODE TOGGLE -----
-  const root        = document.documentElement; // <html>
-  const themeToggle = document.querySelector('.theme-toggle');
-  const THEME_KEY   = 'dm-theme';
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    const initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
+    applyTheme(initialTheme);
 
-  function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
-
-    if (!themeToggle) return;
-
-    const icon  = themeToggle.querySelector('i');
-    const label = themeToggle.querySelector('span');
-
-    if (theme === 'dark') {
-      if (icon) icon.className = 'fa-solid fa-sun';
-      if (label) label.textContent = 'Light';
-    } else {
-      if (icon) icon.className = 'fa-solid fa-moon';
-      if (label) label.textContent = 'Dark';
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next    = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+      });
     }
-  }
+  </script>
 
-  // Initial theme (from localStorage or default "light")
-  const savedTheme = localStorage.getItem(THEME_KEY);
-  const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
-    ? savedTheme
-    : 'light';
-
-  applyTheme(initialTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      const next    = current === 'dark' ? 'light' : 'dark';
-      localStorage.setItem(THEME_KEY, next);
-      applyTheme(next);
+  <!-- Twemoji for consistent flag rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"
+          crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      twemoji.parse(document.body, {
+        folder: "svg",
+        ext: ".svg",
+        attributes: function () {
+          return {
+            style: "width:1em;height:1em;max-width:1em;max-height:1em;vertical-align:-0.15em;margin:0 0.1em;display:inline-block;"
+          };
+        }
+      });
     });
-  }
-</script>
-
+  </script>
 </body>
 </html>
