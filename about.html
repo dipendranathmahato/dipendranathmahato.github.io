@@ -24,8 +24,23 @@
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <!-- Site CSS -->
-  <link rel="stylesheet" href="style.css" />
-</head>
+      <link rel="stylesheet" href="style.css" />
+    </head>
+    
+    <!-- Twemoji for consistent flag rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js"
+            crossorigin="anonymous"></script>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        twemoji.parse(document.body, {
+          folder: "svg",
+          ext: ".svg"
+        });
+      });
+    </script>
+
+  
 <body>
   <div class="page">
     <!-- ================= HEADER / NAV ================= -->
