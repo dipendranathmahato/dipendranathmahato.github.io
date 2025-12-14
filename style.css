@@ -102,20 +102,21 @@
 }
 
 
-/* ================= HERO TIMELINE (HORIZONTAL) ================= */
+/* ================= HERO TIMELINE ================= */
 
+/* ---------- DESKTOP (HORIZONTAL) ---------- */
 .hero-timeline-horizontal {
   position: relative;
   margin-top: 1.4rem;
-  padding-top: 0.75rem;  /* room for dots */
+  padding-top: 0.75rem;
   display: flex;
   gap: 1.4rem;
   align-items: flex-start;
   justify-content: space-between;
-  flex-wrap: wrap;       /* allows graceful wrap if space is tight */
+  flex-wrap: nowrap;
 }
 
-/* The horizontal line */
+/* Horizontal line */
 .hero-timeline-horizontal::before {
   content: "";
   position: absolute;
@@ -127,18 +128,17 @@
   background: rgba(120, 120, 120, 0.35);
 }
 
-/* Each stop */
+/* Timeline item */
 .hero-timeline-horizontal .timeline-item {
   position: relative;
-  flex: 1 1 180px;       /* responsive: grows but won’t shrink too tiny */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 0.55rem;
   padding-top: 0.15rem;
 }
 
-/* Dot aligns to the line */
+/* Dot */
 .hero-timeline-horizontal .timeline-dot {
   width: 10px;
   height: 10px;
@@ -146,7 +146,6 @@
   background: var(--border);
   position: relative;
   z-index: 1;
-  margin-top: 0.05rem;
 }
 
 .hero-timeline-horizontal .timeline-dot.active {
@@ -155,12 +154,6 @@
 }
 
 /* Text */
-.hero-timeline-horizontal .timeline-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
 .hero-timeline-horizontal .timeline-year {
   font-size: 0.85rem;
   font-weight: 650;
@@ -175,7 +168,7 @@
   align-items: center;
 }
 
-/* Icon styling */
+/* Icon */
 .hero-timeline-horizontal .timeline-place i {
   font-size: 0.85rem;
   margin-right: 6px;
@@ -184,40 +177,53 @@
   color: var(--text-muted);
 }
 
-/* Highlight current location icon */
+/* Highlight current */
 .hero-timeline-horizontal .timeline-dot.active + .timeline-content .timeline-place i {
   color: var(--accent);
 }
 
-/* ---------------- LIGHT MODE VISIBILITY FIXES ---------------- */
+/* Light mode visibility */
 html[data-theme="light"] .hero-timeline-horizontal::before {
-  background: rgba(40, 40, 40, 0.22); /* darker line for light mode */
+  background: rgba(40, 40, 40, 0.22);
 }
-
 html[data-theme="light"] .hero-timeline-horizontal .timeline-dot {
-  background: rgba(60, 60, 60, 0.28); /* visible dot even if --border is faint */
+  background: rgba(60, 60, 60, 0.28);
 }
 
-html[data-theme="light"] .hero-timeline-horizontal .timeline-year {
-  color: rgba(40, 40, 40, 0.65);      /* stronger than muted gray */
-}
+/* ---------- MOBILE (VERTICAL) ---------- */
+@media (max-width: 720px) {
 
-html[data-theme="light"] .hero-timeline-horizontal .timeline-place i {
-  color: rgba(40, 40, 40, 0.55);      /* visible marker-line icon */
-}
-
-/* ---------------- DARK MODE REFINEMENT ---------------- */
-html[data-theme="dark"] .hero-timeline-horizontal::before {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-/* ---------------- MOBILE: STACK NICELY ---------------- */
-@media (max-width: 640px) {
   .hero-timeline-horizontal {
-    gap: 1.1rem;
+    padding-left: 1.2rem;
+    padding-top: 0;
+    flex-direction: column;
+    gap: 0.9rem;
   }
+
+  /* Vertical line */
   .hero-timeline-horizontal::before {
-    top: 1.0rem;
+    left: 4px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: auto;
+  }
+
+  .hero-timeline-horizontal .timeline-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .hero-timeline-horizontal .timeline-dot {
+    margin-top: 0.35rem;
+  }
+
+  .hero-timeline-horizontal .timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
   }
 }
 
