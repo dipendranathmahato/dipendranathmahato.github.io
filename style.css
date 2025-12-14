@@ -1485,3 +1485,27 @@ a:hover {
   background: rgba(255, 255, 255, 0.08);
   color: #e5e7eb;
 }
+
+
+
+/* ===== Timeline: LIGHT MODE VISIBILITY HARD FIX ===== */
+html[data-theme="light"] .hero-card .hero-timeline-horizontal .timeline-year {
+  color: rgba(15, 23, 42, 0.78);   /* slate-ish, very readable */
+}
+
+html[data-theme="light"] .hero-card .hero-timeline-horizontal .timeline-place {
+  color: rgba(15, 23, 42, 0.92);   /* near-black, crisp */
+}
+
+html[data-theme="light"] .hero-card .hero-timeline-horizontal .timeline-place i {
+  color: rgba(15, 23, 42, 0.65);   /* visible icon */
+}
+
+/* Optional: slightly bolder in light mode for clarity */
+html[data-theme="light"] .hero-card .hero-timeline-horizontal .timeline-year {
+  font-weight: 700;
+}
+
+html[data-theme="light"] .hero-card .hero-timeline-horizontal .timeline-place {
+  font-weight: 600;
+}
