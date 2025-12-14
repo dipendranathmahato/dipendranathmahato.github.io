@@ -102,6 +102,95 @@
 }
 
 
+/* ================= HERO TIMELINE ================= */
+
+.hero-timeline {
+  position: relative;
+  margin-top: 1.4rem;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.hero-timeline .timeline-line {
+  position: absolute;
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    rgba(127, 127, 127, 0.3)
+  );
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+}
+
+.timeline-dot.active {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(100, 150, 255, 0.15);
+}
+
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-year {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.timeline-place {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+}
+
+/* =========Map-marker-line icon styling========== */
+.timeline-place i {
+  font-size: 0.85rem;
+  margin-right: 6px;
+  color: var(--text-muted);
+  opacity: 0.9;
+  transform: translateY(1px);
+}
+
+/* Highlight current location icon */
+.timeline-dot.active + .timeline-content .timeline-place i {
+  color: var(--accent);
+}
+
+/* Dark mode refinement */
+html[data-theme="dark"] .hero-timeline .timeline-line {
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    rgba(255, 255, 255, 0.2)
+  );
+}
+
+
+
 /* Make secondary button darker in dark mode */
 [data-theme="dark"] .pill-button.secondary {
   background: rgba(15, 23, 42, 0.8);
