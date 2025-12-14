@@ -1280,6 +1280,21 @@ a:hover {
   border: 1px solid rgba(209, 213, 219, 0.6); /* subtle gray */
 }
 
+/* Soft fade-in for hero quote chip */
+.fade-in-quote {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp 1.2s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .highlighturl:hover {
   background: rgba(255, 255, 255, 1);
   border-color: rgba(156, 163, 175, 0.9);
