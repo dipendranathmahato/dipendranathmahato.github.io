@@ -1292,10 +1292,16 @@ a:hover { text-decoration: underline; }
   color: #e5e7eb;
 }
 
-/* Twemoji flags styling */
+/* ===== Twemoji flags: force text-size behavior ===== */
 img.emoji {
   height: 1em;
   width: 1em;
-  margin: 0 0.08em;
-  vertical-align: -0.12em;
+  max-height: 1em;
+  max-width: 1em;
+
+  vertical-align: -0.15em; /* aligns nicely with text baseline */
+  margin: 0 0.1em;
+
+  display: inline-block;
 }
+
