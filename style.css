@@ -1304,3 +1304,146 @@ img.emoji {
 }
 
 
+/* ===== Advisor & Math Siblings block ===== */
+.academic-family{
+  display:grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.95fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.advisor-chip,
+.siblings-chip{
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 12px 12px;
+}
+
+[data-theme="dark"] .advisor-chip,
+[data-theme="dark"] .siblings-chip{
+  background: rgba(15, 23, 42, 0.55);
+  border-color: rgba(148, 163, 184, 0.22);
+}
+
+.advisor-top{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+}
+
+.advisor-photo{
+  width: 66px;
+  height: 66px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.advisor-role{
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.advisor-name{
+  display:inline-block;
+  font-size: 1.02rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+}
+
+[data-theme="dark"] .advisor-name{ color: #e9edf5; }
+
+.advisor-meta{
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.siblings-title{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.siblings-title i{
+  color: var(--accent);
+}
+
+.siblings-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 980px){
+  .siblings-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.sib{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  text-decoration:none;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.02);
+}
+
+[data-theme="dark"] .sib{
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+.sib:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.sib-photo{
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  object-fit: cover;
+  flex: 0 0 auto;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.sib-fallback{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: rgba(15, 23, 42, 0.75);
+  background: rgba(148, 163, 184, 0.25);
+}
+
+[data-theme="dark"] .sib-fallback{
+  color: rgba(229, 231, 235, 0.9);
+  background: rgba(148, 163, 184, 0.18);
+}
+
+.sib-name{
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .sib-name{ color: #e5e7eb; }
+
+/* Responsive: stack advisor above siblings */
+@media (max-width: 900px){
+  .academic-family{
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
