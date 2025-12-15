@@ -191,6 +191,14 @@
   color: var(--accent);
 }
 
+/* Show elevator pitch preview on hover */
+.hero-card div:hover > .elevator-preview {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
 /* ---------- MOBILE (VERTICAL) ---------- */
 @media (max-width: 720px) {
   .hero-timeline-horizontal {
