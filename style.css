@@ -1774,3 +1774,65 @@ img.emoji {
 @media (max-width: 640px){
   .pub-search{ min-width: 100%; }
 }
+
+/* Header right: search + pill on same line */
+.preprints-head-right{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Compact search for header */
+.pub-search-compact{
+  min-width: 280px;
+  padding: 6px 10px;
+}
+
+/* Put year tracker on the RIGHT */
+.pub-controls-right{
+  display: flex;
+  justify-content: flex-end;
+  margin: 4px 0 12px;
+}
+
+/* Padded individual works (mini-card look) */
+.pub-item-card{
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.02);
+}
+
+[data-theme="dark"] .pub-item-card{
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+/* Author links */
+.author-link{
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.author-link:hover{
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+/* Dark mode author links */
+[data-theme="dark"] .author-link{
+  color: #e5e7eb;
+}
+
+/* Mobile: keep header clean */
+@media (max-width: 640px){
+  .preprints-head-right{
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .pub-search-compact{
+    min-width: 100%;
+  }
+}
