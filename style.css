@@ -2160,6 +2160,31 @@ img.emoji {
   color: #bbf7d0;
 }
 
+/* =========================
+   Dark mode: improve search bar visibility
+   ========================= */
+[data-theme="dark"] .pub-search {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+[data-theme="dark"] .pub-search input {
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .pub-search input::placeholder {
+  color: rgba(203, 213, 225, 0.75);
+}
+
+[data-theme="dark"] .pub-search i {
+  color: #bfdbfe;
+  opacity: 0.9;
+}
+
+[data-theme="dark"] .clear-search {
+  color: #cbd5e1;
+}
+
 [data-theme="dark"] .pill-status.published{
   background: rgba(96,165,250,0.16);
   border-color: rgba(96,165,250,0.30);
