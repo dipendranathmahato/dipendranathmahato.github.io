@@ -1193,7 +1193,7 @@ a:hover { text-decoration: underline; }
 
 .pub-title { font-weight: 500; }
 .pub-meta { font-size: 0.8rem; color: var(--muted); }
-.pub-links { font-size: 1.0rem; margin-top: 2px; }
+.pub-links { font-size: 0.6rem; margin-top: 2px; }
 .pub-links a { margin-right: 10px; }
 
 /* Badge */
