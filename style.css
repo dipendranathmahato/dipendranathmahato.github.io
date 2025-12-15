@@ -1196,6 +1196,12 @@ a:hover { text-decoration: underline; }
 .pub-links { font-size: 0.6rem; margin-top: 2px; }
 .pub-links a { margin-right: 10px; }
 
+/* Small spacing between publication title and authors */
+.pub-item .pub-title {
+  margin-bottom: 4px;
+}
+
+
 /* Badge */
 .badge {
   display: inline-flex;
