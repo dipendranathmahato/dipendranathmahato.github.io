@@ -269,6 +269,7 @@
         </section>
 
         <!-- ================= PREPRINTS ================= -->
+        <!-- ================= PREPRINTS ================= -->
         <section class="card" id="preprints">
           <div class="card-header">
             <div>
@@ -280,23 +281,27 @@
                 Manuscripts in preparation and under review (newest first).
               </div>
             </div>
-            <span class="pill-label">Research</span>
+        
+            <!-- RIGHT SIDE: Search (left) + Pill (right) -->
+            <div class="preprints-head-right">
+              <div class="pub-search pub-search-compact">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="preprintsSearch" type="search" placeholder="Search title, author, status…" />
+                <button class="clear-search" type="button" aria-label="Clear search">×</button>
+              </div>
+        
+              <span class="pill-label">Research</span>
+            </div>
           </div>
         
           <div class="card-body">
         
-            <!-- Controls -->
-            <div class="pub-controls">
-              <div class="year-tracker">
-                <button class="year-pill active" data-year="all">All</button>
-                <button class="year-pill" data-year="2025">2025</button>
-                <button class="year-pill" data-year="2024">2024</button>
-              </div>
-        
-              <div class="pub-search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input id="preprintsSearch" type="search" placeholder="Search title, author, status…" />
-                <button class="clear-search" type="button">×</button>
+            <!-- Year tracker aligned to the RIGHT -->
+            <div class="pub-controls pub-controls-right">
+              <div class="year-tracker" role="tablist" aria-label="Filter preprints by year">
+                <button class="year-pill active" type="button" data-year="all">All</button>
+                <button class="year-pill" type="button" data-year="2025">2025</button>
+                <button class="year-pill" type="button" data-year="2024">2024</button>
               </div>
             </div>
         
@@ -309,13 +314,14 @@
               </div>
         
               <ul class="pub-list">
-                <li class="pub-item pub-entry">
-                  <div class="pub-title">
-                    Rational symbolic powers of ideals
-                  </div>
+                <li class="pub-item pub-entry pub-item-card">
+                  <div class="pub-title">Rational symbolic powers of ideals</div>
         
                   <div class="pub-meta">
-                    Souvik Dey, Huy Tài Hà, Dipendranath Mahato, Paolo Mantero
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Souvik%20Dey" target="_blank" rel="noopener">Souvik Dey</a>,
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Huy%20T%C3%A0i%20H%C3%A0" target="_blank" rel="noopener">Huy Tài Hà</a>,
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Dipendranath%20Mahato" target="_blank" rel="noopener">Dipendranath Mahato</a>,
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Paolo%20Mantero" target="_blank" rel="noopener">Paolo Mantero</a>
                     <span class="pub-status pub-preprint">Preprint</span>
                   </div>
         
@@ -339,13 +345,12 @@
               </div>
         
               <ul class="pub-list">
-                <li class="pub-item pub-entry">
-                  <div class="pub-title">
-                    Demailly’s Conjecture for general and very general points
-                  </div>
+                <li class="pub-item pub-entry pub-item-card">
+                  <div class="pub-title">Demailly’s Conjecture for general and very general points</div>
         
                   <div class="pub-meta">
-                    Sankhaneel Bisui, Dipendranath Mahato
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Sankhaneel%20Bisui" target="_blank" rel="noopener">Sankhaneel Bisui</a>,
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Dipendranath%20Mahato" target="_blank" rel="noopener">Dipendranath Mahato</a>
                     <span class="pub-status pub-submitted">Submitted</span>
                     <!-- <span class="pub-status pub-accepted">Accepted</span> -->
                     <!-- <span class="pub-status pub-published">Published</span> -->
@@ -360,13 +365,13 @@
               </ul>
             </div>
         
-            <!-- Empty state -->
             <div class="pub-empty" style="display:none;">
               <span class="badge">No matching results</span>
             </div>
         
           </div>
         </section>
+
 
 
 
