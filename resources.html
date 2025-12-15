@@ -52,7 +52,6 @@
         <a href="teaching.html">Teaching</a>
         <a href="presentations.html">Presentations</a>
 
-        <!-- Single dropdown (desktop), will flatten on mobile via CSS -->
         <div class="dropdown">
           <button class="dropbtn">
             More <i class="fa-solid fa-chevron-down"></i>
@@ -66,13 +65,11 @@
       </nav>
 
       <div class="controls">
-        <!-- Dark mode toggle button -->
         <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
           <i class="fa-solid fa-moon"></i>
           <span>Dark</span>
         </button>
 
-        <!-- CV button -->
         <a href="cv.html" class="pill-button primary cv-button">
           <i class="fa-solid fa-file-lines"></i>
           <span>CV</span>
@@ -99,7 +96,7 @@
           Department of Mathematics
         </div>
 
-        <!-- Research area padded block -->
+        <!-- Research Areas -->
         <div class="research-area-block">
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
@@ -168,10 +165,10 @@
         </div>
       </aside>
 
-      <!-- ================= MAIN CONTENT (FIXED) ================= -->
+      <!-- ================= MAIN ================= -->
       <section class="main">
 
-        <!-- ================= RESEARCH (left interests / right projects) ================= -->
+        <!-- ================= RESEARCH ================= -->
         <section class="card" id="research">
           <div class="card-header">
             <div>
@@ -188,7 +185,7 @@
 
           <div class="card-body">
             <div class="two-col">
-              <!-- Left: interests -->
+              <!-- Left -->
               <div id="commutative">
                 <div class="research-interest-box">
                   <div class="research-interest-head">
@@ -214,7 +211,7 @@
                 </div>
               </div>
 
-              <!-- Right: ongoing projects -->
+              <!-- Right -->
               <div id="algebraic-geometry">
                 <ul class="timeline">
                   <li class="timeline-item">
@@ -258,7 +255,7 @@
               </div>
             </div>
 
-            <!-- Search (left) + pill (right) -->
+            <!-- Search LEFT of the pill (both on the right header cluster) -->
             <div class="preprints-head-right">
               <div class="pub-search pub-search-compact">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -271,7 +268,7 @@
 
           <div class="card-body">
 
-            <!-- Year dropdown (right aligned) -->
+            <!-- Year dropdown (right aligned on desktop) -->
             <div class="pub-controls pub-controls-right">
               <div class="year-filter">
                 <i class="fa-regular fa-calendar"></i>
@@ -349,7 +346,6 @@
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
           Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
-
       </section>
     </main>
   </div>
@@ -422,10 +418,10 @@
       const section = document.getElementById('preprints');
       if (!section) return;
 
-      const yearSelect = section.querySelector('#preprintsYear');
+      const yearSelect  = section.querySelector('#preprintsYear');
       const searchInput = section.querySelector('#preprintsSearch');
-      const clearBtn = section.querySelector('.clear-search');
-      const emptyState = section.querySelector('.pub-empty');
+      const clearBtn    = section.querySelector('.clear-search');
+      const emptyState  = section.querySelector('.pub-empty');
 
       const blocks = () => Array.from(section.querySelectorAll('.pub-year-block[data-year]'));
       const entriesAll = () => Array.from(section.querySelectorAll('.pub-entry'));
@@ -477,8 +473,8 @@
         blocks().forEach(block => {
           const y = String(block.dataset.year || '').trim();
           const yearOK = (activeYear === 'all') || (activeYear === y);
-          let blockHasVisible = false;
 
+          let blockHasVisible = false;
           block.querySelectorAll('.pub-entry').forEach(item => {
             const textOK = !q || normalize(item.innerText).includes(q);
             const show = yearOK && textOK;
