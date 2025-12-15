@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <title>Research | Dipendranath Mahato</title>
@@ -86,7 +87,9 @@
         <div class="avatar">
           <img src="PXL_20250330_220427523-1575x2800-compressed.jpg"
                alt="Dipendranath Mahato" />
-          <div class="status-chip">IN JOB MARKET</div>
+          <div class="status-chip">
+            IN JOB MARKET
+          </div>
         </div>
 
         <div class="name">Dipendranath Mahato</div>
@@ -96,7 +99,7 @@
           Department of Mathematics
         </div>
 
-        <!-- Research area block -->
+        <!-- Research area padded block -->
         <div class="research-area-block">
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
@@ -165,11 +168,11 @@
         </div>
       </aside>
 
-      <!-- ================= MAIN ================= -->
+      <!-- ================= MAIN CONTENT (FIXED) ================= -->
       <section class="main">
 
-        <!-- ================= RESEARCH OVERVIEW ================= -->
-        <section class="card" id="commutative">
+        <!-- ================= RESEARCH (left interests / right projects) ================= -->
+        <section class="card" id="research">
           <div class="card-header">
             <div>
               <div class="card-title">
@@ -185,18 +188,15 @@
 
           <div class="card-body">
             <div class="two-col">
-              <!-- LEFT -->
-              <div>
+              <!-- Left: interests -->
+              <div id="commutative">
                 <div class="research-interest-box">
                   <div class="research-interest-head">
-                    <span class="pill-label">Research Interests</span>
+                    <span class="pill-label">Interests</span>
                   </div>
 
-                  <p style="margin:10px 0 8px;">
-                    A list of problems/research areas that I have worked/working so far:
-                  </p>
-
-                  <ul class="list-unstyled list-tight" style="margin:0;">
+                  <p style="margin-bottom:8px;">A list of problems/research areas that I have worked/working so far:</p>
+                  <ul class="list-unstyled list-tight">
                     <li>
                       ● <strong>Interpolation problems and symbolic powers of ideals:</strong>
                       My current interest revolves around this, which associates Chudnovsky's Conjecture and Demailly's Conjecture.
@@ -207,15 +207,16 @@
                     </li>
                     <li>
                       ● <strong>Vasconcelos number (v-number) of ideals:</strong>
-                      This relatively new concept has some similar properties with the well known initial degree of an ideal, and it's growing fast.
+                      This relatively new concept has some similar properties with the well known initial degree of an ideal,
+                      and it's growing fast.
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <!-- RIGHT -->
+              <!-- Right: ongoing projects -->
               <div id="algebraic-geometry">
-                <ul class="timeline" style="margin-top:0;">
+                <ul class="timeline">
                   <li class="timeline-item">
                     <div class="timeline-title">v-numbers for ideals defining points</div>
                     <div class="timeline-meta">Ongoing (with Manohar Kumar)</div>
@@ -257,7 +258,7 @@
               </div>
             </div>
 
-            <!-- Search (left) + Research pill (right) -->
+            <!-- Search (left) + pill (right) -->
             <div class="preprints-head-right">
               <div class="pub-search pub-search-compact">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -270,21 +271,21 @@
 
           <div class="card-body">
 
-            <!-- Year dropdown (auto-detected + sorted + counts) -->
+            <!-- Year dropdown (right aligned) -->
             <div class="pub-controls pub-controls-right">
               <div class="year-filter">
                 <i class="fa-regular fa-calendar"></i>
-                <label for="preprintsYear" class="sr-only">Filter preprints by year</label>
-                <select id="preprintsYear" aria-label="Filter preprints by year">
-                  <!-- inserted by JS -->
-                </select>
+                <label for="preprintsYear" class="sr-only">Filter by year</label>
+                <select id="preprintsYear" aria-label="Filter preprints by year"></select>
               </div>
             </div>
 
             <!-- ===== 2025 ===== -->
             <div class="pub-year-block" data-year="2025">
               <div class="pub-year-head">
-                <span class="badge"><i class="fa-regular fa-calendar"></i> 2025</span>
+                <span class="badge">
+                  <i class="fa-regular fa-calendar"></i> 2025
+                </span>
               </div>
 
               <ul class="pub-list">
@@ -313,7 +314,9 @@
             <!-- ===== 2024 ===== -->
             <div class="pub-year-block" data-year="2024">
               <div class="pub-year-head">
-                <span class="badge"><i class="fa-regular fa-calendar"></i> 2024</span>
+                <span class="badge">
+                  <i class="fa-regular fa-calendar"></i> 2024
+                </span>
               </div>
 
               <ul class="pub-list">
@@ -324,8 +327,6 @@
                     <a class="author-link" href="https://scholar.google.com/scholar?q=Sankhaneel%20Bisui" target="_blank" rel="noopener">Sankhaneel Bisui</a>,
                     <a class="author-link" href="https://scholar.google.com/scholar?q=Dipendranath%20Mahato" target="_blank" rel="noopener">Dipendranath Mahato</a>
                     <span class="pub-status pub-submitted">Submitted</span>
-                    <!-- <span class="pub-status pub-accepted">Accepted</span> -->
-                    <!-- <span class="pub-status pub-published">Published</span> -->
                   </div>
 
                   <div class="pub-links">
@@ -337,9 +338,10 @@
               </ul>
             </div>
 
-            <div class="pub-empty" style="display:none;">
+            <div class="pub-empty" style="display:none; margin-top:10px;">
               <span class="badge">No matching results</span>
             </div>
+
           </div>
         </section>
 
@@ -347,6 +349,7 @@
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
           Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
+
       </section>
     </main>
   </div>
@@ -413,42 +416,42 @@
     }
 
     // =========================
-    // Preprints: year dropdown (auto years + counts) + search
+    // Preprints: year dropdown + counts + search
     // =========================
     (function () {
       const section = document.getElementById('preprints');
       if (!section) return;
 
-      const getYearBlocks = () => Array.from(section.querySelectorAll('.pub-year-block[data-year]'));
-      const getEntriesAll = () => Array.from(section.querySelectorAll('.pub-entry'));
-
+      const yearSelect = section.querySelector('#preprintsYear');
       const searchInput = section.querySelector('#preprintsSearch');
-      const clearBtn    = section.querySelector('.clear-search');
-      const emptyState  = section.querySelector('.pub-empty');
-      const yearSelect  = section.querySelector('#preprintsYear');
+      const clearBtn = section.querySelector('.clear-search');
+      const emptyState = section.querySelector('.pub-empty');
+
+      const blocks = () => Array.from(section.querySelectorAll('.pub-year-block[data-year]'));
+      const entriesAll = () => Array.from(section.querySelectorAll('.pub-entry'));
 
       let activeYear = 'all';
       let query = '';
 
       const normalize = s => (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
 
-      function getDetectedYearsSortedDesc() {
-        const years = getYearBlocks()
+      function detectedYearsDesc() {
+        const years = blocks()
           .map(b => String(b.dataset.year || '').trim())
           .filter(y => /^\d{4}$/.test(y));
         return Array.from(new Set(years)).sort((a, b) => Number(b) - Number(a));
       }
 
-      function countEntriesForYear(year) {
-        const block = section.querySelector(`.pub-year-block[data-year="${year}"]`);
+      function countInYear(y) {
+        const block = section.querySelector(`.pub-year-block[data-year="${y}"]`);
         return block ? block.querySelectorAll('.pub-entry').length : 0;
       }
 
-      function buildYearDropdown() {
+      function buildDropdown() {
         if (!yearSelect) return;
 
-        const years = getDetectedYearsSortedDesc();
-        const total = getEntriesAll().length;
+        const years = detectedYearsDesc();
+        const total = entriesAll().length;
 
         yearSelect.innerHTML = '';
 
@@ -460,12 +463,10 @@
         years.forEach(y => {
           const opt = document.createElement('option');
           opt.value = y;
-          opt.textContent = `${y} (${countEntriesForYear(y)})`;
+          opt.textContent = `${y} (${countInYear(y)})`;
           yearSelect.appendChild(opt);
         });
 
-        const valid = new Set(['all', ...years]);
-        if (!valid.has(activeYear)) activeYear = 'all';
         yearSelect.value = activeYear;
       }
 
@@ -473,10 +474,9 @@
         const q = normalize(query);
         let anyVisible = false;
 
-        getYearBlocks().forEach(block => {
+        blocks().forEach(block => {
           const y = String(block.dataset.year || '').trim();
-          const yearOK = (activeYear === 'all') || (y === activeYear);
-
+          const yearOK = (activeYear === 'all') || (activeYear === y);
           let blockHasVisible = false;
 
           block.querySelectorAll('.pub-entry').forEach(item => {
@@ -516,7 +516,7 @@
         });
       }
 
-      buildYearDropdown();
+      buildDropdown();
       applyFilters();
     })();
   </script>
