@@ -198,6 +198,56 @@
   pointer-events: auto;
 }
 
+/* ===== Elevator mini screen: small by default, expands on hover ===== */
+.elevator-mini{
+  position:absolute;
+  right:16px;
+  bottom:16px;
+  z-index:10;
+
+  width:170px;               /* default small */
+  aspect-ratio:16/9;
+
+  border-radius:14px;
+  overflow:hidden;
+  background:#000;
+  box-shadow:0 10px 26px rgba(0,0,0,0.22);
+
+  transform-origin: bottom right;
+  transition: width 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+}
+
+/* Expand on hover */
+.elevator-mini:hover{
+  width:340px;               /* expanded size */
+  box-shadow:0 14px 34px rgba(0,0,0,0.28);
+  transform: translateY(-2px);
+}
+
+/* Optional: keep it reasonable on small screens */
+@media (max-width: 520px){
+  .elevator-mini{ width:150px; }
+  .elevator-mini:hover{ width:260px; }
+}
+
+/* Overlay for click-to-unmute */
+.elevator-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.55rem;
+
+  background: linear-gradient(to top, rgba(0,0,0,0.60), rgba(0,0,0,0.18));
+  color:#f3f4f6;
+  font-weight:800;
+  letter-spacing:0.02em;
+  cursor:pointer;
+  user-select:none;
+}
+
+
 
 /* ---------- MOBILE (VERTICAL) ---------- */
 @media (max-width: 720px) {
