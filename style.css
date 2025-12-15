@@ -1671,3 +1671,106 @@ img.emoji {
   background: rgba(192, 132, 252, 0.22);
   color: #e9d5ff;
 }
+
+/* =========================
+   Preprints: year tracker + search
+   ========================= */
+.pub-controls{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 8px 0 14px;
+}
+
+.year-tracker{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.year-pill{
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(255,255,255,0.65);
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.year-pill:hover{ transform: translateY(-1px); }
+
+.year-pill.active{
+  background: var(--accent-soft);
+  border-color: rgba(37, 99, 235, 0.45);
+  color: var(--accent);
+}
+
+[data-theme="dark"] .year-pill{
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(148, 163, 184, 0.22);
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .year-pill.active{
+  background: rgba(96,165,250,0.18);
+  border-color: rgba(96,165,250,0.35);
+  color: #bfdbfe;
+}
+
+/* Search box */
+.pub-search{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(255,255,255,0.65);
+  min-width: 260px;
+}
+
+.pub-search i{
+  font-size: 0.85rem;
+  opacity: 0.75;
+  color: var(--muted);
+}
+
+.pub-search input{
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.clear-search{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0 6px;
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.clear-search:hover{ opacity: 1; }
+
+[data-theme="dark"] .pub-search{
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(148, 163, 184, 0.22);
+}
+
+.pub-year-head{ margin: 6px 0 10px; }
+
+.pub-divider{ margin: 14px 0; }
+
+@media (max-width: 640px){
+  .pub-search{ min-width: 100%; }
+}
