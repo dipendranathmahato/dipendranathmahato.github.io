@@ -1878,3 +1878,43 @@ img.emoji {
   background: rgba(255,255,255,0.06);
   border-color: rgba(148, 163, 184, 0.22);
 }
+
+/* =========================
+   arXiv pill button
+   ========================= */
+.arxiv-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 650;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.10);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  transition: all 0.2s ease;
+}
+
+.arxiv-pill i {
+  font-size: 0.85rem;
+}
+
+.arxiv-pill:hover {
+  background: rgba(37, 99, 235, 0.18);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+  text-decoration: none;
+}
+
+/* Dark mode */
+[data-theme="dark"] .arxiv-pill {
+  color: #bfdbfe;
+  background: rgba(96, 165, 250, 0.18);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+[data-theme="dark"] .arxiv-pill:hover {
+  background: rgba(96, 165, 250, 0.28);
+}
