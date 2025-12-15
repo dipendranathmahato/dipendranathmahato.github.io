@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Research | Dipendranath Mahato</title>
+  <title>Home | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts & Icons -->
@@ -26,7 +26,6 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <div class="page">
     <!-- ================= HEADER / NAV ================= -->
@@ -46,35 +45,40 @@
       </button>
 
       <nav class="top-nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="teaching.html">Teaching</a>
-        <a href="presentations.html">Presentations</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="research.html">Research</a>
+  <a href="teaching.html">Teaching</a>
+  <a href="presentations.html">Presentations</a>
 
-        <div class="dropdown">
-          <button class="dropbtn">
-            More <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="outreach & services.html">Outreach &amp; Services</a>
-            <a href="blogs.html">Blogs</a>
-            <a href="resources.html">Resources</a>
-          </div>
-        </div>
-      </nav>
+  <!-- Single dropdown (desktop), will flatten on mobile via CSS -->
+  <div class="dropdown">
+    <button class="dropbtn">
+      More <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="outreach & services.html">Outreach &amp; Services</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="resources.html">Resources</a>
+    </div>
+  </div>
+</nav>
+
 
       <div class="controls">
-        <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
-          <i class="fa-solid fa-moon"></i>
-          <span>Dark</span>
-        </button>
+  <!-- Dark mode toggle button -->
+  <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
+    <i class="fa-solid fa-moon"></i>
+    <span>Dark</span>
+  </button>
 
-        <a href="cv.html" class="pill-button primary cv-button">
-          <i class="fa-solid fa-file-lines"></i>
-          <span>CV</span>
-        </a>
-      </div>
+  <!-- CV button (add cv-button class so we can hide it on small screens if needed) -->
+  <a href="cv.html" class="pill-button primary cv-button">
+    <i class="fa-solid fa-file-lines"></i>
+    <span>CV</span>
+  </a>
+</div>
+
     </header>
 
     <!-- ================= LAYOUT ================= -->
@@ -96,19 +100,23 @@
           Department of Mathematics
         </div>
 
-        <!-- Research Areas -->
+        <!-- Research area padded block -->
         <div class="research-area-block">
+        
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
             <span>Research Areas</span>
           </div>
-
+        
           <div class="research-chips">
-            <a href="#commutative" class="chip">Commutative Algebra</a>
-            <a href="#algebraic-geometry" class="chip">Algebraic Geometry</a>
-            <a href="#combinatorial" class="chip">Combinatorial Algebra</a>
+            <a href="research.html#commutative" class="chip">Commutative Algebra</a>
+            <a href="research.html#algebraic-geometry" class="chip">Algebraic Geometry</a>
+            <a href="research.html#combinatorial" class="chip">Combinatorial Algebra</a>
           </div>
+        
         </div>
+
+
 
         <div class="sidebar-section">
           <h3>Contact</h3>
@@ -165,184 +173,13 @@
         </div>
       </aside>
 
-      <!-- ================= MAIN ================= -->
-      <section class="main">
 
-        <!-- ================= RESEARCH ================= -->
-        <section class="card" id="research">
-          <div class="card-header">
-            <div>
-              <div class="card-title">
-                <i class="fa-solid fa-microscope"></i>
-                Research
-              </div>
-              <div class="card-subtitle">
-                Research interests and ongoing projects.
-              </div>
-            </div>
-            <span class="pill-label">Overview</span>
-          </div>
+      <!-- Main HOME content -->
 
-          <div class="card-body">
-            <div class="two-col">
-              <!-- Left -->
-              <div id="commutative">
-                <div class="research-interest-box">
-                  <div class="research-interest-head">
-                    <span class="pill-label">Interests</span>
-                  </div>
 
-                  <p style="margin-bottom:8px;">A list of problems/research areas that I have worked/working so far:</p>
-                  <ul class="list-unstyled list-tight">
-                    <li>
-                      ● <strong>Interpolation problems and symbolic powers of ideals:</strong>
-                      My current interest revolves around this, which associates Chudnovsky's Conjecture and Demailly's Conjecture.
-                    </li>
-                    <li>
-                      ● <strong>Rational powers of ideals:</strong>
-                      A recent few papers draw my attention towards this area, and it seems interesting.
-                    </li>
-                    <li>
-                      ● <strong>Vasconcelos number (v-number) of ideals:</strong>
-                      This relatively new concept has some similar properties with the well known initial degree of an ideal,
-                      and it's growing fast.
-                    </li>
-                  </ul>
-                </div>
-              </div>
 
-              <!-- Right -->
-              <div id="algebraic-geometry">
-                <ul class="timeline">
-                  <li class="timeline-item">
-                    <div class="timeline-title">v-numbers for ideals defining points</div>
-                    <div class="timeline-meta">Ongoing (with Manohar Kumar)</div>
-                    <div style="font-size:0.82rem; margin-top:4px;">
-                      We are investigating v-numbers on ideals defining points.
-                    </div>
-                  </li>
 
-                  <li class="timeline-item" id="combinatorial">
-                    <div class="timeline-title">k-Configurations</div>
-                    <div class="timeline-meta">Ongoing (with Sankhaneel Bisui, Thanh Thai Nguyen)</div>
-                    <div style="font-size:0.82rem; margin-top:4px;">
-                      We are investigating k-Configurations.
-                    </div>
-                  </li>
-                </ul>
-
-                <div style="margin-top:10px;">
-                  <a class="pill-button secondary" href="https://www.dipendranathmahato.com/research" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    <span>Full Research Page</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ================= PREPRINTS ================= -->
-        <section class="card" id="preprints">
-          <div class="card-header">
-            <div>
-              <div class="card-title">
-                <i class="fa-solid fa-file-lines"></i>
-                Preprints
-              </div>
-              <div class="card-subtitle">
-                Manuscripts in preparation and under review (newest first).
-              </div>
-            </div>
-
-            <!-- Search LEFT of the pill (both on the right header cluster) -->
-            <div class="preprints-head-right">
-              <div class="pub-search pub-search-compact">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input id="preprintsSearch" type="search" placeholder="Search title, author, status…" />
-                <button class="clear-search" type="button" aria-label="Clear search">×</button>
-              </div>
-              <span class="pill-label">Research</span>
-            </div>
-          </div>
-
-          <div class="card-body">
-
-            <!-- Year dropdown (right aligned on desktop) -->
-            <div class="pub-controls pub-controls-right">
-              <div class="year-filter">
-                <i class="fa-regular fa-calendar"></i>
-                <label for="preprintsYear" class="sr-only">Filter by year</label>
-                <select id="preprintsYear" aria-label="Filter preprints by year"></select>
-              </div>
-            </div>
-
-            <!-- ===== 2025 ===== -->
-            <div class="pub-year-block" data-year="2025">
-              <div class="pub-year-head">
-                <span class="badge">
-                  <i class="fa-regular fa-calendar"></i> 2025
-                </span>
-              </div>
-
-              <ul class="pub-list">
-                <li class="pub-item pub-entry pub-item-card">
-                  <div class="pub-title">Rational symbolic powers of ideals</div>
-
-                  <div class="pub-meta">
-                    <a class="author-link" href="https://scholar.google.com/scholar?q=Souvik%20Dey" target="_blank" rel="noopener">Souvik Dey</a>,
-                    <a class="author-link" href="https://scholar.google.com/scholar?q=Huy%20T%C3%A0i%20H%C3%A0" target="_blank" rel="noopener">Huy Tài Hà</a>,
-                    <a class="author-link" href="https://scholar.google.com/scholar?q=Dipendranath%20Mahato" target="_blank" rel="noopener">Dipendranath Mahato</a>,
-                    <a class="author-link" href="https://scholar.google.com/scholar?q=Paolo%20Mantero" target="_blank" rel="noopener">Paolo Mantero</a>
-                    <span class="pub-status pub-preprint">Preprint</span>
-                  </div>
-
-                  <div class="pub-links">
-                    <a href="https://arxiv.org/abs/2511.02732" target="_blank" rel="noopener">
-                      <i class="ai ai-arxiv"></i> arXiv:2511.02732
-                    </a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <hr class="soft-divider" />
-
-            <!-- ===== 2024 ===== -->
-            <div class="pub-year-block" data-year="2024">
-              <div class="pub-year-head">
-                <span class="badge">
-                  <i class="fa-regular fa-calendar"></i> 2024
-                </span>
-              </div>
-
-              <ul class="pub-list">
-                <li class="pub-item pub-entry pub-item-card">
-                  <div class="pub-title">Demailly’s Conjecture for general and very general points</div>
-
-                  <div class="pub-meta">
-                    <a class="author-link" href="https://scholar.google.com/scholar?q=Sankhaneel%20Bisui" target="_blank" rel="noopener">Sankhaneel Bisui</a>,
-                    <a class="author-link" href="https://scholar.google.com/scholar?q=Dipendranath%20Mahato" target="_blank" rel="noopener">Dipendranath Mahato</a>
-                    <span class="pub-status pub-submitted">Submitted</span>
-                  </div>
-
-                  <div class="pub-links">
-                    <a href="https://arxiv.org/abs/2409.08535" target="_blank" rel="noopener">
-                      <i class="ai ai-arxiv"></i> arXiv:2409.08535
-                    </a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div class="pub-empty" style="display:none; margin-top:10px;">
-              <span class="badge">No matching results</span>
-            </div>
-
-          </div>
-        </section>
-
-        <div class="footer">
+      <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
           Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
@@ -352,169 +189,85 @@
 
   <!-- ================= SCRIPTS ================= -->
   <script>
-    // ----- Footer year -----
-    const yearSpan = document.getElementById("year");
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+  // ----- Footer year -----
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-    // ----- Mobile hamburger toggle -----
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks  = document.querySelector('.top-nav-links');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-      navLinks.addEventListener('click', (event) => {
-        if (event.target.tagName.toLowerCase() === 'a') navLinks.classList.remove('open');
-      });
-    }
+  // ----- Mobile hamburger toggle -----
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.top-nav-links');
 
-    // ----- "More" dropdown click toggle -----
-    const dropdown = document.querySelector('.dropdown');
-    const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
-    if (dropbtn) {
-      dropbtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        dropdown.classList.toggle('dropdown-open');
-      });
-    }
-    document.addEventListener('click', (event) => {
-      if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove('dropdown-open');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
     });
 
-    // ----- DARK MODE TOGGLE -----
-    const root = document.documentElement;
-    const themeToggle = document.querySelector('.theme-toggle');
-    const THEME_KEY = 'dm-theme';
-
-    function applyTheme(theme) {
-      root.setAttribute('data-theme', theme);
-      if (!themeToggle) return;
-      const icon  = themeToggle.querySelector('i');
-      const label = themeToggle.querySelector('span');
-      if (theme === 'dark') {
-        if (icon) icon.className = 'fa-solid fa-sun';
-        if (label) label.textContent = 'Light';
-      } else {
-        if (icon) icon.className = 'fa-solid fa-moon';
-        if (label) label.textContent = 'Dark';
+    navLinks.addEventListener('click', (event) => {
+      if (event.target.tagName.toLowerCase() === 'a') {
+        navLinks.classList.remove('open');
       }
+    });
+  }
+
+  // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
+  const dropdown = document.querySelector('.dropdown');
+  const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+  if (dropbtn) {
+    dropbtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      dropdown.classList.toggle('dropdown-open');
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    if (dropdown && !dropdown.contains(event.target)) {
+      dropdown.classList.remove('dropdown-open');
     }
+  });
 
-    const savedTheme = localStorage.getItem(THEME_KEY);
-    applyTheme(savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light');
+  // ----- DARK MODE TOGGLE -----
+  const root        = document.documentElement; // <html>
+  const themeToggle = document.querySelector('.theme-toggle');
+  const THEME_KEY   = 'dm-theme';
 
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        const next    = current === 'dark' ? 'light' : 'dark';
-        localStorage.setItem(THEME_KEY, next);
-        applyTheme(next);
-      });
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+
+    if (!themeToggle) return;
+
+    const icon  = themeToggle.querySelector('i');
+    const label = themeToggle.querySelector('span');
+
+    if (theme === 'dark') {
+      if (icon) icon.className = 'fa-solid fa-sun';
+      if (label) label.textContent = 'Light';
+    } else {
+      if (icon) icon.className = 'fa-solid fa-moon';
+      if (label) label.textContent = 'Dark';
     }
+  }
 
-    // =========================
-    // Preprints: year dropdown + counts + search
-    // =========================
-    (function () {
-      const section = document.getElementById('preprints');
-      if (!section) return;
+  // Initial theme (from localStorage or default "light")
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
+    ? savedTheme
+    : 'light';
 
-      const yearSelect  = section.querySelector('#preprintsYear');
-      const searchInput = section.querySelector('#preprintsSearch');
-      const clearBtn    = section.querySelector('.clear-search');
-      const emptyState  = section.querySelector('.pub-empty');
+  applyTheme(initialTheme);
 
-      const blocks = () => Array.from(section.querySelectorAll('.pub-year-block[data-year]'));
-      const entriesAll = () => Array.from(section.querySelectorAll('.pub-entry'));
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next    = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    });
+  }
+</script>
 
-      let activeYear = 'all';
-      let query = '';
-
-      const normalize = s => (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
-
-      function detectedYearsDesc() {
-        const years = blocks()
-          .map(b => String(b.dataset.year || '').trim())
-          .filter(y => /^\d{4}$/.test(y));
-        return Array.from(new Set(years)).sort((a, b) => Number(b) - Number(a));
-      }
-
-      function countInYear(y) {
-        const block = section.querySelector(`.pub-year-block[data-year="${y}"]`);
-        return block ? block.querySelectorAll('.pub-entry').length : 0;
-      }
-
-      function buildDropdown() {
-        if (!yearSelect) return;
-
-        const years = detectedYearsDesc();
-        const total = entriesAll().length;
-
-        yearSelect.innerHTML = '';
-
-        const optAll = document.createElement('option');
-        optAll.value = 'all';
-        optAll.textContent = `All (${total})`;
-        yearSelect.appendChild(optAll);
-
-        years.forEach(y => {
-          const opt = document.createElement('option');
-          opt.value = y;
-          opt.textContent = `${y} (${countInYear(y)})`;
-          yearSelect.appendChild(opt);
-        });
-
-        yearSelect.value = activeYear;
-      }
-
-      function applyFilters() {
-        const q = normalize(query);
-        let anyVisible = false;
-
-        blocks().forEach(block => {
-          const y = String(block.dataset.year || '').trim();
-          const yearOK = (activeYear === 'all') || (activeYear === y);
-
-          let blockHasVisible = false;
-          block.querySelectorAll('.pub-entry').forEach(item => {
-            const textOK = !q || normalize(item.innerText).includes(q);
-            const show = yearOK && textOK;
-            item.style.display = show ? '' : 'none';
-            if (show) blockHasVisible = true;
-          });
-
-          block.style.display = blockHasVisible ? '' : 'none';
-          if (blockHasVisible) anyVisible = true;
-        });
-
-        if (emptyState) emptyState.style.display = anyVisible ? 'none' : '';
-      }
-
-      if (yearSelect) {
-        yearSelect.addEventListener('change', () => {
-          activeYear = yearSelect.value || 'all';
-          applyFilters();
-        });
-      }
-
-      if (searchInput) {
-        searchInput.addEventListener('input', () => {
-          query = searchInput.value || '';
-          applyFilters();
-        });
-      }
-
-      if (clearBtn && searchInput) {
-        clearBtn.addEventListener('click', () => {
-          searchInput.value = '';
-          query = '';
-          applyFilters();
-          searchInput.focus();
-        });
-      }
-
-      buildDropdown();
-      applyFilters();
-    })();
-  </script>
 </body>
 </html>
