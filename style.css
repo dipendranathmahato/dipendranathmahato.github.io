@@ -1918,3 +1918,168 @@ img.emoji {
 [data-theme="dark"] .arxiv-pill:hover {
   background: rgba(96, 165, 250, 0.28);
 }
+
+/* =========================
+   Publication link pills (arXiv / PDF / DOI / Journal / Status)
+   ========================= */
+.pub-links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+/* Base pill (links) */
+.pill-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border: 1px solid rgba(148, 163, 184, 0.40);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--text);
+  transition: 0.18s ease;
+}
+
+.pill-link i{
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.pill-link:hover{
+  transform: translateY(-1px);
+  text-decoration: none;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+}
+
+/* Non-link pills (status/journal) */
+.pill-meta{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.03);
+  color: var(--muted);
+}
+
+.pill-meta i{ font-size: 0.82rem; opacity: 0.85; }
+
+/* --- Specific link flavors --- */
+.pill-arxiv{
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.10);
+  color: #2563eb;
+}
+.pill-arxiv:hover{ background: rgba(37, 99, 235, 0.16); }
+
+.pill-pdf{
+  border-color: rgba(220, 38, 38, 0.35);
+  background: rgba(220, 38, 38, 0.10);
+  color: #b91c1c;
+}
+.pill-pdf:hover{ background: rgba(220, 38, 38, 0.16); }
+
+.pill-doi{
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.10);
+  color: #047857;
+}
+.pill-doi:hover{ background: rgba(16, 185, 129, 0.16); }
+
+/* --- Journal pill --- */
+.pill-journal{
+  border-color: rgba(147, 51, 234, 0.28);
+  background: rgba(147, 51, 234, 0.10);
+  color: #6b21a8;
+}
+
+/* --- Status pills --- */
+.pill-status.submitted{
+  border-color: rgba(234, 179, 8, 0.45);
+  background: rgba(234, 179, 8, 0.14);
+  color: #92400e;
+}
+
+.pill-status.accepted{
+  border-color: rgba(34, 197, 94, 0.45);
+  background: rgba(34, 197, 94, 0.16);
+  color: #065f46;
+}
+
+.pill-status.published{
+  border-color: rgba(59, 130, 246, 0.40);
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+/* =========================
+   Dark mode tweaks
+   ========================= */
+[data-theme="dark"] .pill-link{
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(148, 163, 184, 0.22);
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .pill-link:hover{
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .pill-meta{
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(148, 163, 184, 0.18);
+  color: #cbd5e1;
+}
+
+/* Dark mode flavors */
+[data-theme="dark"] .pill-arxiv{
+  background: rgba(96,165,250,0.18);
+  border-color: rgba(96,165,250,0.35);
+  color: #bfdbfe;
+}
+
+[data-theme="dark"] .pill-pdf{
+  background: rgba(248,113,113,0.18);
+  border-color: rgba(248,113,113,0.32);
+  color: #fecaca;
+}
+
+[data-theme="dark"] .pill-doi{
+  background: rgba(52,211,153,0.16);
+  border-color: rgba(52,211,153,0.30);
+  color: #bbf7d0;
+}
+
+[data-theme="dark"] .pill-journal{
+  background: rgba(192,132,252,0.18);
+  border-color: rgba(192,132,252,0.28);
+  color: #e9d5ff;
+}
+
+[data-theme="dark"] .pill-status.submitted{
+  background: rgba(253,224,71,0.16);
+  border-color: rgba(253,224,71,0.28);
+  color: #fde68a;
+}
+
+[data-theme="dark"] .pill-status.accepted{
+  background: rgba(74,222,128,0.18);
+  border-color: rgba(74,222,128,0.30);
+  color: #bbf7d0;
+}
+
+[data-theme="dark"] .pill-status.published{
+  background: rgba(96,165,250,0.16);
+  border-color: rgba(96,165,250,0.30);
+  color: #bfdbfe;
+}
