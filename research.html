@@ -285,65 +285,89 @@
         
           <div class="card-body">
         
-            <!-- ===== 2025 ===== -->
-            <div style="margin: 6px 0 10px;">
-              <span class="badge">
-                <i class="fa-regular fa-calendar"></i> 2025
-              </span>
+            <!-- Controls -->
+            <div class="pub-controls">
+              <div class="year-tracker">
+                <button class="year-pill active" data-year="all">All</button>
+                <button class="year-pill" data-year="2025">2025</button>
+                <button class="year-pill" data-year="2024">2024</button>
+              </div>
+        
+              <div class="pub-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="preprintsSearch" type="search" placeholder="Search title, author, status…" />
+                <button class="clear-search" type="button">×</button>
+              </div>
             </div>
         
-            <ul class="pub-list">
-              <li class="pub-item">
-                <div class="pub-title">
-                  Rational symbolic powers of ideals
-                </div>
+            <!-- ===== 2025 ===== -->
+            <div class="pub-year-block" data-year="2025">
+              <div class="pub-year-head">
+                <span class="badge">
+                  <i class="fa-regular fa-calendar"></i> 2025
+                </span>
+              </div>
         
-                <div class="pub-meta">
-                  Souvik Dey, Huy Tài Hà, Dipendranath Mahato, Paolo Mantero
-                  <span class="pub-status pub-preprint">Preprint</span>
-                </div>
+              <ul class="pub-list">
+                <li class="pub-item pub-entry">
+                  <div class="pub-title">
+                    Rational symbolic powers of ideals
+                  </div>
         
-                <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2511.02732" target="_blank" rel="noopener">
-                    <i class="ai ai-arxiv"></i> arXiv:2511.02732
-                  </a>
-                </div>
-              </li>
-            </ul>
+                  <div class="pub-meta">
+                    Souvik Dey, Huy Tài Hà, Dipendranath Mahato, Paolo Mantero
+                    <span class="pub-status pub-preprint">Preprint</span>
+                  </div>
+        
+                  <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2511.02732" target="_blank" rel="noopener">
+                      <i class="ai ai-arxiv"></i> arXiv:2511.02732
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
         
             <hr class="soft-divider" />
         
             <!-- ===== 2024 ===== -->
-            <div style="margin: 6px 0 10px;">
-              <span class="badge">
-                <i class="fa-regular fa-calendar"></i> 2024
-              </span>
+            <div class="pub-year-block" data-year="2024">
+              <div class="pub-year-head">
+                <span class="badge">
+                  <i class="fa-regular fa-calendar"></i> 2024
+                </span>
+              </div>
+        
+              <ul class="pub-list">
+                <li class="pub-item pub-entry">
+                  <div class="pub-title">
+                    Demailly’s Conjecture for general and very general points
+                  </div>
+        
+                  <div class="pub-meta">
+                    Sankhaneel Bisui, Dipendranath Mahato
+                    <span class="pub-status pub-submitted">Submitted</span>
+                    <!-- <span class="pub-status pub-accepted">Accepted</span> -->
+                    <!-- <span class="pub-status pub-published">Published</span> -->
+                  </div>
+        
+                  <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2409.08535" target="_blank" rel="noopener">
+                      <i class="ai ai-arxiv"></i> arXiv:2409.08535
+                    </a>
+                  </div>
+                </li>
+              </ul>
             </div>
         
-            <ul class="pub-list">
-              <li class="pub-item">
-                <div class="pub-title">
-                  Demailly’s Conjecture for general and very general points
-                </div>
-        
-                <div class="pub-meta">
-                  Sankhaneel Bisui, Dipendranath Mahato
-                  <span class="pub-status pub-submitted">Submitted</span>
-                  <!============<span class="pub-status pub-accepted">Accepted</span>============>
-                  <!============<span class="pub-status pub-published">Published</span>============>
-
-                </div>
-        
-                <div class="pub-links">
-                  <a href="https://arxiv.org/abs/2409.08535" target="_blank" rel="noopener">
-                    <i class="ai ai-arxiv"></i> arXiv:2409.08535
-                  </a>
-                </div>
-              </li>
-            </ul>
+            <!-- Empty state -->
+            <div class="pub-empty" style="display:none;">
+              <span class="badge">No matching results</span>
+            </div>
         
           </div>
         </section>
+
 
 
          <div class="footer">
@@ -435,6 +459,92 @@
     });
   }
 </script>
+
+  <script>
+(function () {
+  const root = document.getElementById('preprints');
+  if (!root) return;
+
+  const yearButtons = root.querySelectorAll('.year-pill');
+  const yearBlocks  = root.querySelectorAll('.pub-year-block');
+  const entries     = root.querySelectorAll('.pub-entry');
+  const searchInput = root.querySelector('#preprintsSearch');
+  const clearBtn    = root.querySelector('.clear-search');
+  const emptyState  = root.querySelector('.pub-empty');
+
+  let activeYear = 'all';
+  let query = '';
+
+  /* ---------- helpers ---------- */
+  const normalize = s => (s || '').toLowerCase().replace(/\s+/g,' ').trim();
+
+  function updateYearCounts() {
+    yearButtons.forEach(btn => {
+      const y = btn.dataset.year;
+      if (y === 'all') {
+        btn.textContent = `All (${entries.length})`;
+        return;
+      }
+      const count = root.querySelectorAll(`.pub-year-block[data-year="${y}"] .pub-entry`).length;
+      btn.textContent = `${y} (${count})`;
+    });
+  }
+
+  function setActiveYear(y) {
+    activeYear = y;
+    yearButtons.forEach(b => b.classList.toggle('active', b.dataset.year === y));
+  }
+
+  function applyFilters() {
+    let visibleCount = 0;
+    const q = normalize(query);
+
+    yearBlocks.forEach(block => {
+      const y = block.dataset.year;
+      const yearOK = (activeYear === 'all' || y === activeYear);
+      let blockHasVisible = false;
+
+      block.querySelectorAll('.pub-entry').forEach(item => {
+        const textOK = !q || normalize(item.innerText).includes(q);
+        const show = yearOK && textOK;
+        item.style.display = show ? '' : 'none';
+        if (show) blockHasVisible = true;
+      });
+
+      block.style.display = blockHasVisible ? '' : 'none';
+      if (blockHasVisible) visibleCount++;
+    });
+
+    emptyState.style.display = visibleCount ? 'none' : '';
+  }
+
+  /* ---------- events ---------- */
+  yearButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      setActiveYear(btn.dataset.year);
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener('input', e => {
+    query = e.target.value;
+    applyFilters();
+  });
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    query = '';
+    applyFilters();
+    searchInput.focus();
+  });
+
+  /* ---------- init ---------- */
+  updateYearCounts();
+  setActiveYear('all');
+  applyFilters();
+})();
+</script>
+
 
 </body>
 </html>
