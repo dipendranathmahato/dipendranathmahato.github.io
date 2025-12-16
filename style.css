@@ -2190,3 +2190,191 @@ img.emoji {
   border-color: rgba(96,165,250,0.30);
   color: #bfdbfe;
 }
+
+
+/* ========= Teaching Overview (OSU-style) ========= */
+.teaching-toolbar{
+  display:flex; gap:12px; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; margin-bottom:14px;
+}
+.teaching-toolbar-right{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+.teaching-search{
+  display:flex; align-items:center; gap:8px;
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  background: var(--card, rgba(255,255,255,.9));
+  border-radius:999px; padding:8px 12px;
+  min-width:260px;
+}
+html[data-theme="dark"] .teaching-search{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.14);
+}
+.teaching-search input{
+  border:none; outline:none; background:transparent; width:100%;
+  font:inherit; color:inherit;
+}
+
+.uni-header{margin:8px 0 10px;}
+.uni-title{margin:0; font-size:1.05rem; display:flex; gap:10px; align-items:center;}
+.uni-subtitle{opacity:.75; font-size:.9rem; margin-top:2px;}
+
+.role-block{margin-top:14px;}
+.role-title{margin:0 0 10px; font-size:1rem; display:flex; gap:10px; align-items:center;}
+
+.teaching-list-osu{display:flex; flex-direction:column; gap:10px;}
+.teach-item{
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  border-radius:14px;
+  background: var(--card, rgba(255,255,255,.92));
+  overflow:hidden;
+}
+html[data-theme="dark"] .teach-item{
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.14);
+}
+.teach-summary{
+  list-style:none;
+  display:flex; gap:12px; align-items:center; justify-content:space-between;
+  padding:12px 14px; cursor:pointer;
+}
+.teach-summary::-webkit-details-marker{display:none;}
+.teach-course{font-weight:700;}
+.teach-meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:4px;}
+.meta-pill{
+  font-size:.78rem; padding:3px 10px; border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+}
+html[data-theme="dark"] .meta-pill{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+}
+.meta-role{font-weight:600;}
+.teach-actions{display:flex; align-items:center; gap:10px; text-align:right; max-width:48%;}
+.mini-link{
+  text-decoration:none; font-size:.85rem; padding:6px 10px; border-radius:10px;
+  border:1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+  white-space:nowrap;
+}
+html[data-theme="dark"] .mini-link{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+}
+.mini-muted{opacity:.75; font-size:.85rem;}
+.teach-details{padding:0 14px 12px;}
+.teach-detail-list{margin:0; padding-left:18px;}
+
+/* ========= Teaching ideology chip ========= */
+.teaching-ideology-chip{
+  display:flex; gap:10px; align-items:flex-start;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  background: var(--card, rgba(255,255,255,.92));
+  margin-bottom:12px;
+}
+html[data-theme="dark"] .teaching-ideology-chip{
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.14);
+}
+.teaching-ideology-chip i{margin-top:2px; opacity:.85;}
+.teaching-ideology-text{font-size:.92rem; line-height:1.35;}
+
+/* ========= Mentoring pane (scroll + expand + search) ========= */
+.mentoring-pane{
+  margin:14px 0 10px;
+  border-radius:16px;
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  background: var(--card, rgba(255,255,255,.92));
+  overflow:hidden;
+}
+html[data-theme="dark"] .mentoring-pane{
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.14);
+}
+.mentoring-head{
+  padding:12px 14px;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+html[data-theme="dark"] .mentoring-head{
+  border-bottom-color: rgba(255,255,255,.10);
+}
+.mentoring-title{
+  display:flex; gap:10px; align-items:center;
+  font-weight:800; flex-wrap:wrap;
+}
+.mentoring-count{
+  font-size:.75rem; padding:3px 10px; border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+  opacity:.9;
+}
+html[data-theme="dark"] .mentoring-count{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+}
+.mentoring-head-actions{
+  display:flex; gap:10px; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; margin-top:10px;
+}
+.mentoring-search{
+  display:flex; align-items:center; gap:8px;
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  background: var(--card, rgba(255,255,255,.9));
+  border-radius:999px; padding:8px 12px;
+  min-width:240px; flex:1;
+}
+html[data-theme="dark"] .mentoring-search{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.14);
+}
+.mentoring-search input{
+  border:none; outline:none; background:transparent; width:100%;
+  font:inherit; color:inherit;
+}
+.mentoring-subtitle{margin-top:8px; font-size:.88rem; opacity:.75;}
+.mentoring-scroll{
+  max-height:260px;
+  overflow:auto;
+  padding:10px 14px 14px;
+  transition:max-height .25s ease;
+}
+.mentoring-pane[data-expanded="true"] .mentoring-scroll{max-height:700px;}
+.mentoring-list{
+  margin:0; padding:0; list-style:none;
+  display:flex; flex-direction:column; gap:10px;
+}
+.mentoring-item{
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(0,0,0,.02);
+  padding:10px 12px;
+}
+html[data-theme="dark"] .mentoring-item{
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+}
+.mentoring-item-title{font-weight:750; margin-bottom:2px;}
+.mentoring-item-meta{font-size:.85rem; opacity:.75; margin-bottom:6px;}
+.mentoring-item-desc{font-size:.9rem; line-height:1.35; opacity:.95;}
+.mentoring-scroll::-webkit-scrollbar{width:10px;}
+.mentoring-scroll::-webkit-scrollbar-thumb{
+  border-radius:999px;
+  background: rgba(0,0,0,.18);
+  border:3px solid transparent;
+  background-clip: content-box;
+}
+html[data-theme="dark"] .mentoring-scroll::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.18);
+  border:3px solid transparent;
+  background-clip: content-box;
+}
+
+/* small screens */
+@media (max-width: 700px){
+  .teach-actions{max-width:100%; text-align:left;}
+  .teaching-search{min-width:0; width:100%;}
+  .mentoring-search{min-width:0; width:100%;}
+  .mentoring-head-actions{gap:8px;}
+}
