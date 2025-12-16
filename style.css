@@ -2415,7 +2415,7 @@ html[data-theme="dark"] .scroll-card-head{
 
 /* Make mentoring body scroll (uses your class combo) */
 .scroll-card-body{
-  max-height:40px;
+  max-height:100px;
   overflow:auto;
   padding:10px 14px 14px;
 }
