@@ -2192,139 +2192,82 @@ img.emoji {
 }
 
 
-/* ========= TOP ROW: Left teaching overview + Right mentoring (narrower) ========= */
-.teach-top-row{
+/* =========================================================
+   TEACHING PAGE — FINAL CONSOLIDATED CSS (REPLACEMENT)
+   Matches the latest Teaching HTML (Tulane PI + TA + Mentoring)
+   ========================================================= */
+
+/* ---------- Toolbar (Search + Sort) ---------- */
+.teaching-toolbar{
   display:flex;
   gap:12px;
-  align-items:flex-start;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
   margin-bottom:14px;
-  contain: layout;
-}
-.teach-top-row-tight .teaching-left{ flex: 1.35; }
-.teach-top-row-tight .mentoring-col-narrow{ flex: 0.75; } /* mentoring less wide */
-.teach-col{ min-width:0; }
-
-@media (max-width: 900px){
-  .teach-top-row{ flex-direction:column; }
-  .teach-top-row-tight .teaching-left,
-  .teach-top-row-tight .mentoring-col-narrow{ flex: 1; }
 }
 
-/* ========= University mini card (top-left) ========= */
-.uni-mini-card{
+.teaching-toolbar-right{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.teaching-search{
+  display:flex;
+  align-items:center;
+  gap:8px;
   border:1px solid var(--border, rgba(0,0,0,.12));
-  border-radius:16px;
-  background: var(--card, rgba(255,255,255,.92));
-  padding:12px 14px;
+  background: var(--card, rgba(255,255,255,.9));
+  border-radius:999px;
+  padding:8px 12px;
+  min-width:260px;
 }
-html[data-theme="dark"] .uni-mini-card{
-  background: rgba(255,255,255,.05);
+html[data-theme="dark"] .teaching-search{
+  background: rgba(255,255,255,.06);
   border-color: rgba(255,255,255,.14);
 }
-.uni-mini-head{
+.teaching-search input{
+  border:none;
+  outline:none;
+  background:transparent;
+  width:100%;
+  font:inherit;
+  color:inherit;
+}
+
+/* ---------- University + role headings ---------- */
+.uni-header{ margin: 8px 0 10px; }
+.uni-title{
+  margin:0;
+  font-size:1.05rem;
   display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:10px;
+  gap:10px;
+  align-items:center;
 }
-.uni-mini-title{
-  display:flex; gap:10px; align-items:center;
-  font-weight:800;
-}
-.uni-mini-sub{
+.uni-subtitle{
   opacity:.75;
   font-size:.9rem;
-  white-space:nowrap;
+  margin-top:2px;
 }
-.mini-role-title{
-  display:flex; gap:10px; align-items:center;
-  font-weight:750;
-  margin:8px 0 8px;
+
+.role-block{ margin-top:14px; }
+.role-title{
+  margin:0 0 10px;
+  font-size:1rem;
+  display:flex;
+  gap:10px;
+  align-items:center;
 }
-.mini-course-list{
-  list-style:none;
-  padding:0;
-  margin:0;
+
+/* ---------- OSU-style list items (details/summary) ---------- */
+.teaching-list-osu{
   display:flex;
   flex-direction:column;
   gap:10px;
 }
-.mini-course-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:12px;
-  border:1px solid rgba(0,0,0,.10);
-  background: rgba(0,0,0,.02);
-  border-radius:14px;
-  padding:10px 12px;
-}
-html[data-theme="dark"] .mini-course-item{
-  border-color: rgba(255,255,255,.14);
-  background: rgba(255,255,255,.04);
-}
-.mini-course-name{ font-weight:750; }
-.mini-course-meta{
-  display:flex; gap:8px; flex-wrap:wrap;
-  margin-top:4px;
-}
-.mini-course-link{ text-align:right; max-width:48%; }
-@media (max-width: 700px){
-  .mini-course-item{ flex-direction:column; }
-  .mini-course-link{ text-align:left; max-width:100%; }
-}
 
-/* ========= Coordinator pill ========= */
-.meta-coord{
-  font-weight:650;
-}
-
-/* ========= BOTTOM: two scrolling lists ========= */
-.two-scroll-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:12px;
-  margin-top:12px;
-}
-@media (max-width: 900px){
-  .two-scroll-grid{ grid-template-columns: 1fr; }
-}
-
-.scroll-card{
-  border:1px solid var(--border, rgba(0,0,0,.12));
-  border-radius:16px;
-  background: var(--card, rgba(255,255,255,.92));
-  overflow:hidden;
-}
-html[data-theme="dark"] .scroll-card{
-  background: rgba(255,255,255,.05);
-  border-color: rgba(255,255,255,.14);
-}
-.scroll-card-head{
-  padding:12px 14px;
-  border-bottom:1px solid rgba(0,0,0,.08);
-}
-html[data-theme="dark"] .scroll-card-head{
-  border-bottom-color: rgba(255,255,255,.10);
-}
-.scroll-card-title{
-  display:flex; gap:10px; align-items:center;
-  font-weight:800;
-}
-.scroll-card-sub{
-  margin-top:4px;
-  font-size:.88rem;
-  opacity:.75;
-}
-.scroll-card-body{
-  max-height: 520px;    /* scroll height */
-  overflow:auto;
-  padding: 10px 14px 14px;
-}
-
-/* ========= OSU-style items (re-use) ========= */
-.teaching-list-osu{display:flex; flex-direction:column; gap:10px;}
 .teach-item{
   border:1px solid var(--border, rgba(0,0,0,.12));
   border-radius:14px;
@@ -2335,16 +2278,36 @@ html[data-theme="dark"] .teach-item{
   background: rgba(255,255,255,.05);
   border-color: rgba(255,255,255,.14);
 }
+
 .teach-summary{
   list-style:none;
-  display:flex; gap:12px; align-items:center; justify-content:space-between;
-  padding:12px 14px; cursor:pointer;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding:12px 14px;
+  cursor:pointer;
 }
-.teach-summary::-webkit-details-marker{display:none;}
-.teach-course{font-weight:700;}
-.teach-meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:4px;}
+.teach-summary::-webkit-details-marker{ display:none; }
+
+.teach-main{ min-width:0; }
+
+.teach-course{
+  font-weight:800;
+}
+
+.teach-meta{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+
+/* Pills */
 .meta-pill{
-  font-size:.78rem; padding:3px 10px; border-radius:999px;
+  font-size:.78rem;
+  padding:3px 10px;
+  border-radius:999px;
   border:1px solid rgba(0,0,0,.12);
   background: rgba(0,0,0,.03);
 }
@@ -2352,46 +2315,148 @@ html[data-theme="dark"] .meta-pill{
   border-color: rgba(255,255,255,.16);
   background: rgba(255,255,255,.06);
 }
-.meta-role{font-weight:600;}
-.teach-actions{display:flex; align-items:center; gap:10px; text-align:right; max-width:48%;}
+
+.meta-role{ font-weight:700; }
+
+/* Optional highlighted coordinator pill */
+.meta-coord{
+  font-weight:800;
+  border-color: rgba(0,0,0,.18);
+}
+html[data-theme="dark"] .meta-coord{
+  border-color: rgba(255,255,255,.22);
+}
+
+.teach-actions{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-end;
+  gap:10px;
+  text-align:right;
+  max-width:48%;
+  flex-shrink:0;
+}
+
+/* Details button */
 .mini-link{
-  text-decoration:none; font-size:.85rem; padding:6px 10px; border-radius:10px;
+  text-decoration:none;
+  font-size:.85rem;
+  padding:7px 10px;
+  border-radius:10px;
   border:1px solid rgba(0,0,0,.12);
   background: rgba(0,0,0,.03);
   white-space:nowrap;
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
 }
 html[data-theme="dark"] .mini-link{
   border-color: rgba(255,255,255,.16);
   background: rgba(255,255,255,.06);
 }
-.mini-muted{opacity:.75; font-size:.85rem;}
-.teach-details{padding:0 14px 12px;}
-.teach-detail-list{margin:0; padding-left:18px;}
 
-/* ========= Mentoring pane (keep your existing mentoring styles if you already have them; otherwise include these) ========= */
-.mentoring-pane{
-  border-radius:16px;
+.mini-muted{
+  opacity:.75;
+  font-size:.85rem;
+}
+
+.teach-details{
+  padding:0 14px 12px;
+}
+
+.teach-detail-list{
+  margin:0;
+  padding-left:18px;
+}
+
+/* Small screens: don’t squeeze the right column */
+@media (max-width: 700px){
+  .teaching-search{ min-width:0; width:100%; }
+  .teach-actions{ max-width:100%; text-align:left; }
+  .teach-summary{ flex-direction:column; }
+}
+
+/* =========================================================
+   Mentoring (scroll-card style)
+   ========================================================= */
+
+.scroll-card{
   border:1px solid var(--border, rgba(0,0,0,.12));
+  border-radius:16px;
   background: var(--card, rgba(255,255,255,.92));
   overflow:hidden;
+  margin-top:14px;
 }
-html[data-theme="dark"] .mentoring-pane{
+html[data-theme="dark"] .scroll-card{
   background: rgba(255,255,255,.05);
   border-color: rgba(255,255,255,.14);
 }
-.mentoring-head{
+
+.scroll-card-head{
   padding:12px 14px;
   border-bottom:1px solid rgba(0,0,0,.08);
 }
-html[data-theme="dark"] .mentoring-head{
+html[data-theme="dark"] .scroll-card-head{
   border-bottom-color: rgba(255,255,255,.10);
 }
-.mentoring-title{
-  display:flex; gap:10px; align-items:center;
-  font-weight:800; flex-wrap:wrap;
+
+.scroll-card-title{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-weight:800;
+  flex-wrap:wrap;
 }
+.scroll-card-sub{
+  margin-top:4px;
+  font-size:.88rem;
+  opacity:.75;
+}
+
+/* Make mentoring body scroll (uses your class combo) */
+.scroll-card-body{
+  max-height:520px;
+  overflow:auto;
+  padding:10px 14px 14px;
+}
+
+/* Mentoring header controls (search + button) */
+.mentoring-head-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.mentoring-search{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  background: var(--card, rgba(255,255,255,.9));
+  border-radius:999px;
+  padding:8px 12px;
+  min-width:240px;
+}
+html[data-theme="dark"] .mentoring-search{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.14);
+}
+.mentoring-search input{
+  border:none;
+  outline:none;
+  background:transparent;
+  width:100%;
+  font:inherit;
+  color:inherit;
+}
+
 .mentoring-count{
-  font-size:.75rem; padding:3px 10px; border-radius:999px;
+  font-size:.75rem;
+  padding:3px 10px;
+  border-radius:999px;
   border:1px solid rgba(0,0,0,.12);
   background: rgba(0,0,0,.03);
   opacity:.9;
@@ -2400,37 +2465,16 @@ html[data-theme="dark"] .mentoring-count{
   border-color: rgba(255,255,255,.16);
   background: rgba(255,255,255,.06);
 }
-.mentoring-head-actions{
-  display:flex; gap:10px; align-items:center; justify-content:space-between;
-  flex-wrap:wrap; margin-top:10px;
-}
-.mentoring-search{
-  display:flex; align-items:center; gap:8px;
-  border:1px solid var(--border, rgba(0,0,0,.12));
-  background: var(--card, rgba(255,255,255,.9));
-  border-radius:999px; padding:8px 12px;
-  min-width:240px; flex:1;
-}
-html[data-theme="dark"] .mentoring-search{
-  background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.14);
-}
-.mentoring-search input{
-  border:none; outline:none; background:transparent; width:100%;
-  font:inherit; color:inherit;
-}
-.mentoring-subtitle{margin-top:8px; font-size:.88rem; opacity:.75;}
-.mentoring-scroll{
-  max-height:260px;
-  overflow:auto;
-  padding:10px 14px 14px;
-  transition:max-height .25s ease;
-}
-.mentoring-pane[data-expanded="true"] .mentoring-scroll{max-height:700px;}
+
 .mentoring-list{
-  margin:0; padding:0; list-style:none;
-  display:flex; flex-direction:column; gap:10px;
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
+
 .mentoring-item{
   border-radius:14px;
   border:1px solid rgba(0,0,0,.10);
@@ -2441,18 +2485,25 @@ html[data-theme="dark"] .mentoring-item{
   border-color: rgba(255,255,255,.14);
   background: rgba(255,255,255,.04);
 }
-.mentoring-item-title{font-weight:750; margin-bottom:2px;}
-.mentoring-item-meta{font-size:.85rem; opacity:.75; margin-bottom:6px;}
-.mentoring-item-desc{font-size:.9rem; line-height:1.35; opacity:.95;}
-.mentoring-scroll::-webkit-scrollbar{width:10px;}
-.mentoring-scroll::-webkit-scrollbar-thumb{
+
+.mentoring-item-title{ font-weight:800; margin-bottom:2px; }
+.mentoring-item-meta{ font-size:.85rem; opacity:.75; margin-bottom:6px; }
+.mentoring-item-desc{ font-size:.9rem; line-height:1.35; opacity:.95; }
+
+/* Scrollbar niceness */
+.scroll-card-body::-webkit-scrollbar{ width:10px; }
+.scroll-card-body::-webkit-scrollbar-thumb{
   border-radius:999px;
   background: rgba(0,0,0,.18);
   border:3px solid transparent;
   background-clip: content-box;
 }
-html[data-theme="dark"] .mentoring-scroll::-webkit-scrollbar-thumb{
+html[data-theme="dark"] .scroll-card-body::-webkit-scrollbar-thumb{
   background: rgba(255,255,255,.18);
   border:3px solid transparent;
   background-clip: content-box;
+}
+
+@media (max-width: 700px){
+  .mentoring-search{ min-width:0; width:100%; }
 }
