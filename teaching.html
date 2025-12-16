@@ -171,463 +171,424 @@
                 Teaching
               </div>
               <div class="card-subtitle">
-                University-wise overview (Primary Instructor first, then Teaching Assistant). Expand any item for details.
+                Tulane University — Primary Instructor, Teaching Assistant, and Mentoring (scrollable & searchable).
               </div>
             </div>
             <span class="pill-label">Teaching</span>
           </div>
 
-  <!-- ================= TEACHING (Tulane PI scroll, TA scroll, Mentoring scroll) ================= -->
-<section class="card" id="teaching">
-  <div class="card-header">
-    <div>
-      <div class="card-title">
-        <i class="fa-solid fa-chalkboard-teacher"></i>
-        Teaching
-      </div>
-      <div class="card-subtitle">
-        Tulane University — scrollable lists (Primary Instructor, Teaching Assistant) + Mentoring.
-      </div>
-    </div>
-    <span class="pill-label">Teaching</span>
-  </div>
+          <div class="card-body">
 
-  <div class="card-body">
+            <!-- ================= Teaching toolbar: global search + sort (for PI & TA lists) ================= -->
+            <section class="teaching-overview" id="teaching-overview">
 
-    <!-- ================= TEACHING OVERVIEW (OSU-style list) ================= -->
-    <section class="teaching-overview" id="teaching-overview">
+              <div class="teaching-toolbar">
+                <div class="teaching-toolbar-left">
+                  <div class="badge">
+                    <i class="fa-solid fa-building-columns"></i>
+                    University basis
+                  </div>
+                </div>
 
-      <div class="teaching-toolbar">
-        <div class="teaching-toolbar-left">
-          <div class="badge">
-            <i class="fa-solid fa-building-columns"></i>
-            University basis
+                <div class="teaching-toolbar-right">
+                  <div class="teaching-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input id="teachingSearch" type="text" placeholder="Search courses, codes, semesters, instructors…" />
+                  </div>
+
+                  <button id="teachingSortBtn" class="pill-button secondary" type="button" data-order="desc">
+                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                    <span>Sort: Newest</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- ================= Tulane University ================= -->
+              <section class="uni-group" data-uni="Tulane University">
+                <div class="uni-header">
+                  <h3 class="uni-title">
+                    <i class="fa-solid fa-school"></i>
+                    Tulane University
+                  </h3>
+                  <div class="uni-subtitle">Fall 2021 – Present</div>
+                </div>
+
+                <!-- ================= Primary Instructor (Scrollable) ================= -->
+                <div class="role-block" data-role="Primary Instructor">
+                  <h4 class="role-title">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    Primary Instructor
+                  </h4>
+
+                  <!-- Scroll container using scroll-card style -->
+                  <section class="scroll-card">
+                    <div class="scroll-card-head">
+                      <div class="scroll-card-title">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Primary Instructor — Courses</span>
+                      </div>
+                      <div class="scroll-card-sub">Scrollable list. Use the search bar above to filter.</div>
+                    </div>
+
+                    <div class="scroll-card-body" id="primaryScroll" role="region" aria-label="Primary Instructor list">
+                      <div class="teaching-list-osu" id="teachingListInstructor">
+
+                        <details class="teach-item"
+                                 data-sort="2024-09"
+                                 data-text="Tulane University Primary Instructor Fall 2024 Calculus I MATH 1210 course coordinator course details">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 1210 — Calculus I</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Fall 2024</span>
+                                <span class="meta-pill meta-role">Instructor of Record</span>
+                                <span class="meta-pill meta-coord">
+                                  <i class="fa-solid fa-clipboard-check"></i>
+                                  Course Coordinator
+                                </span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <a class="mini-link"
+                                 href="https://www.dipendranathmahato.com/teaching/calculus-i-fall2024"
+                                 target="_blank" rel="noopener">
+                                Course details
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                              </a>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Fall 2024</div>
+                            <ul class="teach-detail-list">
+                              <li>Course page includes notes, schedule, quizzes/solutions, and exam information.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                        <details class="teach-item"
+                                 data-sort="2025-06"
+                                 data-text="Tulane University Primary Instructor Summer 2025 Calculus I MATH 1210">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 1210 — Calculus I</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Summer 2025</span>
+                                <span class="meta-pill meta-role">Instructor of Record</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">
+                                <i class="fa-regular fa-clock"></i> Details soon
+                              </span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Summer 2025</div>
+                            <p class="mini-muted" style="margin:0;">Add a “Course details” link when the page is ready.</p>
+                          </div>
+                        </details>
+
+                      </div>
+                    </div>
+                  </section>
+                </div>
+
+                <!-- ================= Teaching Assistant (Scrollable) ================= -->
+                <div class="role-block" data-role="Teaching Assistant">
+                  <h4 class="role-title">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    Teaching Assistant
+                  </h4>
+
+                  <section class="scroll-card">
+                    <div class="scroll-card-head">
+                      <div class="scroll-card-title">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Teaching Assistant — Courses</span>
+                      </div>
+                      <div class="scroll-card-sub">Scrollable list. Use the search bar above to filter.</div>
+                    </div>
+
+                    <div class="scroll-card-body" id="taScroll" role="region" aria-label="Teaching Assistant list">
+                      <div class="teaching-list-osu" id="teachingListTA">
+
+                        <details class="teach-item"
+                                 data-sort="2024-06"
+                                 data-text="Tulane University Teaching Assistant Summer 2024 Introduction to Probability and Statistics MATH 1100 Naufil Sakran">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 1100 — Introduction to Probability &amp; Statistics</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Summer 2024</span>
+                                <span class="meta-pill meta-role">Teaching Assistant</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">Assisted: Naufil Sakran</span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Summer 2024</div>
+                            <div class="mini-muted" style="margin-bottom:10px;"><strong>Instructor:</strong> Naufil Sakran</div>
+                            <ul class="teach-detail-list">
+                              <li>Assisted with course delivery, student support, and grading.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                        <details class="teach-item"
+                                 data-sort="2024-01"
+                                 data-text="Tulane University Teaching Assistant Spring 2024 Stats for Scientists MATH 1230 Lifeng Han">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 1230 — Stats for Scientists</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Spring 2024</span>
+                                <span class="meta-pill meta-role">Teaching Assistant</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">Assisted: Lifeng Han</span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Spring 2024</div>
+                            <div class="mini-muted" style="margin-bottom:10px;"><strong>Instructor:</strong> Lifeng Han</div>
+                            <ul class="teach-detail-list">
+                              <li>Provided instructional support, grading, and office-hour help.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                        <details class="teach-item"
+                                 data-sort="2023-09"
+                                 data-text="Tulane University Teaching Assistant Fall 2023 Linear Algebra MATH 3090 Daniel Irving Bernstein">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 3090 — Linear Algebra</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Fall 2023</span>
+                                <span class="meta-pill meta-role">Teaching Assistant</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">Assisted: Daniel Irving Bernstein</span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Fall 2023</div>
+                            <div class="mini-muted" style="margin-bottom:10px;"><strong>Instructor:</strong> Daniel Irving Bernstein</div>
+                            <ul class="teach-detail-list">
+                              <li>Assisted with recitations, grading, and student support.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                        <details class="teach-item"
+                                 data-sort="2023-09"
+                                 data-text="Tulane University Teaching Assistant Fall 2023 Discrete Mathematics CMPS MATH 2170 Victor Bankston">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">CMPS/MATH 2170 — Discrete Mathematics</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Fall 2023</span>
+                                <span class="meta-pill meta-role">Teaching Assistant</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">Assisted: Victor Bankston</span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Fall 2023</div>
+                            <div class="mini-muted" style="margin-bottom:10px;"><strong>Instructor:</strong> Victor Bankston</div>
+                            <ul class="teach-detail-list">
+                              <li>Supported classroom activities and assessments.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                        <details class="teach-item"
+                                 data-sort="2023-06"
+                                 data-text="Tulane University Teaching Assistant Summer 2023 Introduction to Probability and Statistics MATH 1100 Nestor F Diaz Morera">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 1100 — Introduction to Probability &amp; Statistics</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Summer 2023</span>
+                                <span class="meta-pill meta-role">Teaching Assistant</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">Assisted: Néstor F. Díaz Morera</span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Summer 2023</div>
+                            <div class="mini-muted" style="margin-bottom:10px;"><strong>Instructor:</strong> Néstor F. Díaz Morera</div>
+                            <ul class="teach-detail-list">
+                              <li>Led recitations and helped students through problem sessions.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                        <details class="teach-item"
+                                 data-sort="2023-01"
+                                 data-text="Tulane University Teaching Assistant Spring 2023 Real Analysis MATH 3050 Tai Ha">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 3050 — Real Analysis</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Spring 2023</span>
+                                <span class="meta-pill meta-role">Teaching Assistant</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">Assisted: Tai Hà</span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Spring 2023</div>
+                            <div class="mini-muted" style="margin-bottom:10px;"><strong>Instructor:</strong> Tai Hà</div>
+                            <ul class="teach-detail-list">
+                              <li>Provided grading support and student help.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                        <details class="teach-item"
+                                 data-sort="2022-09"
+                                 data-text="Tulane University Teaching Assistant Fall 2022 Stats for Scientists MATH 1230 Norbert Riedel">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 1230 — Stats for Scientists</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Fall 2022</span>
+                                <span class="meta-pill meta-role">Teaching Assistant</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">Assisted: Norbert Riedel</span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Fall 2022</div>
+                            <div class="mini-muted" style="margin-bottom:10px;"><strong>Instructor:</strong> Norbert Riedel</div>
+                            <ul class="teach-detail-list">
+                              <li>Facilitated problem sessions and grading support.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                        <details class="teach-item"
+                                 data-sort="2022-01"
+                                 data-text="Tulane University Teaching Assistant Spring 2022 Calculus II MATH 1220 Tewodros Amdeberhan">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 1220 — Calculus II</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Spring 2022</span>
+                                <span class="meta-pill meta-role">Teaching Assistant</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">Assisted: Tewodros Amdeberhan</span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Spring 2022</div>
+                            <div class="mini-muted" style="margin-bottom:10px;"><strong>Instructor:</strong> Tewodros Amdeberhan</div>
+                            <ul class="teach-detail-list">
+                              <li>Supported course delivery and assessments.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                        <details class="teach-item"
+                                 data-sort="2021-09"
+                                 data-text="Tulane University Teaching Assistant Fall 2021 Calculus I MATH 1210 Ali Mohajer Norbert Riedel">
+                          <summary class="teach-summary">
+                            <div class="teach-main">
+                              <div class="teach-course">MATH 1210 — Calculus I</div>
+                              <div class="teach-meta">
+                                <span class="meta-pill">Fall 2021</span>
+                                <span class="meta-pill meta-role">Teaching Assistant</span>
+                              </div>
+                            </div>
+                            <div class="teach-actions">
+                              <span class="mini-muted">Assisted: Ali Mohajer &amp; Norbert Riedel</span>
+                            </div>
+                          </summary>
+                          <div class="teach-details">
+                            <div class="mini-muted" style="margin-bottom:6px;"><strong>Semester:</strong> Fall 2021</div>
+                            <div class="mini-muted" style="margin-bottom:10px;"><strong>Instructor:</strong> Ali Mohajer &amp; Norbert Riedel</div>
+                            <ul class="teach-detail-list">
+                              <li>Instructional support, office hours, grading.</li>
+                            </ul>
+                          </div>
+                        </details>
+
+                      </div>
+                    </div>
+                  </section>
+                </div>
+
+              </section>
+            </section>
+
+            <!-- ================= Mentoring (scroll + search only) ================= -->
+            <section class="scroll-card" id="mentoring">
+              <div class="scroll-card-head">
+                <div class="scroll-card-title">
+                  <i class="fa-solid fa-spade"></i>
+                  <span>Mentoring</span>
+                  <span class="mentoring-count" id="mentoringCount">0</span>
+                </div>
+                <div class="scroll-card-sub">Scrollable list (searchable).</div>
+
+                <div class="mentoring-head-actions" style="margin-top:10px;">
+                  <div class="mentoring-search" style="flex:1;">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input id="mentoringSearch" type="text" placeholder="Search mentoring…" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="scroll-card-body" id="mentoringScroll" role="region" aria-label="Mentoring list">
+                <ul class="mentoring-list" id="mentoringList">
+                  <li class="mentoring-item"
+                      data-text="Directed Reading Program DRP Introduction to Symbolic Powers Tulane TWOPLES Spring 2025 ideals primary decomposition saturation fat points P2">
+                    <div class="mentoring-item-title">Directed Reading Program (DRP): Introduction to Symbolic Powers</div>
+                    <div class="mentoring-item-meta">Tulane / TWOPLES • Spring 2025 • 1–1 mentorship</div>
+                    <div class="mentoring-item-desc">
+                      Guided a student through basic commutative algebra tools (ideals, primary decomposition, saturation) and
+                      symbolic powers of fat points in $\mathbb{P}^2$.
+                    </div>
+                  </li>
+
+                  <li class="mentoring-item"
+                      data-text="Reading Project Atiyah Macdonald foundations Tulane Fall 2025 engineering undergraduate localization Nakayama modules rings">
+                    <div class="mentoring-item-title">Reading Project: Atiyah–Macdonald Foundations</div>
+                    <div class="mentoring-item-meta">Tulane • Fall 2025 • Engineering undergraduate</div>
+                    <div class="mentoring-item-desc">
+                      Foundations-focused reading: rings, modules, localization, Nakayama’s lemma, and geometric intuition.
+                    </div>
+                  </li>
+
+                  <li class="mentoring-item"
+                      data-text="Review sessions problem solving Calculus Linear Algebra Discrete Mathematics various semesters exam readiness concept first practice">
+                    <div class="mentoring-item-title">Problem-Solving Support &amp; Review Sessions</div>
+                    <div class="mentoring-item-meta">Calculus / Linear Algebra / Discrete Math • Various semesters</div>
+                    <div class="mentoring-item-desc">
+                      Led structured review sessions and small-group support emphasizing concept-first practice.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
           </div>
-        </div>
-
-        <div class="teaching-toolbar-right">
-          <div class="teaching-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input id="teachingSearch" type="text" placeholder="Search courses, terms, codes, instructors…" />
-          </div>
-
-          <button id="teachingSortBtn" class="pill-button secondary" type="button" data-order="desc">
-            <i class="fa-solid fa-arrow-down-wide-short"></i>
-            <span>Sort: Newest</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- ===== Tulane University ===== -->
-      <section class="uni-group" data-uni="Tulane University">
-        <div class="uni-header">
-          <h3 class="uni-title">
-            <i class="fa-solid fa-school"></i>
-            Tulane University
-          </h3>
-          <div class="uni-subtitle">Fall 2021 – Present</div>
-        </div>
-
-        <!-- ===== Primary Instructor ===== -->
-        <div class="role-block" data-role="Primary Instructor">
-          <h4 class="role-title">
-            <i class="fa-solid fa-chalkboard-user"></i>
-            Primary Instructor
-          </h4>
-
-          <div class="teaching-list-osu" id="teachingListInstructor">
-
-            <details class="teach-item"
-                     data-sort="2024-09"
-                     data-text="Tulane University Primary Instructor Fall 2024 Calculus I MATH 1210 course coordinator course details">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 1210 — Calculus I</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Fall 2024</span>
-                    <span class="meta-pill meta-role">Instructor of Record</span>
-                    <span class="meta-pill meta-coord">
-                      <i class="fa-solid fa-clipboard-check"></i>
-                      Course Coordinator
-                    </span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <a class="mini-link"
-                     href="https://www.dipendranathmahato.com/teaching/calculus-i-fall2024"
-                     target="_blank" rel="noopener">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    Course details
-                  </a>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Fall 2024
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Course page includes notes, schedule, quizzes/solutions, and exam information.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="teach-item"
-                     data-sort="2025-06"
-                     data-text="Tulane University Primary Instructor Summer 2025 Calculus I MATH 1210">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 1210 — Calculus I</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Summer 2025</span>
-                    <span class="meta-pill meta-role">Instructor of Record</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">
-                    <i class="fa-regular fa-clock"></i>
-                    Details soon
-                  </span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Summer 2025
-                </div>
-                <p class="mini-muted" style="margin:0;">Add a “Course details” link when the page is ready.</p>
-              </div>
-            </details>
-
-          </div>
-        </div>
-
-        <!-- ===== Teaching Assistant ===== -->
-        <div class="role-block" data-role="Teaching Assistant">
-          <h4 class="role-title">
-            <i class="fa-solid fa-user-graduate"></i>
-            Teaching Assistant
-          </h4>
-
-          <div class="teaching-list-osu" id="teachingListTA">
-
-            <details class="teach-item"
-                     data-sort="2024-06"
-                     data-text="Tulane University Teaching Assistant Summer 2024 Introduction to Probability and Statistics MATH 1100 Naufil Sakran">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 1100 — Introduction to Probability &amp; Statistics</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Summer 2024</span>
-                    <span class="meta-pill meta-role">Teaching Assistant</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">Assisted: Naufil Sakran</span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Summer 2024
-                </div>
-                <div class="mini-muted" style="margin-bottom:10px;">
-                  <strong>Instructor:</strong> Naufil Sakran
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Assisted with course delivery, student support, and grading.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="teach-item"
-                     data-sort="2024-01"
-                     data-text="Tulane University Teaching Assistant Spring 2024 Stats for Scientists MATH 1230 Lifeng Han">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 1230 — Stats for Scientists</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Spring 2024</span>
-                    <span class="meta-pill meta-role">Teaching Assistant</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">Assisted: Lifeng Han</span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Spring 2024
-                </div>
-                <div class="mini-muted" style="margin-bottom:10px;">
-                  <strong>Instructor:</strong> Lifeng Han
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Provided instructional support, grading, and office-hour help.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="teach-item"
-                     data-sort="2023-09"
-                     data-text="Tulane University Teaching Assistant Fall 2023 Linear Algebra MATH 3090 Daniel Irving Bernstein">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 3090 — Linear Algebra</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Fall 2023</span>
-                    <span class="meta-pill meta-role">Teaching Assistant</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">Assisted: Daniel Irving Bernstein</span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Fall 2023
-                </div>
-                <div class="mini-muted" style="margin-bottom:10px;">
-                  <strong>Instructor:</strong> Daniel Irving Bernstein
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Assisted with recitations, grading, and student support.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="teach-item"
-                     data-sort="2023-09"
-                     data-text="Tulane University Teaching Assistant Fall 2023 Discrete Mathematics CMPS MATH 2170 Victor Bankston">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">CMPS/MATH 2170 — Discrete Mathematics</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Fall 2023</span>
-                    <span class="meta-pill meta-role">Teaching Assistant</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">Assisted: Victor Bankston</span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Fall 2023
-                </div>
-                <div class="mini-muted" style="margin-bottom:10px;">
-                  <strong>Instructor:</strong> Victor Bankston
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Supported classroom activities and assessments.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="teach-item"
-                     data-sort="2023-06"
-                     data-text="Tulane University Teaching Assistant Summer 2023 Introduction to Probability and Statistics MATH 1100 Nestor F Diaz Morera">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 1100 — Introduction to Probability &amp; Statistics</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Summer 2023</span>
-                    <span class="meta-pill meta-role">Teaching Assistant</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">Assisted: Néstor F. Díaz Morera</span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Summer 2023
-                </div>
-                <div class="mini-muted" style="margin-bottom:10px;">
-                  <strong>Instructor:</strong> Néstor F. Díaz Morera
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Led recitations and helped students through problem sessions.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="teach-item"
-                     data-sort="2023-01"
-                     data-text="Tulane University Teaching Assistant Spring 2023 Real Analysis MATH 3050 Tai Ha">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 3050 — Real Analysis</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Spring 2023</span>
-                    <span class="meta-pill meta-role">Teaching Assistant</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">Assisted: Tai Hà</span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Spring 2023
-                </div>
-                <div class="mini-muted" style="margin-bottom:10px;">
-                  <strong>Instructor:</strong> Tai Hà
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Provided grading support and student help.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="teach-item"
-                     data-sort="2022-09"
-                     data-text="Tulane University Teaching Assistant Fall 2022 Stats for Scientists MATH 1230 Norbert Riedel">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 1230 — Stats for Scientists</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Fall 2022</span>
-                    <span class="meta-pill meta-role">Teaching Assistant</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">Assisted: Norbert Riedel</span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Fall 2022
-                </div>
-                <div class="mini-muted" style="margin-bottom:10px;">
-                  <strong>Instructor:</strong> Norbert Riedel
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Facilitated problem sessions and grading support.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="teach-item"
-                     data-sort="2022-01"
-                     data-text="Tulane University Teaching Assistant Spring 2022 Calculus II MATH 1220 Tewodros Amdeberhan">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 1220 — Calculus II</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Spring 2022</span>
-                    <span class="meta-pill meta-role">Teaching Assistant</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">Assisted: Tewodros Amdeberhan</span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Spring 2022
-                </div>
-                <div class="mini-muted" style="margin-bottom:10px;">
-                  <strong>Instructor:</strong> Tewodros Amdeberhan
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Supported course delivery and assessments.</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="teach-item"
-                     data-sort="2021-09"
-                     data-text="Tulane University Teaching Assistant Fall 2021 Calculus I MATH 1210 Ali Mohajer Norbert Riedel">
-              <summary class="teach-summary">
-                <div class="teach-main">
-                  <div class="teach-course">MATH 1210 — Calculus I</div>
-                  <div class="teach-meta">
-                    <span class="meta-pill">Fall 2021</span>
-                    <span class="meta-pill meta-role">Teaching Assistant</span>
-                  </div>
-                </div>
-                <div class="teach-actions">
-                  <span class="mini-muted">Assisted: Ali Mohajer &amp; Norbert Riedel</span>
-                </div>
-              </summary>
-              <div class="teach-details">
-                <div class="mini-muted" style="margin-bottom:6px;">
-                  <strong>Semester:</strong> Fall 2021
-                </div>
-                <div class="mini-muted" style="margin-bottom:10px;">
-                  <strong>Instructor:</strong> Ali Mohajer &amp; Norbert Riedel
-                </div>
-                <ul class="teach-detail-list">
-                  <li>Instructional support, office hours, grading.</li>
-                </ul>
-              </div>
-            </details>
-
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <!-- ================= Mentoring (scroll) ================= -->
-    <section class="scroll-card" id="mentoring">
-      <div class="scroll-card-head">
-        <div class="scroll-card-title">
-          <i class="fa-solid fa-spade"></i>
-          <span>Mentoring</span>
-          <span class="mentoring-count" id="mentoringCount">0</span>
-        </div>
-        <div class="scroll-card-sub">Scrollable list of DRPs and guided reading (searchable).</div>
-
-        <div class="mentoring-head-actions" style="margin-top:10px;">
-          <div class="mentoring-search" style="flex:1;">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input id="mentoringSearch" type="text" placeholder="Search mentoring…" />
-          </div>
-
-          <button id="mentoringToggle" class="pill-button secondary" type="button" aria-expanded="false">
-            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-            <span>View all</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="scroll-card-body mentoring-scroll" id="mentoringScroll" role="region" aria-label="Mentoring list">
-        <ul class="mentoring-list" id="mentoringList">
-          <li class="mentoring-item"
-              data-text="Directed Reading Program DRP Introduction to Symbolic Powers Tulane TWOPLES Spring 2025 ideals primary decomposition saturation fat points P2">
-            <div class="mentoring-item-title">Directed Reading Program (DRP): Introduction to Symbolic Powers</div>
-            <div class="mentoring-item-meta">Tulane / TWOPLES • Spring 2025 • 1–1 mentorship</div>
-            <div class="mentoring-item-desc">
-              Guided a student through basic commutative algebra tools (ideals, primary decomposition, saturation) and
-              symbolic powers of fat points in $\mathbb{P}^2$.
-            </div>
-          </li>
-
-          <li class="mentoring-item"
-              data-text="Reading Project Atiyah Macdonald foundations Tulane Fall 2025 engineering undergraduate localization Nakayama modules rings">
-            <div class="mentoring-item-title">Reading Project: Atiyah–Macdonald Foundations</div>
-            <div class="mentoring-item-meta">Tulane • Fall 2025 • Engineering undergraduate</div>
-            <div class="mentoring-item-desc">
-              Foundations-focused reading: rings, modules, localization, Nakayama’s lemma, and geometric intuition.
-            </div>
-          </li>
-
-          <li class="mentoring-item"
-              data-text="Review sessions problem solving Calculus Linear Algebra Discrete Mathematics various semesters exam readiness concept first practice">
-            <div class="mentoring-item-title">Problem-Solving Support &amp; Review Sessions</div>
-            <div class="mentoring-item-meta">Calculus / Linear Algebra / Discrete Math • Various semesters</div>
-            <div class="mentoring-item-desc">
-              Led structured review sessions and small-group support emphasizing concept-first practice.
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-  </div>
-</section>
-
-
-</div>
-
+        </section>
 
         <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
@@ -711,7 +672,7 @@
       });
     }
 
-    // ----- Teaching: search + sort -----
+    // ----- Teaching: search + sort (PI & TA lists) -----
     (function () {
       const searchInput = document.getElementById("teachingSearch");
       const sortBtn = document.getElementById("teachingSortBtn");
@@ -774,41 +735,20 @@
       applySort();
     })();
 
-    // ----- Mentoring: search + expand/collapse + count -----
+    // ----- Mentoring: search + count (Option A: no expand/collapse) -----
     (function () {
-      const pane = document.getElementById("mentoring");
-      const toggleBtn = document.getElementById("mentoringToggle");
-      const scrollBox = document.getElementById("mentoringScroll");
       const search = document.getElementById("mentoringSearch");
       const list = document.getElementById("mentoringList");
       const count = document.getElementById("mentoringCount");
 
-      if (!pane || !toggleBtn || !scrollBox || !list || !count) return;
+      if (!list) return;
 
       function updateCount() {
+        if (!count) return;
         const items = Array.from(list.querySelectorAll(".mentoring-item"))
           .filter(li => li.style.display !== "none");
         count.textContent = items.length;
       }
-
-      toggleBtn.addEventListener("click", () => {
-        const expanded = pane.getAttribute("data-expanded") === "true";
-        const next = !expanded;
-        pane.setAttribute("data-expanded", String(next));
-        toggleBtn.setAttribute("aria-expanded", String(next));
-
-        const icon = toggleBtn.querySelector("i");
-        const label = toggleBtn.querySelector("span");
-
-        if (next) {
-          if (icon) icon.className = "fa-solid fa-down-left-and-up-right-to-center";
-          if (label) label.textContent = "Collapse";
-        } else {
-          if (icon) icon.className = "fa-solid fa-up-right-and-down-left-from-center";
-          if (label) label.textContent = "View all";
-          scrollBox.scrollTop = 0;
-        }
-      });
 
       function applyMentoringFilter() {
         const q = (search?.value || "").trim().toLowerCase();
