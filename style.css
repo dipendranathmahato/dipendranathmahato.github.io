@@ -2192,7 +2192,27 @@ img.emoji {
 }
 
 
-/* ========= Teaching Overview (OSU-style) ========= */
+/* ========= Teaching: SAFE parallel layout (Ideology + Mentoring) ========= */
+.teach-top-row{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;   /* prevents height stretching bugs */
+  margin-bottom:14px;
+  contain: layout;          /* isolates layout so rest of page stays stable */
+}
+.teach-col{
+  flex:1;
+  min-width:0;              /* avoids overflow issues */
+}
+.mentoring-col{ flex:1.25; }
+.teach-col .mentoring-pane,
+.teach-col .teaching-ideology-chip{ margin:0; }
+
+@media (max-width: 900px){
+  .teach-top-row{ flex-direction:column; }
+}
+
+/* ========= Teaching overview toolbar ========= */
 .teaching-toolbar{
   display:flex; gap:12px; align-items:center; justify-content:space-between;
   flex-wrap:wrap; margin-bottom:14px;
@@ -2214,6 +2234,7 @@ html[data-theme="dark"] .teaching-search{
   font:inherit; color:inherit;
 }
 
+/* ========= Teaching list cards ========= */
 .uni-header{margin:8px 0 10px;}
 .uni-title{margin:0; font-size:1.05rem; display:flex; gap:10px; align-items:center;}
 .uni-subtitle{opacity:.75; font-size:.9rem; margin-top:2px;}
@@ -2272,7 +2293,6 @@ html[data-theme="dark"] .mini-link{
   border-radius:14px;
   border:1px solid var(--border, rgba(0,0,0,.12));
   background: var(--card, rgba(255,255,255,.92));
-  margin-bottom:12px;
 }
 html[data-theme="dark"] .teaching-ideology-chip{
   background: rgba(255,255,255,.05);
@@ -2281,9 +2301,8 @@ html[data-theme="dark"] .teaching-ideology-chip{
 .teaching-ideology-chip i{margin-top:2px; opacity:.85;}
 .teaching-ideology-text{font-size:.92rem; line-height:1.35;}
 
-/* ========= Mentoring pane (scroll + expand + search) ========= */
+/* ========= Mentoring pane ========= */
 .mentoring-pane{
-  margin:14px 0 10px;
   border-radius:16px;
   border:1px solid var(--border, rgba(0,0,0,.12));
   background: var(--card, rgba(255,255,255,.92));
@@ -2377,31 +2396,4 @@ html[data-theme="dark"] .mentoring-scroll::-webkit-scrollbar-thumb{
   .teaching-search{min-width:0; width:100%;}
   .mentoring-search{min-width:0; width:100%;}
   .mentoring-head-actions{gap:8px;}
-}
-
-/* ========= Parallel layout: Ideology (left) + Mentoring (right) ========= */
-.teach-top-grid{
-  display:grid;
-  grid-template-columns: 1fr 1.25fr; /* mentoring slightly wider */
-  gap:12px;
-  align-items:stretch; /* same vertical height feel */
-  margin-bottom:12px;
-}
-
-/* Make ideology card behave like a "panel" height-wise */
-.teaching-ideology-chip{
-  height: 100%;
-  margin-bottom: 0; /* because wrapper already handles spacing */
-}
-
-/* Make mentoring panel fill the column */
-.mentoring-pane{
-  margin: 0; /* wrapper handles spacing */
-}
-
-/* Mobile: stack */
-@media (max-width: 900px){
-  .teach-top-grid{
-    grid-template-columns: 1fr;
-  }
 }
