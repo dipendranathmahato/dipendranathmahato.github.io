@@ -153,94 +153,79 @@
           </div>
         </div>
       </aside>
-
-      <!-- Main -->
-      <section class="main">
-        <section class="card" id="teaching">
-          <div class="card-header">
-            <div>
-              <div class="card-title">
-                <i class="fa-solid fa-chalkboard-teacher"></i>
-                Teaching
-              </div>
-              <div class="card-subtitle">
-                University-wise overview (Primary Instructor first, then Teaching Assistant). Expand any item for details.
-              </div>
-            </div>
-            <span class="pill-label">Teaching</span>
+      <!-- ================= Ideology + Mentoring (parallel layout) ================= -->
+      <div class="teach-top-grid">
+        <!-- Teaching ideology chip -->
+        <div class="teaching-ideology-chip" id="teaching-ideology">
+          <i class="fa-solid fa-compass"></i>
+          <div class="teaching-ideology-text">
+            <strong>Teaching Ideology:</strong>
+            Inquiry-Based Learning (IBL) — I emphasize active problem solving, guided discovery, student collaboration, and
+            short reflection checkpoints that build conceptual understanding and mathematical communication.
           </div>
-
-          <div class="card-body">
-
-            <!-- Teaching ideology chip -->
-            <div class="teaching-ideology-chip" id="teaching-ideology">
-              <i class="fa-solid fa-compass"></i>
-              <div class="teaching-ideology-text">
-                <strong>Teaching Ideology:</strong>
-                Inquiry-Based Learning (IBL) — I emphasize active problem solving, guided discovery, student
-                collaboration, and short reflection checkpoints that build conceptual understanding and mathematical communication.
-              </div>
+        </div>
+      
+        <!-- Mentoring pane -->
+        <section class="mentoring-pane" id="mentoring" data-expanded="false">
+          <div class="mentoring-head">
+            <div class="mentoring-title">
+              <i class="fa-solid fa-spade"></i>
+              <span>Mentoring</span>
+              <span class="mentoring-count" id="mentoringCount">0</span>
             </div>
-
-            <!-- Mentoring pane -->
-            <section class="mentoring-pane" id="mentoring" data-expanded="false">
-              <div class="mentoring-head">
-                <div class="mentoring-title">
-                  <i class="fa-solid fa-spade"></i>
-                  <span>Mentoring</span>
-                  <span class="mentoring-count" id="mentoringCount">0</span>
-                </div>
-
-                <div class="mentoring-head-actions">
-                  <div class="mentoring-search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input id="mentoringSearch" type="text" placeholder="Search mentoring…" />
-                  </div>
-
-                  <button id="mentoringToggle" class="pill-button secondary" type="button" aria-expanded="false">
-                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-                    <span>View all</span>
-                  </button>
-                </div>
-
-                <div class="mentoring-subtitle">
-                  Scrollable list of projects, DRPs, and guided reading (expand to view all).
-                </div>
+      
+            <div class="mentoring-head-actions">
+              <div class="mentoring-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="mentoringSearch" type="text" placeholder="Search mentoring…" />
               </div>
+      
+              <button id="mentoringToggle" class="pill-button secondary" type="button" aria-expanded="false">
+                <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                <span>View all</span>
+              </button>
+            </div>
+      
+            <div class="mentoring-subtitle">
+              Scrollable list of projects, DRPs, and guided reading (expand to view all).
+            </div>
+          </div>
+      
+          <div class="mentoring-scroll" id="mentoringScroll" role="region" aria-label="Mentoring list">
+            <ul class="mentoring-list" id="mentoringList">
+              <li class="mentoring-item"
+                  data-text="Directed Reading Program DRP Introduction to Symbolic Powers Tulane TWOPLES Spring 2025 ideals primary decomposition saturation fat points P2">
+                <div class="mentoring-item-title">Directed Reading Program (DRP): Introduction to Symbolic Powers</div>
+                <div class="mentoring-item-meta">Tulane / TWOPLES • Spring 2025 • 1–1 mentorship</div>
+                <div class="mentoring-item-desc">
+                  Guided a student through basic commutative algebra tools (ideals, primary decomposition, saturation) and
+                  symbolic powers of fat points in $\mathbb{P}^2$, with structured weekly reading + problem sets.
+                </div>
+              </li>
+      
+              <li class="mentoring-item"
+                  data-text="Reading Project Atiyah Macdonald foundations Tulane Fall 2025 engineering undergraduate localization Nakayama modules rings">
+                <div class="mentoring-item-title">Reading Project: Atiyah–Macdonald Foundations</div>
+                <div class="mentoring-item-meta">Tulane • Fall 2025 • Engineering undergraduate</div>
+                <div class="mentoring-item-desc">
+                  A foundations-focused reading project covering rings, modules, localization, Nakayama’s lemma, and
+                  geometric intuition to support later research-style work.
+                </div>
+              </li>
+      
+              <li class="mentoring-item"
+                  data-text="Review sessions problem solving Calculus Linear Algebra Discrete Mathematics various semesters exam readiness concept first practice">
+                <div class="mentoring-item-title">Problem-Solving Support &amp; Review Sessions</div>
+                <div class="mentoring-item-meta">Calculus / Linear Algebra / Discrete Math • Various semesters</div>
+                <div class="mentoring-item-desc">
+                  Led structured review sessions and small-group help to build exam readiness through concept-first practice.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
 
-              <div class="mentoring-scroll" id="mentoringScroll" role="region" aria-label="Mentoring list">
-                <ul class="mentoring-list" id="mentoringList">
-                  <li class="mentoring-item"
-                      data-text="Directed Reading Program DRP Introduction to Symbolic Powers Tulane TWOPLES Spring 2025 ideals primary decomposition saturation fat points P2">
-                    <div class="mentoring-item-title">Directed Reading Program (DRP): Introduction to Symbolic Powers</div>
-                    <div class="mentoring-item-meta">Tulane / TWOPLES • Spring 2025 • 1–1 mentorship</div>
-                    <div class="mentoring-item-desc">
-                      Guided a student through basic commutative algebra tools (ideals, primary decomposition, saturation) and
-                      symbolic powers of fat points in $\mathbb{P}^2$, with structured weekly reading + problem sets.
-                    </div>
-                  </li>
-
-                  <li class="mentoring-item"
-                      data-text="Reading Project Atiyah Macdonald foundations Tulane Fall 2025 engineering undergraduate localization Nakayama modules rings">
-                    <div class="mentoring-item-title">Reading Project: Atiyah–Macdonald Foundations</div>
-                    <div class="mentoring-item-meta">Tulane • Fall 2025 • Engineering undergraduate</div>
-                    <div class="mentoring-item-desc">
-                      A foundations-focused reading project covering rings, modules, localization, Nakayama’s lemma, and
-                      geometric intuition to support later research-style work.
-                    </div>
-                  </li>
-
-                  <li class="mentoring-item"
-                      data-text="Review sessions problem solving Calculus Linear Algebra Discrete Mathematics various semesters exam readiness concept first practice">
-                    <div class="mentoring-item-title">Problem-Solving Support &amp; Review Sessions</div>
-                    <div class="mentoring-item-meta">Calculus / Linear Algebra / Discrete Math • Various semesters</div>
-                    <div class="mentoring-item-desc">
-                      Led structured review sessions and small-group help to build exam readiness through concept-first practice.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </section>
 
             <!-- ================= TEACHING OVERVIEW (OSU-style list) ================= -->
             <section class="teaching-overview" id="teaching-overview">
