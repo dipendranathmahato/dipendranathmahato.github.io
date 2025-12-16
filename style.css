@@ -2378,3 +2378,30 @@ html[data-theme="dark"] .mentoring-scroll::-webkit-scrollbar-thumb{
   .mentoring-search{min-width:0; width:100%;}
   .mentoring-head-actions{gap:8px;}
 }
+
+/* ========= Parallel layout: Ideology (left) + Mentoring (right) ========= */
+.teach-top-grid{
+  display:grid;
+  grid-template-columns: 1fr 1.25fr; /* mentoring slightly wider */
+  gap:12px;
+  align-items:stretch; /* same vertical height feel */
+  margin-bottom:12px;
+}
+
+/* Make ideology card behave like a "panel" height-wise */
+.teaching-ideology-chip{
+  height: 100%;
+  margin-bottom: 0; /* because wrapper already handles spacing */
+}
+
+/* Make mentoring panel fill the column */
+.mentoring-pane{
+  margin: 0; /* wrapper handles spacing */
+}
+
+/* Mobile: stack */
+@media (max-width: 900px){
+  .teach-top-grid{
+    grid-template-columns: 1fr;
+  }
+}
