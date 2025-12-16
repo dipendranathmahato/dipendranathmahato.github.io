@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Home | Dipendranath Mahato</title>
+  <title>Teaching | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts & Icons -->
@@ -25,15 +25,153 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-only CSS (move to style.css when ready) -->
+  <style>
+    /* ========= Teaching Overview (OSU-style) ========= */
+    .teaching-toolbar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .teaching-toolbar-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .teaching-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border, rgba(0, 0, 0, .12));
+      background: var(--card, rgba(255, 255, 255, .9));
+      border-radius: 999px;
+      padding: 8px 12px;
+      min-width: 260px;
+    }
+
+    html[data-theme="dark"] .teaching-search {
+      background: rgba(255, 255, 255, .06);
+      border-color: rgba(255, 255, 255, .14);
+    }
+
+    .teaching-search input {
+      border: none;
+      outline: none;
+      background: transparent;
+      width: 100%;
+      font: inherit;
+      color: inherit;
+    }
+
+    .uni-header { margin: 8px 0 10px; }
+    .uni-title {
+      margin: 0;
+      font-size: 1.05rem;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .uni-subtitle { opacity: .75; font-size: .9rem; margin-top: 2px; }
+
+    .role-block { margin-top: 14px; }
+    .role-title {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .teaching-list-osu { display: flex; flex-direction: column; gap: 10px; }
+
+    .teach-item {
+      border: 1px solid var(--border, rgba(0, 0, 0, .12));
+      border-radius: 14px;
+      background: var(--card, rgba(255, 255, 255, .92));
+      overflow: hidden;
+    }
+
+    html[data-theme="dark"] .teach-item {
+      background: rgba(255, 255, 255, .05);
+      border-color: rgba(255, 255, 255, .14);
+    }
+
+    .teach-summary {
+      list-style: none;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      cursor: pointer;
+    }
+    .teach-summary::-webkit-details-marker { display: none; }
+
+    .teach-course { font-weight: 700; }
+    .teach-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+
+    .meta-pill {
+      font-size: .78rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, .12);
+      background: rgba(0, 0, 0, .03);
+    }
+    html[data-theme="dark"] .meta-pill {
+      border-color: rgba(255, 255, 255, .16);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .meta-role { font-weight: 600; }
+
+    .teach-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: right;
+      max-width: 48%;
+    }
+
+    .mini-link {
+      text-decoration: none;
+      font-size: .85rem;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, .12);
+      background: rgba(0, 0, 0, .03);
+      white-space: nowrap;
+    }
+    html[data-theme="dark"] .mini-link {
+      border-color: rgba(255, 255, 255, .16);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .mini-muted { opacity: .75; font-size: .85rem; }
+
+    .teach-details { padding: 0 14px 12px; }
+    .teach-detail-list { margin: 0; padding-left: 18px; }
+
+    /* small screens */
+    @media (max-width: 700px) {
+      .teach-actions { max-width: 100%; text-align: left; }
+      .teaching-search { min-width: 0; width: 100%; }
+    }
+  </style>
 </head>
+
 <body>
   <div class="page">
     <!-- ================= HEADER / NAV ================= -->
     <header class="top-nav">
       <div class="brand">
-        <img src="Tulane_University_Logo.svg.png"
-             class="nav-logo"
-             alt="Tulane University Logo" />
+        <img src="Tulane_University_Logo.svg.png" class="nav-logo" alt="Tulane University Logo" />
         <a href="index.html" class="brand-name-link">
           <span>Dipendranath Mahato</span>
         </a>
@@ -45,40 +183,35 @@
       </button>
 
       <nav class="top-nav-links">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="teaching.html">Teaching</a>
-  <a href="presentations.html">Presentations</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html" class="active">Teaching</a>
+        <a href="presentations.html">Presentations</a>
 
-  <!-- Single dropdown (desktop), will flatten on mobile via CSS -->
-  <div class="dropdown">
-    <button class="dropbtn">
-      More <i class="fa-solid fa-chevron-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="outreach & services.html">Outreach &amp; Services</a>
-      <a href="blogs.html">Blogs</a>
-      <a href="resources.html">Resources</a>
-    </div>
-  </div>
-</nav>
-
+        <div class="dropdown">
+          <button class="dropbtn">
+            More <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="outreach & services.html">Outreach &amp; Services</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="resources.html">Resources</a>
+          </div>
+        </div>
+      </nav>
 
       <div class="controls">
-  <!-- Dark mode toggle button -->
-  <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
-    <i class="fa-solid fa-moon"></i>
-    <span>Dark</span>
-  </button>
+        <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+          <span>Dark</span>
+        </button>
 
-  <!-- CV button (add cv-button class so we can hide it on small screens if needed) -->
-  <a href="cv.html" class="pill-button primary cv-button">
-    <i class="fa-solid fa-file-lines"></i>
-    <span>CV</span>
-  </a>
-</div>
-
+        <a href="cv.html" class="pill-button primary cv-button">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>CV</span>
+        </a>
+      </div>
     </header>
 
     <!-- ================= LAYOUT ================= -->
@@ -86,11 +219,8 @@
       <!-- Sidebar -->
       <aside class="sidebar">
         <div class="avatar">
-          <img src="PXL_20250330_220427523-1575x2800-compressed.jpg"
-               alt="Dipendranath Mahato" />
-          <div class="status-chip">
-            IN JOB MARKET
-          </div>
+          <img src="PXL_20250330_220427523-1575x2800-compressed.jpg" alt="Dipendranath Mahato" />
+          <div class="status-chip">IN JOB MARKET</div>
         </div>
 
         <div class="name">Dipendranath Mahato</div>
@@ -102,21 +232,16 @@
 
         <!-- Research area padded block -->
         <div class="research-area-block">
-        
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
             <span>Research Areas</span>
           </div>
-        
           <div class="research-chips">
             <a href="research.html#commutative" class="chip">Commutative Algebra</a>
             <a href="research.html#algebraic-geometry" class="chip">Algebraic Geometry</a>
             <a href="research.html#combinatorial" class="chip">Combinatorial Algebra</a>
           </div>
-        
         </div>
-
-
 
         <div class="sidebar-section">
           <h3>Contact</h3>
@@ -146,35 +271,32 @@
             <a href="https://github.com/dipendranathmahato" aria-label="GitHub">
               <i class="fa-brands fa-github"></i>
             </a>
-            <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=dRoXm28AAAAJ"
-               aria-label="Google Scholar">
+            <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=dRoXm28AAAAJ" aria-label="Google Scholar">
               <i class="ai ai-google-scholar"></i>
             </a>
             <a href="https://orcid.org/0000-0003-4122-2622" aria-label="ORCID">
               <i class="fa-brands fa-orcid"></i>
             </a>
-            <a href="https://www.linkedin.com/in/dipendranathmahato"
-               aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/dipendranathmahato" aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin-in"></i>
             </a>
-            <a href="https://www.researchgate.net/profile/Dipendranath-Mahato-2"
-               aria-label="ResearchGate">
+            <a href="https://www.researchgate.net/profile/Dipendranath-Mahato-2" aria-label="ResearchGate">
               <i class="fa-brands fa-researchgate"></i>
             </a>
             <a href="https://arxiv.org/search/?query=Mahato%2C+Dipendranath&searchtype=author&abstracts=show&order=-announced_date_first&size=50"
                aria-label="arXiv">
               <i class="ai ai-arxiv"></i>
             </a>
-            <a href="https://tulane.academia.edu/DipendranathMahato"
-               aria-label="Academia">
+            <a href="https://tulane.academia.edu/DipendranathMahato" aria-label="Academia">
               <i class="ai ai-academia"></i>
             </a>
           </div>
         </div>
       </aside>
 
+      <!-- Main -->
       <section class="main">
-        <section class="card">
+        <section class="card" id="teaching">
           <div class="card-header">
             <div>
               <div class="card-title">
@@ -182,45 +304,350 @@
                 Teaching
               </div>
               <div class="card-subtitle">
-                Courses and mentoring activities.
+                University-wise overview (Primary Instructor first, then Teaching Assistant). Expand any item for details.
               </div>
             </div>
             <span class="pill-label">Teaching</span>
           </div>
+
           <div class="card-body">
-            <div class="two-col">
-              <div>
-                <ul class="teaching-list">
-                  <li class="teaching-item">
-                    <strong>Calculus I</strong> – Primary Instructor<br />
-                    <span class="pub-meta">Tulane University, Fall 2023 (in person)</span>
-                  </li>
-                  <li class="teaching-item">
-                    <strong>Calculus I</strong> – Primary Instructor<br />
-                    <span class="pub-meta">Tulane University, Summer 2022 (online)</span>
-                  </li>
-                  <li class="teaching-item">
-                    <strong>Linear Algebra, Real Analysis, Discrete Mathematics, Probability &amp; Statistics</strong><br />
-                    <span class="pub-meta">Teaching Assistant, various semesters</span>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <div class="badge" style="margin-bottom:6px;">
-                  <i class="fa-solid fa-users-line"></i>
-                  Mentoring
+            <!-- ================= TEACHING OVERVIEW (OSU-style list) ================= -->
+            <section class="teaching-overview" id="teaching-overview">
+
+              <!-- Toolbar -->
+              <div class="teaching-toolbar">
+                <div class="teaching-toolbar-left">
+                  <div class="badge">
+                    <i class="fa-solid fa-building-columns"></i>
+                    University basis
+                  </div>
                 </div>
-                <p style="font-size:0.88rem; margin-top:4px;">
-                  I mentor students through Directed Reading Programs (DRP) and research-style projects in commutative
-                  algebra and algebraic geometry, introducing topics such as primary decomposition, Hilbert functions,
-                  and symbolic powers in $\mathbb{P}^2$ and beyond.
-                </p>
+
+                <div class="teaching-toolbar-right">
+                  <div class="teaching-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input id="teachingSearch" type="text" placeholder="Search courses, terms, codes, instructors…" />
+                  </div>
+
+                  <button id="teachingSortBtn" class="pill-button secondary" type="button" data-order="desc">
+                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                    <span>Sort: Newest</span>
+                  </button>
+                </div>
               </div>
+
+              <!-- University group -->
+              <section class="uni-group" data-uni="Tulane University">
+                <div class="uni-header">
+                  <h3 class="uni-title">
+                    <i class="fa-solid fa-school"></i>
+                    Tulane University
+                  </h3>
+                  <div class="uni-subtitle">Fall 2021 – Present</div>
+                </div>
+
+                <!-- Primary Instructor -->
+                <div class="role-block" data-role="Primary Instructor">
+                  <h4 class="role-title">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    Primary Instructor
+                  </h4>
+
+                  <div class="teaching-list-osu" id="teachingListInstructor">
+                    <details class="teach-item"
+                             data-sort="2024-09"
+                             data-text="Tulane University Primary Instructor Fall 2024 Calculus I MATH 1210 course details class notes">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Calculus I</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Fall 2024</span>
+                            <span class="meta-pill">MATH 1210</span>
+                            <span class="meta-pill meta-role">Instructor of Record</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <a class="mini-link"
+                             href="https://www.dipendranathmahato.com/teaching/calculus-i-fall2024"
+                             target="_blank" rel="noopener">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            Details
+                          </a>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Course details and class notes hosted on your site.</li>
+                          <li>Includes textbook link, daily notes, quizzes/solutions, and exam dates.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details class="teach-item"
+                             data-sort="2025-06"
+                             data-text="Tulane University Primary Instructor Summer 2025 Calculus I MATH 1210 to be added soon">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Calculus I</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Summer 2025</span>
+                            <span class="meta-pill">MATH 1210</span>
+                            <span class="meta-pill meta-role">Instructor of Record</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">
+                            <i class="fa-regular fa-clock"></i>
+                            Details to be added soon
+                          </span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <p class="mini-muted" style="margin:0;">
+                          Add a “Course Details” link later (same format as Fall 2024).
+                        </p>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+
+                <!-- Teaching Assistant -->
+                <div class="role-block" data-role="Teaching Assistant">
+                  <h4 class="role-title">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    Teaching Assistant
+                  </h4>
+
+                  <div class="teaching-list-osu" id="teachingListTA">
+
+                    <details class="teach-item"
+                             data-sort="2021-09"
+                             data-text="Tulane University Teaching Assistant Fall 2021 Calculus I MATH 1210 Ali Mohajer Norbert Riedel">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Calculus I</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Fall 2021</span>
+                            <span class="meta-pill">MATH 1210</span>
+                            <span class="meta-pill meta-role">Teaching Assistant</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">Assisted: Dr. Ali Mohajer &amp; Dr. Norbert Riedel</span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Assisted with instruction, grading, and office hours.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details class="teach-item"
+                             data-sort="2022-01"
+                             data-text="Tulane University Teaching Assistant Spring 2022 Calculus II MATH 1220 Tewodros Amdeberhan">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Calculus II</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Spring 2022</span>
+                            <span class="meta-pill">MATH 1220</span>
+                            <span class="meta-pill meta-role">Teaching Assistant</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">Assisted: Prof. Tewodros Amdeberhan</span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Supported course delivery and assessments.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details class="teach-item"
+                             data-sort="2022-09"
+                             data-text="Tulane University Teaching Assistant Fall 2022 Stats for Scientists MATH 1230 Norbert Riedel">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Stats for Scientists</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Fall 2022</span>
+                            <span class="meta-pill">MATH 1230</span>
+                            <span class="meta-pill meta-role">Teaching Assistant</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">Assisted: Dr. Norbert Riedel</span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Facilitated problem sessions and grading support.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details class="teach-item"
+                             data-sort="2023-01"
+                             data-text="Tulane University Teaching Assistant Spring 2023 Real Analysis MATH 3050 Tai Ha">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Real Analysis</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Spring 2023</span>
+                            <span class="meta-pill">MATH 3050</span>
+                            <span class="meta-pill meta-role">Teaching Assistant</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">Assisted: Prof. Tai Hà</span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Provided grading and student support.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details class="teach-item"
+                             data-sort="2023-06"
+                             data-text="Tulane University Teaching Assistant Summer 2023 Introduction to Probability and Statistics MATH 1100 Nestor F Diaz Morera">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Introduction to Probability &amp; Statistics</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Summer 2023</span>
+                            <span class="meta-pill">MATH 1100</span>
+                            <span class="meta-pill meta-role">Teaching Assistant</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">Assisted: Néstor F. Díaz Morera</span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Led recitations and student problem sessions.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details class="teach-item"
+                             data-sort="2023-09"
+                             data-text="Tulane University Teaching Assistant Fall 2023 Linear Algebra MATH 3090 Daniel Irving Bernstein">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Linear Algebra</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Fall 2023</span>
+                            <span class="meta-pill">MATH 3090</span>
+                            <span class="meta-pill meta-role">Teaching Assistant</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">Assisted: Dr. Daniel Irving Bernstein</span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Assisted with lectures, grading, and student support.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details class="teach-item"
+                             data-sort="2023-09"
+                             data-text="Tulane University Teaching Assistant Fall 2023 Discrete Mathematics CMPS MATH 2170 Victor Bankston">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Discrete Mathematics</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Fall 2023</span>
+                            <span class="meta-pill">CMPS/MATH 2170</span>
+                            <span class="meta-pill meta-role">Teaching Assistant</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">Assisted: Victor Bankston</span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Supported classroom activities and assessments.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details class="teach-item"
+                             data-sort="2024-01"
+                             data-text="Tulane University Teaching Assistant Spring 2024 Stats for Scientists MATH 1230 Lifeng Han">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Stats for Scientists</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Spring 2024</span>
+                            <span class="meta-pill">MATH 1230</span>
+                            <span class="meta-pill meta-role">Teaching Assistant</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">Assisted: Dr. Lifeng Han</span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Provided instructional support and grading.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                    <details class="teach-item"
+                             data-sort="2024-06"
+                             data-text="Tulane University Teaching Assistant Summer 2024 Introduction to Probability and Statistics MATH 1100 Naufil Sakran">
+                      <summary class="teach-summary">
+                        <div class="teach-main">
+                          <div class="teach-course">Introduction to Probability &amp; Statistics</div>
+                          <div class="teach-meta">
+                            <span class="meta-pill">Summer 2024</span>
+                            <span class="meta-pill">MATH 1100</span>
+                            <span class="meta-pill meta-role">Teaching Assistant</span>
+                          </div>
+                        </div>
+                        <div class="teach-actions">
+                          <span class="mini-muted">Assisted: Naufil Sakran</span>
+                        </div>
+                      </summary>
+                      <div class="teach-details">
+                        <ul class="teach-detail-list">
+                          <li>Assisted with course delivery and student support.</li>
+                        </ul>
+                      </div>
+                    </details>
+
+                  </div>
+                </div>
+              </section>
+            </section>
+
+            <!-- Mentoring note (optional; keep/remove as you like) -->
+            <div style="margin-top:14px;">
+              <div class="badge" style="margin-bottom:6px;">
+                <i class="fa-solid fa-users-line"></i>
+                Mentoring
+              </div>
+              <p style="font-size:0.9rem; margin:0;">
+                I mentor students through Directed Reading Programs (DRP) and research-style projects in commutative
+                algebra and algebraic geometry, introducing topics such as primary decomposition, Hilbert functions,
+                and symbolic powers in $\mathbb{P}^2$ and beyond.
+              </p>
             </div>
           </div>
         </section>
 
-         <div class="footer">
+        <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
           Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
@@ -230,85 +657,142 @@
 
   <!-- ================= SCRIPTS ================= -->
   <script>
-  // ----- Footer year -----
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+    // ----- Footer year -----
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // ----- Mobile hamburger toggle -----
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks  = document.querySelector('.top-nav-links');
+    // ----- Mobile hamburger toggle -----
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.top-nav-links');
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
 
-    navLinks.addEventListener('click', (event) => {
-      if (event.target.tagName.toLowerCase() === 'a') {
-        navLinks.classList.remove('open');
+      navLinks.addEventListener('click', (event) => {
+        if (event.target.tagName.toLowerCase() === 'a') {
+          navLinks.classList.remove('open');
+        }
+      });
+    }
+
+    // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+    if (dropbtn) {
+      dropbtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropdown.classList.toggle('dropdown-open');
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('dropdown-open');
       }
     });
-  }
 
-  // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
-  const dropdown = document.querySelector('.dropdown');
-  const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+    // ----- DARK MODE TOGGLE -----
+    const root = document.documentElement; // <html>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const THEME_KEY = 'dm-theme';
 
-  if (dropbtn) {
-    dropbtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      dropdown.classList.toggle('dropdown-open');
-    });
-  }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
 
-  document.addEventListener('click', (event) => {
-    if (dropdown && !dropdown.contains(event.target)) {
-      dropdown.classList.remove('dropdown-open');
+      if (!themeToggle) return;
+
+      const icon = themeToggle.querySelector('i');
+      const label = themeToggle.querySelector('span');
+
+      if (theme === 'dark') {
+        if (icon) icon.className = 'fa-solid fa-sun';
+        if (label) label.textContent = 'Light';
+      } else {
+        if (icon) icon.className = 'fa-solid fa-moon';
+        if (label) label.textContent = 'Dark';
+      }
     }
-  });
 
-  // ----- DARK MODE TOGGLE -----
-  const root        = document.documentElement; // <html>
-  const themeToggle = document.querySelector('.theme-toggle');
-  const THEME_KEY   = 'dm-theme';
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    const initialTheme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light';
+    applyTheme(initialTheme);
 
-  function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
-
-    if (!themeToggle) return;
-
-    const icon  = themeToggle.querySelector('i');
-    const label = themeToggle.querySelector('span');
-
-    if (theme === 'dark') {
-      if (icon) icon.className = 'fa-solid fa-sun';
-      if (label) label.textContent = 'Light';
-    } else {
-      if (icon) icon.className = 'fa-solid fa-moon';
-      if (label) label.textContent = 'Dark';
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+      });
     }
-  }
 
-  // Initial theme (from localStorage or default "light")
-  const savedTheme = localStorage.getItem(THEME_KEY);
-  const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
-    ? savedTheme
-    : 'light';
+    // ----- Teaching: search + sort (OSU-style) -----
+    (function () {
+      const searchInput = document.getElementById("teachingSearch");
+      const sortBtn = document.getElementById("teachingSortBtn");
 
-  applyTheme(initialTheme);
+      function getItems() {
+        return Array.from(document.querySelectorAll(".teach-item"));
+      }
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      const next    = current === 'dark' ? 'light' : 'dark';
-      localStorage.setItem(THEME_KEY, next);
-      applyTheme(next);
-    });
-  }
-</script>
+      function applyFilter() {
+        const q = (searchInput?.value || "").trim().toLowerCase();
+        getItems().forEach(item => {
+          const hay = (item.getAttribute("data-text") || "").toLowerCase();
+          item.style.display = (!q || hay.includes(q)) ? "" : "none";
+        });
+      }
 
+      function sortWithin(containerId, order) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        const items = Array.from(container.querySelectorAll(".teach-item"));
+        items.sort((a, b) => {
+          const A = a.getAttribute("data-sort") || "";
+          const B = b.getAttribute("data-sort") || "";
+          return order === "asc" ? A.localeCompare(B) : B.localeCompare(A);
+        });
+
+        items.forEach(x => container.appendChild(x));
+      }
+
+      function applySort() {
+        const order = sortBtn?.getAttribute("data-order") || "desc";
+        sortWithin("teachingListInstructor", order);
+        sortWithin("teachingListTA", order);
+
+        if (sortBtn) {
+          const icon = sortBtn.querySelector("i");
+          const label = sortBtn.querySelector("span");
+          if (order === "asc") {
+            if (icon) icon.className = "fa-solid fa-arrow-up-short-wide";
+            if (label) label.textContent = "Sort: Oldest";
+          } else {
+            if (icon) icon.className = "fa-solid fa-arrow-down-wide-short";
+            if (label) label.textContent = "Sort: Newest";
+          }
+        }
+      }
+
+      if (searchInput) searchInput.addEventListener("input", applyFilter);
+
+      if (sortBtn) {
+        sortBtn.addEventListener("click", () => {
+          const current = sortBtn.getAttribute("data-order") || "desc";
+          const next = current === "desc" ? "asc" : "desc";
+          sortBtn.setAttribute("data-order", next);
+          applySort();
+        });
+      }
+
+      applySort(); // initial
+    })();
+  </script>
 </body>
+
 </html>
