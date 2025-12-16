@@ -25,145 +25,6 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Page-only CSS (move to style.css when ready) -->
-  <style>
-    /* ========= Teaching Overview (OSU-style) ========= */
-    .teaching-toolbar {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .teaching-toolbar-right {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .teaching-search {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid var(--border, rgba(0, 0, 0, .12));
-      background: var(--card, rgba(255, 255, 255, .9));
-      border-radius: 999px;
-      padding: 8px 12px;
-      min-width: 260px;
-    }
-
-    html[data-theme="dark"] .teaching-search {
-      background: rgba(255, 255, 255, .06);
-      border-color: rgba(255, 255, 255, .14);
-    }
-
-    .teaching-search input {
-      border: none;
-      outline: none;
-      background: transparent;
-      width: 100%;
-      font: inherit;
-      color: inherit;
-    }
-
-    .uni-header { margin: 8px 0 10px; }
-    .uni-title {
-      margin: 0;
-      font-size: 1.05rem;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-    .uni-subtitle { opacity: .75; font-size: .9rem; margin-top: 2px; }
-
-    .role-block { margin-top: 14px; }
-    .role-title {
-      margin: 0 0 10px;
-      font-size: 1rem;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .teaching-list-osu { display: flex; flex-direction: column; gap: 10px; }
-
-    .teach-item {
-      border: 1px solid var(--border, rgba(0, 0, 0, .12));
-      border-radius: 14px;
-      background: var(--card, rgba(255, 255, 255, .92));
-      overflow: hidden;
-    }
-
-    html[data-theme="dark"] .teach-item {
-      background: rgba(255, 255, 255, .05);
-      border-color: rgba(255, 255, 255, .14);
-    }
-
-    .teach-summary {
-      list-style: none;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 14px;
-      cursor: pointer;
-    }
-    .teach-summary::-webkit-details-marker { display: none; }
-
-    .teach-course { font-weight: 700; }
-    .teach-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
-
-    .meta-pill {
-      font-size: .78rem;
-      padding: 3px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(0, 0, 0, .12);
-      background: rgba(0, 0, 0, .03);
-    }
-    html[data-theme="dark"] .meta-pill {
-      border-color: rgba(255, 255, 255, .16);
-      background: rgba(255, 255, 255, .06);
-    }
-
-    .meta-role { font-weight: 600; }
-
-    .teach-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-align: right;
-      max-width: 48%;
-    }
-
-    .mini-link {
-      text-decoration: none;
-      font-size: .85rem;
-      padding: 6px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 0, 0, .12);
-      background: rgba(0, 0, 0, .03);
-      white-space: nowrap;
-    }
-    html[data-theme="dark"] .mini-link {
-      border-color: rgba(255, 255, 255, .16);
-      background: rgba(255, 255, 255, .06);
-    }
-
-    .mini-muted { opacity: .75; font-size: .85rem; }
-
-    .teach-details { padding: 0 14px 12px; }
-    .teach-detail-list { margin: 0; padding-left: 18px; }
-
-    /* small screens */
-    @media (max-width: 700px) {
-      .teach-actions { max-width: 100%; text-align: left; }
-      .teaching-search { min-width: 0; width: 100%; }
-    }
-  </style>
 </head>
 
 <body>
@@ -230,7 +91,6 @@
           Department of Mathematics
         </div>
 
-        <!-- Research area padded block -->
         <div class="research-area-block">
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
@@ -311,10 +171,80 @@
           </div>
 
           <div class="card-body">
+
+            <!-- Teaching ideology chip -->
+            <div class="teaching-ideology-chip" id="teaching-ideology">
+              <i class="fa-solid fa-compass"></i>
+              <div class="teaching-ideology-text">
+                <strong>Teaching Ideology:</strong>
+                Inquiry-Based Learning (IBL) — I emphasize active problem solving, guided discovery, student
+                collaboration, and short reflection checkpoints that build conceptual understanding and mathematical communication.
+              </div>
+            </div>
+
+            <!-- Mentoring pane -->
+            <section class="mentoring-pane" id="mentoring" data-expanded="false">
+              <div class="mentoring-head">
+                <div class="mentoring-title">
+                  <i class="fa-solid fa-spade"></i>
+                  <span>Mentoring</span>
+                  <span class="mentoring-count" id="mentoringCount">0</span>
+                </div>
+
+                <div class="mentoring-head-actions">
+                  <div class="mentoring-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input id="mentoringSearch" type="text" placeholder="Search mentoring…" />
+                  </div>
+
+                  <button id="mentoringToggle" class="pill-button secondary" type="button" aria-expanded="false">
+                    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                    <span>View all</span>
+                  </button>
+                </div>
+
+                <div class="mentoring-subtitle">
+                  Scrollable list of projects, DRPs, and guided reading (expand to view all).
+                </div>
+              </div>
+
+              <div class="mentoring-scroll" id="mentoringScroll" role="region" aria-label="Mentoring list">
+                <ul class="mentoring-list" id="mentoringList">
+                  <li class="mentoring-item"
+                      data-text="Directed Reading Program DRP Introduction to Symbolic Powers Tulane TWOPLES Spring 2025 ideals primary decomposition saturation fat points P2">
+                    <div class="mentoring-item-title">Directed Reading Program (DRP): Introduction to Symbolic Powers</div>
+                    <div class="mentoring-item-meta">Tulane / TWOPLES • Spring 2025 • 1–1 mentorship</div>
+                    <div class="mentoring-item-desc">
+                      Guided a student through basic commutative algebra tools (ideals, primary decomposition, saturation) and
+                      symbolic powers of fat points in $\mathbb{P}^2$, with structured weekly reading + problem sets.
+                    </div>
+                  </li>
+
+                  <li class="mentoring-item"
+                      data-text="Reading Project Atiyah Macdonald foundations Tulane Fall 2025 engineering undergraduate localization Nakayama modules rings">
+                    <div class="mentoring-item-title">Reading Project: Atiyah–Macdonald Foundations</div>
+                    <div class="mentoring-item-meta">Tulane • Fall 2025 • Engineering undergraduate</div>
+                    <div class="mentoring-item-desc">
+                      A foundations-focused reading project covering rings, modules, localization, Nakayama’s lemma, and
+                      geometric intuition to support later research-style work.
+                    </div>
+                  </li>
+
+                  <li class="mentoring-item"
+                      data-text="Review sessions problem solving Calculus Linear Algebra Discrete Mathematics various semesters exam readiness concept first practice">
+                    <div class="mentoring-item-title">Problem-Solving Support &amp; Review Sessions</div>
+                    <div class="mentoring-item-meta">Calculus / Linear Algebra / Discrete Math • Various semesters</div>
+                    <div class="mentoring-item-desc">
+                      Led structured review sessions and small-group help to build exam readiness through concept-first practice.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
             <!-- ================= TEACHING OVERVIEW (OSU-style list) ================= -->
             <section class="teaching-overview" id="teaching-overview">
 
-              <!-- Toolbar -->
               <div class="teaching-toolbar">
                 <div class="teaching-toolbar-left">
                   <div class="badge">
@@ -336,7 +266,6 @@
                 </div>
               </div>
 
-              <!-- University group -->
               <section class="uni-group" data-uni="Tulane University">
                 <div class="uni-header">
                   <h3 class="uni-title">
@@ -632,18 +561,6 @@
               </section>
             </section>
 
-            <!-- Mentoring note (optional; keep/remove as you like) -->
-            <div style="margin-top:14px;">
-              <div class="badge" style="margin-bottom:6px;">
-                <i class="fa-solid fa-users-line"></i>
-                Mentoring
-              </div>
-              <p style="font-size:0.9rem; margin:0;">
-                I mentor students through Directed Reading Programs (DRP) and research-style projects in commutative
-                algebra and algebraic geometry, introducing topics such as primary decomposition, Hilbert functions,
-                and symbolic powers in $\mathbb{P}^2$ and beyond.
-              </p>
-            </div>
           </div>
         </section>
 
@@ -677,7 +594,7 @@
       });
     }
 
-    // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
+    // ----- "More" dropdown click toggle -----
     const dropdown = document.querySelector('.dropdown');
     const dropbtn = dropdown ? dropdown.querySelector('.dropbtn') : null;
 
@@ -696,13 +613,12 @@
     });
 
     // ----- DARK MODE TOGGLE -----
-    const root = document.documentElement; // <html>
+    const root = document.documentElement;
     const themeToggle = document.querySelector('.theme-toggle');
     const THEME_KEY = 'dm-theme';
 
     function applyTheme(theme) {
       root.setAttribute('data-theme', theme);
-
       if (!themeToggle) return;
 
       const icon = themeToggle.querySelector('i');
@@ -730,7 +646,7 @@
       });
     }
 
-    // ----- Teaching: search + sort (OSU-style) -----
+    // ----- Teaching: search + sort -----
     (function () {
       const searchInput = document.getElementById("teachingSearch");
       const sortBtn = document.getElementById("teachingSortBtn");
@@ -790,7 +706,58 @@
         });
       }
 
-      applySort(); // initial
+      applySort();
+    })();
+
+    // ----- Mentoring: search + expand/collapse + count -----
+    (function () {
+      const pane = document.getElementById("mentoring");
+      const toggleBtn = document.getElementById("mentoringToggle");
+      const scrollBox = document.getElementById("mentoringScroll");
+      const search = document.getElementById("mentoringSearch");
+      const list = document.getElementById("mentoringList");
+      const count = document.getElementById("mentoringCount");
+
+      if (!pane || !toggleBtn || !scrollBox || !list || !count) return;
+
+      function updateCount() {
+        const items = Array.from(list.querySelectorAll(".mentoring-item"))
+          .filter(li => li.style.display !== "none");
+        count.textContent = items.length;
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        const expanded = pane.getAttribute("data-expanded") === "true";
+        const next = !expanded;
+        pane.setAttribute("data-expanded", String(next));
+        toggleBtn.setAttribute("aria-expanded", String(next));
+
+        const icon = toggleBtn.querySelector("i");
+        const label = toggleBtn.querySelector("span");
+
+        if (next) {
+          if (icon) icon.className = "fa-solid fa-down-left-and-up-right-to-center";
+          if (label) label.textContent = "Collapse";
+        } else {
+          if (icon) icon.className = "fa-solid fa-up-right-and-down-left-from-center";
+          if (label) label.textContent = "View all";
+          scrollBox.scrollTop = 0;
+        }
+      });
+
+      function applyMentoringFilter() {
+        const q = (search?.value || "").trim().toLowerCase();
+        const items = Array.from(list.querySelectorAll(".mentoring-item"));
+        items.forEach(li => {
+          const hay = (li.getAttribute("data-text") || "").toLowerCase();
+          li.style.display = (!q || hay.includes(q)) ? "" : "none";
+        });
+        updateCount();
+      }
+
+      if (search) search.addEventListener("input", applyMentoringFilter);
+
+      updateCount();
     })();
   </script>
 </body>
