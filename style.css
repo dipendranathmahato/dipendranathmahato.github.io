@@ -2284,28 +2284,6 @@ html[data-theme="dark"] .uni-header.prominent::after{
   background: rgba(198, 146, 20, 0.75);
 }
 
-/* ========= Tulane watermark (very subtle) ========= */
-.uni-header.prominent::before{
-  content:"";
-  position:absolute;
-  top:50%;
-  right:18px;
-  transform:translateY(-50%);
-  width:120px;
-  height:120px;
-  background-image:url("/assets/images/Tulane_University_Logo.svg.png");
-  background-repeat:no-repeat;
-  background-size:contain;
-  background-position:center;
-  opacity:0.06;
-  pointer-events:none;
-}
-
-/* Dark mode watermark slightly stronger */
-html[data-theme="dark"] .uni-header.prominent::before{
-  opacity:0.10;
-}
-
 
 /* Left side */
 .uni-header-left{
@@ -2339,8 +2317,8 @@ html[data-theme="dark"] .uni-header.prominent::before{
 }
 
 .uni-header-logo img{
-  height:38px;
-  max-width:140px;
+  height:48px;
+  max-width:160px;
   object-fit:contain;
   opacity:.9;
 }
