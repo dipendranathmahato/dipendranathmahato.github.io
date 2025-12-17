@@ -2644,6 +2644,32 @@ html[data-theme="dark"] .scroll-card-head{
   border-bottom-color: rgba(255,255,255,.10);
 }
 
+.mentoring-head-left > i{
+  color: rgba(60, 72, 88, 0.85);
+}
+html[data-theme="dark"] .mentoring-head-left > i{
+  color: rgba(200, 210, 220, 0.85);
+}
+
+/* ========= Mentoring title emphasis ========= */
+.scroll-card-head.mentoring-head.prominent .scroll-card-title{
+  font-size:1.25rem;      /* bigger title */
+  font-weight:800;
+  letter-spacing:.3px;
+  line-height:1.2;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Keep count visually secondary */
+.scroll-card-head.mentoring-head.prominent .mentoring-count{
+  font-size:.8rem;
+  font-weight:600;
+  opacity:.8;
+}
+
+
 .scroll-card-title{
   display:flex;
   gap:10px;
