@@ -1,1 +1,166 @@
+/* =========================
+   COURSE PAGES CSS (course.css)
+   Scope everything to .course-page
+   ========================= */
+
+.course-page .schedule-grid-section{ margin-top: 14px; }
+
+.course-page .schedule-grid-title{
+  margin:0;
+  font-size:1.2rem;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.course-page .schedule-grid-subtitle{
+  margin:6px 0 14px;
+  opacity:.75;
+  font-size:.92rem;
+}
+
+/* Week container: clearly separated */
+.course-page .week-block{
+  border:1px solid var(--border);
+  border-radius:16px;
+  background: var(--panel);
+  margin:14px 0;
+  overflow:hidden;
+}
+
+/* Week header */
+.course-page .week-header{
+  padding:12px 14px;
+  border-bottom:1px solid var(--border-2);
+  background: var(--panel-2);
+}
+
+.course-page .week-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.course-page .week-badge{
+  font-weight:900;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--chip-border);
+  background: var(--chip-bg);
+}
+
+.course-page .week-dates{
+  font-size:.9rem;
+  opacity:.75;
+}
+
+/* Grid of meeting cards */
+.course-page .meeting-grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap:10px;
+  padding:12px 14px 14px;
+}
+
+/* Default: 3 per row (desktop) */
+.course-page .meeting-card{
+  grid-column: span 4;
+  border:1px solid var(--border-2);
+  border-radius:14px;
+  background: rgba(0,0,0,.02);
+  padding:12px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+}
+html[data-theme="dark"] .course-page .meeting-card{
+  background: rgba(255,255,255,.04);
+}
+
+.course-page .meeting-main{ min-width:0; }
+
+.course-page .meeting-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:6px;
+}
+
+.course-page .meeting-date{ font-weight:900; opacity:.92; }
+.course-page .meeting-module{ font-size:.85rem; opacity:.75; }
+
+.course-page .meeting-topic{
+  font-weight:900;
+  line-height:1.25;
+  margin-bottom:6px;
+}
+
+.course-page .meeting-meta{
+  font-size:.88rem;
+  opacity:.75;
+}
+
+/* Notes button with icon */
+.course-page .meeting-actions{ flex-shrink:0; }
+
+.course-page .notes-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:12px;
+  border:1px solid var(--chip-border);
+  background: var(--chip-bg);
+  text-decoration:none;
+  color:inherit;
+  font-weight:900;
+  font-size:.88rem;
+  white-space:nowrap;
+}
+
+.course-page .notes-btn:hover{ filter: brightness(1.05); }
+
+/* Disabled button */
+.course-page .notes-btn.disabled{
+  opacity:.6;
+  cursor:not-allowed;
+  user-select:none;
+  pointer-events:none;
+}
+
+/* Special states */
+.course-page .meeting-card.holiday{ opacity:.85; }
+
+.course-page .meeting-card.exam{
+  background: rgba(198,146,20,.12);
+  border-color: rgba(198,146,20,.25);
+}
+html[data-theme="dark"] .course-page .meeting-card.exam{
+  background: rgba(198,146,20,.18);
+  border-color: rgba(198,146,20,.35);
+}
+
+.course-page .meeting-card.review{
+  background: rgba(60,72,88,.08);
+  border-color: rgba(60,72,88,.16);
+}
+html[data-theme="dark"] .course-page .meeting-card.review{
+  background: rgba(140,160,180,.12);
+  border-color: rgba(140,160,180,.20);
+}
+
+/* Responsive breakpoints */
+@media (max-width: 980px){
+  .course-page .meeting-card{ grid-column: span 6; } /* 2 per row */
+}
+
+@media (max-width: 600px){
+  .course-page .meeting-card{ grid-column: span 12; } /* 1 per row */
+  .course-page .meeting-actions{ width:100%; }
+  .course-page .notes-btn{ width:100%; justify-content:center; }
+}
 
