@@ -902,3 +902,24 @@ a:hover { text-decoration: underline; }
   background: rgba(255, 255, 255, 0.55);
 }
 
+/* Footer */
+.footer {
+  margin-top: 24px;
+  font-size: 0.78rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+[data-theme="dark"] .footer {
+  color: #6b7280;
+}
+
+[data-theme="dark"] .footer a {
+  color: #9ca3af;
+}
