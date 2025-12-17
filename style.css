@@ -2238,11 +2238,14 @@ html[data-theme="dark"] .teaching-search{
 }
 
 /* ========= Prominent University Header ========= */
+/* ========= Prominent University Header (with logo) ========= */
 .uni-header.prominent{
+  position:relative;
   display:flex;
   align-items:center;
-  padding:14px 18px;
-  margin:6px 0 14px;
+  justify-content:space-between;
+  padding:16px 18px 20px;
+  margin:6px 0 18px;
   border-radius:16px;
   border:1px solid var(--border, rgba(0,0,0,.15));
   background:
@@ -2252,6 +2255,19 @@ html[data-theme="dark"] .teaching-search{
     );
 }
 
+/* Extended underline */
+.uni-header.prominent::after{
+  content:"";
+  position:absolute;
+  left:18px;
+  bottom:8px;
+  width:60%;
+  height:3px;
+  border-radius:999px;
+  background: rgba(0,0,0,.18);
+}
+
+/* Dark mode */
 html[data-theme="dark"] .uni-header.prominent{
   border-color: rgba(255,255,255,.18);
   background:
@@ -2261,6 +2277,11 @@ html[data-theme="dark"] .uni-header.prominent{
     );
 }
 
+html[data-theme="dark"] .uni-header.prominent::after{
+  background: rgba(255,255,255,.28);
+}
+
+/* Left side */
 .uni-header-left{
   display:flex;
   align-items:center;
@@ -2284,6 +2305,42 @@ html[data-theme="dark"] .uni-header.prominent{
   opacity:.75;
   margin-top:2px;
 }
+
+/* Right-side logo */
+.uni-header-logo{
+  display:flex;
+  align-items:center;
+}
+
+.uni-header-logo img{
+  height:38px;
+  max-width:140px;
+  object-fit:contain;
+  opacity:.9;
+}
+
+/* Dark mode logo tuning */
+html[data-theme="dark"] .uni-header-logo img{
+  opacity:.95;
+}
+
+/* Responsive: stack logo below on very small screens */
+@media (max-width: 600px){
+  .uni-header.prominent{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .uni-header.prominent::after{
+    width:85%;
+  }
+
+  .uni-header-logo img{
+    height:32px;
+  }
+}
+
 
 .uni-subtitle{
   opacity:.75;
