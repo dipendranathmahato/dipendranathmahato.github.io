@@ -2237,15 +2237,54 @@ html[data-theme="dark"] .teaching-search{
   color:inherit;
 }
 
-/* ---------- University + role headings ---------- */
-.uni-header{ margin: 8px 0 10px; }
-.uni-title{
-  margin:0;
-  font-size:1.05rem;
+/* ========= Prominent University Header ========= */
+.uni-header.prominent{
   display:flex;
-  gap:10px;
   align-items:center;
+  padding:14px 18px;
+  margin:6px 0 14px;
+  border-radius:16px;
+  border:1px solid var(--border, rgba(0,0,0,.15));
+  background:
+    linear-gradient(135deg,
+      rgba(0,0,0,.04),
+      rgba(0,0,0,.01)
+    );
 }
+
+html[data-theme="dark"] .uni-header.prominent{
+  border-color: rgba(255,255,255,.18);
+  background:
+    linear-gradient(135deg,
+      rgba(255,255,255,.08),
+      rgba(255,255,255,.03)
+    );
+}
+
+.uni-header-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.uni-header-left i{
+  font-size:1.6rem;
+  opacity:.85;
+}
+
+.uni-header .uni-title{
+  margin:0;
+  font-size:1.15rem;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+
+.uni-header .uni-subtitle{
+  font-size:.9rem;
+  opacity:.75;
+  margin-top:2px;
+}
+
 .uni-subtitle{
   opacity:.75;
   font-size:.9rem;
