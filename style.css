@@ -2237,4 +2237,543 @@ html[data-theme="dark"] .teaching-search{
   color:inherit;
 }
 
+/* ========= Prominent University Header — Tulane themed ========= */
+.uni-header.prominent{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 18px 20px;
+  margin:6px 0 18px;
+  border-radius:16px;
 
+  /* Tulane green + gold (light mode) */
+  background:
+    linear-gradient(135deg,
+      rgba(0, 84, 44, 0.10),   /* Tulane green */
+      rgba(198, 146, 20, 0.10) /* Tulane gold */
+    );
+
+  border:1px solid rgba(0, 84, 44, 0.25);
+}
+
+/* Extended underline */
+.uni-header.prominent::after{
+  content:"";
+  position:absolute;
+  left:18px;
+  bottom:8px;
+  width:60%;
+  height:3px;
+  border-radius:999px;
+  background: rgba(0, 84, 44, 0.45);
+}
+
+/* ========= Dark mode ========= */
+html[data-theme="dark"] .uni-header.prominent{
+  background:
+    linear-gradient(135deg,
+      rgba(0, 84, 44, 0.35),
+      rgba(198, 146, 20, 0.25)
+    );
+
+  border-color: rgba(198, 146, 20, 0.45);
+}
+
+html[data-theme="dark"] .uni-header.prominent::after{
+  background: rgba(198, 146, 20, 0.75);
+}
+
+
+/* Left side */
+.uni-header-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.uni-header-left i{
+  font-size:1.6rem;
+  opacity:.85;
+}
+
+.uni-header .uni-title{
+  margin:0;
+  font-size:1.15rem;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+
+.uni-header .uni-subtitle{
+  font-size:.9rem;
+  opacity:.75;
+  margin-top:2px;
+}
+
+/* Right-side logo */
+.uni-header-logo{
+  display:flex;
+  align-items:center;
+}
+
+.uni-header-logo img{
+  height:48px;
+  max-width:160px;
+  object-fit:contain;
+  opacity:.9;
+}
+
+/* Dark mode logo tuning */
+html[data-theme="dark"] .uni-header-logo img{
+  opacity:.95;
+}
+
+/* Responsive: stack logo below on very small screens */
+@media (max-width: 600px){
+  .uni-header.prominent{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .uni-header.prominent::after{
+    width:85%;
+  }
+
+  .uni-header-logo img{
+    height:32px;
+  }
+}
+
+/* ========= Underline entrance animation ========= */
+@keyframes underline-grow{
+  from{ width:0; opacity:0; }
+  to{ width:60%; opacity:1; }
+}
+
+.uni-header.prominent::after{
+  animation: underline-grow 0.6s ease-out;
+}
+
+/* =========================================================
+   MENTORING — FINAL CSS (Neutral + prominent, non-Tulane)
+   Uses icon: fa-hands-helping
+   ========================================================= */
+
+/* Prominent header (neutral academic tone) */
+.scroll-card-head.mentoring-head.prominent{
+  position:relative;
+  padding:16px 18px 20px;
+  border-radius:16px;
+  margin:0;
+
+  background:
+    linear-gradient(135deg,
+      rgba(60, 72, 88, 0.08),
+      rgba(60, 72, 88, 0.02)
+    );
+
+  border-bottom:1px solid rgba(60, 72, 88, 0.20);
+}
+
+/* Dark mode */
+html[data-theme="dark"] .scroll-card-head.mentoring-head.prominent{
+  background:
+    linear-gradient(135deg,
+      rgba(140, 160, 180, 0.20),
+      rgba(140, 160, 180, 0.10)
+    );
+  border-bottom-color: rgba(200, 210, 220, 0.25);
+}
+
+/* Underline */
+.scroll-card-head.mentoring-head.prominent::after{
+  content:"";
+  position:absolute;
+  left:18px;
+  bottom:10px;
+  width:45%;
+  height:2px;
+  border-radius:999px;
+  background: rgba(60, 72, 88, 0.45);
+}
+
+html[data-theme="dark"] .scroll-card-head.mentoring-head.prominent::after{
+  background: rgba(200, 210, 220, 0.65);
+}
+
+/* Layout within mentoring header */
+.mentoring-head-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.mentoring-head-left{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+}
+
+/* Icon (fa-hands-helping) */
+.mentoring-head-left > i{
+  font-size:1.45rem;
+  opacity:.9;
+  margin-top:2px;
+  color: rgba(60, 72, 88, 0.85);
+}
+
+html[data-theme="dark"] .mentoring-head-left > i{
+  color: rgba(200, 210, 220, 0.85);
+}
+
+/* Ensure a clean divider between header and scroll body */
+#mentoring .scroll-card-body{
+  border-top:1px solid rgba(0,0,0,.08);
+}
+
+html[data-theme="dark"] #mentoring .scroll-card-body{
+  border-top-color: rgba(255,255,255,.10);
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .scroll-card-head.mentoring-head.prominent::after{
+    width:75%;
+  }
+}
+
+
+
+
+.uni-subtitle{
+  opacity:.75;
+  font-size:.9rem;
+  margin-top:2px;
+}
+
+.role-block{ margin-top:14px; }
+.role-title{
+  margin:0 0 10px;
+  font-size:1rem;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+/* ---------- OSU-style list items (details/summary) ---------- */
+.teaching-list-osu{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.teach-item{
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  border-radius:14px;
+  background: var(--card, rgba(255,255,255,.92));
+  overflow:hidden;
+}
+html[data-theme="dark"] .teach-item{
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.14);
+}
+
+.teach-summary{
+  list-style:none;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding:12px 14px;
+  cursor:pointer;
+}
+.teach-summary::-webkit-details-marker{ display:none; }
+
+.teach-main{ min-width:0; }
+
+.teach-course{
+  font-weight:800;
+}
+
+.teach-meta{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+
+/* Pills */
+.meta-pill{
+  font-size:.78rem;
+  padding:3px 10px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+}
+html[data-theme="dark"] .meta-pill{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+}
+
+.meta-role{ font-weight:700; }
+
+/* ========= Course Coordinator pill — Tulane gold ========= */
+.meta-coord{
+  position:relative;
+  font-weight:800;
+  letter-spacing:.25px;
+  padding-left:30px;
+  border-radius:999px;
+  border:1px solid rgba(198,146,20,.55);
+
+  background:
+    linear-gradient(135deg,
+      rgba(198,146,20,.40),
+      rgba(198,146,20,.18)
+    );
+
+  color:#3f2e00;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* Tulane logo inside pill */
+.meta-coord::before{
+  content:"";
+  position:absolute;
+  left:8px;
+  width:14px;
+  height:14px;
+  background-image:url("/assets/images/Tulane_University_Logo.svg.png");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  opacity:.95;
+}
+
+.meta-coord i{
+  font-size:.85em;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .meta-coord{
+  border-color: rgba(198,146,20,.75);
+  background:
+    linear-gradient(135deg,
+      rgba(198,146,20,.30),
+      rgba(198,146,20,.15)
+    );
+  color:#ffe8a3;
+}
+
+
+
+.teach-actions{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-end;
+  gap:10px;
+  text-align:right;
+  max-width:48%;
+  flex-shrink:0;
+}
+
+/* Details button */
+.mini-link{
+  text-decoration:none;
+  font-size:.85rem;
+  padding:7px 10px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+  white-space:nowrap;
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+}
+html[data-theme="dark"] .mini-link{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+}
+
+.mini-muted{
+  opacity:.75;
+  font-size:.85rem;
+}
+
+.teach-details{
+  padding:0 14px 12px;
+}
+
+.teach-detail-list{
+  margin:0;
+  padding-left:18px;
+}
+
+/* Small screens: don’t squeeze the right column */
+@media (max-width: 700px){
+  .teaching-search{ min-width:0; width:100%; }
+  .teach-actions{ max-width:100%; text-align:left; }
+  .teach-summary{ flex-direction:column; }
+}
+
+/* =========================================================
+   Mentoring (scroll-card style)
+   ========================================================= */
+
+.scroll-card{
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  border-radius:16px;
+  background: var(--card, rgba(255,255,255,.92));
+  overflow:hidden;
+  margin-top:14px;
+}
+html[data-theme="dark"] .scroll-card{
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.14);
+}
+
+.scroll-card-head{
+  padding:12px 14px;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+html[data-theme="dark"] .scroll-card-head{
+  border-bottom-color: rgba(255,255,255,.10);
+}
+
+.mentoring-head-left > i{
+  color: rgba(60, 72, 88, 0.85);
+}
+html[data-theme="dark"] .mentoring-head-left > i{
+  color: rgba(200, 210, 220, 0.85);
+}
+
+/* ========= Mentoring title emphasis ========= */
+.scroll-card-head.mentoring-head.prominent .scroll-card-title{
+  font-size:1.25rem;      /* bigger title */
+  font-weight:800;
+  letter-spacing:.3px;
+  line-height:1.2;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Keep count visually secondary */
+.scroll-card-head.mentoring-head.prominent .mentoring-count{
+  font-size:.8rem;
+  font-weight:600;
+  opacity:.8;
+}
+
+
+.scroll-card-title{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-weight:800;
+  flex-wrap:wrap;
+}
+.scroll-card-sub{
+  margin-top:4px;
+  font-size:.88rem;
+  opacity:.75;
+}
+
+/* Make mentoring body scroll (uses your class combo) */
+.scroll-card-body{
+  max-height:300px;
+  overflow:auto;
+  padding:10px 14px 14px;
+}
+
+/* Mentoring header controls (search + button) */
+.mentoring-head-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.mentoring-search{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  background: var(--card, rgba(255,255,255,.9));
+  border-radius:999px;
+  padding:8px 12px;
+  min-width:240px;
+}
+html[data-theme="dark"] .mentoring-search{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.14);
+}
+.mentoring-search input{
+  border:none;
+  outline:none;
+  background:transparent;
+  width:100%;
+  font:inherit;
+  color:inherit;
+}
+
+.mentoring-count{
+  font-size:.75rem;
+  padding:3px 10px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+  opacity:.9;
+}
+html[data-theme="dark"] .mentoring-count{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+}
+
+.mentoring-list{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.mentoring-item{
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(0,0,0,.02);
+  padding:10px 12px;
+}
+html[data-theme="dark"] .mentoring-item{
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+}
+
+.mentoring-item-title{ font-weight:800; margin-bottom:2px; }
+.mentoring-item-meta{ font-size:.85rem; opacity:.75; margin-bottom:6px; }
+.mentoring-item-desc{ font-size:.9rem; line-height:1.35; opacity:.95; }
+
+/* Scrollbar niceness */
+.scroll-card-body::-webkit-scrollbar{ width:10px; }
+.scroll-card-body::-webkit-scrollbar-thumb{
+  border-radius:999px;
+  background: rgba(0,0,0,.18);
+  border:3px solid transparent;
+  background-clip: content-box;
+}
+html[data-theme="dark"] .scroll-card-body::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.18);
+  border:3px solid transparent;
+  background-clip: content-box;
+}
+
+@media (max-width: 700px){
+  .mentoring-search{ min-width:0; width:100%; }
+}
