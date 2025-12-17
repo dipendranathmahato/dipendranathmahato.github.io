@@ -2357,14 +2357,38 @@ html[data-theme="dark"] .meta-pill{
 
 .meta-role{ font-weight:700; }
 
-/* Optional highlighted coordinator pill */
+/* ========= Highlighted Course Coordinator pill ========= */
 .meta-coord{
   font-weight:800;
-  border-color: rgba(0,0,0,.18);
+  letter-spacing:.2px;
+  border:1px solid rgba(0,0,0,.25);
+  background:
+    linear-gradient(135deg,
+      rgba(255,215,0,.35),
+      rgba(255,215,0,.15)
+    );
+  color:#4b3b00;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
 }
+
+.meta-coord i{
+  font-size:.85em;
+  opacity:.9;
+}
+
+/* Dark mode */
 html[data-theme="dark"] .meta-coord{
-  border-color: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.35);
+  background:
+    linear-gradient(135deg,
+      rgba(255,215,0,.25),
+      rgba(255,215,0,.10)
+    );
+  color:#ffe28a;
 }
+
 
 .teach-actions{
   display:flex;
