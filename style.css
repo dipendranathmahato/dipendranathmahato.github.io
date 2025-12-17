@@ -2237,8 +2237,7 @@ html[data-theme="dark"] .teaching-search{
   color:inherit;
 }
 
-/* ========= Prominent University Header ========= */
-/* ========= Prominent University Header (with logo) ========= */
+/* ========= Prominent University Header — Tulane themed ========= */
 .uni-header.prominent{
   position:relative;
   display:flex;
@@ -2247,12 +2246,15 @@ html[data-theme="dark"] .teaching-search{
   padding:16px 18px 20px;
   margin:6px 0 18px;
   border-radius:16px;
-  border:1px solid var(--border, rgba(0,0,0,.15));
+
+  /* Tulane green + gold (light mode) */
   background:
     linear-gradient(135deg,
-      rgba(0,0,0,.04),
-      rgba(0,0,0,.01)
+      rgba(0, 84, 44, 0.10),   /* Tulane green */
+      rgba(198, 146, 20, 0.10) /* Tulane gold */
     );
+
+  border:1px solid rgba(0, 84, 44, 0.25);
 }
 
 /* Extended underline */
@@ -2264,21 +2266,22 @@ html[data-theme="dark"] .teaching-search{
   width:60%;
   height:3px;
   border-radius:999px;
-  background: rgba(0,0,0,.18);
+  background: rgba(0, 84, 44, 0.45);
 }
 
-/* Dark mode */
+/* ========= Dark mode ========= */
 html[data-theme="dark"] .uni-header.prominent{
-  border-color: rgba(255,255,255,.18);
   background:
     linear-gradient(135deg,
-      rgba(255,255,255,.08),
-      rgba(255,255,255,.03)
+      rgba(0, 84, 44, 0.35),
+      rgba(198, 146, 20, 0.25)
     );
+
+  border-color: rgba(198, 146, 20, 0.45);
 }
 
 html[data-theme="dark"] .uni-header.prominent::after{
-  background: rgba(255,255,255,.28);
+  background: rgba(198, 146, 20, 0.75);
 }
 
 /* Left side */
