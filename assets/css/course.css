@@ -132,6 +132,44 @@ html[data-theme="dark"] .course-page .meeting-card{
   pointer-events:none;
 }
 
+/* =========================
+   Exam button — red neon glow
+   ========================= */
+.course-page .notes-btn.exam{
+  border-color: rgba(220, 38, 38, 0.75);
+  background: rgba(220, 38, 38, 0.12);
+  color: rgb(185, 28, 28);
+  font-weight: 900;
+
+  box-shadow:
+    0 0 0 rgba(220, 38, 38, 0),
+    0 0 12px rgba(220, 38, 38, 0.45),
+    inset 0 0 8px rgba(220, 38, 38, 0.18);
+
+  transition: box-shadow .25s ease, transform .15s ease;
+}
+
+/* Hover pulse */
+.course-page .notes-btn.exam:hover{
+  box-shadow:
+    0 0 0 rgba(220, 38, 38, 0),
+    0 0 18px rgba(220, 38, 38, 0.75),
+    inset 0 0 10px rgba(220, 38, 38, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Dark mode tuning */
+html[data-theme="dark"] .course-page .notes-btn.exam{
+  background: rgba(220, 38, 38, 0.20);
+  color: rgb(252, 165, 165);
+
+  box-shadow:
+    0 0 0 rgba(220, 38, 38, 0),
+    0 0 16px rgba(220, 38, 38, 0.75),
+    inset 0 0 10px rgba(220, 38, 38, 0.30);
+}
+
+
 /* Special states */
 .course-page .meeting-card.holiday{ opacity:.85; }
 
