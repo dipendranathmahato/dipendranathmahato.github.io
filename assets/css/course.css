@@ -65,7 +65,7 @@
 .course-page .person-info li{
   display:flex;
   align-items:flex-start;
-  gap:10px;
+  gap:5px;
   padding:8px 0;
   border-bottom:1px solid var(--border-2);
   font-size:.9rem;
