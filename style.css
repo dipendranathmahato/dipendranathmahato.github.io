@@ -2683,6 +2683,50 @@ html[data-theme="dark"] .mentoring-head-left > i{
   opacity:.75;
 }
 
+
+/* Make title line support left title + right link */
+.scroll-card-title{
+  justify-content: space-between;
+}
+
+.scroll-card-title-left{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-weight:800;
+  flex-wrap:wrap;
+}
+
+/* RateMyProfessor link */
+.rmp-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.92rem;
+  font-weight:700;
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+}
+
+.rmp-link:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,.06);
+}
+
+html[data-theme="dark"] .rmp-link{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+}
+
+html[data-theme="dark"] .rmp-link:hover{
+  background: rgba(255,255,255,.10);
+}
+
+
+
 /* Make mentoring body scroll (uses your class combo) */
 .scroll-card-body{
   max-height:300px;
