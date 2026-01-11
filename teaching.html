@@ -671,23 +671,32 @@
                     <div class="mentoring-item-desc">
                       <div style="margin-top:6px;">
                         <span style="font-weight:900;">Project Name:</span>
-                        <span
-                          style="
-                            display:inline-block;
-                            padding:4px 10px;
-                            margin-left:6px;
-                            border-radius:999px;
-                            border:1px solid rgba(29,155,240,.45);
-                            background: rgba(29,155,240,.10);
+                        
+                        <span style="
                             font-weight:900;
-                            color:#72c7ff;
+                            color: var(--neon-blue, #0b5ed7);
                             text-shadow:
-                              0 0 6px rgba(29,155,240,.55),
-                              0 0 16px rgba(29,155,240,.35);
-                          ">
+                              0 0 0 rgba(0,0,0,0);
+                          "
+                          data-neon>
                           An Introduction to Symbolic Powers
                         </span>
                       </div>
+
+                      <style>
+                        html[data-theme="dark"] [data-neon]{
+                          color:#72c7ff;
+                          text-shadow:
+                            0 0 6px rgba(29,155,240,.55),
+                            0 0 16px rgba(29,155,240,.35);
+                        }
+                      
+                        html[data-theme="light"] [data-neon]{
+                          color:#0b5ed7;
+                          text-shadow:none;
+                        }
+                      </style>
+
 
                       <br>
 
