@@ -612,27 +612,44 @@
             <!-- ================= Mentoring (scroll + search only) ================= -->
             <section class="scroll-card" id="mentoring">
               <div class="scroll-card-head mentoring-head prominent">
-                <div class="mentoring-head-top">
-                  <div class="mentoring-head-left">
-                    <!-- CHANGED: icon -->
-                    <i class="fa-solid fa-hands-helping"></i>
-
-                    <div class="scroll-card-title" style="display:flex; align-items:center; gap:10px;">
-                      <span style="font-size:1.25rem; font-weight:900;">Mentoring</span>
-                    
+                <div class="mentoring-head-top"
+                     style="display:flex; align-items:flex-start; gap:14px;">
+              
+                  <!-- LEFT: icon only -->
+                  <i class="fa-solid fa-hands-helping"
+                     style="font-size:1.4rem; margin-top:2px;"></i>
+              
+                  <!-- RIGHT: title + counter + subtitle -->
+                  <div style="flex:1;">
+              
+                    <!-- Title row -->
+                    <div class="scroll-card-title"
+                         style="
+                           display:grid;
+                           grid-template-columns: 1fr auto;
+                           align-items:center;
+                           gap:12px;
+                         ">
+                      <span style="font-size:1.35rem; font-weight:900;">
+                        Mentoring
+                      </span>
+              
                       <span class="mentoring-count"
                             id="mentoringCount"
-                            style="margin-rightt:auto; font-weight:800; opacity:.85;">
+                            style="font-weight:800; opacity:.85; white-space:nowrap;">
                         Number of Students: 0
                       </span>
                     </div>
-
-                      <div class="scroll-card-sub">
-                        Directed reading, research-style mentoring, and guided problem solving.
-                      </div>
+              
+                    <!-- Subtitle directly under Mentoring -->
+                    <div class="scroll-card-sub" style="margin-top:2px;">
+                      Directed reading, research-style mentoring, and guided problem solving.
                     </div>
+              
                   </div>
                 </div>
+              </div>
+
 
                 <div class="mentoring-head-actions" style="margin-top:10px;">
                   <div class="mentoring-search" style="flex:1;">
