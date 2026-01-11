@@ -273,9 +273,10 @@
 
           <div class="card-body">
 
-            <!-- Collaborator dropdown (LEFT) + Year dropdown (RIGHT) -->
+            <!-- Collaborator dropdown (LEFT, same style as year) + Year dropdown (RIGHT) -->
             <div class="pub-controls pub-controls-right">
 
+              <!-- Reuse year-filter styling so it looks identical -->
               <div class="year-filter author-filter">
                 <i class="fa-solid fa-user-group"></i>
                 <label for="preprintsAuthor" class="sr-only">Filter by collaborator</label>
@@ -451,6 +452,9 @@
       const blocks = () => Array.from(section.querySelectorAll('.pub-year-block[data-year]'));
       const entriesAll = () => Array.from(section.querySelectorAll('.pub-entry'));
 
+      // Exclude you from collaborator dropdown + counts:
+      const EXCLUDED_COLLABORATOR = "Dipendranath Mahato";
+
       let activeYear = 'all';
       let activeAuthor = 'all';
       let query = '';
@@ -473,7 +477,7 @@
         return (entry.dataset.authors || '')
           .split(',')
           .map(a => a.trim())
-          .filter(Boolean);
+          .filter(a => a && a !== EXCLUDED_COLLABORATOR);
       }
 
       function buildYearDropdown() {
@@ -494,21 +498,20 @@
           yearSelect.appendChild(opt);
         });
 
-        // preserve selected
         yearSelect.value = activeYear;
       }
 
       function buildAuthorDropdown() {
         if (!authorSelect) return;
 
-        // count papers per collaborator
         const counts = new Map();
+
+        // Count papers per collaborator (excluding you)
         entriesAll().forEach(e => {
           const uniqueAuthors = new Set(authorsOfEntry(e));
           uniqueAuthors.forEach(a => counts.set(a, (counts.get(a) || 0) + 1));
         });
 
-        // sort by count desc, then name asc
         const sorted = Array.from(counts.entries())
           .sort((x, y) => (y[1] - x[1]) || x[0].localeCompare(y[0]));
 
@@ -526,7 +529,6 @@
           authorSelect.appendChild(opt);
         });
 
-        // preserve selected
         authorSelect.value = activeAuthor;
       }
 
@@ -537,10 +539,12 @@
           const yearBlock = entry.closest('.pub-year-block');
           const y = yearBlock ? String(yearBlock.dataset.year || '') : '';
           const text = normalize(entry.textContent);
-          const authors = authorsOfEntry(entry);
+
+          // collaborators list for filtering excludes you
+          const collaborators = authorsOfEntry(entry);
 
           const matchYear   = activeYear === 'all' || y === activeYear;
-          const matchAuthor = activeAuthor === 'all' || authors.includes(activeAuthor);
+          const matchAuthor = activeAuthor === 'all' || collaborators.includes(activeAuthor);
           const matchQuery  = !query || text.includes(query);
 
           const show = matchYear && matchAuthor && matchQuery;
@@ -557,7 +561,7 @@
 
         if (emptyState) emptyState.style.display = visibleCount ? 'none' : '';
 
-        // rebuild counts (keeps dropdown labels accurate as you add/remove items)
+        // Keep dropdown labels synced (handy as you add papers)
         buildYearDropdown();
         buildAuthorDropdown();
       }
