@@ -1755,7 +1755,7 @@ img.emoji {
 }
 
 /* =========================
-   Preprints: year tracker + search
+   Preprints: author/year tracker + search
    ========================= */
 .pub-controls{
   display: flex;
@@ -1803,6 +1803,24 @@ img.emoji {
   border-color: rgba(96,165,250,0.35);
   color: #bfdbfe;
 }
+
+.author-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--accent-soft);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.author-counter i {
+  font-size: 0.75rem;
+}
+
 
 /* Search box */
 .pub-search{
