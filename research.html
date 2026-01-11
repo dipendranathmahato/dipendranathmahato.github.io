@@ -169,216 +169,207 @@
       <section class="main">
 
         <!-- ================= RESEARCH ================= -->
-        <section class="main">
-          <!-- Research card -->
-          <section class="card" id="research">
-            <div class="card-header">
-              <div>
-                <div class="card-title">
-                  <i class="fa-solid fa-microscope"></i>
-                  Research
-                </div>
-                <div class="card-subtitle">
-                  Research interests and current directions.
-                </div>
+        <section class="card" id="research">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-microscope"></i>
+                Research
               </div>
-              <span class="pill-label">Overview</span>
+              <div class="card-subtitle">
+                Research interests and current directions.
+              </div>
             </div>
+            <span class="pill-label">Overview</span>
+          </div>
 
-            <div class="card-body">
-              <div class="two-col">
-                <!-- LEFT: Research Interests -->
-                <div>
-                  <div class="research-interest-box">
-                    <div class="research-interest-head">
-                      <span class="pill-label">Research Interests</span>
-                    </div>
-
-                    <ul class="list-unstyled list-tight" style="margin:0;">
-                      <li>
-                        ● <strong>Interpolation problems and symbolic powers of ideals:</strong>
-                        My current interest revolves around this, which associates Chudnovsky's Conjecture and Demailly's Conjecture.
-                      </li>
-                      <li>
-                        ● <strong>Rational powers of ideals:</strong>
-                        A recent few papers draw my attention towards this area, and it seems interesting.
-                      </li>
-                      <li>
-                        ● <strong>Vasconcelos number (v-number) of ideals:</strong>
-                        This relatively new concept has some similar properties with the well known initial degree of an ideal,
-                        and it's growing fast.
-                      </li>
-                    </ul>
+          <div class="card-body">
+            <div class="two-col">
+              <!-- LEFT: Research Interests -->
+              <div>
+                <div class="research-interest-box">
+                  <div class="research-interest-head">
+                    <span class="pill-label">Research Interests</span>
                   </div>
-                </div>
 
-                <!-- RIGHT: Ongoing Projects -->
-                <div>
-                  <h3 style="margin-top:0;">Ongoing Projects</h3>
-                  <ul class="timeline">
-                    <li class="timeline-item">
-                      <div class="timeline-title">
-                        v-numbers for ideals defining points
-                      </div>
-                      <div class="timeline-meta">
-                        Ongoing (with <a href="https://sites.google.com/view/manohar-kumar-pmrf-update/home">Manohar Kumar</a>)
-                      </div>
-                      <div style="font-size:0.82rem; margin-top:4px;">
-                        We are investigating v-numbers on ideals defining points.
-                      </div>
+                  <ul class="list-unstyled list-tight" style="margin:0;">
+                    <li>
+                      ● <strong>Interpolation problems and symbolic powers of ideals:</strong>
+                      My current interest revolves around this, which associates Chudnovsky's Conjecture and Demailly's Conjecture.
                     </li>
-
-                    <li class="timeline-item">
-                      <div class="timeline-title">
-                        k-Configurations
-                      </div>
-                      <div class="timeline-meta">
-                        Ongoing (with <a href="https://sites.google.com/view/sankhaneelbisui/home">Sankhaneel Bisui</a>, <a href="https://sites.google.com/view/thainguyenmath/home?authuser=0">Thanh Thai Nguyen</a>)
-                      </div>
-                      <div style="font-size:0.82rem; margin-top:4px;">
-                        We are investigating k-Configurations.
-                      </div>
+                    <li>
+                      ● <strong>Rational powers of ideals:</strong>
+                      A recent few papers draw my attention towards this area, and it seems interesting.
                     </li>
-
-                    <li class="timeline-item">
-                      <div class="timeline-title">
-                        Interpolation
-                      </div>
-                      <div class="timeline-meta">
-                        Ongoing
-                      </div>
-                      <div style="font-size:0.82rem; margin-top:4px;">
-                        I am investigating non-homogeneous fat-points.
-                      </div>
+                    <li>
+                      ● <strong>Vasconcelos number (v-number) of ideals:</strong>
+                      This relatively new concept has some similar properties with the well known initial degree of an ideal,
+                      and it's growing fast.
                     </li>
                   </ul>
                 </div>
               </div>
-            </div>
-          </section>
 
-          <!-- ================= PREPRINTS ================= -->
-          <section class="card" id="preprints">
-            <div class="card-header">
+              <!-- RIGHT: Ongoing Projects -->
               <div>
-                <div class="card-title">
-                  <i class="fa-solid fa-file-lines"></i>
-                  Preprints/Publications
-                </div>
-                <div class="card-subtitle">
-                  Manuscripts in preparation and under review<br>(newest first).
-                </div>
-              </div>
-
-              <!-- Search LEFT of the pill (both on the right header cluster) -->
-              <div class="preprints-head-right">
-                <div class="pub-search pub-search-compact">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                  <input id="preprintsSearch" type="search" placeholder="Search title, author, status…" />
-                  <button class="clear-search" type="button" aria-label="Clear search">×</button>
-                </div>
-                <span class="pill-label">Research</span>
-              </div>
-            </div>
-
-            <div class="card-body">
-
-              <!-- Collaborator counter (LEFT) + Year dropdown (RIGHT aligned on desktop) -->
-              <div class="pub-controls pub-controls-right">
-
-                <div class="author-counter" id="authorCounter" aria-label="Collaborator count">
-                  <i class="fa-solid fa-user-group"></i>
-                  <span class="author-counter-text">0 collaborators</span>
-                </div>
-
-                <div class="year-filter">
-                  <i class="fa-regular fa-calendar"></i>
-                  <label for="preprintsYear" class="sr-only">Filter by year</label>
-                  <select id="preprintsYear" aria-label="Filter preprints by year"></select>
-                </div>
-              </div>
-
-              <!-- ===== 2025 ===== -->
-              <div class="pub-year-block" data-year="2025">
-                <div class="pub-year-head">
-                  <span class="badge">
-                    <i class="fa-regular fa-calendar"></i> 2025
-                  </span>
-                </div>
-
-                <ul class="pub-list">
-                  <li class="pub-item pub-entry pub-item-card" data-authors="Souvik Dey,Huy Tài Hà,Dipendranath Mahato,Paolo Mantero">
-                    <div class="pub-title">Rational symbolic powers of ideals</div>
-
-                    <div class="pub-meta">
-                      <a class="author-link" href="https://scholar.google.com/scholar?q=Souvik%20Dey" target="_blank" rel="noopener">Souvik Dey</a>,
-                      <a class="author-link" href="https://scholar.google.com/scholar?q=Huy%20T%C3%A0i%20H%C3%A0" target="_blank" rel="noopener">Huy Tài Hà</a>,
-                      <a class="author-link" href="https://scholar.google.com/scholar?q=Dipendranath%20Mahato" target="_blank" rel="noopener">Dipendranath Mahato</a>,
-                      <a class="author-link" href="https://scholar.google.com/scholar?q=Paolo%20Mantero" target="_blank" rel="noopener">Paolo Mantero</a>
-                      <span class="pub-status pub-preprint">Preprint</span>
-
-                      <!-- <span class="pub-status pub-accepted">Accepted</span> -->
-                      <!-- <span class="pub-status pub-published">Published</span> -->
+                <h3 style="margin-top:0;">Ongoing Projects</h3>
+                <ul class="timeline">
+                  <li class="timeline-item">
+                    <div class="timeline-title">v-numbers for ideals defining points</div>
+                    <div class="timeline-meta">
+                      Ongoing (with <a href="https://sites.google.com/view/manohar-kumar-pmrf-update/home">Manohar Kumar</a>)
                     </div>
+                    <div style="font-size:0.82rem; margin-top:4px;">
+                      We are investigating v-numbers on ideals defining points.
+                    </div>
+                  </li>
 
-                    <div class="pub-links">
-                      <a class="pill-link pill-arxiv" href="https://arxiv.org/abs/2511.02732" target="_blank" rel="noopener">
-                        <i class="ai ai-arxiv"></i> arXiv:2511.02732
-                      </a>
+                  <li class="timeline-item">
+                    <div class="timeline-title">k-Configurations</div>
+                    <div class="timeline-meta">
+                      Ongoing (with <a href="https://sites.google.com/view/sankhaneelbisui/home">Sankhaneel Bisui</a>,
+                      <a href="https://sites.google.com/view/thainguyenmath/home?authuser=0">Thanh Thai Nguyen</a>)
+                    </div>
+                    <div style="font-size:0.82rem; margin-top:4px;">
+                      We are investigating k-Configurations.
+                    </div>
+                  </li>
 
-                      <a class="pill-link pill-pdf" href="https://arxiv.org/pdf/2511.02732.pdf" target="_blank" rel="noopener">
-                        <i class="fa-regular fa-file-lines"></i> PDF
-                      </a>
+                  <li class="timeline-item">
+                    <div class="timeline-title">Interpolation</div>
+                    <div class="timeline-meta">Ongoing</div>
+                    <div style="font-size:0.82rem; margin-top:4px;">
+                      I am investigating non-homogeneous fat-points.
                     </div>
                   </li>
                 </ul>
               </div>
-
-              <hr class="soft-divider" />
-
-              <!-- ===== 2024 ===== -->
-              <div class="pub-year-block" data-year="2024">
-                <div class="pub-year-head">
-                  <span class="badge">
-                    <i class="fa-regular fa-calendar"></i> 2024
-                  </span>
-                </div>
-
-                <ul class="pub-list">
-                  <li class="pub-item pub-entry pub-item-card" data-authors="Sankhaneel Bisui,Dipendranath Mahato">
-                    <div class="pub-title">Demailly’s Conjecture for general and very general points</div>
-
-                    <div class="pub-meta">
-                      <a class="author-link" href="https://scholar.google.com/scholar?q=Sankhaneel%20Bisui" target="_blank" rel="noopener">Sankhaneel Bisui</a>,
-                      <a class="author-link" href="https://scholar.google.com/scholar?q=Dipendranath%20Mahato" target="_blank" rel="noopener">Dipendranath Mahato</a>
-                      <span class="pub-status pub-submitted">Submitted</span>
-                    </div>
-
-                    <div class="pub-links">
-                      <a class="pill-link pill-arxiv" href="https://arxiv.org/abs/2409.08535" target="_blank" rel="noopener">
-                        <i class="ai ai-arxiv"></i> arXiv:2409.08535
-                      </a>
-
-                      <a class="pill-link pill-pdf" href="https://arxiv.org/pdf/2409.08535.pdf" target="_blank" rel="noopener">
-                        <i class="fa-regular fa-file-lines"></i> PDF
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="pub-empty" style="display:none; margin-top:10px;">
-                <span class="badge">No matching results</span>
-              </div>
-
             </div>
-          </section>
-
-          <div class="footer">
-            © <span id="year"></span> Copyright @ Dipendranath Mahato —
-            Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
           </div>
         </section>
+
+        <!-- ================= PREPRINTS ================= -->
+        <section class="card" id="preprints">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <i class="fa-solid fa-file-lines"></i>
+                Preprints/Publications
+              </div>
+              <div class="card-subtitle">
+                Manuscripts in preparation and under review<br>(newest first).
+              </div>
+            </div>
+
+            <div class="preprints-head-right">
+              <div class="pub-search pub-search-compact">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="preprintsSearch" type="search" placeholder="Search title, author, status…" />
+                <button class="clear-search" type="button" aria-label="Clear search">×</button>
+              </div>
+              <span class="pill-label">Research</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+
+            <!-- Collaborator dropdown (LEFT) + Year dropdown (RIGHT) -->
+            <div class="pub-controls pub-controls-right">
+
+              <div class="author-filter">
+                <i class="fa-solid fa-user-group"></i>
+                <label for="preprintsAuthor" class="sr-only">Filter by collaborator</label>
+                <select id="preprintsAuthor" aria-label="Filter by collaborator"></select>
+              </div>
+
+              <div class="year-filter">
+                <i class="fa-regular fa-calendar"></i>
+                <label for="preprintsYear" class="sr-only">Filter by year</label>
+                <select id="preprintsYear" aria-label="Filter preprints by year"></select>
+              </div>
+
+            </div>
+
+            <!-- ===== 2025 ===== -->
+            <div class="pub-year-block" data-year="2025">
+              <div class="pub-year-head">
+                <span class="badge">
+                  <i class="fa-regular fa-calendar"></i> 2025
+                </span>
+              </div>
+
+              <ul class="pub-list">
+                <li class="pub-item pub-entry pub-item-card"
+                    data-authors="Souvik Dey,Huy Tài Hà,Dipendranath Mahato,Paolo Mantero">
+                  <div class="pub-title">Rational symbolic powers of ideals</div>
+
+                  <div class="pub-meta">
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Souvik%20Dey" target="_blank" rel="noopener">Souvik Dey</a>,
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Huy%20T%C3%A0i%20H%C3%A0" target="_blank" rel="noopener">Huy Tài Hà</a>,
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Dipendranath%20Mahato" target="_blank" rel="noopener">Dipendranath Mahato</a>,
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Paolo%20Mantero" target="_blank" rel="noopener">Paolo Mantero</a>
+                    <span class="pub-status pub-preprint">Preprint</span>
+                  </div>
+
+                  <div class="pub-links">
+                    <a class="pill-link pill-arxiv" href="https://arxiv.org/abs/2511.02732" target="_blank" rel="noopener">
+                      <i class="ai ai-arxiv"></i> arXiv:2511.02732
+                    </a>
+
+                    <a class="pill-link pill-pdf" href="https://arxiv.org/pdf/2511.02732.pdf" target="_blank" rel="noopener">
+                      <i class="fa-regular fa-file-lines"></i> PDF
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <hr class="soft-divider" />
+
+            <!-- ===== 2024 ===== -->
+            <div class="pub-year-block" data-year="2024">
+              <div class="pub-year-head">
+                <span class="badge">
+                  <i class="fa-regular fa-calendar"></i> 2024
+                </span>
+              </div>
+
+              <ul class="pub-list">
+                <li class="pub-item pub-entry pub-item-card"
+                    data-authors="Sankhaneel Bisui,Dipendranath Mahato">
+                  <div class="pub-title">Demailly’s Conjecture for general and very general points</div>
+
+                  <div class="pub-meta">
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Sankhaneel%20Bisui" target="_blank" rel="noopener">Sankhaneel Bisui</a>,
+                    <a class="author-link" href="https://scholar.google.com/scholar?q=Dipendranath%20Mahato" target="_blank" rel="noopener">Dipendranath Mahato</a>
+                    <span class="pub-status pub-submitted">Submitted</span>
+                  </div>
+
+                  <div class="pub-links">
+                    <a class="pill-link pill-arxiv" href="https://arxiv.org/abs/2409.08535" target="_blank" rel="noopener">
+                      <i class="ai ai-arxiv"></i> arXiv:2409.08535
+                    </a>
+
+                    <a class="pill-link pill-pdf" href="https://arxiv.org/pdf/2409.08535.pdf" target="_blank" rel="noopener">
+                      <i class="fa-regular fa-file-lines"></i> PDF
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pub-empty" style="display:none; margin-top:10px;">
+              <span class="badge">No matching results</span>
+            </div>
+
+          </div>
+        </section>
+
+        <div class="footer">
+          © <span id="year"></span> Copyright @ Dipendranath Mahato —
+          Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+        </div>
+
       </section>
     </main>
   </div>
@@ -445,41 +436,26 @@
     }
 
     // =========================
-    // Preprints: year dropdown + counts + search + collaborator counter
+    // Preprints: collaborator dropdown + year dropdown + search
     // =========================
     (function () {
       const section = document.getElementById('preprints');
       if (!section) return;
 
-      const yearSelect  = section.querySelector('#preprintsYear');
-      const searchInput = section.querySelector('#preprintsSearch');
-      const clearBtn    = section.querySelector('.clear-search');
-      const emptyState  = section.querySelector('.pub-empty');
-
-      const authorCounter = section.querySelector('#authorCounter');
-      const authorCounterText = authorCounter ? authorCounter.querySelector('.author-counter-text') : null;
+      const yearSelect   = section.querySelector('#preprintsYear');
+      const authorSelect = section.querySelector('#preprintsAuthor');
+      const searchInput  = section.querySelector('#preprintsSearch');
+      const clearBtn     = section.querySelector('.clear-search');
+      const emptyState   = section.querySelector('.pub-empty');
 
       const blocks = () => Array.from(section.querySelectorAll('.pub-year-block[data-year]'));
       const entriesAll = () => Array.from(section.querySelectorAll('.pub-entry'));
 
       let activeYear = 'all';
+      let activeAuthor = 'all';
       let query = '';
 
       const normalize = s => (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
-
-      function buildAuthorCounter() {
-        if (!authorCounterText) return;
-
-        const map = new Map();
-        entriesAll().forEach(e => {
-          const raw = e.dataset.authors || '';
-          raw.split(',').map(a => a.trim()).filter(Boolean).forEach(a => {
-            map.set(a, (map.get(a) || 0) + 1);
-          });
-        });
-
-        authorCounterText.textContent = `${map.size} collaborators`;
-      }
 
       function detectedYearsDesc() {
         const years = blocks()
@@ -493,7 +469,14 @@
         return block ? block.querySelectorAll('.pub-entry').length : 0;
       }
 
-      function buildDropdown() {
+      function authorsOfEntry(entry) {
+        return (entry.dataset.authors || '')
+          .split(',')
+          .map(a => a.trim())
+          .filter(Boolean);
+      }
+
+      function buildYearDropdown() {
         if (!yearSelect) return;
 
         const years = detectedYearsDesc();
@@ -511,70 +494,103 @@
           yearSelect.appendChild(opt);
         });
 
+        // preserve selected
         yearSelect.value = activeYear;
+      }
+
+      function buildAuthorDropdown() {
+        if (!authorSelect) return;
+
+        // count papers per collaborator
+        const counts = new Map();
+        entriesAll().forEach(e => {
+          const uniqueAuthors = new Set(authorsOfEntry(e));
+          uniqueAuthors.forEach(a => counts.set(a, (counts.get(a) || 0) + 1));
+        });
+
+        // sort by count desc, then name asc
+        const sorted = Array.from(counts.entries())
+          .sort((x, y) => (y[1] - x[1]) || x[0].localeCompare(y[0]));
+
+        authorSelect.innerHTML = '';
+
+        const optAll = document.createElement('option');
+        optAll.value = 'all';
+        optAll.textContent = `All collaborators (${counts.size})`;
+        authorSelect.appendChild(optAll);
+
+        sorted.forEach(([name, c]) => {
+          const opt = document.createElement('option');
+          opt.value = name;
+          opt.textContent = `${name} (${c})`;
+          authorSelect.appendChild(opt);
+        });
+
+        // preserve selected
+        authorSelect.value = activeAuthor;
       }
 
       function applyFilters() {
         let visibleCount = 0;
 
-        // Filter each entry
         entriesAll().forEach(entry => {
           const yearBlock = entry.closest('.pub-year-block');
           const y = yearBlock ? String(yearBlock.dataset.year || '') : '';
           const text = normalize(entry.textContent);
+          const authors = authorsOfEntry(entry);
 
-          const matchYear  = activeYear === 'all' || y === activeYear;
-          const matchQuery = !query || text.includes(query);
+          const matchYear   = activeYear === 'all' || y === activeYear;
+          const matchAuthor = activeAuthor === 'all' || authors.includes(activeAuthor);
+          const matchQuery  = !query || text.includes(query);
 
-          const show = matchYear && matchQuery;
+          const show = matchYear && matchAuthor && matchQuery;
           entry.style.display = show ? '' : 'none';
           if (show) visibleCount++;
         });
 
-        // Hide year blocks if they have no visible entries
+        // hide year blocks that become empty
         blocks().forEach(b => {
           const anyVisible = Array.from(b.querySelectorAll('.pub-entry'))
             .some(e => e.style.display !== 'none');
           b.style.display = anyVisible ? '' : 'none';
         });
 
-        // Divider handling (simple: show all; your CSS/structure already tolerates it)
         if (emptyState) emptyState.style.display = visibleCount ? 'none' : '';
 
-        // Update dropdown counts (optional but nice)
-        buildDropdown();
+        // rebuild counts (keeps dropdown labels accurate as you add/remove items)
+        buildYearDropdown();
+        buildAuthorDropdown();
       }
 
-      // Events
-      if (yearSelect) {
-        yearSelect.addEventListener('change', () => {
-          activeYear = yearSelect.value;
-          applyFilters();
-        });
-      }
+      // events
+      yearSelect?.addEventListener('change', () => {
+        activeYear = yearSelect.value;
+        applyFilters();
+      });
 
-      if (searchInput) {
-        searchInput.addEventListener('input', () => {
-          query = normalize(searchInput.value);
-          if (clearBtn) clearBtn.style.display = query ? '' : 'none';
-          applyFilters();
-        });
-      }
+      authorSelect?.addEventListener('change', () => {
+        activeAuthor = authorSelect.value;
+        applyFilters();
+      });
 
-      if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-          if (!searchInput) return;
-          searchInput.value = '';
-          query = '';
-          clearBtn.style.display = 'none';
-          applyFilters();
-          searchInput.focus();
-        });
-      }
+      searchInput?.addEventListener('input', () => {
+        query = normalize(searchInput.value);
+        if (clearBtn) clearBtn.style.display = query ? '' : 'none';
+        applyFilters();
+      });
 
-      // Initialize
-      buildDropdown();
-      buildAuthorCounter();
+      clearBtn?.addEventListener('click', () => {
+        if (!searchInput) return;
+        searchInput.value = '';
+        query = '';
+        clearBtn.style.display = 'none';
+        applyFilters();
+        searchInput.focus();
+      });
+
+      // init
+      buildYearDropdown();
+      buildAuthorDropdown();
       applyFilters();
     })();
   </script>
