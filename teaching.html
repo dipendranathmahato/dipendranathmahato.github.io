@@ -618,17 +618,47 @@
                     <i class="fa-solid fa-hands-helping"></i>
 
                     <div class="scroll-card-title"
-                         style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+                         style="display:flex; align-items:center; gap:12px; width:100%;">
+                      
+                      <!-- LEFT: title -->
                       <span style="font-size:1.35rem; font-weight:900; letter-spacing:.2px;">
+                        Mentoring
+                      </span>
+                    
+                      <!-- RIGHT: counter (never drops left) -->
+                      <span class="mentoring-count"
+                            id="mentoringCount"
+                            style="
+                              margin-left:auto;
+                              font-weight:800;
+                              opacity:.85;
+                              white-space:nowrap;
+                              flex-shrink:0;
+                            ">
+                        Number of Students: 0
+                      </span>
+                    </div>
+
+
+                    <div class="scroll-card-title"
+                         style="
+                           display:grid;
+                           grid-template-columns: 1fr auto;
+                           align-items:center;
+                           gap:12px;
+                         ">
+                      <span style="font-size:1.35rem; font-weight:900;">
                         Mentoring
                       </span>
                     
                       <span class="mentoring-count"
                             id="mentoringCount"
-                            style="margin-right:auto; font-weight:800; opacity:.85; white-space:nowrap;">
+                            style="font-weight:800; opacity:.85;">
                         Number of Students: 0
                       </span>
                     </div>
+
+
 
 
                       <div class="scroll-card-sub">
