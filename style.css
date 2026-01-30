@@ -2861,3 +2861,170 @@ html[data-theme="dark"] .scroll-card-body::-webkit-scrollbar-thumb{
 
 /* Prevent grid children from forcing horizontal overflow */
 .main{ min-width: 0; }
+
+
+/* ===== Presentations page UI (minimal additions) ===== */
+.page-header h1 { margin: 0; }
+.page-subtitle { margin: 6px 0 0; opacity: 0.85; }
+
+.pres-controls{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 14px 0 18px;
+  flex-wrap: wrap;
+}
+
+.pres-tabs{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pres-tab{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+html[data-theme="dark"] .pres-tab{
+  border-color: rgba(255,255,255,0.16);
+}
+
+.pres-tab.is-active{
+  border-color: rgba(0,0,0,0.24);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+html[data-theme="dark"] .pres-tab.is-active{
+  border-color: rgba(255,255,255,0.26);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.count-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  opacity: 0.9;
+}
+
+html[data-theme="dark"] .count-badge{
+  border-color: rgba(255,255,255,0.16);
+}
+
+.pres-search{
+  position: relative;
+  flex: 1 1 320px;
+  max-width: 460px;
+}
+
+.pres-search i{
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+}
+
+.pres-search input{
+  width: 100%;
+  padding: 11px 12px 11px 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: transparent;
+  font: inherit;
+  outline: none;
+}
+
+html[data-theme="dark"] .pres-search input{
+  border-color: rgba(255,255,255,0.16);
+}
+
+.pres-panel{ display: none; }
+.pres-panel.is-active{ display: block; }
+
+.pres-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 860px){
+  .pres-grid{ grid-template-columns: 1fr; }
+}
+
+.pres-card{
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 16px;
+  padding: 14px;
+  background: rgba(0,0,0,0.02);
+}
+
+html[data-theme="dark"] .pres-card{
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.pres-card-top{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.pres-title{
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.pres-badges{
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pres-badge{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  white-space: nowrap;
+}
+
+html[data-theme="dark"] .pres-badge{
+  border-color: rgba(255,255,255,0.16);
+}
+
+.pres-badge.soft{ opacity: 0.85; }
+
+.pres-meta{
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  opacity: 0.9;
+}
+
+.pres-meta i{ margin-top: 2px; opacity: 0.8; }
+.pres-note{ font-weight: 600; }
+
+.pres-actions{
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
