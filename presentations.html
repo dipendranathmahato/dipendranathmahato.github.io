@@ -37,7 +37,6 @@
 
       --pill-border: rgba(148, 163, 184, 0.35);
       --card-border: rgba(148, 163, 184, 0.28);
-      --card-bg: rgba(15, 23, 42, 0.02);
     }
     [data-theme="dark"]{
       --talk-accent: #60a5fa;
@@ -48,7 +47,6 @@
 
       --pill-border: rgba(148, 163, 184, 0.22);
       --card-border: rgba(148, 163, 184, 0.18);
-      --card-bg: rgba(255,255,255,0.05);
     }
 
     .pres-head{
@@ -59,14 +57,42 @@
       flex-wrap: wrap;
       margin-bottom: 12px;
     }
+
+    /* === NEW: Highlight Presentations title in body === */
     .pres-title-wrap h1{
       margin: 0;
-      font-size: 1.25rem;
-      font-weight: 900;
-      letter-spacing: 0.2px;
+      font-size: 1.35rem;
+      font-weight: 1000;
+      letter-spacing: 0.3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(124,58,237,0.22);
+      background:
+        radial-gradient(900px 220px at 15% 0%, rgba(124,58,237,0.22), transparent 55%),
+        radial-gradient(900px 220px at 85% 30%, rgba(37,99,235,0.18), transparent 55%),
+        rgba(124,58,237,0.08);
+      box-shadow:
+        0 0 0 1px rgba(124,58,237,0.08),
+        0 18px 40px rgba(124,58,237,0.10);
+      text-shadow: 0 0 18px rgba(124,58,237,0.18);
     }
+    [data-theme="dark"] .pres-title-wrap h1{
+      border-color: rgba(192,132,252,0.22);
+      background:
+        radial-gradient(900px 220px at 15% 0%, rgba(192,132,252,0.26), transparent 55%),
+        radial-gradient(900px 220px at 85% 30%, rgba(96,165,250,0.20), transparent 55%),
+        rgba(192,132,252,0.10);
+      box-shadow:
+        0 0 0 1px rgba(192,132,252,0.10),
+        0 18px 44px rgba(0,0,0,0.55);
+      text-shadow: 0 0 18px rgba(192,132,252,0.16);
+    }
+
     .pres-title-wrap p{
-      margin: 6px 0 0;
+      margin: 10px 0 0;
       opacity: 0.85;
       line-height: 1.45;
       max-width: 860px;
@@ -188,10 +214,25 @@
     [data-theme="dark"] .tp-item{
       background: rgba(15, 23, 42, 0.65);
     }
+
+    /* === NEW: title line holds pill on right === */
+    .tp-title-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+    }
     .tp-item-title{
       font-weight: 950;
       line-height: 1.25;
+      flex: 1 1 auto;
+      min-width: 0;
     }
+    .tp-title-row .type-pill{
+      margin-left: 10px;
+      flex: 0 0 auto;
+    }
+
     .tp-item-meta{
       margin-top: 6px;
       font-size: 0.86rem;
@@ -201,6 +242,7 @@
       flex-wrap: wrap;
       align-items:center;
     }
+
     .tp-links{
       margin-top: 10px;
       display:flex;
@@ -285,7 +327,7 @@
       line-height: 1.45;
     }
 
-    /* Link pill flavors (works with your existing .pill-link base) */
+    /* Link pill flavors */
     .pill-image{
       border-color: rgba(124,58,237,0.28);
       background: rgba(124,58,237,0.10);
@@ -322,7 +364,6 @@
         </a>
       </div>
 
-      <!-- Mobile menu button -->
       <button class="nav-toggle" aria-label="Toggle navigation">
         <i class="fa-solid fa-bars"></i>
       </button>
@@ -361,7 +402,6 @@
 
     <!-- ================= LAYOUT ================= -->
     <main class="layout">
-      <!-- Sidebar -->
       <aside class="sidebar">
         <div class="avatar">
           <img src="/assets/images/PXL_20250330_220427523-1575x2800-compressed.jpg"
@@ -424,9 +464,7 @@
         </div>
       </aside>
 
-      <!-- ================= MAIN CONTENT ================= -->
       <section class="main">
-
         <div class="card">
           <div class="card-body">
 
@@ -438,7 +476,6 @@
                 </p>
               </div>
 
-              <!-- Toggle -->
               <div class="seg-toggle" role="tablist" aria-label="Talks and Posters toggle">
                 <button class="seg-btn is-active" type="button" role="tab" aria-selected="true" data-view="talks" id="btnTalks">
                   <span class="dot" aria-hidden="true"></span>
@@ -455,7 +492,6 @@
 
             <!-- ================= TALKS PANEL ================= -->
             <div class="pres-panel is-active" id="panelTalks">
-              <!-- 2025 -->
               <div class="year-group">
                 <div class="year-head">
                   <span class="year-chip">2025</span>
@@ -463,10 +499,13 @@
                 </div>
 
                 <div class="tp-list">
+
                   <div class="tp-item">
-                    <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
                       <span class="type-pill type-invited"><i class="fa-solid fa-star"></i>Invited</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>May 03, 2025 · AMS Sectional Meeting (Spring Western) — Cal Poly</span>
                     </div>
                     <div class="tp-links">
@@ -477,9 +516,11 @@
                   </div>
 
                   <div class="tp-item">
-                    <div class="tp-item-title">Interpolation in Projective Spaces</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation in Projective Spaces</div>
                       <span class="type-pill type-lightning"><i class="fa-solid fa-bolt"></i>Lightning</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>Apr 18, 2025 · Macaulay2 Workshop — Tulane University</span>
                     </div>
                     <div class="tp-links">
@@ -490,9 +531,11 @@
                   </div>
 
                   <div class="tp-item">
-                    <div class="tp-item-title">Interpolation in Projective Spaces</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation in Projective Spaces</div>
                       <span class="type-pill type-lightning"><i class="fa-solid fa-bolt"></i>Lightning</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>Apr 06, 2025 · C.A.T.S. 2025 — Georgia State University</span>
                     </div>
                     <div class="tp-links">
@@ -503,9 +546,11 @@
                   </div>
 
                   <div class="tp-item">
-                    <div class="tp-item-title">Interpolation of Projective Points under Algebraic Lens</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation of Projective Points under Algebraic Lens</div>
                       <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>Apr 05, 2025 · Math For All — Virtual</span>
                     </div>
                     <div class="tp-links">
@@ -516,9 +561,11 @@
                   </div>
 
                   <div class="tp-item">
-                    <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
                       <span class="type-pill type-invited"><i class="fa-solid fa-star"></i>Invited</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>Mar 29, 2025 · AMS Sectional Meeting (Spring Central) — University of Kansas</span>
                     </div>
                     <div class="tp-links">
@@ -529,9 +576,11 @@
                   </div>
 
                   <div class="tp-item">
-                    <div class="tp-item-title">Developments in Interpolation Problem for Projective Spaces</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Developments in Interpolation Problem for Projective Spaces</div>
                       <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>Mar 14, 2025 · Algebra &amp; Combinatorics Seminar — Tulane University</span>
                     </div>
                     <div class="tp-links">
@@ -542,9 +591,11 @@
                   </div>
 
                   <div class="tp-item">
-                    <div class="tp-item-title">Interpolation Problem: Conjectures &amp; New Developments</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation Problem: Conjectures &amp; New Developments</div>
                       <span class="type-pill type-conference"><i class="fa-solid fa-people-group"></i>Conference</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>Jan 03, 2025 · Two-Day Conference on “Mathematical Sciences and Applications”</span>
                     </div>
                     <div class="tp-links">
@@ -553,10 +604,10 @@
                       </a>
                     </div>
                   </div>
+
                 </div>
               </div>
 
-              <!-- 2024 -->
               <div class="year-group">
                 <div class="year-head">
                   <span class="year-chip">2024</span>
@@ -565,9 +616,11 @@
 
                 <div class="tp-list">
                   <div class="tp-item">
-                    <div class="tp-item-title">Recent Developments in Interpolation Problems &amp; Demailly's Conjecture</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Recent Developments in Interpolation Problems &amp; Demailly's Conjecture</div>
                       <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>Nov 05, 2024 · Tulane Graduate Student Colloquium — Fall 2024</span>
                     </div>
                     <div class="tp-links">
@@ -578,9 +631,11 @@
                   </div>
 
                   <div class="tp-item">
-                    <div class="tp-item-title">Overview of Generalized Interpolation Problem, and its Algebraic Components</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Overview of Generalized Interpolation Problem, and its Algebraic Components</div>
                       <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>May 24, 2024 · Tezpur University Alumni Talk</span>
                     </div>
                     <div class="tp-links">
@@ -592,7 +647,6 @@
                 </div>
               </div>
 
-              <!-- 2023 -->
               <div class="year-group">
                 <div class="year-head">
                   <span class="year-chip">2023</span>
@@ -601,9 +655,11 @@
 
                 <div class="tp-list">
                   <div class="tp-item">
-                    <div class="tp-item-title">Generalized Interpolation Problems and Chudnovsky's Conjecture</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Generalized Interpolation Problems and Chudnovsky's Conjecture</div>
                       <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>Apr 25, 2023 · Tulane Graduate Student Colloquium — Spring 2023</span>
                     </div>
                     <div class="tp-links">
@@ -615,7 +671,6 @@
                 </div>
               </div>
 
-              <!-- 2022 -->
               <div class="year-group">
                 <div class="year-head">
                   <span class="year-chip">2022</span>
@@ -624,9 +679,11 @@
 
                 <div class="tp-list">
                   <div class="tp-item">
-                    <div class="tp-item-title">Algebraic Gaussian Sums and its Applications</div>
-                    <div class="tp-item-meta">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Algebraic Gaussian Sums and its Applications</div>
                       <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                    </div>
+                    <div class="tp-item-meta">
                       <span>Oct 04, 2022 · Tulane Graduate Student Colloquium — Fall 2022</span>
                     </div>
                     <div class="tp-links">
@@ -654,7 +711,6 @@
                 </p>
               </div>
 
-              <!-- 2025 -->
               <div class="year-group">
                 <div class="year-head">
                   <span class="year-chip">2025</span>
@@ -741,7 +797,6 @@
                 </div>
               </div>
 
-              <!-- 2024 -->
               <div class="year-group">
                 <div class="year-head">
                   <span class="year-chip">2024</span>
@@ -783,7 +838,6 @@
     </main>
   </div>
 
-  <!-- ================= SCRIPTS ================= -->
   <script>
     // ----- Footer year -----
     const yearSpan = document.getElementById("year");
@@ -879,4 +933,3 @@
   </script>
 </body>
 </html>
-
