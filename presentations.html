@@ -25,9 +25,18 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- ===== Presentations page: minimal extra CSS (scoped) ===== -->
+  <!-- ===== Presentations page: PAGE-SCOPED CSS ONLY ===== -->
   <style>
-    :root{
+    /* =========================================================
+       Everything below is scoped to ONLY this page via:
+       body.presentations-page ...
+       ========================================================= */
+
+    body.presentations-page{
+      /* no layout changes; just a scope anchor */
+    }
+
+    body.presentations-page{
       --talk-accent: #2563eb;
       --talk-soft: rgba(37,99,235,0.12);
 
@@ -37,7 +46,7 @@
       --pill-border: rgba(148, 163, 184, 0.35);
       --card-border: rgba(148, 163, 184, 0.28);
     }
-    [data-theme="dark"]{
+    body.presentations-page[data-theme="dark"]{
       --talk-accent: #60a5fa;
       --talk-soft: rgba(96,165,250,0.18);
 
@@ -48,7 +57,7 @@
       --card-border: rgba(148, 163, 184, 0.18);
     }
 
-    .pres-head{
+    body.presentations-page .pres-head{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
@@ -58,7 +67,7 @@
     }
 
     /* Highlight Presentations title in body */
-    .pres-title-wrap h1{
+    body.presentations-page .pres-title-wrap h1{
       margin: 0;
       font-size: 1.35rem;
       font-weight: 1000;
@@ -78,7 +87,7 @@
         0 18px 40px rgba(124,58,237,0.10);
       text-shadow: 0 0 18px rgba(124,58,237,0.18);
     }
-    [data-theme="dark"] .pres-title-wrap h1{
+    body.presentations-page[data-theme="dark"] .pres-title-wrap h1{
       border-color: rgba(192,132,252,0.22);
       background:
         radial-gradient(900px 220px at 15% 0%, rgba(192,132,252,0.26), transparent 55%),
@@ -90,7 +99,7 @@
       text-shadow: 0 0 18px rgba(192,132,252,0.16);
     }
 
-    .pres-title-wrap p{
+    body.presentations-page .pres-title-wrap p{
       margin: 10px 0 0;
       opacity: 0.85;
       line-height: 1.45;
@@ -98,7 +107,7 @@
     }
 
     /* Segmented toggle */
-    .seg-toggle{
+    body.presentations-page .seg-toggle{
       display:inline-flex;
       border: 1px solid var(--pill-border);
       background: rgba(255,255,255,0.55);
@@ -107,12 +116,12 @@
       gap: 6px;
       box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
     }
-    [data-theme="dark"] .seg-toggle{
+    body.presentations-page[data-theme="dark"] .seg-toggle{
       background: rgba(255,255,255,0.06);
       box-shadow: 0 14px 30px rgba(0,0,0,0.55);
     }
 
-    .seg-btn{
+    body.presentations-page .seg-btn{
       border: none;
       background: transparent;
       padding: 7px 12px;
@@ -128,48 +137,48 @@
       user-select:none;
       outline: none;
     }
-    .seg-btn .dot{
+    body.presentations-page .seg-btn .dot{
       width: 9px;
       height: 9px;
       border-radius: 999px;
       background: rgba(148,163,184,0.55);
     }
-    .seg-btn.is-active{
+    body.presentations-page .seg-btn.is-active{
       opacity: 1;
       background: rgba(15,23,42,0.06);
       box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
       transform: translateY(-1px);
     }
-    [data-theme="dark"] .seg-btn.is-active{
+    body.presentations-page[data-theme="dark"] .seg-btn.is-active{
       background: rgba(255,255,255,0.08);
       box-shadow: 0 14px 30px rgba(0,0,0,0.55);
     }
 
-    .seg-btn[data-view="talks"].is-active{
+    body.presentations-page .seg-btn[data-view="talks"].is-active{
       border: 1px solid rgba(37,99,235,0.25);
     }
-    .seg-btn[data-view="talks"].is-active .dot{ background: var(--talk-accent); }
-    .seg-btn[data-view="talks"] i{ color: var(--talk-accent); }
+    body.presentations-page .seg-btn[data-view="talks"].is-active .dot{ background: var(--talk-accent); }
+    body.presentations-page .seg-btn[data-view="talks"] i{ color: var(--talk-accent); }
 
-    .seg-btn[data-view="posters"].is-active{
+    body.presentations-page .seg-btn[data-view="posters"].is-active{
       border: 1px solid rgba(124,58,237,0.25);
     }
-    .seg-btn[data-view="posters"].is-active .dot{ background: var(--poster-accent); }
-    .seg-btn[data-view="posters"] i{ color: var(--poster-accent); }
+    body.presentations-page .seg-btn[data-view="posters"].is-active .dot{ background: var(--poster-accent); }
+    body.presentations-page .seg-btn[data-view="posters"] i{ color: var(--poster-accent); }
 
-    .pres-panel{ display:none; }
-    .pres-panel.is-active{ display:block; }
+    body.presentations-page .pres-panel{ display:none; }
+    body.presentations-page .pres-panel.is-active{ display:block; }
 
     /* Year groups */
-    .year-group{ margin-top: 12px; }
-    .year-head{
+    body.presentations-page .year-group{ margin-top: 12px; }
+    body.presentations-page .year-head{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 10px;
       margin: 10px 2px 10px;
     }
-    .year-chip{
+    body.presentations-page .year-chip{
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -180,42 +189,42 @@
       border: 1px solid var(--pill-border);
       background: rgba(37, 99, 235, 0.08);
     }
-    [data-theme="dark"] .year-chip{ background: rgba(96,165,250,0.18); }
-    .year-note{ font-size: 0.82rem; opacity: 0.78; }
+    body.presentations-page[data-theme="dark"] .year-chip{ background: rgba(96,165,250,0.18); }
+    body.presentations-page .year-note{ font-size: 0.82rem; opacity: 0.78; }
 
     /* List */
-    .tp-list{
+    body.presentations-page .tp-list{
       display:flex;
       flex-direction:column;
       gap: 10px;
     }
-    .tp-item{
+    body.presentations-page .tp-item{
       border: 1px solid var(--card-border);
       background: rgba(255, 255, 255, 0.70);
       border-radius: 14px;
       padding: 12px 12px;
     }
-    [data-theme="dark"] .tp-item{ background: rgba(15, 23, 42, 0.65); }
+    body.presentations-page[data-theme="dark"] .tp-item{ background: rgba(15, 23, 42, 0.65); }
 
     /* Title row with pill on right */
-    .tp-title-row{
+    body.presentations-page .tp-title-row{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap: 10px;
     }
-    .tp-item-title{
+    body.presentations-page .tp-item-title{
       font-weight: 950;
       line-height: 1.25;
       flex: 1 1 auto;
       min-width: 0;
     }
-    .tp-title-row .type-pill{
+    body.presentations-page .tp-title-row .type-pill{
       margin-left: 10px;
       flex: 0 0 auto;
     }
 
-    .tp-item-meta{
+    body.presentations-page .tp-item-meta{
       margin-top: 6px;
       font-size: 0.86rem;
       opacity: 0.86;
@@ -225,7 +234,7 @@
       align-items:center;
     }
 
-    .tp-links{
+    body.presentations-page .tp-links{
       margin-top: 10px;
       display:flex;
       flex-wrap: wrap;
@@ -233,7 +242,7 @@
     }
 
     /* Type pills */
-    .type-pill{
+    body.presentations-page .type-pill{
       display:inline-flex;
       align-items:center;
       gap: 6px;
@@ -247,26 +256,26 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-    [data-theme="dark"] .type-pill{ background: rgba(255,255,255,0.06); }
+    body.presentations-page[data-theme="dark"] .type-pill{ background: rgba(255,255,255,0.06); }
 
-    .type-conference{ border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.10); color:#047857; }
-    .type-lightning{  border-color: rgba(234,179,8,0.45);  background: rgba(234,179,8,0.14);  color:#92400e; }
-    .type-seminar{    border-color: rgba(59,130,246,0.40); background: rgba(59,130,246,0.12); color:#1d4ed8; }
-    .type-invited{    border-color: rgba(147,51,234,0.35); background: rgba(147,51,234,0.14); color:#6b21a8; }
-    .type-colloquium{ border-color: rgba(239,68,68,0.35);  background: rgba(239,68,68,0.12);  color:#b91c1c; }
-    .type-poster{     border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.14); color:#5b21b6; }
-    .type-award{      border-color: rgba(34,197,94,0.45);  background: rgba(34,197,94,0.16);  color:#065f46; }
+    body.presentations-page .type-conference{ border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.10); color:#047857; }
+    body.presentations-page .type-lightning{  border-color: rgba(234,179,8,0.45);  background: rgba(234,179,8,0.14);  color:#92400e; }
+    body.presentations-page .type-seminar{    border-color: rgba(59,130,246,0.40); background: rgba(59,130,246,0.12); color:#1d4ed8; }
+    body.presentations-page .type-invited{    border-color: rgba(147,51,234,0.35); background: rgba(147,51,234,0.14); color:#6b21a8; }
+    body.presentations-page .type-colloquium{ border-color: rgba(239,68,68,0.35);  background: rgba(239,68,68,0.12);  color:#b91c1c; }
+    body.presentations-page .type-poster{     border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.14); color:#5b21b6; }
+    body.presentations-page .type-award{      border-color: rgba(34,197,94,0.45);  background: rgba(34,197,94,0.16);  color:#065f46; }
 
-    [data-theme="dark"] .type-conference{ color:#bbf7d0; }
-    [data-theme="dark"] .type-lightning{  color:#fde68a; }
-    [data-theme="dark"] .type-seminar{    color:#bfdbfe; }
-    [data-theme="dark"] .type-invited{    color:#e9d5ff; }
-    [data-theme="dark"] .type-colloquium{ color:#fecaca; }
-    [data-theme="dark"] .type-poster{     color:#e9d5ff; }
-    [data-theme="dark"] .type-award{      color:#bbf7d0; }
+    body.presentations-page[data-theme="dark"] .type-conference{ color:#bbf7d0; }
+    body.presentations-page[data-theme="dark"] .type-lightning{  color:#fde68a; }
+    body.presentations-page[data-theme="dark"] .type-seminar{    color:#bfdbfe; }
+    body.presentations-page[data-theme="dark"] .type-invited{    color:#e9d5ff; }
+    body.presentations-page[data-theme="dark"] .type-colloquium{ color:#fecaca; }
+    body.presentations-page[data-theme="dark"] .type-poster{     color:#e9d5ff; }
+    body.presentations-page[data-theme="dark"] .type-award{      color:#bbf7d0; }
 
     /* Poster theme neon banner + subtle pulse */
-    .poster-theme{
+    body.presentations-page .poster-theme{
       border: 1px solid rgba(124,58,237,0.28);
       background: radial-gradient(1200px 240px at 12% 0%, rgba(124,58,237,0.22), transparent 55%),
                   radial-gradient(900px 220px at 80% 20%, rgba(34,197,94,0.18), transparent 55%),
@@ -276,15 +285,15 @@
       margin: 10px 0 12px;
       position: relative;
       overflow: hidden;
-      animation: neonPulse 4.2s ease-in-out infinite;
+      animation: presNeonPulse 4.2s ease-in-out infinite;
     }
-    [data-theme="dark"] .poster-theme{
+    body.presentations-page[data-theme="dark"] .poster-theme{
       border-color: rgba(192,132,252,0.28);
       background: radial-gradient(1200px 240px at 12% 0%, rgba(192,132,252,0.26), transparent 55%),
                   radial-gradient(900px 220px at 80% 20%, rgba(52,211,153,0.20), transparent 55%),
                   rgba(192,132,252,0.12);
     }
-    @keyframes neonPulse{
+    @keyframes presNeonPulse{
       0%, 100%{ box-shadow: 0 0 0 rgba(124,58,237,0.0), 0 0 0 rgba(34,197,94,0.0); transform: translateY(0); }
       50%{
         box-shadow: 0 0 26px rgba(124,58,237,0.12), 0 0 22px rgba(34,197,94,0.10);
@@ -292,7 +301,7 @@
       }
     }
 
-    .poster-theme h2{
+    body.presentations-page .poster-theme h2{
       margin: 0;
       font-size: 1.05rem;
       font-weight: 1000;
@@ -301,58 +310,170 @@
       align-items:center;
       gap: 10px;
     }
-    .poster-theme h2 i{
+    body.presentations-page .poster-theme h2 i{
       color: var(--poster-accent);
       filter: drop-shadow(0 0 8px rgba(124,58,237,0.35));
     }
-    .poster-theme .theme-title{
+    body.presentations-page .poster-theme .theme-title{
       font-size: 1.08rem;
       font-weight: 1000;
       text-shadow: 0 0 18px rgba(124,58,237,0.18);
     }
-    .poster-theme p{
+    body.presentations-page .poster-theme p{
       margin: 6px 0 0;
       opacity: 0.88;
       line-height: 1.45;
     }
 
     /* Link pill flavors */
-    .pill-image{
+    body.presentations-page .pill-image{
       border-color: rgba(124,58,237,0.28);
       background: rgba(124,58,237,0.10);
       color: #5b21b6;
     }
-    [data-theme="dark"] .pill-image{
+    body.presentations-page[data-theme="dark"] .pill-image{
       background: rgba(192,132,252,0.18);
       border-color: rgba(192,132,252,0.28);
       color: #e9d5ff;
     }
-    .pill-beamer{
+    body.presentations-page .pill-beamer{
       border-color: rgba(16,185,129,0.28);
       background: rgba(16,185,129,0.10);
       color: #047857;
     }
-    [data-theme="dark"] .pill-beamer{
+    body.presentations-page[data-theme="dark"] .pill-beamer{
       background: rgba(52, 211, 153, 0.16);
       border-color: rgba(52, 211, 153, 0.30);
       color: #bbf7d0;
     }
 
-    /* NEW: Abstract pill styling (compatible with your pill-link base) */
-    .pill-abstract{
+    /* Abstract pill styling */
+    body.presentations-page .pill-abstract{
       border-color: rgba(59,130,246,0.28);
       background: rgba(59,130,246,0.10);
       color: #1d4ed8;
     }
-    [data-theme="dark"] .pill-abstract{
+    body.presentations-page[data-theme="dark"] .pill-abstract{
       border-color: rgba(191,219,254,0.28);
       background: rgba(191,219,254,0.14);
       color: #bfdbfe;
     }
+
+    /* ===== Floating Abstract Window (page-only) =====
+       Background requested: sky-blue type
+    */
+    body.presentations-page .abstract-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: min(460px, calc(100vw - 36px));
+      height: 260px;
+
+      display: none;
+      flex-direction: column;
+
+      border-radius: 14px;
+      border: 1px solid rgba(2, 132, 199, 0.35);
+
+      /* Sky-blue background */
+      background:
+        radial-gradient(900px 260px at 18% 0%, rgba(56, 189, 248, 0.40), transparent 58%),
+        radial-gradient(900px 260px at 86% 20%, rgba(125, 211, 252, 0.36), transparent 55%),
+        rgba(186, 230, 253, 0.78);
+
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 50px rgba(15,23,42,0.18);
+      z-index: 9999;
+
+      overflow: hidden;
+
+      resize: both;
+      min-width: 260px;
+      min-height: 170px;
+      max-width: calc(100vw - 18px);
+      max-height: calc(100vh - 18px);
+    }
+    body.presentations-page[data-theme="dark"] .abstract-float{
+      /* Keep sky vibe but darker */
+      background:
+        radial-gradient(900px 260px at 18% 0%, rgba(56, 189, 248, 0.22), transparent 58%),
+        radial-gradient(900px 260px at 86% 20%, rgba(125, 211, 252, 0.18), transparent 55%),
+        rgba(30, 58, 138, 0.62);
+      border-color: rgba(125, 211, 252, 0.30);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+    }
+
+    body.presentations-page .abstract-float.is-open{ display: flex; }
+    body.presentations-page .abstract-float.is-min{ height: 44px !important; resize: none; }
+
+    body.presentations-page .abstract-float__bar{
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 0 10px 0 12px;
+      border-bottom: 1px solid rgba(2, 132, 199, 0.22);
+      background: rgba(255,255,255,0.28);
+    }
+    body.presentations-page[data-theme="dark"] .abstract-float__bar{
+      border-bottom-color: rgba(125, 211, 252, 0.18);
+      background: rgba(255,255,255,0.06);
+    }
+
+    body.presentations-page .abstract-float__title{
+      font-weight: 950;
+      font-size: 0.92rem;
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    body.presentations-page .abstract-float__actions{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    body.presentations-page .abstract-float__btn{
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      border: 1px solid rgba(2, 132, 199, 0.20);
+      background: rgba(255,255,255,0.26);
+      cursor: pointer;
+    }
+    body.presentations-page[data-theme="dark"] .abstract-float__btn{
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(125, 211, 252, 0.18);
+    }
+
+    body.presentations-page .abstract-float__body{
+      padding: 10px 12px 12px;
+      overflow: auto;
+      flex: 1 1 auto;
+    }
+    body.presentations-page .abstract-float__text{
+      font-size: 0.92rem;
+      line-height: 1.5;
+      opacity: 0.92;
+      white-space: pre-wrap;
+    }
+    body.presentations-page .abstract-float__hint{
+      margin-top: 10px;
+      font-size: 0.78rem;
+      opacity: 0.65;
+    }
+
+    /* Ensure abstract "button" pills don't get default button styling */
+    body.presentations-page button.pill-link{
+      appearance: none;
+      -webkit-appearance: none;
+    }
   </style>
 </head>
 
-<body>
+<body class="presentations-page">
   <div class="page">
     <!-- ================= HEADER / NAV ================= -->
     <header class="top-nav">
@@ -403,6 +524,7 @@
 
     <!-- ================= LAYOUT ================= -->
     <main class="layout">
+      <!-- Sidebar -->
       <aside class="sidebar">
         <div class="avatar">
           <img src="/assets/images/PXL_20250330_220427523-1575x2800-compressed.jpg"
@@ -465,6 +587,7 @@
         </div>
       </aside>
 
+      <!-- ================= MAIN CONTENT ================= -->
       <section class="main">
         <div class="card">
           <div class="card-body">
@@ -513,9 +636,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/ams-sectional-california-polytechnique-state-university" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Interpolation Problem and Recent Studies on Demailly’s Conjecture"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -531,9 +658,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/macaulay2_tulane-2025" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Interpolation in Projective Spaces (Macaulay2 Workshop)"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -549,9 +680,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/cats-2025" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Interpolation in Projective Spaces (CATS 2025)"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -567,9 +702,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/mathforall-2025" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Interpolation of Projective Points under Algebraic Lens"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -585,9 +724,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/ams-sectional-university-of-kansas" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Interpolation Problem and Recent Studies on Demailly’s Conjecture (AMS Kansas)"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -603,9 +746,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/algebra-combinatorics-seminar" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Developments in Interpolation Problem for Projective Spaces"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -621,16 +768,19 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/cmsa-tezpur-2025" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Interpolation Problem: Conjectures &amp; New Developments"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
 
                 </div>
               </div>
 
-              <!-- Keep remaining year groups exactly as before but add Abstract pill similarly if you want -->
               <div class="year-group">
                 <div class="year-head">
                   <span class="year-chip">2024</span>
@@ -650,9 +800,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/graduate-colloquium-3-fall-2024" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Recent Developments in Interpolation Problems &amp; Demailly's Conjecture"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
 
@@ -668,9 +822,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/tezpur-university-alumni-talk" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Overview of Generalized Interpolation Problem, and its Algebraic Components"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -695,9 +853,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/generalized-interpretation-problems-and-chudnovskys-conjecture" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Generalized Interpolation Problems and Chudnovsky's Conjecture"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -722,9 +884,13 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/algebraic-gaussian-sums-slides" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
-                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                      <button
+                        class="pill-link pill-abstract abstract-btn"
+                        type="button"
+                        data-title="Algebraic Gaussian Sums and its Applications"
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -753,8 +919,6 @@
                 </div>
 
                 <div class="tp-list">
-
-                  <!-- MCA 2025: award pill on the RIGHT of the title line -->
                   <div class="tp-item">
                     <div class="tp-title-row">
                       <div class="tp-item-title">MCA 2025 — Miami, Florida</div>
@@ -833,7 +997,6 @@
                       </a>
                     </div>
                   </div>
-
                 </div>
               </div>
 
@@ -878,6 +1041,27 @@
     </main>
   </div>
 
+  <!-- ===== Floating Abstract Window (one-time) ===== -->
+  <div class="abstract-float" id="abstractFloat" aria-hidden="true">
+    <div class="abstract-float__bar">
+      <div class="abstract-float__title" id="abstractFloatTitle">Abstract</div>
+      <div class="abstract-float__actions">
+        <button type="button" class="abstract-float__btn" id="abstractFloatMin" aria-label="Minimize">
+          <i class="fa-solid fa-minus"></i>
+        </button>
+        <button type="button" class="abstract-float__btn" id="abstractFloatClose" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="abstract-float__body">
+      <div class="abstract-float__text" id="abstractFloatText"></div>
+      <div class="abstract-float__hint">Drag the corner to resize.</div>
+    </div>
+  </div>
+
+  <!-- ================= SCRIPTS ================= -->
   <script>
     // Footer year
     const yearSpan = document.getElementById("year");
@@ -905,7 +1089,6 @@
         dropdown.classList.toggle('dropdown-open');
       });
     }
-
     document.addEventListener('click', (event) => {
       if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove('dropdown-open');
     });
@@ -968,8 +1151,54 @@
 
     if (btnTalks) btnTalks.addEventListener('click', () => setView('talks'));
     if (btnPosters) btnPosters.addEventListener('click', () => setView('posters'));
-
     setView('talks');
+
+    // ===== Floating Abstract Window logic =====
+    const absFloat = document.getElementById('abstractFloat');
+    const absTitle = document.getElementById('abstractFloatTitle');
+    const absText  = document.getElementById('abstractFloatText');
+    const absClose = document.getElementById('abstractFloatClose');
+    const absMin   = document.getElementById('abstractFloatMin');
+
+    function openAbstract(title, text){
+      if (!absFloat) return;
+
+      absTitle.textContent = title ? `Abstract — ${title}` : 'Abstract';
+      absText.textContent  = text || '(No abstract provided yet.)';
+
+      absFloat.classList.add('is-open');
+      absFloat.classList.remove('is-min');
+      absFloat.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeAbstract(){
+      if (!absFloat) return;
+      absFloat.classList.remove('is-open');
+      absFloat.classList.remove('is-min');
+      absFloat.setAttribute('aria-hidden', 'true');
+    }
+
+    function toggleMinimize(){
+      if (!absFloat) return;
+      absFloat.classList.toggle('is-min');
+    }
+
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.abstract-btn');
+      if (!btn) return;
+
+      const t = btn.getAttribute('data-title') || 'Abstract';
+      const a = btn.getAttribute('data-abstract') || '';
+      openAbstract(t, a);
+    });
+
+    if (absClose) absClose.addEventListener('click', closeAbstract);
+    if (absMin) absMin.addEventListener('click', toggleMinimize);
+
+    // ESC to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAbstract();
+    });
   </script>
 </body>
 </html>
