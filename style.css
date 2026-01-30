@@ -3029,34 +3029,136 @@ html[data-theme="dark"] .pres-badge{
   flex-wrap: wrap;
 }
 /* =========================================================
-   MOBILE NAV — Clean hamburger panel (IN-FLOW)
-   Keeps desktop unchanged.
-   This version DOES NOT overlay the page body.
+   GLOBAL MOBILE REFORM — SAFE, DESKTOP-INTACT
+   Applies to ALL pages
    ========================================================= */
-@media (max-width: 640px) {
-  /* Make the opened menu look like a panel but keep it in normal flow */
-  .top-nav-links.open{
-    position: static;
-    width: 100%;
-    margin-top: 10px;
+@media (max-width: 900px){
 
-    padding: 12px 14px;
-    border-radius: 16px;
-
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(148, 163, 184, 0.35);
-    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+  /* ---------- Layout: stack cleanly ---------- */
+  .layout{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px;
   }
 
-  [data-theme="dark"] .top-nav-links.open{
-    background: rgba(15, 23, 42, 0.92);
-    border-color: rgba(148, 163, 184, 0.18);
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.65);
+  .sidebar{
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin-bottom: 8px;
+  }
+
+  .main{
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* ---------- Avatar & status ---------- */
+  .avatar img{
+    width: 120px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .status-chip{
+    margin: 8px auto 0;
+  }
+
+  /* ---------- Cards ---------- */
+  .card{
+    border-radius: 16px;
+  }
+
+  /* ---------- Fix title rows & pills wrapping ---------- */
+  .tp-title-row{
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .tp-title-row .type-pill{
+    margin-left: 0 !important;
+    margin-top: 6px;
+  }
+
+  /* ---------- Year banner not oversized ---------- */
+  .presentations-page .year-chip{
+    min-height: 40px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    border-radius: 16px;
+  }
+
+  /* ---------- Floating abstract window ---------- */
+  .abstract-float{
+    left: 12px;
+    right: 12px;
+    width: auto !important;
+    max-width: none !important;
+    bottom: 12px;
   }
 }
 
 /* =========================================================
-   PRESENTATIONS PAGE — Year chip banner (page-scoped)
+   MOBILE NAVIGATION — HAMBURGER (IN-FLOW, STABLE)
+   ========================================================= */
+@media (max-width: 900px){
+
+  /* Header anchor */
+  .top-nav{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  /* Show hamburger */
+  .nav-toggle{
+    display: inline-flex;
+  }
+
+  /* Hide nav by default */
+  .top-nav-links{
+    display: none;
+    width: 100%;
+  }
+
+  /* Open state — IN FLOW (pushes content down) */
+  .top-nav-links.open{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 12px;
+    padding: 12px 14px;
+
+    border-radius: 16px;
+    border: 1px solid rgba(148,163,184,0.28);
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 12px 30px rgba(15,23,42,0.16);
+  }
+
+  html[data-theme="dark"] .top-nav-links.open{
+    background: rgba(15,23,42,0.92);
+    border-color: rgba(148,163,184,0.18);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.65);
+  }
+
+  /* Dropdown behaves like normal list */
+  .dropdown{
+    width: 100%;
+  }
+
+  .dropdown-content{
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding-left: 10px;
+  }
+}
+
+/* =========================================================
+   PRESENTATIONS PAGE — YEAR BANNER (DESKTOP + MOBILE SAFE)
    Requires: <body class="presentations-page">
    ========================================================= */
 .presentations-page .year-chip{
@@ -3074,24 +3176,26 @@ html[data-theme="dark"] .pres-badge{
   font-weight: 1000;
   letter-spacing: 0.35px;
 
-  border: 1px solid rgba(59, 130, 246, 0.38);
-  background: linear-gradient(90deg,
-    rgba(59, 130, 246, 0.22),
-    rgba(124, 58, 237, 0.22)
+  border: 1px solid rgba(59,130,246,0.38);
+  background: linear-gradient(
+    90deg,
+    rgba(59,130,246,0.22),
+    rgba(124,58,237,0.22)
   );
 
   box-shadow:
-    0 10px 26px rgba(15, 23, 42, 0.12),
+    0 10px 26px rgba(15,23,42,0.12),
     inset 0 0 0 1px rgba(255,255,255,0.35);
 
   text-align: center;
 }
 
-[data-theme="dark"] .presentations-page .year-chip{
-  border-color: rgba(191, 219, 254, 0.26);
-  background: linear-gradient(90deg,
-    rgba(96, 165, 250, 0.26),
-    rgba(192, 132, 252, 0.26)
+html[data-theme="dark"] .presentations-page .year-chip{
+  border-color: rgba(191,219,254,0.26);
+  background: linear-gradient(
+    90deg,
+    rgba(96,165,250,0.26),
+    rgba(192,132,252,0.26)
   );
   box-shadow:
     0 14px 34px rgba(0,0,0,0.55),
