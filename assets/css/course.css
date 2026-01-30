@@ -291,3 +291,24 @@ html[data-theme="dark"] .course-page .meeting-card.review{
   .course-page .notes-btn{ width:100%; justify-content:center; }
 }
 
+/* ===== Desktop fluid adjustment (minimal overrides) ===== */
+
+/* Let the page breathe on wide desktops (still capped) */
+.page{
+  max-width: 1400px;   /* was 1120px */
+  width: 100%;
+}
+
+/* Make the sidebar column adapt a bit instead of being rigid */
+.layout{
+  grid-template-columns: clamp(280px, 26vw, 320px) minmax(0, 1fr);
+}
+
+/* Allow nav links to wrap on desktop before the mobile breakpoint */
+@media (max-width: 980px){
+  .top-nav{ flex-wrap: wrap; }
+  .top-nav-links{ flex-wrap: wrap; }
+}
+
+/* Prevent grid children from forcing horizontal overflow */
+.main{ min-width: 0; }
