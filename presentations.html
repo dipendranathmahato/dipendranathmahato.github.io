@@ -25,29 +25,32 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- ===== Presentations page: minimal additional styling only ===== -->
+  <!-- ===== Presentations page: minimal extra CSS (scoped) ===== -->
   <style>
-    /* ------- Color tokens for this page only ------- */
+    /* Page-only tokens */
     :root{
-      --talk-accent: #2563eb;     /* blue */
-      --talk-soft: rgba(37, 99, 235, 0.10);
+      --talk-accent: #2563eb;      /* blue */
+      --talk-soft: rgba(37,99,235,0.12);
 
-      --poster-accent: #7c3aed;   /* violet */
-      --poster-soft: rgba(124, 58, 237, 0.12);
+      --poster-accent: #7c3aed;    /* violet */
+      --poster-soft: rgba(124,58,237,0.14);
 
       --pill-border: rgba(148, 163, 184, 0.35);
+      --card-border: rgba(148, 163, 184, 0.28);
+      --card-bg: rgba(15, 23, 42, 0.02);
     }
     [data-theme="dark"]{
       --talk-accent: #60a5fa;
-      --talk-soft: rgba(96, 165, 250, 0.18);
+      --talk-soft: rgba(96,165,250,0.18);
 
       --poster-accent: #c084fc;
-      --poster-soft: rgba(192, 132, 252, 0.18);
+      --poster-soft: rgba(192,132,252,0.18);
 
       --pill-border: rgba(148, 163, 184, 0.22);
+      --card-border: rgba(148, 163, 184, 0.18);
+      --card-bg: rgba(255,255,255,0.05);
     }
 
-    /* ------- Header block ------- */
     .pres-head{
       display:flex;
       align-items:flex-start;
@@ -56,21 +59,20 @@
       flex-wrap: wrap;
       margin-bottom: 12px;
     }
-
     .pres-title-wrap h1{
-      margin:0;
+      margin: 0;
       font-size: 1.25rem;
-      font-weight: 850;
-      letter-spacing: .2px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
     }
     .pres-title-wrap p{
       margin: 6px 0 0;
       opacity: 0.85;
       line-height: 1.45;
-      max-width: 820px;
+      max-width: 860px;
     }
 
-    /* ------- Toggle: make active state obvious ------- */
+    /* Segmented toggle */
     .seg-toggle{
       display:inline-flex;
       border: 1px solid var(--pill-border);
@@ -92,23 +94,21 @@
       border-radius: 999px;
       cursor: pointer;
       font: inherit;
-      font-weight: 800;
+      font-weight: 900;
       display:inline-flex;
       align-items:center;
       gap: 8px;
-      opacity: 0.82;
+      opacity: 0.80;
       transition: 0.18s ease;
       user-select:none;
       outline: none;
     }
-
     .seg-btn .dot{
       width: 9px;
       height: 9px;
       border-radius: 999px;
       background: rgba(148,163,184,0.55);
     }
-
     .seg-btn.is-active{
       opacity: 1;
       background: rgba(15,23,42,0.06);
@@ -120,135 +120,101 @@
       box-shadow: 0 14px 30px rgba(0,0,0,0.55);
     }
 
-    /* Active color identities */
+    /* Active states distinct */
     .seg-btn[data-view="talks"].is-active{
-      border: 1px solid rgba(37, 99, 235, 0.25);
+      border: 1px solid rgba(37,99,235,0.25);
     }
-    .seg-btn[data-view="talks"].is-active .dot{ background: var(--talk-accent); }
+    .seg-btn[data-view="talks"].is-active .dot{
+      background: var(--talk-accent);
+    }
+    .seg-btn[data-view="talks"] i{
+      color: var(--talk-accent);
+    }
 
     .seg-btn[data-view="posters"].is-active{
-      border: 1px solid rgba(124, 58, 237, 0.25);
+      border: 1px solid rgba(124,58,237,0.25);
     }
-    .seg-btn[data-view="posters"].is-active .dot{ background: var(--poster-accent); }
-
-    /* ------- Two-column layout ------- */
-    .tp-grid{
-      display:grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 18px;
-      align-items: start;
-      margin-top: 10px;
+    .seg-btn[data-view="posters"].is-active .dot{
+      background: var(--poster-accent);
     }
-    @media (max-width: 900px){
-      .tp-grid{ grid-template-columns: minmax(0, 1fr); }
+    .seg-btn[data-view="posters"] i{
+      color: var(--poster-accent);
     }
 
-    .tp-col{
-      border: 1px solid rgba(148, 163, 184, 0.28);
-      background: rgba(15, 23, 42, 0.02);
-      border-radius: 16px;
-      padding: 12px 12px 14px;
-      position: relative;
-      overflow: hidden;
-    }
-    [data-theme="dark"] .tp-col{
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(148, 163, 184, 0.18);
-    }
+    /* Panels */
+    .pres-panel{ display:none; }
+    .pres-panel.is-active{ display:block; }
 
-    /* Subtle top accent bar per column */
-    .tp-col::before{
-      content:"";
-      position:absolute;
-      left: 10px;
-      right: 10px;
-      top: 10px;
-      height: 3px;
-      border-radius: 999px;
-      opacity: 0.85;
-    }
-    .tp-col.talks-col::before{
-      background: linear-gradient(90deg, var(--talk-accent), rgba(34,197,94,0.45));
-    }
-    .tp-col.posters-col::before{
-      background: linear-gradient(90deg, var(--poster-accent), rgba(59,130,246,0.45));
-    }
-
-    .tp-col-head{
+    /* Year groups */
+    .year-group{ margin-top: 12px; }
+    .year-head{
       display:flex;
-      align-items:flex-start;
+      align-items:center;
       justify-content:space-between;
       gap: 10px;
-      margin: 10px 0 10px;
+      margin: 10px 2px 10px;
     }
-
-    .tp-col-title{
-      margin:0;
-      font-size: 1.05rem;
-      font-weight: 900;
+    .year-chip{
       display:inline-flex;
-      gap: 10px;
       align-items:center;
-      letter-spacing: .2px;
+      justify-content:center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 950;
+      border: 1px solid var(--pill-border);
+      background: rgba(37, 99, 235, 0.08);
+    }
+    [data-theme="dark"] .year-chip{
+      background: rgba(96,165,250,0.18);
+    }
+    .year-note{
+      font-size: 0.82rem;
+      opacity: 0.78;
     }
 
-    /* Icon colors */
-    .talks-col .tp-col-title i{ color: var(--talk-accent); }
-    .posters-col .tp-col-title i{ color: var(--poster-accent); }
-
-    .tp-col-sub{
-      font-size: 0.85rem;
-      opacity: 0.82;
-      margin-top: 2px;
-    }
-
-    /* ------- Items ------- */
+    /* Cards list */
     .tp-list{
       display:flex;
       flex-direction:column;
       gap: 10px;
     }
-
     .tp-item{
-      border: 1px solid rgba(148, 163, 184, 0.28);
+      border: 1px solid var(--card-border);
       background: rgba(255, 255, 255, 0.70);
       border-radius: 14px;
       padding: 12px 12px;
     }
     [data-theme="dark"] .tp-item{
       background: rgba(15, 23, 42, 0.65);
-      border-color: rgba(148, 163, 184, 0.18);
     }
-
     .tp-item-title{
-      font-weight: 900;
+      font-weight: 950;
       line-height: 1.25;
     }
     .tp-item-meta{
-      margin-top: 4px;
-      font-size: 0.85rem;
-      opacity: 0.80;
+      margin-top: 6px;
+      font-size: 0.86rem;
+      opacity: 0.86;
       display:flex;
       gap: 10px;
       flex-wrap: wrap;
       align-items:center;
     }
-
-    .tp-subtitle{
-      display:inline-block;
-      margin-left: 8px;
-      font-size: 0.82rem;
-      font-weight: 800;
-      opacity: 0.90;
+    .tp-links{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    /* ------- Type pills: colors per type ------- */
+    /* Type pills: different colors */
     .type-pill{
       display:inline-flex;
       align-items:center;
       gap: 6px;
-      font-size: 0.75rem;
-      font-weight: 900;
+      font-size: 0.74rem;
+      font-weight: 950;
       padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid var(--pill-border);
@@ -261,14 +227,11 @@
       background: rgba(255,255,255,0.06);
     }
 
-    /* Talk types */
     .type-conference{ border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.10); color:#047857; }
     .type-lightning{  border-color: rgba(234,179,8,0.45);  background: rgba(234,179,8,0.14);  color:#92400e; }
     .type-seminar{    border-color: rgba(59,130,246,0.40); background: rgba(59,130,246,0.12); color:#1d4ed8; }
     .type-invited{    border-color: rgba(147,51,234,0.35); background: rgba(147,51,234,0.14); color:#6b21a8; }
     .type-colloquium{ border-color: rgba(239,68,68,0.35);  background: rgba(239,68,68,0.12);  color:#b91c1c; }
-
-    /* Posters */
     .type-poster{     border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.14); color:#5b21b6; }
     .type-award{      border-color: rgba(34,197,94,0.45);  background: rgba(34,197,94,0.16);  color:#065f46; }
 
@@ -280,27 +243,59 @@
     [data-theme="dark"] .type-poster{     color:#e9d5ff; }
     [data-theme="dark"] .type-award{      color:#bbf7d0; }
 
-    /* ------- Links row ------- */
-    .tp-links{
-      margin-top: 10px;
+    /* Poster theme neon banner */
+    .poster-theme{
+      border: 1px solid rgba(124,58,237,0.28);
+      background: radial-gradient(1200px 240px at 12% 0%, rgba(124,58,237,0.22), transparent 55%),
+                  radial-gradient(900px 220px at 80% 20%, rgba(34,197,94,0.18), transparent 55%),
+                  rgba(124,58,237,0.10);
+      border-radius: 16px;
+      padding: 14px 14px;
+      margin: 10px 0 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    [data-theme="dark"] .poster-theme{
+      border-color: rgba(192,132,252,0.28);
+      background: radial-gradient(1200px 240px at 12% 0%, rgba(192,132,252,0.26), transparent 55%),
+                  radial-gradient(900px 220px at 80% 20%, rgba(52,211,153,0.20), transparent 55%),
+                  rgba(192,132,252,0.12);
+    }
+    .poster-theme h2{
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 1000;
+      letter-spacing: 0.2px;
       display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      align-items:center;
+      gap: 10px;
+    }
+    .poster-theme h2 i{
+      color: var(--poster-accent);
+      filter: drop-shadow(0 0 8px rgba(124,58,237,0.35));
+    }
+    .poster-theme .theme-title{
+      font-size: 1.08rem;
+      font-weight: 1000;
+      text-shadow: 0 0 18px rgba(124,58,237,0.18);
+    }
+    .poster-theme p{
+      margin: 6px 0 0;
+      opacity: 0.88;
+      line-height: 1.45;
     }
 
-    /* Reuse your existing .pill-link styles (already in your CSS).
-       Add 2 flavor classes for Image + Beamer */
+    /* Link pill flavors (works with your existing .pill-link base) */
     .pill-image{
       border-color: rgba(124,58,237,0.28);
       background: rgba(124,58,237,0.10);
       color: #5b21b6;
     }
     [data-theme="dark"] .pill-image{
-      background: rgba(192, 132, 252, 0.18);
-      border-color: rgba(192, 132, 252, 0.28);
+      background: rgba(192,132,252,0.18);
+      border-color: rgba(192,132,252,0.28);
       color: #e9d5ff;
     }
-
     .pill-beamer{
       border-color: rgba(16,185,129,0.28);
       background: rgba(16,185,129,0.10);
@@ -310,60 +305,6 @@
       background: rgba(52, 211, 153, 0.16);
       border-color: rgba(52, 211, 153, 0.30);
       color: #bbf7d0;
-    }
-
-    /* ------- Year groups ------- */
-    .year-group{ margin-top: 10px; }
-    .year-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      margin: 10px 2px 10px;
-    }
-
-    .year-chip{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 950;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(37, 99, 235, 0.08);
-      color: var(--text);
-    }
-    [data-theme="dark"] .year-chip{
-      background: rgba(96,165,250,0.18);
-      border-color: rgba(96,165,250,0.30);
-      color: #e5e7eb;
-    }
-
-    .year-note{
-      font-size: 0.82rem;
-      opacity: 0.78;
-    }
-
-    /* ------- Active view behavior (clear ON) ------- */
-    .tp-grid[data-view="talks"] .posters-col{
-      opacity: 0.55;
-      filter: saturate(0.7);
-    }
-    .tp-grid[data-view="posters"] .talks-col{
-      opacity: 0.55;
-      filter: saturate(0.7);
-    }
-
-    /* On mobile: show ONLY the active column (super clear) */
-    @media (max-width: 900px){
-      .tp-grid[data-view="talks"] .posters-col{ display:none; }
-      .tp-grid[data-view="posters"] .talks-col{ display:none; }
-      .tp-grid[data-view="talks"] .talks-col,
-      .tp-grid[data-view="posters"] .posters-col{
-        opacity: 1;
-        filter: none;
-      }
     }
   </style>
 </head>
@@ -435,7 +376,6 @@
           Department of Mathematics
         </div>
 
-        <!-- Research area padded block -->
         <div class="research-area-block">
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
@@ -494,8 +434,7 @@
               <div class="pres-title-wrap">
                 <h1>Presentations</h1>
                 <p>
-                  Talks and poster presentations (with slides/posters when available).
-                  Use the toggle to emphasize one side; on mobile, it switches the view completely.
+                  Click <strong>Talks</strong> or <strong>Posters</strong> to view the full list, grouped by year.
                 </p>
               </div>
 
@@ -514,24 +453,16 @@
               </div>
             </div>
 
-            <!-- Two columns -->
-            <div class="tp-grid" id="tpGrid" data-view="talks">
-
-              <!-- ================= TALKS ================= -->
-              <div class="tp-col talks-col" id="talksPanel" role="tabpanel" aria-labelledby="btnTalks">
-                <div class="tp-col-head">
-                  <h2 class="tp-col-title">
-                    <i class="fa-solid fa-microphone-lines"></i>
-                    Talks
-                  </h2>
-                  <div class="tp-col-sub">
-                    (Slides linked where available)
-                  </div>
+            <!-- ================= TALKS PANEL ================= -->
+            <div class="pres-panel is-active" id="panelTalks">
+              <!-- 2025 -->
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip">2025</span>
+                  <span class="year-note">Selected talks</span>
                 </div>
 
                 <div class="tp-list">
-
-                  <!-- 2025 -->
                   <div class="tp-item">
                     <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
                     <div class="tp-item-meta">
@@ -622,8 +553,17 @@
                       </a>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  <!-- 2024 -->
+              <!-- 2024 -->
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip">2024</span>
+                  <span class="year-note">Selected talks</span>
+                </div>
+
+                <div class="tp-list">
                   <div class="tp-item">
                     <div class="tp-item-title">Recent Developments in Interpolation Problems &amp; Demailly's Conjecture</div>
                     <div class="tp-item-meta">
@@ -649,8 +589,17 @@
                       </a>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  <!-- 2023 / 2022 -->
+              <!-- 2023 -->
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip">2023</span>
+                  <span class="year-note">Graduate colloquium</span>
+                </div>
+
+                <div class="tp-list">
                   <div class="tp-item">
                     <div class="tp-item-title">Generalized Interpolation Problems and Chudnovsky's Conjecture</div>
                     <div class="tp-item-meta">
@@ -663,7 +612,17 @@
                       </a>
                     </div>
                   </div>
+                </div>
+              </div>
 
+              <!-- 2022 -->
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip">2022</span>
+                  <span class="year-note">Graduate colloquium</span>
+                </div>
+
+                <div class="tp-list">
                   <div class="tp-item">
                     <div class="tp-item-title">Algebraic Gaussian Sums and its Applications</div>
                     <div class="tp-item-meta">
@@ -676,150 +635,141 @@
                       </a>
                     </div>
                   </div>
-
                 </div>
               </div>
 
-              <!-- ================= POSTERS ================= -->
-              <div class="tp-col posters-col" id="postersPanel" role="tabpanel" aria-labelledby="btnPosters">
-                <div class="tp-col-head">
-                  <div>
-                    <h2 class="tp-col-title">
-                      <i class="fa-solid fa-image"></i>
-                      Posters
-                    </h2>
-                    <div class="tp-col-sub">
-                      Main poster theme:
-                      <span class="highlight">Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
-                    </div>
-                  </div>
-                  <div class="tp-col-sub" style="text-align:right;">
-                    Auto-grouped by year
-                  </div>
-                </div>
+            </div>
 
-                <!-- Year: 2025 -->
-                <div class="year-group">
-                  <div class="year-head">
-                    <span class="year-chip">2025</span>
-                    <span class="year-note">4 poster presentations</span>
-                  </div>
+            <!-- ================= POSTERS PANEL ================= -->
+            <div class="pres-panel" id="panelPosters">
 
-                  <div class="tp-list">
-                    <div class="tp-item">
-                      <div class="tp-item-title">
-                        MCA 2025 — Miami, Florida
-                        <span class="tp-subtitle">🏆 2nd Best Poster Presentation</span>
-                      </div>
-                      <div class="tp-item-meta">
-                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span class="type-pill type-award"><i class="fa-solid fa-award"></i>Award</span>
-                        <span>July 21–25, 2025</span>
-                      </div>
-                      <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/mca-2025" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <!-- Replace # with your actual poster image link -->
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
-                        </a>
-                        <!-- Replace # with your Beamer source link (GitHub/Overleaf) -->
-                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                          <i class="fa-brands fa-github"></i> Beamer Source
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="tp-item">
-                      <div class="tp-item-title">TRICS 2025 — Tulane University</div>
-                      <div class="tp-item-meta">
-                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>April 08–10, 2025</span>
-                      </div>
-                      <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/trics-2025" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
-                        </a>
-                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                          <i class="fa-brands fa-github"></i> Beamer Source
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="tp-item">
-                      <div class="tp-item-title">CATS 2025 — Georgia State University</div>
-                      <div class="tp-item-meta">
-                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>April 05–06, 2025</span>
-                      </div>
-                      <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/poster-cats-2025" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
-                        </a>
-                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                          <i class="fa-brands fa-github"></i> Beamer Source
-                        </a>
-                      </div>
-                    </div>
-
-                    <div class="tp-item">
-                      <div class="tp-item-title">SLAM 2025 — Arizona State University</div>
-                      <div class="tp-item-meta">
-                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>March 01–02, 2025</span>
-                      </div>
-                      <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2025" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
-                        </a>
-                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                          <i class="fa-brands fa-github"></i> Beamer Source
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Year: 2024 -->
-                <div class="year-group">
-                  <div class="year-head">
-                    <span class="year-chip">2024</span>
-                    <span class="year-note">1 poster presentation</span>
-                  </div>
-
-                  <div class="tp-list">
-                    <div class="tp-item">
-                      <div class="tp-item-title">KUMUNU 2024 — University of Missouri</div>
-                      <div class="tp-item-meta">
-                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>September 28–29, 2024</span>
-                      </div>
-                      <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/kumunu-2024" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
-                        </a>
-                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                          <i class="fa-brands fa-github"></i> Beamer Source
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
+              <div class="poster-theme">
+                <h2>
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  Main Poster Theme:
+                  <span class="theme-title">Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
+                </h2>
+                <p>
+                  Presented at multiple venues; posters are grouped below by year. (PDF links included; add Image/Beamer links when ready.)
+                </p>
               </div>
+
+              <!-- 2025 -->
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip">2025</span>
+                  <span class="year-note">4 poster presentations</span>
+                </div>
+
+                <div class="tp-list">
+                  <div class="tp-item">
+                    <div class="tp-item-title">MCA 2025 — Miami, Florida</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                      <span class="type-pill type-award"><i class="fa-solid fa-award"></i>2nd Best Poster</span>
+                      <span>July 21–25, 2025</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/mca-2025" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                      </a>
+                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-image"></i> Poster Image
+                      </a>
+                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-github"></i> Beamer Source
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">TRICS 2025 — Tulane University</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                      <span>April 08–10, 2025</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/trics-2025" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                      </a>
+                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-image"></i> Poster Image
+                      </a>
+                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-github"></i> Beamer Source
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">CATS 2025 — Georgia State University</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                      <span>April 05–06, 2025</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/poster-cats-2025" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                      </a>
+                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-image"></i> Poster Image
+                      </a>
+                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-github"></i> Beamer Source
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">SLAM 2025 — Arizona State University</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                      <span>March 01–02, 2025</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2025" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                      </a>
+                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-image"></i> Poster Image
+                      </a>
+                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-github"></i> Beamer Source
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2024 -->
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip">2024</span>
+                  <span class="year-note">1 poster presentation</span>
+                </div>
+
+                <div class="tp-list">
+                  <div class="tp-item">
+                    <div class="tp-item-title">KUMUNU 2024 — University of Missouri</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                      <span>September 28–29, 2024</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/kumunu-2024" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                      </a>
+                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-image"></i> Poster Image
+                      </a>
+                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-github"></i> Beamer Source
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -844,18 +794,13 @@
     const navLinks  = document.querySelector('.top-nav-links');
 
     if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-      });
-
+      navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
       navLinks.addEventListener('click', (event) => {
-        if (event.target.tagName.toLowerCase() === 'a') {
-          navLinks.classList.remove('open');
-        }
+        if (event.target.tagName.toLowerCase() === 'a') navLinks.classList.remove('open');
       });
     }
 
-    // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
+    // ----- "More" dropdown click toggle -----
     const dropdown = document.querySelector('.dropdown');
     const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
 
@@ -868,19 +813,16 @@
     }
 
     document.addEventListener('click', (event) => {
-      if (dropdown && !dropdown.contains(event.target)) {
-        dropdown.classList.remove('dropdown-open');
-      }
+      if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove('dropdown-open');
     });
 
     // ----- DARK MODE TOGGLE -----
-    const root        = document.documentElement; // <html>
+    const root        = document.documentElement;
     const themeToggle = document.querySelector('.theme-toggle');
     const THEME_KEY   = 'dm-theme';
 
     function applyTheme(theme) {
       root.setAttribute('data-theme', theme);
-
       if (!themeToggle) return;
 
       const icon  = themeToggle.querySelector('i');
@@ -896,10 +838,7 @@
     }
 
     const savedTheme = localStorage.getItem(THEME_KEY);
-    const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
-      ? savedTheme
-      : 'light';
-
+    const initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
     applyTheme(initialTheme);
 
     if (themeToggle) {
@@ -911,29 +850,33 @@
       });
     }
 
-    // ----- Talks/Posters toggle behavior -----
-    const tpGrid = document.getElementById('tpGrid');
-    const btnTalks = document.getElementById('btnTalks');
+    // ----- Talks/Posters toggle: show one full list -----
+    const btnTalks   = document.getElementById('btnTalks');
     const btnPosters = document.getElementById('btnPosters');
+    const panelTalks = document.getElementById('panelTalks');
+    const panelPosts = document.getElementById('panelPosters');
 
     function setView(view){
-      if (!tpGrid) return;
-      tpGrid.setAttribute('data-view', view);
+      const talksOn = view === 'talks';
 
       if (btnTalks && btnPosters){
-        const talksOn = view === 'talks';
         btnTalks.classList.toggle('is-active', talksOn);
         btnPosters.classList.toggle('is-active', !talksOn);
         btnTalks.setAttribute('aria-selected', talksOn ? 'true' : 'false');
         btnPosters.setAttribute('aria-selected', !talksOn ? 'true' : 'false');
+      }
+
+      if (panelTalks && panelPosts){
+        panelTalks.classList.toggle('is-active', talksOn);
+        panelPosts.classList.toggle('is-active', !talksOn);
       }
     }
 
     if (btnTalks) btnTalks.addEventListener('click', () => setView('talks'));
     if (btnPosters) btnPosters.addEventListener('click', () => setView('posters'));
 
-    // default view
     setView('talks');
   </script>
 </body>
 </html>
+
