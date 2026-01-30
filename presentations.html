@@ -27,12 +27,11 @@
 
   <!-- ===== Presentations page: minimal extra CSS (scoped) ===== -->
   <style>
-    /* Page-only tokens */
     :root{
-      --talk-accent: #2563eb;      /* blue */
+      --talk-accent: #2563eb;
       --talk-soft: rgba(37,99,235,0.12);
 
-      --poster-accent: #7c3aed;    /* violet */
+      --poster-accent: #7c3aed;
       --poster-soft: rgba(124,58,237,0.14);
 
       --pill-border: rgba(148, 163, 184, 0.35);
@@ -58,7 +57,7 @@
       margin-bottom: 12px;
     }
 
-    /* === NEW: Highlight Presentations title in body === */
+    /* Highlight Presentations title in body */
     .pres-title-wrap h1{
       margin: 0;
       font-size: 1.35rem;
@@ -146,28 +145,18 @@
       box-shadow: 0 14px 30px rgba(0,0,0,0.55);
     }
 
-    /* Active states distinct */
     .seg-btn[data-view="talks"].is-active{
       border: 1px solid rgba(37,99,235,0.25);
     }
-    .seg-btn[data-view="talks"].is-active .dot{
-      background: var(--talk-accent);
-    }
-    .seg-btn[data-view="talks"] i{
-      color: var(--talk-accent);
-    }
+    .seg-btn[data-view="talks"].is-active .dot{ background: var(--talk-accent); }
+    .seg-btn[data-view="talks"] i{ color: var(--talk-accent); }
 
     .seg-btn[data-view="posters"].is-active{
       border: 1px solid rgba(124,58,237,0.25);
     }
-    .seg-btn[data-view="posters"].is-active .dot{
-      background: var(--poster-accent);
-    }
-    .seg-btn[data-view="posters"] i{
-      color: var(--poster-accent);
-    }
+    .seg-btn[data-view="posters"].is-active .dot{ background: var(--poster-accent); }
+    .seg-btn[data-view="posters"] i{ color: var(--poster-accent); }
 
-    /* Panels */
     .pres-panel{ display:none; }
     .pres-panel.is-active{ display:block; }
 
@@ -191,15 +180,10 @@
       border: 1px solid var(--pill-border);
       background: rgba(37, 99, 235, 0.08);
     }
-    [data-theme="dark"] .year-chip{
-      background: rgba(96,165,250,0.18);
-    }
-    .year-note{
-      font-size: 0.82rem;
-      opacity: 0.78;
-    }
+    [data-theme="dark"] .year-chip{ background: rgba(96,165,250,0.18); }
+    .year-note{ font-size: 0.82rem; opacity: 0.78; }
 
-    /* Cards list */
+    /* List */
     .tp-list{
       display:flex;
       flex-direction:column;
@@ -211,11 +195,9 @@
       border-radius: 14px;
       padding: 12px 12px;
     }
-    [data-theme="dark"] .tp-item{
-      background: rgba(15, 23, 42, 0.65);
-    }
+    [data-theme="dark"] .tp-item{ background: rgba(15, 23, 42, 0.65); }
 
-    /* === NEW: title line holds pill on right === */
+    /* Title row with pill on right */
     .tp-title-row{
       display:flex;
       align-items:flex-start;
@@ -250,7 +232,7 @@
       gap: 8px;
     }
 
-    /* Type pills: different colors */
+    /* Type pills */
     .type-pill{
       display:inline-flex;
       align-items:center;
@@ -265,9 +247,7 @@
       text-transform: uppercase;
       white-space: nowrap;
     }
-    [data-theme="dark"] .type-pill{
-      background: rgba(255,255,255,0.06);
-    }
+    [data-theme="dark"] .type-pill{ background: rgba(255,255,255,0.06); }
 
     .type-conference{ border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.10); color:#047857; }
     .type-lightning{  border-color: rgba(234,179,8,0.45);  background: rgba(234,179,8,0.14);  color:#92400e; }
@@ -285,7 +265,7 @@
     [data-theme="dark"] .type-poster{     color:#e9d5ff; }
     [data-theme="dark"] .type-award{      color:#bbf7d0; }
 
-    /* Poster theme neon banner */
+    /* Poster theme neon banner + subtle pulse */
     .poster-theme{
       border: 1px solid rgba(124,58,237,0.28);
       background: radial-gradient(1200px 240px at 12% 0%, rgba(124,58,237,0.22), transparent 55%),
@@ -296,6 +276,7 @@
       margin: 10px 0 12px;
       position: relative;
       overflow: hidden;
+      animation: neonPulse 4.2s ease-in-out infinite;
     }
     [data-theme="dark"] .poster-theme{
       border-color: rgba(192,132,252,0.28);
@@ -303,6 +284,14 @@
                   radial-gradient(900px 220px at 80% 20%, rgba(52,211,153,0.20), transparent 55%),
                   rgba(192,132,252,0.12);
     }
+    @keyframes neonPulse{
+      0%, 100%{ box-shadow: 0 0 0 rgba(124,58,237,0.0), 0 0 0 rgba(34,197,94,0.0); transform: translateY(0); }
+      50%{
+        box-shadow: 0 0 26px rgba(124,58,237,0.12), 0 0 22px rgba(34,197,94,0.10);
+        transform: translateY(-1px);
+      }
+    }
+
     .poster-theme h2{
       margin: 0;
       font-size: 1.05rem;
@@ -347,6 +336,18 @@
       background: rgba(52, 211, 153, 0.16);
       border-color: rgba(52, 211, 153, 0.30);
       color: #bbf7d0;
+    }
+
+    /* NEW: Abstract pill styling (compatible with your pill-link base) */
+    .pill-abstract{
+      border-color: rgba(59,130,246,0.28);
+      background: rgba(59,130,246,0.10);
+      color: #1d4ed8;
+    }
+    [data-theme="dark"] .pill-abstract{
+      border-color: rgba(191,219,254,0.28);
+      background: rgba(191,219,254,0.14);
+      color: #bfdbfe;
     }
   </style>
 </head>
@@ -512,6 +513,9 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/ams-sectional-california-polytechnique-state-university" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </a>
                     </div>
                   </div>
 
@@ -526,6 +530,9 @@
                     <div class="tp-links">
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/macaulay2_tulane-2025" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </a>
                     </div>
                   </div>
@@ -542,6 +549,9 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/cats-2025" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </a>
                     </div>
                   </div>
 
@@ -556,6 +566,9 @@
                     <div class="tp-links">
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/mathforall-2025" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </a>
                     </div>
                   </div>
@@ -572,6 +585,9 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/ams-sectional-university-of-kansas" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </a>
                     </div>
                   </div>
 
@@ -586,6 +602,9 @@
                     <div class="tp-links">
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/algebra-combinatorics-seminar" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </a>
                     </div>
                   </div>
@@ -602,12 +621,16 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/cmsa-tezpur-2025" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </a>
                     </div>
                   </div>
 
                 </div>
               </div>
 
+              <!-- Keep remaining year groups exactly as before but add Abstract pill similarly if you want -->
               <div class="year-group">
                 <div class="year-head">
                   <span class="year-chip">2024</span>
@@ -627,6 +650,9 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/graduate-colloquium-3-fall-2024" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </a>
                     </div>
                   </div>
 
@@ -641,6 +667,9 @@
                     <div class="tp-links">
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/tezpur-university-alumni-talk" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </a>
                     </div>
                   </div>
@@ -666,6 +695,9 @@
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/generalized-interpretation-problems-and-chudnovskys-conjecture" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -689,6 +721,9 @@
                     <div class="tp-links">
                       <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/algebraic-gaussian-sums-slides" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <a class="pill-link pill-abstract" href="#" target="_blank" rel="noopener">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </a>
                     </div>
                   </div>
@@ -718,11 +753,15 @@
                 </div>
 
                 <div class="tp-list">
+
+                  <!-- MCA 2025: award pill on the RIGHT of the title line -->
                   <div class="tp-item">
-                    <div class="tp-item-title">MCA 2025 — Miami, Florida</div>
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">MCA 2025 — Miami, Florida</div>
+                      <span class="type-pill type-award"><i class="fa-solid fa-award"></i>2nd Best Poster</span>
+                    </div>
                     <div class="tp-item-meta">
                       <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                      <span class="type-pill type-award"><i class="fa-solid fa-award"></i>2nd Best Poster</span>
                       <span>July 21–25, 2025</span>
                     </div>
                     <div class="tp-links">
@@ -794,6 +833,7 @@
                       </a>
                     </div>
                   </div>
+
                 </div>
               </div>
 
@@ -839,11 +879,11 @@
   </div>
 
   <script>
-    // ----- Footer year -----
+    // Footer year
     const yearSpan = document.getElementById("year");
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // ----- Mobile hamburger toggle -----
+    // Mobile hamburger toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks  = document.querySelector('.top-nav-links');
 
@@ -854,7 +894,7 @@
       });
     }
 
-    // ----- "More" dropdown click toggle -----
+    // "More" dropdown click toggle
     const dropdown = document.querySelector('.dropdown');
     const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
 
@@ -870,7 +910,7 @@
       if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove('dropdown-open');
     });
 
-    // ----- DARK MODE TOGGLE -----
+    // Dark mode toggle
     const root        = document.documentElement;
     const themeToggle = document.querySelector('.theme-toggle');
     const THEME_KEY   = 'dm-theme';
@@ -904,7 +944,7 @@
       });
     }
 
-    // ----- Talks/Posters toggle: show one full list -----
+    // Talks/Posters toggle
     const btnTalks   = document.getElementById('btnTalks');
     const btnPosters = document.getElementById('btnPosters');
     const panelTalks = document.getElementById('panelTalks');
