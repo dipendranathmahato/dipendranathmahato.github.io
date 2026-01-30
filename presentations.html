@@ -33,10 +33,6 @@
        ========================================================= */
 
     body.presentations-page{
-      /* no layout changes; just a scope anchor */
-    }
-
-    body.presentations-page{
       --talk-accent: #2563eb;
       --talk-soft: rgba(37,99,235,0.12);
 
@@ -171,26 +167,35 @@
 
     /* Year groups */
     body.presentations-page .year-group{ margin-top: 12px; }
+
     body.presentations-page .year-head{
       display:flex;
       align-items:center;
-      justify-content:space-between;
+      justify-content:flex-start; /* single chip now */
       gap: 10px;
       margin: 10px 2px 10px;
     }
+
+    /* (1) Year pills: more visible + longer */
     body.presentations-page .year-chip{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding: 4px 10px;
+      padding: 7px 16px;
       border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 950;
-      border: 1px solid var(--pill-border);
-      background: rgba(37, 99, 235, 0.08);
+      font-size: 0.84rem;
+      font-weight: 1000;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(59,130,246,0.35);
+      background: rgba(59, 130, 246, 0.16);
+      min-width: 240px;       /* makes it longer */
+      box-shadow: 0 10px 26px rgba(15,23,42,0.10);
     }
-    body.presentations-page[data-theme="dark"] .year-chip{ background: rgba(96,165,250,0.18); }
-    body.presentations-page .year-note{ font-size: 0.82rem; opacity: 0.78; }
+    body.presentations-page[data-theme="dark"] .year-chip{
+      border-color: rgba(191,219,254,0.22);
+      background: rgba(96,165,250,0.22);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.55);
+    }
 
     /* List */
     body.presentations-page .tp-list{
@@ -261,18 +266,36 @@
     body.presentations-page .type-conference{ border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.10); color:#047857; }
     body.presentations-page .type-lightning{  border-color: rgba(234,179,8,0.45);  background: rgba(234,179,8,0.14);  color:#92400e; }
     body.presentations-page .type-seminar{    border-color: rgba(59,130,246,0.40); background: rgba(59,130,246,0.12); color:#1d4ed8; }
-    body.presentations-page .type-invited{    border-color: rgba(147,51,234,0.35); background: rgba(147,51,234,0.14); color:#6b21a8; }
     body.presentations-page .type-colloquium{ border-color: rgba(239,68,68,0.35);  background: rgba(239,68,68,0.12);  color:#b91c1c; }
     body.presentations-page .type-poster{     border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.14); color:#5b21b6; }
     body.presentations-page .type-award{      border-color: rgba(34,197,94,0.45);  background: rgba(34,197,94,0.16);  color:#065f46; }
 
+    /* (2) AMS Sectional Meeting pill */
+    body.presentations-page .type-ams{
+      border-color: rgba(37,99,235,0.35);
+      background: rgba(37,99,235,0.14);
+      color:#1d4ed8;
+    }
     body.presentations-page[data-theme="dark"] .type-conference{ color:#bbf7d0; }
     body.presentations-page[data-theme="dark"] .type-lightning{  color:#fde68a; }
     body.presentations-page[data-theme="dark"] .type-seminar{    color:#bfdbfe; }
-    body.presentations-page[data-theme="dark"] .type-invited{    color:#e9d5ff; }
     body.presentations-page[data-theme="dark"] .type-colloquium{ color:#fecaca; }
     body.presentations-page[data-theme="dark"] .type-poster{     color:#e9d5ff; }
     body.presentations-page[data-theme="dark"] .type-award{      color:#bbf7d0; }
+    body.presentations-page[data-theme="dark"] .type-ams{        color:#bfdbfe; }
+
+    /* (5) Poster Theme Box wrapper: theme banner + everything under it */
+    body.presentations-page .poster-theme-box{
+      border: 1px solid rgba(124,58,237,0.20);
+      background: rgba(124,58,237,0.06);
+      border-radius: 18px;
+      padding: 12px;
+      margin-top: 10px;
+    }
+    body.presentations-page[data-theme="dark"] .poster-theme-box{
+      border-color: rgba(192,132,252,0.18);
+      background: rgba(192,132,252,0.08);
+    }
 
     /* Poster theme neon banner + subtle pulse */
     body.presentations-page .poster-theme{
@@ -282,7 +305,7 @@
                   rgba(124,58,237,0.10);
       border-radius: 16px;
       padding: 14px 14px;
-      margin: 10px 0 12px;
+      margin: 0 0 12px; /* inside wrapper */
       position: relative;
       overflow: hidden;
       animation: presNeonPulse 4.2s ease-in-out infinite;
@@ -309,6 +332,7 @@
       display:flex;
       align-items:center;
       gap: 10px;
+      flex-wrap: wrap;
     }
     body.presentations-page .poster-theme h2 i{
       color: var(--poster-accent);
@@ -336,16 +360,6 @@
       border-color: rgba(192,132,252,0.28);
       color: #e9d5ff;
     }
-    body.presentations-page .pill-beamer{
-      border-color: rgba(16,185,129,0.28);
-      background: rgba(16,185,129,0.10);
-      color: #047857;
-    }
-    body.presentations-page[data-theme="dark"] .pill-beamer{
-      background: rgba(52, 211, 153, 0.16);
-      border-color: rgba(52, 211, 153, 0.30);
-      color: #bbf7d0;
-    }
 
     /* Abstract pill styling */
     body.presentations-page .pill-abstract{
@@ -360,7 +374,7 @@
     }
 
     /* ===== Floating Abstract Window (page-only) =====
-       Background requested: sky-blue type
+       Sky-blue background
     */
     body.presentations-page .abstract-float{
       position: fixed;
@@ -375,7 +389,6 @@
       border-radius: 14px;
       border: 1px solid rgba(2, 132, 199, 0.35);
 
-      /* Sky-blue background */
       background:
         radial-gradient(900px 260px at 18% 0%, rgba(56, 189, 248, 0.40), transparent 58%),
         radial-gradient(900px 260px at 86% 20%, rgba(125, 211, 252, 0.36), transparent 55%),
@@ -394,7 +407,6 @@
       max-height: calc(100vh - 18px);
     }
     body.presentations-page[data-theme="dark"] .abstract-float{
-      /* Keep sky vibe but darker */
       background:
         radial-gradient(900px 260px at 18% 0%, rgba(56, 189, 248, 0.22), transparent 58%),
         radial-gradient(900px 260px at 86% 20%, rgba(125, 211, 252, 0.18), transparent 55%),
@@ -560,7 +572,7 @@
             </li>
             <li>
               <i class="fa-regular fa-envelope"></i>
-              <span><a href="mailto:dipendranathmahato13@gmail.com">dipendranathmahato13@gmail.com</a></span>
+              <span><a href="mailto:dipendranathmahato@gmail.com">dipendranathmahato@gmail.com</a></span>
             </li>
             <li>
               <i class="fa-regular fa-building"></i>
@@ -616,10 +628,11 @@
 
             <!-- ================= TALKS PANEL ================= -->
             <div class="pres-panel is-active" id="panelTalks">
+
               <div class="year-group">
                 <div class="year-head">
-                  <span class="year-chip">2025</span>
-                  <span class="year-note">Selected talks</span>
+                  <!-- (3) merged label -->
+                  <span class="year-chip">Complete list of Talks — 2025</span>
                 </div>
 
                 <div class="tp-list">
@@ -627,7 +640,8 @@
                   <div class="tp-item">
                     <div class="tp-title-row">
                       <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
-                      <span class="type-pill type-invited"><i class="fa-solid fa-star"></i>Invited</span>
+                      <!-- (2) Invited -> AMS Sectional Meeting -->
+                      <span class="type-pill type-ams"><i class="fa-solid fa-landmark"></i>AMS Sectional Meeting</span>
                     </div>
                     <div class="tp-item-meta">
                       <span>May 03, 2025 · AMS Sectional Meeting (Spring Western) — Cal Poly</span>
@@ -715,7 +729,8 @@
                   <div class="tp-item">
                     <div class="tp-title-row">
                       <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
-                      <span class="type-pill type-invited"><i class="fa-solid fa-star"></i>Invited</span>
+                      <!-- (2) Invited -> AMS Sectional Meeting -->
+                      <span class="type-pill type-ams"><i class="fa-solid fa-landmark"></i>AMS Sectional Meeting</span>
                     </div>
                     <div class="tp-item-meta">
                       <span>Mar 29, 2025 · AMS Sectional Meeting (Spring Central) — University of Kansas</span>
@@ -783,8 +798,7 @@
 
               <div class="year-group">
                 <div class="year-head">
-                  <span class="year-chip">2024</span>
-                  <span class="year-note">Selected talks</span>
+                  <span class="year-chip">Complete list of Talks — 2024</span>
                 </div>
 
                 <div class="tp-list">
@@ -836,8 +850,7 @@
 
               <div class="year-group">
                 <div class="year-head">
-                  <span class="year-chip">2023</span>
-                  <span class="year-note">Graduate colloquium</span>
+                  <span class="year-chip">Complete list of Talks — 2023</span>
                 </div>
 
                 <div class="tp-list">
@@ -867,8 +880,7 @@
 
               <div class="year-group">
                 <div class="year-head">
-                  <span class="year-chip">2022</span>
-                  <span class="year-note">Graduate colloquium</span>
+                  <span class="year-chip">Complete list of Talks — 2022</span>
                 </div>
 
                 <div class="tp-list">
@@ -881,14 +893,14 @@
                       <span>Oct 04, 2022 · Tulane Graduate Student Colloquium — Fall 2022</span>
                     </div>
                     <div class="tp-links">
-                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1UaHkRk0xZk_TbvOPtQuITnBMuIZ6eq8t/view?usp=sharing" target="_blank" rel="noopener">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/algebraic-gaussian-sums-slides" target="_blank" rel="noopener">
                         <i class="fa-solid fa-file-pdf"></i> Slides / PDF
                       </a>
                       <button
                         class="pill-link pill-abstract abstract-btn"
                         type="button"
                         data-title="Algebraic Gaussian Sums and its Applications"
-                        data-abstract="Quadratic Gauss Sums, more known as Arithmetic Gauss Sum, first made appearance on 'Disquitiones Arithmaticae' in the 4th and 6th proof of 'Quadratic Reciprocity' back in 1797. Thereafter it became a powerful tool in Number Theory, and around 1870 Camille Jordan(probably) came up with a new Algebraic Structure with finite number of elements, what we now know as Finite Fields (appeared in 'Théorie de Galois'). And more than 100 years later people (namely, Prof. Ronald J. Evans, Prof. Bruce C. Berndt) tried to unify these two notions. In this talk, we will try to get the glimpse of this unified concept and explore some of its applications.">
+                        data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
                     </div>
@@ -901,132 +913,124 @@
             <!-- ================= POSTERS PANEL ================= -->
             <div class="pres-panel" id="panelPosters">
 
-              <div class="poster-theme">
-                <h2>
-                  <i class="fa-solid fa-wand-magic-sparkles"></i>
-                  Main Poster Theme:
-                  <span class="theme-title">Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
-                </h2>
-                <p>
-                  Presented at multiple venues; posters are grouped below by year. (PDF links included; add Image/Beamer links when ready.)
-                </p>
-              </div>
+              <!-- (5) Theme box container -->
+              <div class="poster-theme-box">
 
-              <div class="year-group">
-                <div class="year-head">
-                  <span class="year-chip">2025</span>
-                  <span class="year-note">4 poster presentations</span>
+                <div class="poster-theme">
+                  <h2>
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    Main Poster Theme:
+                    <span class="theme-title">Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
+                  </h2>
+                  <p>
+                    Posters are grouped below by year. (PDF links included; add Image links when ready.)
+                  </p>
                 </div>
 
-                <div class="tp-list">
-                  <div class="tp-item">
-                    <div class="tp-title-row">
-                      <div class="tp-item-title">MCA 2025 — Miami, Florida</div>
-                      <span class="type-pill type-award"><i class="fa-solid fa-award"></i>2nd Best Poster</span>
-                    </div>
-                    <div class="tp-item-meta">
-                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                      <span>July 21–25, 2025</span>
-                    </div>
-                    <div class="tp-links">
-                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/mca-2025" target="_blank" rel="noopener">
-                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                      </a>
-                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                        <i class="fa-regular fa-image"></i> Poster Image
-                      </a>
-                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-github"></i> Beamer Source
-                      </a>
-                    </div>
+                <div class="year-group">
+                  <div class="year-head">
+                    <span class="year-chip">Posters — 2025</span>
                   </div>
 
-                  <div class="tp-item">
-                    <div class="tp-item-title">TRICS 2025 — Tulane University</div>
-                    <div class="tp-item-meta">
-                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                      <span>April 08–10, 2025</span>
+                  <div class="tp-list">
+                    <div class="tp-item">
+                      <div class="tp-title-row">
+                        <div class="tp-item-title">MCA 2025 — Miami, Florida</div>
+                        <span class="type-pill type-award"><i class="fa-solid fa-award"></i>2nd Best Poster</span>
+                      </div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span>July 21–25, 2025</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/mca-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                      </div>
                     </div>
-                    <div class="tp-links">
-                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/trics-2025" target="_blank" rel="noopener">
-                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                      </a>
-                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                        <i class="fa-regular fa-image"></i> Poster Image
-                      </a>
-                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-github"></i> Beamer Source
-                      </a>
-                    </div>
-                  </div>
 
-                  <div class="tp-item">
-                    <div class="tp-item-title">CATS 2025 — Georgia State University</div>
-                    <div class="tp-item-meta">
-                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                      <span>April 05–06, 2025</span>
+                    <div class="tp-item">
+                      <div class="tp-item-title">TRICS 2025 — Tulane University</div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span>April 08–10, 2025</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/trics-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                      </div>
                     </div>
-                    <div class="tp-links">
-                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/poster-cats-2025" target="_blank" rel="noopener">
-                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                      </a>
-                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                        <i class="fa-regular fa-image"></i> Poster Image
-                      </a>
-                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-github"></i> Beamer Source
-                      </a>
-                    </div>
-                  </div>
 
-                  <div class="tp-item">
-                    <div class="tp-item-title">SLAM 2025 — Arizona State University</div>
-                    <div class="tp-item-meta">
-                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                      <span>March 01–02, 2025</span>
+                    <div class="tp-item">
+                      <div class="tp-item-title">CATS 2025 — Georgia State University</div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span>April 05–06, 2025</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/poster-cats-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                      </div>
                     </div>
-                    <div class="tp-links">
-                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2025" target="_blank" rel="noopener">
-                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                      </a>
-                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                        <i class="fa-regular fa-image"></i> Poster Image
-                      </a>
-                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-github"></i> Beamer Source
-                      </a>
+
+                    <div class="tp-item">
+                      <div class="tp-item-title">SLAM 2025 — Arizona State University</div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span>March 01–02, 2025</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="year-group">
-                <div class="year-head">
-                  <span class="year-chip">2024</span>
-                  <span class="year-note">1 poster presentation</span>
-                </div>
+                <div class="year-group">
+                  <div class="year-head">
+                    <span class="year-chip">Posters — 2024</span>
+                  </div>
 
-                <div class="tp-list">
-                  <div class="tp-item">
-                    <div class="tp-item-title">KUMUNU 2024 — University of Missouri</div>
-                    <div class="tp-item-meta">
-                      <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                      <span>September 28–29, 2024</span>
-                    </div>
-                    <div class="tp-links">
-                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/kumunu-2024" target="_blank" rel="noopener">
-                        <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                      </a>
-                      <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                        <i class="fa-regular fa-image"></i> Poster Image
-                      </a>
-                      <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
-                        <i class="fa-brands fa-github"></i> Beamer Source
-                      </a>
+                  <div class="tp-list">
+                    <div class="tp-item">
+                      <div class="tp-item-title">KUMUNU 2024 — University of Missouri</div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span>September 28–29, 2024</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/kumunu-2024" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+
+              </div><!-- /poster-theme-box -->
+
+              <!-- If you ever add another distinct theme, just duplicate:
+                   <div class="poster-theme-box"> ... </div>
+              -->
 
             </div>
 
