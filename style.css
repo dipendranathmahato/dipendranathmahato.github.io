@@ -3054,13 +3054,7 @@ html[data-theme="dark"] .pres-badge{
   }
 
   /* ---------- Avatar & status ---------- */
-  .avatar img{
-    width: 120px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-  }
-
+  
   .status-chip{
     margin: 8px auto 0;
   }
