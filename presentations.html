@@ -13,7 +13,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" />
 
-  <!-- MathJax (keep for consistency across site) -->
+  <!-- MathJax -->
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -24,6 +24,348 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- ===== Presentations page: minimal additional styling only ===== -->
+  <style>
+    /* ------- Color tokens for this page only ------- */
+    :root{
+      --talk-accent: #2563eb;     /* blue */
+      --talk-soft: rgba(37, 99, 235, 0.10);
+
+      --poster-accent: #7c3aed;   /* violet */
+      --poster-soft: rgba(124, 58, 237, 0.12);
+
+      --pill-border: rgba(148, 163, 184, 0.35);
+    }
+    [data-theme="dark"]{
+      --talk-accent: #60a5fa;
+      --talk-soft: rgba(96, 165, 250, 0.18);
+
+      --poster-accent: #c084fc;
+      --poster-soft: rgba(192, 132, 252, 0.18);
+
+      --pill-border: rgba(148, 163, 184, 0.22);
+    }
+
+    /* ------- Header block ------- */
+    .pres-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .pres-title-wrap h1{
+      margin:0;
+      font-size: 1.25rem;
+      font-weight: 850;
+      letter-spacing: .2px;
+    }
+    .pres-title-wrap p{
+      margin: 6px 0 0;
+      opacity: 0.85;
+      line-height: 1.45;
+      max-width: 820px;
+    }
+
+    /* ------- Toggle: make active state obvious ------- */
+    .seg-toggle{
+      display:inline-flex;
+      border: 1px solid var(--pill-border);
+      background: rgba(255,255,255,0.55);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 6px;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+    }
+    [data-theme="dark"] .seg-toggle{
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.55);
+    }
+
+    .seg-btn{
+      border: none;
+      background: transparent;
+      padding: 7px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 800;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      opacity: 0.82;
+      transition: 0.18s ease;
+      user-select:none;
+      outline: none;
+    }
+
+    .seg-btn .dot{
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(148,163,184,0.55);
+    }
+
+    .seg-btn.is-active{
+      opacity: 1;
+      background: rgba(15,23,42,0.06);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.10);
+      transform: translateY(-1px);
+    }
+    [data-theme="dark"] .seg-btn.is-active{
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.55);
+    }
+
+    /* Active color identities */
+    .seg-btn[data-view="talks"].is-active{
+      border: 1px solid rgba(37, 99, 235, 0.25);
+    }
+    .seg-btn[data-view="talks"].is-active .dot{ background: var(--talk-accent); }
+
+    .seg-btn[data-view="posters"].is-active{
+      border: 1px solid rgba(124, 58, 237, 0.25);
+    }
+    .seg-btn[data-view="posters"].is-active .dot{ background: var(--poster-accent); }
+
+    /* ------- Two-column layout ------- */
+    .tp-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin-top: 10px;
+    }
+    @media (max-width: 900px){
+      .tp-grid{ grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .tp-col{
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(15, 23, 42, 0.02);
+      border-radius: 16px;
+      padding: 12px 12px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    [data-theme="dark"] .tp-col{
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(148, 163, 184, 0.18);
+    }
+
+    /* Subtle top accent bar per column */
+    .tp-col::before{
+      content:"";
+      position:absolute;
+      left: 10px;
+      right: 10px;
+      top: 10px;
+      height: 3px;
+      border-radius: 999px;
+      opacity: 0.85;
+    }
+    .tp-col.talks-col::before{
+      background: linear-gradient(90deg, var(--talk-accent), rgba(34,197,94,0.45));
+    }
+    .tp-col.posters-col::before{
+      background: linear-gradient(90deg, var(--poster-accent), rgba(59,130,246,0.45));
+    }
+
+    .tp-col-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+      margin: 10px 0 10px;
+    }
+
+    .tp-col-title{
+      margin:0;
+      font-size: 1.05rem;
+      font-weight: 900;
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      letter-spacing: .2px;
+    }
+
+    /* Icon colors */
+    .talks-col .tp-col-title i{ color: var(--talk-accent); }
+    .posters-col .tp-col-title i{ color: var(--poster-accent); }
+
+    .tp-col-sub{
+      font-size: 0.85rem;
+      opacity: 0.82;
+      margin-top: 2px;
+    }
+
+    /* ------- Items ------- */
+    .tp-list{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .tp-item{
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(255, 255, 255, 0.70);
+      border-radius: 14px;
+      padding: 12px 12px;
+    }
+    [data-theme="dark"] .tp-item{
+      background: rgba(15, 23, 42, 0.65);
+      border-color: rgba(148, 163, 184, 0.18);
+    }
+
+    .tp-item-title{
+      font-weight: 900;
+      line-height: 1.25;
+    }
+    .tp-item-meta{
+      margin-top: 4px;
+      font-size: 0.85rem;
+      opacity: 0.80;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+
+    .tp-subtitle{
+      display:inline-block;
+      margin-left: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      opacity: 0.90;
+    }
+
+    /* ------- Type pills: colors per type ------- */
+    .type-pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--pill-border);
+      background: rgba(15, 23, 42, 0.03);
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    [data-theme="dark"] .type-pill{
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* Talk types */
+    .type-conference{ border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.10); color:#047857; }
+    .type-lightning{  border-color: rgba(234,179,8,0.45);  background: rgba(234,179,8,0.14);  color:#92400e; }
+    .type-seminar{    border-color: rgba(59,130,246,0.40); background: rgba(59,130,246,0.12); color:#1d4ed8; }
+    .type-invited{    border-color: rgba(147,51,234,0.35); background: rgba(147,51,234,0.14); color:#6b21a8; }
+    .type-colloquium{ border-color: rgba(239,68,68,0.35);  background: rgba(239,68,68,0.12);  color:#b91c1c; }
+
+    /* Posters */
+    .type-poster{     border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.14); color:#5b21b6; }
+    .type-award{      border-color: rgba(34,197,94,0.45);  background: rgba(34,197,94,0.16);  color:#065f46; }
+
+    [data-theme="dark"] .type-conference{ color:#bbf7d0; }
+    [data-theme="dark"] .type-lightning{  color:#fde68a; }
+    [data-theme="dark"] .type-seminar{    color:#bfdbfe; }
+    [data-theme="dark"] .type-invited{    color:#e9d5ff; }
+    [data-theme="dark"] .type-colloquium{ color:#fecaca; }
+    [data-theme="dark"] .type-poster{     color:#e9d5ff; }
+    [data-theme="dark"] .type-award{      color:#bbf7d0; }
+
+    /* ------- Links row ------- */
+    .tp-links{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Reuse your existing .pill-link styles (already in your CSS).
+       Add 2 flavor classes for Image + Beamer */
+    .pill-image{
+      border-color: rgba(124,58,237,0.28);
+      background: rgba(124,58,237,0.10);
+      color: #5b21b6;
+    }
+    [data-theme="dark"] .pill-image{
+      background: rgba(192, 132, 252, 0.18);
+      border-color: rgba(192, 132, 252, 0.28);
+      color: #e9d5ff;
+    }
+
+    .pill-beamer{
+      border-color: rgba(16,185,129,0.28);
+      background: rgba(16,185,129,0.10);
+      color: #047857;
+    }
+    [data-theme="dark"] .pill-beamer{
+      background: rgba(52, 211, 153, 0.16);
+      border-color: rgba(52, 211, 153, 0.30);
+      color: #bbf7d0;
+    }
+
+    /* ------- Year groups ------- */
+    .year-group{ margin-top: 10px; }
+    .year-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      margin: 10px 2px 10px;
+    }
+
+    .year-chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 950;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--text);
+    }
+    [data-theme="dark"] .year-chip{
+      background: rgba(96,165,250,0.18);
+      border-color: rgba(96,165,250,0.30);
+      color: #e5e7eb;
+    }
+
+    .year-note{
+      font-size: 0.82rem;
+      opacity: 0.78;
+    }
+
+    /* ------- Active view behavior (clear ON) ------- */
+    .tp-grid[data-view="talks"] .posters-col{
+      opacity: 0.55;
+      filter: saturate(0.7);
+    }
+    .tp-grid[data-view="posters"] .talks-col{
+      opacity: 0.55;
+      filter: saturate(0.7);
+    }
+
+    /* On mobile: show ONLY the active column (super clear) */
+    @media (max-width: 900px){
+      .tp-grid[data-view="talks"] .posters-col{ display:none; }
+      .tp-grid[data-view="posters"] .talks-col{ display:none; }
+      .tp-grid[data-view="talks"] .talks-col,
+      .tp-grid[data-view="posters"] .posters-col{
+        opacity: 1;
+        filter: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -93,6 +435,7 @@
           Department of Mathematics
         </div>
 
+        <!-- Research area padded block -->
         <div class="research-area-block">
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
@@ -143,304 +486,341 @@
 
       <!-- ================= MAIN CONTENT ================= -->
       <section class="main">
-        <div class="page-header">
-          <h1>Presentations</h1>
-          <p class="page-subtitle">
-            Talks, invited presentations, and poster sessions (with slides/posters when available).
-          </p>
-        </div>
 
-        <!-- Controls row -->
-        <div class="pres-controls">
-          <div class="pres-tabs" role="tablist" aria-label="Presentations tabs">
-            <button class="pres-tab is-active" type="button" role="tab" aria-selected="true" data-target="talks">
-              <i class="fa-solid fa-microphone-lines"></i>
-              Talks <span class="count-badge" id="talkCount">0</span>
-            </button>
-            <button class="pres-tab" type="button" role="tab" aria-selected="false" data-target="posters">
-              <i class="fa-solid fa-image"></i>
-              Posters <span class="count-badge" id="posterCount">0</span>
-            </button>
-          </div>
+        <div class="card">
+          <div class="card-body">
 
-          <div class="pres-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input id="presSearch" type="search" placeholder="Search by title, venue, date, type…" aria-label="Search presentations">
-          </div>
-        </div>
+            <div class="pres-head">
+              <div class="pres-title-wrap">
+                <h1>Presentations</h1>
+                <p>
+                  Talks and poster presentations (with slides/posters when available).
+                  Use the toggle to emphasize one side; on mobile, it switches the view completely.
+                </p>
+              </div>
 
-        <!-- TALKS -->
-        <div class="pres-panel is-active" id="talks" role="tabpanel">
-          <div class="pres-grid" id="talksGrid">
+              <!-- Toggle -->
+              <div class="seg-toggle" role="tablist" aria-label="Talks and Posters toggle">
+                <button class="seg-btn is-active" type="button" role="tab" aria-selected="true" data-view="talks" id="btnTalks">
+                  <span class="dot" aria-hidden="true"></span>
+                  <i class="fa-solid fa-microphone-lines" aria-hidden="true"></i>
+                  Talks
+                </button>
+                <button class="seg-btn" type="button" role="tab" aria-selected="false" data-view="posters" id="btnPosters">
+                  <span class="dot" aria-hidden="true"></span>
+                  <i class="fa-solid fa-image" aria-hidden="true"></i>
+                  Posters
+                </button>
+              </div>
+            </div>
 
-            <article class="pres-card" data-text="AMS Sectional Meeting 2025 Spring Western California Polytechnique State University Interpolation Problem and Recent Studies on Demailly’s Conjecture May 03 2025 Invited">
-              <div class="pres-card-top">
-                <div class="pres-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Invited</span>
-                  <span class="pres-badge soft">May 03, 2025</span>
+            <!-- Two columns -->
+            <div class="tp-grid" id="tpGrid" data-view="talks">
+
+              <!-- ================= TALKS ================= -->
+              <div class="tp-col talks-col" id="talksPanel" role="tabpanel" aria-labelledby="btnTalks">
+                <div class="tp-col-head">
+                  <h2 class="tp-col-title">
+                    <i class="fa-solid fa-microphone-lines"></i>
+                    Talks
+                  </h2>
+                  <div class="tp-col-sub">
+                    (Slides linked where available)
+                  </div>
+                </div>
+
+                <div class="tp-list">
+
+                  <!-- 2025 -->
+                  <div class="tp-item">
+                    <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-invited"><i class="fa-solid fa-star"></i>Invited</span>
+                      <span>May 03, 2025 · AMS Sectional Meeting (Spring Western) — Cal Poly</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/ams-sectional-california-polytechnique-state-university" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">Interpolation in Projective Spaces</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-lightning"><i class="fa-solid fa-bolt"></i>Lightning</span>
+                      <span>Apr 18, 2025 · Macaulay2 Workshop — Tulane University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/macaulay2_tulane-2025" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">Interpolation in Projective Spaces</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-lightning"><i class="fa-solid fa-bolt"></i>Lightning</span>
+                      <span>Apr 06, 2025 · C.A.T.S. 2025 — Georgia State University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/cats-2025" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">Interpolation of Projective Points under Algebraic Lens</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                      <span>Apr 05, 2025 · Math For All — Virtual</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/mathforall-2025" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-invited"><i class="fa-solid fa-star"></i>Invited</span>
+                      <span>Mar 29, 2025 · AMS Sectional Meeting (Spring Central) — University of Kansas</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/ams-sectional-university-of-kansas" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">Developments in Interpolation Problem for Projective Spaces</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                      <span>Mar 14, 2025 · Algebra &amp; Combinatorics Seminar — Tulane University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/algebra-combinatorics-seminar" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">Interpolation Problem: Conjectures &amp; New Developments</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-conference"><i class="fa-solid fa-people-group"></i>Conference</span>
+                      <span>Jan 03, 2025 · Two-Day Conference on “Mathematical Sciences and Applications”</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/cmsa-tezpur-2025" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- 2024 -->
+                  <div class="tp-item">
+                    <div class="tp-item-title">Recent Developments in Interpolation Problems &amp; Demailly's Conjecture</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                      <span>Nov 05, 2024 · Tulane Graduate Student Colloquium — Fall 2024</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/graduate-colloquium-3-fall-2024" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">Overview of Generalized Interpolation Problem, and its Algebraic Components</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                      <span>May 24, 2024 · Tezpur University Alumni Talk</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/tezpur-university-alumni-talk" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- 2023 / 2022 -->
+                  <div class="tp-item">
+                    <div class="tp-item-title">Generalized Interpolation Problems and Chudnovsky's Conjecture</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                      <span>Apr 25, 2023 · Tulane Graduate Student Colloquium — Spring 2023</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/generalized-interpretation-problems-and-chudnovskys-conjecture" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-item-title">Algebraic Gaussian Sums and its Applications</div>
+                    <div class="tp-item-meta">
+                      <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                      <span>Oct 04, 2022 · Tulane Graduate Student Colloquium — Fall 2022</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/algebraic-gaussian-sums-slides" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-              <div class="pres-meta">
-                <i class="fa-regular fa-building"></i>
-                <span>AMS Sectional Meeting (2025 Spring Western) — California Polytechnique State University</span>
-              </div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/ams-sectional-california-polytechnique-state-university" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
 
-            <article class="pres-card" data-text="Macaulay2 Workshop Tulane University Interpolation in Projective Spaces April 18 2025 Lightning Talk">
-              <div class="pres-card-top">
-                <div class="pres-title">Interpolation in Projective Spaces</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Lightning</span>
-                  <span class="pres-badge soft">Apr 18, 2025</span>
+              <!-- ================= POSTERS ================= -->
+              <div class="tp-col posters-col" id="postersPanel" role="tabpanel" aria-labelledby="btnPosters">
+                <div class="tp-col-head">
+                  <div>
+                    <h2 class="tp-col-title">
+                      <i class="fa-solid fa-image"></i>
+                      Posters
+                    </h2>
+                    <div class="tp-col-sub">
+                      Main poster theme:
+                      <span class="highlight">Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
+                    </div>
+                  </div>
+                  <div class="tp-col-sub" style="text-align:right;">
+                    Auto-grouped by year
+                  </div>
                 </div>
-              </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>Macaulay2 Workshop — Tulane University</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/macaulay2_tulane-2025" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
 
-            <article class="pres-card" data-text="Commutative Algebra in the South CATS 2025 Georgia State University Interpolation in Projective Spaces April 06 2025 Lightning Talk">
-              <div class="pres-card-top">
-                <div class="pres-title">Interpolation in Projective Spaces</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Lightning</span>
-                  <span class="pres-badge soft">Apr 06, 2025</span>
+                <!-- Year: 2025 -->
+                <div class="year-group">
+                  <div class="year-head">
+                    <span class="year-chip">2025</span>
+                    <span class="year-note">4 poster presentations</span>
+                  </div>
+
+                  <div class="tp-list">
+                    <div class="tp-item">
+                      <div class="tp-item-title">
+                        MCA 2025 — Miami, Florida
+                        <span class="tp-subtitle">🏆 2nd Best Poster Presentation</span>
+                      </div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span class="type-pill type-award"><i class="fa-solid fa-award"></i>Award</span>
+                        <span>July 21–25, 2025</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/mca-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <!-- Replace # with your actual poster image link -->
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                        <!-- Replace # with your Beamer source link (GitHub/Overleaf) -->
+                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                          <i class="fa-brands fa-github"></i> Beamer Source
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="tp-item">
+                      <div class="tp-item-title">TRICS 2025 — Tulane University</div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span>April 08–10, 2025</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/trics-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                          <i class="fa-brands fa-github"></i> Beamer Source
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="tp-item">
+                      <div class="tp-item-title">CATS 2025 — Georgia State University</div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span>April 05–06, 2025</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/poster-cats-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                          <i class="fa-brands fa-github"></i> Beamer Source
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="tp-item">
+                      <div class="tp-item-title">SLAM 2025 — Arizona State University</div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span>March 01–02, 2025</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                          <i class="fa-brands fa-github"></i> Beamer Source
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>C.A.T.S. 2025 — Georgia State University</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/cats-2025" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
 
-            <article class="pres-card" data-text="Math For All Virtual Interpolation of Projective Points under Algebraic Lens April 05 2025">
-              <div class="pres-card-top">
-                <div class="pres-title">Interpolation of Projective Points under Algebraic Lens</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Talk</span>
-                  <span class="pres-badge soft">Apr 05, 2025</span>
+                <!-- Year: 2024 -->
+                <div class="year-group">
+                  <div class="year-head">
+                    <span class="year-chip">2024</span>
+                    <span class="year-note">1 poster presentation</span>
+                  </div>
+
+                  <div class="tp-list">
+                    <div class="tp-item">
+                      <div class="tp-item-title">KUMUNU 2024 — University of Missouri</div>
+                      <div class="tp-item-meta">
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <span>September 28–29, 2024</span>
+                      </div>
+                      <div class="tp-links">
+                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/kumunu-2024" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
+                        </a>
+                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
+                          <i class="fa-regular fa-image"></i> Poster Image
+                        </a>
+                        <a class="pill-link pill-beamer" href="#" target="_blank" rel="noopener">
+                          <i class="fa-brands fa-github"></i> Beamer Source
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>Math For All — Virtual</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/mathforall-2025" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
 
-            <article class="pres-card" data-text="AMS Sectional Meeting 2025 Spring Central University of Kansas Interpolation Problem and Recent Studies on Demailly’s Conjecture March 29 2025 Invited">
-              <div class="pres-card-top">
-                <div class="pres-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Invited</span>
-                  <span class="pres-badge soft">Mar 29, 2025</span>
-                </div>
               </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>AMS Sectional Meeting (2025 Spring Central) — University of Kansas</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/ams-sectional-university-of-kansas" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="Algebra & Combinatorics Seminar Tulane University Developments in Interpolation Problem for Projective Spaces March 14 2025">
-              <div class="pres-card-top">
-                <div class="pres-title">Developments in Interpolation Problem for Projective Spaces</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Seminar</span>
-                  <span class="pres-badge soft">Mar 14, 2025</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>Algebra &amp; Combinatorics Seminar — Tulane University</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/algebra-combinatorics-seminar" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="Two-Day Conference on Mathematical Sciences and Applications Interpolation Problem Conjectures & New Developments January 03 2025">
-              <div class="pres-card-top">
-                <div class="pres-title">Interpolation Problem: Conjectures &amp; New Developments</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Conference</span>
-                  <span class="pres-badge soft">Jan 03, 2025</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>Two-Day Conference on “Mathematical Sciences and Applications”</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/cmsa-tezpur-2025" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="Tulane University Graduate Student Colloquium Fall 2024 Recent Developments in Interpolation Problems & Demailly's Conjecture November 05 2024">
-              <div class="pres-card-top">
-                <div class="pres-title">Recent Developments in Interpolation Problems &amp; Demailly's Conjecture</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Colloquium</span>
-                  <span class="pres-badge soft">Nov 05, 2024</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>Tulane Graduate Student Colloquium — Fall 2024</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/graduate-colloquium-3-fall-2024" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="Tezpur University Alumni Talk Overview of Generalized Interpolation Problem and its Algebraic Components May 24 2024">
-              <div class="pres-card-top">
-                <div class="pres-title">Overview of Generalized Interpolation Problem, and its Algebraic Components</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Talk</span>
-                  <span class="pres-badge soft">May 24, 2024</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>Tezpur University Alumni (Dept. of Mathematical Sciences) Talk</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/tezpur-university-alumni-talk" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="Tulane University Graduate Student Colloquium Spring 2023 Generalized Interpolation Problems and Chudnovsky's Conjecture April 25 2023">
-              <div class="pres-card-top">
-                <div class="pres-title">Generalized Interpolation Problems and Chudnovsky's Conjecture</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Colloquium</span>
-                  <span class="pres-badge soft">Apr 25, 2023</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>Tulane Graduate Student Colloquium — Spring 2023</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/generalized-interpretation-problems-and-chudnovskys-conjecture" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="Tulane University Graduate Student Colloquium Fall 2022 Algebraic Gaussian Sums and its Applications October 04 2022">
-              <div class="pres-card-top">
-                <div class="pres-title">Algebraic Gaussian Sums and its Applications</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Colloquium</span>
-                  <span class="pres-badge soft">Oct 04, 2022</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-regular fa-building"></i><span>Tulane Graduate Student Colloquium — Fall 2022</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/algebraic-gaussian-sums-slides" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Slides</span>
-                </a>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-        <!-- POSTERS -->
-        <div class="pres-panel" id="posters" role="tabpanel">
-          <div class="pres-grid" id="postersGrid">
-
-            <article class="pres-card" data-text="MCA 2025 University of Miami July 21-25 2nd Best Presentation Awardee Poster">
-              <div class="pres-card-top">
-                <div class="pres-title">MCA 2025 Poster Session</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Poster</span>
-                  <span class="pres-badge soft">Jul 21–25, 2025</span>
-                </div>
-              </div>
-              <div class="pres-meta">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>University of Miami — Miami, FL <span class="pres-note">(2nd Best Presentation Awardee)</span></span>
-              </div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/mca-2025" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Poster</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="TRICS 2025 Tulane University April 08-10 Poster">
-              <div class="pres-card-top">
-                <div class="pres-title">TRICS 2025</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Poster</span>
-                  <span class="pres-badge soft">Apr 08–10, 2025</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-solid fa-location-dot"></i><span>Tulane University — New Orleans, LA</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/trics-2025" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Poster</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="CATS 2025 Georgia State University April 05-06 Poster">
-              <div class="pres-card-top">
-                <div class="pres-title">CATS 2025</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Poster</span>
-                  <span class="pres-badge soft">Apr 05–06, 2025</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-solid fa-location-dot"></i><span>Georgia State University — Atlanta, GA</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/poster-cats-2025" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Poster</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="SLAM 2025 Arizona State University March 1-2 Poster">
-              <div class="pres-card-top">
-                <div class="pres-title">SLAM 2025</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Poster</span>
-                  <span class="pres-badge soft">Mar 01–02, 2025</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-solid fa-location-dot"></i><span>Arizona State University — Phoenix, AZ</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2025" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Poster</span>
-                </a>
-              </div>
-            </article>
-
-            <article class="pres-card" data-text="KUMUNU 2024 University of Missouri September 28-29 Poster">
-              <div class="pres-card-top">
-                <div class="pres-title">KUMUNU 2024</div>
-                <div class="pres-badges">
-                  <span class="pres-badge">Poster</span>
-                  <span class="pres-badge soft">Sep 28–29, 2024</span>
-                </div>
-              </div>
-              <div class="pres-meta"><i class="fa-solid fa-location-dot"></i><span>University of Missouri — Columbia, MO</span></div>
-              <div class="pres-actions">
-                <a class="pill-button primary" href="https://www.dipendranathmahato.com/presentations-and-talks/kumunu-2024" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-arrow-down"></i><span>Poster</span>
-                </a>
-              </div>
-            </article>
+            </div>
 
           </div>
         </div>
@@ -462,16 +842,23 @@
     // ----- Mobile hamburger toggle -----
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks  = document.querySelector('.top-nav-links');
+
     if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+
       navLinks.addEventListener('click', (event) => {
-        if (event.target.tagName.toLowerCase() === 'a') navLinks.classList.remove('open');
+        if (event.target.tagName.toLowerCase() === 'a') {
+          navLinks.classList.remove('open');
+        }
       });
     }
 
     // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
     const dropdown = document.querySelector('.dropdown');
     const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
     if (dropbtn) {
       dropbtn.addEventListener('click', (event) => {
         event.preventDefault();
@@ -479,20 +866,26 @@
         dropdown.classList.toggle('dropdown-open');
       });
     }
+
     document.addEventListener('click', (event) => {
-      if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove('dropdown-open');
+      if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('dropdown-open');
+      }
     });
 
     // ----- DARK MODE TOGGLE -----
-    const root        = document.documentElement;
+    const root        = document.documentElement; // <html>
     const themeToggle = document.querySelector('.theme-toggle');
     const THEME_KEY   = 'dm-theme';
 
     function applyTheme(theme) {
       root.setAttribute('data-theme', theme);
+
       if (!themeToggle) return;
+
       const icon  = themeToggle.querySelector('i');
       const label = themeToggle.querySelector('span');
+
       if (theme === 'dark') {
         if (icon) icon.className = 'fa-solid fa-sun';
         if (label) label.textContent = 'Light';
@@ -503,7 +896,10 @@
     }
 
     const savedTheme = localStorage.getItem(THEME_KEY);
-    const initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
+    const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
+      ? savedTheme
+      : 'light';
+
     applyTheme(initialTheme);
 
     if (themeToggle) {
@@ -515,45 +911,29 @@
       });
     }
 
-    // ----- Presentations UI: tabs + search + counts -----
-    const tabs = Array.from(document.querySelectorAll('.pres-tab'));
-    const panels = Array.from(document.querySelectorAll('.pres-panel'));
-    const search = document.getElementById('presSearch');
+    // ----- Talks/Posters toggle behavior -----
+    const tpGrid = document.getElementById('tpGrid');
+    const btnTalks = document.getElementById('btnTalks');
+    const btnPosters = document.getElementById('btnPosters');
 
-    function setActiveTab(targetId) {
-      tabs.forEach(t => {
-        const on = t.dataset.target === targetId;
-        t.classList.toggle('is-active', on);
-        t.setAttribute('aria-selected', on ? 'true' : 'false');
-      });
-      panels.forEach(p => p.classList.toggle('is-active', p.id === targetId));
-      if (search) search.value = '';
-      applySearch('');
+    function setView(view){
+      if (!tpGrid) return;
+      tpGrid.setAttribute('data-view', view);
+
+      if (btnTalks && btnPosters){
+        const talksOn = view === 'talks';
+        btnTalks.classList.toggle('is-active', talksOn);
+        btnPosters.classList.toggle('is-active', !talksOn);
+        btnTalks.setAttribute('aria-selected', talksOn ? 'true' : 'false');
+        btnPosters.setAttribute('aria-selected', !talksOn ? 'true' : 'false');
+      }
     }
 
-    function applySearch(q) {
-      const query = (q || '').trim().toLowerCase();
-      panels.forEach(panel => {
-        const cards = Array.from(panel.querySelectorAll('.pres-card'));
-        cards.forEach(card => {
-          const text = (card.getAttribute('data-text') || '').toLowerCase();
-          const show = !query || text.includes(query);
-          card.style.display = show ? '' : 'none';
-        });
-      });
-    }
+    if (btnTalks) btnTalks.addEventListener('click', () => setView('talks'));
+    if (btnPosters) btnPosters.addEventListener('click', () => setView('posters'));
 
-    tabs.forEach(t => t.addEventListener('click', () => setActiveTab(t.dataset.target)));
-    if (search) search.addEventListener('input', e => applySearch(e.target.value));
-
-    // counts
-    const talkCards = document.querySelectorAll('#talksGrid .pres-card').length;
-    const posterCards = document.querySelectorAll('#postersGrid .pres-card').length;
-    const talkCountEl = document.getElementById('talkCount');
-    const posterCountEl = document.getElementById('posterCount');
-    if (talkCountEl) talkCountEl.textContent = talkCards;
-    if (posterCountEl) posterCountEl.textContent = posterCards;
+    // default view
+    setView('talks');
   </script>
 </body>
 </html>
-
