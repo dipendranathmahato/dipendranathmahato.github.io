@@ -165,6 +165,32 @@
     body.presentations-page .pres-panel{ display:none; }
     body.presentations-page .pres-panel.is-active{ display:block; }
 
+    /* =========================================================
+       PRESENTATIONS — Dark mode card background fix
+       Matches Teaching page contrast
+       ========================================================= */
+    html[data-theme="dark"] .presentations-page .tp-item{
+      background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.92),
+        rgba(15, 23, 42, 0.88)
+      );
+      border-color: rgba(148, 163, 184, 0.16);
+      box-shadow:
+        0 8px 24px rgba(0,0,0,0.45),
+        inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    
+    /* Slight lift on hover (same feel as Teaching cards) */
+    html[data-theme="dark"] .presentations-page .tp-item:hover{
+      background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.90)
+      );
+    }
+
+
     /* Year groups */
     body.presentations-page .year-group{ margin-top: 12px; }
 
