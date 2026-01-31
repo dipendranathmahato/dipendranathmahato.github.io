@@ -3219,3 +3219,76 @@ html[data-theme="dark"] .presentations-page .year-chip{
 }
 
 
+/* =========================================================
+   PRESENTATIONS — Dark mode pill fixes (teaching-style contrast)
+   ========================================================= */
+html[data-theme="dark"] .presentations-page .type-pill{
+  border: 1px solid rgba(148,163,184,0.22);
+  background: rgba(255,255,255,0.06);
+  color: rgba(226,232,240,0.92);
+  box-shadow: none;
+}
+
+/* Talk/poster link pills (Slides/PDF/Image/Abstract buttons) */
+html[data-theme="dark"] .presentations-page .pill-link{
+  border: 1px solid rgba(148,163,184,0.22);
+  background: rgba(255,255,255,0.06);
+  color: rgba(226,232,240,0.92);
+}
+
+/* === Category pills (stronger, teaching-like colors) === */
+html[data-theme="dark"] .presentations-page .type-conference{
+  border-color: rgba(16,185,129,0.32);
+  background: rgba(16,185,129,0.16);
+  color: rgba(167,243,208,0.95);
+}
+
+html[data-theme="dark"] .presentations-page .type-lightning{
+  border-color: rgba(234,179,8,0.36);
+  background: rgba(234,179,8,0.18);
+  color: rgba(253,230,138,0.95);
+}
+
+html[data-theme="dark"] .presentations-page .type-seminar{
+  border-color: rgba(59,130,246,0.34);
+  background: rgba(59,130,246,0.18);
+  color: rgba(191,219,254,0.96);
+}
+
+html[data-theme="dark"] .presentations-page .type-colloquium{
+  border-color: rgba(244,63,94,0.30);
+  background: rgba(244,63,94,0.16);
+  color: rgba(254,202,202,0.95);
+}
+
+html[data-theme="dark"] .presentations-page .type-poster{
+  border-color: rgba(192,132,252,0.34);
+  background: rgba(192,132,252,0.18);
+  color: rgba(233,213,255,0.96);
+}
+
+html[data-theme="dark"] .presentations-page .type-award{
+  border-color: rgba(34,197,94,0.34);
+  background: rgba(34,197,94,0.16);
+  color: rgba(187,247,208,0.96);
+}
+
+/* If you're using AMS pill */
+html[data-theme="dark"] .presentations-page .type-ams{
+  border-color: rgba(96,165,250,0.34);
+  background: rgba(96,165,250,0.18);
+  color: rgba(191,219,254,0.96);
+}
+
+/* Make icons inside pills readable */
+html[data-theme="dark"] .presentations-page .type-pill i,
+html[data-theme="dark"] .presentations-page .pill-link i{
+  color: inherit;
+  opacity: 0.95;
+}
+
+/* Optional: better hover feel (teaching-like) */
+html[data-theme="dark"] .presentations-page .pill-link:hover{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(148,163,184,0.30);
+}
