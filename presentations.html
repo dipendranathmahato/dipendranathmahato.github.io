@@ -180,8 +180,6 @@
         0 8px 24px rgba(0,0,0,0.45),
         inset 0 0 0 1px rgba(255,255,255,0.03);
     }
-
-    /* Slight lift on hover (same feel as Teaching cards) */
     html[data-theme="dark"] .presentations-page .tp-item:hover{
       background: linear-gradient(
         180deg,
@@ -192,11 +190,10 @@
 
     /* Year groups */
     body.presentations-page .year-group{ margin-top: 12px; }
-
     body.presentations-page .year-head{
       display:flex;
       align-items:center;
-      justify-content:flex-start; /* single chip now */
+      justify-content:flex-start;
       gap: 10px;
       margin: 10px 0 8px;
     }
@@ -292,12 +289,13 @@
     body.presentations-page .type-poster{     border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.14); color:#5b21b6; }
     body.presentations-page .type-award{      border-color: rgba(34,197,94,0.45);  background: rgba(34,197,94,0.16);  color:#065f46; }
 
-    /* (2) AMS Sectional Meeting pill */
+    /* AMS Sectional Meeting pill */
     body.presentations-page .type-ams{
       border-color: rgba(37,99,235,0.35);
       background: rgba(37,99,235,0.14);
       color:#1d4ed8;
     }
+
     html[data-theme="dark"] body.presentations-page .type-conference{ color:#bbf7d0; }
     html[data-theme="dark"] body.presentations-page .type-lightning{  color:#fde68a; }
     html[data-theme="dark"] body.presentations-page .type-seminar{    color:#bfdbfe; }
@@ -306,7 +304,7 @@
     html[data-theme="dark"] body.presentations-page .type-award{      color:#bbf7d0; }
     html[data-theme="dark"] body.presentations-page .type-ams{        color:#bfdbfe; }
 
-    /* (5) Poster Theme Box wrapper: theme banner + everything under it inside */
+    /* Poster Theme Box wrapper */
     body.presentations-page .poster-theme-box{
       border: 1px solid rgba(124,58,237,0.20);
       background: rgba(124,58,237,0.06);
@@ -327,7 +325,7 @@
                   rgba(124,58,237,0.10);
       border-radius: 16px;
       padding: 14px 14px;
-      margin: 0 0 12px; /* inside wrapper */
+      margin: 0 0 12px;
       position: relative;
       overflow: hidden;
       animation: presNeonPulse 4.2s ease-in-out infinite;
@@ -345,7 +343,6 @@
         transform: translateY(-1px);
       }
     }
-
     body.presentations-page .poster-theme h2{
       margin: 0;
       font-size: 1.05rem;
@@ -371,18 +368,6 @@
       line-height: 1.45;
     }
 
-    /* Link pill flavors */
-    body.presentations-page .pill-image{
-      border-color: rgba(124,58,237,0.28);
-      background: rgba(124,58,237,0.10);
-      color: #5b21b6;
-    }
-    html[data-theme="dark"] body.presentations-page .pill-image{
-      background: rgba(192,132,252,0.18);
-      border-color: rgba(192,132,252,0.28);
-      color: #e9d5ff;
-    }
-
     /* Abstract pill styling */
     body.presentations-page .pill-abstract{
       border-color: rgba(59,130,246,0.28);
@@ -393,6 +378,46 @@
       border-color: rgba(191,219,254,0.28);
       background: rgba(191,219,254,0.14);
       color: #bfdbfe;
+    }
+
+    /* URL pill (neutral) */
+    body.presentations-page .pill-url{
+      border-color: rgba(148,163,184,0.35);
+      background: rgba(148,163,184,0.12);
+      color: rgba(30,41,59,0.92);
+    }
+    html[data-theme="dark"] body.presentations-page .pill-url{
+      border-color: rgba(148,163,184,0.22);
+      background: rgba(148,163,184,0.10);
+      color: rgba(226,232,240,0.92);
+    }
+
+    /* ===== Toggle counters ===== */
+    body.presentations-page .seg-count{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width: 28px;
+      height: 22px;
+      padding: 0 8px;
+      margin-left: 6px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 1000;
+      border: 1px solid var(--pill-border);
+      background: rgba(255,255,255,0.55);
+      opacity: 0.95;
+    }
+    html[data-theme="dark"] body.presentations-page .seg-count{
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(148,163,184,0.22);
+      color: rgba(226,232,240,0.92);
+    }
+    body.presentations-page .seg-btn.is-active .seg-count{
+      background: rgba(15,23,42,0.06);
+    }
+    html[data-theme="dark"] body.presentations-page .seg-btn.is-active .seg-count{
+      background: rgba(255,255,255,0.10);
     }
 
     /* ===== Floating Abstract Window (page-only) =====
@@ -505,11 +530,10 @@
 
     /* ===== Presentations toggle text color fix (dark mode) ===== */
     html[data-theme="dark"] body.presentations-page .seg-btn{
-    color: rgba(226, 232, 240, 0.92); /* readable light text */
+      color: rgba(226, 232, 240, 0.92);
     }
-
     html[data-theme="dark"] body.presentations-page .seg-btn.is-active{
-    color: rgba(241, 245, 249, 0.98); /* even brighter when active */
+      color: rgba(241, 245, 249, 0.98);
     }
 
   </style>
@@ -666,12 +690,12 @@
               <button class="seg-btn is-active" type="button" role="tab" aria-selected="true" data-view="talks" id="btnTalks">
                 <span class="dot" aria-hidden="true"></span>
                 <i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i>
-                Talks
+                Talks <span class="seg-count" id="talkCount">0</span>
               </button>
               <button class="seg-btn" type="button" role="tab" aria-selected="false" data-view="posters" id="btnPosters">
                 <span class="dot" aria-hidden="true"></span>
                 <i class="fa-solid fa-image" aria-hidden="true"></i>
-                Posters
+                Posters <span class="seg-count" id="posterCount">0</span>
               </button>
             </div>
           </div>
@@ -681,7 +705,7 @@
 
               <div class="year-group">
                 <div class="year-head">
-                  <span class="year-chip">Complete list of Talks — 2026</span>
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2026">Complete list of Talks — 2026</span>
                 </div>
 
                 <div class="tp-list">
@@ -703,6 +727,10 @@
                         data-abstract="TBA Soon">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <!-- Optional URL (fill later) -->
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -723,6 +751,9 @@
                         data-abstract="(Paste your abstract text here. Example: $I^{(m/q)}$.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -743,6 +774,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -763,6 +797,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -783,6 +820,9 @@
                         data-abstract="(Paste your abstract text here. Example: $I^{(m/q)}$.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -791,7 +831,7 @@
 
               <div class="year-group">
                 <div class="year-head">
-                  <span class="year-chip">Complete list of Talks — 2025</span>
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2025">Complete list of Talks — 2025</span>
                 </div>
 
                 <div class="tp-list">
@@ -813,6 +853,9 @@
                         data-abstract="(Paste your abstract text here. Example: $I^{(m/q)}$.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -833,6 +876,9 @@
                         data-abstract="(Paste your abstract text here. Example: $I^{(m/q)}$.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -853,6 +899,9 @@
                         data-abstract="(Paste your abstract text here. LaTeX like $\widehat{\alpha}(I)$ will render.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -873,6 +922,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -893,6 +945,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -913,6 +968,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -933,6 +991,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -953,6 +1014,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -973,6 +1037,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -981,7 +1048,7 @@
 
               <div class="year-group">
                 <div class="year-head">
-                  <span class="year-chip">Complete list of Talks — 2024</span>
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2024">Complete list of Talks — 2024</span>
                 </div>
 
                 <div class="tp-list">
@@ -1002,6 +1069,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
 
@@ -1022,6 +1092,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1029,7 +1102,7 @@
 
               <div class="year-group">
                 <div class="year-head">
-                  <span class="year-chip">Complete list of Talks — 2023</span>
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2023">Complete list of Talks — 2023</span>
                 </div>
 
                 <div class="tp-list">
@@ -1050,6 +1123,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1057,7 +1133,7 @@
 
               <div class="year-group">
                 <div class="year-head">
-                  <span class="year-chip">Complete list of Talks — 2022</span>
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2022">Complete list of Talks — 2022</span>
                 </div>
 
                 <div class="tp-list">
@@ -1078,6 +1154,9 @@
                         data-abstract="(Paste your abstract text here.)">
                         <i class="fa-regular fa-rectangle-list"></i> Abstract
                       </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1097,83 +1176,62 @@
                     <span class="theme-title">Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
                   </h2>
                   <p>
-                    Posters are grouped below by year. (PDF links included; add Image links when ready.)
+                    Posters are grouped below by year.
                   </p>
                 </div>
 
                 <div class="year-group">
                   <div class="year-head">
-                    <span class="year-chip">Posters — 2025</span>
+                    <span class="year-chip js-year-chip" data-label="Posters — 2025">Posters — 2025</span>
                   </div>
 
                   <div class="tp-list">
+                    <!-- Clean poster card: conference + Poster pill + URL pill (+ award pill for MCA) -->
                     <div class="tp-item">
                       <div class="tp-title-row">
                         <div class="tp-item-title">MCA 2025 — Miami, Florida</div>
                         <span class="type-pill type-award"><i class="fa-solid fa-award"></i>2nd Best Poster</span>
                       </div>
-                      <div class="tp-item-meta">
-                        <span class="tp-subtitle"><i class="fa-solid fa-tag"></i> Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
-                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>July 21–25, 2025</span>
-                      </div>
                       <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/mca-2025" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
+                        <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
+                        <a class="pill-link pill-url" href="https://www.dipendranathmahato.com/presentations-and-talks/mca-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-link"></i> URL
                         </a>
                       </div>
                     </div>
 
                     <div class="tp-item">
-                      <div class="tp-item-title">TRICS 2025 — Tulane University</div>
-                      <div class="tp-item-meta">
-                        <span class="tp-subtitle"><i class="fa-solid fa-tag"></i> Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
+                      <div class="tp-title-row">
+                        <div class="tp-item-title">TRICS 2025 — Tulane University</div>
                         <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>April 08–10, 2025</span>
                       </div>
                       <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/trics-2025" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
+                        <a class="pill-link pill-url" href="https://www.dipendranathmahato.com/presentations-and-talks/trics-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-link"></i> URL
                         </a>
                       </div>
                     </div>
 
                     <div class="tp-item">
-                      <div class="tp-item-title">CATS 2025 — Georgia State University</div>
-                      <div class="tp-item-meta">
-                        <span class="tp-subtitle"><i class="fa-solid fa-tag"></i> Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
+                      <div class="tp-title-row">
+                        <div class="tp-item-title">CATS 2025 — Georgia State University</div>
                         <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>April 05–06, 2025</span>
                       </div>
                       <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/poster-cats-2025" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
+                        <a class="pill-link pill-url" href="https://www.dipendranathmahato.com/presentations-and-talks/poster-cats-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-link"></i> URL
                         </a>
                       </div>
                     </div>
 
                     <div class="tp-item">
-                      <div class="tp-item-title">SLAM 2025 — Arizona State University</div>
-                      <div class="tp-item-meta">
-                        <span class="tp-subtitle"><i class="fa-solid fa-tag"></i> Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
+                      <div class="tp-title-row">
+                        <div class="tp-item-title">SLAM 2025 — Arizona State University</div>
                         <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>March 01–02, 2025</span>
                       </div>
                       <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2025" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
+                        <a class="pill-link pill-url" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2025" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-link"></i> URL
                         </a>
                       </div>
                     </div>
@@ -1182,23 +1240,18 @@
 
                 <div class="year-group">
                   <div class="year-head">
-                    <span class="year-chip">Posters — 2024</span>
+                    <span class="year-chip js-year-chip" data-label="Posters — 2024">Posters — 2024</span>
                   </div>
 
                   <div class="tp-list">
                     <div class="tp-item">
-                      <div class="tp-item-title">KUMUNU 2024 — University of Missouri</div>
-                      <div class="tp-item-meta">
-                        <span class="tp-subtitle"><i class="fa-solid fa-tag"></i> Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
+                      <div class="tp-title-row">
+                        <div class="tp-item-title">KUMUNU 2024 — University of Missouri</div>
                         <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>September 28–29, 2024</span>
                       </div>
                       <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/kumunu-2024" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
+                        <a class="pill-link pill-url" href="https://www.dipendranathmahato.com/presentations-and-talks/kumunu-2024" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-link"></i> URL
                         </a>
                       </div>
                     </div>
@@ -1215,56 +1268,42 @@
                     <span class="theme-title">Introduction to Rational Symbolic Powers</span>
                   </h2>
                   <p>
-                    Posters are grouped below by year. (PDF links included; add Image links when ready.)
+                    Posters are grouped below by year.
                   </p>
                 </div>
 
                 <div class="year-group">
                   <div class="year-head">
-                    <span class="year-chip">Posters — 2026</span>
+                    <span class="year-chip js-year-chip" data-label="Posters — 2026">Posters — 2026</span>
                   </div>
 
                   <div class="tp-list">
                     <div class="tp-item">
-                      <div class="tp-item-title">CAAC 2026 — Dalhousie University</div>
-                      <div class="tp-item-meta">
-                        <span class="tp-subtitle"><i class="fa-solid fa-tag"></i> Introduction to Rational Symbolic Powers</span>
+                      <div class="tp-title-row">
+                        <div class="tp-item-title">CAAC 2026 — Dalhousie University</div>
                         <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>January 23–25, 2026</span>
                       </div>
                       <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/caac-2026" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
+                        <a class="pill-link pill-url" href="https://www.dipendranathmahato.com/presentations-and-talks/caac-2026" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-link"></i> URL
                         </a>
                       </div>
                     </div>
 
                     <div class="tp-item">
-                      <div class="tp-item-title">SLAM 2026 — University of Texas at Arlington</div>
-                      <div class="tp-item-meta">
-                        <span class="tp-subtitle"><i class="fa-solid fa-tag"></i> Introduction to Rational Symbolic Powers</span>
+                      <div class="tp-title-row">
+                        <div class="tp-item-title">SLAM 2026 — University of Texas at Arlington</div>
                         <span class="type-pill type-poster"><i class="fa-solid fa-image"></i>Poster</span>
-                        <span>Feb 28–Mar 01, 2026</span>
                       </div>
                       <div class="tp-links">
-                        <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2026" target="_blank" rel="noopener">
-                          <i class="fa-solid fa-file-pdf"></i> Poster PDF
-                        </a>
-                        <a class="pill-link pill-image" href="#" target="_blank" rel="noopener">
-                          <i class="fa-regular fa-image"></i> Poster Image
+                        <a class="pill-link pill-url" href="https://www.dipendranathmahato.com/presentations-and-talks/slam-2026" target="_blank" rel="noopener">
+                          <i class="fa-solid fa-link"></i> URL
                         </a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div><!-- /poster-theme-box -->
-
-              <!-- If you ever add another distinct theme, just duplicate:
-                   <div class="poster-theme-box"> ... </div>
-              -->
 
             </div>
 
@@ -1390,6 +1429,28 @@
     if (btnPosters) btnPosters.addEventListener('click', () => setView('posters'));
     setView('talks');
 
+    // ===== Counters: toggle + year counters =====
+    function updateCounters(){
+      const talkCountEl   = document.getElementById('talkCount');
+      const posterCountEl = document.getElementById('posterCount');
+
+      if (panelTalks && talkCountEl){
+        talkCountEl.textContent = panelTalks.querySelectorAll('.tp-item').length;
+      }
+      if (panelPosts && posterCountEl){
+        posterCountEl.textContent = panelPosts.querySelectorAll('.tp-item').length;
+      }
+
+      // Year counters (works for both panels)
+      document.querySelectorAll('.js-year-chip').forEach(chip => {
+        const base = chip.getAttribute('data-label') || chip.textContent.trim();
+        const yearGroup = chip.closest('.year-group');
+        const count = yearGroup ? yearGroup.querySelectorAll('.tp-item').length : 0;
+        chip.textContent = `${base} (${count})`;
+      });
+    }
+    updateCounters();
+
     // ===== Floating Abstract Window logic =====
     const absFloat = document.getElementById('abstractFloat');
     const absTitle = document.getElementById('abstractFloatTitle');
@@ -1440,6 +1501,11 @@
     // ESC to close
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeAbstract();
+    });
+  </script>
+</body>
+</html>
+
     });
   </script>
 </body>
