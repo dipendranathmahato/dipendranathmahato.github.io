@@ -3196,3 +3196,24 @@ html[data-theme="dark"] .presentations-page .year-chip{
     0 14px 34px rgba(0,0,0,0.55),
     inset 0 0 0 1px rgba(255,255,255,0.10);
 }
+
+
+/* =========================================================
+   MOBILE: Flatten header bar (remove white rounded title bar)
+   Desktop untouched
+   ========================================================= */
+@media (max-width: 900px){
+
+  /* Header container */
+  .top-nav{
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* If the header has an inner wrapper, flatten that too */
+  .top-nav > *{
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
