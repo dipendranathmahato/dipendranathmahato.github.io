@@ -1755,7 +1755,7 @@ img.emoji {
 }
 
 /* =========================
-   Preprints: year tracker + search
+   Preprints: author/year tracker + search
    ========================= */
 .pub-controls{
   display: flex;
@@ -1803,6 +1803,24 @@ img.emoji {
   border-color: rgba(96,165,250,0.35);
   color: #bfdbfe;
 }
+
+.author-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--accent-soft);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.author-counter i {
+  font-size: 0.75rem;
+}
+
 
 /* Search box */
 .pub-search{
@@ -2683,6 +2701,50 @@ html[data-theme="dark"] .mentoring-head-left > i{
   opacity:.75;
 }
 
+
+/* Make title line support left title + right link */
+.scroll-card-title{
+  justify-content: space-between;
+}
+
+.scroll-card-title-left{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-weight:800;
+  flex-wrap:wrap;
+}
+
+/* RateMyProfessor link */
+.rmp-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.92rem;
+  font-weight:700;
+  text-decoration:none;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.03);
+}
+
+.rmp-link:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,.06);
+}
+
+html[data-theme="dark"] .rmp-link{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.06);
+}
+
+html[data-theme="dark"] .rmp-link:hover{
+  background: rgba(255,255,255,.10);
+}
+
+
+
 /* Make mentoring body scroll (uses your class combo) */
 .scroll-card-body{
   max-height:300px;
@@ -2799,3 +2861,434 @@ html[data-theme="dark"] .scroll-card-body::-webkit-scrollbar-thumb{
 
 /* Prevent grid children from forcing horizontal overflow */
 .main{ min-width: 0; }
+
+
+/* ===== Presentations page UI (minimal additions) ===== */
+.page-header h1 { margin: 0; }
+.page-subtitle { margin: 6px 0 0; opacity: 0.85; }
+
+.pres-controls{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 14px 0 18px;
+  flex-wrap: wrap;
+}
+
+.pres-tabs{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pres-tab{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+html[data-theme="dark"] .pres-tab{
+  border-color: rgba(255,255,255,0.16);
+}
+
+.pres-tab.is-active{
+  border-color: rgba(0,0,0,0.24);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+html[data-theme="dark"] .pres-tab.is-active{
+  border-color: rgba(255,255,255,0.26);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.count-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid rgba(0,0,0,0.12);
+  opacity: 0.9;
+}
+
+html[data-theme="dark"] .count-badge{
+  border-color: rgba(255,255,255,0.16);
+}
+
+.pres-search{
+  position: relative;
+  flex: 1 1 320px;
+  max-width: 460px;
+}
+
+.pres-search i{
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+}
+
+.pres-search input{
+  width: 100%;
+  padding: 11px 12px 11px 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: transparent;
+  font: inherit;
+  outline: none;
+}
+
+html[data-theme="dark"] .pres-search input{
+  border-color: rgba(255,255,255,0.16);
+}
+
+.pres-panel{ display: none; }
+.pres-panel.is-active{ display: block; }
+
+.pres-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 860px){
+  .pres-grid{ grid-template-columns: 1fr; }
+}
+
+.pres-card{
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 16px;
+  padding: 14px;
+  background: rgba(0,0,0,0.02);
+}
+
+html[data-theme="dark"] .pres-card{
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.pres-card-top{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.pres-title{
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.pres-badges{
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pres-badge{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  white-space: nowrap;
+}
+
+html[data-theme="dark"] .pres-badge{
+  border-color: rgba(255,255,255,0.16);
+}
+
+.pres-badge.soft{ opacity: 0.85; }
+
+.pres-meta{
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  opacity: 0.9;
+}
+
+.pres-meta i{ margin-top: 2px; opacity: 0.8; }
+.pres-note{ font-weight: 600; }
+
+.pres-actions{
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+/* =========================================================
+   GLOBAL MOBILE REFORM — SAFE, DESKTOP-INTACT
+   Applies to ALL pages
+   ========================================================= */
+@media (max-width: 900px){
+
+  /* ---------- Layout: stack cleanly ---------- */
+  .layout{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px;
+  }
+
+  .sidebar{
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin-bottom: 8px;
+  }
+
+  .main{
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* ---------- Avatar & status ---------- */
+  
+  .status-chip{
+    margin: 8px auto 0;
+  }
+
+  /* ---------- Cards ---------- */
+  .card{
+    border-radius: 16px;
+  }
+
+  /* ---------- Fix title rows & pills wrapping ---------- */
+  .tp-title-row{
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .tp-title-row .type-pill{
+    margin-left: 0 !important;
+    margin-top: 6px;
+  }
+
+  /* ---------- Year banner not oversized ---------- */
+  .presentations-page .year-chip{
+    min-height: 40px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    border-radius: 16px;
+  }
+
+  /* ---------- Floating abstract window ---------- */
+  .abstract-float{
+    left: 12px;
+    right: 12px;
+    width: auto !important;
+    max-width: none !important;
+    bottom: 12px;
+  }
+}
+
+/* =========================================================
+   MOBILE NAVIGATION — HAMBURGER (IN-FLOW, STABLE)
+   ========================================================= */
+@media (max-width: 900px){
+
+  /* Header anchor */
+  .top-nav{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  /* Show hamburger */
+  .nav-toggle{
+    display: inline-flex;
+  }
+
+  /* Hide nav by default */
+  .top-nav-links{
+    display: none;
+    width: 100%;
+  }
+
+  /* Open state — IN FLOW (pushes content down) */
+  .top-nav-links.open{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 12px;
+    padding: 12px 14px;
+
+    border-radius: 0;
+    border: none;
+
+    background: transparent;
+    box-shadow: none;
+  }
+
+  html[data-theme="dark"] .top-nav-links.open{
+    background: rgba(15,23,42,0.92);
+    border: none;
+    box-shadow: 0 18px 44px rgba(0,0,0,0.65);
+  }
+
+  /* Dropdown behaves like normal list */
+  .dropdown{
+    width: 100%;
+  }
+
+  .dropdown-content{
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding-left: 10px;
+  }
+}
+
+/* =========================================================
+   PRESENTATIONS PAGE — YEAR BANNER (DESKTOP + MOBILE SAFE)
+   Requires: <body class="presentations-page">
+   ========================================================= */
+.presentations-page .year-chip{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 42px;
+
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  font-size: 0.92rem;
+  font-weight: 1000;
+  letter-spacing: 0.35px;
+
+  border: 1px solid rgba(59,130,246,0.38);
+  background: linear-gradient(
+    90deg,
+    rgba(59,130,246,0.22),
+    rgba(124,58,237,0.22)
+  );
+
+  box-shadow:
+    0 10px 26px rgba(15,23,42,0.12),
+    inset 0 0 0 1px rgba(255,255,255,0.35);
+
+  text-align: center;
+}
+
+html[data-theme="dark"] .presentations-page .year-chip{
+  border-color: rgba(191,219,254,0.26);
+  background: linear-gradient(
+    90deg,
+    rgba(96,165,250,0.26),
+    rgba(192,132,252,0.26)
+  );
+  box-shadow:
+    0 14px 34px rgba(0,0,0,0.55),
+    inset 0 0 0 1px rgba(255,255,255,0.10);
+}
+
+
+/* =========================================================
+   MOBILE: Flatten header bar (remove white rounded title bar)
+   Desktop untouched
+   ========================================================= */
+@media (max-width: 900px){
+
+  /* Header container */
+  .top-nav{
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* If the header has an inner wrapper, flatten that too */
+  .top-nav > *{
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+
+/* =========================================================
+   PRESENTATIONS — Dark mode pill fixes (teaching-style contrast)
+   ========================================================= */
+html[data-theme="dark"] .presentations-page .type-pill{
+  border: 1px solid rgba(148,163,184,0.22);
+  background: rgba(255,255,255,0.06);
+  color: rgba(226,232,240,0.92);
+  box-shadow: none;
+}
+
+/* Talk/poster link pills (Slides/PDF/Image/Abstract buttons) */
+html[data-theme="dark"] .presentations-page .pill-link{
+  border: 1px solid rgba(148,163,184,0.22);
+  background: rgba(255,255,255,0.06);
+  color: rgba(226,232,240,0.92);
+}
+
+/* === Category pills (stronger, teaching-like colors) === */
+html[data-theme="dark"] .presentations-page .type-conference{
+  border-color: rgba(16,185,129,0.32);
+  background: rgba(16,185,129,0.16);
+  color: rgba(167,243,208,0.95);
+}
+
+html[data-theme="dark"] .presentations-page .type-lightning{
+  border-color: rgba(234,179,8,0.36);
+  background: rgba(234,179,8,0.18);
+  color: rgba(253,230,138,0.95);
+}
+
+html[data-theme="dark"] .presentations-page .type-seminar{
+  border-color: rgba(59,130,246,0.34);
+  background: rgba(59,130,246,0.18);
+  color: rgba(191,219,254,0.96);
+}
+
+html[data-theme="dark"] .presentations-page .type-colloquium{
+  border-color: rgba(244,63,94,0.30);
+  background: rgba(244,63,94,0.16);
+  color: rgba(254,202,202,0.95);
+}
+
+html[data-theme="dark"] .presentations-page .type-poster{
+  border-color: rgba(192,132,252,0.34);
+  background: rgba(192,132,252,0.18);
+  color: rgba(233,213,255,0.96);
+}
+
+html[data-theme="dark"] .presentations-page .type-award{
+  border-color: rgba(34,197,94,0.34);
+  background: rgba(34,197,94,0.16);
+  color: rgba(187,247,208,0.96);
+}
+
+/* If you're using AMS pill */
+html[data-theme="dark"] .presentations-page .type-ams{
+  border-color: rgba(96,165,250,0.34);
+  background: rgba(96,165,250,0.18);
+  color: rgba(191,219,254,0.96);
+}
+
+/* Make icons inside pills readable */
+html[data-theme="dark"] .presentations-page .type-pill i,
+html[data-theme="dark"] .presentations-page .pill-link i{
+  color: inherit;
+  opacity: 0.95;
+}
+
+/* Optional: better hover feel (teaching-like) */
+html[data-theme="dark"] .presentations-page .pill-link:hover{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(148,163,184,0.30);
+}
