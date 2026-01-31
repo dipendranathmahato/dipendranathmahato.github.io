@@ -3125,8 +3125,8 @@ html[data-theme="dark"] .pres-badge{
     margin-top: 12px;
     padding: 12px 14px;
 
-    border-radius: 16px;
-    border: 1px solid rgba(148,163,184,0.28);
+    border-radius: 0;
+    border: none;
 
     background: transparent;
     box-shadow: none;
@@ -3134,7 +3134,7 @@ html[data-theme="dark"] .pres-badge{
 
   html[data-theme="dark"] .top-nav-links.open{
     background: rgba(15,23,42,0.92);
-    border-color: rgba(148,163,184,0.18);
+    border: none;
     box-shadow: 0 18px 44px rgba(0,0,0,0.65);
   }
 
