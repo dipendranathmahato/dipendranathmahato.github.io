@@ -3218,37 +3218,4 @@ html[data-theme="dark"] .presentations-page .year-chip{
   }
 }
 
-/* =========================================================
-   MOBILE: Make header look like a pill (nice + clean)
-   Desktop untouched
-   ========================================================= */
-@media (max-width: 900px){
 
-  .top-nav{
-    border-radius: 999px !important;
-    padding: 10px 12px !important;
-
-    /* glassy pill look */
-    background: rgba(255, 255, 255, 0.55) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(148, 163, 184, 0.25) !important;
-    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.10) !important;
-
-    /* ensure it doesn't stretch edge-to-edge like a rectangle */
-    margin: 10px 12px 0 !important;
-  }
-
-  html[data-theme="dark"] .top-nav{
-    background: rgba(15, 23, 42, 0.55) !important;
-    border-color: rgba(148, 163, 184, 0.16) !important;
-    box-shadow: 0 14px 34px rgba(0,0,0,0.55) !important;
-  }
-
-  /* Keep logo + controls vertically centered inside the pill */
-  .top-nav .brand,
-  .top-nav .controls{
-    align-items: center;
-  }
-}
