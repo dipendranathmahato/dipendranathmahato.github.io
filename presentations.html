@@ -502,6 +502,16 @@
       font-size: 0.78rem;
       opacity: 0.75;
     }
+
+    /* ===== Presentations toggle text color fix (dark mode) ===== */
+    html[data-theme="dark"] body.presentations-page .seg-btn{
+    color: rgba(226, 232, 240, 0.92); /* readable light text */
+    }
+
+    html[data-theme="dark"] body.presentations-page .seg-btn.is-active{
+    color: rgba(241, 245, 249, 0.98); /* even brighter when active */
+    }
+
   </style>
 </head>
 
