@@ -221,329 +221,334 @@
     body.presentations-page .tp-list{
       display:flex;
       flex-direction:column;
-      gap: 12px;
+      gap: 10px;
     }
     body.presentations-page .tp-item{
       border: 1px solid var(--card-border);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.75);
-      padding: 12px 14px;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.06);
-      transition: 0.18s ease;
-    }
-    body.presentations-page .tp-item:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(15,23,42,0.08);
-    }
-    html[data-theme="dark"] body.presentations-page .tp-item{
-      background: rgba(15,23,42,0.85);
+      background: rgba(255, 255, 255, 0.70);
+      border-radius: 14px;
+      padding: 12px 12px;
     }
 
+    /* Title row with pill on right */
     body.presentations-page .tp-title-row{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap: 10px;
-      flex-wrap: wrap;
     }
     body.presentations-page .tp-item-title{
-      font-weight: 1000;
-      font-size: 1.02rem;
+      font-weight: 950;
       line-height: 1.25;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    body.presentations-page .tp-title-row .type-pill{
+      margin-left: 10px;
+      flex: 0 0 auto;
     }
 
     body.presentations-page .tp-item-meta{
       margin-top: 6px;
-      font-size: 0.94rem;
-      opacity: 0.85;
+      font-size: 0.86rem;
+      opacity: 0.86;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
     }
 
-    /* Pills */
     body.presentations-page .tp-links{
+      margin-top: 10px;
       display:flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 10px;
     }
 
-    body.presentations-page .pill-link,
+    /* Type pills */
     body.presentations-page .type-pill{
       display:inline-flex;
       align-items:center;
-      gap: 8px;
-      padding: 7px 10px;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 950;
+      padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid var(--pill-border);
-      text-decoration:none;
-      font-weight: 900;
-      font-size: 0.86rem;
-      background: rgba(255,255,255,0.62);
-      transition: 0.16s ease;
-      cursor: pointer;
-    }
-    html[data-theme="dark"] body.presentations-page .pill-link,
-    html[data-theme="dark"] body.presentations-page .type-pill{
-      background: rgba(255,255,255,0.07);
-    }
-
-    body.presentations-page .pill-link:hover,
-    body.presentations-page .type-pill:hover{
-      transform: translateY(-1px);
-    }
-
-    /* Talk / Poster main pills */
-    body.presentations-page .type-talk{
-      border-color: rgba(37,99,235,0.28);
-      background: var(--talk-soft);
-      color: var(--talk-accent);
-    }
-    body.presentations-page .type-poster{
-      border-color: rgba(124,58,237,0.28);
-      background: var(--poster-soft);
-      color: var(--poster-accent);
-    }
-
-    /* Right-aligned type pills (conference etc.) */
-    body.presentations-page .type-pill{
+      background: rgba(15, 23, 42, 0.03);
+      letter-spacing: .03em;
+      text-transform: uppercase;
       white-space: nowrap;
     }
-    body.presentations-page .type-pill i{ opacity: 0.95; }
+    html[data-theme="dark"] body.presentations-page .type-pill{ background: rgba(255,255,255,0.06); }
 
-    /* Different colors for talk-types */
-    body.presentations-page .type-conference{
-      color: #0ea5e9;
-      border-color: rgba(14,165,233,0.35);
-      background: rgba(14,165,233,0.12);
-    }
-    body.presentations-page .type-seminar{
-      color: #10b981;
-      border-color: rgba(16,185,129,0.35);
-      background: rgba(16,185,129,0.12);
-    }
-    body.presentations-page .type-colloquium{
-      color: #f59e0b;
-      border-color: rgba(245,158,11,0.35);
-      background: rgba(245,158,11,0.12);
-    }
-    body.presentations-page .type-invited{
-      color: #ef4444;
-      border-color: rgba(239,68,68,0.35);
-      background: rgba(239,68,68,0.12);
-    }
+    body.presentations-page .type-conference{ border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.10); color:#047857; }
+    body.presentations-page .type-lightning{  border-color: rgba(234,179,8,0.45);  background: rgba(234,179,8,0.14);  color:#92400e; }
+    body.presentations-page .type-seminar{    border-color: rgba(59,130,246,0.40); background: rgba(59,130,246,0.12); color:#1d4ed8; }
+    body.presentations-page .type-colloquium{ border-color: rgba(239,68,68,0.35);  background: rgba(239,68,68,0.12);  color:#b91c1c; }
+    body.presentations-page .type-poster{     border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.14); color:#5b21b6; }
+    body.presentations-page .type-award{      border-color: rgba(34,197,94,0.45);  background: rgba(34,197,94,0.16);  color:#065f46; }
+
+    /* AMS Sectional Meeting pill */
     body.presentations-page .type-ams{
-      color: #8b5cf6;
-      border-color: rgba(139,92,246,0.35);
-      background: rgba(139,92,246,0.12);
-    }
-    body.presentations-page .type-award{
-      color: #f43f5e;
-      border-color: rgba(244,63,94,0.35);
-      background: rgba(244,63,94,0.12);
+      border-color: rgba(37,99,235,0.35);
+      background: rgba(37,99,235,0.14);
+      color:#1d4ed8;
     }
 
-    /* PDF / URL / Abstract pills */
-    body.presentations-page .pill-pdf{
-      color: #e11d48;
-      border-color: rgba(225,29,72,0.30);
-      background: rgba(225,29,72,0.10);
-    }
-    body.presentations-page .pill-url{
-      color: #0f766e;
-      border-color: rgba(15,118,110,0.30);
-      background: rgba(15,118,110,0.10);
-    }
-    body.presentations-page .pill-abstract{
-      color: #334155;
-      border-color: rgba(51,65,85,0.28);
-      background: rgba(51,65,85,0.08);
-    }
-    html[data-theme="dark"] body.presentations-page .pill-abstract{
-      color: rgba(226,232,240,0.95);
-      border-color: rgba(148,163,184,0.22);
-      background: rgba(226,232,240,0.06);
-    }
-
-    /* Toggle counters */
-    body.presentations-page .seg-count{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width: 24px;
-      height: 20px;
-      padding: 0 8px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 1000;
-      border: 1px solid var(--pill-border);
-      background: rgba(255,255,255,0.65);
-      opacity: 0.95;
-    }
-    html[data-theme="dark"] body.presentations-page .seg-count{
-      background: rgba(255,255,255,0.08);
-    }
+    html[data-theme="dark"] body.presentations-page .type-conference{ color:#bbf7d0; }
+    html[data-theme="dark"] body.presentations-page .type-lightning{  color:#fde68a; }
+    html[data-theme="dark"] body.presentations-page .type-seminar{    color:#bfdbfe; }
+    html[data-theme="dark"] body.presentations-page .type-colloquium{ color:#fecaca; }
+    html[data-theme="dark"] body.presentations-page .type-poster{     color:#e9d5ff; }
+    html[data-theme="dark"] body.presentations-page .type-award{      color:#bbf7d0; }
+    html[data-theme="dark"] body.presentations-page .type-ams{        color:#bfdbfe; }
 
     /* Poster Theme Box wrapper */
     body.presentations-page .poster-theme-box{
-      margin-top: 16px;
-      border: 1px solid rgba(124,58,237,0.18);
-      border-radius: 20px;
-      padding: 14px;
-      background:
-        radial-gradient(1100px 260px at 8% 0%, rgba(124,58,237,0.16), transparent 55%),
-        radial-gradient(900px 220px at 92% 25%, rgba(37,99,235,0.12), transparent 55%),
-        rgba(124,58,237,0.06);
+      border: 1px solid rgba(124,58,237,0.20);
+      background: rgba(124,58,237,0.06);
+      border-radius: 18px;
+      padding: 12px;
+      margin-top: 10px;
     }
     html[data-theme="dark"] body.presentations-page .poster-theme-box{
-      border-color: rgba(192,132,252,0.16);
-      background:
-        radial-gradient(1100px 260px at 8% 0%, rgba(192,132,252,0.18), transparent 55%),
-        radial-gradient(900px 220px at 92% 25%, rgba(96,165,250,0.14), transparent 55%),
-        rgba(192,132,252,0.06);
+      border-color: rgba(192,132,252,0.18);
+      background: rgba(192,132,252,0.08);
     }
 
+    /* Poster theme neon banner + subtle pulse */
+    body.presentations-page .poster-theme{
+      border: 1px solid rgba(124,58,237,0.28);
+      background: radial-gradient(1200px 240px at 12% 0%, rgba(124,58,237,0.22), transparent 55%),
+                  radial-gradient(900px 220px at 80% 20%, rgba(34,197,94,0.18), transparent 55%),
+                  rgba(124,58,237,0.10);
+      border-radius: 16px;
+      padding: 14px 14px;
+      margin: 0 0 12px;
+      position: relative;
+      overflow: hidden;
+      animation: presNeonPulse 4.2s ease-in-out infinite;
+    }
+    html[data-theme="dark"] body.presentations-page .poster-theme{
+      border-color: rgba(192,132,252,0.28);
+      background: radial-gradient(1200px 240px at 12% 0%, rgba(192,132,252,0.26), transparent 55%),
+                  radial-gradient(900px 220px at 80% 20%, rgba(52,211,153,0.20), transparent 55%),
+                  rgba(192,132,252,0.12);
+    }
+    @keyframes presNeonPulse{
+      0%, 100%{ box-shadow: 0 0 0 rgba(124,58,237,0.0), 0 0 0 rgba(34,197,94,0.0); transform: translateY(0); }
+      50%{
+        box-shadow: 0 0 26px rgba(124,58,237,0.12), 0 0 22px rgba(34,197,94,0.10);
+        transform: translateY(-1px);
+      }
+    }
     body.presentations-page .poster-theme h2{
       margin: 0;
       font-size: 1.05rem;
       font-weight: 1000;
+      letter-spacing: 0.2px;
       display:flex;
       align-items:center;
       gap: 10px;
-      padding: 8px 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(124,58,237,0.20);
-      background: rgba(124,58,237,0.08);
+      flex-wrap: wrap;
     }
-    html[data-theme="dark"] body.presentations-page .poster-theme h2{
-      border-color: rgba(192,132,252,0.20);
-      background: rgba(192,132,252,0.08);
+    body.presentations-page .poster-theme h2 i{
+      color: var(--poster-accent);
+      filter: drop-shadow(0 0 8px rgba(124,58,237,0.35));
     }
     body.presentations-page .poster-theme .theme-title{
-      font-size: 1.12rem;
-      font-weight: 1100;
-      color: var(--poster-accent);
+      font-size: 1.08rem;
+      font-weight: 1000;
       text-shadow: 0 0 18px rgba(124,58,237,0.18);
     }
-    html[data-theme="dark"] body.presentations-page .poster-theme .theme-title{
-      text-shadow: 0 0 18px rgba(192,132,252,0.16);
-    }
-
     body.presentations-page .poster-theme p{
-      margin: 10px 2px 0;
-      opacity: 0.85;
+      margin: 6px 0 0;
+      opacity: 0.88;
+      line-height: 1.45;
     }
 
-    /* Floating abstract window (sky-blue background) */
+    /* Abstract pill styling */
+    body.presentations-page .pill-abstract{
+      border-color: rgba(59,130,246,0.28);
+      background: rgba(59,130,246,0.10);
+      color: #1d4ed8;
+    }
+    html[data-theme="dark"] body.presentations-page .pill-abstract{
+      border-color: rgba(191,219,254,0.28);
+      background: rgba(191,219,254,0.14);
+      color: #bfdbfe;
+    }
+
+    /* URL pill (neutral) */
+    body.presentations-page .pill-url{
+      border-color: rgba(148,163,184,0.35);
+      background: rgba(148,163,184,0.12);
+      color: rgba(30,41,59,0.92);
+    }
+    html[data-theme="dark"] body.presentations-page .pill-url{
+      border-color: rgba(148,163,184,0.22);
+      background: rgba(148,163,184,0.10);
+      color: rgba(226,232,240,0.92);
+    }
+
+    /* ===== Toggle counters ===== */
+    body.presentations-page .seg-count{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width: 28px;
+      height: 22px;
+      padding: 0 8px;
+      margin-left: 6px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 1000;
+      border: 1px solid var(--pill-border);
+      background: rgba(255,255,255,0.55);
+      opacity: 0.95;
+    }
+    html[data-theme="dark"] body.presentations-page .seg-count{
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(148,163,184,0.22);
+      color: rgba(226,232,240,0.92);
+    }
+    body.presentations-page .seg-btn.is-active .seg-count{
+      background: rgba(15,23,42,0.06);
+    }
+    html[data-theme="dark"] body.presentations-page .seg-btn.is-active .seg-count{
+      background: rgba(255,255,255,0.10);
+    }
+
+    /* ===== Floating Abstract Window (page-only) =====
+       Sky-blue background
+    */
     body.presentations-page .abstract-float{
       position: fixed;
       right: 18px;
       bottom: 18px;
-      width: min(520px, calc(100vw - 36px));
-      max-height: min(70vh, 560px);
-      background: #87ceeb;
-      border: 1px solid rgba(15, 23, 42, 0.18);
-      border-radius: 16px;
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.25);
+      width: min(460px, calc(100vw - 36px));
+      height: 260px;
+
       display: none;
-      overflow: hidden;
-      resize: both;
+      flex-direction: column;
+
+      border-radius: 14px;
+      border: 1px solid rgba(2, 132, 199, 0.35);
+
+      background:
+        radial-gradient(900px 260px at 18% 0%, rgba(56, 189, 248, 0.40), transparent 58%),
+        radial-gradient(900px 260px at 86% 20%, rgba(125, 211, 252, 0.36), transparent 55%),
+        rgba(186, 230, 253, 0.78);
+
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 50px rgba(15,23,42,0.18);
       z-index: 9999;
+
+      overflow: hidden;
+
+      resize: both;
+      min-width: 260px;
+      min-height: 170px;
+      max-width: calc(100vw - 18px);
+      max-height: calc(100vh - 18px);
     }
     html[data-theme="dark"] body.presentations-page .abstract-float{
-      background: #6fbfe3;
-      border-color: rgba(255,255,255,0.16);
-      box-shadow: 0 26px 80px rgba(0,0,0,0.55);
+      background:
+        radial-gradient(900px 260px at 18% 0%, rgba(56, 189, 248, 0.22), transparent 58%),
+        radial-gradient(900px 260px at 86% 20%, rgba(125, 211, 252, 0.18), transparent 55%),
+        rgba(30, 58, 138, 0.62);
+      border-color: rgba(125, 211, 252, 0.30);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.65);
     }
-    body.presentations-page .abstract-float.is-open{ display: block; }
-    body.presentations-page .abstract-float.is-min{
-      height: 46px !important;
-      max-height: 46px !important;
-      resize: none;
-    }
+
+    body.presentations-page .abstract-float.is-open{ display: flex; }
+    body.presentations-page .abstract-float.is-min{ height: 44px !important; resize: none; }
 
     body.presentations-page .abstract-float__bar{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 12px;
+      gap: 10px;
       padding: 10px 12px;
-      background: rgba(255,255,255,0.55);
-      border-bottom: 1px solid rgba(15,23,42,0.12);
-      cursor: default;
+      border-bottom: 1px solid rgba(2, 132, 199, 0.25);
+      background: rgba(255,255,255,0.35);
     }
     html[data-theme="dark"] body.presentations-page .abstract-float__bar{
-      background: rgba(255,255,255,0.10);
-      border-bottom-color: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      border-bottom-color: rgba(125, 211, 252, 0.18);
     }
 
     body.presentations-page .abstract-float__title{
-      font-weight: 1000;
-      font-size: 0.95rem;
+      font-weight: 950;
+      font-size: 0.92rem;
       line-height: 1.2;
-      max-width: calc(100% - 120px);
-      overflow:hidden;
+      overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      max-width: 360px;
     }
+
     body.presentations-page .abstract-float__actions{
       display:flex;
-      align-items:center;
       gap: 8px;
+      flex: 0 0 auto;
     }
+
     body.presentations-page .abstract-float__btn{
-      border: 1px solid rgba(15,23,42,0.18);
-      background: rgba(255,255,255,0.60);
-      width: 30px;
-      height: 28px;
+      border: 1px solid rgba(2, 132, 199, 0.22);
+      background: rgba(255,255,255,0.45);
       border-radius: 10px;
+      padding: 6px 10px;
       cursor: pointer;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
       transition: 0.15s ease;
-    }
-    html[data-theme="dark"] body.presentations-page .abstract-float__btn{
-      border-color: rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.10);
     }
     body.presentations-page .abstract-float__btn:hover{
       transform: translateY(-1px);
+      background: rgba(255,255,255,0.65);
+    }
+    html[data-theme="dark"] body.presentations-page .abstract-float__btn{
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(125, 211, 252, 0.18);
     }
 
     body.presentations-page .abstract-float__body{
-      padding: 12px 14px 14px;
-      overflow:auto;
-      max-height: calc(min(70vh, 560px) - 46px);
+      padding: 12px 12px 10px;
+      overflow: auto;
+      flex: 1 1 auto;
     }
-    body.presentations-page .abstract-float.is-min .abstract-float__body{ display:none; }
-
     body.presentations-page .abstract-float__text{
-      white-space: pre-wrap;
+      font-size: 0.92rem;
       line-height: 1.55;
-      font-size: 0.96rem;
-      color: rgba(15,23,42,0.95);
-    }
-    html[data-theme="dark"] body.presentations-page .abstract-float__text{
-      color: rgba(15,23,42,0.95);
+      white-space: pre-wrap;
     }
     body.presentations-page .abstract-float__hint{
       margin-top: 10px;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       opacity: 0.75;
     }
 
-    /* Small mobile tweaks */
-    @media (max-width: 620px){
-      body.presentations-page .year-chip{ min-width: 0; width: 100%; justify-content: center; }
-      body.presentations-page .pres-head{ align-items: stretch; }
-      body.presentations-page .seg-toggle{ width: 100%; justify-content: space-between; }
-      body.presentations-page .seg-btn{ flex: 1; justify-content: center; }
+    /* ===== Presentations toggle text color fix (dark mode) ===== */
+    html[data-theme="dark"] body.presentations-page .seg-btn{
+      color: rgba(226, 232, 240, 0.92);
     }
+    html[data-theme="dark"] body.presentations-page .seg-btn.is-active{
+      color: rgba(241, 245, 249, 0.98);
+    }
+
+    body.presentations-page .tp-item-meta a{
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    body.presentations-page .tp-item-meta a:hover{
+      opacity: 0.85;
+    }
+
   </style>
 </head>
 
 <body class="presentations-page">
   <div class="page">
-
     <!-- ================= HEADER / NAV ================= -->
     <header class="top-nav">
       <div class="brand">
@@ -565,7 +570,7 @@
         <a href="about.html">About</a>
         <a href="research.html">Research</a>
         <a href="teaching.html">Teaching</a>
-        <a href="presentations.html" class="active">Presentations</a>
+        <a href="presentations.html">Presentations</a>
 
         <div class="dropdown">
           <button class="dropbtn">
@@ -616,7 +621,6 @@
             <i class="ai ai-academic-cap"></i>
             <span>Research Areas</span>
           </div>
-
           <div class="research-chips">
             <a href="research.html#commutative" class="chip">Commutative Algebra</a>
             <a href="research.html#algebraic-geometry" class="chip">Algebraic Geometry</a>
@@ -633,7 +637,7 @@
             </li>
             <li>
               <i class="fa-regular fa-envelope"></i>
-              <span><a href="mailto:dipendranathmahato@gmail.com">dipendranathmahato@gmail.com</a></span>
+              <span><a href="mailto:dipendranathmahato13@gmail.com">dipendranathmahato13@gmail.com</a></span>
             </li>
             <li>
               <i class="fa-regular fa-building"></i>
@@ -681,251 +685,501 @@
 
       <!-- Main content -->
       <section class="content">
-
-        <div class="pres-head">
-          <div class="pres-title-wrap">
-            <h1><i class="fa-solid fa-chalkboard-user"></i> Presentations</h1>
-            <p>
-              Click <b>Talks</b> or <b>Posters</b>. Year groups are shown with automatic counters.
-              Talks include an <b>Abstract</b> pill that opens a floating resizable window.
-            </p>
-          </div>
-
-          <div class="seg-toggle" role="tablist" aria-label="Talks and Posters Toggle">
-            <button class="seg-btn is-active" id="btnTalks" data-view="talks" role="tab" aria-selected="true">
-              <span class="dot"></span>
-              <i class="fa-solid fa-person-chalkboard"></i>
-              <span>Talks</span>
-              <span class="seg-count" id="talkCount">0</span>
-            </button>
-            <button class="seg-btn" id="btnPosters" data-view="posters" role="tab" aria-selected="false">
-              <span class="dot"></span>
-              <i class="fa-solid fa-image"></i>
-              <span>Posters</span>
-              <span class="seg-count" id="posterCount">0</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- ================= TALKS PANEL ================= -->
-        <div class="pres-panel is-active" id="panelTalks">
-
-          <!-- ===== 2025 ===== -->
-          <div class="year-group">
-            <div class="year-head">
-              <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2025">Complete list of Talks — 2025</span>
+        <div class="content-card">
+          <div class="pres-head">
+            <div class="pres-title-wrap">
+              <h1><i class="fa-solid fa-chalkboard-user"></i> Presentations</h1>
+              <p>
+                Toggle between talks and posters. Click <b>Abstract</b> to open a floating window (LaTeX supported).
+              </p>
             </div>
 
-            <div class="tp-list">
-
-              <div class="tp-item">
-                <div class="tp-title-row">
-                  <div class="tp-item-title">Introduction to Rational Symbolic Powers</div>
-                  <span class="type-pill type-conference"><i class="fa-solid fa-people-group"></i>Conference</span>
-                </div>
-                <div class="tp-item-meta">
-                  <span>Jun 14, 2025 · Research Experience for Graduate Students (REGS-2025) — BIRS, Banff, Canada (with <a href="https://www.math.purdue.edu/~iswanso/" target="_blank" rel="noopener">I. Swanson</a>)</span>
-                </div>
-                <div class="tp-links">
-                  <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1kB0H4tLrmv0zxlFEXdH5-Vx7iGf7ekFA/view?usp=drive_link" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-file-pdf"></i> Slides / PDF
-                  </a>
-                  <button class="pill-link pill-abstract abstract-btn" type="button"
-                    data-title="Introduction to Rational Symbolic Powers"
-                    data-abstract="Rational symbolic powers $(I^{(m/n)})$ generalize symbolic powers and connect to valuations and asymptotic invariants. I will outline definitions, basic properties, and some computational/containment perspectives.">
-                    <i class="fa-regular fa-rectangle-list"></i> Abstract
-                  </button>
-                  <a class="pill-link pill-url" href="https://www.birs.ca/events/2025/5-day-workshops/25w5114" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-link"></i> URL
-                  </a>
-                </div>
-              </div>
-
-              <div class="tp-item">
-                <div class="tp-title-row">
-                  <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
-                  <span class="type-pill type-ams"><i class="fa-solid fa-landmark"></i>AMS Sectional Meeting</span>
-                </div>
-                <div class="tp-item-meta">
-                  <span>Mar 29, 2025 · AMS Sectional Meeting (2025 Spring Central) — University of Kansas (Special Session)</span>
-                </div>
-                <div class="tp-links">
-                  <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1YS8C3M5ifS4mkSZUv0Zr1MWj_SvOLjX4/view?usp=drive_link" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-file-pdf"></i> Slides / PDF
-                  </a>
-                  <button class="pill-link pill-abstract abstract-btn" type="button"
-                    data-title="Interpolation Problem and Recent Studies on Demailly’s Conjecture (AMS Kansas)"
-                    data-abstract="The fundamental question raised by Masayoshi Nagata $(1958)$, inspired from the ‘Classical Interpolation Problem’ is a long-standing problem in the literature, which is: Given a finite set of points in the Projective Plane, what is the minimal degree of the hypersurface passing through those points with multiplicity at least $m$? G. V. Chudnovsky provided a conjectural bound to the above problem in $1981$, but for the Projective Space of any dimension, and a year later J. P. Demailly generalized Chudnovsky’s work. These conjectures have an equivalent version in terms of understanding the lower bounds for the Waldschmidt constants of the ideal defining the points. We study Demailly’s Conjecture for the case $m=3$. I will introduce the Conjectures and then discuss the tools we have used in our study of Demailly’s Conjecture.">
-                    <i class="fa-regular fa-rectangle-list"></i> Abstract
-                  </button>
-                  <a class="pill-link pill-url" href="https://meetings.ams.org/math/spring2025w/meetingapp.cgi/Paper/48591" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-link"></i> URL
-                  </a>
-                </div>
-              </div>
-
-              <div class="tp-item">
-                <div class="tp-title-row">
-                  <div class="tp-item-title">Developments in Interpolation Problem for Projective Spaces</div>
-                  <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
-                </div>
-                <div class="tp-item-meta">
-                  <span>Mar 14, 2025 · Algebra &amp; Combinatorics Seminar ($\pi$-Day Special) — Department of Mathematics, Tulane University</span>
-                </div>
-                <div class="tp-links">
-                  <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1FURi70AGT0bbX34BHnwSqgqHrj76F8Iz/view?usp=drive_link" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-file-pdf"></i> Slides / PDF
-                  </a>
-                  <button class="pill-link pill-abstract abstract-btn" type="button"
-                    data-title="Developments in Interpolation Problem for Projective Spaces"
-                    data-abstract="Classical Interpolation problem of estimating new data from a set of known data is well understood under one variable situation. Here we are more interested in higher dimensional Projective Spaces, where we are trying to find the lowest possible degree of the hyper-surface passing through a given set of points with prescribed multiplicity. There are famous conjectures to tackle such problems: Chudnovsky’s Conjecture, Demailly’s Conjecture. I will be discussing those conjectures and some recent developments in this area. ">
-                    <i class="fa-regular fa-rectangle-list"></i> Abstract
-                  </button>
-                  <a class="pill-link pill-url" href="https://www.math.tulane.edu/~kmincheva/seminarAC_S25.html" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-link"></i> URL
-                  </a>
-                </div>
-              </div>
-
-              <div class="tp-item">
-                <div class="tp-title-row">
-                  <div class="tp-item-title">Interpolation Problem: Conjectures &amp; New Developments</div>
-                  <span class="type-pill type-conference"><i class="fa-solid fa-people-group"></i>Conference</span>
-                </div>
-                <div class="tp-item-meta">
-                  <span>Jan 03, 2025 · Two-Day Conference on "Mathematical Sciences and Applications" (CMSA-2025) — Department of Mathematical Sciences, Tezpur University</span>
-                </div>
-                <div class="tp-links">
-                  <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1_G8gfDIhYXM1pr32PPhKBTlwTPa4V3zY/view?usp=drive_link" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-file-pdf"></i> Slides / PDF
-                  </a>
-                  <button class="pill-link pill-abstract abstract-btn" type="button"
-                    data-title="Interpolation Problem: Conjectures &amp; New Developments"
-                    data-abstract="Classical Interpolation problem of estimating new data from a known data set. In higher dimensional spaces (namely, Projective Space) the main problem is of finding the lowest possible degree of the hyper-surface passing through a given set of points with prescribed multiplicity. To tackle such problems there are some famous conjectures: Chudnovsky’s Conjecture, Demailly’s Conjecture, etc. I will be discussing those conjectures and some recent developments in this area, also some connected well-famous problems associated to interpolation problem.">
-                    <i class="fa-regular fa-rectangle-list"></i> Abstract
-                  </button>
-                  <a class="pill-link pill-url" href="https://sites.google.com/view/cmsa-2025/home" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-link"></i> URL
-                  </a>
-                </div>
-              </div>
-
+            <div class="seg-toggle" role="tablist" aria-label="Presentations toggle">
+              <button class="seg-btn is-active" type="button" role="tab" aria-selected="true" data-view="talks" id="btnTalks">
+                <span class="dot" aria-hidden="true"></span>
+                <i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i>
+                Talks <span class="seg-count" id="talkCount">0</span>
+              </button>
+              <button class="seg-btn" type="button" role="tab" aria-selected="false" data-view="posters" id="btnPosters">
+                <span class="dot" aria-hidden="true"></span>
+                <i class="fa-solid fa-image" aria-hidden="true"></i>
+                Posters <span class="seg-count" id="posterCount">0</span>
+              </button>
             </div>
           </div>
 
-          <!-- ===== 2024 ===== -->
-          <div class="year-group">
-            <div class="year-head">
-              <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2024">Complete list of Talks — 2024</span>
-            </div>
+          <!-- ================= TALKS PANEL ================= -->
+          <div class="pres-panel is-active" id="panelTalks">
 
-            <div class="tp-list">
-              <div class="tp-item">
-                <div class="tp-title-row">
-                  <div class="tp-item-title">Recent Developments in Interpolation Problems &amp; Demailly's Conjecture</div>
-                  <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2026">Complete list of Talks — 2026</span>
                 </div>
-                <div class="tp-item-meta">
-                  <span>Nov 05, 2024 · Graduate Colloquium — Department of Mathematics, Tulane University</span>
-                </div>
-                <div class="tp-links">
-                  <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1n6ArL2Saz_e7Og3tX6Fa6BbtUSciRsl8/view?usp=drive_link" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-file-pdf"></i> Slides / PDF
-                  </a>
-                  <button class="pill-link pill-abstract abstract-btn" type="button"
-                    data-title="Recent Developments in Interpolation Problems &amp; Demailly's Conjecture"
-                    data-abstract="The classical Interpolation problem is a numerical analysis problem that estimates new data, from a known data set. There have been different approaches to provide more refined numerical results on Interpolation, like Polynomial Interpolation, Spline Interpolation, Mimetic Interpolation, etc. But in higher dimensions (specifically in $\mathbb{P}^{N}, N\geq 3$), the main problem is to find the minimal degree homogeneous polynomial that vanishes on a finite set of points with a given set of multiplicities. To deal with such a problem G.V. Chudnovsky and J.P. Demailly provided some conjectural bounds to the minimal degree, which I will discuss in my talk. I will also talk about some recent developments on this topic.">
-                    <i class="fa-regular fa-rectangle-list"></i> Abstract
-                  </button>
+
+                <div class="tp-list">
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">TBD Graduate Colloquium</div>
+                      <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Apr 14, 2026 · Department of Mathematics, Tulane University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Graduate Colloquium (Tulane)"
+                        data-abstract="TBA Soon">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <!-- Optional URL (fill later) -->
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Rational Symbolic Power of Ideals</div>
+                      <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Apr 08, 2026 · Commutative Algebra Seminar at Purdue — Purdue University (Host:
+                            <a href="https://www.math.purdue.edu/~iswanso/" target="_blank" rel="noopener">I. Swanson</a>)
+                      </span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Rational Symbolic Power of Ideals (Purdue)"
+                        data-abstract="(Paste your abstract text here. Example: $I^{(m/q)}$.)">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">TBD Algebra Research Seminar</div>
+                      <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Apr 08, 2026 · Commutative Algebra Seminar at Purdue — Purdue University (Host:
+                        <a href="https://wordpressua.uark.edu/pmantero/" target="_blank" rel="noopener">P. Mantero</a>)
+                      </span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="TBD Algebra Research Seminar (Arkansas)"
+                        data-abstract="(Paste your abstract text here.)">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Going Beyond the Integer Symbolic Powers of Ideals</div>
+                      <span class="type-pill type-ams"><i class="fa-solid fa-landmark"></i>AMS Sectional Meeting</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Mar 07, 2026 · AMS Sectional Meeting (2026 Spring Western) — Boise State University (Special Session)</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://www.dipendranathmahato.com/presentations-and-talks/ams-spring-western-2026" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Going Beyond the Integer Symbolic Powers of Ideals"
+                        data-abstract="We introduce rational symbolic powers as a method to extend the theory of ideals beyond integer symbolic powers. This construction interpolates between classical symbolic and rational powers, providing a unified framework for study. Focusing specifically on monomial ideals, this talk will define the rational symbolic power and present key findings on its algebraic properties, demonstrating the utility of `going beyond' standard integer-power definitions.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://meetings.ams.org/math/spring2026w/meetingapp.cgi/Paper/59375" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Unfolding the Rational Symbolic Powers of Ideals</div>
+                      <span class="type-pill type-conference"><i class="fa-solid fa-people-group"></i>Conference</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Jan 06, 2026 · Joint Mathematics Meetings 2026 — Walter E. Washington Convention Center, Washington, D.C. (Special Session)</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1bsZVjqz6sTGiKzVP8yI4TsGeuFjxPtDh/view?usp=sharing" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Unfolding the Rational Symbolic Powers of Ideals (JMM 2026)"
+                        data-abstract="Inspired by the various definitions of symbolic powers of ideals and the notion of rational powers of ideals, we introduce and study the concept of rational symbolic powers of an ideal. This construction seeks to interpolate between the classical symbolic powers and rational powers, providing a framework to investigate their behavior in the case of Squarefree-monomial ideals. I will define it and will be discussing some of the interesting properties that we explored. &#10; (We have a new co-auther onboarding with some interesting extensions from the current ArXiV version.)">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://meetings.ams.org/math/jmm2026/meetingapp.cgi/Paper/53245" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
-              <div class="tp-item">
-                <div class="tp-title-row">
-                  <div class="tp-item-title">Overview of Generalized Interpolation Problem, and its Algebraic Components</div>
-                  <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2025">Complete list of Talks — 2025</span>
                 </div>
-                <div class="tp-item-meta">
-                  <span>May 24, 2024 · TU Alumni Talk — Department of Mathematical Sciences, Tezpur University</span>
-                </div>
-                <div class="tp-links">
-                  <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1ZKU6mV4p643GVvL-nuLWZr8m28wp05HE/view?usp=drive_link" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-file-pdf"></i> Slides / PDF
-                  </a>
-                  <button class="pill-link pill-abstract abstract-btn" type="button"
-                    data-title="Overview of Generalized Interpolation Problem, and its Algebraic Components"
-                    data-abstract="The problem of interpolation is well known. But what happens when we leave planer space and move to some general space? While investigating such a problem, G. V. Chudnovsky gave a conjectural lower bound for the minimal degree of a homogeneous polynomial in the Polynomial ring that vanishes on a given finite set of points with a given set of multiplicities. Later Waldschmidt Constant came into the picture, but how this famous geometrical problem boils down to the Containment Problem of Symbolic Powers and Ordinary Powers and how other associated problems developed is the primary objective of my talk. I will start with the basic overview of Algebraic Geometry and connect it to my research via Commutative Algebra.">
-                    <i class="fa-regular fa-rectangle-list"></i> Abstract
-                  </button>
+
+                <div class="tp-list">
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Introduction to Rational Symbolic Powers</div>
+                      <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Nov 11, 2025 · Graduate Colloquium — Department of Mathematics, Tulane University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" target="_blank" rel="noopener">
+                        Board Presentation
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Introduction to Rational Symbolic Powers"
+                        data-abstract="Symbolic powers of ideals capture the algebraic essence of vanishing along varieties and play a key role in understanding containment relations and asymptotic invariants. In the joint work with Dey and Ha, we introduce the concept of rational symbolic powers, extending the classical notion to rational exponents. This extension offers a continuous framework that bridges consecutive symbolic powers and uncovers new structural and geometric insights. I will also present several fundamental properties of classical symbolic powers that persist in this rational setting.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <!--<a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>-->
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Unfolding the Rational Symbolic Powers of Ideals</div>
+                      <span class="type-pill type-ams"><i class="fa-solid fa-landmark"></i>AMS Sectional Meeting</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Oct 18, 2025 · AMS Sectional Meeting (2025 Fall Central) — Saint Louis University (Special Session)</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1oEffAHgI8Mbe-dosg0UV52vZEK9CiCfi/view?usp=sharing" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Unfolding the Rational Symbolic Powers of Ideals (AMS Fall Central 2025)"
+                        data-abstract="Inspired by the various definitions of symbolic powers of ideals and the notion of rational powers of ideals, we introduce and study the concept of rational symbolic powers of an ideal. This construction seeks to interpolate between the classical symbolic powers and rational powers, providing a framework to investigate their behavior in the case of Squarefree-monomial ideals. I will define it and will be discussing some of the interesting properties that we explored.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://meetings.ams.org/math/fall2025c/meetingapp.cgi/Paper/51975" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
+                      <span class="type-pill type-ams"><i class="fa-solid fa-landmark"></i>AMS Sectional Meeting</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>May 03, 2025 · AMS Sectional Meeting (2025 Spring Western) — California Polytechnic State Univeristy (Special Session)</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1r1EIH5WuDp-N4Bx_1ZhGEihEar503eES/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Interpolation Problem and Recent Studies on Demailly’s Conjecture"
+                        data-abstract="The fundamental question raised by Masayoshi Nagata $(1958)$, inspired from the ‘Classical Interpolation Problem’ is a long-standing problem in the literature, which is: Given a finite set of points in the Projective Plane, what is the minimal degree of the hypersurface passing through those points with multiplicity at least $m$? G. V. Chudnovsky provided a conjectural bound to the above problem in $1981$, but for the Projective Space of any dimension, and a year later J. P. Demailly generalized Chudnovsky’s work. These conjectures have an equivalent version in terms of understanding the lower bounds for the Waldschmidt constants of the ideal defining the points. We study Demailly’s Conjecture for the case $m=3$. I will introduce the Conjectures and then discuss the tools we have used in our study of Demailly’s Conjecture. ">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://meetings.ams.org/math/spring2025w/meetingapp.cgi/Paper/48591" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Macaulay2 Workshop</div>
+                      <span class="type-pill type-lightning"><i class="fa-solid fa-bolt"></i>Lightning Talk</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Apr 18, 2025 · Macaulay2 at Tulane 2025 — Department of Mathematics, Tulane University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1sD_T3dtsx-GImvEnOKwOQaLeGcU6brli/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Macaulay2 Workshop (Lightning Talk)"
+                        data-abstract="In $N$-dimensional Projective Space, the main problem of interpolation is about finding the minimal degree of homogeneous polynomial that vanishes on a finite set of points with a given set of multiplicities. To deal with such a problem G. V. Chudnovsky and J.P. Demailly provided some conjectural bounds to the minimal degree, which I will discuss in the lightning session.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://sites.google.com/view/macaulay2tulane/home?authuser=0" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation in Projective Spaces</div>
+                      <span class="type-pill type-lightning"><i class="fa-solid fa-bolt"></i>Lightning Talk</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Apr 06, 2025 · Commutative Algebra in The South (CATS) 2025 — Georgia State University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1Ilk0_rPpmJ7DbbmFidrTjsH6O6G5xRFg/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Interpolation in Projective Spaces (CATS 2025)"
+                        data-abstract="In $N$-dimensional Projective Space, the main problem of interpolation is about finding the minimal degree of homogeneous polynomial that vanishes on a finite set of points with a given set of multiplicities. To deal with such a problem G. V. Chudnovsky and J.P. Demailly provided some conjectural bounds to the minimal degree, which I will discuss in the lightning session.  ">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://cats-math.github.io/index.html" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation of Projective Points under Algebraic Lens</div>
+                      <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Apr 05, 2025 · Math For All Virtual 2025 — Virtual</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/11IC1B79LkHgAgazo0nCK-frTIcVBa6E2/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Interpolation of Projective Points under Algebraic Lens"
+                        data-abstract="The classical Interpolation problem of estimating new data from a set of known data is well understood under one variable situation. That has been modified for multiple variables also, using different techniques. Here we are more interested in higher dimensional Projective Spaces, where we are trying to find the lowest possible degree of the hyper-surface passing through a given set of points with prescribed multiplicity. There are famous conjectures to tackle such problems: Chudnovsky’s Conjecture, Demailly’s Conjecture, etc. I will be discussing those conjectures and some recent developments in this area.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://drive.google.com/file/d/19CRzSHmKubA9aZd-zNV0gGQqYULX9X-H/view" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
+                      <span class="type-pill type-ams"><i class="fa-solid fa-landmark"></i>AMS Sectional Meeting</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Mar 29, 2025 · AMS Sectional Meeting (2025 Spring Central) — University of Kansas (Special Session)</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1YS8C3M5ifS4mkSZUv0Zr1MWj_SvOLjX4/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Interpolation Problem and Recent Studies on Demailly’s Conjecture (AMS Kansas)"
+                        data-abstract="The fundamental question raised by Masayoshi Nagata $(1958)$, inspired from the ‘Classical Interpolation Problem’ is a long-standing problem in the literature, which is: Given a finite set of points in the Projective Plane, what is the minimal degree of the hypersurface passing through those points with multiplicity at least $m$? G. V. Chudnovsky provided a conjectural bound to the above problem in $1981$, but for the Projective Space of any dimension, and a year later J. P. Demailly generalized Chudnovsky’s work. These conjectures have an equivalent version in terms of understanding the lower bounds for the Waldschmidt constants of the ideal defining the points. We study Demailly’s Conjecture for the case $m=3$. I will introduce the Conjectures and then discuss the tools we have used in our study of Demailly’s Conjecture.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://meetings.ams.org/math/spring2025w/meetingapp.cgi/Paper/48591" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Developments in Interpolation Problem for Projective Spaces</div>
+                      <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Mar 14, 2025 · Algebra &amp; Combinatorics Seminar ($\pi$-Day Special) — Department of Mathematics, Tulane University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1FURi70AGT0bbX34BHnwSqgqHrj76F8Iz/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Developments in Interpolation Problem for Projective Spaces"
+                        data-abstract="Classical Interpolation problem of estimating new data from a set of known data is well understood under one variable situation. Here we are more interested in higher dimensional Projective Spaces, where we are trying to find the lowest possible degree of the hyper-surface passing through a given set of points with prescribed multiplicity. There are famous conjectures to tackle such problems: Chudnovsky’s Conjecture, Demailly’s Conjecture. I will be discussing those conjectures and some recent developments in this area. ">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://www.math.tulane.edu/~kmincheva/seminarAC_S25.html" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Interpolation Problem: Conjectures &amp; New Developments</div>
+                      <span class="type-pill type-conference"><i class="fa-solid fa-people-group"></i>Conference</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Jan 03, 2025 · Two-Day Conference on "Mathematical Sciences and Applications" (CMSA-2025) — Department of Mathematical Sciences, Tezpur University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1_G8gfDIhYXM1pr32PPhKBTlwTPa4V3zY/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Interpolation Problem: Conjectures &amp; New Developments"
+                        data-abstract="Classical Interpolation problem of estimating new data from a set of known data is well understood under one variable situation. There are modified numerical methods of estimation, even for multiple (but small) variables. In higher dimensional spaces (namely, Projective Space) the main problem is of finding the lowest possible degree of the hyper-surface passing through a given set of points with prescribed multiplicity. To tackle such problems there are some famous conjectures: Chudnovsky’s Conjecture (provides the lower bound for the degree of the lowest possible hyper-surface that passes through the given set of points at least once), Demailly’s Conjecture (similar to the Chudnovsky’s Conjecture, but it captures the multiplicities also), and etc. I will be discussing those conjectures and some recent developments in this area, also some connected well-famous problems associated to interpolation problem.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <a class="pill-link pill-url" href="https://sites.google.com/view/cmsa-2025/home" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- ===== 2023 ===== -->
-          <div class="year-group">
-            <div class="year-head">
-              <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2023">Complete list of Talks — 2023</span>
-            </div>
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2024">Complete list of Talks — 2024</span>
+                </div>
 
-            <div class="tp-list">
-              <div class="tp-item">
-                <div class="tp-title-row">
-                  <div class="tp-item-title">Generalized Interpolation Problems and Chudnovsky's Conjecture</div>
-                  <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
-                </div>
-                <div class="tp-item-meta">
-                  <span>Apr 25, 2023 · Graduate Colloquium — Department of Mathematics, Tulane University</span>
-                </div>
-                <div class="tp-links">
-                  <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1Ub8cRHqVcuByDOr2zQU2S9q45SviU0Ng/view?usp=drive_link" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-file-pdf"></i> Slides / PDF
-                  </a>
-                  <button class="pill-link pill-abstract abstract-btn" type="button"
-                    data-title="Generalized Interpolation Problems and Chudnovsky's Conjecture"
-                    data-abstract="The problem of interpolation is well known. But what happens when we move to a higher dimension space over any arbitrary Field? While investigating such problem, Gregory Volfovich Chudnovsky gave a conjectural lower bound for the minimal degree of a homogeneous polynomial in the Polynomial ring that vanishes on a given finite set of points with a given set of multiplicities. Later Waldschmidth Constant came into the picture, but how this famous geometrical problem boils down to the Containment Problem of Symbolic Powers and Ordinary Powers is the primary objective of my talk. I will also talk on some recent developments in this area.">
-                    <i class="fa-regular fa-rectangle-list"></i> Abstract
-                  </button>
+                <div class="tp-list">
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Recent Developments in Interpolation Problems &amp; Demailly's Conjecture</div>
+                      <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Nov 05, 2024 · Graduate Colloquium — Department of Mathematics, Tulane University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1n6ArL2Saz_e7Og3tX6Fa6BbtUSciRsl8/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Recent Developments in Interpolation Problems &amp; Demailly's Conjecture"
+                        data-abstract="The classical Interpolation problem is a numerical analysis problem that estimates new data, from a known data set. There have been different approaches to provide more refined numerical results on Interpolation, like Polynomial Interpolation, Spline Interpolation, Mimetic Interpolation, etc. But in higher dimensions (specifically in $\mathbb{P}^{N}, N\geq 3$), the main problem is to find the minimal degree homogeneous polynomial that vanishes on a finite set of points with a given set of multiplicities. To deal with such a problem G.V. Chudnovsky and J.P. Demailly provided some conjectural bounds to the minimal degree, which I will discuss in my talk. I will also talk about some recent developments on this topic.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <!--<a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>-->
+                    </div>
+                  </div>
+
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Overview of Generalized Interpolation Problem, and its Algebraic Components</div>
+                      <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>May 24, 2024 · TU Alumni Talk — Department of Mathematical Sciences, Tezpur University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1ZKU6mV4p643GVvL-nuLWZr8m28wp05HE/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Overview of Generalized Interpolation Problem, and its Algebraic Components"
+                        data-abstract="The problem of interpolation is well known. But what happens when we leave planer space and move to some general space? While investigating such a problem, G. V. Chudnovsky gave a conjectural lower bound for the minimal degree of a homogeneous polynomial in the Polynomial ring that vanishes on a given finite set of points with a given set of multiplicities. &#10; Later Waldschmidt Constant came into the picture, but how this famous geometrical problem boils down to the Containment Problem of Symbolic Powers and Ordinary Powers and how other associated problems developed is the primary objective of my talk. I will start with the basic overview of Algebraic Geometry and connect it to my research via Commutative Algebra.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <!--<a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>-->
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- ===== 2022 ===== -->
-          <div class="year-group">
-            <div class="year-head">
-              <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2022">Complete list of Talks — 2022</span>
-            </div>
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2023">Complete list of Talks — 2023</span>
+                </div>
 
-            <div class="tp-list">
-              <div class="tp-item">
-                <div class="tp-title-row">
-                  <div class="tp-item-title">Algebraic Gaussian Sums and its Applications</div>
-                  <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
-                </div>
-                <div class="tp-item-meta">
-                  <span>Oct 04, 2022 · Graduate Colloquium — Department of Mathematics, Tulane University</span>
-                </div>
-                <div class="tp-links">
-                  <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1UaHkRk0xZk_TbvOPtQuITnBMuIZ6eq8t/view?usp=drive_link" target="_blank" rel="noopener">
-                    <i class="fa-solid fa-file-pdf"></i> Slides / PDF
-                  </a>
-                  <button class="pill-link pill-abstract abstract-btn" type="button"
-                    data-title="Algebraic Gaussian Sums and its Applications"
-                    data-abstract="Quadratic Gauss Sums, more known as Arithmetic Gauss Sum, first made appearance on 'Disquitiones Arithmaticae' in the $4^{th}$ and $6^{th}$ proof of 'Quadratic Reciprocity' back in $1797$. Thereafter it became a powerful tool in Number Theory. In this talk, we will try to get the glimpse of this unified concept and explore some of its applications.">
-                    <i class="fa-regular fa-rectangle-list"></i> Abstract
-                  </button>
+                <div class="tp-list">
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Generalized Interpolation Problems and Chudnovsky's Conjecture</div>
+                      <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Apr 25, 2023 · Graduate Colloquium — Department of Mathematics, Tulane University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1Ub8cRHqVcuByDOr2zQU2S9q45SviU0Ng/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Generalized Interpolation Problems and Chudnovsky's Conjecture"
+                        data-abstract="The problem of interpolation is well known. But what happens when we move to a higher dimension space over any arbitrary Field? While investigating such problem, Gregory Volfovich Chudnovsky gave a conjectural lower bound for the minimal degree of a homogeneous polynomial in the Polynomial ring that vanishes on a given finite set of points with a given set of multiplicities. Later Waldschmidth Constant came into the picture, but how this famous geometrical problem boils down to the Containment Problem of Symbolic Powers and Ordinary Powers is the primary objective of my talk. I will also talk on some recent developments in this area.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <!--<a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>-->
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-        </div><!-- /panelTalks -->
+              <div class="year-group">
+                <div class="year-head">
+                  <span class="year-chip js-year-chip" data-label="Complete list of Talks — 2022">Complete list of Talks — 2022</span>
+                </div>
+
+                <div class="tp-list">
+                  <div class="tp-item">
+                    <div class="tp-title-row">
+                      <div class="tp-item-title">Algebraic Gaussian Sums and its Applications</div>
+                      <span class="type-pill type-colloquium"><i class="fa-solid fa-graduation-cap"></i>Colloquium</span>
+                    </div>
+                    <div class="tp-item-meta">
+                      <span>Oct 04, 2022 · Graduate Colloquium — Department of Mathematics, Tulane University</span>
+                    </div>
+                    <div class="tp-links">
+                      <a class="pill-link pill-pdf" href="https://drive.google.com/file/d/1UaHkRk0xZk_TbvOPtQuITnBMuIZ6eq8t/view?usp=drive_link" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-pdf"></i> Slides / PDF
+                      </a>
+                      <button class="pill-link pill-abstract abstract-btn" type="button"
+                        data-title="Algebraic Gaussian Sums and its Applications"
+                        data-abstract="Quadratic Gauss Sums, more known as Arithmetic Gauss Sum, first made appearance on 'Disquitiones Arithmaticae' in the $4^{th}$ and $6^{th}$ proof of 'Quadratic Reciprocity' back in $1797$. Thereafter it became a powerful tool in Number Theory, and around 1870 Camille Jordan(probably) came up with a new Algebraic Structure with finite number of elements, what we now know as Finite Fields (appeared in 'Théorie de Galois'). And more than $100$ years later people (namely, Prof. Ronald J. Evans, Prof. Bruce C. Berndt) tried to unify these two notions. In this talk, we will try to get the glimpse of this unified concept and explore some of its applications.">
+                        <i class="fa-regular fa-rectangle-list"></i> Abstract
+                      </button>
+                      <!--<a class="pill-link pill-url" href="#" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-link"></i> URL
+                      </a>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
 
           <!-- ================= POSTERS PANEL ================= -->
             <div class="pres-panel" id="panelPosters">
-
-              <!-- ================= THEME 1 (NEWER PROJECT) ================= -->
+            
+              <!-- ================= THEME 2 (NEWER PROJECT) ================= -->
               <div class="poster-theme-box">
                 <div class="poster-theme">
                   <h2>
@@ -933,25 +1187,28 @@
                     Poster Theme:
                     <span class="theme-title">Introduction to Rational Symbolic Powers</span>
                   </h2>
-                  <p>Posters are grouped below by year.</p>
+                  <p>
+                    Posters are grouped below by year.
+                  </p>
                 </div>
-
+            
                 <div class="year-group">
                   <div class="year-head">
                     <span class="year-chip js-year-chip" data-label="Posters — 2026">Posters — 2026</span>
                   </div>
-
-                  <div class="tp-list">
+                  
+            
                     <div class="tp-item">
                       <div class="tp-title-row">
                         <div class="tp-item-title">SLAM 2026 — University of Texas at Arlington</div>
                         <!-- Right side reserved for achievements -->
                       </div>
-
+                    
+                      <!-- Date / location line -->
                       <div class="tp-item-meta">
                         <span> February 28-March 01, 2026 · University of Texas at Arlington, Arlington, Texas, USA</span>
                       </div>
-
+                    
                       <div class="tp-links">
                         <a class="type-pill type-poster"
                            href="https://drive.google.com/file/d/1lBh5rTcPrbPkJ9eWcbtjojC-iKplPzLI/view?usp=drive_link"
@@ -966,16 +1223,18 @@
                       </div>
                     </div>
 
-                    <div class="tp-item">
+            
+                  <div class="tp-item">
                       <div class="tp-title-row">
                         <div class="tp-item-title">CAAC 2026 — Dalhousie University</div>
                         <!-- Right side reserved for achievements -->
                       </div>
-
+                    
+                      <!-- Date / location line -->
                       <div class="tp-item-meta">
                         <span> January 23-25, 2026 · Dalhousie University, Halifax, Nova Scotia, Canada</span>
                       </div>
-
+                    
                       <div class="tp-links">
                         <a class="type-pill type-poster"
                            href="https://drive.google.com/file/d/1Kg3FpHqqV8xeCKRP4f2IwTJDjhgD65WZ/view?usp=drive_link"
@@ -989,11 +1248,13 @@
                         </a>
                       </div>
                     </div>
-                  </div><!-- /tp-list -->
-                </div><!-- /year-group -->
+                  
+                  </div>
+                </div>
               </div><!-- /poster-theme-box -->
-
-              <!-- ================= THEME 2 (OLDER PROJECT) ================= -->
+            
+            
+              <!-- ================= OLDER PROJECT: Demailly's Conjecture ================= -->
               <div class="poster-theme-box">
                 <div class="poster-theme">
                   <h2>
@@ -1001,25 +1262,27 @@
                     Poster Theme:
                     <span class="theme-title">Interpolation of Projective Points &amp; Demailly’s Conjecture</span>
                   </h2>
-                  <p>Posters are grouped below by year.</p>
+                  <p>
+                    Posters are grouped below by year.
+                  </p>
                 </div>
-
+            
                 <div class="year-group">
                   <div class="year-head">
                     <span class="year-chip js-year-chip" data-label="Posters — 2025">Posters — 2025</span>
                   </div>
-
-                  <div class="tp-list">
-                    <div class="tp-item">
+            
+                      <div class="tp-item">
                       <div class="tp-title-row">
                         <div class="tp-item-title">MCA 2025 — InterContinental Miami, Miami, Florida</div>
                         <span class="type-pill type-award"><i class="fa-solid fa-award"></i>2nd Best Poster</span>
                       </div>
-
+                    
+                      <!-- Date / location line -->
                       <div class="tp-item-meta">
                         <span> July 21-25, 2025 · InterContinental Miami, Miami, Florida, USA</span>
                       </div>
-
+                    
                       <div class="tp-links">
                         <a class="type-pill type-poster"
                            href="https://drive.google.com/file/d/1ZUUUYX9rXsM0ZXC9wk6rUE1ZAlbjYhMk/view?usp=drive_link"
@@ -1034,16 +1297,17 @@
                       </div>
                     </div>
 
+
                     <div class="tp-item">
                       <div class="tp-title-row">
                         <div class="tp-item-title">TRICS 2025 — Tulane University</div>
-                        <!-- Right side reserved for achievements -->
                       </div>
-
+                    
+                      <!-- Date / location line -->
                       <div class="tp-item-meta">
                         <span> April 08-10, 2025 · Tulane University, New Orleans, Louisiana, USA</span>
                       </div>
-
+                    
                       <div class="tp-links">
                         <a class="type-pill type-poster"
                            href="https://drive.google.com/file/d/1Qag0jHpIbp_CfWD5krSmyd_MF1EkWWqF/view?usp=drive_link"
@@ -1057,17 +1321,17 @@
                         </a>
                       </div>
                     </div>
-
-                    <div class="tp-item">
+                      
+                     <div class="tp-item">
                       <div class="tp-title-row">
                         <div class="tp-item-title">CATS 2025 — Georgia State University</div>
-                        <!-- Right side reserved for achievements -->
                       </div>
-
+                    
+                      <!-- Date / location line -->
                       <div class="tp-item-meta">
                         <span> April 05-06, 2025 · Georgia State University, Georgia, Atlanta, USA</span>
                       </div>
-
+                    
                       <div class="tp-links">
                         <a class="type-pill type-poster"
                            href="https://drive.google.com/file/d/11BRGOQgztYDXSzCLVNANRk0Yy7a4jEQK/view?usp=drive_link"
@@ -1081,17 +1345,17 @@
                         </a>
                       </div>
                     </div>
-
-                    <div class="tp-item">
+            
+                     <div class="tp-item">
                       <div class="tp-title-row">
                         <div class="tp-item-title">SLAM 2025 — Arizona State University</div>
-                        <!-- Right side reserved for achievements -->
                       </div>
-
+                    
+                      <!-- Date / location line -->
                       <div class="tp-item-meta">
                         <span> March 01-02, 2025 · Arizona State University, Phoenix, Arizona, USA</span>
                       </div>
-
+                    
                       <div class="tp-links">
                         <a class="type-pill type-poster"
                            href="https://drive.google.com/file/d/1b63-VyqwQn6Pp8Txq1xKV9TIfMaY-eZl/view?usp=drive_link"
@@ -1105,25 +1369,25 @@
                         </a>
                       </div>
                     </div>
-                  </div><!-- /tp-list -->
-                </div><!-- /year-group -->
-
+            
+                  </div>
+                </div>
+            
                 <div class="year-group">
                   <div class="year-head">
                     <span class="year-chip js-year-chip" data-label="Posters — 2024">Posters — 2024</span>
                   </div>
-
-                  <div class="tp-list">
-                    <div class="tp-item">
+            
+                       <div class="tp-item">
                       <div class="tp-title-row">
                         <div class="tp-item-title">KUMUNU 2024 — University of Missouri</div>
-                        <!-- Right side reserved for achievements -->
                       </div>
-
+                    
+                      <!-- Date / location line -->
                       <div class="tp-item-meta">
                         <span> September 28-29, 2024 · University of Missouri, Columbus, Missouri, USA</span>
                       </div>
-
+                    
                       <div class="tp-links">
                         <a class="type-pill type-poster"
                            href="https://drive.google.com/file/d/1lTAvGxdFOiV6HgFtbLheol-8cw4CLeOx/view?usp=drive_link"
@@ -1137,11 +1401,14 @@
                         </a>
                       </div>
                     </div>
-                  </div><!-- /tp-list -->
-                </div><!-- /year-group -->
+                    
+                  </div>
+                </div>
               </div><!-- /poster-theme-box -->
-
+            
             </div><!-- /panelPosters -->
+
+        </div>
 
         <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
@@ -1241,7 +1508,7 @@
     const btnTalks   = document.getElementById('btnTalks');
     const btnPosters = document.getElementById('btnPosters');
     const panelTalks = document.getElementById('panelTalks');
-    const panelPosts = document.getElementById('panelPosters');
+    const panelPosters = document.getElementById('panelPosters');
 
     function setView(view){
       const talksOn = view === 'talks';
@@ -1253,13 +1520,10 @@
         btnPosters.setAttribute('aria-selected', !talksOn ? 'true' : 'false');
       }
 
-      if (panelTalks && panelPosts){
+      if (panelTalks && panelPosters){
         panelTalks.classList.toggle('is-active', talksOn);
-        panelPosts.classList.toggle('is-active', !talksOn);
+        panelPosters.classList.toggle('is-active', !talksOn);
       }
-
-      // Refresh counts (toggle + per-year)
-      if (typeof updateCounters === 'function') updateCounters();
     }
 
     if (btnTalks) btnTalks.addEventListener('click', () => setView('talks'));
@@ -1274,8 +1538,8 @@
       if (panelTalks && talkCountEl){
         talkCountEl.textContent = panelTalks.querySelectorAll('.tp-item').length;
       }
-      if (panelPosts && posterCountEl){
-        posterCountEl.textContent = panelPosts.querySelectorAll('.tp-item').length;
+      if (panelPosters && posterCountEl){
+        posterCountEl.textContent = panelPosters.querySelectorAll('.tp-item').length;
       }
 
       // Year counters (works for both panels)
