@@ -1280,14 +1280,10 @@ a:hover { text-decoration: underline; }
     display: inline-flex;        /* show CV */
   }
 
-  .controls .cv-button span {
-    display: none;               /* hide "CV" text, icon only */
-  }
-
   .controls {
     gap: 6px;                    /* tighten spacing */
   }
-}
+  }
 
 
   .top-nav-links {
