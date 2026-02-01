@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Outreach & Services | Dipendranath Mahato</title>
+  <title>Outreach &amp; Services | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts & Icons -->
@@ -26,32 +26,28 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-specific polish (scoped) -->
+  <!-- Page-specific styling (scoped so it won't affect other pages) -->
   <style>
-    /* Scope everything to this page container so it doesn't affect other pages */
-    .outreach-page {
-      --os-bg: rgba(255, 255, 255, 0.65);
-      --os-surface: rgba(255, 255, 255, 0.85);
-      --os-border: rgba(15, 23, 42, 0.10);
-      --os-text: rgba(15, 23, 42, 0.94);
-      --os-muted: rgba(15, 23, 42, 0.64);
+    .outreach-page{
+      --os-bg: rgba(255,255,255,.62);
+      --os-surface: rgba(255,255,255,.85);
+      --os-border: rgba(15,23,42,.10);
+      --os-text: rgba(15,23,42,.94);
+      --os-muted: rgba(15,23,42,.66);
       --os-accent: #0f766e; /* teal */
-      --os-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+      --os-shadow: 0 10px 28px rgba(2,6,23,.08);
       --os-radius: 16px;
     }
-
     html[data-theme="dark"] .outreach-page{
-      --os-bg: rgba(17, 24, 39, 0.35);
-      --os-surface: rgba(17, 24, 39, 0.65);
-      --os-border: rgba(255, 255, 255, 0.10);
-      --os-text: rgba(255, 255, 255, 0.90);
-      --os-muted: rgba(255, 255, 255, 0.65);
-      --os-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --os-bg: rgba(17,24,39,.40);
+      --os-surface: rgba(17,24,39,.70);
+      --os-border: rgba(255,255,255,.11);
+      --os-text: rgba(255,255,255,.92);
+      --os-muted: rgba(255,255,255,.66);
+      --os-shadow: 0 10px 28px rgba(0,0,0,.35);
     }
 
-    .outreach-page .content {
-      padding: 6px 6px 32px 6px;
-    }
+    .outreach-page .content-wrap{ padding: 4px 4px 30px; }
 
     .os-hero{
       background: var(--os-bg);
@@ -61,37 +57,32 @@
       box-shadow: var(--os-shadow);
       backdrop-filter: blur(10px);
     }
-
     .os-hero-top{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap: 14px;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
     }
-
     .os-title{
-      margin: 0;
+      margin:0;
       font-size: 1.55rem;
       letter-spacing: -0.02em;
       color: var(--os-text);
     }
-
     .os-subtitle{
-      margin: 8px 0 0 0;
-      max-width: 70ch;
+      margin: 8px 0 0;
+      max-width: 72ch;
       color: var(--os-muted);
-      line-height: 1.55;
-      font-size: 0.98rem;
+      line-height: 1.6;
+      font-size: .98rem;
     }
-
     .os-badges{
       display:flex;
       gap:10px;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
       justify-content:flex-end;
     }
-
     .os-badge{
       display:inline-flex;
       align-items:center;
@@ -101,43 +92,41 @@
       border: 1px solid var(--os-border);
       background: var(--os-surface);
       color: var(--os-muted);
-      font-size: 0.86rem;
+      font-size: .86rem;
       white-space: nowrap;
     }
     .os-badge i{ color: var(--os-accent); }
 
     .os-kpis{
       display:grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0,1fr));
       gap: 10px;
       margin-top: 14px;
     }
-
     @media (max-width: 900px){
-      .os-kpis{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .os-kpis{ grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
-
     .os-kpi{
       border: 1px solid var(--os-border);
       border-radius: 14px;
       background: var(--os-surface);
-      padding: 12px 12px 10px;
+      padding: 12px;
     }
     .os-kpi .num{
       font-weight: 750;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--os-text);
       margin-bottom: 2px;
     }
     .os-kpi .lab{
-      font-size: 0.86rem;
+      font-size: .86rem;
       color: var(--os-muted);
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .os-grid{
       display:grid;
-      grid-template-columns: 1.35fr 0.65fr;
+      grid-template-columns: 1.35fr .65fr;
       gap: 14px;
       margin-top: 14px;
       align-items:start;
@@ -154,25 +143,23 @@
       box-shadow: var(--os-shadow);
       backdrop-filter: blur(10px);
     }
-
     .os-card h2{
-      margin: 0 0 8px 0;
+      margin:0 0 8px;
       font-size: 1.05rem;
       color: var(--os-text);
       letter-spacing: -0.01em;
     }
-
     .os-card p, .os-card li{
       color: var(--os-muted);
-      font-size: 0.95rem;
-      line-height: 1.55;
+      font-size: .95rem;
+      line-height: 1.6;
     }
 
     /* Tabs */
     .os-tabs{
       display:flex;
       gap:10px;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
       margin: 10px 0 10px;
     }
     .os-tabbtn{
@@ -182,18 +169,18 @@
       color: var(--os-muted);
       border-radius: 999px;
       padding: 9px 12px;
-      font-size: 0.9rem;
+      font-size: .9rem;
       display:inline-flex;
       align-items:center;
       gap:8px;
       transition: transform .05s ease, border-color .15s ease;
     }
-    .os-tabbtn:hover{ border-color: rgba(15, 118, 110, 0.35); }
-    .os-tabbtn:active{ transform: scale(0.99); }
+    .os-tabbtn:hover{ border-color: rgba(15,118,110,.40); }
+    .os-tabbtn:active{ transform: scale(.99); }
     .os-tabbtn[aria-selected="true"]{
       color: var(--os-text);
-      border-color: rgba(15, 118, 110, 0.55);
-      box-shadow: 0 1px 0 rgba(15, 118, 110, 0.20);
+      border-color: rgba(15,118,110,.58);
+      box-shadow: 0 1px 0 rgba(15,118,110,.20);
     }
     .os-panel{ display:none; }
     .os-panel[data-open="true"]{ display:block; }
@@ -206,71 +193,54 @@
     }
     .os-item{
       display:grid;
-      grid-template-columns: 140px 1fr;
+      grid-template-columns: 150px 1fr;
       gap: 12px;
       padding: 12px 0;
       border-top: 1px solid var(--os-border);
     }
-    .os-item:first-child{ border-top: 0; }
+    .os-item:first-child{ border-top:0; }
     .os-when{
-      font-size: 0.85rem;
+      font-size: .85rem;
       color: var(--os-muted);
       line-height: 1.25;
     }
     .os-where{
-      font-weight: 700;
+      font-weight: 750;
       color: var(--os-text);
     }
     .os-role{
       margin-top: 2px;
       color: var(--os-muted);
-      font-size: 0.9rem;
+      font-size: .9rem;
     }
     .os-bullets{
       margin: 8px 0 0;
       padding-left: 18px;
     }
     .os-bullets li{ margin: 6px 0; }
-
     @media (max-width: 650px){
-      .os-item{ grid-template-columns: 1fr; }
-      .os-when{ order: 2; }
+      .os-item{ grid-template-columns:1fr; }
     }
 
-    /* Accordions (optional details) */
-    .os-acc{
-      margin-top: 10px;
-      border-top: 1px dashed var(--os-border);
-      padding-top: 10px;
-    }
-    .os-acc details{
-      border: 1px solid var(--os-border);
-      border-radius: 14px;
-      background: var(--os-surface);
-      padding: 10px 12px;
-      margin: 8px 0;
-    }
-    .os-acc summary{
-      cursor:pointer;
-      color: var(--os-text);
-      font-weight: 650;
-      list-style: none;
-      display:flex;
+    /* Compact “info chips” */
+    .os-chiprow{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .os-chip{
+      display:inline-flex;
       align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-    }
-    .os-acc summary::-webkit-details-marker{ display:none; }
-    .os-acc .hint{
-      font-size: 0.86rem;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--os-border);
+      background: var(--os-surface);
       color: var(--os-muted);
-      margin-top: 6px;
+      font-size: .88rem;
     }
+    .os-chip i{ color: var(--os-accent); }
 
-    /* Sidebar cards */
+    /* Sidebar list */
     .os-side-list{
       list-style:none;
-      padding-left: 0;
+      padding-left:0;
       margin: 8px 0 0;
     }
     .os-side-list li{
@@ -280,13 +250,14 @@
       padding: 8px 0;
       border-top: 1px solid var(--os-border);
     }
-    .os-side-list li:first-child{ border-top: 0; }
+    .os-side-list li:first-child{ border-top:0; }
     .os-side-list i{ color: var(--os-accent); margin-top: 2px; }
+
     .os-cta{
       display:flex;
       gap:10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
+      flex-wrap:wrap;
+      margin-top:10px;
     }
     .os-cta a{
       display:inline-flex;
@@ -297,15 +268,15 @@
       border: 1px solid var(--os-border);
       background: var(--os-surface);
       color: var(--os-text);
-      font-weight: 650;
-      font-size: 0.92rem;
+      font-weight: 700;
+      font-size: .92rem;
       text-decoration:none;
     }
-    .os-cta a:hover{ border-color: rgba(15, 118, 110, 0.55); }
+    .os-cta a:hover{ border-color: rgba(15,118,110,.58); }
     .os-cta a i{ color: var(--os-accent); }
 
     .os-mini{
-      font-size: 0.9rem;
+      font-size: .9rem;
       color: var(--os-muted);
       margin: 10px 0 0;
     }
@@ -314,6 +285,7 @@
 
 <body>
   <div class="page">
+
     <!-- ================= HEADER / NAV ================= -->
     <header class="top-nav">
       <div class="brand">
@@ -337,6 +309,7 @@
         <a href="teaching.html">Teaching</a>
         <a href="presentations.html">Presentations</a>
 
+        <!-- Single dropdown (desktop), will flatten on mobile via CSS -->
         <div class="dropdown">
           <button class="dropbtn">
             More <i class="fa-solid fa-chevron-down"></i>
@@ -350,11 +323,13 @@
       </nav>
 
       <div class="controls">
+        <!-- Dark mode toggle button -->
         <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
           <i class="fa-solid fa-moon"></i>
           <span>Dark</span>
         </button>
 
+        <!-- CV button -->
         <a href="cv.html" class="pill-button primary cv-button">
           <i class="fa-solid fa-file-lines"></i>
           <span>CV</span>
@@ -364,7 +339,8 @@
 
     <!-- ================= LAYOUT ================= -->
     <main class="layout">
-      <!-- Sidebar (unchanged) -->
+
+      <!-- Sidebar (unchanged from your template) -->
       <aside class="sidebar">
         <div class="avatar">
           <img src="/assets/images/PXL_20250330_220427523-1575x2800-compressed.jpg"
@@ -381,11 +357,13 @@
           Department of Mathematics
         </div>
 
+        <!-- Research area padded block -->
         <div class="research-area-block">
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
             <span>Research Areas</span>
           </div>
+
           <div class="research-chips">
             <a href="research.html#commutative" class="chip">Commutative Algebra</a>
             <a href="research.html#algebraic-geometry" class="chip">Algebraic Geometry</a>
@@ -402,7 +380,7 @@
             </li>
             <li>
               <i class="fa-regular fa-envelope"></i>
-              <span><a href="mailto:dipendranathmahato13@gmail.com">dipendranathmahato13@gmail.com</a></span>
+              <span><a href="mailto:dipendranathmahato@gmail.com">dipendranathmahato@gmail.com</a></span>
             </li>
             <li>
               <i class="fa-regular fa-building"></i>
@@ -450,294 +428,297 @@
 
       <!-- ================= MAIN CONTENT ================= -->
       <section class="content outreach-page">
-        <!-- HERO -->
-        <div class="os-hero">
-          <div class="os-hero-top">
-            <div>
-              <h1 class="os-title">Outreach &amp; Services</h1>
-              <p class="os-subtitle">
-                I enjoy building mathematical community—through departmental service, student organizations,
-                mentoring, and K–12 outreach. Below is a curated record of my institutional and non-institutional engagements.
+        <div class="content-wrap">
+
+          <!-- HERO -->
+          <div class="os-hero">
+            <div class="os-hero-top">
+              <div>
+                <h1 class="os-title">Outreach &amp; Services</h1>
+                <p class="os-subtitle">
+                  I enjoy building mathematical community through departmental service, student organizations,
+                  mentoring, and K–12 outreach. This page highlights my institutional roles, non-institutional
+                  community work, and tutoring/mentoring contributions.
+                </p>
+              </div>
+
+              <div class="os-badges">
+                <div class="os-badge"><i class="fa-solid fa-people-group"></i> Community building</div>
+                <div class="os-badge"><i class="fa-solid fa-chalkboard-user"></i> Mentoring</div>
+                <div class="os-badge"><i class="fa-solid fa-handshake-angle"></i> Outreach</div>
+              </div>
+            </div>
+
+            <!-- Highlights (derived from CV categories) -->
+            <div class="os-kpis">
+              <div class="os-kpi">
+                <div class="num">ALTC</div>
+                <div class="lab">Math tutoring (1:1 &amp; groups) since Fall 2023</div>
+              </div>
+              <div class="os-kpi">
+                <div class="num">K–12 STEM</div>
+                <div class="lab">GiST &amp; BATS Math Section Leader</div>
+              </div>
+              <div class="os-kpi">
+                <div class="num">AMS Chapter</div>
+                <div class="lab">Treasurer → President; talks &amp; events</div>
+              </div>
+              <div class="os-kpi">
+                <div class="num">Alumni</div>
+                <div class="lab">Secretary of Alumni Association (Tezpur Univ.)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="os-grid">
+
+            <!-- MAIN CARD -->
+            <div class="os-card">
+              <h2>Outreach &amp; community involvement</h2>
+              <p style="margin:0 0 8px 0;">
+                Use the tabs to switch between institutional roles (university/department) and non-institutional service.
               </p>
+
+              <div class="os-tabs" role="tablist" aria-label="Outreach tabs">
+                <button class="os-tabbtn" role="tab" aria-selected="true" aria-controls="panel-inst" id="tab-inst">
+                  <i class="fa-solid fa-building-columns"></i> Institutional
+                </button>
+                <button class="os-tabbtn" role="tab" aria-selected="false" aria-controls="panel-noninst" id="tab-noninst">
+                  <i class="fa-solid fa-hand-holding-heart"></i> Non-institutional
+                </button>
+              </div>
+
+              <!-- Institutional -->
+              <div class="os-panel" role="tabpanel" id="panel-inst" aria-labelledby="tab-inst" data-open="true">
+                <ul class="os-timeline">
+
+                  <!-- Tulane: ALTC -->
+                  <li class="os-item">
+                    <div class="os-when">Fall 2023 – Present</div>
+                    <div>
+                      <div class="os-where">Academic Learning &amp; Tutoring Center (ALTC), Tulane University</div>
+                      <div class="os-role">Math Department Teaching Assistant</div>
+                      <ul class="os-bullets">
+                        <li>Facilitating problem-solving in one-on-one and small-group settings.</li>
+                        <li>Supporting courses including Calculus I–III, Statistics, Linear Algebra, and Real Analysis.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <!-- K-12 -->
+                  <li class="os-item">
+                    <div class="os-when">Oct 2022; Apr 2023</div>
+                    <div>
+                      <div class="os-where">K–12 STEM Outreach (Tulane)</div>
+                      <div class="os-role">Math Section Leader — GiST (Girls in STEM at Tulane)</div>
+                      <ul class="os-bullets">
+                        <li>Welcomed 5th–7th grade students for hands-on experiences in STEM.</li>
+                        <li>Used interactive “math models” and activities to introduce advanced ideas.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="os-item">
+                    <div class="os-when">Apr 2024; Sep 2024</div>
+                    <div>
+                      <div class="os-where">K–12 STEM Outreach (Tulane)</div>
+                      <div class="os-role">Math Section Leader — BATS (Boys At Tulane in STEM)</div>
+                      <ul class="os-bullets">
+                        <li>Designed/ran activity stations focused on exploration and confidence-building.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <!-- AMS student chapter -->
+                  <li class="os-item">
+                    <div class="os-when">May 2022 – May 2023</div>
+                    <div>
+                      <div class="os-where">American Mathematical Society (AMS) Tulane Student Chapter</div>
+                      <div class="os-role">Treasurer</div>
+                      <ul class="os-bullets">
+                        <li>Supported community events and departmental engagement.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="os-item">
+                    <div class="os-when">Jun 2023 – Jun 2024</div>
+                    <div>
+                      <div class="os-where">American Mathematical Society (AMS) Tulane Student Chapter</div>
+                      <div class="os-role">President</div>
+                      <ul class="os-bullets">
+                        <li>Organized AMS/AWM faculty talks at Tulane.</li>
+                        <li>Organized Annual Math BBQ (2023, 2024).</li>
+                        <li>Compiled alumni data for the graduate student chapter website.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <!-- SAGA -->
+                  <li class="os-item">
+                    <div class="os-when">Jun 2022 – May 2023</div>
+                    <div>
+                      <div class="os-where">South Asian Graduate Association (SAGA), Tulane University</div>
+                      <div class="os-role">Vice President</div>
+                      <ul class="os-bullets">
+                        <li>Helped restart the association after COVID-19 and supported community programming.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <!-- Tezpur: Training and Placement + Alumni Secretary -->
+                  <li class="os-item">
+                    <div class="os-when">Aug 2019 – Jul 2020</div>
+                    <div>
+                      <div class="os-where">Training &amp; Placement Cell, Tezpur University</div>
+                      <div class="os-role">Departmental Coordinator</div>
+                      <ul class="os-bullets">
+                        <li>Managed academic &amp; job allocation database and coordinated department-level efforts.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="os-item">
+                    <div class="os-when">Jul 2023 – Present</div>
+                    <div>
+                      <div class="os-where">Tezpur University — Alumni Association</div>
+                      <div class="os-role">Secretary</div>
+                      <ul class="os-bullets">
+                        <li>Managing academic &amp; job allocation database.</li>
+                        <li>Organizer of the 1st Math Alumni Meet (Tezpur University).</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <!-- Tezpur: Science council & Dept coordination -->
+                  <li class="os-item">
+                    <div class="os-when">Oct 2018 – Dec 2019</div>
+                    <div>
+                      <div class="os-where">Students Science Council, Tezpur University</div>
+                      <div class="os-role">Departmental Representative</div>
+                      <ul class="os-bullets">
+                        <li>Volunteered in outreach programs associated with InSCIgnis (2019).</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="os-item">
+                    <div class="os-when">Oct 2018 – Dec 2019; Jan 2020 – Jul 2020</div>
+                    <div>
+                      <div class="os-where">Department of Mathematical Sciences, Tezpur University</div>
+                      <div class="os-role">Departmental Coordinator; Volunteer</div>
+                      <ul class="os-bullets">
+                        <li>Organized math events for InSCIgnis (2019) and π-Day (2019 &amp; 2020 online).</li>
+                        <li>Organized/supervised math events and quizzes at the 2nd Assam Science Festival (Tezpur).</li>
+                        <li>Organized National Mathematics Day (online).</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="os-chiprow" aria-label="Institutional tags">
+                  <span class="os-chip"><i class="fa-solid fa-graduation-cap"></i> Mentoring &amp; tutoring</span>
+                  <span class="os-chip"><i class="fa-solid fa-children"></i> K–12 outreach</span>
+                  <span class="os-chip"><i class="fa-solid fa-calendar-check"></i> Event organization</span>
+                  <span class="os-chip"><i class="fa-solid fa-database"></i> Alumni &amp; data coordination</span>
+                </div>
+              </div>
+
+              <!-- Non-institutional -->
+              <div class="os-panel" role="tabpanel" id="panel-noninst" aria-labelledby="tab-noninst" data-open="false">
+                <ul class="os-timeline">
+                  <li class="os-item">
+                    <div class="os-when">Spring 2025</div>
+                    <div>
+                      <div class="os-where">TWOPLES — Directed Reading Program</div>
+                      <div class="os-role">Mentor (reading project: <em>An Introduction to Symbolic Powers</em>)</div>
+                      <ul class="os-bullets">
+                        <li>Guided weekly reading, problem sessions, and project direction.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="os-item">
+                    <div class="os-when">May 2020</div>
+                    <div>
+                      <div class="os-where">Shanko (NGO) — Cyclone Amphan relief</div>
+                      <div class="os-role">Community kitchens (coastal areas near Kolkata)</div>
+                      <ul class="os-bullets">
+                        <li>Organized/supported community kitchens after Cyclone Amphan.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="os-item">
+                    <div class="os-when">2020 – 2021</div>
+                    <div>
+                      <div class="os-where">COVID-19 relief</div>
+                      <div class="os-role">Community support near Kolkata and surrounding districts</div>
+                      <ul class="os-bullets">
+                        <li>Support to local dwellers during phases 1–2.</li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="os-item">
+                    <div class="os-when">May 2021</div>
+                    <div>
+                      <div class="os-where">Shanko (NGO) — Cyclone Yaas relief</div>
+                      <div class="os-role">Community kitchens (coastal areas near Kolkata)</div>
+                      <ul class="os-bullets">
+                        <li>Organized/supported community kitchens after Cyclone Yaas.</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="os-chiprow" aria-label="Non-institutional tags">
+                  <span class="os-chip"><i class="fa-solid fa-book-open"></i> Reading groups</span>
+                  <span class="os-chip"><i class="fa-solid fa-hand-holding-heart"></i> Relief work</span>
+                  <span class="os-chip"><i class="fa-solid fa-people-group"></i> Community support</span>
+                </div>
+              </div>
             </div>
 
-            <div class="os-badges">
-              <div class="os-badge"><i class="fa-solid fa-people-group"></i> Community building</div>
-              <div class="os-badge"><i class="fa-solid fa-chalkboard-user"></i> Mentoring</div>
-              <div class="os-badge"><i class="fa-solid fa-handshake-angle"></i> Outreach</div>
-            </div>
-          </div>
-
-          <!-- KPIs (edit counts anytime; they’re just highlights) -->
-          <div class="os-kpis">
-            <div class="os-kpi">
-              <div class="num">K–12 STEM</div>
-              <div class="lab">Volunteer outreach at Tulane programs</div>
-            </div>
-            <div class="os-kpi">
-              <div class="num">Student orgs</div>
-              <div class="lab">AMS chapter leadership & events</div>
-            </div>
-            <div class="os-kpi">
-              <div class="num">DRP</div>
-              <div class="lab">Directed Reading Program mentoring</div>
-            </div>
-            <div class="os-kpi">
-              <div class="num">Service</div>
-              <div class="lab">Department roles & coordination</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="os-grid">
-          <!-- MAIN CARD -->
-          <div class="os-card">
-            <h2>Service timeline</h2>
-            <p style="margin: 0 0 8px 0;">
-              Use the tabs to switch between institutional roles (university/department) and non-institutional service.
-            </p>
-
-            <div class="os-tabs" role="tablist" aria-label="Outreach tabs">
-              <button class="os-tabbtn" role="tab" aria-selected="true" aria-controls="panel-inst" id="tab-inst">
-                <i class="fa-solid fa-building-columns"></i> Institutional
-              </button>
-              <button class="os-tabbtn" role="tab" aria-selected="false" aria-controls="panel-noninst" id="tab-noninst">
-                <i class="fa-solid fa-hand-holding-heart"></i> Non-institutional
-              </button>
-            </div>
-
-            <!-- Institutional panel -->
-            <div class="os-panel" role="tabpanel" id="panel-inst" aria-labelledby="tab-inst" data-open="true">
-              <ul class="os-timeline">
-                <!-- Tezpur -->
-                <li class="os-item">
-                  <div class="os-when">Nov 2018 – Dec 2019</div>
+            <!-- SIDE CARD -->
+            <aside class="os-card">
+              <h2>Memberships</h2>
+              <ul class="os-side-list">
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
                   <div>
-                    <div class="os-where">Students Science Council — Departmental Coordinator</div>
-                    <div class="os-role">InSCIgnis 2019 Outreach Program (Tezpur University)</div>
-                    <ul class="os-bullets">
-                      <li>Visited Kabilabad High English School and demonstrated high-school level science experiments.</li>
-                      <li>Conducted mathematical games as part of outreach activities.</li>
-                    </ul>
+                    <div style="font-weight:750; color: var(--os-text);">American Mathematical Society (AMS)</div>
+                    <div style="color: var(--os-muted); font-size: .92rem;">Member (2021–present)</div>
                   </div>
                 </li>
-
-                <li class="os-item">
-                  <div class="os-when">Oct 2018 – Dec 2019</div>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
                   <div>
-                    <div class="os-where">Departmental Representative — Mathematical Sciences</div>
-                    <div class="os-role">Tezpur University</div>
-                    <ul class="os-bullets">
-                      <li>Led mathematics events for InSCIgnis 2019 (e.g., Brachistochrone curve, gravitational fields).</li>
-                      <li>Hosted mathematics events during the 2nd Assam Science Festival.</li>
-                      <li>Organized π-Day (2019) and supported National Mathematics Day (2018, online).</li>
-                    </ul>
+                    <div style="font-weight:750; color: var(--os-text);">Society for Industrial and Applied Mathematics (SIAM)</div>
+                    <div style="color: var(--os-muted); font-size: .92rem;">Member (2021–present)</div>
                   </div>
                 </li>
-
-                <li class="os-item">
-                  <div class="os-when">2019 – 2020</div>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
                   <div>
-                    <div class="os-where">Training &amp; Placement Cell — Departmental Coordinator</div>
-                    <div class="os-role">Tezpur University</div>
-                    <ul class="os-bullets">
-                      <li>Helped connect M.Sc. Mathematics students with training/placement resources and collaborators.</li>
-                    </ul>
-                  </div>
-                </li>
-
-                <!-- Tulane -->
-                <li class="os-item">
-                  <div class="os-when">May 2022 – May 2023</div>
-                  <div>
-                    <div class="os-where">Treasurer — AMS Tulane Student Chapter</div>
-                    <div class="os-role">Tulane University</div>
-                    <ul class="os-bullets">
-                      <li>Supported community-building events including the Annual Math BBQ (2022).</li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="os-item">
-                  <div class="os-when">May 2022 – Present</div>
-                  <div>
-                    <div class="os-where">Class Representative — Department of Mathematics</div>
-                    <div class="os-role">Tulane University</div>
-                    <ul class="os-bullets">
-                      <li>Strengthened communication between graduate students and faculty.</li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="os-item">
-                  <div class="os-when">Jun 2022 – May 2023</div>
-                  <div>
-                    <div class="os-where">Vice President — South Asian Graduate Association (SAGA)</div>
-                    <div class="os-role">Tulane University</div>
-                    <ul class="os-bullets">
-                      <li>Organized sectional meetings and built connections with other student associations.</li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="os-item">
-                  <div class="os-when">Jun 2023 – Jun 2024</div>
-                  <div>
-                    <div class="os-where">President — AMS Tulane Student Chapter</div>
-                    <div class="os-role">Tulane University</div>
-                    <ul class="os-bullets">
-                      <li>Compiled an alumni database for the Department of Mathematics.</li>
-                      <li>Organized AMS faculty talks (Fall 2023, Spring 2024).</li>
-                      <li>Supported Annual Math BBQ events (2023, 2024).</li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="os-item">
-                  <div class="os-when">Oct 2022 – May 2025</div>
-                  <div>
-                    <div class="os-where">Volunteer — K–12 STEM Outreach</div>
-                    <div class="os-role">Tulane University</div>
-                    <ul class="os-bullets">
-                      <li>Math section volunteer for Girls in STEM at Tulane (Fall 2022, Spring 2023).</li>
-                      <li>Math section volunteer for Boys at Tulane in STEM (Spring 2024, Fall 2024).</li>
-                    </ul>
+                    <div style="font-weight:750; color: var(--os-text);">Mathematical Association of America (MAA)</div>
+                    <div style="color: var(--os-muted); font-size: .92rem;">Member (2022–present)</div>
                   </div>
                 </li>
               </ul>
 
-              <div class="os-acc">
-                <details>
-                  <summary>
-                    What I try to prioritize in service
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </summary>
-                  <div class="hint">
-                    I like roles that improve student support, create welcoming math spaces, and connect outreach to learning.
-                    When possible, I also look for ways to fold mentoring and computational projects into community activities.
-                  </div>
-                </details>
-
-                <details>
-                  <summary>
-                    Interested in inviting me for outreach / mentoring?
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </summary>
-                  <div class="hint">
-                    I’m happy to help with: (i) short outreach talks, (ii) mentoring/reading groups (symbolic powers, commutative algebra),
-                    (iii) organizing student events, (iv) workshop support. Use the “Get in Touch” page to contact me.
-                  </div>
-                </details>
+              <div class="os-cta">
+                <a href="get-in-touch.html"><i class="fa-regular fa-paper-plane"></i> Get in Touch</a>
+                <a href="cv.html"><i class="fa-regular fa-file-lines"></i> View CV</a>
               </div>
-            </div>
 
-            <!-- Non-institutional panel -->
-            <div class="os-panel" role="tabpanel" id="panel-noninst" aria-labelledby="tab-noninst" data-open="false">
-              <ul class="os-timeline">
-                <li class="os-item">
-                  <div class="os-when">Spring 2025</div>
-                  <div>
-                    <div class="os-where">TWOPLES — Directed Reading Program Mentor</div>
-                    <div class="os-role">Mentoring</div>
-                    <ul class="os-bullets">
-                      <li>Mentored a reading project: <em>An Introduction to Symbolic Powers</em>.</li>
-                    </ul>
-                  </div>
-                </li>
+              <p class="os-mini">
+                If you want, I can add a small “Photos / Flyers / Outreach materials” gallery section here
+                (still matching your site style) without touching your global <code>style.css</code>.
+              </p>
+            </aside>
 
-                <li class="os-item">
-                  <div class="os-when">May 2020</div>
-                  <div>
-                    <div class="os-where">Shanko (NGO) — Cyclone Amphan relief</div>
-                    <div class="os-role">Community kitchens (coastal areas near Kolkata)</div>
-                    <ul class="os-bullets">
-                      <li>Organized / supported community kitchens after Cyclone Amphan.</li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="os-item">
-                  <div class="os-when">2020 – 2021</div>
-                  <div>
-                    <div class="os-where">COVID-19 relief</div>
-                    <div class="os-role">Community support near Kolkata and surrounding districts</div>
-                    <ul class="os-bullets">
-                      <li>Support to local dwellers during phases 1–2 near Kolkata and surrounding districts.</li>
-                    </ul>
-                  </div>
-                </li>
-
-                <li class="os-item">
-                  <div class="os-when">May 2021</div>
-                  <div>
-                    <div class="os-where">Shanko (NGO) — Cyclone Yaas relief</div>
-                    <div class="os-role">Community kitchens (coastal areas near Kolkata)</div>
-                    <ul class="os-bullets">
-                      <li>Organized / supported community kitchens after Cyclone Yaas.</li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-
-              <div class="os-acc">
-                <details>
-                  <summary>
-                    How these experiences influence my academic life
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </summary>
-                  <div class="hint">
-                    Outreach and mentoring keep me grounded in why mathematical communication matters: clarity, inclusion,
-                    and building confidence. I try to bring that into teaching and graduate community-building.
-                  </div>
-                </details>
-              </div>
-            </div>
           </div>
-
-          <!-- SIDE CARD -->
-          <aside class="os-card">
-            <h2>At a glance</h2>
-            <ul class="os-side-list">
-              <li>
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <div>
-                  <div style="font-weight:700; color: var(--os-text);">Mentoring & reading groups</div>
-                  <div style="color: var(--os-muted); font-size: 0.92rem;">DRP mentoring and student support.</div>
-                </div>
-              </li>
-              <li>
-                <i class="fa-solid fa-calendar-check"></i>
-                <div>
-                  <div style="font-weight:700; color: var(--os-text);">Event organization</div>
-                  <div style="color: var(--os-muted); font-size: 0.92rem;">Student chapter talks, BBQs, sectionals.</div>
-                </div>
-              </li>
-              <li>
-                <i class="fa-solid fa-children"></i>
-                <div>
-                  <div style="font-weight:700; color: var(--os-text);">K–12 outreach</div>
-                  <div style="color: var(--os-muted); font-size: 0.92rem;">STEM activities & volunteer sessions.</div>
-                </div>
-              </li>
-              <li>
-                <i class="fa-solid fa-hand-holding-heart"></i>
-                <div>
-                  <div style="font-weight:700; color: var(--os-text);">Community service</div>
-                  <div style="color: var(--os-muted); font-size: 0.92rem;">Relief efforts & community kitchens.</div>
-                </div>
-              </li>
-            </ul>
-
-            <div class="os-cta">
-              <a href="get-in-touch.html"><i class="fa-regular fa-paper-plane"></i> Get in Touch</a>
-              <a href="cv.html"><i class="fa-regular fa-file-lines"></i> View CV</a>
-            </div>
-
-            <p class="os-mini">
-              Tip: If you want, I can also add a small “Photos / Posters” section here (with a clean gallery layout)
-              without changing your global style.css.
-            </p>
-          </aside>
         </div>
 
         <div class="footer">
@@ -748,7 +729,7 @@
     </main>
   </div>
 
-  <!-- ================= SCRIPTS (same as your template) ================= -->
+  <!-- ================= SCRIPTS (unchanged from your template) ================= -->
   <script>
     // ----- Footer year -----
     const yearSpan = document.getElementById("year");
@@ -809,6 +790,47 @@
         if (label) label.textContent = 'Dark';
       }
     }
+
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
+      ? savedTheme
+      : 'light';
+
+    applyTheme(initialTheme);
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next    = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+      });
+    }
+
+    // ----- Outreach tabs -----
+    const tabs = [
+      { btn: 'tab-inst', panel: 'panel-inst' },
+      { btn: 'tab-noninst', panel: 'panel-noninst' }
+    ];
+
+    function setTab(activeBtnId){
+      tabs.forEach(({btn, panel}) => {
+        const b = document.getElementById(btn);
+        const p = document.getElementById(panel);
+        const on = (btn === activeBtnId);
+        if (b) b.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (p) p.dataset.open = on ? 'true' : 'false';
+      });
+    }
+
+    tabs.forEach(({btn}) => {
+      const b = document.getElementById(btn);
+      if (b) b.addEventListener('click', () => setTab(btn));
+    });
+  </script>
+
+</body>
+</html>
 
     const savedTheme = localStorage.getItem(THEME_KEY);
     const initialTheme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light';
