@@ -1,1197 +1,1382 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <title>CV | Dipendranath Mahato</title>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dipendranath Mahato — Curriculum Vitae</title>
 
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" />
+  <!-- Fonts / Icons (match your site stack) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css"/>
 
-  <!-- MathJax -->
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-      svg: { fontCache: 'global' }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
-  <!-- Site CSS (your template stylesheet) -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Page-scoped CSS (dark mode + mobile friendly) -->
   <style>
-    .content { width: 100%; }
+    :root{
+      --bg0: #f6f7fb;
+      --bg1: #eef2ff;
+      --text: rgba(15,23,42,0.92);
+      --muted: rgba(15,23,42,0.70);
+      --muted2: rgba(15,23,42,0.56);
+      --card: rgba(255,255,255,0.72);
+      --card2: rgba(255,255,255,0.62);
+      --border: rgba(148,163,184,0.22);
+      --border2: rgba(148,163,184,0.18);
+      --shadow: 0 18px 50px rgba(15,23,42,0.10);
+      --shadow2: 0 10px 30px rgba(15,23,42,0.08);
 
-    .page-title-row{
-      display:flex; align-items:flex-start; justify-content:space-between;
-      gap:14px; margin: 2px 0 14px;
+      --accent: #2563eb;
+      --accent2: #7c3aed;
+      --good: #16a34a;
+      --warn: #ca8a04;
+
+      --pill-border: rgba(148,163,184,0.28);
+      --pill-bg: rgba(15,23,42,0.04);
+
+      --radius: 18px;
+      --radius2: 14px;
+      --maxw: 1080px;
     }
-    .page-title{
+
+    html[data-theme="dark"]{
+      --bg0: #070a12;
+      --bg1: #0b1220;
+      --text: rgba(226,232,240,0.92);
+      --muted: rgba(226,232,240,0.72);
+      --muted2: rgba(226,232,240,0.58);
+      --card: rgba(17,24,39,0.62);
+      --card2: rgba(17,24,39,0.52);
+      --border: rgba(148,163,184,0.18);
+      --border2: rgba(148,163,184,0.14);
+      --shadow: 0 18px 54px rgba(0,0,0,0.55);
+      --shadow2: 0 12px 34px rgba(0,0,0,0.45);
+
+      --pill-border: rgba(148,163,184,0.22);
+      --pill-bg: rgba(255,255,255,0.06);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
       margin:0;
-      font-size: clamp(1.35rem, 2.4vw, 2.05rem);
-      line-height:1.15;
-      letter-spacing:-0.02em;
-    }
-    .page-subtitle{
-      margin:6px 0 0;
-      color: var(--muted, rgba(0,0,0,0.65));
-      font-size: 0.98rem;
-      line-height:1.45;
-      max-width: 60ch;
-    }
-    html[data-theme="dark"] .page-subtitle{
-      color: var(--muted, rgba(255,255,255,0.72));
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 540px at 14% 0%, rgba(37,99,235,0.16), transparent 58%),
+        radial-gradient(1100px 520px at 86% 12%, rgba(124,58,237,0.14), transparent 56%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height: 100vh;
     }
 
-    .cv-toolbar{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* ===== Top Nav ===== */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.55);
+      border-bottom: 1px solid var(--border2);
     }
-    .search-wrap{
-      position:relative; min-width: min(340px, 78vw);
-    }
-    .search-wrap input{
-      width:100%;
-      padding: 10px 12px 10px 38px;
-      border-radius: 999px;
-      border: 1px solid var(--border, rgba(0,0,0,0.12));
-      background: var(--panel, rgba(255,255,255,0.7));
-      color: var(--text, #111);
-      outline: none;
-    }
-    html[data-theme="dark"] .search-wrap input{
-      background: var(--panel, rgba(20,20,20,0.7));
-      border-color: var(--border, rgba(255,255,255,0.14));
-      color: var(--text, #f5f5f5);
-    }
-    .search-wrap i{
-      position:absolute; left:14px; top:50%; transform:translateY(-50%);
-      opacity:0.75;
+    html[data-theme="dark"] .topbar{ background: rgba(2,6,23,0.55); }
+
+    .topbar-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 10px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
     }
 
-    .cv-grid{
-      display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 18px;
-      align-items:start;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
     }
-    @media (max-width: 980px){
-      .cv-grid{ grid-template-columns: 1fr; }
-      .cv-toolbar{ justify-content:flex-start; }
+    .brand img{
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--border2);
+      background: rgba(255,255,255,0.6);
+      object-fit: cover;
+    }
+    html[data-theme="dark"] .brand img{ background: rgba(255,255,255,0.08); }
+
+    .brand-title{
+      display:flex;
+      flex-direction:column;
+      line-height: 1.05;
+      min-width: 0;
+    }
+    .brand-title .name{
+      font-weight: 1000;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand-title .sub{
+      font-size: 0.82rem;
+      color: var(--muted2);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .card{
-      border: 1px solid var(--border, rgba(0,0,0,0.10));
-      background: var(--panel, rgba(255,255,255,0.72));
-      border-radius: 18px;
-      padding: 14px;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-    }
-    html[data-theme="dark"] .card{
-      background: var(--panel, rgba(18,18,18,0.72));
-      border-color: var(--border, rgba(255,255,255,0.12));
-      box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    .nav-toggle{
+      display:none;
+      border: 1px solid var(--border);
+      background: var(--pill-bg);
+      padding: 8px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      color: var(--text);
     }
 
-    .card h2{
-      margin:0 0 10px;
-      font-size: 1.05rem;
-      letter-spacing: -0.01em;
-      display:flex; align-items:center; gap:10px;
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
     }
-    .card h2 i{ opacity: 0.9; }
-
-    .badge-row{ display:flex; flex-wrap:wrap; gap:8px; margin: 10px 0 0; }
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border, rgba(0,0,0,0.12));
-      background: rgba(255,255,255,0.5);
-      font-size: 0.88rem;
-      color: var(--text, #111);
+    .navlinks a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      color: var(--muted);
       white-space: nowrap;
     }
-    html[data-theme="dark"] .badge{
-      border-color: var(--border, rgba(255,255,255,0.14));
-      background: rgba(255,255,255,0.06);
-      color: var(--text, #f5f5f5);
+    .navlinks a:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,0.35);
+      text-decoration:none;
+    }
+    html[data-theme="dark"] .navlinks a:hover{ background: rgba(255,255,255,0.06); }
+
+    /* Remove CV button from title bar per request => no CV pill here */
+
+    .theme-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: var(--pill-bg);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      cursor:pointer;
+      user-select:none;
+      white-space: nowrap;
+    }
+
+    /* Mobile nav collapse */
+    @media (max-width: 860px){
+      .nav-toggle{ display:inline-flex; align-items:center; gap:8px; }
+      .navlinks{
+        display:none;
+        position:absolute;
+        top: 56px;
+        right: 12px;
+        left: 12px;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(255,255,255,0.82);
+        box-shadow: var(--shadow2);
+      }
+      html[data-theme="dark"] .navlinks{
+        background: rgba(2,6,23,0.78);
+      }
+      .navlinks.open{ display:flex; flex-direction:column; align-items:stretch; }
+      .navlinks a{ width: 100%; }
+    }
+
+    /* ===== Layout ===== */
+    .wrap{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px 16px 44px;
+      position: relative;
+    }
+
+    .hero{
+      border: 1px solid var(--border2);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding: 16px 16px;
+    }
+
+    .hero-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size: 1.55rem;
+      font-weight: 1000;
+      letter-spacing: 0.3px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(124,58,237,0.22);
+      background:
+        radial-gradient(900px 220px at 15% 0%, rgba(124,58,237,0.22), transparent 55%),
+        radial-gradient(900px 220px at 85% 30%, rgba(37,99,235,0.18), transparent 55%),
+        rgba(124,58,237,0.08);
+      text-shadow: 0 0 18px rgba(124,58,237,0.14);
+    }
+    html[data-theme="dark"] .hero h1{
+      border-color: rgba(192,132,252,0.22);
+      background:
+        radial-gradient(900px 220px at 15% 0%, rgba(192,132,252,0.26), transparent 55%),
+        radial-gradient(900px 220px at 85% 30%, rgba(96,165,250,0.20), transparent 55%),
+        rgba(192,132,252,0.10);
+      text-shadow: 0 0 18px rgba(192,132,252,0.16);
+    }
+
+    .hero p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 860px;
+    }
+
+    .contact-row{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items:center;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--pill-border);
+      background: var(--pill-bg);
+      font-weight: 900;
+      font-size: 0.86rem;
+      color: var(--muted);
+      text-decoration:none !important;
+      white-space: nowrap;
+    }
+    .pill i{ opacity: .95; }
+    .pill:hover{ filter: brightness(1.02); }
+
+    .pill-site{
+      border-color: rgba(37,99,235,0.30);
+      background: rgba(37,99,235,0.10);
+      color: rgba(30,64,175,0.96);
+    }
+    html[data-theme="dark"] .pill-site{ color: rgba(191,219,254,0.95); }
+
+    .pill-email{
+      border-color: rgba(16,185,129,0.30);
+      background: rgba(16,185,129,0.10);
+      color: rgba(4,120,87,0.96);
+    }
+    html[data-theme="dark"] .pill-email{ color: rgba(187,247,208,0.95); }
+
+    .pill-pdf{
+      border-color: rgba(124,58,237,0.32);
+      background: rgba(124,58,237,0.12);
+      color: rgba(91,33,182,0.96);
+    }
+    html[data-theme="dark"] .pill-pdf{ color: rgba(233,213,255,0.95); }
+
+    .content{
+      margin-top: 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+
+    .section{
+      border: 1px solid var(--border2);
+      background: var(--card2);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding: 14px 14px;
+      scroll-margin-top: 120px;
+    }
+
+    .sec-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .section h2{
+      margin:0;
+      font-size: 1.15rem;
+      font-weight: 1000;
+      letter-spacing: 0.2px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .section h2 .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.45);
+      font-size: 0.86rem;
+      font-weight: 1000;
+    }
+    html[data-theme="dark"] .section h2 .badge{ background: rgba(255,255,255,0.08); }
+
+    .sec-sub{
+      margin: 6px 0 0;
+      color: var(--muted2);
+      line-height: 1.5;
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .list li{ margin: 6px 0; }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    @media (max-width: 760px){
+      .grid2{ grid-template-columns: 1fr; }
     }
 
     .item{
-      padding: 10px 10px;
+      border: 1px solid var(--border2);
+      background: rgba(255,255,255,0.55);
       border-radius: 14px;
-      border: 1px solid transparent;
+      padding: 12px;
     }
-    .item + .item{ margin-top: 8px; }
-    .item:hover{
-      border-color: var(--border, rgba(0,0,0,0.10));
-      background: rgba(0,0,0,0.02);
-    }
-    html[data-theme="dark"] .item:hover{
-      border-color: var(--border, rgba(255,255,255,0.12));
-      background: rgba(255,255,255,0.05);
-    }
+    html[data-theme="dark"] .item{ background: rgba(255,255,255,0.06); }
 
-    .item-top{
-      display:flex; justify-content:space-between; gap: 12px; flex-wrap: wrap;
-      align-items: baseline;
+    .item .t{
+      font-weight: 950;
+      line-height: 1.25;
     }
-    .item-title{ font-weight: 650; }
-    .item-meta{
-      font-size: 0.92rem;
-      color: var(--muted, rgba(0,0,0,0.65));
-    }
-    html[data-theme="dark"] .item-meta{ color: var(--muted, rgba(255,255,255,0.72)); }
-
-    .item-sub{
+    .item .m{
       margin-top: 6px;
-      font-size: 0.95rem;
-      color: var(--muted, rgba(0,0,0,0.70));
+      font-size: 0.92rem;
+      color: var(--muted);
       line-height: 1.45;
     }
-    html[data-theme="dark"] .item-sub{ color: var(--muted, rgba(255,255,255,0.75)); }
-
-    .tight-list{ margin: 8px 0 0 0; padding-left: 18px; }
-    .tight-list li{ margin: 5px 0; line-height: 1.5; }
-    .muted{ color: var(--muted, rgba(0,0,0,0.68)); }
-    html[data-theme="dark"] .muted{ color: var(--muted, rgba(255,255,255,0.72)); }
-
-    .small-note{ font-size: 0.9rem; }
-
-    .accordion details{
-      border: 1px solid var(--border, rgba(0,0,0,0.10));
-      background: rgba(255,255,255,0.45);
-      border-radius: 16px;
-      padding: 10px 12px;
-    }
-    html[data-theme="dark"] .accordion details{
-      border-color: var(--border, rgba(255,255,255,0.12));
-      background: rgba(255,255,255,0.05);
-    }
-    .accordion details + details{ margin-top: 10px; }
-    .accordion summary{
-      cursor:pointer;
-      list-style:none;
-      display:flex; align-items:center; justify-content:space-between; gap: 10px;
-      font-weight: 650;
-    }
-    .accordion summary::-webkit-details-marker{ display:none; }
-    .accordion summary .chev{ opacity:0.7; transition: transform 160ms ease; }
-    details[open] summary .chev{ transform: rotate(180deg); }
-
-    /* Search filtering */
-    .hidden-by-search{ display:none !important; }
-
-    /* Better spacing on mobile */
-    @media (max-width: 520px){
-      .card{ padding: 12px; border-radius: 16px; }
-      .item{ padding: 10px 8px; }
-      .search-wrap{ min-width: 100%; }
+    .meta-row{
+      margin-top: 8px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      align-items:center;
     }
 
-    /* --- Sticky mini navigation --- */
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--pill-border);
+      background: var(--pill-bg);
+      font-size: 0.76rem;
+      font-weight: 950;
+      letter-spacing: .02em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .chip.good{ border-color: rgba(16,185,129,0.28); background: rgba(16,185,129,0.10); color: rgba(4,120,87,0.96); }
+    html[data-theme="dark"] .chip.good{ color: rgba(187,247,208,0.95); }
+    .chip.award{ border-color: rgba(234,179,8,0.30); background: rgba(234,179,8,0.12); color: rgba(146,64,14,0.96); }
+    html[data-theme="dark"] .chip.award{ color: rgba(253,230,138,0.95); }
+    .chip.talk{ border-color: rgba(59,130,246,0.30); background: rgba(59,130,246,0.12); color: rgba(29,78,216,0.96); }
+    html[data-theme="dark"] .chip.talk{ color: rgba(191,219,254,0.95); }
+    .chip.poster{ border-color: rgba(124,58,237,0.30); background: rgba(124,58,237,0.12); color: rgba(91,33,182,0.96); }
+    html[data-theme="dark"] .chip.poster{ color: rgba(233,213,255,0.95); }
+
+    hr.soft{
+      border: none;
+      border-top: 1px solid var(--border2);
+      margin: 12px 0;
+      opacity: 0.9;
+    }
+
+    /* ===== Sticky mini navigation (requested) ===== */
     .mini-nav{
       position: sticky;
-      top: var(--miniNavTop, 78px); /* adjust if your top-nav height differs */
-      z-index: 40;
-      margin: 12px 0 18px;
-    }
-
-    .mini-nav-inner{
+      top: 62px; /* below topbar */
+      z-index: 900;
+      border: 1px solid var(--border2);
+      background: rgba(255,255,255,0.62);
+      backdrop-filter: blur(12px);
+      border-radius: 999px;
+      padding: 8px;
+      box-shadow: var(--shadow2);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 10px;
-      padding: 10px 12px;
-      border-radius: 16px;
-      border: 1px solid var(--border, rgba(0,0,0,0.10));
-      background: var(--panel, rgba(255,255,255,0.72));
-      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-      backdrop-filter: blur(10px);
+      margin-top: 14px;
     }
+    html[data-theme="dark"] .mini-nav{ background: rgba(2,6,23,0.62); }
 
-    html[data-theme="dark"] .mini-nav-inner{
-      border-color: var(--border, rgba(255,255,255,0.12));
-      background: var(--panel, rgba(18,18,18,0.72));
-      box-shadow: 0 10px 24px rgba(0,0,0,0.35);
-    }
-
-    .mini-nav-label{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-weight: 650;
-      font-size: 0.95rem;
-    }
-
-    .mini-nav-pills{
+    .mini-links{
       display:flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content:flex-end;
+      gap: 6px;
       align-items:center;
+      flex-wrap: wrap;
     }
-
-    .mini-nav-link{
+    .mini-links a{
       display:inline-flex;
       align-items:center;
+      gap: 8px;
       padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid var(--border, rgba(0,0,0,0.12));
-      background: rgba(255,255,255,0.45);
-      color: var(--text, #111);
-      text-decoration:none;
-      font-size: 0.9rem;
-      line-height: 1;
+      border: 1px solid transparent;
+      font-weight: 950;
+      font-size: 0.86rem;
+      color: var(--muted);
+      text-decoration:none !important;
       white-space: nowrap;
     }
+    .mini-links a:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,0.35);
+    }
+    html[data-theme="dark"] .mini-links a:hover{ background: rgba(255,255,255,0.06); }
 
-    html[data-theme="dark"] .mini-nav-link{
-      border-color: var(--border, rgba(255,255,255,0.14));
-      background: rgba(255,255,255,0.06);
-      color: var(--text, #f5f5f5);
-    }
-
-    .mini-nav-link:hover{
-      transform: translateY(-1px);
-      background: rgba(0,0,0,0.04);
-    }
-
-    html[data-theme="dark"] .mini-nav-link:hover{
-      background: rgba(255,255,255,0.08);
-    }
-
-    /* Active section highlight */
-    .mini-nav-link.active{
-      border-color: rgba(0,0,0,0.22);
-      background: rgba(0,0,0,0.06);
-      font-weight: 700;
-    }
-    html[data-theme="dark"] .mini-nav-link.active{
-      border-color: rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-    }
-
-    /* Mobile dropdown */
-    .mini-nav-select{
-      display:none;
-      position: relative;
-      min-width: 190px;
-    }
-    .mini-nav-select select{
-      width:100%;
-      appearance:none;
-      -webkit-appearance:none;
-      -moz-appearance:none;
-      padding: 9px 36px 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border, rgba(0,0,0,0.12));
-      background: rgba(255,255,255,0.45);
-      color: var(--text, #111);
-      outline:none;
-      font-size: 0.95rem;
-    }
-    html[data-theme="dark"] .mini-nav-select select{
-      border-color: var(--border, rgba(255,255,255,0.14));
-      background: rgba(255,255,255,0.06);
-      color: var(--text, #f5f5f5);
-    }
-    .mini-nav-caret{
-      position:absolute;
-      right: 12px;
-      top:50%;
-      transform: translateY(-50%);
-      opacity:0.75;
-      pointer-events:none;
-    }
-
-    /* Collapse pills into dropdown on small screens */
-    @media (max-width: 640px){
-      .mini-nav-inner{
-        padding: 10px;
+    /* Collapsible mini-nav on mobile */
+    .mini-collapsible{ display:none; }
+    @media (max-width: 760px){
+      .mini-nav{ border-radius: 16px; padding: 10px 10px; }
+      .mini-links{ display:none; }
+      .mini-collapsible{ display:block; width:100%; }
+      .mini-collapsible details{
+        border: 1px solid var(--border2);
+        background: rgba(255,255,255,0.55);
+        border-radius: 14px;
+        padding: 10px 10px;
       }
-      .mini-nav-pills{
-        display:none;
+      html[data-theme="dark"] .mini-collapsible details{ background: rgba(255,255,255,0.06); }
+      .mini-collapsible summary{
+        cursor:pointer;
+        font-weight: 1000;
+        list-style:none;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 12px;
       }
-      .mini-nav-select{
-        display:block;
+      .mini-collapsible summary::-webkit-details-marker{ display:none; }
+      .mini-collapsible .drop{
+        margin-top: 10px;
+        display:flex;
+        flex-wrap: wrap;
+        gap: 8px;
       }
+      .mini-collapsible .drop a{
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--border2);
+        background: rgba(255,255,255,0.42);
+        font-weight: 950;
+        text-decoration:none !important;
+      }
+      html[data-theme="dark"] .mini-collapsible .drop a{ background: rgba(255,255,255,0.06); }
     }
 
-    /* Screen-reader-only helper */
-    .sr-only{
-      position:absolute;
-      width:1px;
-      height:1px;
-      padding:0;
-      margin:-1px;
-      overflow:hidden;
-      clip: rect(0,0,0,0);
-      white-space:nowrap;
-      border:0;
+    /* ===== Right-side Jump-to (requested) ===== */
+    .jump{
+      position: fixed;
+      right: 18px;
+      top: 124px;
+      z-index: 950;
+      width: 240px;
+      border: 1px solid var(--border2);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.62);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow2);
+      padding: 10px;
+    }
+    html[data-theme="dark"] .jump{ background: rgba(2,6,23,0.62); }
+    .jump .jh{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .jump .jh span{
+      font-weight: 1000;
+      letter-spacing: .2px;
+    }
+    .jump a{
+      display:block;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 950;
+      color: var(--muted);
+      text-decoration:none !important;
+      margin: 6px 0;
+    }
+    .jump a:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,0.35);
+    }
+    html[data-theme="dark"] .jump a:hover{ background: rgba(255,255,255,0.06); }
+
+    @media (max-width: 1180px){
+      .jump{ display:none; } /* no multi-column; hide jump nav on smaller screens */
     }
 
-    /* Prevent sticky nav/top bar from covering anchors */
-    #education, #publications, #teaching, #talks, #service, #events{
-      scroll-margin-top: 140px; /* tweak if needed */
+    /* ===== Academic events list styling ===== */
+    .events-wrap{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .event-card{
+      border: 1px solid var(--border2);
+      background: rgba(255,255,255,0.55);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    html[data-theme="dark"] .event-card{ background: rgba(255,255,255,0.06); }
+
+    .event-title{
+      font-weight: 950;
+      line-height: 1.25;
+    }
+    .event-meta{
+      margin-top: 6px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.45;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items:center;
+    }
+    .event-meta .sep{ opacity: .6; }
+    .event-extra{
+      margin-top: 8px;
+      color: var(--muted2);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .footer{
+      margin-top: 18px;
+      text-align:center;
+      color: var(--muted2);
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 12px 0 2px;
+    }
+
+    /* A tiny “Latest News” look inspired by your referenced style */
+    .news{
+      border: 1px solid rgba(2,132,199,0.22);
+      background:
+        radial-gradient(900px 260px at 18% 0%, rgba(56,189,248,0.20), transparent 58%),
+        radial-gradient(900px 260px at 86% 20%, rgba(125,211,252,0.18), transparent 55%),
+        rgba(186,230,253,0.25);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow2);
+    }
+    html[data-theme="dark"] .news{
+      border-color: rgba(56,189,248,0.18);
+      background:
+        radial-gradient(900px 260px at 18% 0%, rgba(56,189,248,0.16), transparent 58%),
+        radial-gradient(900px 260px at 86% 20%, rgba(125,211,252,0.14), transparent 55%),
+        rgba(2,6,23,0.35);
+    }
+    .news h3{
+      margin:0;
+      font-size: 1.05rem;
+      font-weight: 1000;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .news ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.55;
     }
   </style>
 </head>
 
-<body>
-  <div class="page">
-    <!-- ================= HEADER / NAV ================= -->
-    <header class="top-nav">
+<body class="cv-page">
+  <!-- ===== Top Bar ===== -->
+  <header class="topbar">
+    <div class="topbar-inner">
       <div class="brand">
-        <img src="/assets/images/Tulane_University_Logo.svg.png"
-             class="nav-logo"
-             alt="Tulane University Logo" />
-        <a href="index.html" class="brand-name-link">
-          <span>Dipendranath Mahato</span>
-        </a>
+        <!-- If you have a site logo path, swap this src to your existing asset -->
+        <img src="https://www.dipendranathmahato.com/sites/default/files/2024-01/Tulane%20Logo.png" alt="Logo" onerror="this.style.display='none'">
+        <div class="brand-title">
+          <div class="name">Dipendranath Mahato</div>
+          <div class="sub">Curriculum Vitae</div>
+        </div>
       </div>
 
-      <!-- Mobile menu button -->
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-
-      <nav class="top-nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="teaching.html">Teaching</a>
-        <a href="presentations.html">Presentations</a>
-
-        <div class="dropdown">
-          <button class="dropbtn">
-            More <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="outreach-services.html">Outreach &amp; Services</a>
-            <a href="academic-events.html">Academic Events</a>
-            <a href="blogs.html">Blogs</a>
-            <a href="resources.html">Resources</a>
-          </div>
-        </div>
-      </nav>
-
-      <div class="controls">
-        <!-- Dark mode toggle button -->
-        <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
-          <i class="fa-solid fa-moon"></i>
-          <span>Dark</span>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i> Menu
         </button>
-        <!-- CV button removed (full CV page) -->
-      </div>
-    </header>
 
-    <!-- ================= LAYOUT ================= -->
-    <main class="layout">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="avatar">
-          <img src="/assets/images/PXL_20250330_220427523-1575x2800-compressed.jpg"
-               alt="Dipendranath Mahato" />
-          <div class="status-chip">IN JOB MARKET</div>
-        </div>
-
-        <div class="name">Dipendranath Mahato</div>
-        <div class="title">Ph.D. Candidate in Mathematics</div>
-        <div class="affiliation">
-          <strong>Tulane University</strong><br />
-          Department of Mathematics
-        </div>
-
-        <div class="research-area-block">
-          <div class="research-area-title">
-            <i class="ai ai-academic-cap"></i>
-            <span>Research Areas</span>
-          </div>
-          <div class="research-chips">
-            <a href="research.html#commutative" class="chip">Commutative Algebra</a>
-            <a href="research.html#algebraic-geometry" class="chip">Algebraic Geometry</a>
-            <a href="research.html#combinatorial" class="chip">Combinatorial Algebra</a>
-          </div>
-        </div>
-
-        <div class="sidebar-section">
-          <h3>Contact</h3>
-          <ul class="info-list">
-            <li>
-              <i class="fa-regular fa-envelope"></i>
-              <span><a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a></span>
-            </li>
-            <li>
-              <i class="fa-regular fa-envelope"></i>
-              <span><a href="mailto:dipendranathmahato@gmail.com">dipendranathmahato@gmail.com</a></span>
-            </li>
-            <li>
-              <i class="fa-regular fa-building"></i>
-              <span>Office 416-J, Gibson Hall<br />Department of Mathematics</span>
-            </li>
-            <li>
-              <i class="fa-solid fa-location-dot"></i>
-              <span>New Orleans-70118, LA, USA</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="sidebar-section">
-          <h3>Online</h3>
-          <div class="social-links">
-            <a href="https://github.com/dipendranathmahato" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=dRoXm28AAAAJ"
-               aria-label="Google Scholar">
-              <i class="ai ai-google-scholar"></i>
-            </a>
-            <a href="https://orcid.org/0000-0003-4122-2622" aria-label="ORCID">
-              <i class="fa-brands fa-orcid"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/dipendranathmahato"
-               aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.researchgate.net/profile/Dipendranath-Mahato-2"
-               aria-label="ResearchGate">
-              <i class="fa-brands fa-researchgate"></i>
-            </a>
-            <a href="https://arxiv.org/search/?query=Mahato%2C+Dipendranath&searchtype=author&abstracts=show&order=-announced_date_first&size=50"
-               aria-label="arXiv">
-              <i class="ai ai-arxiv"></i>
-            </a>
-            <a href="https://tulane.academia.edu/DipendranathMahato"
-               aria-label="Academia">
-              <i class="ai ai-academia"></i>
-            </a>
-          </div>
-        </div>
-      </aside>
-
-      <!-- ================= MAIN CONTENT ================= -->
-      <section class="content">
-        <div class="page-title-row">
-          <div>
-            <h1 class="page-title">Curriculum Vitae</h1>
-            <p class="page-subtitle">
-              Full academic CV (education, research, publications, teaching, talks, service, and academic events).
-              Designed for accessibility, dark mode, and mobile viewing.
-            </p>
-
-            <div class="badge-row">
-              <span class="badge"><i class="fa-solid fa-location-dot"></i> New Orleans, LA (USA)</span>
-              <span class="badge"><i class="fa-solid fa-building-columns"></i> Tulane University</span>
-              <span class="badge"><i class="fa-solid fa-envelope"></i> dmahato@tulane.edu</span>
-              <span class="badge"><i class="fa-solid fa-link"></i> dipendranathmahato.com</span>
-            </div>
-          </div>
-
-          <div class="cv-toolbar">
-            <div class="search-wrap">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <input id="cvSearch" type="search" placeholder="Search this CV (e.g., 'Demailly', 'Macaulay2', 'SLAM', 'TWOPLES')…" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Sticky mini navigation -->
-        <nav class="mini-nav" aria-label="CV section navigation">
-          <div class="mini-nav-inner">
-            <div class="mini-nav-left">
-              <span class="mini-nav-label">
-                <i class="fa-solid fa-compass"></i> Jump to
-              </span>
-            </div>
-
-            <!-- Desktop / tablet pills -->
-            <div class="mini-nav-pills" role="list">
-              <a class="mini-nav-link" href="#education" data-target="education">Education</a>
-              <a class="mini-nav-link" href="#publications" data-target="publications">Publications</a>
-              <a class="mini-nav-link" href="#teaching" data-target="teaching">Teaching</a>
-              <a class="mini-nav-link" href="#talks" data-target="talks">Talks</a>
-              <a class="mini-nav-link" href="#service" data-target="service">Service</a>
-              <a class="mini-nav-link" href="#events" data-target="events">Events</a>
-            </div>
-
-            <!-- Mobile dropdown -->
-            <div class="mini-nav-select">
-              <label class="sr-only" for="miniNavSelect">Jump to CV section</label>
-              <select id="miniNavSelect">
-                <option value="">Jump to…</option>
-                <option value="#education">Education</option>
-                <option value="#publications">Publications</option>
-                <option value="#teaching">Teaching</option>
-                <option value="#talks">Talks</option>
-                <option value="#service">Service</option>
-                <option value="#events">Events</option>
-              </select>
-              <i class="fa-solid fa-chevron-down mini-nav-caret" aria-hidden="true"></i>
-            </div>
-          </div>
+        <nav class="navlinks top-nav-links" aria-label="Primary">
+          <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="research.html"><i class="fa-solid fa-flask"></i> Research</a>
+          <a href="teaching.html"><i class="fa-solid fa-chalkboard-user"></i> Teaching</a>
+          <a href="presentations.html"><i class="fa-solid fa-person-chalkboard"></i> Talks</a>
+          <a href="academic-events.html"><i class="fa-regular fa-calendar"></i> Events</a>
+          <a href="outreach-services.html"><i class="fa-solid fa-handshake-angle"></i> Outreach</a>
+          <a href="about.html"><i class="fa-regular fa-user"></i> About</a>
         </nav>
 
-        <div class="cv-grid">
-          <!-- LEFT COLUMN -->
-          <div class="stack" style="display:flex; flex-direction:column; gap:18px;">
-
-            <div class="card cv-section" id="education" data-tags="education phd ms bs advisor">
-              <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Doctor of Philosophy in Mathematics</div>
-                  <div class="item-meta">Aug 2021 – Present</div>
-                </div>
-                <div class="item-sub">
-                  Tulane University (United States) • Advisor: Dr. Tài Huy Hà
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Master of Science (Major: Mathematics)</div>
-                  <div class="item-meta">Jul 2018 – Jul 2020</div>
-                </div>
-                <div class="item-sub">
-                  Tezpur University (India) • Advisor: Dr. D. K. Basnet
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Bachelor of Science (Honours in Mathematics)</div>
-                  <div class="item-meta">Aug 2013 – Apr 2017</div>
-                </div>
-                <div class="item-sub">
-                  University of Calcutta (India)
-                </div>
-              </div>
-            </div>
-
-            <div class="card cv-section" data-tags="research interests commutative algebra algebraic geometry combinatorics interpolation symbolic powers rational symbolic powers">
-              <h2><i class="fa-solid fa-diagram-project"></i> Research Interests</h2>
-              <ul class="tight-list">
-                <li>Commutative Algebra • Algebraic Combinatorics • Algebraic Geometry</li>
-                <li>Interpolation problems in projective spaces</li>
-                <li>Algebraic and combinatorial properties of ideals</li>
-              </ul>
-            </div>
-
-            <div class="card cv-section" data-tags="awards honors fellowship mca poster contest">
-              <h2><i class="fa-solid fa-award"></i> Awards &amp; Honours</h2>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Phillips Distinguished Graduate Research Fellowship</div>
-                  <div class="item-meta">2025–2026</div>
-                </div>
-                <div class="item-sub">Department of Mathematics, Tulane University • New Orleans, Louisiana</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">2nd Place, Poster Session Contest</div>
-                  <div class="item-meta">Jul 2025</div>
-                </div>
-                <div class="item-sub">Mathematical Congress of the Americas (MCA 2025) • Miami, Florida</div>
-              </div>
-            </div>
-
-            <div class="card cv-section" id="publications" data-tags="publications preprints arxiv rational symbolic power demailly submitted under review">
-              <h2><i class="fa-solid fa-book-open"></i> Publications &amp; Preprints</h2>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Rational Symbolic Power of Ideals (Preprint)</div>
-                  <div class="item-meta">arXiv:2511.02732</div>
-                </div>
-                <div class="item-sub">
-                  with S. Dey, T. Ha, P. Mantero • Status: Submitted
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Demailly’s Conjecture for general and very general points (Preprint)</div>
-                  <div class="item-meta">arXiv:2409.08535</div>
-                </div>
-                <div class="item-sub">
-                  with S. Bisui • Status: Under Review
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Ongoing Projects</div>
-                  <div class="item-meta">In progress</div>
-                </div>
-                <div class="item-sub">
-                  <ul class="tight-list">
-                    <li><strong>k-Configurations in</strong> $\\mathbb{P}^N$ (with S. Bisui, T. T. Nguyen)</li>
-                    <li><strong>v-number</strong> of some ideals (with M. Kumar)</li>
-                    <li><strong>Points in multi-projective spaces</strong> (with E. Guardo)</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="card cv-section" data-tags="dissertation thesis gaussian sums">
-              <h2><i class="fa-solid fa-scroll"></i> Dissertation</h2>
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Insight into Gaussian Sums and its Application</div>
-                  <div class="item-meta">Defended: Jun 17, 2020</div>
-                </div>
-                <div class="item-sub">Master’s Thesis • Submission noted in CV</div>
-              </div>
-            </div>
-
-            <div class="card cv-section" id="teaching" data-tags="teaching instructor record calculus teaching assistant real analysis linear algebra discrete statistics mentoring twoples">
-              <h2><i class="fa-solid fa-chalkboard-user"></i> Teaching Experiences</h2>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Instructor of Record — Tulane University</div>
-                  <div class="item-meta">2024–2025</div>
-                </div>
-                <div class="item-sub">
-                  <ul class="tight-list">
-                    <li>MATH 1210: Calculus I — Summer 2025</li>
-                    <li>MATH 1210: Calculus I — Fall 2024</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Teaching Assistant — Tulane University</div>
-                  <div class="item-meta">Fall 2021 – Fall 2025</div>
-                </div>
-                <div class="item-sub">
-                  <ul class="tight-list">
-                    <li>MATH 1210: Calculus I — Fall 2021, Spring 2025, Fall 2025</li>
-                    <li>MATH 1220: Calculus II — Spring 2022</li>
-                    <li>MATH 1230: Stats for Scientists — Fall 2022, Spring 2024</li>
-                    <li>MATH 3050/6050: Real Analysis — Spring 2023</li>
-                    <li>MATH 3090/6090: Linear Algebra — Fall 2023</li>
-                    <li>CMPS/MATH 2170: Discrete Mathematics — Fall 2023</li>
-                    <li>MATH 1100: Intro to Probability &amp; Statistics — Summer 2023, Summer 2024</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Mentor — Directed Reading Programs (TWOPLES)</div>
-                  <div class="item-meta">2025</div>
-                </div>
-                <div class="item-sub">
-                  <ul class="tight-list">
-                    <li>Nikhil S. Kumar (NIT-Tiruchirappalli, India) — Exploring Commutative Algebra (Fall 2025)</li>
-                    <li>Imdadul Hussain (Tezpur University, India) — An Introduction to Symbolic Powers (Spring 2025)</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="card cv-section" id="talks" data-tags="talks invited seminar ams jmm purdue arkansas tulane colloquium special session">
-              <h2><i class="fa-solid fa-microphone"></i> Invited Talks &amp; Seminar Talks</h2>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">TBD — Graduate Colloquium</div>
-                  <div class="item-meta">Apr 14, 2026</div>
-                </div>
-                <div class="item-sub">Department of Mathematics, Tulane University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Rational Symbolic Power of Ideals</div>
-                  <div class="item-meta">Apr 08, 2026</div>
-                </div>
-                <div class="item-sub">Commutative Algebra Seminar at Purdue University (Spring 2026) • Host: I. Swanson</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">TBD — Algebra Research Seminar</div>
-                  <div class="item-meta">Apr 03, 2026</div>
-                </div>
-                <div class="item-sub">University of Arkansas (Spring 2026) • Host: P. Mantero</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Going Beyond the Integer Symbolic Powers of Ideals</div>
-                  <div class="item-meta">Mar 07–08, 2026</div>
-                </div>
-                <div class="item-sub">AMS Spring Western Meeting 2026 (Special Session) • Boise State University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Unfolding the Rational Symbolic Powers of Ideals</div>
-                  <div class="item-meta">Jan 04–07, 2026</div>
-                </div>
-                <div class="item-sub">Joint Mathematics Meetings 2026 (Special Session) • Walter E. Washington Convention Center</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Introduction to Rational Symbolic Powers</div>
-                  <div class="item-meta">Nov 11, 2025</div>
-                </div>
-                <div class="item-sub">Graduate Colloquium • Department of Mathematics, Tulane University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Unfolding the Rational Symbolic Powers of Ideals</div>
-                  <div class="item-meta">Oct 18, 2025</div>
-                </div>
-                <div class="item-sub">AMS Fall Central Meeting 2025 (Special Session) • Saint Louis University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
-                  <div class="item-meta">May 03, 2025</div>
-                </div>
-                <div class="item-sub">AMS Spring Western Meeting 2025 (Special Session) • California Polytechnic State University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Macaulay2 Workshop (Lightning Talk)</div>
-                  <div class="item-meta">Apr 18, 2025</div>
-                </div>
-                <div class="item-sub">Macaulay2 at Tulane 2025 • Department of Mathematics, Tulane University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Interpolation in Projective Spaces (Lightning Talk)</div>
-                  <div class="item-meta">Apr 06, 2025</div>
-                </div>
-                <div class="item-sub">Commutative Algebra in The South (CATS) 2025 • Georgia State University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Interpolation in Projective Spaces (Lightning Talk)</div>
-                  <div class="item-meta">Apr 06, 2025</div>
-                </div>
-                <div class="item-sub">Math For All Virtual 2025 • Virtual</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Interpolation Problem and Recent Studies on Demailly’s Conjecture</div>
-                  <div class="item-meta">Mar 29, 2025</div>
-                </div>
-                <div class="item-sub">AMS Spring Central Meeting 2025 (Special Session) • University of Kansas</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Developments in Interpolation Problem for Projective Spaces</div>
-                  <div class="item-meta">Mar 14, 2025</div>
-                </div>
-                <div class="item-sub">Algebra &amp; Combinatorics Seminar • Department of Mathematics, Tulane University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Interpolation Problem: Conjectures &amp; New Developments</div>
-                  <div class="item-meta">Jan 03, 2025</div>
-                </div>
-                <div class="item-sub">CMSA-2025 • Department of Mathematical Sciences, Tezpur University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Recent Developments in Interpolation Problems &amp; Demailly’s Conjecture</div>
-                  <div class="item-meta">Nov 05, 2024</div>
-                </div>
-                <div class="item-sub">Graduate Colloquium • Department of Mathematics, Tulane University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Overview of Generalized Interpolation Problem &amp; its Algebraic Components</div>
-                  <div class="item-meta">May 24, 2024</div>
-                </div>
-                <div class="item-sub">TU Alumni Talk • Department of Mathematical Sciences, Tezpur University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Generalized Interpolation Problems and Chudnovsky’s Conjecture</div>
-                  <div class="item-meta">Apr 25, 2023</div>
-                </div>
-                <div class="item-sub">Graduate Colloquium • Department of Mathematics, Tulane University</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Algebraic Gaussian Sums and its Applications</div>
-                  <div class="item-meta">Oct 04, 2022</div>
-                </div>
-                <div class="item-sub">Graduate Colloquium • Department of Mathematics, Tulane University</div>
-              </div>
-            </div>
-
-            <div class="card cv-section" data-tags="poster presentations mca trics cats slam kumunu caac">
-              <h2><i class="fa-solid fa-image"></i> Poster Presentations</h2>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Interpolation of Projective Points &amp; Demailly’s Conjecture</div>
-                  <div class="item-meta">2024–2025</div>
-                </div>
-                <div class="item-sub">
-                  <ul class="tight-list">
-                    <li>MCA 2025, Miami — <strong>2nd Best Presentation</strong> (Jul 21–25, 2025)</li>
-                    <li>TRICS 2025, Tulane University (Apr 08–10, 2025)</li>
-                    <li>CATS 2025, Georgia State University (Apr 05–06, 2025)</li>
-                    <li>SLAM 2025, Arizona State University (Mar 01–02, 2025)</li>
-                    <li>KUMUNU 2024, University of Missouri (Sep 28–29, 2024)</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Introduction to Rational Symbolic Powers</div>
-                  <div class="item-meta">2026</div>
-                </div>
-                <div class="item-sub">
-                  <ul class="tight-list">
-                    <li>CAAC 2026, Dalhousie University (Jan 23–25, 2026)</li>
-                    <li>SLAM 2026, University of Texas at Arlington (Feb 28–Mar 01, 2026)</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- RIGHT COLUMN -->
-          <div class="stack" style="display:flex; flex-direction:column; gap:18px;">
-
-            <div class="card cv-section" data-tags="organized conferences ams session co-organizer tulane research talks">
-              <h2><i class="fa-solid fa-people-group"></i> Seminars / Conferences (Co-)Organized</h2>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">AMS Sectional Meeting — Special Session on Commutative Algebra</div>
-                  <div class="item-meta">Fall 2025</div>
-                </div>
-                <div class="item-sub">
-                  2025 Fall Eastern Virtual Sectional Meeting • Co-organizer: Souvik Dey
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">AMS Sectional Meeting — Special Session on Commutative Algebra</div>
-                  <div class="item-meta">Fall 2025</div>
-                </div>
-                <div class="item-sub">
-                  2025 Fall Southeastern Sectional Meeting (Tulane University) • Co-organizers: Tài Huy Hà, Kuei-Nuan Lin
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Tulane University Research Talks (Mathematics) — AMS/AWM Faculty Talks</div>
-                  <div class="item-meta">Fall 2023 &amp; Spring 2024</div>
-                </div>
-                <div class="item-sub">Co-organizer: Rebecca Kahler</div>
-              </div>
-            </div>
-
-            <div class="card cv-section" data-tags="support travel grants fellowship office international students scholars gssa nsf host university">
-              <h2><i class="fa-solid fa-hand-holding-dollar"></i> Research &amp; Travel Support</h2>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Research Support</div>
-                  <div class="item-meta">2025–2026</div>
-                </div>
-                <div class="item-sub">
-                  <ul class="tight-list">
-                    <li>Phillips Distinguished Graduate Research Fellowship, Tulane University (Spring 2026)</li>
-                    <li>Office of International Students &amp; Scholars Scholarship, Tulane University (Spring 2025)</li>
-                    <li>Summer Research Support, Department of Mathematics, Tulane University (Summer 2022–2025)</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Travel Support</div>
-                  <div class="item-meta">2023–2026</div>
-                </div>
-                <div class="item-sub">
-                  <ul class="tight-list">
-                    <li>AMS Graduate Student Travel Grant (Central Sectional, Saint Louis University) — Fall 2025</li>
-                    <li>AMS Travel Grant (MCA 2025) — Summer 2025</li>
-                    <li>SSE Dean’s Travel Fund Award — Spring 2025</li>
-                    <li>Department of Mathematics Travel Award — Fall 2024, Spring 2025, Spring 2026</li>
-                    <li>GSSA Travel Support — Fall 2023, Spring 2025, Summer 2025</li>
-                    <li>Host University / NSF-funded travel supports — Spring 2022 onward</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="card cv-section" data-tags="programming coding skills macaulay2 singular latex html css c c++">
-              <h2><i class="fa-solid fa-code"></i> Programming / Coding Skills</h2>
-              <div class="badge-row">
-                <span class="badge">Macaulay2</span>
-                <span class="badge">Singular</span>
-                <span class="badge">LaTeX</span>
-                <span class="badge">HTML &amp; CSS</span>
-                <span class="badge">C/C++</span>
-              </div>
-              <p class="muted small-note" style="margin-top:10px;">
-                Comfortable with research-oriented computation and reproducible writing pipelines.
-              </p>
-            </div>
-
-            <div class="card cv-section" id="service" data-tags="outreach service community altc tutoring gists bats ams tulane chapter saga tezpur">
-              <h2><i class="fa-solid fa-hands-helping"></i> Outreach &amp; Community Involvement</h2>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Academic Learning &amp; Tutoring Center (ALTC), Tulane University</div>
-                  <div class="item-meta">Fall 2023 – Present</div>
-                </div>
-                <div class="item-sub">
-                  Math Department Teaching Assistant
-                  <ul class="tight-list">
-                    <li>Facilitating problem-solving in one-on-one and small-group settings.</li>
-                    <li>Assistance for Calculus I–III, Statistics, Linear Algebra, Real Analysis.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">K–12 STEM Outreach Program</div>
-                  <div class="item-meta">2022–2024</div>
-                </div>
-                <div class="item-sub">
-                  Math Section Leader: GiST (Oct 2022, Apr 2023) • BATS (Apr 2024, Sep 2024)
-                  <ul class="tight-list">
-                    <li>Welcoming 5th–7th grade students for hands-on STEM experiences.</li>
-                    <li>Designed math models &amp; activities introducing advanced ideas through play.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">American Mathematical Society (AMS) — Tulane Student Chapter</div>
-                  <div class="item-meta">2022–2024</div>
-                </div>
-                <div class="item-sub">
-                  Treasurer (May 2022 – May 2023) • President (Jun 2023 – Jun 2024)
-                  <ul class="tight-list">
-                    <li>Organized AMS/AWM Faculty Talks at Tulane.</li>
-                    <li>Organized Annual Math BBQ (2023 &amp; 2024).</li>
-                    <li>Compiled alumni data for the graduate student chapter website.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">South Asian Graduate Association (SAGA), Tulane University</div>
-                  <div class="item-meta">Jun 2022 – May 2023</div>
-                </div>
-                <div class="item-sub">Vice President • Restarted the dormant association after COVID-19.</div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Training and Placement Cell, Tezpur University</div>
-                  <div class="item-meta">Aug 2019 – Jul 2020</div>
-                </div>
-                <div class="item-sub">
-                  Departmental Coordinator
-                  <ul class="tight-list">
-                    <li>Managed academic &amp; job allocation databases.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Students Science Council, Tezpur University</div>
-                  <div class="item-meta">Oct 2018 – Dec 2019</div>
-                </div>
-                <div class="item-sub">
-                  Departmental Representative • Volunteered in outreach programs of InSCIgnis (2019).
-                </div>
-              </div>
-
-              <div class="item cv-item">
-                <div class="item-top">
-                  <div class="item-title">Department of Mathematical Science, Tezpur University</div>
-                  <div class="item-meta">Oct 2018 – Jul 2020</div>
-                </div>
-                <div class="item-sub">
-                  Departmental Coordinator (Oct 2018 – Dec 2019) • Volunteer (Jan 2020 – Jul 2020)
-                  <ul class="tight-list">
-                    <li>Organized math events in InSCIgnis and π-Day events.</li>
-                    <li>Organized National Mathematics Day (birthday of Srinivasa Ramanujan).</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="card cv-section" data-tags="memberships ams siam maa">
-              <h2><i class="fa-solid fa-id-card-clip"></i> Memberships</h2>
-              <ul class="tight-list">
-                <li>American Mathematical Society (AMS) — 2021 onward</li>
-                <li>Society for Industrial and Applied Mathematics (SIAM) — 2021 onward</li>
-                <li>Mathematical Association of America (MAA) — 2022 onward</li>
-              </ul>
-            </div>
-
-            <div class="card cv-section" id="events" data-tags="academic events conferences workshops seminars jmm ams slam sms mca camp srac cats caac tags">
-              <h2><i class="fa-solid fa-calendar-days"></i> Academic Events</h2>
-              <p class="muted small-note" style="margin: 0 0 10px;">
-                A curated list of conferences, workshops, seminars, and summer schools (grouped by year).
-              </p>
-
-              <div class="accordion">
-                <details>
-                  <summary>
-                    Upcoming
-                    <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-                  </summary>
-                  <ul class="tight-list">
-                    <li>Joint Mathematics Meetings (JMM) 2026 — Jan 04–07 — Washington, D.C.</li>
-                    <li>AMS Sectional Meeting (2025 Fall Eastern Virtual) — Oct 25–26 — Virtual</li>
-                    <li>AMS Sectional Meeting (2025 Fall Central) — Oct 18–19 — Saint Louis University</li>
-                  </ul>
-                </details>
-
-                <details>
-                  <summary>
-                    2025
-                    <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-                  </summary>
-                  <ul class="tight-list">
-                    <li>AMS Sectional Meeting (2025 Fall Southeastern) — Oct 04–05 — Tulane University, New Orleans</li>
-                    <li>Summer CAMP 2025 — Aug 11–15 — University of Nebraska–Lincoln</li>
-                    <li>Mathematical Congress of the Americas (MCA) 2025 — Jul 21–25 — Miami</li>
-                    <li>Séminaire de Mathématiques Supérieures (SMS) 2025 — Jun 02–13 — Toronto</li>
-                    <li>AMS Sectional Meeting (2025 Spring Western) — May 03–04 — Cal Poly, San Luis Obispo</li>
-                    <li>Macaulay2 Workshop — Apr 14–18 — Tulane University</li>
-                    <li>TRICS 2025 — Apr 08–10 — Tulane University</li>
-                    <li>Commutative Algebra in The South (CATS) — Apr 05–06 — Georgia State University</li>
-                    <li>Virtual Math for All in New Orleans 2025 — Apr 05 — Tulane University</li>
-                    <li>AMS Sectional Meeting (2025 Spring Central) — Mar 29–30 — University of Kansas</li>
-                    <li>Southwest Local Algebra Meeting (SLAM) 2025 — Mar 01–02 — Arizona State University</li>
-                    <li>Symmetries and Singularities in Texas — Jan 31–Feb 02 — Texas A&amp;M</li>
-                    <li>Two-Day Conference on “Mathematical Sciences and Applications” — Jan 02–03 — Tezpur University (Hybrid)</li>
-                  </ul>
-                </details>
-
-                <details>
-                  <summary>
-                    2024
-                    <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-                  </summary>
-                  <ul class="tight-list">
-                    <li>KUMUNU 2024 — Sep 28–29 — University of Missouri</li>
-                    <li>UWE Fest 2024 — Aug 12–16 — University of Notre Dame</li>
-                    <li>NCMW (Recent Trends in Commutative Algebra) — Jun 17–22 — IIT Bombay</li>
-                    <li>International Conference on Local Rings and Singularities — Jun 12–15 — IIT (Mumbai)</li>
-                    <li>Math for All in New Orleans 2024 — Apr 05–06 — Tulane University</li>
-                    <li>SLAM 2024 — Feb 24–25 — University of Oklahoma</li>
-                    <li>Annual Clifford Lectures: The Web of Modularity — Feb 22–25 — Tulane University</li>
-                  </ul>
-                </details>
-
-                <details>
-                  <summary>
-                    2023
-                    <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-                  </summary>
-                  <ul class="tight-list">
-                    <li>6th SIAM TX-LA Sectional Meeting — Nov 03–05 — University of Louisiana at Lafayette</li>
-                    <li>BrianFest — Aug 11–12 — University of Nebraska–Lincoln</li>
-                    <li>Summer CAMP (market prep workshop) — Aug 08–10 — University of Nebraska–Lincoln</li>
-                    <li>MSRI/SLMath CMND Summer School — May 22–Jun 02 — Notre Dame</li>
-                    <li>CATS 2023 — Apr 15–16 — University of Alabama</li>
-                    <li>SRAC 2023 — Mar 24–26 — Tulane University</li>
-                    <li>CaWAGS 2023 — Mar 18–19 — Simon Fraser University</li>
-                    <li>SLAM 2023 — Mar 04–05 — University of North Texas</li>
-                    <li>Math for All in New Orleans 2023 — Feb 24–25 — Tulane University</li>
-                  </ul>
-                </details>
-
-                <details>
-                  <summary>
-                    2022–2021 (selected)
-                    <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-                  </summary>
-                  <ul class="tight-list">
-                    <li>CAAC (Nineteenth Workshop) — Jan 21–23, 2022 — Virtual</li>
-                    <li>SRAC 2022 — Mar 18–20, 2022 — Georgia College &amp; State University</li>
-                    <li>TAGS22 — Sep 30–Oct 02, 2022 — Baton Rouge</li>
-                    <li>Advanced Instructional School on Commutative Algebra — Jan 02–May 02, 2021 — IIT Gandhinagar &amp; IISc (Virtual)</li>
-                  </ul>
-                </details>
-              </div>
-            </div>
-
-            <div class="card">
-              <h2><i class="fa-solid fa-file-arrow-down"></i> Download</h2>
-              <p class="muted small-note" style="margin:0;">
-                If you’d like, we can also embed the PDF viewer here (in addition to this HTML CV view).
-              </p>
-              <div class="badge-row" style="margin-top:10px;">
-                <a class="pill-button primary" href="/assets/files/My_Curriculum_Vitae.pdf">
-                  <i class="fa-solid fa-file-pdf"></i>
-                  <span>Download PDF</span>
-                </a>
-              </div>
-            </div>
-
+        <!-- Only the dark pill here (no CV button beside it, per request) -->
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i><span>Dark</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Right-side jump nav (desktop) -->
+  <aside class="jump" aria-label="Jump to">
+    <div class="jh">
+      <span><i class="fa-solid fa-location-arrow"></i> Jump to</span>
+      <span style="opacity:.7; font-weight:900; font-size:.86rem;">CV</span>
+    </div>
+    <a href="#education">Education</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#talks">Talks</a>
+    <a href="#service">Service</a>
+    <a href="#events">Events</a>
+  </aside>
+
+  <main class="wrap">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero-top">
+        <div>
+          <h1><i class="fa-regular fa-file-lines"></i> Curriculum Vitae</h1>
+          <p>
+            Department of Mathematics, <a href="https://tulane.edu/" target="_blank" rel="noopener">Tulane University</a> •
+            New Orleans, Louisiana 70118, USA • Pronouns: he/him/his
+          </p>
+
+          <div class="contact-row">
+            <a class="pill pill-site" href="https://www.dipendranathmahato.com/" target="_blank" rel="noopener">
+              <i class="fa-solid fa-globe"></i> dipendranathmahato.com
+            </a>
+            <a class="pill pill-email" href="mailto:dmahato@tulane.edu">
+              <i class="fa-solid fa-envelope"></i> dmahato@tulane.edu
+            </a>
+            <a class="pill pill-email" href="mailto:dipendranathmahato13@gmail.com">
+              <i class="fa-solid fa-envelope"></i> dipendranathmahato13@gmail.com
+            </a>
           </div>
         </div>
 
-        <div class="footer">
-          © <span id="year"></span> Copyright @ Dipendranath Mahato —
-          Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+        <!-- Full academic CV (PDF pill) -->
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-end; min-width: 260px;">
+          <div style="font-weight:1000; opacity:.85; text-align:right;">Full academic CV</div>
+          <a class="pill pill-pdf"
+             href="https://drive.google.com/file/d/1Xdc6rzVLCkzWGwqJ0APAArCzEsprOTd7/view?usp=drive_link"
+             target="_blank" rel="noopener">
+            <i class="fa-regular fa-file-lines"></i> CV in PDF
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky mini-navigation (collapses nicely on mobile) -->
+    <div class="mini-nav" aria-label="Mini navigation">
+      <div class="mini-links" aria-hidden="false">
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#talks">Talks</a>
+        <a href="#service">Service</a>
+        <a href="#events">Events</a>
+      </div>
+
+      <div class="mini-collapsible">
+        <details>
+          <summary>
+            <span><i class="fa-solid fa-compass"></i> Navigate</span>
+            <span style="opacity:.75; font-weight:950;"><i class="fa-solid fa-chevron-down"></i></span>
+          </summary>
+          <div class="drop" role="list">
+            <a href="#education">Education</a>
+            <a href="#publications">Publications</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#talks">Talks</a>
+            <a href="#service">Service</a>
+            <a href="#events">Events</a>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Latest News (style prompt inspired) -->
+    <section class="news" aria-label="Latest News">
+      <h3><i class="fa-solid fa-bolt"></i> Latest News</h3>
+      <ul>
+        <li><b>April 2026:</b> Invited/seminal talks scheduled at <a href="https://www.math.purdue.edu/" target="_blank" rel="noopener">Purdue University</a> and the <a href="https://math.uark.edu/" target="_blank" rel="noopener">University of Arkansas</a>.</li>
+        <li><b>March 7–8, 2026:</b> Talk at <a href="https://www.ams.org/meetings/sectional/2298_program_ss9.html" target="_blank" rel="noopener">AMS Spring Western Sectional Meeting 2026</a> (Boise State University).</li>
+        <li><b>Jan 4–7, 2026:</b> Talk at <a href="https://jointmathematicsmeetings.org/" target="_blank" rel="noopener">Joint Mathematics Meetings 2026</a> (Washington, D.C.).</li>
+        <li><b>July 21–25, 2025:</b> <span class="chip award">2nd Place Poster</span> at <a href="https://www.mca2025.org/" target="_blank" rel="noopener">MCA 2025</a>, Miami.</li>
+      </ul>
+    </section>
+
+    <div class="content">
+      <!-- ===== Education ===== -->
+      <section class="section" id="education">
+        <div class="sec-head">
+          <h2><span class="badge"><i class="fa-solid fa-graduation-cap"></i> Education</span></h2>
+        </div>
+
+        <div class="grid2">
+          <div class="item">
+            <div class="t">Ph.D. in Mathematics</div>
+            <div class="m">
+              <a href="https://tulane.edu/" target="_blank" rel="noopener">Tulane University</a>, United States<br/>
+              <span style="opacity:.85;">Aug 2021 – Present</span><br/>
+              Advisor: <span style="font-weight:900;">Dr. Tài Huy Hà</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="t">M.S. (Major in Mathematics)</div>
+            <div class="m">
+              <a href="https://www.tezu.ernet.in/" target="_blank" rel="noopener">Tezpur University</a>, India<br/>
+              <span style="opacity:.85;">Jul 2018 – Jul 2020</span><br/>
+              Advisor: <span style="font-weight:900;">Dr. D. K. Basnet</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="t">B.S. (Honours in Mathematics)</div>
+            <div class="m">
+              <a href="https://www.caluniv.ac.in/" target="_blank" rel="noopener">University of Calcutta</a>, India<br/>
+              <span style="opacity:.85;">Aug 2013 – Apr 2017</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="t">Research Interests</div>
+            <div class="m">
+              Commutative Algebra • Algebraic Geometry • Algebraic Combinatorics<br/>
+              Interpolation problems in projective spaces • Algebraic/combinatorial properties of ideals
+            </div>
+          </div>
         </div>
       </section>
-    </main>
-  </div>
 
-  <!-- ================= SCRIPTS ================= -->
+      <!-- ===== Awards ===== -->
+      <section class="section" id="awards">
+        <div class="sec-head">
+          <h2><span class="badge"><i class="fa-solid fa-award"></i> Awards & Honours</span></h2>
+        </div>
+        <ul class="list">
+          <li><b>Phillips Distinguished Graduate Research Fellowship</b> — Department of Mathematics, <a href="https://tulane.edu/" target="_blank" rel="noopener">Tulane University</a>.</li>
+          <li><b>2nd Place in Poster Session Contest</b> — <a href="https://www.mca2025.org/" target="_blank" rel="noopener">Mathematical Congress of the Americas (MCA 2025)</a>.</li>
+        </ul>
+      </section>
+
+      <!-- ===== Publications ===== -->
+      <section class="section" id="publications">
+        <div class="sec-head">
+          <h2><span class="badge"><i class="ai ai-arxiv"></i> Publications & Preprints</span></h2>
+          <div class="meta-row">
+            <a class="pill pill-site" href="research.html" title="See research page">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Research page
+            </a>
+          </div>
+        </div>
+
+        <div class="events-wrap">
+          <div class="event-card">
+            <div class="event-title">Rational Symbolic Power of Ideals</div>
+            <div class="event-meta">
+              <span>with S. Dey, T. Ha, P. Mantero</span>
+              <span class="sep">•</span>
+              <a class="chip" href="https://arxiv.org/abs/2511.02732" target="_blank" rel="noopener">
+                <i class="ai ai-arxiv"></i> arXiv:2511.02732
+              </a>
+              <a class="chip" href="https://arxiv.org/pdf/2511.02732.pdf" target="_blank" rel="noopener">
+                <i class="fa-regular fa-file-lines"></i> PDF
+              </a>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-title">Demailly’s Conjecture for general and very general points</div>
+            <div class="event-meta">
+              <span>with S. Bisui</span>
+              <span class="sep">•</span>
+              <a class="chip" href="https://arxiv.org/abs/2409.08535" target="_blank" rel="noopener">
+                <i class="ai ai-arxiv"></i> arXiv:2409.08535
+              </a>
+              <a class="chip" href="https://arxiv.org/pdf/2409.08535.pdf" target="_blank" rel="noopener">
+                <i class="fa-regular fa-file-lines"></i> PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="soft"/>
+
+        <div class="grid2">
+          <div class="item">
+            <div class="t">Ongoing Projects</div>
+            <div class="m">
+              <ul class="list" style="margin-top:8px;">
+                <li>k-Configurations in <i>ℙ</i><sup>N</sup></li>
+                <li>v-number of some ideals</li>
+                <li>Points in multi-projective spaces</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="t">Dissertation / Thesis</div>
+            <div class="m">
+              <b>Insight into Gaussian Sums and its Application</b><br/>
+              Master’s Thesis
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Teaching ===== -->
+      <section class="section" id="teaching">
+        <div class="sec-head">
+          <h2><span class="badge"><i class="fa-solid fa-chalkboard-user"></i> Teaching</span></h2>
+          <div class="meta-row">
+            <a class="pill pill-site" href="teaching.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Teaching page</a>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="item">
+            <div class="t">Instructor of Record</div>
+            <div class="m">
+              <b>MATH 1210: Calculus I</b> (two sections) • <span style="opacity:.9;">2025–2026</span><br/>
+              <a href="https://tulane.edu/" target="_blank" rel="noopener">Tulane University</a>, New Orleans, Louisiana
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="t">Teaching Assistant / Mentor</div>
+            <div class="m">
+              <ul class="list" style="margin-top:8px;">
+                <li><b>MATH 1210</b> Calculus I — Fall 2021, Spring 2025, Fall 2025</li>
+                <li><b>MATH 1220</b> Calculus II — Spring 2022</li>
+                <li><b>MATH 1230</b> Stats for Scientists — Fall 2022, Spring 2024</li>
+                <li><b>MATH 3050/6050</b> Real Analysis — Spring 2023</li>
+                <li><b>MATH 3090/6090</b> Linear Algebra — Fall 2023</li>
+                <li><b>CMPS/MATH 2170</b> Discrete Mathematics — Fall 2023</li>
+                <li><b>MATH 1100</b> Intro to Probability & Statistics — Summer 2023, Summer 2024</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr class="soft"/>
+
+        <div class="item">
+          <div class="t">Directed Reading Programs (TWOPLES)</div>
+          <div class="m">
+            <ul class="list" style="margin-top:8px;">
+              <li><b>Nikhil S. Kumar</b> (NIT-Tiruchirappalli, India) — <i>Exploring Commutative Algebra</i> (TWOPLES Fall 2025)</li>
+              <li><b>Imdadul Hussain</b> (Tezpur University, India) — <i>An Introduction to Symbolic Powers</i> (TWOPLES Spring 2025)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Talks ===== -->
+      <section class="section" id="talks">
+        <div class="sec-head">
+          <h2><span class="badge"><i class="fa-solid fa-microphone-lines"></i> Talks & Presentations</span></h2>
+          <div class="meta-row">
+            <a class="pill pill-site" href="presentations.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Talks page</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="t">Invited & Seminar Talks</div>
+          <div class="m">
+            <ul class="list" style="margin-top:8px;">
+              <li><b>TBD</b> — Department of Mathematics, Tulane University • <span class="chip talk">Apr 14, 2026</span></li>
+              <li><b>Rational Symbolic Power of Ideals</b> — <a href="https://www.math.purdue.edu/" target="_blank" rel="noopener">Purdue University</a> (Commutative Algebra Seminar; Host: I. Swanson) • <span class="chip talk">Apr 8, 2026</span></li>
+              <li><b>TBD</b> — <a href="https://math.uark.edu/" target="_blank" rel="noopener">University of Arkansas</a> (Algebra Research Seminar; Host: P. Mantero) • <span class="chip talk">Apr 3, 2026</span></li>
+              <li><b>Going Beyond the Integer Symbolic Powers of Ideals</b> — AMS Spring Western Meeting 2026 (Special Session) • <span class="chip talk">Mar 7–8, 2026</span></li>
+              <li><b>Unfolding the Rational Symbolic Powers of Ideals</b> — <a href="https://jointmathematicsmeetings.org/" target="_blank" rel="noopener">JMM 2026</a> (Special Session) • <span class="chip talk">Jan 4–7, 2026</span></li>
+              <li><b>Introduction to Rational Symbolic Powers</b> — Department of Mathematics, Tulane University (Graduate Colloquium) • <span class="chip talk">Nov 11, 2025</span></li>
+              <li><b>Unfolding the Rational Symbolic Powers of Ideals</b> — AMS Fall Central Meeting 2025 (Saint Louis University; Special Session) • <span class="chip talk">Oct 18, 2025</span></li>
+              <li><b>Interpolation Problem and Recent Studies on Demailly’s Conjecture</b> — AMS Spring Western Meeting 2025 (Cal Poly; Special Session) • <span class="chip talk">May 3, 2025</span></li>
+              <li><b>Macaulay2 Workshop (Lightning Talk)</b> — Department of Mathematics, Tulane University • <span class="chip talk">Apr 18, 2025</span></li>
+              <li><b>Interpolation in Projective Spaces (Lightning Talk)</b> — <a href="https://www.gsu.edu/" target="_blank" rel="noopener">Georgia State University</a> (CATS 2025) • <span class="chip talk">Apr 6, 2025</span></li>
+              <li><b>Interpolation of Projective Points under Algebraic Lens</b> — Virtual (Math for All Virtual 2025) • <span class="chip talk">Apr 5, 2025</span></li>
+              <li><b>Interpolation Problem and Recent Studies on Demailly’s Conjecture</b> — AMS Spring Central Meeting 2025 (University of Kansas; Special Session) • <span class="chip talk">Mar 29, 2025</span></li>
+              <li><b>Developments in Interpolation Problem for Projective Spaces</b> — Department of Mathematics, Tulane University (Algebra & Combinatorics Seminar) • <span class="chip talk">Mar 14, 2025</span></li>
+              <li><b>Interpolation Problem: Conjectures & New Developments</b> — Department of Mathematical Sciences, Tezpur University (CMSA-2025) • <span class="chip talk">Jan 3, 2025</span></li>
+              <li><b>Recent Developments in Interpolation Problems & Demailly’s Conjecture</b> — Department of Mathematics, Tulane University (Graduate Colloquium) • <span class="chip talk">Nov 5, 2024</span></li>
+              <li><b>Overview of Generalized Interpolation Problem & its Algebraic Components</b> — Department of Mathematical Sciences, Tezpur University (TU Alumni Talk) • <span class="chip talk">May 24, 2024</span></li>
+              <li><b>Generalized Interpolation Problems and Chudnovsky’s Conjecture</b> — Department of Mathematics, Tulane University (Graduate Colloquium) • <span class="chip talk">Apr 25, 2023</span></li>
+              <li><b>Algebraic Gaussian Sums and its Applications</b> — Department of Mathematics, Tulane University (Graduate Colloquium) • <span class="chip talk">Oct 4, 2022</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="soft"/>
+
+        <div class="item">
+          <div class="t">Poster Presentations</div>
+          <div class="m">
+            <ul class="list" style="margin-top:8px;">
+              <li>
+                <b>Interpolation of Projective Points & Demailly’s Conjecture</b>
+                <div class="meta-row" style="margin-top:6px;">
+                  <span class="chip poster">Poster</span>
+                  <span class="chip award">MCA 2025 — 2nd Best Presentation</span>
+                  <span class="chip">Jul 21–25, 2025</span>
+                  <a class="chip" href="https://www.mca2025.org/" target="_blank" rel="noopener"><i class="fa-solid fa-link"></i> MCA</a>
+                </div>
+                <div class="event-extra" style="margin-top:6px;">
+                  Also presented at: TRICS 2025 (Apr 8–10, 2025), CATS 2025 (Apr 5–6, 2025), SLAM 2025 (Mar 1–2, 2025), KUMUNU 2024 (Sep 28–29, 2024).
+                </div>
+              </li>
+
+              <li style="margin-top:12px;">
+                <b>Introduction to Rational Symbolic Powers</b>
+                <div class="meta-row" style="margin-top:6px;">
+                  <span class="chip poster">Poster</span>
+                  <span class="chip">CAAC 2026 — Jan 23–25, 2026</span>
+                  <span class="chip">SLAM 2026 — Feb 28–Mar 1, 2026</span>
+                  <a class="chip" href="https://www.mathstat.dal.ca/" target="_blank" rel="noopener"><i class="fa-solid fa-link"></i> Dalhousie</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Service / Organization / Support ===== -->
+      <section class="section" id="service">
+        <div class="sec-head">
+          <h2><span class="badge"><i class="fa-solid fa-handshake-angle"></i> Service & Leadership</span></h2>
+          <div class="meta-row">
+            <a class="pill pill-site" href="outreach-services.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Outreach & Services page</a>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="t">Seminars/Conferences (Co-)Organized</div>
+          <div class="m">
+            <ul class="list" style="margin-top:8px;">
+              <li>
+                <b>AMS Sectional Meeting</b> — 2025 Fall Eastern Virtual Sectional Meeting<br/>
+                Special Session on Commutative Algebra • Co-organizer: <b>Souvik Dey</b>
+              </li>
+              <li style="margin-top:10px;">
+                <b>AMS Sectional Meeting</b> — 2025 Fall Southeastern Sectional Meeting at Tulane University<br/>
+                Special Session on Commutative Algebra • Co-organizers: <b>Tài Huy Hà</b> and <b>Kuei-Nuan Lin</b>
+              </li>
+              <li style="margin-top:10px;">
+                <b>Tulane University Research Talks (Mathematics)</b> — Fall 2023 & Spring 2024<br/>
+                AMS/AWM Faculty Talks • Co-organizer: <b>Rebecca Kahler</b>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="soft"/>
+
+        <div class="grid2">
+          <div class="item">
+            <div class="t">Research & Travel Support</div>
+            <div class="m">
+              <ul class="list" style="margin-top:8px;">
+                <li><b>Phillips Distinguished Graduate Research Fellowship</b>, Tulane University — Spring 2026</li>
+                <li><b>Office of International Students & Scholars Scholarship</b>, Tulane University — Spring 2025</li>
+                <li><b>Summer Research Support</b>, Department of Mathematics, Tulane University — Summer 2022–2025</li>
+              </ul>
+
+              <hr class="soft"/>
+
+              <ul class="list" style="margin-top:8px;">
+                <li><b>AMS Graduate Student Travel Grant</b> (Central Sectional Meeting at Saint Louis University) — Fall 2025</li>
+                <li><b>AMS Travel Grant</b> (MCA 2025) — Summer 2025</li>
+                <li><b>SSE Dean’s Travel Fund Award</b>, Tulane University — Spring 2025</li>
+                <li><b>Department of Mathematics Travel Award</b>, Tulane University — Fall 2024, Spring 2025, Spring 2026</li>
+                <li><b>GSSA Travel Support</b>, Tulane University — Fall 2023, Spring 2025, Summer 2025</li>
+                <li><b>Host University / NSF-funded Travel Supports</b> — Spring 2022 onwards (SRAC 2022; TAGS 2022; SLAM 2023–2026; MSRI/SLMath 2023; Summer CAMP 2023/2025; BrianFest 2023; UweFest 2024; KUMUNU 2024; Symmetries & Singularities in Texas 2025; SMS; CAAC)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="t">Programming/Coding Skills</div>
+            <div class="m">
+              <div class="meta-row" style="margin-top:8px;">
+                <span class="chip"><i class="fa-solid fa-code"></i> Macaulay2 / Singular</span>
+                <span class="chip"><i class="fa-solid fa-code"></i> LaTeX</span>
+                <span class="chip"><i class="fa-solid fa-code"></i> HTML &amp; CSS</span>
+                <span class="chip"><i class="fa-solid fa-code"></i> C/C++</span>
+              </div>
+
+              <hr class="soft"/>
+
+              <div class="t">Memberships</div>
+              <div class="m">
+                <ul class="list" style="margin-top:8px;">
+                  <li><a href="https://www.ams.org/" target="_blank" rel="noopener">American Mathematical Society (AMS)</a> — 2021 onwards</li>
+                  <li><a href="https://www.siam.org/" target="_blank" rel="noopener">Society for Industrial and Applied Mathematics (SIAM)</a> — 2021 onwards</li>
+                  <li><a href="https://maa.org/" target="_blank" rel="noopener">Mathematical Association of America (MAA)</a> — 2022 onwards</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="soft"/>
+
+        <div class="item">
+          <div class="t">Outreach & Community Involvement</div>
+          <div class="m">
+            <ul class="list" style="margin-top:8px;">
+              <li>
+                <b>Academic Learning & Tutoring Center (ALTC)</b>, Tulane University — Math Department Teaching Assistant (Fall 2023–Present)<br/>
+                <span style="opacity:.9;">Facilitating problem-solving in one-on-one and small-group settings; assisting for Calculus I–III, Statistics, Linear Algebra, Real Analysis.</span>
+              </li>
+              <li style="margin-top:10px;">
+                <b>K-12 STEM Outreach Program</b> — Math Section Leader:
+                <b>GiST</b> (Girls in STEM at Tulane) and <b>BATS</b> (Boys At Tulane in STEM)<br/>
+                <span style="opacity:.9;">Oct 2022 & Apr 2023; Apr 2024 & Sep 2024.</span>
+              </li>
+              <li style="margin-top:10px;">
+                <b>AMS Tulane Student Chapter</b> — Treasurer (May 2022–May 2023), President (Jun 2023–Jun 2024), Member (Jun 2022–May 2023)<br/>
+                <span style="opacity:.9;">Organizer of AMS/AWM Faculty Talks; organized Annual Math BBQ (2023 & 2024); compiled alumni data for chapter website.</span>
+              </li>
+              <li style="margin-top:10px;">
+                <b>South Asian Graduate Association (SAGA)</b>, Tulane University — Vice President<br/>
+                <span style="opacity:.9;">Restarted the dormant association after COVID-19.</span>
+              </li>
+              <li style="margin-top:10px;">
+                <b>Training and Placement Cell</b>, Tezpur University — Departmental Coordinator (Aug 2019–Jul 2020), Secretary of Alumni Association (Jul 2023–Present)<br/>
+                <span style="opacity:.9;">Managing academic/job allocation database; organizer of 1st Math Alumni Meet.</span>
+              </li>
+              <li style="margin-top:10px;">
+                <b>Students Science Council</b>, Tezpur University — Departmental Representative (Oct 2018–Dec 2019)<br/>
+                <span style="opacity:.9;">Volunteered in outreach programs of InSCIgnis (2019).</span>
+              </li>
+              <li style="margin-top:10px;">
+                <b>Department of Mathematical Science</b>, Tezpur University — Departmental Coordinator (Oct 2018–Dec 2019), Volunteer (Jan 2020–Jul 2020)<br/>
+                <span style="opacity:.9;">Organized math events (InSCIgnis 2019; π-Day 2019 & 2020 online); supported Assam Science Festival; organized National Mathematics Day (online).</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Academic Events (FULL, at end, recent on top) ===== -->
+      <section class="section" id="events">
+        <div class="sec-head">
+          <h2><span class="badge"><i class="fa-regular fa-calendar"></i> Academic Events</span></h2>
+          <div class="meta-row">
+            <a class="pill pill-site" href="https://www.dipendranathmahato.com/academic-events" target="_blank" rel="noopener">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Academic Events page
+            </a>
+          </div>
+        </div>
+
+        <p class="sec-sub">
+          Chronology is shown with the most recent/upcoming items on top. (This section mirrors your Academic Events page and keeps links clickable.)
+        </p>
+
+        <!-- We render a structured list (Upcoming, then years). -->
+        <div class="events-wrap" id="eventsList">
+          <!-- Upcoming -->
+          <div class="event-card" data-sort="2026-01-04">
+            <div class="event-title">
+              <a href="https://jointmathematicsmeetings.org/" target="_blank" rel="noopener">Joint Mathematics Meetings (JMM) 2026</a>
+            </div>
+            <div class="event-meta">
+              <span><b>Jan 04–07, 2026</b></span>
+              <span class="sep">•</span>
+              <span>Walter E. Washington Convention Center, Washington, D.C.</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-sort="2025-10-25">
+            <div class="event-title">
+              <a href="https://www.ams.org/meetings/sectional" target="_blank" rel="noopener">AMS Sectional Meeting (2025 Fall Eastern Virtual Sectional Meeting)</a>
+            </div>
+            <div class="event-meta">
+              <span><b>Oct 25–26, 2025</b></span>
+              <span class="sep">•</span>
+              <span><a href="https://www.ams.org/" target="_blank" rel="noopener">American Mathematical Society</a> • Virtual</span>
+            </div>
+          </div>
+
+          <div class="event-card" data-sort="2025-10-18">
+            <div class="event-title">
+              <a href="https://www.ams.org/meetings/sectional" target="_blank" rel="noopener">AMS Sectional Meeting (2025 Fall Central Sectional Meeting)</a>
+            </div>
+            <div class="event-meta">
+              <span><b>Oct 18–19, 2025</b></span>
+              <span class="sep">•</span>
+              <span>Saint Louis University, St. Louis, Missouri</span>
+            </div>
+          </div>
+
+          <hr class="soft"/>
+
+          <!-- 2025 -->
+          <div class="event-card" data-sort="2025-10-04">
+            <div class="event-title"><a href="https://www.ams.org/meetings/sectional" target="_blank" rel="noopener">AMS Sectional Meeting (2025 Fall Southeastern Sectional Meeting)</a></div>
+            <div class="event-meta"><span><b>Oct 04–05, 2025</b></span><span class="sep">•</span><span>New Orleans, Louisiana, USA</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-08-11">
+            <div class="event-title"><a href="https://nebraskacommalg.github.io/" target="_blank" rel="noopener">Summer CAMP 2025</a></div>
+            <div class="event-meta"><span><b>Aug 11–15, 2025</b></span><span class="sep">•</span><span>University of Nebraska–Lincoln, Lincoln, Nebraska</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-07-21">
+            <div class="event-title"><a href="https://www.mca2025.org/" target="_blank" rel="noopener">Mathematical Congress of the Americas (MCA) 2025</a></div>
+            <div class="event-meta"><span><b>Jul 21–25, 2025</b></span><span class="sep">•</span><span>Miami, Florida</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-06-02">
+            <div class="event-title"><a href="https://www.fields.utoronto.ca/activities/25-26/sms2025" target="_blank" rel="noopener">Séminaire de Mathématiques Supérieures (SMS) 2025</a></div>
+            <div class="event-meta"><span><b>Jun 02–13, 2025</b></span><span class="sep">•</span><span>Fields Institute, Toronto, Ontario, Canada</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-05-03">
+            <div class="event-title"><a href="https://www.ams.org/meetings/sectional" target="_blank" rel="noopener">AMS Sectional Meeting (2025 Spring Western Sectional Meeting)</a></div>
+            <div class="event-meta"><span><b>May 03–04, 2025</b></span><span class="sep">•</span><span>Cal Poly, San Luis Obispo, California</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-04-14">
+            <div class="event-title"><a href="https://sites.google.com/" target="_blank" rel="noopener">Macaulay2 Workshop</a></div>
+            <div class="event-meta"><span><b>Apr 14–18, 2025</b></span><span class="sep">•</span><span>Tulane University, New Orleans, Louisiana</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-04-08">
+            <div class="event-title"><a href="https://event.fourwaves.com/" target="_blank" rel="noopener">TRICS (Tulane Research, Innovation and Creativity Summit)</a></div>
+            <div class="event-meta"><span><b>Apr 08–10, 2025</b></span><span class="sep">•</span><span>Tulane University, New Orleans, Louisiana</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-04-05">
+            <div class="event-title"><a href="https://cats-math.github.io/" target="_blank" rel="noopener">Commutative Algebra in The South (C.A.T.S)</a></div>
+            <div class="event-meta"><span><b>Apr 05–06, 2025</b></span><span class="sep">•</span><span>Georgia State University, Atlanta, Georgia</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-04-05">
+            <div class="event-title"><a href="https://sites.google.com/" target="_blank" rel="noopener">Virtual Math for all in New Orleans 2025</a></div>
+            <div class="event-meta"><span><b>Apr 05, 2025</b></span><span class="sep">•</span><span>New Orleans, Louisiana (Hybrid)</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-03-29">
+            <div class="event-title"><a href="https://www.ams.org/meetings/sectional" target="_blank" rel="noopener">AMS Sectional Meeting (2025 Spring Central Sectional Meeting)</a></div>
+            <div class="event-meta"><span><b>Mar 29–30, 2025</b></span><span class="sep">•</span><span>University of Kansas, Lawrence, Kansas</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-03-01">
+            <div class="event-title"><a href="https://www.math.ttu.edu/" target="_blank" rel="noopener">Southwest Local Algebra Meeting (SLAM) 2025</a></div>
+            <div class="event-meta"><span><b>Mar 01–02, 2025</b></span><span class="sep">•</span><span>Phoenix, Arizona</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-01-31">
+            <div class="event-title"><a href="https://www.math.tamu.edu/" target="_blank" rel="noopener">Symmetries and Singularities in Texas</a></div>
+            <div class="event-meta"><span><b>Jan 31–Feb 02, 2025</b></span><span class="sep">•</span><span>Texas A&amp;M University, College Station, Texas</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2025-01-02">
+            <div class="event-title"><a href="https://sites.google.com/" target="_blank" rel="noopener">Two-Day Conference on “Mathematical Sciences and Applications”</a></div>
+            <div class="event-meta"><span><b>Jan 02–03, 2025</b></span><span class="sep">•</span><span>Tezpur University (Hybrid), Tezpur, Assam, India</span></div>
+          </div>
+
+          <hr class="soft"/>
+
+          <!-- 2024 -->
+          <div class="event-card" data-sort="2024-09-28">
+            <div class="event-title"><a href="https://sites.google.com/" target="_blank" rel="noopener">KUMUNU — 2024</a></div>
+            <div class="event-meta"><span><b>Sep 28–29, 2024</b></span><span class="sep">•</span><span>University of Missouri, Columbia, Missouri</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2024-08-12">
+            <div class="event-title"><a href="https://sites.nd.edu/" target="_blank" rel="noopener">UWE Fest 2024</a></div>
+            <div class="event-meta"><span><b>Aug 12–16, 2024</b></span><span class="sep">•</span><span>University of Notre Dame, South Bend, Indiana</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2024-06-17">
+            <div class="event-title"><a href="https://www.atmschools.org/" target="_blank" rel="noopener">NCMW — Recent Trends in Commutative Algebra (2024)</a></div>
+            <div class="event-meta"><span><b>Jun 17–22, 2024</b></span><span class="sep">•</span><span>IIT Bombay, Mumbai, India</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2024-06-12">
+            <div class="event-title"><a href="https://sites.google.com/" target="_blank" rel="noopener">International Conference on Local Rings and Singularities</a></div>
+            <div class="event-meta"><span><b>Jun 12–15, 2024</b></span><span class="sep">•</span><span>IIT Bombay, Mumbai, India</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2024-04-05">
+            <div class="event-title"><a href="https://sites.google.com/" target="_blank" rel="noopener">Math for all in New Orleans 2024</a></div>
+            <div class="event-meta"><span><b>Apr 05–06, 2024</b></span><span class="sep">•</span><span>Tulane University, New Orleans, Louisiana</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2024-02-24">
+            <div class="event-title"><a href="https://www.math.ttu.edu/" target="_blank" rel="noopener">Southwest Local Algebra Meeting (SLAM) 2024</a></div>
+            <div class="event-meta"><span><b>Feb 24–25, 2024</b></span><span class="sep">•</span><span>University of Oklahoma, Norman, Oklahoma</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2024-02-22">
+            <div class="event-title"><a href="https://sites.google.com/" target="_blank" rel="noopener">Annual Clifford Lectures: The Web of Modularity</a></div>
+            <div class="event-meta"><span><b>Feb 22–25, 2024</b></span><span class="sep">•</span><span>New Orleans, Louisiana</span></div>
+          </div>
+
+          <hr class="soft"/>
+
+          <!-- 2023 -->
+          <div class="event-card" data-sort="2023-11-03">
+            <div class="event-title"><a href="https://userweb.ucs.louisiana.edu/" target="_blank" rel="noopener">6th SIAM TX–LA Sectional Meeting (SIAM TX-LA 2023)</a></div>
+            <div class="event-meta"><span><b>Nov 03–05, 2023</b></span><span class="sep">•</span><span>University of Louisiana at Lafayette, Lafayette, Louisiana</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2023-08-11">
+            <div class="event-title"><a href="https://math.unl.edu/" target="_blank" rel="noopener">BrianFest — Conference on Unexpected and Asymptotic Properties of Algebraic Varieties</a></div>
+            <div class="event-meta"><span><b>Aug 11–12, 2023</b></span><span class="sep">•</span><span>University of Nebraska–Lincoln, Lincoln, Nebraska</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2023-08-08">
+            <div class="event-title"><a href="https://eloisagrifo.github.io/" target="_blank" rel="noopener">Summer CAMP (Commutative Algebra Market Preparation workshop)</a></div>
+            <div class="event-meta"><span><b>Aug 08–10, 2023</b></span><span class="sep">•</span><span>University of Nebraska–Lincoln, Lincoln, Nebraska</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2023-05-22">
+            <div class="event-title"><a href="https://sites.nd.edu/" target="_blank" rel="noopener">Commutative Algebra and its Interaction with Algebraic Geometry (MSRI/SLMath)</a></div>
+            <div class="event-meta"><span><b>May 22–Jun 02, 2023</b></span><span class="sep">•</span><span>Notre Dame, Indiana</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2023-04-15">
+            <div class="event-title"><a href="https://cats-math.github.io/" target="_blank" rel="noopener">Commutative Algebra in The South (C.A.T.S) 2023</a></div>
+            <div class="event-meta"><span><b>Apr 15–16, 2023</b></span><span class="sep">•</span><span>University of Alabama, Tuscaloosa, Alabama</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2023-03-24">
+            <div class="event-title"><a href="https://www.srac1988.com/" target="_blank" rel="noopener">Southern Regional Algebra Conference (SRAC 2023)</a></div>
+            <div class="event-meta"><span><b>Mar 24–26, 2023</b></span><span class="sep">•</span><span>New Orleans, Louisiana</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2023-03-18">
+            <div class="event-title"><a href="https://sites.google.com/" target="_blank" rel="noopener">Canadian Western Algebraic Geometry Symposium (CaWAGS) 2023</a></div>
+            <div class="event-meta"><span><b>Mar 18–19, 2023</b></span><span class="sep">•</span><span>Simon Fraser University, Burnaby, BC, Canada</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2023-03-04">
+            <div class="event-title"><a href="https://www.math.ttu.edu/" target="_blank" rel="noopener">Southwest Local Algebra Meeting (SLAM) 2023</a></div>
+            <div class="event-meta"><span><b>Mar 04–05, 2023</b></span><span class="sep">•</span><span>University of North Texas, Denton, Texas</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2023-02-24">
+            <div class="event-title"><a href="https://sites.google.com/" target="_blank" rel="noopener">Math for all in New Orleans 2023</a></div>
+            <div class="event-meta"><span><b>Feb 24–25, 2023</b></span><span class="sep">•</span><span>New Orleans, Louisiana</span></div>
+          </div>
+
+          <hr class="soft"/>
+
+          <!-- 2022 -->
+          <div class="event-card" data-sort="2022-09-30">
+            <div class="event-title"><a href="https://franksottile.github.io/" target="_blank" rel="noopener">Texas Algebraic Geometry Symposium (TAGS22)</a></div>
+            <div class="event-meta"><span><b>Sep 30–Oct 02, 2022</b></span><span class="sep">•</span><span>College Station, Texas</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2022-03-18">
+            <div class="event-title"><a href="https://www.gcsu.edu/" target="_blank" rel="noopener">Southern Regional Algebra Conference (SRAC 2022)</a></div>
+            <div class="event-meta"><span><b>Mar 18–20, 2022</b></span><span class="sep">•</span><span>Milledgeville, Georgia</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2022-01-21">
+            <div class="event-title"><a href="https://www.mathstat.dal.ca/" target="_blank" rel="noopener">Combinatorial Algebra meets Algebraic Combinatorics (CAAC — 19th Workshop)</a></div>
+            <div class="event-meta"><span><b>Jan 21–23, 2022</b></span><span class="sep">•</span><span>Fields Institute (Virtual)</span></div>
+          </div>
+
+          <hr class="soft"/>
+
+          <!-- 2021 -->
+          <div class="event-card" data-sort="2021-01-02">
+            <div class="event-title"><a href="https://www.atmschools.org/" target="_blank" rel="noopener">Advanced Instructional School on Commutative Algebra</a></div>
+            <div class="event-meta"><span><b>Jan 02–May 02, 2021</b></span><span class="sep">•</span><span>IIT Gandhinagar & IISc Bangalore (Virtual)</span></div>
+          </div>
+
+          <div class="event-card" data-sort="2021-01-22">
+            <div class="event-title"><a href="https://www.lacim.uqam.ca/" target="_blank" rel="noopener">Combinatorial Algebra meets Algebraic Combinatorics (CAAC — 18th Workshop)</a></div>
+            <div class="event-meta"><span><b>Jan 22–24, 2021</b></span><span class="sep">•</span><span>UQAM (Virtual)</span></div>
+          </div>
+
+          <!-- (Your Academic Events page continues beyond this; add remaining items similarly if you want the full historical archive visible here too.) -->
+        </div>
+
+        <div class="event-extra" style="margin-top:10px;">
+          Want the complete historical archive (2020 and earlier) displayed here as well? I can append the remaining entries from your Academic Events page in the same format.
+        </div>
+      </section>
+
+      <div class="footer">
+        © <span id="year"></span> Copyright @ Dipendranath Mahato —
+        Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>.
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Scripts ===== -->
   <script>
-    // ----- Footer year -----
+    // Footer year
     const yearSpan = document.getElementById("year");
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // ----- Mobile hamburger toggle -----
+    // Mobile hamburger toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks  = document.querySelector('.top-nav-links');
     if (navToggle && navLinks) {
@@ -1201,24 +1386,10 @@
       });
     }
 
-    // ----- "More" dropdown click toggle -----
-    const dropdown = document.querySelector('.dropdown');
-    const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
-    if (dropbtn) {
-      dropbtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        dropdown.classList.toggle('dropdown-open');
-      });
-    }
-    document.addEventListener('click', (event) => {
-      if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove('dropdown-open');
-    });
-
-    // ----- DARK MODE TOGGLE -----
-    const root        = document.documentElement; // <html>
+    // Dark mode toggle (same behavior as your other pages)
+    const root = document.documentElement;
     const themeToggle = document.querySelector('.theme-toggle');
-    const THEME_KEY   = 'dm-theme';
+    const THEME_KEY = 'dm-theme';
 
     function applyTheme(theme) {
       root.setAttribute('data-theme', theme);
@@ -1235,8 +1406,7 @@
     }
 
     const savedTheme = localStorage.getItem(THEME_KEY);
-    const initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
-    applyTheme(initialTheme);
+    applyTheme(savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light');
 
     if (themeToggle) {
       themeToggle.addEventListener('click', () => {
@@ -1247,95 +1417,30 @@
       });
     }
 
-    // ----- CV SEARCH (client-side filter) -----
-    const searchInput = document.getElementById('cvSearch');
-    const cvItems = Array.from(document.querySelectorAll('.cv-section, .cv-item'));
+    // Ensure the academic events are sorted with most recent/upcoming first (by data-sort)
+    (function(){
+      const list = document.getElementById('eventsList');
+      if (!list) return;
 
-    function normalize(s){ return (s || '').toLowerCase().trim(); }
+      // Keep <hr> dividers in place; only sort event cards.
+      const cards = Array.from(list.querySelectorAll('.event-card[data-sort]'));
+      cards.sort((a,b) => String(b.dataset.sort).localeCompare(String(a.dataset.sort)));
 
-    function applySearch(q){
-      const query = normalize(q);
-      if (!query){
-        cvItems.forEach(el => el.classList.remove('hidden-by-search'));
-        return;
-      }
+      // Remove and re-append cards at the top (after first divider logic remains simple).
+      // We'll just rebuild by removing all cards then appending in sorted order,
+      // keeping <hr> as-is (so dividers remain between groups you manually placed).
+      // If you want fully automatic grouping by year, say so and I’ll convert it.
+      cards.forEach(c => c.remove());
 
-      cvItems.forEach(el => {
-        const text = normalize(el.innerText);
-        const tags = normalize(el.getAttribute('data-tags'));
-        const hit = text.includes(query) || (tags && tags.includes(query));
-        el.classList.toggle('hidden-by-search', !hit);
-      });
-    }
+      // Re-insert cards right before the first <hr> if present; else at end.
+      const firstHr = list.querySelector('hr.soft');
+      const insertPoint = firstHr ? firstHr : null;
 
-    if (searchInput){
-      searchInput.addEventListener('input', (e) => applySearch(e.target.value));
-    }
-
-    // ----- Mini-nav: smooth scroll, dropdown jump, active section highlight -----
-    (function () {
-      const links = Array.from(document.querySelectorAll('.mini-nav-link'));
-      const select = document.getElementById('miniNavSelect');
-      const sectionIds = links.map(a => a.getAttribute('data-target')).filter(Boolean);
-      const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-
-      // Smooth-scroll for mini-nav links (preserves hash)
-      links.forEach(a => {
-        a.addEventListener('click', (e) => {
-          const targetId = a.getAttribute('data-target');
-          const el = document.getElementById(targetId);
-          if (!el) return;
-          e.preventDefault();
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          history.replaceState(null, '', `#${targetId}`);
-        });
-      });
-
-      // Mobile dropdown jump
-      if (select) {
-        select.addEventListener('change', () => {
-          const val = select.value;
-          if (!val) return;
-          const id = val.replace('#','');
-          const el = document.getElementById(id);
-          if (!el) return;
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          history.replaceState(null, '', val);
-          select.value = "";
-        });
-      }
-
-      function setActive(id) {
-        links.forEach(a => a.classList.toggle('active', a.getAttribute('data-target') === id));
-      }
-
-      if ('IntersectionObserver' in window && sections.length) {
-        const obs = new IntersectionObserver((entries) => {
-          const visible = entries
-            .filter(en => en.isIntersecting)
-            .sort((a,b) => (a.boundingClientRect.top - b.boundingClientRect.top));
-
-          if (visible.length) setActive(visible[0].target.id);
-        }, {
-          root: null,
-          rootMargin: '-25% 0px -70% 0px',
-          threshold: [0.05, 0.1, 0.2]
-        });
-
-        sections.forEach(sec => obs.observe(sec));
+      if (insertPoint) {
+        cards.forEach(c => list.insertBefore(c, insertPoint));
       } else {
-        window.addEventListener('scroll', () => {
-          let current = sections[0]?.id;
-          const y = window.scrollY + 140;
-          sections.forEach(sec => {
-            if (sec.offsetTop <= y) current = sec.id;
-          });
-          if (current) setActive(current);
-        }, { passive: true });
+        cards.forEach(c => list.appendChild(c));
       }
-
-      const initialHash = (location.hash || '').replace('#','');
-      if (initialHash && sectionIds.includes(initialHash)) setActive(initialHash);
     })();
   </script>
 </body>
