@@ -1440,7 +1440,8 @@
 
   <!-- ================= SCRIPTS ================= -->
   <script>
-    // Footer year
+document.addEventListener('DOMContentLoaded', () => {
+// Footer year
     const yearSpan = document.getElementById("year");
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
@@ -1524,6 +1525,9 @@
         panelTalks.classList.toggle('is-active', talksOn);
         panelPosters.classList.toggle('is-active', !talksOn);
       }
+    
+      // Keep counters accurate when switching views
+      updateCounters();
     }
 
     if (btnTalks) btnTalks.addEventListener('click', () => setView('talks'));
@@ -1603,6 +1607,7 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeAbstract();
     });
+});
   </script>
 </body>
 </html>
