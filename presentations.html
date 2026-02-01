@@ -633,11 +633,11 @@
           <ul class="info-list">
             <li>
               <i class="fa-regular fa-envelope"></i>
-              <span><a href="/cdn-cgi/l/email-protection#e48089858c85908ba4909188858a81ca818091"><span class="__cf_email__" data-cfemail="f1959c909990859eb185849d909f94df949584">[email&#160;protected]</span></a></span>
+              <span><a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a></span>
             </li>
             <li>
               <i class="fa-regular fa-envelope"></i>
-              <span><a href="/cdn-cgi/l/email-protection#3d59544d5853594f5c535c4955505c555c49520c0e7d5a505c5451135e5250"><span class="__cf_email__" data-cfemail="11757861747f7563707f7065797c707970657e202251767c70787d3f727e7c">[email&#160;protected]</span></a></span>
+              <span><a href="mailto:dipendranathmahato13@gmail.com">dipendranathmahato13@gmail.com</a></span>
             </li>
             <li>
               <i class="fa-regular fa-building"></i>
@@ -1174,7 +1174,7 @@
                 </div>
               </div>
 
-            </div><!-- /panelTalks -->
+            </div>
 
           <!-- ================= POSTERS PANEL ================= -->
             <div class="pres-panel" id="panelPosters">
@@ -1438,7 +1438,7 @@
   </div>
 
   <!-- ================= SCRIPTS ================= -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // Footer year
     const yearSpan = document.getElementById("year");
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
@@ -1591,4 +1591,22 @@
       if (!btn) return;
 
       const t = btn.getAttribute('data-title') || 'Abstract';
-      const a = btn.
+      const a = btn.getAttribute('data-abstract') || '';
+      openAbstract(t, a);
+    });
+
+    if (absClose) absClose.addEventListener('click', closeAbstract);
+    if (absMin) absMin.addEventListener('click', toggleMinimize);
+
+    // ESC to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAbstract();
+    });
+  </script>
+</body>
+</html>
+
+    });
+  </script>
+</body>
+</html>
