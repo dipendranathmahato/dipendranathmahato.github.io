@@ -1272,8 +1272,23 @@ a:hover { text-decoration: underline; }
     margin-left: auto;
   }
 
-  .controls .cv-button { display: none; }
+  .controls .cv-button { display: inline-flex; }
   .controls .theme-toggle { display: inline-flex; }
+
+  @media (max-width: 640px) {
+  .controls .cv-button {
+    display: inline-flex;        /* show CV */
+  }
+
+  .controls .cv-button span {
+    display: none;               /* hide "CV" text, icon only */
+  }
+
+  .controls {
+    gap: 6px;                    /* tighten spacing */
+  }
+}
+
 
   .top-nav-links {
     display: none;
