@@ -17,7 +17,7 @@
   <!-- MathJax -->
   <script>
     window.MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      tex: { inlineMath: [['$', '$'], ['\(', '\)']] },
       svg: { fontCache: 'global' }
     };
   </script>
@@ -34,7 +34,7 @@
       --os-border: rgba(15,23,42,.10);
       --os-text: rgba(15,23,42,.94);
       --os-muted: rgba(15,23,42,.66);
-      --os-accent: #0f766e; /* teal */
+      --os-accent: #0f766e; /* teal (light mode) */
       --os-shadow: 0 10px 28px rgba(2,6,23,.08);
       --os-radius: 16px;
     }
@@ -45,6 +45,9 @@
       --os-text: rgba(255,255,255,.92);
       --os-muted: rgba(255,255,255,.66);
       --os-shadow: 0 10px 28px rgba(0,0,0,.35);
+
+      /* brighter accent so Font Awesome icons pop on dark mode */
+      --os-accent: #5eead4;
     }
 
     .outreach-page .content-wrap{ padding: 4px 4px 30px; }
@@ -253,28 +256,6 @@
     .os-side-list li:first-child{ border-top:0; }
     .os-side-list i{ color: var(--os-accent); margin-top: 2px; }
 
-    .os-cta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-    .os-cta a{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border-radius: 999px;
-      padding: 10px 12px;
-      border: 1px solid var(--os-border);
-      background: var(--os-surface);
-      color: var(--os-text);
-      font-weight: 700;
-      font-size: .92rem;
-      text-decoration:none;
-    }
-    .os-cta a:hover{ border-color: rgba(15,118,110,.58); }
-    .os-cta a i{ color: var(--os-accent); }
-
     .os-mini{
       font-size: .9rem;
       color: var(--os-muted);
@@ -449,7 +430,7 @@
               </div>
             </div>
 
-            <!-- Highlights (derived from CV categories) -->
+            <!-- Highlights -->
             <div class="os-kpis">
               <div class="os-kpi">
                 <div class="num">ALTC</div>
@@ -465,7 +446,12 @@
               </div>
               <div class="os-kpi">
                 <div class="num">Alumni</div>
-                <div class="lab">Secretary of Alumni Association (Tezpur Univ.)</div>
+                <div class="lab">
+                  <a href="https://www.tezu.ernet.in/" target="_blank" rel="noopener noreferrer"
+                     style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">
+                    Tezpur University
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -492,7 +478,6 @@
               <div class="os-panel" role="tabpanel" id="panel-inst" aria-labelledby="tab-inst" data-open="true">
                 <ul class="os-timeline">
 
-                  <!-- Tulane: ALTC -->
                   <li class="os-item">
                     <div class="os-when">Fall 2023 – Present</div>
                     <div>
@@ -505,7 +490,6 @@
                     </div>
                   </li>
 
-                  <!-- K-12 -->
                   <li class="os-item">
                     <div class="os-when">Oct 2022; Apr 2023</div>
                     <div>
@@ -529,7 +513,6 @@
                     </div>
                   </li>
 
-                  <!-- AMS student chapter -->
                   <li class="os-item">
                     <div class="os-when">May 2022 – May 2023</div>
                     <div>
@@ -554,7 +537,6 @@
                     </div>
                   </li>
 
-                  <!-- SAGA -->
                   <li class="os-item">
                     <div class="os-when">Jun 2022 – May 2023</div>
                     <div>
@@ -566,7 +548,6 @@
                     </div>
                   </li>
 
-                  <!-- Tezpur: Training and Placement + Alumni Secretary -->
                   <li class="os-item">
                     <div class="os-when">Aug 2019 – Jul 2020</div>
                     <div>
@@ -578,19 +559,6 @@
                     </div>
                   </li>
 
-                  <li class="os-item">
-                    <div class="os-when">Jul 2023 – Present</div>
-                    <div>
-                      <div class="os-where">Tezpur University — Alumni Association</div>
-                      <div class="os-role">Secretary</div>
-                      <ul class="os-bullets">
-                        <li>Managing academic &amp; job allocation database.</li>
-                        <li>Organizer of the 1st Math Alumni Meet (Tezpur University).</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <!-- Tezpur: Science council & Dept coordination -->
                   <li class="os-item">
                     <div class="os-when">Oct 2018 – Dec 2019</div>
                     <div>
@@ -706,11 +674,6 @@
                   </div>
                 </li>
               </ul>
-
-              <div class="os-cta">
-                <a href="get-in-touch.html"><i class="fa-regular fa-paper-plane"></i> Get in Touch</a>
-                <a href="cv.html"><i class="fa-regular fa-file-lines"></i> View CV</a>
-              </div>
 
               <p class="os-mini">
                 If you want, I can add a small “Photos / Flyers / Outreach materials” gallery section here
@@ -829,42 +792,5 @@
     });
   </script>
 
-</body>
-</html>
-
-    const savedTheme = localStorage.getItem(THEME_KEY);
-    const initialTheme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light';
-    applyTheme(initialTheme);
-
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        const next    = current === 'dark' ? 'light' : 'dark';
-        localStorage.setItem(THEME_KEY, next);
-        applyTheme(next);
-      });
-    }
-
-    // ----- Outreach tabs -----
-    const tabs = [
-      { btn: 'tab-inst', panel: 'panel-inst' },
-      { btn: 'tab-noninst', panel: 'panel-noninst' }
-    ];
-
-    function setTab(activeBtnId){
-      tabs.forEach(({btn, panel}) => {
-        const b = document.getElementById(btn);
-        const p = document.getElementById(panel);
-        const on = (btn === activeBtnId);
-        if (b) b.setAttribute('aria-selected', on ? 'true' : 'false');
-        if (p) p.dataset.open = on ? 'true' : 'false';
-      });
-    }
-
-    tabs.forEach(({btn}) => {
-      const b = document.getElementById(btn);
-      if (b) b.addEventListener('click', () => setTab(btn));
-    });
-  </script>
 </body>
 </html>
