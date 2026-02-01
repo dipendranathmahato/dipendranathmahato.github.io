@@ -1539,12 +1539,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const talkCountEl   = document.getElementById('talkCount');
       const posterCountEl = document.getElementById('posterCount');
 
-      if (panelTalks && talkCountEl){
-        talkCountEl.textContent = panelTalks.querySelectorAll('.tp-item').length;
-      }
-      if (panelPosters && posterCountEl){
-        posterCountEl.textContent = panelPosters.querySelectorAll('.tp-item').length;
-      }
+      const talksN   = document.querySelectorAll('#panelTalks .tp-item').length;
+      const postersN = document.querySelectorAll('.tp-item .type-pill.type-poster').length;
+
+      if (talkCountEl)   talkCountEl.textContent   = talksN;
+      if (posterCountEl) posterCountEl.textContent = postersN;
+
+      // Year counters (works for both panels)
+      document.querySelectorAll('.js-year-chip').forEach(chip => {
+        const base = chip.getAttribute('data-label') || chip.textContent.trim().replace(/\s*\(\d+\)\s*$/, '');
+        const yearGroup = chip.closest('.year-group');
+        const count = yearGroup ? yearGroup.querySelectorAll('.tp-item').length : 0;
+        chip.textContent = `${base} (${count})`;
+      });
+    }
+
+    // Run counters on DOM ready, on full load, and after toggling views
+    updateCounters();
+    window.addEventListener('load', updateCounters);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) updateCounters();
+    });
+
 
       // Year counters (works for both panels)
       document.querySelectorAll('.js-year-chip').forEach(chip => {
