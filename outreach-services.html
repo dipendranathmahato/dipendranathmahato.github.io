@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Home | Dipendranath Mahato</title>
+  <title>Outreach & Services | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts & Icons -->
@@ -25,7 +25,293 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-specific polish (scoped) -->
+  <style>
+    /* Scope everything to this page container so it doesn't affect other pages */
+    .outreach-page {
+      --os-bg: rgba(255, 255, 255, 0.65);
+      --os-surface: rgba(255, 255, 255, 0.85);
+      --os-border: rgba(15, 23, 42, 0.10);
+      --os-text: rgba(15, 23, 42, 0.94);
+      --os-muted: rgba(15, 23, 42, 0.64);
+      --os-accent: #0f766e; /* teal */
+      --os-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+      --os-radius: 16px;
+    }
+
+    html[data-theme="dark"] .outreach-page{
+      --os-bg: rgba(17, 24, 39, 0.35);
+      --os-surface: rgba(17, 24, 39, 0.65);
+      --os-border: rgba(255, 255, 255, 0.10);
+      --os-text: rgba(255, 255, 255, 0.90);
+      --os-muted: rgba(255, 255, 255, 0.65);
+      --os-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .outreach-page .content {
+      padding: 6px 6px 32px 6px;
+    }
+
+    .os-hero{
+      background: var(--os-bg);
+      border: 1px solid var(--os-border);
+      border-radius: var(--os-radius);
+      padding: 18px 18px 14px;
+      box-shadow: var(--os-shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .os-hero-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .os-title{
+      margin: 0;
+      font-size: 1.55rem;
+      letter-spacing: -0.02em;
+      color: var(--os-text);
+    }
+
+    .os-subtitle{
+      margin: 8px 0 0 0;
+      max-width: 70ch;
+      color: var(--os-muted);
+      line-height: 1.55;
+      font-size: 0.98rem;
+    }
+
+    .os-badges{
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    .os-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--os-border);
+      background: var(--os-surface);
+      color: var(--os-muted);
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+    .os-badge i{ color: var(--os-accent); }
+
+    .os-kpis{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 900px){
+      .os-kpis{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .os-kpi{
+      border: 1px solid var(--os-border);
+      border-radius: 14px;
+      background: var(--os-surface);
+      padding: 12px 12px 10px;
+    }
+    .os-kpi .num{
+      font-weight: 750;
+      font-size: 1.1rem;
+      color: var(--os-text);
+      margin-bottom: 2px;
+    }
+    .os-kpi .lab{
+      font-size: 0.86rem;
+      color: var(--os-muted);
+      line-height: 1.3;
+    }
+
+    .os-grid{
+      display:grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 14px;
+      margin-top: 14px;
+      align-items:start;
+    }
+    @media (max-width: 1000px){
+      .os-grid{ grid-template-columns: 1fr; }
+    }
+
+    .os-card{
+      background: var(--os-bg);
+      border: 1px solid var(--os-border);
+      border-radius: var(--os-radius);
+      padding: 14px;
+      box-shadow: var(--os-shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .os-card h2{
+      margin: 0 0 8px 0;
+      font-size: 1.05rem;
+      color: var(--os-text);
+      letter-spacing: -0.01em;
+    }
+
+    .os-card p, .os-card li{
+      color: var(--os-muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    /* Tabs */
+    .os-tabs{
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      margin: 10px 0 10px;
+    }
+    .os-tabbtn{
+      cursor:pointer;
+      border: 1px solid var(--os-border);
+      background: var(--os-surface);
+      color: var(--os-muted);
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      transition: transform .05s ease, border-color .15s ease;
+    }
+    .os-tabbtn:hover{ border-color: rgba(15, 118, 110, 0.35); }
+    .os-tabbtn:active{ transform: scale(0.99); }
+    .os-tabbtn[aria-selected="true"]{
+      color: var(--os-text);
+      border-color: rgba(15, 118, 110, 0.55);
+      box-shadow: 0 1px 0 rgba(15, 118, 110, 0.20);
+    }
+    .os-panel{ display:none; }
+    .os-panel[data-open="true"]{ display:block; }
+
+    /* Timeline */
+    .os-timeline{
+      list-style:none;
+      margin: 0;
+      padding: 0;
+    }
+    .os-item{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid var(--os-border);
+    }
+    .os-item:first-child{ border-top: 0; }
+    .os-when{
+      font-size: 0.85rem;
+      color: var(--os-muted);
+      line-height: 1.25;
+    }
+    .os-where{
+      font-weight: 700;
+      color: var(--os-text);
+    }
+    .os-role{
+      margin-top: 2px;
+      color: var(--os-muted);
+      font-size: 0.9rem;
+    }
+    .os-bullets{
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+    .os-bullets li{ margin: 6px 0; }
+
+    @media (max-width: 650px){
+      .os-item{ grid-template-columns: 1fr; }
+      .os-when{ order: 2; }
+    }
+
+    /* Accordions (optional details) */
+    .os-acc{
+      margin-top: 10px;
+      border-top: 1px dashed var(--os-border);
+      padding-top: 10px;
+    }
+    .os-acc details{
+      border: 1px solid var(--os-border);
+      border-radius: 14px;
+      background: var(--os-surface);
+      padding: 10px 12px;
+      margin: 8px 0;
+    }
+    .os-acc summary{
+      cursor:pointer;
+      color: var(--os-text);
+      font-weight: 650;
+      list-style: none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .os-acc summary::-webkit-details-marker{ display:none; }
+    .os-acc .hint{
+      font-size: 0.86rem;
+      color: var(--os-muted);
+      margin-top: 6px;
+    }
+
+    /* Sidebar cards */
+    .os-side-list{
+      list-style:none;
+      padding-left: 0;
+      margin: 8px 0 0;
+    }
+    .os-side-list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 8px 0;
+      border-top: 1px solid var(--os-border);
+    }
+    .os-side-list li:first-child{ border-top: 0; }
+    .os-side-list i{ color: var(--os-accent); margin-top: 2px; }
+    .os-cta{
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .os-cta a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border-radius: 999px;
+      padding: 10px 12px;
+      border: 1px solid var(--os-border);
+      background: var(--os-surface);
+      color: var(--os-text);
+      font-weight: 650;
+      font-size: 0.92rem;
+      text-decoration:none;
+    }
+    .os-cta a:hover{ border-color: rgba(15, 118, 110, 0.55); }
+    .os-cta a i{ color: var(--os-accent); }
+
+    .os-mini{
+      font-size: 0.9rem;
+      color: var(--os-muted);
+      margin: 10px 0 0;
+    }
+  </style>
 </head>
+
 <body>
   <div class="page">
     <!-- ================= HEADER / NAV ================= -->
@@ -45,45 +331,40 @@
       </button>
 
       <nav class="top-nav-links">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="teaching.html">Teaching</a>
-  <a href="presentations.html">Presentations</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="presentations.html">Presentations</a>
 
-  <!-- Single dropdown (desktop), will flatten on mobile via CSS -->
-  <div class="dropdown">
-    <button class="dropbtn">
-      More <i class="fa-solid fa-chevron-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="outreach-services.html">Outreach &amp; Services</a>
-      <a href="blogs.html">Blogs</a>
-      <a href="resources.html">Resources</a>
-    </div>
-  </div>
-</nav>
-
+        <div class="dropdown">
+          <button class="dropbtn">
+            More <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="outreach-services.html">Outreach &amp; Services</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="resources.html">Resources</a>
+          </div>
+        </div>
+      </nav>
 
       <div class="controls">
-  <!-- Dark mode toggle button -->
-  <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
-    <i class="fa-solid fa-moon"></i>
-    <span>Dark</span>
-  </button>
+        <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+          <span>Dark</span>
+        </button>
 
-  <!-- CV button (add cv-button class so we can hide it on small screens if needed) -->
-  <a href="cv.html" class="pill-button primary cv-button">
-    <i class="fa-solid fa-file-lines"></i>
-    <span>CV</span>
-  </a>
-</div>
-
+        <a href="cv.html" class="pill-button primary cv-button">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>CV</span>
+        </a>
+      </div>
     </header>
 
     <!-- ================= LAYOUT ================= -->
     <main class="layout">
-      <!-- Sidebar -->
+      <!-- Sidebar (unchanged) -->
       <aside class="sidebar">
         <div class="avatar">
           <img src="/assets/images/PXL_20250330_220427523-1575x2800-compressed.jpg"
@@ -100,23 +381,17 @@
           Department of Mathematics
         </div>
 
-        <!-- Research area padded block -->
         <div class="research-area-block">
-        
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
             <span>Research Areas</span>
           </div>
-        
           <div class="research-chips">
             <a href="research.html#commutative" class="chip">Commutative Algebra</a>
             <a href="research.html#algebraic-geometry" class="chip">Algebraic Geometry</a>
             <a href="research.html#combinatorial" class="chip">Combinatorial Algebra</a>
           </div>
-        
         </div>
-
-
 
         <div class="sidebar-section">
           <h3>Contact</h3>
@@ -127,7 +402,7 @@
             </li>
             <li>
               <i class="fa-regular fa-envelope"></i>
-              <span><a href="mailto:dipendranathmahato@gmail.com">dipendranathmahato@gmail.com</a></span>
+              <span><a href="mailto:dipendranathmahato13@gmail.com">dipendranathmahato13@gmail.com</a></span>
             </li>
             <li>
               <i class="fa-regular fa-building"></i>
@@ -173,13 +448,299 @@
         </div>
       </aside>
 
+      <!-- ================= MAIN CONTENT ================= -->
+      <section class="content outreach-page">
+        <!-- HERO -->
+        <div class="os-hero">
+          <div class="os-hero-top">
+            <div>
+              <h1 class="os-title">Outreach &amp; Services</h1>
+              <p class="os-subtitle">
+                I enjoy building mathematical community—through departmental service, student organizations,
+                mentoring, and K–12 outreach. Below is a curated record of my institutional and non-institutional engagements.
+              </p>
+            </div>
 
-      <!-- Main HOME content -->
+            <div class="os-badges">
+              <div class="os-badge"><i class="fa-solid fa-people-group"></i> Community building</div>
+              <div class="os-badge"><i class="fa-solid fa-chalkboard-user"></i> Mentoring</div>
+              <div class="os-badge"><i class="fa-solid fa-handshake-angle"></i> Outreach</div>
+            </div>
+          </div>
 
+          <!-- KPIs (edit counts anytime; they’re just highlights) -->
+          <div class="os-kpis">
+            <div class="os-kpi">
+              <div class="num">K–12 STEM</div>
+              <div class="lab">Volunteer outreach at Tulane programs</div>
+            </div>
+            <div class="os-kpi">
+              <div class="num">Student orgs</div>
+              <div class="lab">AMS chapter leadership & events</div>
+            </div>
+            <div class="os-kpi">
+              <div class="num">DRP</div>
+              <div class="lab">Directed Reading Program mentoring</div>
+            </div>
+            <div class="os-kpi">
+              <div class="num">Service</div>
+              <div class="lab">Department roles & coordination</div>
+            </div>
+          </div>
+        </div>
 
+        <div class="os-grid">
+          <!-- MAIN CARD -->
+          <div class="os-card">
+            <h2>Service timeline</h2>
+            <p style="margin: 0 0 8px 0;">
+              Use the tabs to switch between institutional roles (university/department) and non-institutional service.
+            </p>
 
+            <div class="os-tabs" role="tablist" aria-label="Outreach tabs">
+              <button class="os-tabbtn" role="tab" aria-selected="true" aria-controls="panel-inst" id="tab-inst">
+                <i class="fa-solid fa-building-columns"></i> Institutional
+              </button>
+              <button class="os-tabbtn" role="tab" aria-selected="false" aria-controls="panel-noninst" id="tab-noninst">
+                <i class="fa-solid fa-hand-holding-heart"></i> Non-institutional
+              </button>
+            </div>
 
-      <div class="footer">
+            <!-- Institutional panel -->
+            <div class="os-panel" role="tabpanel" id="panel-inst" aria-labelledby="tab-inst" data-open="true">
+              <ul class="os-timeline">
+                <!-- Tezpur -->
+                <li class="os-item">
+                  <div class="os-when">Nov 2018 – Dec 2019</div>
+                  <div>
+                    <div class="os-where">Students Science Council — Departmental Coordinator</div>
+                    <div class="os-role">InSCIgnis 2019 Outreach Program (Tezpur University)</div>
+                    <ul class="os-bullets">
+                      <li>Visited Kabilabad High English School and demonstrated high-school level science experiments.</li>
+                      <li>Conducted mathematical games as part of outreach activities.</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="os-item">
+                  <div class="os-when">Oct 2018 – Dec 2019</div>
+                  <div>
+                    <div class="os-where">Departmental Representative — Mathematical Sciences</div>
+                    <div class="os-role">Tezpur University</div>
+                    <ul class="os-bullets">
+                      <li>Led mathematics events for InSCIgnis 2019 (e.g., Brachistochrone curve, gravitational fields).</li>
+                      <li>Hosted mathematics events during the 2nd Assam Science Festival.</li>
+                      <li>Organized π-Day (2019) and supported National Mathematics Day (2018, online).</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="os-item">
+                  <div class="os-when">2019 – 2020</div>
+                  <div>
+                    <div class="os-where">Training &amp; Placement Cell — Departmental Coordinator</div>
+                    <div class="os-role">Tezpur University</div>
+                    <ul class="os-bullets">
+                      <li>Helped connect M.Sc. Mathematics students with training/placement resources and collaborators.</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <!-- Tulane -->
+                <li class="os-item">
+                  <div class="os-when">May 2022 – May 2023</div>
+                  <div>
+                    <div class="os-where">Treasurer — AMS Tulane Student Chapter</div>
+                    <div class="os-role">Tulane University</div>
+                    <ul class="os-bullets">
+                      <li>Supported community-building events including the Annual Math BBQ (2022).</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="os-item">
+                  <div class="os-when">May 2022 – Present</div>
+                  <div>
+                    <div class="os-where">Class Representative — Department of Mathematics</div>
+                    <div class="os-role">Tulane University</div>
+                    <ul class="os-bullets">
+                      <li>Strengthened communication between graduate students and faculty.</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="os-item">
+                  <div class="os-when">Jun 2022 – May 2023</div>
+                  <div>
+                    <div class="os-where">Vice President — South Asian Graduate Association (SAGA)</div>
+                    <div class="os-role">Tulane University</div>
+                    <ul class="os-bullets">
+                      <li>Organized sectional meetings and built connections with other student associations.</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="os-item">
+                  <div class="os-when">Jun 2023 – Jun 2024</div>
+                  <div>
+                    <div class="os-where">President — AMS Tulane Student Chapter</div>
+                    <div class="os-role">Tulane University</div>
+                    <ul class="os-bullets">
+                      <li>Compiled an alumni database for the Department of Mathematics.</li>
+                      <li>Organized AMS faculty talks (Fall 2023, Spring 2024).</li>
+                      <li>Supported Annual Math BBQ events (2023, 2024).</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="os-item">
+                  <div class="os-when">Oct 2022 – May 2025</div>
+                  <div>
+                    <div class="os-where">Volunteer — K–12 STEM Outreach</div>
+                    <div class="os-role">Tulane University</div>
+                    <ul class="os-bullets">
+                      <li>Math section volunteer for Girls in STEM at Tulane (Fall 2022, Spring 2023).</li>
+                      <li>Math section volunteer for Boys at Tulane in STEM (Spring 2024, Fall 2024).</li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="os-acc">
+                <details>
+                  <summary>
+                    What I try to prioritize in service
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </summary>
+                  <div class="hint">
+                    I like roles that improve student support, create welcoming math spaces, and connect outreach to learning.
+                    When possible, I also look for ways to fold mentoring and computational projects into community activities.
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    Interested in inviting me for outreach / mentoring?
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </summary>
+                  <div class="hint">
+                    I’m happy to help with: (i) short outreach talks, (ii) mentoring/reading groups (symbolic powers, commutative algebra),
+                    (iii) organizing student events, (iv) workshop support. Use the “Get in Touch” page to contact me.
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Non-institutional panel -->
+            <div class="os-panel" role="tabpanel" id="panel-noninst" aria-labelledby="tab-noninst" data-open="false">
+              <ul class="os-timeline">
+                <li class="os-item">
+                  <div class="os-when">Spring 2025</div>
+                  <div>
+                    <div class="os-where">TWOPLES — Directed Reading Program Mentor</div>
+                    <div class="os-role">Mentoring</div>
+                    <ul class="os-bullets">
+                      <li>Mentored a reading project: <em>An Introduction to Symbolic Powers</em>.</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="os-item">
+                  <div class="os-when">May 2020</div>
+                  <div>
+                    <div class="os-where">Shanko (NGO) — Cyclone Amphan relief</div>
+                    <div class="os-role">Community kitchens (coastal areas near Kolkata)</div>
+                    <ul class="os-bullets">
+                      <li>Organized / supported community kitchens after Cyclone Amphan.</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="os-item">
+                  <div class="os-when">2020 – 2021</div>
+                  <div>
+                    <div class="os-where">COVID-19 relief</div>
+                    <div class="os-role">Community support near Kolkata and surrounding districts</div>
+                    <ul class="os-bullets">
+                      <li>Support to local dwellers during phases 1–2 near Kolkata and surrounding districts.</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="os-item">
+                  <div class="os-when">May 2021</div>
+                  <div>
+                    <div class="os-where">Shanko (NGO) — Cyclone Yaas relief</div>
+                    <div class="os-role">Community kitchens (coastal areas near Kolkata)</div>
+                    <ul class="os-bullets">
+                      <li>Organized / supported community kitchens after Cyclone Yaas.</li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="os-acc">
+                <details>
+                  <summary>
+                    How these experiences influence my academic life
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </summary>
+                  <div class="hint">
+                    Outreach and mentoring keep me grounded in why mathematical communication matters: clarity, inclusion,
+                    and building confidence. I try to bring that into teaching and graduate community-building.
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIDE CARD -->
+          <aside class="os-card">
+            <h2>At a glance</h2>
+            <ul class="os-side-list">
+              <li>
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <div>
+                  <div style="font-weight:700; color: var(--os-text);">Mentoring & reading groups</div>
+                  <div style="color: var(--os-muted); font-size: 0.92rem;">DRP mentoring and student support.</div>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-calendar-check"></i>
+                <div>
+                  <div style="font-weight:700; color: var(--os-text);">Event organization</div>
+                  <div style="color: var(--os-muted); font-size: 0.92rem;">Student chapter talks, BBQs, sectionals.</div>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-children"></i>
+                <div>
+                  <div style="font-weight:700; color: var(--os-text);">K–12 outreach</div>
+                  <div style="color: var(--os-muted); font-size: 0.92rem;">STEM activities & volunteer sessions.</div>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <div>
+                  <div style="font-weight:700; color: var(--os-text);">Community service</div>
+                  <div style="color: var(--os-muted); font-size: 0.92rem;">Relief efforts & community kitchens.</div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="os-cta">
+              <a href="get-in-touch.html"><i class="fa-regular fa-paper-plane"></i> Get in Touch</a>
+              <a href="cv.html"><i class="fa-regular fa-file-lines"></i> View CV</a>
+            </div>
+
+            <p class="os-mini">
+              Tip: If you want, I can also add a small “Photos / Posters” section here (with a clean gallery layout)
+              without changing your global style.css.
+            </p>
+          </aside>
+        </div>
+
+        <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
           Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
@@ -187,87 +748,101 @@
     </main>
   </div>
 
-  <!-- ================= SCRIPTS ================= -->
+  <!-- ================= SCRIPTS (same as your template) ================= -->
   <script>
-  // ----- Footer year -----
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+    // ----- Footer year -----
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // ----- Mobile hamburger toggle -----
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks  = document.querySelector('.top-nav-links');
+    // ----- Mobile hamburger toggle -----
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks  = document.querySelector('.top-nav-links');
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
 
-    navLinks.addEventListener('click', (event) => {
-      if (event.target.tagName.toLowerCase() === 'a') {
-        navLinks.classList.remove('open');
+      navLinks.addEventListener('click', (event) => {
+        if (event.target.tagName.toLowerCase() === 'a') {
+          navLinks.classList.remove('open');
+        }
+      });
+    }
+
+    // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
+    if (dropbtn) {
+      dropbtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropdown.classList.toggle('dropdown-open');
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('dropdown-open');
       }
     });
-  }
 
-  // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
-  const dropdown = document.querySelector('.dropdown');
-  const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+    // ----- DARK MODE TOGGLE -----
+    const root        = document.documentElement; // <html>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const THEME_KEY   = 'dm-theme';
 
-  if (dropbtn) {
-    dropbtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      dropdown.classList.toggle('dropdown-open');
-    });
-  }
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
 
-  document.addEventListener('click', (event) => {
-    if (dropdown && !dropdown.contains(event.target)) {
-      dropdown.classList.remove('dropdown-open');
+      if (!themeToggle) return;
+
+      const icon  = themeToggle.querySelector('i');
+      const label = themeToggle.querySelector('span');
+
+      if (theme === 'dark') {
+        if (icon) icon.className = 'fa-solid fa-sun';
+        if (label) label.textContent = 'Light';
+      } else {
+        if (icon) icon.className = 'fa-solid fa-moon';
+        if (label) label.textContent = 'Dark';
+      }
     }
-  });
 
-  // ----- DARK MODE TOGGLE -----
-  const root        = document.documentElement; // <html>
-  const themeToggle = document.querySelector('.theme-toggle');
-  const THEME_KEY   = 'dm-theme';
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    const initialTheme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light';
+    applyTheme(initialTheme);
 
-  function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
-
-    if (!themeToggle) return;
-
-    const icon  = themeToggle.querySelector('i');
-    const label = themeToggle.querySelector('span');
-
-    if (theme === 'dark') {
-      if (icon) icon.className = 'fa-solid fa-sun';
-      if (label) label.textContent = 'Light';
-    } else {
-      if (icon) icon.className = 'fa-solid fa-moon';
-      if (label) label.textContent = 'Dark';
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next    = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+      });
     }
-  }
 
-  // Initial theme (from localStorage or default "light")
-  const savedTheme = localStorage.getItem(THEME_KEY);
-  const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
-    ? savedTheme
-    : 'light';
+    // ----- Outreach tabs -----
+    const tabs = [
+      { btn: 'tab-inst', panel: 'panel-inst' },
+      { btn: 'tab-noninst', panel: 'panel-noninst' }
+    ];
 
-  applyTheme(initialTheme);
+    function setTab(activeBtnId){
+      tabs.forEach(({btn, panel}) => {
+        const b = document.getElementById(btn);
+        const p = document.getElementById(panel);
+        const on = (btn === activeBtnId);
+        if (b) b.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (p) p.dataset.open = on ? 'true' : 'false';
+      });
+    }
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      const next    = current === 'dark' ? 'light' : 'dark';
-      localStorage.setItem(THEME_KEY, next);
-      applyTheme(next);
+    tabs.forEach(({btn}) => {
+      const b = document.getElementById(btn);
+      if (b) b.addEventListener('click', () => setTab(btn));
     });
-  }
-</script>
-
+  </script>
 </body>
 </html>
