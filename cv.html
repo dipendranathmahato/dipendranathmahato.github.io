@@ -276,68 +276,63 @@
       }
     }
 
-/* ===== Make the Jump-to badge visible (pill), still expands on hover ===== */
+/* ===============================
+   Jump-to: idle = ONLY a pill
+   hover = expands into panel
+   draggable stays the same
+   =============================== */
+
 .jump-rail{
-  /* keep your draggable fixed positioning */
   position: fixed;
   right: 18px;
   top: 150px;
   z-index: 80;
 
-  width: 108px;              /* slightly wider so "Jump to" reads well */
-  padding: 8px;
-
-  border-radius: 999px;      /* pill */
-  border: 1px solid rgba(37,99,235,0.35);
-  background: rgba(37,99,235,0.12);     /* visible but not loud */
-  box-shadow: 0 10px 26px rgba(37,99,235,0.12);
-  backdrop-filter: blur(6px);
+  /* IMPORTANT: container has NO visible block */
+  width: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  border-radius: 0;
+  overflow: visible;
 
   cursor: grab;
   user-select: none;
-  transition: width 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, border-radius 180ms ease;
 }
 .jump-rail:active{ cursor: grabbing; }
 
-html[data-theme="dark"] .jump-rail{
-  border-color: rgba(96,165,250,0.28);
-  background: rgba(96,165,250,0.12);
+/* The small pill (always visible) */
+.jump-head{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(37,99,235,0.38);
+  background: rgba(37,99,235,0.14);
+  box-shadow: 0 10px 26px rgba(37,99,235,0.14);
+  backdrop-filter: blur(6px);
+}
+
+html[data-theme="dark"] .jump-head{
+  border-color: rgba(96,165,250,0.30);
+  background: rgba(96,165,250,0.14);
   box-shadow: 0 14px 34px rgba(0,0,0,0.45);
 }
 
-/* Hover expands into panel (keep your existing hover rules, but ensure these stay) */
-.jump-rail:hover{
-  width: 330px;
-  border-radius: 18px;
-  border-color: rgba(0,0,0,0.10);
-  background: rgba(255,255,255,0.78);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.16);
-  backdrop-filter: blur(10px);
-}
-html[data-theme="dark"] .jump-rail:hover{
-  border-color: rgba(255,255,255,0.12);
-  background: rgba(2,6,23,0.72);
-  box-shadow: 0 18px 44px rgba(0,0,0,0.55);
-}
-
-/* Badge row */
-.jump-head{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  padding: 4px 8px;
-  border-radius: 999px;
-}
-
-/* Icon mini-pill */
+/* icon inside pill */
 .jump-icon{
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.16);
   background: rgba(255,255,255,0.12);
   color: rgba(29,78,216,0.98);
 }
@@ -347,76 +342,90 @@ html[data-theme="dark"] .jump-icon{
   color: rgba(191,219,254,0.96);
 }
 
-/* "Jump to" text */
 .jump-label{
   font-weight: 950;
   letter-spacing: .2px;
   color: rgba(29,78,216,0.98);
   opacity: 0.98;
+  white-space: nowrap;
 }
 html[data-theme="dark"] .jump-label{
   color: rgba(191,219,254,0.96);
 }
 
-.jump-rail{ outline: 1px solid rgba(255,255,255,0.25); }
-html[data-theme="dark"] .jump-rail{ outline: 1px solid rgba(0,0,0,0.25); }
+/* Hide expanded title unless hovered (optional) */
+.jump-title{ display: none; font-weight: 950; letter-spacing: .2px; white-space: nowrap; }
 
+/* ===== Hover panel (your expand) ===== */
+.jump-links{
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
 
-/* Expanded title appears only on hover */
-.jump-title {
-  display: none;
-  font-weight: 950;
-  letter-spacing: .2px;
-  white-space: nowrap;
-}
-.jump-rail:hover .jump-title { display: inline; }
+  width: 320px;
+  padding: 10px;
 
-/* Swap label -> title on hover (optional, clearer) */
-.jump-rail:hover .jump-label { display: none; }
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.78);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.16);
+  backdrop-filter: blur(10px);
 
-/* Links: hidden unless hovered */
-.jump-links {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 6px 6px 10px;
-  margin-top: 4px;
+
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   transition: opacity 150ms ease, transform 150ms ease;
 }
-.jump-rail:hover .jump-links {
+
+html[data-theme="dark"] .jump-links{
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(2,6,23,0.72);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.55);
+}
+
+/* Show panel on hover */
+.jump-rail:hover .jump-links{
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
 }
 
-/* Link styling */
-.jump-links a {
-  display: flex;
-  align-items: center;
+/* (optional) swap label -> title on hover */
+.jump-rail:hover .jump-label{ display: none; }
+.jump-rail:hover .jump-title{ display: inline; }
+
+/* links */
+.jump-links a{
+  display:flex;
+  align-items:center;
   gap: 10px;
   padding: 10px 10px;
   border-radius: 12px;
-  text-decoration: none !important;
+  text-decoration:none !important;
   font-weight: 900;
   border: 1px solid transparent;
   white-space: nowrap;
 }
-.jump-links a:hover {
+.jump-links a:hover{
   border-color: rgba(0,0,0,0.10);
   background: rgba(0,0,0,0.03);
 }
-html[data-theme="dark"] .jump-links a:hover {
+html[data-theme="dark"] .jump-links a:hover{
   border-color: rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.06);
 }
 
-.jump-mini { width: 22px; text-align: center; opacity: .9; }
+.jump-mini{ width: 22px; text-align:center; opacity: .9; }
 
-/* Hide on smaller screens (mobile uses sticky mini-nav) */
-@media (max-width: 1180px) { .jump-rail { display: none; } }
+/* Hide on smaller screens */
+@media (max-width: 1180px){
+  .jump-rail{ display:none; }
+}
+
 
     /* Events accordion */
     details.year {
