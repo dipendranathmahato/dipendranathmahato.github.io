@@ -276,99 +276,136 @@
       }
     }
 
-    /* ========= Jump-to rail (rectangular hover-expand) ========= */
-    .jump-rail {
-      position: fixed;
-      right: 14px;
-      top: 122px;
-      z-index: 60;
+    /* ========= Jump-to rail (tiny + transparent, hover expands) ========= */
+.jump-rail {
+  position: fixed;
+  left: auto;
+  right: 18px;
+  top: 150px;
+  z-index: 80;
 
-      width: 62px;               /* collapsed */
-      border: 1px solid rgba(0,0,0,0.08);
-      border-radius: 16px;       /* rectangular */
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-      padding: 10px;
-      overflow: hidden;
-      transition: width 190ms ease, border-radius 190ms ease;
-    }
-    html[data-theme="dark"] .jump-rail {
-      border-color: rgba(255,255,255,0.10);
-      background: rgba(2,6,23,0.68);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.45);
-    }
-    .jump-rail:hover {
-      width: 320px;              /* expanded readable */
-      border-radius: 18px;
-    }
-    .jump-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px;
-    }
-    .jump-icon {
-      width: 36px; height: 36px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.10);
-      background: rgba(0,0,0,0.03);
-      flex: 0 0 auto;
-    }
-    html[data-theme="dark"] .jump-icon {
-      border-color: rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-    }
-    .jump-title {
-      font-weight: 950;
-      letter-spacing: .2px;
-      opacity: 0;
-      transform: translateX(-6px);
-      transition: opacity 160ms ease, transform 160ms ease;
-      white-space: nowrap;
-    }
-    .jump-rail:hover .jump-title {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .jump-links {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding: 6px;
-    }
-    .jump-links a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 10px;
-      border-radius: 12px;
-      text-decoration: none !important;
-      font-weight: 900;
-      border: 1px solid transparent;
-      opacity: 0;
-      transform: translateX(-6px);
-      transition: opacity 160ms ease, transform 160ms ease, background 160ms ease, border-color 160ms ease;
-      white-space: nowrap;
-    }
-    .jump-rail:hover .jump-links a {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .jump-links a:hover {
-      border-color: rgba(0,0,0,0.10);
-      background: rgba(0,0,0,0.03);
-    }
-    html[data-theme="dark"] .jump-links a:hover {
-      border-color: rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-    }
-    .jump-mini { width: 22px; text-align: center; opacity: .9; }
+  width: 92px;                 /* small label width: icon + "Jump to" */
+  border: 1px solid transparent;
+  border-radius: 999px;
 
-    @media (max-width: 1180px) { .jump-rail { display: none; } }
+  background: transparent;     /* transparent when idle */
+  backdrop-filter: none;
+  box-shadow: none;
+
+  padding: 6px;
+  overflow: visible;
+
+  cursor: grab;
+  user-select: none;
+
+  transition: width 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.jump-rail:active { cursor: grabbing; }
+
+/* Hover -> expands into readable panel */
+.jump-rail:hover {
+  width: 330px;
+  border-radius: 18px;
+  border-color: rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.16);
+}
+
+/* Dark mode hover panel */
+html[data-theme="dark"] .jump-rail:hover {
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(2,6,23,0.72);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.55);
+}
+
+/* The "collapsed" header row */
+.jump-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 999px;
+}
+
+/* Icon box stays visible always */
+.jump-icon {
+  width: 34px; height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.04);
+}
+html[data-theme="dark"] .jump-icon {
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+}
+
+/* "Jump to" text is visible in collapsed state */
+.jump-label {
+  font-weight: 950;
+  letter-spacing: .2px;
+  opacity: .92;
+  white-space: nowrap;
+}
+
+/* Expanded title appears only on hover */
+.jump-title {
+  display: none;
+  font-weight: 950;
+  letter-spacing: .2px;
+  white-space: nowrap;
+}
+.jump-rail:hover .jump-title { display: inline; }
+
+/* Swap label -> title on hover (optional, clearer) */
+.jump-rail:hover .jump-label { display: none; }
+
+/* Links: hidden unless hovered */
+.jump-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 6px 10px;
+  margin-top: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+.jump-rail:hover .jump-links {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Link styling */
+.jump-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  font-weight: 900;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.jump-links a:hover {
+  border-color: rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.03);
+}
+html[data-theme="dark"] .jump-links a:hover {
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+}
+
+.jump-mini { width: 22px; text-align: center; opacity: .9; }
+
+/* Hide on smaller screens (mobile uses sticky mini-nav) */
+@media (max-width: 1180px) { .jump-rail { display: none; } }
 
     /* Events accordion */
     details.year {
@@ -470,24 +507,27 @@
     </header>
 
     <!-- ================= Jump-to rail (desktop) ================= -->
-    <aside class="jump-rail" aria-label="Jump to sections">
-      <div class="jump-head">
-        <div class="jump-icon"><i class="fa-solid fa-compass"></i></div>
-        <div class="jump-title">Jump to (sections)</div>
-      </div>
-      <nav class="jump-links">
-        <a href="#education"><span class="jump-mini"><i class="fa-solid fa-graduation-cap"></i></span> Education</a>
-        <a href="#interests"><span class="jump-mini"><i class="fa-solid fa-diagram-project"></i></span> Research Interests</a>
-        <a href="#awards"><span class="jump-mini"><i class="fa-solid fa-award"></i></span> Awards</a>
-        <a href="#publications"><span class="jump-mini"><i class="ai ai-arxiv"></i></span> Publications</a>
-        <a href="#teaching"><span class="jump-mini"><i class="fa-solid fa-chalkboard-user"></i></span> Teaching</a>
-        <a href="#talks"><span class="jump-mini"><i class="fa-solid fa-microphone-lines"></i></span> Talks</a>
-        <a href="#posters"><span class="jump-mini"><i class="fa-regular fa-image"></i></span> Posters</a>
-        <a href="#service"><span class="jump-mini"><i class="fa-solid fa-handshake-angle"></i></span> Service</a>
-        <a href="#support"><span class="jump-mini"><i class="fa-solid fa-suitcase"></i></span> Support</a>
-        <a href="#events"><span class="jump-mini"><i class="fa-regular fa-calendar"></i></span> Academic Events</a>
-      </nav>
-    </aside>
+    <aside class="jump-rail" id="jumpRail" aria-label="Jump to sections" title="Drag to move">
+  <div class="jump-head" id="jumpHandle">
+    <div class="jump-icon"><i class="fa-solid fa-compass"></i></div>
+    <div class="jump-label">Jump to</div>
+    <div class="jump-title">Jump to (sections)</div>
+  </div>
+
+  <nav class="jump-links" aria-label="Jump links">
+    <a href="#education"><span class="jump-mini"><i class="fa-solid fa-graduation-cap"></i></span> Education</a>
+    <a href="#interests"><span class="jump-mini"><i class="fa-solid fa-diagram-project"></i></span> Research Interests</a>
+    <a href="#awards"><span class="jump-mini"><i class="fa-solid fa-award"></i></span> Awards</a>
+    <a href="#publications"><span class="jump-mini"><i class="ai ai-arxiv"></i></span> Publications</a>
+    <a href="#teaching"><span class="jump-mini"><i class="fa-solid fa-chalkboard-user"></i></span> Teaching</a>
+    <a href="#talks"><span class="jump-mini"><i class="fa-solid fa-microphone-lines"></i></span> Talks</a>
+    <a href="#posters"><span class="jump-mini"><i class="fa-regular fa-image"></i></span> Posters</a>
+    <a href="#service"><span class="jump-mini"><i class="fa-solid fa-handshake-angle"></i></span> Service</a>
+    <a href="#support"><span class="jump-mini"><i class="fa-solid fa-suitcase"></i></span> Support</a>
+    <a href="#events"><span class="jump-mini"><i class="fa-regular fa-calendar"></i></span> Academic Events</a>
+  </nav>
+</aside>
+
 
     <!-- ================= LAYOUT ================= -->
     <main class="layout">
@@ -1224,6 +1264,93 @@
       });
     }
   </script>
+
+
+  <script>
+  (function () {
+    const rail = document.getElementById('jumpRail');
+    const handle = document.getElementById('jumpHandle');
+    if (!rail || !handle) return;
+
+    const KEY = 'dm-jump-rail-pos';
+
+    // Restore position
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (saved && typeof saved.x === 'number' && typeof saved.y === 'number') {
+        rail.style.left = saved.x + 'px';
+        rail.style.top  = saved.y + 'px';
+        rail.style.right = 'auto';
+      }
+    } catch (_) {}
+
+    let dragging = false;
+    let startX = 0, startY = 0;
+    let origLeft = 0, origTop = 0;
+
+    function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
+
+    function onDown(e) {
+      // only start drag from the header area
+      dragging = true;
+      rail.setPointerCapture?.(e.pointerId);
+
+      const rect = rail.getBoundingClientRect();
+      startX = e.clientX;
+      startY = e.clientY;
+      origLeft = rect.left;
+      origTop = rect.top;
+
+      // lock to left/top positioning for dragging
+      rail.style.right = 'auto';
+      rail.style.left = origLeft + 'px';
+      rail.style.top = origTop + 'px';
+    }
+
+    function onMove(e) {
+      if (!dragging) return;
+
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+
+      // Keep it on-screen (with padding)
+      const pad = 8;
+      const rect = rail.getBoundingClientRect();
+
+      const newLeft = clamp(origLeft + dx, pad, window.innerWidth - rect.width - pad);
+      const newTop  = clamp(origTop + dy, pad, window.innerHeight - rect.height - pad);
+
+      rail.style.left = newLeft + 'px';
+      rail.style.top = newTop + 'px';
+    }
+
+    function onUp() {
+      if (!dragging) return;
+      dragging = false;
+
+      // Save position
+      const rect = rail.getBoundingClientRect();
+      localStorage.setItem(KEY, JSON.stringify({ x: Math.round(rect.left), y: Math.round(rect.top) }));
+    }
+
+    handle.addEventListener('pointerdown', onDown);
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+
+    // Re-clamp on resize so it doesn't go offscreen
+    window.addEventListener('resize', () => {
+      const rect = rail.getBoundingClientRect();
+      const pad = 8;
+      const left = clamp(rect.left, pad, window.innerWidth - rect.width - pad);
+      const top  = clamp(rect.top, pad, window.innerHeight - rect.height - pad);
+      rail.style.right = 'auto';
+      rail.style.left = left + 'px';
+      rail.style.top  = top + 'px';
+      localStorage.setItem(KEY, JSON.stringify({ x: Math.round(left), y: Math.round(top) }));
+    });
+  })();
+</script>
+
 
 </body>
 </html>
