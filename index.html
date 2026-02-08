@@ -25,6 +25,31 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+  /* Mobile: put Elevator Pitch BELOW Memberships (flow layout) */
+  @media (max-width: 768px) {
+    .elevator-mini {
+      position: static !important;   /* stops floating/overlaying */
+      right: auto !important;
+      bottom: auto !important;
+      left: auto !important;
+      top: auto !important;
+
+      width: 100% !important;
+      max-width: 100% !important;
+
+      /* pick a comfy mobile size */
+      height: 210px !important;
+
+      margin-top: 1rem !important;   /* space from Memberships */
+      margin-bottom: 0.25rem !important;
+
+      z-index: auto !important;
+    }
+  }
+</style>
+
 </head>
 
 <body>
