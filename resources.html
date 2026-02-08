@@ -25,275 +25,331 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-local styling: independent + stylish resources design -->
-<style>
-  /* Uses template’s .main */
-  .main { min-width: 0; }
+  <!-- Page-local CSS: 2-column Resources + Preview tabs -->
+  <style>
+    /* IMPORTANT: your template styles the main column as .main */
+    .main { min-width: 0; }
 
-  /* ===== New Resources layout: split directory ===== */
-  .res-shell{
-    display:grid;
-    grid-template-columns: 360px 1fr;
-    gap: 14px;
-    align-items:start;
-  }
-  @media (max-width: 980px){
-    .res-shell{ grid-template-columns: 1fr; }
-  }
+    .res-hero {
+      border-radius: 18px;
+      padding: 16px 16px;
+      border: 1px solid rgba(0,0,0,.08);
+      background:
+        radial-gradient(900px 240px at 15% 0%, rgba(34,197,94,.10), transparent 55%),
+        radial-gradient(900px 240px at 85% 0%, rgba(59,130,246,.10), transparent 55%),
+        rgba(255,255,255,.55);
+      box-shadow: 0 10px 24px rgba(0,0,0,.07);
+      margin-bottom: 12px;
+    }
+    html[data-theme="dark"] .res-hero{
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(900px 240px at 15% 0%, rgba(34,197,94,.12), transparent 55%),
+        radial-gradient(900px 240px at 85% 0%, rgba(59,130,246,.12), transparent 55%),
+        rgba(17,24,39,.50);
+      box-shadow: 0 12px 28px rgba(0,0,0,.28);
+    }
 
-  .res-panel{
-    border-radius: 18px;
-    border: 1px solid rgba(0,0,0,.08);
-    background: rgba(255,255,255,.60);
-    box-shadow: 0 10px 24px rgba(0,0,0,.07);
-    overflow: hidden;
-  }
-  html[data-theme="dark"] .res-panel{
-    border: 1px solid rgba(255,255,255,.10);
-    background: rgba(17,24,39,.56);
-    box-shadow: 0 12px 28px rgba(0,0,0,.25);
-  }
+    .res-hero h1{
+      margin: 0 0 6px 0;
+      font-size: 1.25rem;
+      letter-spacing: .2px;
+    }
+    .res-hero p{
+      margin: 0;
+      opacity: .82;
+      line-height: 1.5;
+      max-width: 78ch;
+    }
 
-  .res-head{
-    padding: 16px 16px 12px 16px;
-    border-bottom: 1px solid rgba(0,0,0,.06);
-    background:
-      linear-gradient(180deg, rgba(59,130,246,.10), transparent 65%),
-      radial-gradient(900px 220px at 15% 0%, rgba(34,197,94,.10), transparent 55%);
-  }
-  html[data-theme="dark"] .res-head{
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    background:
-      linear-gradient(180deg, rgba(59,130,246,.14), transparent 65%),
-      radial-gradient(900px 220px at 15% 0%, rgba(34,197,94,.12), transparent 55%);
-  }
+    .res-layout{
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 12px;
+      align-items: start;
+    }
+    @media (max-width: 980px){
+      .res-layout{ grid-template-columns: 1fr; }
+    }
 
-  .res-head h1{
-    margin: 0 0 6px 0;
-    font-size: 1.25rem;
-    letter-spacing: .2px;
-  }
-  .res-head p{
-    margin: 0;
-    font-size: .92rem;
-    line-height: 1.45;
-    opacity: .82;
-    max-width: 78ch;
-  }
+    .panel{
+      border-radius: 18px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.58);
+      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+    html[data-theme="dark"] .panel{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(17,24,39,.52);
+      box-shadow: 0 12px 28px rgba(0,0,0,.24);
+    }
 
-  .res-tools{
-    padding: 12px 16px 14px 16px;
-    display:flex;
-    flex-direction:column;
-    gap: 10px;
-  }
+    .panel-head{
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    html[data-theme="dark"] .panel-head{
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .panel-head h2{
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: .2px;
+    }
+    .panel-head .small{
+      font-size: .85rem;
+      opacity: .75;
+      white-space: nowrap;
+    }
 
-  .res-search{
-    display:flex;
-    align-items:center;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 14px;
-    border: 1px solid rgba(0,0,0,.10);
-    background: rgba(255,255,255,.55);
-  }
-  html[data-theme="dark"] .res-search{
-    border: 1px solid rgba(255,255,255,.12);
-    background: rgba(17,24,39,.45);
-  }
-  .res-search i{ opacity:.75; }
-  .res-search input{
-    border:none; outline:none; background:transparent;
-    width:100%;
-    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-size: .95rem;
-    color: inherit;
-  }
+    .res-search{
+      padding: 12px 14px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    html[data-theme="dark"] .res-search{
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .res-search .box{
+      width: 100%;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
+    }
+    html[data-theme="dark"] .res-search .box{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(17,24,39,.42);
+    }
+    .res-search .box i{ opacity:.75; }
+    .res-search input{
+      width:100%;
+      border:none;
+      outline:none;
+      background:transparent;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: .95rem;
+      color: inherit;
+    }
 
-  .res-tabs{
-    display:flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .res-tab{
-    border-radius: 999px;
-    padding: 8px 10px;
-    border: 1px solid rgba(0,0,0,.10);
-    background: rgba(255,255,255,.45);
-    cursor:pointer;
-    font-size:.86rem;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    user-select:none;
-  }
-  .res-tab:hover{ transform: translateY(-1px); }
-  .res-tab.active{
-    background: rgba(59,130,246,.14);
-    border-color: rgba(59,130,246,.30);
-  }
-  html[data-theme="dark"] .res-tab{
-    border: 1px solid rgba(255,255,255,.12);
-    background: rgba(17,24,39,.38);
-  }
-  html[data-theme="dark"] .res-tab.active{
-    background: rgba(59,130,246,.18);
-    border-color: rgba(59,130,246,.34);
-  }
+    .res-sections{
+      padding: 10px 10px 12px 10px;
+    }
 
-  /* Left list */
-  .res-list{
-    padding: 6px;
-    max-height: calc(100vh - 280px);
-    overflow:auto;
-  }
-  @media (max-width: 980px){
-    .res-list{ max-height: 380px; }
-  }
+    .res-section{
+      margin: 10px 0 14px 0;
+    }
+    .res-section-title{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 0 6px 8px 6px;
+    }
+    .res-section-title h3{
+      margin: 0;
+      font-size: .95rem;
+      letter-spacing: .15px;
+    }
+    .res-section-title .count{
+      font-size: .82rem;
+      opacity: .7;
+    }
 
-  .res-item{
-    display:flex;
-    align-items:flex-start;
-    gap: 10px;
-    padding: 10px 10px;
-    border-radius: 14px;
-    cursor:pointer;
-    border: 1px solid transparent;
-    transition: background .12s ease, border-color .12s ease, transform .12s ease;
-  }
-  .res-item:hover{
-    background: rgba(0,0,0,.03);
-    transform: translateY(-1px);
-  }
-  html[data-theme="dark"] .res-item:hover{
-    background: rgba(255,255,255,.04);
-  }
-  .res-item.active{
-    background: rgba(59,130,246,.10);
-    border-color: rgba(59,130,246,.20);
-  }
-  html[data-theme="dark"] .res-item.active{
-    background: rgba(59,130,246,.14);
-    border-color: rgba(59,130,246,.26);
-  }
+    .res-list{
+      display:flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
-  .res-dot{
-    width: 36px; height: 36px;
-    border-radius: 12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background: rgba(59,130,246,.14);
-    border: 1px solid rgba(59,130,246,.22);
-    flex: 0 0 auto;
-  }
-  html[data-theme="dark"] .res-dot{
-    background: rgba(59,130,246,.16);
-    border: 1px solid rgba(59,130,246,.26);
-  }
+    .res-item{
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.55);
+      padding: 10px 10px;
+      cursor: pointer;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .res-item:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(0,0,0,.06);
+    }
+    html[data-theme="dark"] .res-item{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(17,24,39,.44);
+    }
+    html[data-theme="dark"] .res-item:hover{
+      box-shadow: 0 12px 22px rgba(0,0,0,.22);
+    }
 
-  .res-item-title{
-    margin: 0;
-    font-size: .92rem;
-    line-height: 1.25;
-  }
-  .res-item-meta{
-    margin-top: 3px;
-    font-size: .80rem;
-    opacity: .72;
-    display:flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .res-pill{
-    padding: 3px 8px;
-    border-radius: 999px;
-    border: 1px dashed rgba(0,0,0,.14);
-  }
-  html[data-theme="dark"] .res-pill{
-    border: 1px dashed rgba(255,255,255,.16);
-  }
+    .res-item.active{
+      border-color: rgba(59,130,246,.35);
+      background: rgba(59,130,246,.10);
+    }
+    html[data-theme="dark"] .res-item.active{
+      border-color: rgba(59,130,246,.42);
+      background: rgba(59,130,246,.14);
+    }
 
-  /* Right detail */
-  .res-detail{
-    padding: 16px;
-  }
-  .res-detail-top{
-    display:flex;
-    align-items:flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .res-detail h2{
-    margin: 0;
-    font-size: 1.15rem;
-    letter-spacing: .2px;
-  }
-  .res-detail .subtitle{
-    margin: 6px 0 0 0;
-    opacity: .82;
-    line-height: 1.5;
-    max-width: 78ch;
-  }
-  .res-actions{
-    display:flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    align-items:center;
-  }
-  .res-actions a,
-  .res-actions button{
-    border-radius: 999px;
-    padding: 9px 11px;
-    font-size: .88rem;
-    border: 1px solid rgba(0,0,0,.12);
-    background: rgba(255,255,255,.55);
-    cursor:pointer;
-    text-decoration:none;
-    color: inherit;
-    display:inline-flex;
-    align-items:center;
-    gap: 8px;
-    transition: transform .12s ease;
-  }
-  .res-actions a:hover,
-  .res-actions button:hover{ transform: translateY(-1px); }
-  html[data-theme="dark"] .res-actions a,
-  html[data-theme="dark"] .res-actions button{
-    border: 1px solid rgba(255,255,255,.12);
-    background: rgba(17,24,39,.45);
-  }
+    .res-ico{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(59,130,246,.14);
+      border: 1px solid rgba(59,130,246,.22);
+      flex: 0 0 auto;
+    }
+    html[data-theme="dark"] .res-ico{
+      background: rgba(59,130,246,.16);
+      border: 1px solid rgba(59,130,246,.26);
+    }
 
-  .res-embed{
-    margin-top: 14px;
-    border-radius: 16px;
-    overflow:hidden;
-    border: 1px solid rgba(0,0,0,.10);
-    background: rgba(255,255,255,.45);
-    height: 520px;
-  }
-  html[data-theme="dark"] .res-embed{
-    border: 1px solid rgba(255,255,255,.12);
-    background: rgba(17,24,39,.40);
-  }
-  .res-embed iframe{
-    width:100%;
-    height:100%;
-    border:none;
-  }
-  .embed-hint{
-    margin-top: 10px;
-    font-size: .88rem;
-    opacity: .78;
-    line-height: 1.45;
-  }
+    .res-text{ min-width: 0; }
+    .res-text .title{
+      margin: 0;
+      font-size: .92rem;
+      line-height: 1.25;
+    }
+    .res-text .meta{
+      margin-top: 4px;
+      font-size: .80rem;
+      opacity: .74;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill{
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px dashed rgba(0,0,0,.14);
+    }
+    html[data-theme="dark"] .pill{
+      border: 1px dashed rgba(255,255,255,.16);
+    }
 
-  /* Small footer spacing */
-  .footer{ margin-top: 14px; }
-</style>
+    /* Right panel tabs */
+    .tabs{
+      display:flex;
+      gap: 8px;
+      align-items:center;
+    }
+    .tab-btn{
+      border-radius: 999px;
+      padding: 8px 10px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
+      cursor:pointer;
+      font-size: .85rem;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      user-select:none;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .tab-btn:hover{ transform: translateY(-1px); }
+    .tab-btn.active{
+      background: rgba(59,130,246,.14);
+      border-color: rgba(59,130,246,.30);
+    }
+    html[data-theme="dark"] .tab-btn{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(17,24,39,.42);
+    }
+    html[data-theme="dark"] .tab-btn.active{
+      background: rgba(59,130,246,.18);
+      border-color: rgba(59,130,246,.34);
+    }
 
+    .detail{
+      padding: 14px;
+    }
+    .detail h3{
+      margin: 0 0 6px 0;
+      font-size: 1.05rem;
+      letter-spacing: .2px;
+    }
+    .detail p{
+      margin: 0 0 12px 0;
+      opacity: .84;
+      line-height: 1.5;
+    }
+    .detail .actions{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items:center;
+    }
+    .detail .actions a,
+    .detail .actions button{
+      border-radius: 999px;
+      padding: 9px 11px;
+      font-size: .88rem;
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.55);
+      cursor:pointer;
+      text-decoration:none;
+      color: inherit;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      transition: transform .12s ease;
+    }
+    .detail .actions a:hover,
+    .detail .actions button:hover{ transform: translateY(-1px); }
+    html[data-theme="dark"] .detail .actions a,
+    html[data-theme="dark"] .detail .actions button{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(17,24,39,.42);
+    }
+
+    .preview{
+      padding: 0 14px 14px 14px;
+    }
+    .iframe-wrap{
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.50);
+      height: 520px;
+    }
+    html[data-theme="dark"] .iframe-wrap{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(17,24,39,.38);
+    }
+    .iframe-wrap iframe{
+      width:100%;
+      height:100%;
+      border:none;
+    }
+    .hint{
+      margin-top: 10px;
+      font-size: .88rem;
+      opacity: .78;
+      line-height: 1.45;
+    }
+
+    .empty-state{
+      padding: 14px;
+      opacity: .78;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 
 <body>
@@ -413,72 +469,70 @@
 
       <!-- ================= MAIN CONTENT ================= -->
       <section class="main">
-        <div class="res-panel">
-          <div class="res-head">
-            <h1>Resources</h1>
-            <p>A curated directory of tools and reading notes I use often. Select an item to view details and preview.</p>
-          </div>
+        <div class="res-hero">
+          <h1>Resources</h1>
+          <p>
+            Important websites and reading materials I use often. Click a resource on the left to view details and preview.
+          </p>
         </div>
-      
-        <div class="res-shell" style="margin-top:14px;">
-          <!-- LEFT: directory -->
-          <div class="res-panel">
-            <div class="res-tools">
-              <div class="res-search">
+
+        <div class="res-layout">
+          <!-- LEFT: Lists -->
+          <div class="panel">
+            <div class="panel-head">
+              <h2>All resources</h2>
+              <div class="small" id="totalCount">—</div>
+            </div>
+
+            <div class="res-search">
+              <div class="box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input id="resSearch" type="text" placeholder="Search (arXiv, Vakil, LaTeX, OEIS…)" autocomplete="off" />
               </div>
-              <div class="res-tabs" id="chipRow"></div>
             </div>
-      
-            <div class="res-list" id="resourcesList">
-              <!-- injected by JS -->
+
+            <div class="res-sections" id="resSections">
+              <!-- injected -->
             </div>
           </div>
-      
-          <!-- RIGHT: details -->
-          <div class="res-panel">
-            <div class="res-detail" id="resourceDetail">
-              <!-- injected by JS -->
+
+          <!-- RIGHT: Details / Preview tabs -->
+          <div class="panel">
+            <div class="panel-head">
+              <h2 id="rightTitle">Preview</h2>
+              <div class="tabs">
+                <button class="tab-btn active" id="tabDetails" type="button">
+                  <i class="fa-solid fa-circle-info"></i> Details
+                </button>
+                <button class="tab-btn" id="tabPreview" type="button">
+                  <i class="fa-solid fa-eye"></i> Preview
+                </button>
+              </div>
+            </div>
+
+            <div id="detailsView" class="detail">
+              <div class="empty-state">
+                Select a resource on the left to see details here.
+              </div>
+            </div>
+
+            <div id="previewView" class="preview" style="display:none;">
+              <div class="iframe-wrap">
+                <iframe id="previewFrame" title="Resource preview" src="about:blank"></iframe>
+              </div>
+              <div class="hint">
+                Some sites block embedding. If the preview stays blank, click “Open in new tab” from the Details tab.
+              </div>
             </div>
           </div>
         </div>
-      
+
         <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
           Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
       </section>
-
     </main>
-  </div>
-
-  <!-- ================= Preview Modal ================= -->
-  <div class="modal" id="previewModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Resource preview">
-      <div class="modal-head">
-        <div class="mh-title">
-          <i class="fa-solid fa-up-right-from-square" style="opacity:.75;"></i>
-          <strong id="modalTitle">Preview</strong>
-        </div>
-        <div class="mh-actions">
-          <a id="modalOpenBtn" href="#" target="_blank" rel="noopener">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            Open
-          </a>
-          <button id="modalCloseBtn" type="button">
-            <i class="fa-solid fa-xmark"></i>
-            Close
-          </button>
-        </div>
-      </div>
-      <div class="modal-body">
-        <iframe id="modalFrame" title="Embedded preview" src="about:blank"></iframe>
-        <div class="modal-note">
-          If the preview area stays blank, the site likely blocks embedding. Click <b>Open</b> to view it in a new tab.
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- ================= SCRIPTS ================= -->
@@ -530,9 +584,7 @@
       }
     }
     const savedTheme = localStorage.getItem(THEME_KEY);
-    const initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
-    applyTheme(initialTheme);
-
+    applyTheme((savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light');
     if (themeToggle) {
       themeToggle.addEventListener('click', () => {
         const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
@@ -542,279 +594,202 @@
       });
     }
 
-    // ================== RESOURCES DATA ==================
+    // ================== RESOURCES (from live page) ==================
     const RESOURCES = [
       // Favorite Working Sites and Resources
-      { section: "Favorite Working Sites and Resources", title: "arXiv", desc: "Preprints and recent papers.", url: "https://arxiv.org/", tag: "Research", icon: "ai ai-arxiv", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "arXiv — Commutative Algebra", desc: "Direct category link for commutative algebra.", url: "https://arxiv.org/list/math.AC/recent", tag: "arXiv", icon: "ai ai-arxiv", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "MathSciNet", desc: "AMS database for reviews and bibliographic data.", url: "https://mathscinet.ams.org/", tag: "AMS", icon: "fa-solid fa-book", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "commalg.org", desc: "Commutative algebra community hub.", url: "https://www.commalg.org/", tag: "Community", icon: "fa-solid fa-people-group", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "AMS Sectional Meetings", desc: "Meeting schedules and announcements.", url: "https://www.ams.org/meetings/sectionalmeetings.html", tag: "AMS", icon: "fa-solid fa-calendar-days", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "Commutative Diagram Creation (tikzcd)", desc: "Quick tikzcd diagram generator.", url: "https://tikzcd.yichuanshen.de/", tag: "LaTeX", icon: "fa-solid fa-diagram-project", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "Table Generator (LaTeX)", desc: "Create LaTeX tables visually.", url: "https://www.tablesgenerator.com/", tag: "LaTeX", icon: "fa-solid fa-table", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "MathJax", desc: "Beautiful math rendering for the web.", url: "https://www.mathjax.org/", tag: "Web", icon: "fa-solid fa-square-root-variable", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "CTAN", desc: "Comprehensive TeX Archive Network.", url: "https://ctan.org/", tag: "TeX", icon: "fa-solid fa-box-archive", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "OEIS", desc: "The On-Line Encyclopedia of Integer Sequences.", url: "https://oeis.org/", tag: "Database", icon: "fa-solid fa-list-ol", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "TWOPLES (Directed Reading Program)", desc: "Online directed reading program.", url: "https://sites.google.com/view/twoples", tag: "DRP", icon: "fa-solid fa-graduation-cap", preview: true },
-      { section: "Favorite Working Sites and Resources", title: "AMS Mathematical Opportunities", desc: "AMS opportunities and programs.", url: "https://www.ams.org/programs/students/empowerment-opportunities", tag: "AMS", icon: "fa-solid fa-handshake", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "arXiv", url: "https://arxiv.org/", note: "Preprints and recent papers.", tag: "Research", icon: "ai ai-arxiv" },
+      { section: "Favorite Working Sites and Resources", title: "arXiv (Commutative Algebra)", url: "https://arxiv.org/list/math.AC/recent", note: "Recent in math.AC.", tag: "arXiv", icon: "ai ai-arxiv" },
+      { section: "Favorite Working Sites and Resources", title: "MathSciNet", url: "https://mathscinet.ams.org/", note: "Reviews and bibliographic data.", tag: "AMS", icon: "fa-solid fa-book" },
+      { section: "Favorite Working Sites and Resources", title: "commalg.org", url: "https://www.commalg.org/", note: "Commutative algebra community hub.", tag: "Community", icon: "fa-solid fa-people-group" },
+      { section: "Favorite Working Sites and Resources", title: "AMS Sectional Meetings", url: "https://www.ams.org/meetings/sectionalmeetings.html", note: "Meeting schedules and announcements.", tag: "AMS", icon: "fa-solid fa-calendar-days" },
+      { section: "Favorite Working Sites and Resources", title: "Commutative Diagram Creation in LaTeX", url: "https://tikzcd.yichuanshen.de/", note: "tikzcd diagram generator.", tag: "LaTeX", icon: "fa-solid fa-diagram-project" },
+      { section: "Favorite Working Sites and Resources", title: "Table Creation in LaTeX", url: "https://www.tablesgenerator.com/", note: "Generate LaTeX tables visually.", tag: "LaTeX", icon: "fa-solid fa-table" },
+      { section: "Favorite Working Sites and Resources", title: "MathJax", url: "https://www.mathjax.org/", note: "Math rendering for the web.", tag: "Web", icon: "fa-solid fa-square-root-variable" },
+      { section: "Favorite Working Sites and Resources", title: "Comprehensive TeX Archive", url: "https://ctan.org/", note: "CTAN packages and documentation.", tag: "TeX", icon: "fa-solid fa-box-archive" },
+      { section: "Favorite Working Sites and Resources", title: "The On-Line Encyclopedia of Integer Sequences (OEIS)", url: "https://oeis.org/", note: "Integer sequences database.", tag: "Database", icon: "fa-solid fa-list-ol" },
+      { section: "Favorite Working Sites and Resources", title: "Twoples: an online directed reading program", url: "https://sites.google.com/view/twoples", note: "Online directed reading program.", tag: "DRP", icon: "fa-solid fa-graduation-cap" },
+      { section: "Favorite Working Sites and Resources", title: "AMS Mathematical Opportunity", url: "https://www.ams.org/programs/students/empowerment-opportunities", note: "AMS opportunities and programs.", tag: "AMS", icon: "fa-solid fa-handshake" },
 
-      // Favorite Reading Materials
-      { section: "Favorite Reading Materials", title: "Expository Papers — Keith Conrad", desc: "Expository notes and handouts.", url: "https://kconrad.math.uconn.edu/", tag: "Notes", icon: "fa-solid fa-feather", preview: true },
-      { section: "Favorite Reading Materials", title: "Notes on Class Field Theory — Kiran S. Kedlaya", desc: "Course notes and references.", url: "https://kskedlaya.org/", tag: "Number Theory", icon: "fa-solid fa-landmark", preview: true },
-      { section: "Favorite Reading Materials", title: "Algebraic Number Theory — J. S. Milne", desc: "Classic notes and texts.", url: "https://www.jmilne.org/math/CourseNotes/ant.html", tag: "Number Theory", icon: "fa-solid fa-book-open", preview: true },
-      { section: "Favorite Reading Materials", title: "Foundations of Algebraic Geometry — Ravi Vakil", desc: "Widely used notes (FOAG).", url: "https://math216.wordpress.com/", tag: "AG", icon: "fa-solid fa-compass-drafting", preview: true },
-      { section: "Favorite Reading Materials", title: "The Rising Sea (FOAG Notes) — Stanford", desc: "Vakil’s notes: The Rising Sea.", url: "https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf", tag: "AG", icon: "fa-solid fa-water", preview: true },
-      { section: "Favorite Reading Materials", title: "Algebraic Geometry Notes — Andreas Gathmann", desc: "Lecture notes and exercises.", url: "https://agag-gathmann.math.rptu.de/", tag: "AG", icon: "fa-solid fa-chalkboard", preview: true },
-      { section: "Favorite Reading Materials", title: "Symbolic Powers — Eloísa Grifo", desc: "Lecture notes focused on symbolic powers.", url: "https://eloisagrifo.github.io/symbolic_powers_notes.pdf", tag: "CA", icon: "fa-solid fa-infinity", preview: true },
-      { section: "Favorite Reading Materials", title: "Interpolation Problems — Jack Huizenga", desc: "Notes and materials on interpolation.", url: "https://sites.psu.edu/huizenga/files/2019/01/interpolation.pdf", tag: "Interpolation", icon: "fa-solid fa-bullseye", preview: true }
+      // Favorite reading Materials
+      { section: "Favorite reading Materials", title: "Expository Papers: KEITH CONRAD", url: "https://kconrad.math.uconn.edu/", note: "Expository notes and handouts.", tag: "Notes", icon: "fa-solid fa-feather" },
+      { section: "Favorite reading Materials", title: "Notes on Class Field Theory: Kiran S. Kedlaya", url: "https://kskedlaya.org/", note: "Course notes and references.", tag: "Number Theory", icon: "fa-solid fa-landmark" },
+      { section: "Favorite reading Materials", title: "Algebraic Number Theory: James S. Milne", url: "https://www.jmilne.org/math/CourseNotes/ant.html", note: "Classic notes and texts.", tag: "Number Theory", icon: "fa-solid fa-book-open" },
+      { section: "Favorite reading Materials", title: "Foundations of Algebraic Geometry: Ravi Vakil", url: "https://math216.wordpress.com/", note: "FOAG notes hub.", tag: "AG", icon: "fa-solid fa-compass-drafting" },
+      { section: "Favorite reading Materials", title: "THE RISING SEA: Foundations of Algebraic Geometry Notes", url: "https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf", note: "Vakil’s FOAG PDF.", tag: "AG", icon: "fa-solid fa-water" },
+      { section: "Favorite reading Materials", title: "Algebraic Geometry Notes by Andreas Gathmann", url: "https://agag-gathmann.math.rptu.de/", note: "Lecture notes and exercises.", tag: "AG", icon: "fa-solid fa-chalkboard" },
+      { section: "Favorite reading Materials", title: "Lecture Notes on Symbolic Powers by Eloísa Grifo", url: "https://eloisagrifo.github.io/symbolic_powers_notes.pdf", note: "Notes focused on symbolic powers.", tag: "CA", icon: "fa-solid fa-infinity" },
+      { section: "Favorite reading Materials", title: "Study of Interpolation Problems by Jack Huizenga", url: "https://sites.psu.edu/huizenga/files/2019/01/interpolation.pdf", note: "Notes on interpolation problems.", tag: "Interpolation", icon: "fa-solid fa-bullseye" }
     ];
 
     const SECTION_ORDER = [
       "Favorite Working Sites and Resources",
-      "Favorite Reading Materials"
+      "Favorite reading Materials"
     ];
 
-    const CHIP_ORDER = ["All", ...SECTION_ORDER];
+    const resSectionsEl = document.getElementById("resSections");
+    const totalCountEl  = document.getElementById("totalCount");
+    const searchEl      = document.getElementById("resSearch");
 
-    const iconHTML = (cls) => {
+    const tabDetails = document.getElementById("tabDetails");
+    const tabPreview = document.getElementById("tabPreview");
+    const detailsView = document.getElementById("detailsView");
+    const previewView = document.getElementById("previewView");
+    const previewFrame = document.getElementById("previewFrame");
+    const rightTitle = document.getElementById("rightTitle");
+
+    let activeId = null;
+    let query = "";
+    let activeTab = "details";
+
+    function iconHtml(cls){
       if (!cls) return '<i class="fa-solid fa-link"></i>';
-      if (cls.startsWith("ai ")) return `<i class="${cls}"></i>`;
-      if (cls.startsWith("fa-")) return `<i class="${cls}"></i>`;
       return `<i class="${cls}"></i>`;
-    };
-
-    <script>
-  // ----- Footer year -----
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-  // ----- Mobile hamburger toggle -----
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks  = document.querySelector('.top-nav-links');
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.addEventListener('click', (event) => {
-      if (event.target.tagName.toLowerCase() === 'a') navLinks.classList.remove('open');
-    });
-  }
-
-  // ----- Dropdown toggle -----
-  const dropdown = document.querySelector('.dropdown');
-  const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
-  if (dropbtn) {
-    dropbtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      dropdown.classList.toggle('dropdown-open');
-    });
-  }
-  document.addEventListener('click', (event) => {
-    if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove('dropdown-open');
-  });
-
-  // ----- DARK MODE TOGGLE -----
-  const root        = document.documentElement;
-  const themeToggle = document.querySelector('.theme-toggle');
-  const THEME_KEY   = 'dm-theme';
-
-  function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
-    if (!themeToggle) return;
-    const icon  = themeToggle.querySelector('i');
-    const label = themeToggle.querySelector('span');
-    if (theme === 'dark') {
-      if (icon) icon.className = 'fa-solid fa-sun';
-      if (label) label.textContent = 'Light';
-    } else {
-      if (icon) icon.className = 'fa-solid fa-moon';
-      if (label) label.textContent = 'Dark';
     }
-  }
-  const savedTheme = localStorage.getItem(THEME_KEY);
-  const initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
-  applyTheme(initialTheme);
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      const next    = current === 'dark' ? 'light' : 'dark';
-      localStorage.setItem(THEME_KEY, next);
-      applyTheme(next);
-    });
-  }
 
-  // ================== RESOURCES DATA ==================
-  const RESOURCES = [
-    // Favorite Working Sites and Resources
-    { section: "Favorite Working Sites and Resources", title: "arXiv", desc: "Preprints and recent papers.", url: "https://arxiv.org/", tag: "Research", icon: "ai ai-arxiv", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "arXiv — Commutative Algebra", desc: "Direct category link for commutative algebra.", url: "https://arxiv.org/list/math.AC/recent", tag: "arXiv", icon: "ai ai-arxiv", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "MathSciNet", desc: "AMS database for reviews and bibliographic data.", url: "https://mathscinet.ams.org/", tag: "AMS", icon: "fa-solid fa-book", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "commalg.org", desc: "Commutative algebra community hub.", url: "https://www.commalg.org/", tag: "Community", icon: "fa-solid fa-people-group", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "AMS Sectional Meetings", desc: "Meeting schedules and announcements.", url: "https://www.ams.org/meetings/sectionalmeetings.html", tag: "AMS", icon: "fa-solid fa-calendar-days", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "Commutative Diagram Creation (tikzcd)", desc: "Quick tikzcd diagram generator.", url: "https://tikzcd.yichuanshen.de/", tag: "LaTeX", icon: "fa-solid fa-diagram-project", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "Table Generator (LaTeX)", desc: "Create LaTeX tables visually.", url: "https://www.tablesgenerator.com/", tag: "LaTeX", icon: "fa-solid fa-table", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "MathJax", desc: "Beautiful math rendering for the web.", url: "https://www.mathjax.org/", tag: "Web", icon: "fa-solid fa-square-root-variable", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "CTAN", desc: "Comprehensive TeX Archive Network.", url: "https://ctan.org/", tag: "TeX", icon: "fa-solid fa-box-archive", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "OEIS", desc: "The On-Line Encyclopedia of Integer Sequences.", url: "https://oeis.org/", tag: "Database", icon: "fa-solid fa-list-ol", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "TWOPLES (Directed Reading Program)", desc: "Online directed reading program.", url: "https://sites.google.com/view/twoples", tag: "DRP", icon: "fa-solid fa-graduation-cap", preview: true },
-    { section: "Favorite Working Sites and Resources", title: "AMS Mathematical Opportunities", desc: "AMS opportunities and programs.", url: "https://www.ams.org/programs/students/empowerment-opportunities", tag: "AMS", icon: "fa-solid fa-handshake", preview: true },
+    function setTab(tab){
+      activeTab = tab;
 
-    // Favorite Reading Materials
-    { section: "Favorite Reading Materials", title: "Expository Papers — Keith Conrad", desc: "Expository notes and handouts.", url: "https://kconrad.math.uconn.edu/", tag: "Notes", icon: "fa-solid fa-feather", preview: true },
-    { section: "Favorite Reading Materials", title: "Notes on Class Field Theory — Kiran S. Kedlaya", desc: "Course notes and references.", url: "https://kskedlaya.org/", tag: "Number Theory", icon: "fa-solid fa-landmark", preview: true },
-    { section: "Favorite Reading Materials", title: "Algebraic Number Theory — J. S. Milne", desc: "Classic notes and texts.", url: "https://www.jmilne.org/math/CourseNotes/ant.html", tag: "Number Theory", icon: "fa-solid fa-book-open", preview: true },
-    { section: "Favorite Reading Materials", title: "Foundations of Algebraic Geometry — Ravi Vakil", desc: "Widely used notes (FOAG).", url: "https://math216.wordpress.com/", tag: "AG", icon: "fa-solid fa-compass-drafting", preview: true },
-    { section: "Favorite Reading Materials", title: "The Rising Sea (FOAG Notes) — Stanford", desc: "Vakil’s notes: The Rising Sea.", url: "https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf", tag: "AG", icon: "fa-solid fa-water", preview: true },
-    { section: "Favorite Reading Materials", title: "Algebraic Geometry Notes — Andreas Gathmann", desc: "Lecture notes and exercises.", url: "https://agag-gathmann.math.rptu.de/", tag: "AG", icon: "fa-solid fa-chalkboard", preview: true },
-    { section: "Favorite Reading Materials", title: "Symbolic Powers — Eloísa Grifo", desc: "Lecture notes focused on symbolic powers.", url: "https://eloisagrifo.github.io/symbolic_powers_notes.pdf", tag: "CA", icon: "fa-solid fa-infinity", preview: true },
-    { section: "Favorite Reading Materials", title: "Interpolation Problems — Jack Huizenga", desc: "Notes and materials on interpolation.", url: "https://sites.psu.edu/huizenga/files/2019/01/interpolation.pdf", tag: "Interpolation", icon: "fa-solid fa-bullseye", preview: true }
-  ];
+      if (tab === "details") {
+        tabDetails.classList.add("active");
+        tabPreview.classList.remove("active");
+        detailsView.style.display = "";
+        previewView.style.display = "none";
+      } else {
+        tabPreview.classList.add("active");
+        tabDetails.classList.remove("active");
+        detailsView.style.display = "none";
+        previewView.style.display = "";
+        // load preview if we have an active item
+        const item = RESOURCES.find(x => x._id === activeId);
+        previewFrame.src = item ? item.url : "about:blank";
+      }
+    }
 
-  const SECTION_ORDER = [
-    "Favorite Working Sites and Resources",
-    "Favorite Reading Materials"
-  ];
-  const CHIP_ORDER = ["All", ...SECTION_ORDER];
+    tabDetails.addEventListener("click", () => setTab("details"));
+    tabPreview.addEventListener("click", () => setTab("preview"));
 
-  const iconHTML = (cls) => {
-    if (!cls) return '<i class="fa-solid fa-link"></i>';
-    if (cls.startsWith("ai ")) return `<i class="${cls}"></i>`;
-    if (cls.startsWith("fa-")) return `<i class="${cls}"></i>`;
-    return `<i class="${cls}"></i>`;
-  };
-
-  // ================== DIRECTORY UI ==================
-  const chipRow = document.getElementById("chipRow");
-  const searchInput = document.getElementById("resSearch");
-  const listEl = document.getElementById("resourcesList");
-  const detailEl = document.getElementById("resourceDetail");
-
-  let activeChip = "All";
-  let query = "";
-  let activeIndex = 0;
-
-  function renderChips(){
-    chipRow.innerHTML = "";
-    CHIP_ORDER.forEach(name => {
-      const btn = document.createElement("button");
-      btn.className = "res-tab" + (name === activeChip ? " active" : "");
-      btn.type = "button";
-      btn.innerHTML = `<i class="fa-solid fa-layer-group" style="opacity:.75;"></i> ${name}`;
-      btn.addEventListener("click", () => {
-        activeChip = name;
-        activeIndex = 0;
-        renderAll();
-      });
-      chipRow.appendChild(btn);
-    });
-  }
-
-  function getFiltered(){
-    const q = query.trim().toLowerCase();
-    return RESOURCES
-      .map((r, idx) => ({...r, _idx: idx}))
-      .filter(r => {
-        const inChip = (activeChip === "All") ? true : (r.section === activeChip);
-        if (!inChip) return false;
-        if (!q) return true;
-        const hay = `${r.title} ${r.desc || ""} ${r.tag || ""} ${r.section}`.toLowerCase();
+    function filteredResources(){
+      const q = query.trim().toLowerCase();
+      if (!q) return RESOURCES;
+      return RESOURCES.filter(r => {
+        const hay = `${r.section} ${r.title} ${r.note || ""} ${r.tag || ""}`.toLowerCase();
         return hay.includes(q);
       });
-  }
-
-  function renderList(items){
-    listEl.innerHTML = "";
-    if (items.length === 0){
-      listEl.innerHTML = `<div style="padding:14px; opacity:.75;">No matches.</div>`;
-      detailEl.innerHTML = `<div style="padding:16px; opacity:.75;">Try a different keyword.</div>`;
-      return;
     }
 
-    // clamp active index
-    if (activeIndex >= items.length) activeIndex = 0;
+    function renderSections(){
+      // assign stable ids
+      RESOURCES.forEach((r, idx) => { if (!r._id) r._id = "res_" + idx; });
 
-    items.forEach((r, i) => {
-      const row = document.createElement("div");
-      row.className = "res-item" + (i === activeIndex ? " active" : "");
-      row.innerHTML = `
-        <div class="res-dot">${iconHTML(r.icon)}</div>
-        <div style="min-width:0;">
-          <h3 class="res-item-title">${r.title}</h3>
-          <div class="res-item-meta">
-            <span class="res-pill">${r.section}</span>
-            ${r.tag ? `<span class="res-pill">${r.tag}</span>` : ``}
+      const items = filteredResources();
+      totalCountEl.textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+
+      resSectionsEl.innerHTML = "";
+
+      SECTION_ORDER.forEach(sectionName => {
+        const sectionItems = items.filter(r => r.section === sectionName);
+        if (sectionItems.length === 0) return;
+
+        const wrap = document.createElement("div");
+        wrap.className = "res-section";
+
+        wrap.innerHTML = `
+          <div class="res-section-title">
+            <h3>${sectionName}</h3>
+            <div class="count">${sectionItems.length}</div>
           </div>
-        </div>
-      `;
-      row.addEventListener("click", () => {
-        activeIndex = i;
-        renderAll(false);
-      });
-      listEl.appendChild(row);
-    });
-  }
+          <div class="res-list"></div>
+        `;
 
-  function renderDetail(items){
-    const r = items[activeIndex];
-    detailEl.innerHTML = `
-      <div class="res-detail-top">
-        <div>
-          <h2>${r.title}</h2>
-          <p class="subtitle">${r.desc || ""}</p>
-        </div>
-        <div class="res-actions">
-          <a href="${r.url}" target="_blank" rel="noopener">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open
+        const list = wrap.querySelector(".res-list");
+
+        sectionItems.forEach(r => {
+          const row = document.createElement("div");
+          row.className = "res-item" + (r._id === activeId ? " active" : "");
+          row.setAttribute("data-id", r._id);
+
+          row.innerHTML = `
+            <div class="res-ico">${iconHtml(r.icon)}</div>
+            <div class="res-text">
+              <div class="title">${r.title}</div>
+              <div class="meta">
+                <span class="pill">${r.tag || "Resource"}</span>
+                <span class="pill">${new URL(r.url).hostname}</span>
+              </div>
+            </div>
+          `;
+
+          row.addEventListener("click", () => selectItem(r._id));
+          list.appendChild(row);
+        });
+
+        resSectionsEl.appendChild(wrap);
+      });
+
+      // If nothing selected yet, select first available item
+      if (!activeId && items.length > 0) selectItem(items[0]._id, { keepTab: true });
+      if (items.length === 0) showEmptyRight();
+    }
+
+    function showEmptyRight(){
+      rightTitle.textContent = "Preview";
+      detailsView.innerHTML = `<div class="empty-state">No results. Try a different search term.</div>`;
+      previewFrame.src = "about:blank";
+      if (activeTab === "preview") previewView.style.display = "";
+    }
+
+    function selectItem(id, opts = {}){
+      activeId = id;
+
+      // highlight active in left pane
+      document.querySelectorAll(".res-item").forEach(el => {
+        el.classList.toggle("active", el.getAttribute("data-id") === id);
+      });
+
+      const item = RESOURCES.find(x => x._id === id);
+      if (!item) return;
+
+      rightTitle.textContent = item.title;
+
+      detailsView.innerHTML = `
+        <h3>${item.title}</h3>
+        <p>${item.note || ""}</p>
+        <div class="actions">
+          <a href="${item.url}" target="_blank" rel="noopener">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            Open in new tab
           </a>
-          <button type="button" id="toggleEmbedBtn">
-            <i class="fa-solid fa-eye"></i> Preview
+          <button type="button" id="btnShowPreview">
+            <i class="fa-solid fa-eye"></i>
+            Preview here
           </button>
         </div>
-      </div>
+        <div class="hint" style="margin-top:10px;">
+          If preview stays blank, that website likely blocks embedding (common for some services).
+        </div>
+      `;
 
-      <div class="embed-hint">
-        Preview works for many sites, but some (e.g., certain AMS pages) block embedding.
-      </div>
+      const btnShowPreview = document.getElementById("btnShowPreview");
+      btnShowPreview.addEventListener("click", () => setTab("preview"));
 
-      <div class="res-embed" id="embedWrap" style="display:none;">
-        <iframe title="Embedded preview" src="about:blank" id="embedFrame"></iframe>
-      </div>
-    `;
+      // update preview if preview tab already active
+      if (activeTab === "preview") previewFrame.src = item.url;
 
-    const toggleBtn = document.getElementById("toggleEmbedBtn");
-    const wrap = document.getElementById("embedWrap");
-    const frame = document.getElementById("embedFrame");
+      // keepTab means don't force tabs; otherwise default to details
+      if (!opts.keepTab) setTab("details");
+    }
 
-    toggleBtn.addEventListener("click", () => {
-      const open = wrap.style.display !== "none";
-      if (open) {
-        wrap.style.display = "none";
-        frame.src = "about:blank";
-        toggleBtn.innerHTML = `<i class="fa-solid fa-eye"></i> Preview`;
-      } else {
-        wrap.style.display = "block";
-        frame.src = r.url;
-        toggleBtn.innerHTML = `<i class="fa-solid fa-eye-slash"></i> Hide Preview`;
-      }
+    // Search
+    searchEl.addEventListener("input", (e) => {
+      query = e.target.value || "";
+      activeId = null;
+      renderSections();
+      setTab("details");
     });
-  }
 
-  function renderAll(scrollListTop = true){
-    renderChips();
-    const items = getFiltered();
-    renderList(items);
-    renderDetail(items);
-
-    if (scrollListTop && listEl) listEl.scrollTop = 0;
-  }
-
-  searchInput.addEventListener("input", (e) => {
-    query = e.target.value || "";
-    activeIndex = 0;
-    renderAll();
-  });
-
-  // init
-  renderAll();
-</script>
+    // initial render
+    renderSections();
+    setTab("details");
+  </script>
 </body>
 </html>
