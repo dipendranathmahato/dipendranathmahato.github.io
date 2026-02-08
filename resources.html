@@ -266,6 +266,26 @@
       background: rgba(59,130,246,.14);
     }
 
+    /* ✅ Small change: make buttons fully readable on click/focus */
+    .btn:focus,
+    .btn:focus-visible{
+      outline: 3px solid rgba(59,130,246,.55);
+      outline-offset: 3px;
+    }
+    .btn:active{
+      transform: translateY(0);
+      filter: brightness(1.03);
+    }
+    /* When a button is clicked, keep "pressed" clarity during the click */
+    .btn.preview:active{
+      background: rgba(59,130,246,.18);
+      border-color: rgba(59,130,246,.45);
+    }
+    html[data-theme="dark"] .btn.preview:active{
+      background: rgba(59,130,246,.22);
+      border-color: rgba(59,130,246,.50);
+    }
+
     .note{
       padding: 0 12px 12px 12px;
       font-size: .88rem;
@@ -472,7 +492,8 @@
             </li>
             <li>
               <i class="fa-regular fa-envelope"></i>
-              <span><a href="mailto:dipendranathmahato@gmail.com">dipendranathmahato@gmail.com</a></span>
+              <!-- ✅ Email corrected here -->
+              <span><a href="mailto:dipendranathmahato13@gmail.com">dipendranathmahato13@gmail.com</a></span>
             </li>
             <li>
               <i class="fa-regular fa-building"></i>
@@ -530,7 +551,7 @@
             </div>
             <div class="pill-list" id="workList"></div>
             <div class="note">
-              Tip: Use Preview to stay on this page; use Link to navigate.
+              Tip: Preview keeps you here; Link navigates to the page.
             </div>
           </div>
 
@@ -544,7 +565,7 @@
             </div>
             <div class="pill-list" id="readList"></div>
             <div class="note">
-              Notes and PDFs may preview better than some “app-like” sites.
+              PDFs usually preview well; some websites block embedding.
             </div>
           </div>
         </div>
