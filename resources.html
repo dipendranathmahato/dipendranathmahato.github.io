@@ -25,31 +25,38 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-local CSS: 2-column Resources + Preview tabs -->
+  <!-- Page-local CSS: 2 columns + colorful + preview modal (~75%) -->
   <style>
-    /* IMPORTANT: your template styles the main column as .main */
+    /* Your template uses .main */
     .main { min-width: 0; }
+
+    /* Color palette helpers */
+    .grad-blue   { background: linear-gradient(135deg, rgba(59,130,246,.22), rgba(59,130,246,.06)); }
+    .grad-green  { background: linear-gradient(135deg, rgba(34,197,94,.22), rgba(34,197,94,.06)); }
+    .grad-purple { background: linear-gradient(135deg, rgba(168,85,247,.22), rgba(168,85,247,.06)); }
+    .grad-amber  { background: linear-gradient(135deg, rgba(245,158,11,.22), rgba(245,158,11,.06)); }
 
     .res-hero {
       border-radius: 18px;
       padding: 16px 16px;
       border: 1px solid rgba(0,0,0,.08);
       background:
-        radial-gradient(900px 240px at 15% 0%, rgba(34,197,94,.10), transparent 55%),
-        radial-gradient(900px 240px at 85% 0%, rgba(59,130,246,.10), transparent 55%),
-        rgba(255,255,255,.55);
+        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.16), transparent 60%),
+        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.18), transparent 58%),
+        radial-gradient(900px 240px at 50% 120%, rgba(168,85,247,.12), transparent 55%),
+        rgba(255,255,255,.58);
       box-shadow: 0 10px 24px rgba(0,0,0,.07);
       margin-bottom: 12px;
     }
     html[data-theme="dark"] .res-hero{
       border: 1px solid rgba(255,255,255,.10);
       background:
-        radial-gradient(900px 240px at 15% 0%, rgba(34,197,94,.12), transparent 55%),
-        radial-gradient(900px 240px at 85% 0%, rgba(59,130,246,.12), transparent 55%),
-        rgba(17,24,39,.50);
+        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.22), transparent 58%),
+        radial-gradient(900px 240px at 50% 120%, rgba(168,85,247,.16), transparent 55%),
+        rgba(17,24,39,.56);
       box-shadow: 0 12px 28px rgba(0,0,0,.28);
     }
-
     .res-hero h1{
       margin: 0 0 6px 0;
       font-size: 1.25rem;
@@ -57,68 +64,21 @@
     }
     .res-hero p{
       margin: 0;
-      opacity: .82;
+      opacity: .85;
       line-height: 1.5;
       max-width: 78ch;
     }
 
-    .res-layout{
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 12px;
-      align-items: start;
-    }
-    @media (max-width: 980px){
-      .res-layout{ grid-template-columns: 1fr; }
-    }
-
-    .panel{
-      border-radius: 18px;
-      border: 1px solid rgba(0,0,0,.08);
-      background: rgba(255,255,255,.58);
-      box-shadow: 0 10px 24px rgba(0,0,0,.06);
-      overflow: hidden;
-    }
-    html[data-theme="dark"] .panel{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(17,24,39,.52);
-      box-shadow: 0 12px 28px rgba(0,0,0,.24);
-    }
-
-    .panel-head{
-      padding: 12px 14px;
-      border-bottom: 1px solid rgba(0,0,0,.06);
+    /* Search strip */
+    .res-tools{
+      margin: 12px 0 12px 0;
       display:flex;
-      align-items:center;
-      justify-content: space-between;
       gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
     }
-    html[data-theme="dark"] .panel-head{
-      border-bottom: 1px solid rgba(255,255,255,.10);
-    }
-    .panel-head h2{
-      margin: 0;
-      font-size: 1rem;
-      letter-spacing: .2px;
-    }
-    .panel-head .small{
-      font-size: .85rem;
-      opacity: .75;
-      white-space: nowrap;
-    }
-
     .res-search{
-      padding: 12px 14px;
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      border-bottom: 1px solid rgba(0,0,0,.06);
-    }
-    html[data-theme="dark"] .res-search{
-      border-bottom: 1px solid rgba(255,255,255,.10);
-    }
-    .res-search .box{
-      width: 100%;
+      flex: 1 1 380px;
       display:flex;
       align-items:center;
       gap: 10px;
@@ -126,12 +86,14 @@
       border-radius: 14px;
       border: 1px solid rgba(0,0,0,.10);
       background: rgba(255,255,255,.55);
+      box-shadow: 0 8px 18px rgba(0,0,0,.06);
     }
-    html[data-theme="dark"] .res-search .box{
+    html[data-theme="dark"] .res-search{
       border: 1px solid rgba(255,255,255,.12);
-      background: rgba(17,24,39,.42);
+      background: rgba(17,24,39,.44);
+      box-shadow: 0 10px 22px rgba(0,0,0,.22);
     }
-    .res-search .box i{ opacity:.75; }
+    .res-search i{ opacity:.75; }
     .res-search input{
       width:100%;
       border:none;
@@ -142,212 +104,257 @@
       color: inherit;
     }
 
-    .res-sections{
-      padding: 10px 10px 12px 10px;
+    .res-hint{
+      flex: 0 0 auto;
+      font-size: .88rem;
+      opacity: .78;
+      line-height: 1.3;
     }
 
-    .res-section{
-      margin: 10px 0 14px 0;
+    /* TWO columns for the two sections */
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: start;
     }
-    .res-section-title{
+    @media (max-width: 980px){
+      .cols{ grid-template-columns: 1fr; }
+    }
+
+    .col{
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.58);
+      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+    }
+    html[data-theme="dark"] .col{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(17,24,39,.52);
+      box-shadow: 0 12px 28px rgba(0,0,0,.24);
+    }
+
+    .col-head{
+      padding: 12px 14px;
       display:flex;
       align-items:center;
       justify-content: space-between;
       gap: 10px;
-      padding: 0 6px 8px 6px;
+      border-bottom: 1px solid rgba(0,0,0,.06);
     }
-    .res-section-title h3{
+    html[data-theme="dark"] .col-head{
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .col-head h2{
       margin: 0;
-      font-size: .95rem;
-      letter-spacing: .15px;
+      font-size: 1.0rem;
+      letter-spacing: .2px;
     }
-    .res-section-title .count{
-      font-size: .82rem;
-      opacity: .7;
-    }
-
-    .res-list{
-      display:flex;
-      flex-direction: column;
-      gap: 8px;
+    .col-head .meta{
+      font-size: .85rem;
+      opacity: .76;
+      white-space: nowrap;
     }
 
-    .res-item{
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.08);
-      background: rgba(255,255,255,.55);
-      padding: 10px 10px;
-      cursor: pointer;
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-    }
-    .res-item:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 10px 20px rgba(0,0,0,.06);
-    }
-    html[data-theme="dark"] .res-item{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(17,24,39,.44);
-    }
-    html[data-theme="dark"] .res-item:hover{
-      box-shadow: 0 12px 22px rgba(0,0,0,.22);
-    }
-
-    .res-item.active{
-      border-color: rgba(59,130,246,.35);
-      background: rgba(59,130,246,.10);
-    }
-    html[data-theme="dark"] .res-item.active{
-      border-color: rgba(59,130,246,.42);
-      background: rgba(59,130,246,.14);
-    }
-
-    .res-ico{
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: rgba(59,130,246,.14);
-      border: 1px solid rgba(59,130,246,.22);
-      flex: 0 0 auto;
-    }
-    html[data-theme="dark"] .res-ico{
-      background: rgba(59,130,246,.16);
-      border: 1px solid rgba(59,130,246,.26);
-    }
-
-    .res-text{ min-width: 0; }
-    .res-text .title{
-      margin: 0;
-      font-size: .92rem;
-      line-height: 1.25;
-    }
-    .res-text .meta{
-      margin-top: 4px;
-      font-size: .80rem;
-      opacity: .74;
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .pill{
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px dashed rgba(0,0,0,.14);
-    }
-    html[data-theme="dark"] .pill{
-      border: 1px dashed rgba(255,255,255,.16);
-    }
-
-    /* Right panel tabs */
-    .tabs{
-      display:flex;
-      gap: 8px;
-      align-items:center;
-    }
-    .tab-btn{
+    /* Preview button in each column header */
+    .preview-btn{
       border-radius: 999px;
       padding: 8px 10px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.62);
       cursor:pointer;
       font-size: .85rem;
       display:inline-flex;
       align-items:center;
       gap: 8px;
-      user-select:none;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      transition: transform .12s ease;
+      user-select: none;
     }
-    .tab-btn:hover{ transform: translateY(-1px); }
-    .tab-btn.active{
-      background: rgba(59,130,246,.14);
-      border-color: rgba(59,130,246,.30);
+    .preview-btn:hover{ transform: translateY(-1px); }
+    .preview-btn:disabled{
+      opacity: .55;
+      cursor: not-allowed;
+      transform: none;
     }
-    html[data-theme="dark"] .tab-btn{
+    html[data-theme="dark"] .preview-btn{
       border: 1px solid rgba(255,255,255,.12);
-      background: rgba(17,24,39,.42);
-    }
-    html[data-theme="dark"] .tab-btn.active{
-      background: rgba(59,130,246,.18);
-      border-color: rgba(59,130,246,.34);
+      background: rgba(17,24,39,.48);
     }
 
-    .detail{
-      padding: 14px;
-    }
-    .detail h3{
-      margin: 0 0 6px 0;
-      font-size: 1.05rem;
-      letter-spacing: .2px;
-    }
-    .detail p{
-      margin: 0 0 12px 0;
-      opacity: .84;
-      line-height: 1.5;
-    }
-    .detail .actions{
+    /* List of pills */
+    .pill-list{
+      padding: 12px;
       display:flex;
       flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Each pill is the link (same tab) + also selectable highlight */
+    .pill-link{
+      text-decoration: none;
+      color: inherit;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+      max-width: 100%;
+    }
+    .pill-link:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(0,0,0,.06);
+    }
+    html[data-theme="dark"] .pill-link{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(17,24,39,.44);
+    }
+    html[data-theme="dark"] .pill-link:hover{
+      box-shadow: 0 12px 22px rgba(0,0,0,.22);
+    }
+
+    .pill-link .dot{
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
+      flex: 0 0 auto;
+    }
+    html[data-theme="dark"] .pill-link .dot{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(17,24,39,.45);
+    }
+
+    .pill-link .text{
+      font-size: .90rem;
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 280px;
+    }
+
+    .pill-link.active{
+      border-color: rgba(59,130,246,.40);
+      box-shadow: 0 12px 26px rgba(59,130,246,.10);
+      background: rgba(59,130,246,.10);
+    }
+    html[data-theme="dark"] .pill-link.active{
+      border-color: rgba(59,130,246,.48);
+      background: rgba(59,130,246,.14);
+      box-shadow: 0 14px 28px rgba(59,130,246,.10);
+    }
+
+    /* Modal preview: ~75% of screen */
+    .modal{
+      position: fixed;
+      inset: 0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background: rgba(0,0,0,.58);
+      z-index: 9999;
+      padding: 16px;
+    }
+    .modal.open{ display:flex; }
+
+    .modal-card{
+      width: 75vw;
+      height: 75vh;
+      max-width: 1200px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 24px 70px rgba(0,0,0,.36);
+      display:flex;
+      flex-direction: column;
+    }
+    html[data-theme="dark"] .modal-card{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(17,24,39,.92);
+    }
+    @media (max-width: 980px){
+      .modal-card{ width: 94vw; height: 80vh; }
+    }
+
+    .modal-head{
+      padding: 12px 12px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      background:
+        radial-gradient(900px 240px at 15% 0%, rgba(34,197,94,.14), transparent 60%),
+        radial-gradient(900px 240px at 85% 0%, rgba(59,130,246,.16), transparent 58%),
+        rgba(255,255,255,.60);
+    }
+    html[data-theme="dark"] .modal-head{
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(900px 240px at 15% 0%, rgba(34,197,94,.16), transparent 60%),
+        radial-gradient(900px 240px at 85% 0%, rgba(59,130,246,.18), transparent 58%),
+        rgba(17,24,39,.60);
+    }
+
+    .modal-title{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .modal-title strong{
+      font-size: .95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 60vw;
+    }
+    .modal-actions{
+      display:flex;
       gap: 8px;
       align-items:center;
+      flex: 0 0 auto;
     }
-    .detail .actions a,
-    .detail .actions button{
+    .modal-actions button{
       border-radius: 999px;
-      padding: 9px 11px;
-      font-size: .88rem;
+      padding: 8px 10px;
       border: 1px solid rgba(0,0,0,.12);
-      background: rgba(255,255,255,.55);
+      background: rgba(255,255,255,.62);
       cursor:pointer;
-      text-decoration:none;
-      color: inherit;
+      font-size: .85rem;
       display:inline-flex;
       align-items:center;
       gap: 8px;
       transition: transform .12s ease;
     }
-    .detail .actions a:hover,
-    .detail .actions button:hover{ transform: translateY(-1px); }
-    html[data-theme="dark"] .detail .actions a,
-    html[data-theme="dark"] .detail .actions button{
+    .modal-actions button:hover{ transform: translateY(-1px); }
+    html[data-theme="dark"] .modal-actions button{
       border: 1px solid rgba(255,255,255,.12);
-      background: rgba(17,24,39,.42);
+      background: rgba(17,24,39,.52);
     }
 
-    .preview{
-      padding: 0 14px 14px 14px;
-    }
-    .iframe-wrap{
-      border-radius: 16px;
-      overflow:hidden;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.50);
-      height: 520px;
-    }
-    html[data-theme="dark"] .iframe-wrap{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(17,24,39,.38);
-    }
-    .iframe-wrap iframe{
+    .modal-body{ flex: 1 1 auto; }
+    .modal-body iframe{
       width:100%;
       height:100%;
-      border:none;
-    }
-    .hint{
-      margin-top: 10px;
-      font-size: .88rem;
-      opacity: .78;
-      line-height: 1.45;
+      border: none;
+      background: transparent;
     }
 
-    .empty-state{
-      padding: 14px;
-      opacity: .78;
-      line-height: 1.5;
+    .note{
+      padding: 10px 12px;
+      font-size: .86rem;
+      opacity: .82;
+      line-height: 1.45;
     }
   </style>
 </head>
@@ -472,57 +479,53 @@
         <div class="res-hero">
           <h1>Resources</h1>
           <p>
-            Important websites and reading materials I use often. Click a resource on the left to view details and preview.
+            Two columns: working links and reading materials. Click a pill to highlight it. The pill itself opens the link in this tab.
+            Use the column preview button to open an in-page preview (~75% of the screen).
           </p>
         </div>
 
-        <div class="res-layout">
-          <!-- LEFT: Lists -->
-          <div class="panel">
-            <div class="panel-head">
-              <h2>All resources</h2>
-              <div class="small" id="totalCount">—</div>
-            </div>
+        <div class="res-tools">
+          <div class="res-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="resSearch" type="text" placeholder="Search resources (Vakil, OEIS, CTAN, symbolic powers…)" autocomplete="off" />
+          </div>
+          <div class="res-hint">
+            Preview may be blocked by some sites (iframe restrictions).
+          </div>
+        </div>
 
-            <div class="res-search">
-              <div class="box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input id="resSearch" type="text" placeholder="Search (arXiv, Vakil, LaTeX, OEIS…)" autocomplete="off" />
+        <div class="cols">
+          <!-- Column 1 -->
+          <div class="col">
+            <div class="col-head grad-blue">
+              <div>
+                <h2>Favorite Working Sites and Resources</h2>
+                <div class="meta"><span id="countWork">0</span> items</div>
               </div>
+              <button class="preview-btn" id="previewWorkBtn" type="button" disabled>
+                <i class="fa-solid fa-eye"></i> Preview
+              </button>
             </div>
-
-            <div class="res-sections" id="resSections">
-              <!-- injected -->
+            <div class="pill-list" id="workList"></div>
+            <div class="note" id="workNote" style="padding-top:0;">
+              Select a pill to enable preview.
             </div>
           </div>
 
-          <!-- RIGHT: Details / Preview tabs -->
-          <div class="panel">
-            <div class="panel-head">
-              <h2 id="rightTitle">Preview</h2>
-              <div class="tabs">
-                <button class="tab-btn active" id="tabDetails" type="button">
-                  <i class="fa-solid fa-circle-info"></i> Details
-                </button>
-                <button class="tab-btn" id="tabPreview" type="button">
-                  <i class="fa-solid fa-eye"></i> Preview
-                </button>
+          <!-- Column 2 -->
+          <div class="col">
+            <div class="col-head grad-purple">
+              <div>
+                <h2>Favorite reading Materials</h2>
+                <div class="meta"><span id="countRead">0</span> items</div>
               </div>
+              <button class="preview-btn" id="previewReadBtn" type="button" disabled>
+                <i class="fa-solid fa-eye"></i> Preview
+              </button>
             </div>
-
-            <div id="detailsView" class="detail">
-              <div class="empty-state">
-                Select a resource on the left to see details here.
-              </div>
-            </div>
-
-            <div id="previewView" class="preview" style="display:none;">
-              <div class="iframe-wrap">
-                <iframe id="previewFrame" title="Resource preview" src="about:blank"></iframe>
-              </div>
-              <div class="hint">
-                Some sites block embedding. If the preview stays blank, click “Open in new tab” from the Details tab.
-              </div>
+            <div class="pill-list" id="readList"></div>
+            <div class="note" id="readNote" style="padding-top:0;">
+              Select a pill to enable preview.
             </div>
           </div>
         </div>
@@ -533,6 +536,26 @@
         </div>
       </section>
     </main>
+  </div>
+
+  <!-- ================= Preview Modal (75%) ================= -->
+  <div class="modal" id="previewModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Resource preview">
+      <div class="modal-head">
+        <div class="modal-title">
+          <i class="fa-solid fa-up-right-from-square" style="opacity:.75;"></i>
+          <strong id="modalTitle">Preview</strong>
+        </div>
+        <div class="modal-actions">
+          <button id="modalCloseBtn" type="button">
+            <i class="fa-solid fa-xmark"></i> Close
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <iframe id="modalFrame" title="Embedded preview" src="about:blank"></iframe>
+      </div>
+    </div>
   </div>
 
   <!-- ================= SCRIPTS ================= -->
@@ -551,7 +574,7 @@
       });
     }
 
-    // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
+    // ----- "More" dropdown click toggle -----
     const dropdown = document.querySelector('.dropdown');
     const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
     if (dropbtn) {
@@ -594,202 +617,164 @@
       });
     }
 
-    // ================== RESOURCES (from live page) ==================
-    const RESOURCES = [
-      // Favorite Working Sites and Resources
-      { section: "Favorite Working Sites and Resources", title: "arXiv", url: "https://arxiv.org/", note: "Preprints and recent papers.", tag: "Research", icon: "ai ai-arxiv" },
-      { section: "Favorite Working Sites and Resources", title: "arXiv (Commutative Algebra)", url: "https://arxiv.org/list/math.AC/recent", note: "Recent in math.AC.", tag: "arXiv", icon: "ai ai-arxiv" },
-      { section: "Favorite Working Sites and Resources", title: "MathSciNet", url: "https://mathscinet.ams.org/", note: "Reviews and bibliographic data.", tag: "AMS", icon: "fa-solid fa-book" },
-      { section: "Favorite Working Sites and Resources", title: "commalg.org", url: "https://www.commalg.org/", note: "Commutative algebra community hub.", tag: "Community", icon: "fa-solid fa-people-group" },
-      { section: "Favorite Working Sites and Resources", title: "AMS Sectional Meetings", url: "https://www.ams.org/meetings/sectionalmeetings.html", note: "Meeting schedules and announcements.", tag: "AMS", icon: "fa-solid fa-calendar-days" },
-      { section: "Favorite Working Sites and Resources", title: "Commutative Diagram Creation in LaTeX", url: "https://tikzcd.yichuanshen.de/", note: "tikzcd diagram generator.", tag: "LaTeX", icon: "fa-solid fa-diagram-project" },
-      { section: "Favorite Working Sites and Resources", title: "Table Creation in LaTeX", url: "https://www.tablesgenerator.com/", note: "Generate LaTeX tables visually.", tag: "LaTeX", icon: "fa-solid fa-table" },
-      { section: "Favorite Working Sites and Resources", title: "MathJax", url: "https://www.mathjax.org/", note: "Math rendering for the web.", tag: "Web", icon: "fa-solid fa-square-root-variable" },
-      { section: "Favorite Working Sites and Resources", title: "Comprehensive TeX Archive", url: "https://ctan.org/", note: "CTAN packages and documentation.", tag: "TeX", icon: "fa-solid fa-box-archive" },
-      { section: "Favorite Working Sites and Resources", title: "The On-Line Encyclopedia of Integer Sequences (OEIS)", url: "https://oeis.org/", note: "Integer sequences database.", tag: "Database", icon: "fa-solid fa-list-ol" },
-      { section: "Favorite Working Sites and Resources", title: "Twoples: an online directed reading program", url: "https://sites.google.com/view/twoples", note: "Online directed reading program.", tag: "DRP", icon: "fa-solid fa-graduation-cap" },
-      { section: "Favorite Working Sites and Resources", title: "AMS Mathematical Opportunity", url: "https://www.ams.org/programs/students/empowerment-opportunities", note: "AMS opportunities and programs.", tag: "AMS", icon: "fa-solid fa-handshake" },
-
-      // Favorite reading Materials
-      { section: "Favorite reading Materials", title: "Expository Papers: KEITH CONRAD", url: "https://kconrad.math.uconn.edu/", note: "Expository notes and handouts.", tag: "Notes", icon: "fa-solid fa-feather" },
-      { section: "Favorite reading Materials", title: "Notes on Class Field Theory: Kiran S. Kedlaya", url: "https://kskedlaya.org/", note: "Course notes and references.", tag: "Number Theory", icon: "fa-solid fa-landmark" },
-      { section: "Favorite reading Materials", title: "Algebraic Number Theory: James S. Milne", url: "https://www.jmilne.org/math/CourseNotes/ant.html", note: "Classic notes and texts.", tag: "Number Theory", icon: "fa-solid fa-book-open" },
-      { section: "Favorite reading Materials", title: "Foundations of Algebraic Geometry: Ravi Vakil", url: "https://math216.wordpress.com/", note: "FOAG notes hub.", tag: "AG", icon: "fa-solid fa-compass-drafting" },
-      { section: "Favorite reading Materials", title: "THE RISING SEA: Foundations of Algebraic Geometry Notes", url: "https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf", note: "Vakil’s FOAG PDF.", tag: "AG", icon: "fa-solid fa-water" },
-      { section: "Favorite reading Materials", title: "Algebraic Geometry Notes by Andreas Gathmann", url: "https://agag-gathmann.math.rptu.de/", note: "Lecture notes and exercises.", tag: "AG", icon: "fa-solid fa-chalkboard" },
-      { section: "Favorite reading Materials", title: "Lecture Notes on Symbolic Powers by Eloísa Grifo", url: "https://eloisagrifo.github.io/symbolic_powers_notes.pdf", note: "Notes focused on symbolic powers.", tag: "CA", icon: "fa-solid fa-infinity" },
-      { section: "Favorite reading Materials", title: "Study of Interpolation Problems by Jack Huizenga", url: "https://sites.psu.edu/huizenga/files/2019/01/interpolation.pdf", note: "Notes on interpolation problems.", tag: "Interpolation", icon: "fa-solid fa-bullseye" }
+    // ================== DATA ==================
+    // NOTE: "Keep only the arXiv commutative algebra one" => removed generic arXiv homepage item.
+    const WORKING = [
+      { title: "arXiv — Commutative Algebra", url: "https://arxiv.org/list/math.AC/recent", icon: "ai ai-arxiv", color: "grad-amber" },
+      { title: "MathSciNet", url: "https://mathscinet.ams.org/", icon: "fa-solid fa-book", color: "grad-green" },
+      { title: "commalg.org", url: "https://www.commalg.org/", icon: "fa-solid fa-people-group", color: "grad-purple" },
+      { title: "AMS Sectional Meetings", url: "https://www.ams.org/meetings/sectionalmeetings.html", icon: "fa-solid fa-calendar-days", color: "grad-amber" },
+      { title: "Commutative Diagram (tikzcd)", url: "https://tikzcd.yichuanshen.de/", icon: "fa-solid fa-diagram-project", color: "grad-blue" },
+      { title: "LaTeX Table Generator", url: "https://www.tablesgenerator.com/", icon: "fa-solid fa-table", color: "grad-green" },
+      { title: "MathJax", url: "https://www.mathjax.org/", icon: "fa-solid fa-square-root-variable", color: "grad-blue" },
+      { title: "CTAN", url: "https://ctan.org/", icon: "fa-solid fa-box-archive", color: "grad-amber" },
+      { title: "OEIS", url: "https://oeis.org/", icon: "fa-solid fa-list-ol", color: "grad-purple" },
+      { title: "TWOPLES (Directed Reading Program)", url: "https://sites.google.com/view/twoples", icon: "fa-solid fa-graduation-cap", color: "grad-green" },
+      { title: "AMS Mathematical Opportunity", url: "https://www.ams.org/programs/students/empowerment-opportunities", icon: "fa-solid fa-handshake", color: "grad-amber" }
     ];
 
-    const SECTION_ORDER = [
-      "Favorite Working Sites and Resources",
-      "Favorite reading Materials"
+    const READING = [
+      { title: "Expository Papers — Keith Conrad", url: "https://kconrad.math.uconn.edu/", icon: "fa-solid fa-feather", color: "grad-green" },
+      { title: "Class Field Theory — K. S. Kedlaya", url: "https://kskedlaya.org/", icon: "fa-solid fa-landmark", color: "grad-amber" },
+      { title: "Algebraic Number Theory — J. S. Milne", url: "https://www.jmilne.org/math/CourseNotes/ant.html", icon: "fa-solid fa-book-open", color: "grad-blue" },
+      { title: "FOAG — Ravi Vakil (hub)", url: "https://math216.wordpress.com/", icon: "fa-solid fa-compass-drafting", color: "grad-purple" },
+      { title: "The Rising Sea (FOAG PDF)", url: "https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf", icon: "fa-solid fa-water", color: "grad-blue" },
+      { title: "Algebraic Geometry — Andreas Gathmann", url: "https://agag-gathmann.math.rptu.de/", icon: "fa-solid fa-chalkboard", color: "grad-green" },
+      { title: "Symbolic Powers — Eloísa Grifo (PDF)", url: "https://eloisagrifo.github.io/symbolic_powers_notes.pdf", icon: "fa-solid fa-infinity", color: "grad-amber" },
+      { title: "Interpolation Problems — Jack Huizenga (PDF)", url: "https://sites.psu.edu/huizenga/files/2019/01/interpolation.pdf", icon: "fa-solid fa-bullseye", color: "grad-purple" }
     ];
 
-    const resSectionsEl = document.getElementById("resSections");
-    const totalCountEl  = document.getElementById("totalCount");
-    const searchEl      = document.getElementById("resSearch");
-
-    const tabDetails = document.getElementById("tabDetails");
-    const tabPreview = document.getElementById("tabPreview");
-    const detailsView = document.getElementById("detailsView");
-    const previewView = document.getElementById("previewView");
-    const previewFrame = document.getElementById("previewFrame");
-    const rightTitle = document.getElementById("rightTitle");
-
-    let activeId = null;
+    // ================== STATE ==================
     let query = "";
-    let activeTab = "details";
+    let activeWork = null;   // object
+    let activeRead = null;   // object
 
-    function iconHtml(cls){
+    const workList = document.getElementById("workList");
+    const readList = document.getElementById("readList");
+    const countWork = document.getElementById("countWork");
+    const countRead = document.getElementById("countRead");
+    const workNote = document.getElementById("workNote");
+    const readNote = document.getElementById("readNote");
+
+    const previewWorkBtn = document.getElementById("previewWorkBtn");
+    const previewReadBtn = document.getElementById("previewReadBtn");
+
+    const searchEl = document.getElementById("resSearch");
+
+    // Preview modal
+    const modal = document.getElementById("previewModal");
+    const modalFrame = document.getElementById("modalFrame");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+    function openPreview(item){
+      if (!item) return;
+      modalTitle.textContent = item.title;
+      modalFrame.src = item.url;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+    function closePreview(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      modalFrame.src = "about:blank";
+    }
+    modalCloseBtn.addEventListener("click", closePreview);
+    modal.addEventListener("click", (e) => { if (e.target === modal) closePreview(); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("open")) closePreview();
+    });
+
+    previewWorkBtn.addEventListener("click", () => openPreview(activeWork));
+    previewReadBtn.addEventListener("click", () => openPreview(activeRead));
+
+    function iconHTML(cls){
       if (!cls) return '<i class="fa-solid fa-link"></i>';
       return `<i class="${cls}"></i>`;
     }
 
-    function setTab(tab){
-      activeTab = tab;
-
-      if (tab === "details") {
-        tabDetails.classList.add("active");
-        tabPreview.classList.remove("active");
-        detailsView.style.display = "";
-        previewView.style.display = "none";
-      } else {
-        tabPreview.classList.add("active");
-        tabDetails.classList.remove("active");
-        detailsView.style.display = "none";
-        previewView.style.display = "";
-        // load preview if we have an active item
-        const item = RESOURCES.find(x => x._id === activeId);
-        previewFrame.src = item ? item.url : "about:blank";
-      }
-    }
-
-    tabDetails.addEventListener("click", () => setTab("details"));
-    tabPreview.addEventListener("click", () => setTab("preview"));
-
-    function filteredResources(){
+    function matches(item){
       const q = query.trim().toLowerCase();
-      if (!q) return RESOURCES;
-      return RESOURCES.filter(r => {
-        const hay = `${r.section} ${r.title} ${r.note || ""} ${r.tag || ""}`.toLowerCase();
-        return hay.includes(q);
-      });
+      if (!q) return true;
+      const hay = `${item.title} ${item.url}`.toLowerCase();
+      return hay.includes(q);
     }
 
-    function renderSections(){
-      // assign stable ids
-      RESOURCES.forEach((r, idx) => { if (!r._id) r._id = "res_" + idx; });
+    function renderList(container, items, activeItem, onSelect){
+      container.innerHTML = "";
+      items.forEach(item => {
+        const a = document.createElement("a");
+        a.href = item.url;              // same tab navigation (as requested)
+        a.target = "_self";
+        a.rel = "noopener";
+        a.className = "pill-link" + (activeItem && activeItem.url === item.url ? " active" : "");
 
-      const items = filteredResources();
-      totalCountEl.textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+        // Clicking the pill should highlight first, but still act as a link.
+        // We highlight on mousedown so it flashes selected even if navigation happens.
+        a.addEventListener("mousedown", () => onSelect(item));
 
-      resSectionsEl.innerHTML = "";
-
-      SECTION_ORDER.forEach(sectionName => {
-        const sectionItems = items.filter(r => r.section === sectionName);
-        if (sectionItems.length === 0) return;
-
-        const wrap = document.createElement("div");
-        wrap.className = "res-section";
-
-        wrap.innerHTML = `
-          <div class="res-section-title">
-            <h3>${sectionName}</h3>
-            <div class="count">${sectionItems.length}</div>
-          </div>
-          <div class="res-list"></div>
+        a.innerHTML = `
+          <span class="dot ${item.color || ""}">${iconHTML(item.icon)}</span>
+          <span class="text" title="${item.title}">${item.title}</span>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="opacity:.6;"></i>
         `;
+        container.appendChild(a);
+      });
+    }
 
-        const list = wrap.querySelector(".res-list");
+    function render(){
+      const w = WORKING.filter(matches);
+      const r = READING.filter(matches);
 
-        sectionItems.forEach(r => {
-          const row = document.createElement("div");
-          row.className = "res-item" + (r._id === activeId ? " active" : "");
-          row.setAttribute("data-id", r._id);
+      countWork.textContent = w.length;
+      countRead.textContent = r.length;
 
-          row.innerHTML = `
-            <div class="res-ico">${iconHtml(r.icon)}</div>
-            <div class="res-text">
-              <div class="title">${r.title}</div>
-              <div class="meta">
-                <span class="pill">${r.tag || "Resource"}</span>
-                <span class="pill">${new URL(r.url).hostname}</span>
-              </div>
-            </div>
-          `;
+      // keep active selection if still visible
+      if (activeWork && !w.some(x => x.url === activeWork.url)) activeWork = null;
+      if (activeRead && !r.some(x => x.url === activeRead.url)) activeRead = null;
 
-          row.addEventListener("click", () => selectItem(r._id));
-          list.appendChild(row);
-        });
-
-        resSectionsEl.appendChild(wrap);
+      renderList(workList, w, activeWork, (item) => {
+        activeWork = item;
+        previewWorkBtn.disabled = false;
+        workNote.textContent = `Selected: ${item.title}`;
+        // refresh highlight quickly
+        render();
       });
 
-      // If nothing selected yet, select first available item
-      if (!activeId && items.length > 0) selectItem(items[0]._id, { keepTab: true });
-      if (items.length === 0) showEmptyRight();
-    }
-
-    function showEmptyRight(){
-      rightTitle.textContent = "Preview";
-      detailsView.innerHTML = `<div class="empty-state">No results. Try a different search term.</div>`;
-      previewFrame.src = "about:blank";
-      if (activeTab === "preview") previewView.style.display = "";
-    }
-
-    function selectItem(id, opts = {}){
-      activeId = id;
-
-      // highlight active in left pane
-      document.querySelectorAll(".res-item").forEach(el => {
-        el.classList.toggle("active", el.getAttribute("data-id") === id);
+      renderList(readList, r, activeRead, (item) => {
+        activeRead = item;
+        previewReadBtn.disabled = false;
+        readNote.textContent = `Selected: ${item.title}`;
+        render();
       });
 
-      const item = RESOURCES.find(x => x._id === id);
-      if (!item) return;
+      // enable/disable preview buttons
+      previewWorkBtn.disabled = !activeWork;
+      previewReadBtn.disabled = !activeRead;
 
-      rightTitle.textContent = item.title;
-
-      detailsView.innerHTML = `
-        <h3>${item.title}</h3>
-        <p>${item.note || ""}</p>
-        <div class="actions">
-          <a href="${item.url}" target="_blank" rel="noopener">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            Open in new tab
-          </a>
-          <button type="button" id="btnShowPreview">
-            <i class="fa-solid fa-eye"></i>
-            Preview here
-          </button>
-        </div>
-        <div class="hint" style="margin-top:10px;">
-          If preview stays blank, that website likely blocks embedding (common for some services).
-        </div>
-      `;
-
-      const btnShowPreview = document.getElementById("btnShowPreview");
-      btnShowPreview.addEventListener("click", () => setTab("preview"));
-
-      // update preview if preview tab already active
-      if (activeTab === "preview") previewFrame.src = item.url;
-
-      // keepTab means don't force tabs; otherwise default to details
-      if (!opts.keepTab) setTab("details");
+      if (!activeWork) workNote.textContent = (w.length ? "Select a pill to enable preview." : "No results in this column.");
+      if (!activeRead) readNote.textContent = (r.length ? "Select a pill to enable preview." : "No results in this column.");
     }
 
-    // Search
     searchEl.addEventListener("input", (e) => {
       query = e.target.value || "";
-      activeId = null;
-      renderSections();
-      setTab("details");
+      render();
     });
 
-    // initial render
-    renderSections();
-    setTab("details");
+    // Initial selection (optional): select first visible in each column
+    function initAutoSelect(){
+      const w = WORKING.filter(matches);
+      const r = READING.filter(matches);
+      if (!activeWork && w.length) activeWork = w[0];
+      if (!activeRead && r.length) activeRead = r[0];
+      previewWorkBtn.disabled = !activeWork;
+      previewReadBtn.disabled = !activeRead;
+      if (activeWork) workNote.textContent = `Selected: ${activeWork.title}`;
+      if (activeRead) readNote.textContent = `Selected: ${activeRead.title}`;
+    }
+
+    initAutoSelect();
+    render();
   </script>
 </body>
 </html>
