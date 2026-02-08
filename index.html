@@ -55,12 +55,12 @@
     /* Make the hero card a positioning context for the elevator mini */
 .hero-card { position: relative; }
 
-/* Desktop: mini sits on the right side INSIDE the hero-card */
+/* Desktop: mini sits on the LOWER-RIGHT side INSIDE the hero-card */
 .elevator-mini{
   position: absolute;
   right: 1.1rem;
-  top: 1.1rem;
-
+  bottom: 1.1rem;   /* 🔥 this is the key change */
+  
   width: 260px;
   height: 150px;
 
@@ -68,10 +68,10 @@
   overflow: hidden;
   z-index: 30;
 
-  /* mini look */
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
   transition: width 220ms ease, height 220ms ease, transform 220ms ease;
 }
+
 
 /* Expand on hover (same "mini->full" feel) */
 .elevator-mini:hover{
