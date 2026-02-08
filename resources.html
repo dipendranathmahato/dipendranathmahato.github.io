@@ -25,25 +25,20 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-local CSS: 2 columns + colorful + preview modal (~75%) -->
+  <!-- Page-local CSS: 2 columns + colorful + per-pill preview + 85% modal -->
   <style>
-    /* Your template uses .main */
+    /* Template uses .main */
     .main { min-width: 0; }
 
-    /* Color palette helpers */
-    .grad-blue   { background: linear-gradient(135deg, rgba(59,130,246,.22), rgba(59,130,246,.06)); }
-    .grad-green  { background: linear-gradient(135deg, rgba(34,197,94,.22), rgba(34,197,94,.06)); }
-    .grad-purple { background: linear-gradient(135deg, rgba(168,85,247,.22), rgba(168,85,247,.06)); }
-    .grad-amber  { background: linear-gradient(135deg, rgba(245,158,11,.22), rgba(245,158,11,.06)); }
-
+    /* soft colorful hero */
     .res-hero {
       border-radius: 18px;
       padding: 16px 16px;
       border: 1px solid rgba(0,0,0,.08);
       background:
-        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.16), transparent 60%),
-        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.18), transparent 58%),
-        radial-gradient(900px 240px at 50% 120%, rgba(168,85,247,.12), transparent 55%),
+        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.20), transparent 58%),
+        radial-gradient(900px 240px at 50% 120%, rgba(168,85,247,.14), transparent 55%),
         rgba(255,255,255,.58);
       box-shadow: 0 10px 24px rgba(0,0,0,.07);
       margin-bottom: 12px;
@@ -51,9 +46,9 @@
     html[data-theme="dark"] .res-hero{
       border: 1px solid rgba(255,255,255,.10);
       background:
-        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.18), transparent 60%),
-        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.22), transparent 58%),
-        radial-gradient(900px 240px at 50% 120%, rgba(168,85,247,.16), transparent 55%),
+        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.20), transparent 60%),
+        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.24), transparent 58%),
+        radial-gradient(900px 240px at 50% 120%, rgba(168,85,247,.18), transparent 55%),
         rgba(17,24,39,.56);
       box-shadow: 0 12px 28px rgba(0,0,0,.28);
     }
@@ -69,7 +64,7 @@
       max-width: 78ch;
     }
 
-    /* Search strip */
+    /* Search */
     .res-tools{
       margin: 12px 0 12px 0;
       display:flex;
@@ -103,7 +98,6 @@
       font-size: .95rem;
       color: inherit;
     }
-
     .res-hint{
       flex: 0 0 auto;
       font-size: .88rem;
@@ -111,7 +105,7 @@
       line-height: 1.3;
     }
 
-    /* TWO columns for the two sections */
+    /* TWO columns: exactly the two sections */
     .cols{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -142,9 +136,15 @@
       justify-content: space-between;
       gap: 10px;
       border-bottom: 1px solid rgba(0,0,0,.06);
+      background:
+        linear-gradient(135deg, rgba(59,130,246,.14), transparent 55%),
+        linear-gradient(135deg, rgba(34,197,94,.12), transparent 55%);
     }
     html[data-theme="dark"] .col-head{
       border-bottom: 1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(135deg, rgba(59,130,246,.18), transparent 55%),
+        linear-gradient(135deg, rgba(34,197,94,.14), transparent 55%);
     }
     .col-head h2{
       margin: 0;
@@ -157,8 +157,86 @@
       white-space: nowrap;
     }
 
-    /* Preview button in each column header */
-    .preview-btn{
+    /* Card-like pill rows (two buttons: Preview + Link) */
+    .pill-list{
+      padding: 12px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pill-row{
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
+      padding: 10px 10px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .pill-row:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(0,0,0,.07);
+    }
+    html[data-theme="dark"] .pill-row{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(17,24,39,.44);
+    }
+    html[data-theme="dark"] .pill-row:hover{
+      box-shadow: 0 14px 28px rgba(0,0,0,.26);
+    }
+
+    .pill-main{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .dot{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border: 1px solid rgba(0,0,0,.10);
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.70), rgba(255,255,255,.20)),
+        rgba(59,130,246,.14);
+      flex: 0 0 auto;
+    }
+    html[data-theme="dark"] .dot{
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.10), rgba(255,255,255,.02)),
+        rgba(59,130,246,.16);
+    }
+
+    .pill-title{
+      font-size: .92rem;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 420px;
+    }
+    @media (max-width: 1150px){
+      .pill-title{ max-width: 260px; }
+    }
+    @media (max-width: 980px){
+      .pill-title{ max-width: 60vw; }
+    }
+
+    .pill-actions{
+      display:flex;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .btn{
       border-radius: 999px;
       padding: 8px 10px;
       border: 1px solid rgba(0,0,0,.12);
@@ -168,91 +246,34 @@
       display:inline-flex;
       align-items:center;
       gap: 8px;
-      transition: transform .12s ease;
+      text-decoration:none;
+      color: inherit;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
       user-select: none;
     }
-    .preview-btn:hover{ transform: translateY(-1px); }
-    .preview-btn:disabled{
-      opacity: .55;
-      cursor: not-allowed;
-      transform: none;
-    }
-    html[data-theme="dark"] .preview-btn{
+    .btn:hover{ transform: translateY(-1px); }
+    html[data-theme="dark"] .btn{
       border: 1px solid rgba(255,255,255,.12);
-      background: rgba(17,24,39,.48);
+      background: rgba(17,24,39,.50);
     }
 
-    /* List of pills */
-    .pill-list{
-      padding: 12px;
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    /* Each pill is the link (same tab) + also selectable highlight */
-    .pill-link{
-      text-decoration: none;
-      color: inherit;
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.55);
-      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
-      max-width: 100%;
-    }
-    .pill-link:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 10px 20px rgba(0,0,0,.06);
-    }
-    html[data-theme="dark"] .pill-link{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(17,24,39,.44);
-    }
-    html[data-theme="dark"] .pill-link:hover{
-      box-shadow: 0 12px 22px rgba(0,0,0,.22);
-    }
-
-    .pill-link .dot{
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.55);
-      flex: 0 0 auto;
-    }
-    html[data-theme="dark"] .pill-link .dot{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(17,24,39,.45);
-    }
-
-    .pill-link .text{
-      font-size: .90rem;
-      line-height: 1.15;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 280px;
-    }
-
-    .pill-link.active{
-      border-color: rgba(59,130,246,.40);
-      box-shadow: 0 12px 26px rgba(59,130,246,.10);
+    .btn.preview{
+      border-color: rgba(59,130,246,.30);
       background: rgba(59,130,246,.10);
     }
-    html[data-theme="dark"] .pill-link.active{
-      border-color: rgba(59,130,246,.48);
+    html[data-theme="dark"] .btn.preview{
+      border-color: rgba(59,130,246,.36);
       background: rgba(59,130,246,.14);
-      box-shadow: 0 14px 28px rgba(59,130,246,.10);
     }
 
-    /* Modal preview: ~75% of screen */
+    .note{
+      padding: 0 12px 12px 12px;
+      font-size: .88rem;
+      opacity: .78;
+      line-height: 1.45;
+    }
+
+    /* Modal preview: 85% of screen */
     .modal{
       position: fixed;
       inset: 0;
@@ -266,14 +287,14 @@
     .modal.open{ display:flex; }
 
     .modal-card{
-      width: 75vw;
-      height: 75vh;
-      max-width: 1200px;
+      width: 85vw;
+      height: 85vh;
+      max-width: 1400px;
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid rgba(0,0,0,.12);
       background: rgba(255,255,255,.92);
-      box-shadow: 0 24px 70px rgba(0,0,0,.36);
+      box-shadow: 0 24px 80px rgba(0,0,0,.38);
       display:flex;
       flex-direction: column;
     }
@@ -282,7 +303,7 @@
       background: rgba(17,24,39,.92);
     }
     @media (max-width: 980px){
-      .modal-card{ width: 94vw; height: 80vh; }
+      .modal-card{ width: 94vw; height: 86vh; }
     }
 
     .modal-head{
@@ -293,15 +314,15 @@
       gap: 10px;
       border-bottom: 1px solid rgba(0,0,0,.08);
       background:
-        radial-gradient(900px 240px at 15% 0%, rgba(34,197,94,.14), transparent 60%),
-        radial-gradient(900px 240px at 85% 0%, rgba(59,130,246,.16), transparent 58%),
+        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.20), transparent 58%),
         rgba(255,255,255,.60);
     }
     html[data-theme="dark"] .modal-head{
       border-bottom: 1px solid rgba(255,255,255,.10);
       background:
-        radial-gradient(900px 240px at 15% 0%, rgba(34,197,94,.16), transparent 60%),
-        radial-gradient(900px 240px at 85% 0%, rgba(59,130,246,.18), transparent 58%),
+        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.22), transparent 58%),
         rgba(17,24,39,.60);
     }
 
@@ -316,7 +337,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 60vw;
+      max-width: 70vw;
     }
     .modal-actions{
       display:flex;
@@ -350,11 +371,15 @@
       background: transparent;
     }
 
-    .note{
+    .modal-foot{
       padding: 10px 12px;
       font-size: .86rem;
       opacity: .82;
       line-height: 1.45;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+    html[data-theme="dark"] .modal-foot{
+      border-top: 1px solid rgba(255,255,255,.10);
     }
   </style>
 </head>
@@ -479,8 +504,8 @@
         <div class="res-hero">
           <h1>Resources</h1>
           <p>
-            Two columns: working links and reading materials. Click a pill to highlight it. The pill itself opens the link in this tab.
-            Use the column preview button to open an in-page preview (~75% of the screen).
+            Two columns: <b>Favorite Working Sites and Resources</b> and <b>Favorite reading Materials</b>.
+            Each item has a <b>Preview</b> button (opens an 85% in-page preview) and a <b>Link</b> button to visit the site.
           </p>
         </div>
 
@@ -490,42 +515,36 @@
             <input id="resSearch" type="text" placeholder="Search resources (Vakil, OEIS, CTAN, symbolic powers…)" autocomplete="off" />
           </div>
           <div class="res-hint">
-            Preview may be blocked by some sites (iframe restrictions).
+            If Preview is blank, that site likely blocks embedding.
           </div>
         </div>
 
         <div class="cols">
           <!-- Column 1 -->
           <div class="col">
-            <div class="col-head grad-blue">
+            <div class="col-head">
               <div>
                 <h2>Favorite Working Sites and Resources</h2>
                 <div class="meta"><span id="countWork">0</span> items</div>
               </div>
-              <button class="preview-btn" id="previewWorkBtn" type="button" disabled>
-                <i class="fa-solid fa-eye"></i> Preview
-              </button>
             </div>
             <div class="pill-list" id="workList"></div>
-            <div class="note" id="workNote" style="padding-top:0;">
-              Select a pill to enable preview.
+            <div class="note">
+              Tip: Use Preview to stay on this page; use Link to navigate.
             </div>
           </div>
 
           <!-- Column 2 -->
           <div class="col">
-            <div class="col-head grad-purple">
+            <div class="col-head">
               <div>
                 <h2>Favorite reading Materials</h2>
                 <div class="meta"><span id="countRead">0</span> items</div>
               </div>
-              <button class="preview-btn" id="previewReadBtn" type="button" disabled>
-                <i class="fa-solid fa-eye"></i> Preview
-              </button>
             </div>
             <div class="pill-list" id="readList"></div>
-            <div class="note" id="readNote" style="padding-top:0;">
-              Select a pill to enable preview.
+            <div class="note">
+              Notes and PDFs may preview better than some “app-like” sites.
             </div>
           </div>
         </div>
@@ -538,12 +557,12 @@
     </main>
   </div>
 
-  <!-- ================= Preview Modal (75%) ================= -->
+  <!-- ================= Preview Modal (85%) ================= -->
   <div class="modal" id="previewModal" aria-hidden="true">
     <div class="modal-card" role="dialog" aria-modal="true" aria-label="Resource preview">
       <div class="modal-head">
         <div class="modal-title">
-          <i class="fa-solid fa-up-right-from-square" style="opacity:.75;"></i>
+          <i class="fa-solid fa-eye" style="opacity:.75;"></i>
           <strong id="modalTitle">Preview</strong>
         </div>
         <div class="modal-actions">
@@ -554,6 +573,9 @@
       </div>
       <div class="modal-body">
         <iframe id="modalFrame" title="Embedded preview" src="about:blank"></iframe>
+      </div>
+      <div class="modal-foot" id="modalFoot">
+        If the preview area stays blank, the site likely blocks embedding. Use the Link button instead.
       </div>
     </div>
   </div>
@@ -618,75 +640,47 @@
     }
 
     // ================== DATA ==================
-    // NOTE: "Keep only the arXiv commutative algebra one" => removed generic arXiv homepage item.
+    // per your earlier request: keep only the arXiv commutative algebra one (remove generic arXiv homepage)
     const WORKING = [
-      { title: "arXiv — Commutative Algebra", url: "https://arxiv.org/list/math.AC/recent", icon: "ai ai-arxiv", color: "grad-amber" },
-      { title: "MathSciNet", url: "https://mathscinet.ams.org/", icon: "fa-solid fa-book", color: "grad-green" },
-      { title: "commalg.org", url: "https://www.commalg.org/", icon: "fa-solid fa-people-group", color: "grad-purple" },
-      { title: "AMS Sectional Meetings", url: "https://www.ams.org/meetings/sectionalmeetings.html", icon: "fa-solid fa-calendar-days", color: "grad-amber" },
-      { title: "Commutative Diagram (tikzcd)", url: "https://tikzcd.yichuanshen.de/", icon: "fa-solid fa-diagram-project", color: "grad-blue" },
-      { title: "LaTeX Table Generator", url: "https://www.tablesgenerator.com/", icon: "fa-solid fa-table", color: "grad-green" },
-      { title: "MathJax", url: "https://www.mathjax.org/", icon: "fa-solid fa-square-root-variable", color: "grad-blue" },
-      { title: "CTAN", url: "https://ctan.org/", icon: "fa-solid fa-box-archive", color: "grad-amber" },
-      { title: "OEIS", url: "https://oeis.org/", icon: "fa-solid fa-list-ol", color: "grad-purple" },
-      { title: "TWOPLES (Directed Reading Program)", url: "https://sites.google.com/view/twoples", icon: "fa-solid fa-graduation-cap", color: "grad-green" },
-      { title: "AMS Mathematical Opportunity", url: "https://www.ams.org/programs/students/empowerment-opportunities", icon: "fa-solid fa-handshake", color: "grad-amber" }
+      { title: "arXiv — Commutative Algebra", url: "https://arxiv.org/list/math.AC/recent", icon: "ai ai-arxiv" },
+      { title: "MathSciNet", url: "https://mathscinet.ams.org/", icon: "fa-solid fa-book" },
+      { title: "commalg.org", url: "https://www.commalg.org/", icon: "fa-solid fa-people-group" },
+      { title: "AMS Sectional Meetings", url: "https://www.ams.org/meetings/sectionalmeetings.html", icon: "fa-solid fa-calendar-days" },
+      { title: "Commutative Diagram (tikzcd)", url: "https://tikzcd.yichuanshen.de/", icon: "fa-solid fa-diagram-project" },
+      { title: "LaTeX Table Generator", url: "https://www.tablesgenerator.com/", icon: "fa-solid fa-table" },
+      { title: "MathJax", url: "https://www.mathjax.org/", icon: "fa-solid fa-square-root-variable" },
+      { title: "CTAN", url: "https://ctan.org/", icon: "fa-solid fa-box-archive" },
+      { title: "OEIS", url: "https://oeis.org/", icon: "fa-solid fa-list-ol" },
+      { title: "TWOPLES (Directed Reading Program)", url: "https://sites.google.com/view/twoples", icon: "fa-solid fa-graduation-cap" },
+      { title: "AMS Mathematical Opportunity", url: "https://www.ams.org/programs/students/empowerment-opportunities", icon: "fa-solid fa-handshake" }
     ];
 
     const READING = [
-      { title: "Expository Papers — Keith Conrad", url: "https://kconrad.math.uconn.edu/", icon: "fa-solid fa-feather", color: "grad-green" },
-      { title: "Class Field Theory — K. S. Kedlaya", url: "https://kskedlaya.org/", icon: "fa-solid fa-landmark", color: "grad-amber" },
-      { title: "Algebraic Number Theory — J. S. Milne", url: "https://www.jmilne.org/math/CourseNotes/ant.html", icon: "fa-solid fa-book-open", color: "grad-blue" },
-      { title: "FOAG — Ravi Vakil (hub)", url: "https://math216.wordpress.com/", icon: "fa-solid fa-compass-drafting", color: "grad-purple" },
-      { title: "The Rising Sea (FOAG PDF)", url: "https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf", icon: "fa-solid fa-water", color: "grad-blue" },
-      { title: "Algebraic Geometry — Andreas Gathmann", url: "https://agag-gathmann.math.rptu.de/", icon: "fa-solid fa-chalkboard", color: "grad-green" },
-      { title: "Symbolic Powers — Eloísa Grifo (PDF)", url: "https://eloisagrifo.github.io/symbolic_powers_notes.pdf", icon: "fa-solid fa-infinity", color: "grad-amber" },
-      { title: "Interpolation Problems — Jack Huizenga (PDF)", url: "https://sites.psu.edu/huizenga/files/2019/01/interpolation.pdf", icon: "fa-solid fa-bullseye", color: "grad-purple" }
+      { title: "Expository Papers — Keith Conrad", url: "https://kconrad.math.uconn.edu/", icon: "fa-solid fa-feather" },
+      { title: "Class Field Theory — K. S. Kedlaya", url: "https://kskedlaya.org/", icon: "fa-solid fa-landmark" },
+      { title: "Algebraic Number Theory — J. S. Milne", url: "https://www.jmilne.org/math/CourseNotes/ant.html", icon: "fa-solid fa-book-open" },
+      { title: "FOAG — Ravi Vakil (hub)", url: "https://math216.wordpress.com/", icon: "fa-solid fa-compass-drafting" },
+      { title: "The Rising Sea (FOAG PDF)", url: "https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf", icon: "fa-solid fa-water" },
+      { title: "Algebraic Geometry — Andreas Gathmann", url: "https://agag-gathmann.math.rptu.de/", icon: "fa-solid fa-chalkboard" },
+      { title: "Symbolic Powers — Eloísa Grifo (PDF)", url: "https://eloisagrifo.github.io/symbolic_powers_notes.pdf", icon: "fa-solid fa-infinity" },
+      { title: "Interpolation Problems — Jack Huizenga (PDF)", url: "https://sites.psu.edu/huizenga/files/2019/01/interpolation.pdf", icon: "fa-solid fa-bullseye" }
     ];
 
-    // ================== STATE ==================
-    let query = "";
-    let activeWork = null;   // object
-    let activeRead = null;   // object
-
+    // ================== DOM ==================
     const workList = document.getElementById("workList");
     const readList = document.getElementById("readList");
     const countWork = document.getElementById("countWork");
     const countRead = document.getElementById("countRead");
-    const workNote = document.getElementById("workNote");
-    const readNote = document.getElementById("readNote");
-
-    const previewWorkBtn = document.getElementById("previewWorkBtn");
-    const previewReadBtn = document.getElementById("previewReadBtn");
-
     const searchEl = document.getElementById("resSearch");
 
-    // Preview modal
+    // modal
     const modal = document.getElementById("previewModal");
     const modalFrame = document.getElementById("modalFrame");
     const modalTitle = document.getElementById("modalTitle");
+    const modalFoot = document.getElementById("modalFoot");
     const modalCloseBtn = document.getElementById("modalCloseBtn");
 
-    function openPreview(item){
-      if (!item) return;
-      modalTitle.textContent = item.title;
-      modalFrame.src = item.url;
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-    }
-    function closePreview(){
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      modalFrame.src = "about:blank";
-    }
-    modalCloseBtn.addEventListener("click", closePreview);
-    modal.addEventListener("click", (e) => { if (e.target === modal) closePreview(); });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("open")) closePreview();
-    });
-
-    previewWorkBtn.addEventListener("click", () => openPreview(activeWork));
-    previewReadBtn.addEventListener("click", () => openPreview(activeRead));
+    let query = "";
 
     function iconHTML(cls){
       if (!cls) return '<i class="fa-solid fa-link"></i>';
@@ -700,25 +694,57 @@
       return hay.includes(q);
     }
 
-    function renderList(container, items, activeItem, onSelect){
+    function openPreview(item){
+      if (!item) return;
+      modalTitle.textContent = item.title;
+      modalFoot.textContent = item.url;
+      modalFrame.src = item.url;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+    function closePreview(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      modalFrame.src = "about:blank";
+    }
+
+    modalCloseBtn.addEventListener("click", closePreview);
+    modal.addEventListener("click", (e) => { if (e.target === modal) closePreview(); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("open")) closePreview();
+    });
+
+    function pillRowHTML(item){
+      return `
+        <div class="pill-row">
+          <div class="pill-main">
+            <div class="dot">${iconHTML(item.icon)}</div>
+            <div class="pill-title" title="${item.title}">${item.title}</div>
+          </div>
+
+          <div class="pill-actions">
+            <button class="btn preview" type="button" data-action="preview">
+              <i class="fa-solid fa-eye"></i> Preview
+            </button>
+            <a class="btn" href="${item.url}" target="_self" rel="noopener" data-action="link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Link
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderOneColumn(container, items){
       container.innerHTML = "";
       items.forEach(item => {
-        const a = document.createElement("a");
-        a.href = item.url;              // same tab navigation (as requested)
-        a.target = "_self";
-        a.rel = "noopener";
-        a.className = "pill-link" + (activeItem && activeItem.url === item.url ? " active" : "");
+        const wrapper = document.createElement("div");
+        wrapper.innerHTML = pillRowHTML(item);
+        const row = wrapper.firstElementChild;
 
-        // Clicking the pill should highlight first, but still act as a link.
-        // We highlight on mousedown so it flashes selected even if navigation happens.
-        a.addEventListener("mousedown", () => onSelect(item));
+        const previewBtn = row.querySelector('button[data-action="preview"]');
+        previewBtn.addEventListener("click", () => openPreview(item));
 
-        a.innerHTML = `
-          <span class="dot ${item.color || ""}">${iconHTML(item.icon)}</span>
-          <span class="text" title="${item.title}">${item.title}</span>
-          <i class="fa-solid fa-arrow-up-right-from-square" style="opacity:.6;"></i>
-        `;
-        container.appendChild(a);
+        container.appendChild(row);
       });
     }
 
@@ -729,31 +755,8 @@
       countWork.textContent = w.length;
       countRead.textContent = r.length;
 
-      // keep active selection if still visible
-      if (activeWork && !w.some(x => x.url === activeWork.url)) activeWork = null;
-      if (activeRead && !r.some(x => x.url === activeRead.url)) activeRead = null;
-
-      renderList(workList, w, activeWork, (item) => {
-        activeWork = item;
-        previewWorkBtn.disabled = false;
-        workNote.textContent = `Selected: ${item.title}`;
-        // refresh highlight quickly
-        render();
-      });
-
-      renderList(readList, r, activeRead, (item) => {
-        activeRead = item;
-        previewReadBtn.disabled = false;
-        readNote.textContent = `Selected: ${item.title}`;
-        render();
-      });
-
-      // enable/disable preview buttons
-      previewWorkBtn.disabled = !activeWork;
-      previewReadBtn.disabled = !activeRead;
-
-      if (!activeWork) workNote.textContent = (w.length ? "Select a pill to enable preview." : "No results in this column.");
-      if (!activeRead) readNote.textContent = (r.length ? "Select a pill to enable preview." : "No results in this column.");
+      renderOneColumn(workList, w);
+      renderOneColumn(readList, r);
     }
 
     searchEl.addEventListener("input", (e) => {
@@ -761,19 +764,6 @@
       render();
     });
 
-    // Initial selection (optional): select first visible in each column
-    function initAutoSelect(){
-      const w = WORKING.filter(matches);
-      const r = READING.filter(matches);
-      if (!activeWork && w.length) activeWork = w[0];
-      if (!activeRead && r.length) activeRead = r[0];
-      previewWorkBtn.disabled = !activeWork;
-      previewReadBtn.disabled = !activeRead;
-      if (activeWork) workNote.textContent = `Selected: ${activeWork.title}`;
-      if (activeRead) readNote.textContent = `Selected: ${activeRead.title}`;
-    }
-
-    initAutoSelect();
     render();
   </script>
 </body>
