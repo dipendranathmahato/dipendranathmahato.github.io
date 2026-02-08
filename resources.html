@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
-  <title>Home | Dipendranath Mahato</title>
+  <title>Resources | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts & Icons -->
@@ -25,7 +24,360 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-local styling: independent + stylish resources design -->
+  <style>
+    /* IMPORTANT: your template uses .main, not .content */
+    .main { min-width: 0; }
+
+    .resources-hero {
+      border-radius: 18px;
+      padding: 18px 18px;
+      background:
+        radial-gradient(1200px 300px at 10% 0%, rgba(34,197,94,.12), transparent 55%),
+        radial-gradient(900px 260px at 90% 0%, rgba(59,130,246,.12), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.42));
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      margin-bottom: 14px;
+    }
+    html[data-theme="dark"] .resources-hero {
+      background:
+        radial-gradient(1200px 300px at 10% 0%, rgba(34,197,94,.14), transparent 55%),
+        radial-gradient(900px 260px at 90% 0%, rgba(59,130,246,.14), transparent 55%),
+        linear-gradient(180deg, rgba(17,24,39,.72), rgba(17,24,39,.42));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 10px 24px rgba(0,0,0,.28);
+    }
+
+    .resources-hero h1{
+      font-size: 1.35rem;
+      margin: 0 0 6px 0;
+      letter-spacing: .2px;
+    }
+    .resources-hero p{
+      margin: 0;
+      color: rgba(17,24,39,.78);
+      line-height: 1.5;
+      max-width: 70ch;
+    }
+    html[data-theme="dark"] .resources-hero p{
+      color: rgba(229,231,235,.82);
+    }
+
+    .resources-toolbar{
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      gap: 10px;
+      align-items: center;
+      margin: 12px 0 16px 0;
+    }
+    @media (max-width: 780px){
+      .resources-toolbar{ grid-template-columns: 1fr; }
+    }
+
+    .searchbox{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.65);
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+    }
+    html[data-theme="dark"] .searchbox{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(17,24,39,.55);
+      box-shadow: 0 6px 16px rgba(0,0,0,.22);
+    }
+    .searchbox i{ opacity: .75; }
+    .searchbox input{
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: .95rem;
+      color: inherit;
+    }
+
+    .chips{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    @media (max-width: 780px){
+      .chips{ justify-content: flex-start; }
+    }
+
+    .chip-btn{
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: .86rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select: none;
+    }
+    .chip-btn:hover{ transform: translateY(-1px); }
+    .chip-btn.active{
+      background: rgba(59,130,246,.14);
+      border-color: rgba(59,130,246,.30);
+    }
+    html[data-theme="dark"] .chip-btn{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(17,24,39,.45);
+    }
+    html[data-theme="dark"] .chip-btn.active{
+      background: rgba(59,130,246,.18);
+      border-color: rgba(59,130,246,.34);
+    }
+
+    .resources-grid{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .resources-section{ grid-column: span 12; }
+
+    .section-head{
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 16px 0 10px 0;
+    }
+    .section-head h2{
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: .2px;
+    }
+    .section-head .count{
+      font-size: .86rem;
+      opacity: .75;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 1100px){
+      .cards{ grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 720px){
+      .cards{ grid-template-columns: repeat(1, 1fr); }
+    }
+
+    .res-card{
+      grid-column: span 4;
+      border-radius: 16px;
+      padding: 14px 14px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: rgba(255,255,255,.60);
+      box-shadow: 0 8px 18px rgba(0,0,0,.06);
+      transition: transform .14s ease, box-shadow .14s ease;
+      min-height: 120px;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .res-card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(0,0,0,.10);
+    }
+    html[data-theme="dark"] .res-card{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(17,24,39,.52);
+      box-shadow: 0 8px 18px rgba(0,0,0,.22);
+    }
+    html[data-theme="dark"] .res-card:hover{
+      box-shadow: 0 14px 30px rgba(0,0,0,.30);
+    }
+
+    .res-top{
+      display:flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .res-ico{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(59,130,246,.14);
+      border: 1px solid rgba(59,130,246,.22);
+      flex: 0 0 auto;
+    }
+    html[data-theme="dark"] .res-ico{
+      background: rgba(59,130,246,.16);
+      border: 1px solid rgba(59,130,246,.26);
+    }
+    .res-title{
+      margin: 0;
+      font-size: .98rem;
+      line-height: 1.25;
+    }
+    .res-desc{
+      margin: 4px 0 0 0;
+      font-size: .88rem;
+      opacity: .82;
+      line-height: 1.45;
+    }
+
+    .res-actions{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .res-actions a,
+    .res-actions button{
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: .85rem;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
+      cursor: pointer;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      text-decoration:none;
+      color: inherit;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .res-actions a:hover,
+    .res-actions button:hover{ transform: translateY(-1px); }
+    html[data-theme="dark"] .res-actions a,
+    html[data-theme="dark"] .res-actions button{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(17,24,39,.42);
+    }
+
+    .res-tag{
+      margin-left: auto;
+      font-size: .78rem;
+      opacity: .70;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px dashed rgba(0,0,0,.14);
+    }
+    html[data-theme="dark"] .res-tag{
+      border: 1px dashed rgba(255,255,255,.16);
+    }
+
+    /* Modal (Preview) */
+    .modal{
+      position: fixed;
+      inset: 0;
+      display:none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.56);
+      z-index: 9999;
+      padding: 18px;
+    }
+    .modal.open{ display:flex; }
+    .modal-card{
+      width: min(1100px, 96vw);
+      height: min(680px, 86vh);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+      display:flex;
+      flex-direction: column;
+    }
+    html[data-theme="dark"] .modal-card{
+      background: rgba(17,24,39,.92);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .modal-head{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    html[data-theme="dark"] .modal-head{
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .modal-head .mh-title{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .mh-title strong{
+      font-size: .95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 70vw;
+    }
+    .modal-head .mh-actions{
+      display:flex;
+      gap: 8px;
+      align-items:center;
+    }
+    .modal-head a, .modal-head button{
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: .85rem;
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.62);
+      cursor: pointer;
+      text-decoration:none;
+      color: inherit;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+    }
+    html[data-theme="dark"] .modal-head a,
+    html[data-theme="dark"] .modal-head button{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(17,24,39,.55);
+    }
+    .modal-body{ flex: 1 1 auto; position: relative; }
+    .modal-body iframe{
+      width:100%;
+      height:100%;
+      border: none;
+      background: transparent;
+    }
+    .modal-note{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      right: 14px;
+      font-size: .85rem;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.55);
+      color: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+    }
+
+    .muted-small{
+      font-size: .88rem;
+      opacity: .78;
+      line-height: 1.45;
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
   <div class="page">
     <!-- ================= HEADER / NAV ================= -->
@@ -45,40 +397,35 @@
       </button>
 
       <nav class="top-nav-links">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="teaching.html">Teaching</a>
-  <a href="presentations.html">Presentations</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="presentations.html">Presentations</a>
 
-  <!-- Single dropdown (desktop), will flatten on mobile via CSS -->
-  <div class="dropdown">
-    <button class="dropbtn">
-      More <i class="fa-solid fa-chevron-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="outreach-services.html">Outreach &amp; Services</a>
-      <a href="blogs.html">Blogs</a>
-      <a href="resources.html">Resources</a>
-    </div>
-  </div>
-</nav>
-
+        <div class="dropdown">
+          <button class="dropbtn">
+            More <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="outreach-services.html">Outreach &amp; Services</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="resources.html" aria-current="page">Resources</a>
+          </div>
+        </div>
+      </nav>
 
       <div class="controls">
-  <!-- Dark mode toggle button -->
-  <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
-    <i class="fa-solid fa-moon"></i>
-    <span>Dark</span>
-  </button>
+        <button class="pill-button secondary theme-toggle" type="button" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+          <span>Dark</span>
+        </button>
 
-  <!-- CV button (add cv-button class so we can hide it on small screens if needed) -->
-  <a href="cv.html" class="pill-button primary cv-button">
-    <i class="fa-solid fa-file-lines"></i>
-    <span>CV</span>
-  </a>
-</div>
-
+        <a href="cv.html" class="pill-button primary cv-button">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>CV</span>
+        </a>
+      </div>
     </header>
 
     <!-- ================= LAYOUT ================= -->
@@ -88,9 +435,7 @@
         <div class="avatar">
           <img src="/assets/images/PXL_20250330_220427523-1575x2800-compressed.jpg"
                alt="Dipendranath Mahato" />
-          <div class="status-chip">
-            IN JOB MARKET
-          </div>
+          <div class="status-chip">IN JOB MARKET</div>
         </div>
 
         <div class="name">Dipendranath Mahato</div>
@@ -100,23 +445,17 @@
           Department of Mathematics
         </div>
 
-        <!-- Research area padded block -->
         <div class="research-area-block">
-        
           <div class="research-area-title">
             <i class="ai ai-academic-cap"></i>
             <span>Research Areas</span>
           </div>
-        
           <div class="research-chips">
             <a href="research.html#commutative" class="chip">Commutative Algebra</a>
             <a href="research.html#algebraic-geometry" class="chip">Algebraic Geometry</a>
             <a href="research.html#combinatorial" class="chip">Combinatorial Algebra</a>
           </div>
-        
         </div>
-
-
 
         <div class="sidebar-section">
           <h3>Contact</h3>
@@ -143,43 +482,44 @@
         <div class="sidebar-section">
           <h3>Online</h3>
           <div class="social-links">
-            <a href="https://github.com/dipendranathmahato" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=dRoXm28AAAAJ"
-               aria-label="Google Scholar">
-              <i class="ai ai-google-scholar"></i>
-            </a>
-            <a href="https://orcid.org/0000-0003-4122-2622" aria-label="ORCID">
-              <i class="fa-brands fa-orcid"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/dipendranathmahato"
-               aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.researchgate.net/profile/Dipendranath-Mahato-2"
-               aria-label="ResearchGate">
-              <i class="fa-brands fa-researchgate"></i>
-            </a>
-            <a href="https://arxiv.org/search/?query=Mahato%2C+Dipendranath&searchtype=author&abstracts=show&order=-announced_date_first&size=50"
-               aria-label="arXiv">
-              <i class="ai ai-arxiv"></i>
-            </a>
-            <a href="https://tulane.academia.edu/DipendranathMahato"
-               aria-label="Academia">
-              <i class="ai ai-academia"></i>
-            </a>
+            <a href="https://github.com/dipendranathmahato" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=dRoXm28AAAAJ" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+            <a href="https://orcid.org/0000-0003-4122-2622" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+            <a href="https://www.linkedin.com/in/dipendranathmahato" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.researchgate.net/profile/Dipendranath-Mahato-2" aria-label="ResearchGate"><i class="fa-brands fa-researchgate"></i></a>
+            <a href="https://arxiv.org/search/?query=Mahato%2C+Dipendranath&searchtype=author&abstracts=show&order=-announced_date_first&size=50" aria-label="arXiv"><i class="ai ai-arxiv"></i></a>
+            <a href="https://tulane.academia.edu/DipendranathMahato" aria-label="Academia"><i class="ai ai-academia"></i></a>
           </div>
         </div>
       </aside>
 
+      <!-- ================= MAIN CONTENT ================= -->
+      <section class="main">
+        <div class="resources-hero">
+          <h1>Resources</h1>
+          <p>
+            A curated list of tools and reading materials I use regularly—quick access for research, writing, and learning.
+          </p>
 
-      <!-- Main HOME content -->
+          <div class="resources-toolbar">
+            <div class="searchbox">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input id="resSearch" type="text"
+                placeholder="Search resources (e.g., arXiv, LaTeX, Vakil, OEIS)..."
+                autocomplete="off" />
+            </div>
 
+            <div class="chips" id="chipRow"></div>
+          </div>
 
+          <div class="muted-small">
+            Tip: Some sites block embedding in iframes. If “Preview” doesn’t load, use “Open”.
+          </div>
+        </div>
 
+        <div class="resources-grid" id="resourcesRoot"></div>
 
-      <div class="footer">
+        <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
           Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
@@ -187,87 +527,282 @@
     </main>
   </div>
 
+  <!-- ================= Preview Modal ================= -->
+  <div class="modal" id="previewModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Resource preview">
+      <div class="modal-head">
+        <div class="mh-title">
+          <i class="fa-solid fa-up-right-from-square" style="opacity:.75;"></i>
+          <strong id="modalTitle">Preview</strong>
+        </div>
+        <div class="mh-actions">
+          <a id="modalOpenBtn" href="#" target="_blank" rel="noopener">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            Open
+          </a>
+          <button id="modalCloseBtn" type="button">
+            <i class="fa-solid fa-xmark"></i>
+            Close
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <iframe id="modalFrame" title="Embedded preview" src="about:blank"></iframe>
+        <div class="modal-note">
+          If the preview area stays blank, the site likely blocks embedding. Click <b>Open</b> to view it in a new tab.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= SCRIPTS ================= -->
   <script>
-  // ----- Footer year -----
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+    // ----- Footer year -----
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // ----- Mobile hamburger toggle -----
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks  = document.querySelector('.top-nav-links');
+    // ----- Mobile hamburger toggle -----
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks  = document.querySelector('.top-nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+      navLinks.addEventListener('click', (event) => {
+        if (event.target.tagName.toLowerCase() === 'a') navLinks.classList.remove('open');
+      });
+    }
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+    // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+    if (dropbtn) {
+      dropbtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropdown.classList.toggle('dropdown-open');
+      });
+    }
+    document.addEventListener('click', (event) => {
+      if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove('dropdown-open');
     });
 
-    navLinks.addEventListener('click', (event) => {
-      if (event.target.tagName.toLowerCase() === 'a') {
-        navLinks.classList.remove('open');
+    // ----- DARK MODE TOGGLE -----
+    const root        = document.documentElement;
+    const themeToggle = document.querySelector('.theme-toggle');
+    const THEME_KEY   = 'dm-theme';
+
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      if (!themeToggle) return;
+      const icon  = themeToggle.querySelector('i');
+      const label = themeToggle.querySelector('span');
+      if (theme === 'dark') {
+        if (icon) icon.className = 'fa-solid fa-sun';
+        if (label) label.textContent = 'Light';
+      } else {
+        if (icon) icon.className = 'fa-solid fa-moon';
+        if (label) label.textContent = 'Dark';
       }
-    });
-  }
-
-  // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
-  const dropdown = document.querySelector('.dropdown');
-  const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
-
-  if (dropbtn) {
-    dropbtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      dropdown.classList.toggle('dropdown-open');
-    });
-  }
-
-  document.addEventListener('click', (event) => {
-    if (dropdown && !dropdown.contains(event.target)) {
-      dropdown.classList.remove('dropdown-open');
     }
-  });
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    const initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
+    applyTheme(initialTheme);
 
-  // ----- DARK MODE TOGGLE -----
-  const root        = document.documentElement; // <html>
-  const themeToggle = document.querySelector('.theme-toggle');
-  const THEME_KEY   = 'dm-theme';
-
-  function applyTheme(theme) {
-    root.setAttribute('data-theme', theme);
-
-    if (!themeToggle) return;
-
-    const icon  = themeToggle.querySelector('i');
-    const label = themeToggle.querySelector('span');
-
-    if (theme === 'dark') {
-      if (icon) icon.className = 'fa-solid fa-sun';
-      if (label) label.textContent = 'Light';
-    } else {
-      if (icon) icon.className = 'fa-solid fa-moon';
-      if (label) label.textContent = 'Dark';
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const next    = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+      });
     }
-  }
 
-  // Initial theme (from localStorage or default "light")
-  const savedTheme = localStorage.getItem(THEME_KEY);
-  const initialTheme = savedTheme === 'dark' || savedTheme === 'light'
-    ? savedTheme
-    : 'light';
+    // ================== RESOURCES DATA ==================
+    const RESOURCES = [
+      // Favorite Working Sites and Resources
+      { section: "Favorite Working Sites and Resources", title: "arXiv", desc: "Preprints and recent papers.", url: "https://arxiv.org/", tag: "Research", icon: "ai ai-arxiv", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "arXiv — Commutative Algebra", desc: "Direct category link for commutative algebra.", url: "https://arxiv.org/list/math.AC/recent", tag: "arXiv", icon: "ai ai-arxiv", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "MathSciNet", desc: "AMS database for reviews and bibliographic data.", url: "https://mathscinet.ams.org/", tag: "AMS", icon: "fa-solid fa-book", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "commalg.org", desc: "Commutative algebra community hub.", url: "https://www.commalg.org/", tag: "Community", icon: "fa-solid fa-people-group", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "AMS Sectional Meetings", desc: "Meeting schedules and announcements.", url: "https://www.ams.org/meetings/sectionalmeetings.html", tag: "AMS", icon: "fa-solid fa-calendar-days", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "Commutative Diagram Creation (tikzcd)", desc: "Quick tikzcd diagram generator.", url: "https://tikzcd.yichuanshen.de/", tag: "LaTeX", icon: "fa-solid fa-diagram-project", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "Table Generator (LaTeX)", desc: "Create LaTeX tables visually.", url: "https://www.tablesgenerator.com/", tag: "LaTeX", icon: "fa-solid fa-table", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "MathJax", desc: "Beautiful math rendering for the web.", url: "https://www.mathjax.org/", tag: "Web", icon: "fa-solid fa-square-root-variable", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "CTAN", desc: "Comprehensive TeX Archive Network.", url: "https://ctan.org/", tag: "TeX", icon: "fa-solid fa-box-archive", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "OEIS", desc: "The On-Line Encyclopedia of Integer Sequences.", url: "https://oeis.org/", tag: "Database", icon: "fa-solid fa-list-ol", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "TWOPLES (Directed Reading Program)", desc: "Online directed reading program.", url: "https://sites.google.com/view/twoples", tag: "DRP", icon: "fa-solid fa-graduation-cap", preview: true },
+      { section: "Favorite Working Sites and Resources", title: "AMS Mathematical Opportunities", desc: "AMS opportunities and programs.", url: "https://www.ams.org/programs/students/empowerment-opportunities", tag: "AMS", icon: "fa-solid fa-handshake", preview: true },
 
-  applyTheme(initialTheme);
+      // Favorite Reading Materials
+      { section: "Favorite Reading Materials", title: "Expository Papers — Keith Conrad", desc: "Expository notes and handouts.", url: "https://kconrad.math.uconn.edu/", tag: "Notes", icon: "fa-solid fa-feather", preview: true },
+      { section: "Favorite Reading Materials", title: "Notes on Class Field Theory — Kiran S. Kedlaya", desc: "Course notes and references.", url: "https://kskedlaya.org/", tag: "Number Theory", icon: "fa-solid fa-landmark", preview: true },
+      { section: "Favorite Reading Materials", title: "Algebraic Number Theory — J. S. Milne", desc: "Classic notes and texts.", url: "https://www.jmilne.org/math/CourseNotes/ant.html", tag: "Number Theory", icon: "fa-solid fa-book-open", preview: true },
+      { section: "Favorite Reading Materials", title: "Foundations of Algebraic Geometry — Ravi Vakil", desc: "Widely used notes (FOAG).", url: "https://math216.wordpress.com/", tag: "AG", icon: "fa-solid fa-compass-drafting", preview: true },
+      { section: "Favorite Reading Materials", title: "The Rising Sea (FOAG Notes) — Stanford", desc: "Vakil’s notes: The Rising Sea.", url: "https://math.stanford.edu/~vakil/216blog/FOAGnov1817public.pdf", tag: "AG", icon: "fa-solid fa-water", preview: true },
+      { section: "Favorite Reading Materials", title: "Algebraic Geometry Notes — Andreas Gathmann", desc: "Lecture notes and exercises.", url: "https://agag-gathmann.math.rptu.de/", tag: "AG", icon: "fa-solid fa-chalkboard", preview: true },
+      { section: "Favorite Reading Materials", title: "Symbolic Powers — Eloísa Grifo", desc: "Lecture notes focused on symbolic powers.", url: "https://eloisagrifo.github.io/symbolic_powers_notes.pdf", tag: "CA", icon: "fa-solid fa-infinity", preview: true },
+      { section: "Favorite Reading Materials", title: "Interpolation Problems — Jack Huizenga", desc: "Notes and materials on interpolation.", url: "https://sites.psu.edu/huizenga/files/2019/01/interpolation.pdf", tag: "Interpolation", icon: "fa-solid fa-bullseye", preview: true }
+    ];
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      const next    = current === 'dark' ? 'light' : 'dark';
-      localStorage.setItem(THEME_KEY, next);
-      applyTheme(next);
+    const SECTION_ORDER = [
+      "Favorite Working Sites and Resources",
+      "Favorite Reading Materials"
+    ];
+
+    const CHIP_ORDER = ["All", ...SECTION_ORDER];
+
+    const iconHTML = (cls) => {
+      if (!cls) return '<i class="fa-solid fa-link"></i>';
+      if (cls.startsWith("ai ")) return `<i class="${cls}"></i>`;
+      if (cls.startsWith("fa-")) return `<i class="${cls}"></i>`;
+      return `<i class="${cls}"></i>`;
+    };
+
+    const rootEl = document.getElementById("resourcesRoot");
+    const chipRow = document.getElementById("chipRow");
+    const searchInput = document.getElementById("resSearch");
+
+    let activeChip = "All";
+    let query = "";
+
+    function renderChips(){
+      chipRow.innerHTML = "";
+      CHIP_ORDER.forEach(name => {
+        const btn = document.createElement("button");
+        btn.className = "chip-btn" + (name === activeChip ? " active" : "");
+        btn.type = "button";
+        btn.innerHTML = `<i class="fa-solid fa-layer-group" style="opacity:.75;"></i> ${name}`;
+        btn.addEventListener("click", () => {
+          activeChip = name;
+          renderAll();
+        });
+        chipRow.appendChild(btn);
+      });
+    }
+
+    function filterResources(){
+      const q = query.trim().toLowerCase();
+      return RESOURCES.filter(r => {
+        const inChip = (activeChip === "All") ? true : (r.section === activeChip);
+        if (!inChip) return false;
+        if (!q) return true;
+        const hay = `${r.title} ${r.desc || ""} ${r.tag || ""} ${r.section}`.toLowerCase();
+        return hay.includes(q);
+      });
+    }
+
+    function groupBySection(items){
+      const map = new Map();
+      SECTION_ORDER.forEach(s => map.set(s, []));
+      items.forEach(r => {
+        if (!map.has(r.section)) map.set(r.section, []);
+        map.get(r.section).push(r);
+      });
+      return map;
+    }
+
+    function renderAll(){
+      renderChips();
+
+      const items = filterResources();
+      const grouped = groupBySection(items);
+
+      rootEl.innerHTML = "";
+
+      SECTION_ORDER.forEach(sectionName => {
+        const sectionItems = grouped.get(sectionName) || [];
+        if (sectionItems.length === 0) return;
+
+        const section = document.createElement("div");
+        section.className = "resources-section";
+
+        section.innerHTML = `
+          <div class="section-head">
+            <h2>${sectionName}</h2>
+            <div class="count">${sectionItems.length} link${sectionItems.length === 1 ? "" : "s"}</div>
+          </div>
+          <div class="cards"></div>
+        `;
+
+        const cards = section.querySelector(".cards");
+
+        sectionItems.forEach(r => {
+          const card = document.createElement("div");
+          card.className = "res-card";
+
+          const tag = r.tag ? `<span class="res-tag">${r.tag}</span>` : "";
+
+          card.innerHTML = `
+            <div class="res-top">
+              <div class="res-ico">${iconHTML(r.icon || "fa-solid fa-link")}</div>
+              <div style="min-width:0;">
+                <h3 class="res-title">${r.title}</h3>
+                <p class="res-desc">${r.desc || ""}</p>
+              </div>
+            </div>
+            <div class="res-actions">
+              <a href="${r.url}" target="_blank" rel="noopener">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Open
+              </a>
+              <button type="button" class="preview-btn"
+                      data-title="${encodeURIComponent(r.title)}"
+                      data-url="${encodeURIComponent(r.url)}">
+                <i class="fa-solid fa-eye"></i>
+                Preview
+              </button>
+              ${tag}
+            </div>
+          `;
+          cards.appendChild(card);
+        });
+
+        rootEl.appendChild(section);
+      });
+
+      document.querySelectorAll(".preview-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const title = decodeURIComponent(btn.getAttribute("data-title") || "");
+          const url = decodeURIComponent(btn.getAttribute("data-url") || "");
+          openPreview(title, url);
+        });
+      });
+    }
+
+    // ================== PREVIEW MODAL ==================
+    const modal = document.getElementById("previewModal");
+    const modalFrame = document.getElementById("modalFrame");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalOpenBtn = document.getElementById("modalOpenBtn");
+    const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+    function openPreview(title, url){
+      modalTitle.textContent = title || "Preview";
+      modalOpenBtn.href = url;
+      modalFrame.src = url;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+    function closePreview(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      modalFrame.src = "about:blank";
+    }
+    modalCloseBtn.addEventListener("click", closePreview);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closePreview();
     });
-  }
-</script>
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("open")) closePreview();
+    });
 
+    // ================== SEARCH ==================
+    searchInput.addEventListener("input", (e) => {
+      query = e.target.value || "";
+      renderAll();
+    });
+
+    // initial
+    renderAll();
+  </script>
 </body>
 </html>
