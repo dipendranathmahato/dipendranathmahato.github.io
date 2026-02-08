@@ -285,37 +285,49 @@
 
 
               <!-- ===== Elevator Pitch Mini Screen (small by default, expands on hover) ===== -->
-                <div class="elevator-mini" id="elevatorMini" style="position:relative;">
-
-                  <div class="elevator-title"
-                       style="position:absolute; top:-1.6rem; left:0;
-                              font-size:0.9rem; font-weight:600;
-                              color:#e5e7eb;">
-                    My Elevator Pitch Video
-                  </div>
-                
-                  <iframe
-                    id="elevatorIframe"
-                    src="https://www.youtube.com/embed/IjW2gEaz4sQ?autoplay=1&mute=1&playsinline=1&rel=0&controls=1&enablejsapi=1"
-                    title="Elevator Pitch"
-                    allow="autoplay; encrypted-media; picture-in-picture"
-                    allowfullscreen
-                    style="width:100%; height:100%; border:0;">
-                  </iframe>
-                
-                  <div id="elevatorOverlay" class="elevator-overlay"
-                       style="position:absolute; inset:0;
-                              display:flex; align-items:center; justify-content:center;
-                              z-index:5;
-                              background:rgba(0,0,0,0.25);
-                              color:#f9fafb;
-                              font-weight:600;
-                              cursor:pointer;">
-                    <i class="fa-solid fa-volume-high" style="margin-right:0.4rem;"></i>
-                    Click for sound
-                  </div>
-                
+              <div class="elevator-mini" id="elevatorMini" style="position:relative;">
+              
+                <!-- Label (stays attached to the video block, not the page) -->
+                <div class="elevator-title"
+                     style="position:absolute; top:-1.6rem; left:0;
+                            font-size:0.9rem; font-weight:700;
+                            color:#e5e7eb; letter-spacing:0.2px;">
+                  My Elevator Pitch Video
                 </div>
+              
+                <iframe
+                  id="elevatorIframe"
+                  src="https://www.youtube.com/embed/IjW2gEaz4sQ?autoplay=1&mute=1&playsinline=1&rel=0&controls=1&enablejsapi=1"
+                  title="Elevator Pitch"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowfullscreen
+                  style="width:100%; height:100%; border:0; display:block;">
+                </iframe>
+              
+                <!-- Click-to-unmute overlay (LOCKED to the video area) -->
+                <div id="elevatorOverlay" class="elevator-overlay"
+                     style="
+                       position:absolute;
+                       inset:0;
+                       display:flex;
+                       align-items:center;
+                       justify-content:center;
+                       gap:0.45rem;
+                       z-index:10;
+                       background:rgba(0,0,0,0.25);
+                       color:#f9fafb;
+                       font-weight:700;
+                       border-radius:inherit;
+                       cursor:pointer;
+                       user-select:none;
+                       pointer-events:auto;
+                     ">
+                  <i class="fa-solid fa-volume-high"></i>
+                  Click for sound
+                </div>
+              
+              </div>
+
 
 
 
