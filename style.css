@@ -198,36 +198,74 @@
   pointer-events: auto;
 }
 
-/* ===== Elevator mini screen: small by default, expands on hover ===== */
-.elevator-mini{
-  position:absolute;
-  right:16px;
-  bottom:16px;
-  z-index:10;
+/* ===== Elevator mini screen =====
+   Mobile behavior is kept exactly as before (video in normal flow below memberships).
+   Desktop is reworked so the mini lives in the RIGHT column bottom, expands on hover,
+   and never overlaps the left hero text.
+*/
 
-  width:170px;               /* default small */
-  aspect-ratio:16/9;
+/* ---- Mobile / small screens (keep as-is) ---- */
+@media (max-width: 768px) {
+  .elevator-mini{
+    position: relative !important; /* keep overlay anchored */
+    right: auto !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: auto !important;
 
-  border-radius:14px;
-  overflow:hidden;
-  background:#000;
-  box-shadow:0 10px 26px rgba(0,0,0,0.22);
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 210px !important;
 
-  transform-origin: bottom right;
-  transition: width 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+    margin-top: 1rem !important;
+    margin-bottom: 0.25rem !important;
+    z-index: auto !important;
+
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+  }
+
+  .elevator-overlay{
+    position: absolute !important;
+    inset: 0 !important;
+  }
 }
 
-/* Expand on hover */
-.elevator-mini:hover{
-  width:340px;               /* expanded size */
-  box-shadow:0 14px 34px rgba(0,0,0,0.28);
-  transform: translateY(-2px);
+/* ---- Desktop / large screens (no overlap) ---- */
+@media (min-width: 769px) {
+  .elevator-mini{
+    position: relative; /* NOT absolute anymore */
+    width: 260px;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    z-index: 20;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    transform-origin: bottom right;
+    transition: width 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+  }
+
+  .elevator-mini:hover{
+    width: 520px;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.42);
+  }
 }
 
-/* Optional: keep it reasonable on small screens */
-@media (max-width: 520px){
-  .elevator-mini{ width:150px; }
-  .elevator-mini:hover{ width:260px; }
+/* Title sits above the video, attached to the elevator box */
+.elevator-title{
+  position: absolute;
+  top: -1.55rem;
+  left: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  letter-spacing: 0.2px;
+  pointer-events: none;
 }
 
 /* Overlay for click-to-unmute */
@@ -936,6 +974,30 @@ a:hover { text-decoration: underline; }
 .hero-inner {
   position: relative;
   z-index: 1;
+}
+
+/* =========================
+   HERO (Desktop only): two-column layout so the elevator mini never overlaps
+   ========================= */
+@media (min-width: 769px) {
+  /* Allow the hover-expanded elevator to grow without getting clipped */
+  .hero-card { overflow: visible; }
+
+  .hero-inner.hero-grid{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+    gap: 18px;
+    align-items: start;
+  }
+
+  .hero-left{ min-width: 0; }
+
+  .hero-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 100%;
+  }
 }
 
 .hero-topline {
