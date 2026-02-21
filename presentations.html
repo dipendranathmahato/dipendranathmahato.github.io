@@ -546,12 +546,15 @@
 
     /* ===== Upcoming pill (auto-added by JS) ===== */
     body.presentations-page .type-upcoming{
-      border-color: rgba(34,197,94,0.45);
-      background: rgba(34,197,94,0.16);
-      color:#065f46;
-    }
-    html[data-theme="dark"] body.presentations-page .type-upcoming{
-      color:#bbf7d0;
+      background: linear-gradient(135deg, #ff4d4d, #ff9966);
+      color: white;
+      border: none;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      box-shadow:
+        0 0 8px rgba(255, 80, 80, 0.8),
+        0 0 12px rgba(255, 120, 80, 0.5);
+      animation: glowPulse 1.6s ease-in-out infinite alternate;
     }
 
   </style>
@@ -755,7 +758,6 @@
                   <div class="tp-item">
                     <div class="tp-title-row">
                       <div class="tp-item-title">TBD </div>
-                      <div class="new-badge">Upcoming</div>
                       <span class="type-pill type-seminar"><i class="fa-solid fa-users"></i>Seminar</span>
                     </div>
                     <div class="tp-item-meta">
