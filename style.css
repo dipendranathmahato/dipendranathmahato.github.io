@@ -3111,7 +3111,7 @@ html[data-theme="dark"] .pres-badge{
 
   /* Header anchor */
   .top-nav{
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 1000;
   }
