@@ -3111,9 +3111,8 @@ html[data-theme="dark"] .pres-badge{
 
   /* Header anchor */
   .top-nav{
-    position: relative;
-    top: 0;
-    z-index: 1000;
+    position: relative;   /* or: static */
+    top: auto;
   }
 
   /* Show hamburger */
