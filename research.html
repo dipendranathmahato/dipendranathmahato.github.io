@@ -366,11 +366,11 @@
           </div>
         </section>
 
+        
         <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
-          Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+          Made on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
-
       </section>
     </main>
   </div>
@@ -379,21 +379,53 @@
   <script>
     // ----- Footer year -----
     const yearSpan = document.getElementById("year");
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-    // ----- Mobile hamburger toggle -----
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks  = document.querySelector('.top-nav-links');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-      navLinks.addEventListener('click', (event) => {
-        if (event.target.tagName.toLowerCase() === 'a') navLinks.classList.remove('open');
-      });
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
     }
 
-    // ----- "More" dropdown click toggle -----
+  // ----- Mobile hamburger toggle -----
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.top-nav-links');
+
+  function closeMobileMenu() {
+    if (!navLinks) return;
+    navLinks.classList.remove('open');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  if (navToggle && navLinks) {
+    // keep aria in sync (nice for accessibility)
+    navToggle.setAttribute('aria-expanded', 'false');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // close when clicking a link
+    navLinks.addEventListener('click', (event) => {
+      if (event.target.tagName.toLowerCase() === 'a') closeMobileMenu();
+    });
+
+    // ✅ close while scrolling / swiping
+    let lastY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      if (!navLinks.classList.contains('open')) return;
+      const y = window.scrollY;
+      if (Math.abs(y - lastY) > 8) closeMobileMenu(); // small threshold prevents jitter-close
+      lastY = y;
+    }, { passive: true });
+
+    // iOS/Android sometimes scroll via touchmove before scroll fires
+    window.addEventListener('touchmove', () => {
+      if (navLinks.classList.contains('open')) closeMobileMenu();
+    }, { passive: true });
+  }
+
+    // ----- "More" dropdown click toggle (desktop; CSS flattens on mobile) -----
     const dropdown = document.querySelector('.dropdown');
-    const dropbtn  = dropdown ? dropdown.querySelector('.dropbtn') : null;
+    const dropbtn = dropdown ? dropdown.querySelector('.dropbtn') : null;
+
     if (dropbtn) {
       dropbtn.addEventListener('click', (event) => {
         event.preventDefault();
@@ -401,20 +433,26 @@
         dropdown.classList.toggle('dropdown-open');
       });
     }
+
     document.addEventListener('click', (event) => {
-      if (dropdown && !dropdown.contains(event.target)) dropdown.classList.remove('dropdown-open');
+      if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('dropdown-open');
+      }
     });
 
     // ----- DARK MODE TOGGLE -----
-    const root = document.documentElement;
+    const root = document.documentElement; // <html>
     const themeToggle = document.querySelector('.theme-toggle');
     const THEME_KEY = 'dm-theme';
 
     function applyTheme(theme) {
       root.setAttribute('data-theme', theme);
+
       if (!themeToggle) return;
-      const icon  = themeToggle.querySelector('i');
+
+      const icon = themeToggle.querySelector('i');
       const label = themeToggle.querySelector('span');
+
       if (theme === 'dark') {
         if (icon) icon.className = 'fa-solid fa-sun';
         if (label) label.textContent = 'Light';
@@ -425,178 +463,46 @@
     }
 
     const savedTheme = localStorage.getItem(THEME_KEY);
-    applyTheme(savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : 'light');
+    const initialTheme = (savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'light';
+
+    applyTheme(initialTheme);
 
     if (themeToggle) {
       themeToggle.addEventListener('click', () => {
         const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        const next    = current === 'dark' ? 'light' : 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
         localStorage.setItem(THEME_KEY, next);
         applyTheme(next);
       });
     }
-
-    // =========================
-    // Preprints: collaborator dropdown + year dropdown + search
-    // =========================
-    (function () {
-      const section = document.getElementById('preprints');
-      if (!section) return;
-
-      const yearSelect   = section.querySelector('#preprintsYear');
-      const authorSelect = section.querySelector('#preprintsAuthor');
-      const searchInput  = section.querySelector('#preprintsSearch');
-      const clearBtn     = section.querySelector('.clear-search');
-      const emptyState   = section.querySelector('.pub-empty');
-
-      const blocks = () => Array.from(section.querySelectorAll('.pub-year-block[data-year]'));
-      const entriesAll = () => Array.from(section.querySelectorAll('.pub-entry'));
-
-      // Exclude you from collaborator dropdown + counts:
-      const EXCLUDED_COLLABORATOR = "Dipendranath Mahato";
-
-      let activeYear = 'all';
-      let activeAuthor = 'all';
-      let query = '';
-
-      const normalize = s => (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
-
-      function detectedYearsDesc() {
-        const years = blocks()
-          .map(b => String(b.dataset.year || '').trim())
-          .filter(y => /^\d{4}$/.test(y));
-        return Array.from(new Set(years)).sort((a, b) => Number(b) - Number(a));
-      }
-
-      function countInYear(y) {
-        const block = section.querySelector(`.pub-year-block[data-year="${y}"]`);
-        return block ? block.querySelectorAll('.pub-entry').length : 0;
-      }
-
-      function authorsOfEntry(entry) {
-        return (entry.dataset.authors || '')
-          .split(',')
-          .map(a => a.trim())
-          .filter(a => a && a !== EXCLUDED_COLLABORATOR);
-      }
-
-      function buildYearDropdown() {
-        if (!yearSelect) return;
-
-        const years = detectedYearsDesc();
-        yearSelect.innerHTML = '';
-
-        const optAll = document.createElement('option');
-        optAll.value = 'all';
-        optAll.textContent = `All years (${entriesAll().length})`;
-        yearSelect.appendChild(optAll);
-
-        years.forEach(y => {
-          const opt = document.createElement('option');
-          opt.value = y;
-          opt.textContent = `${y} (${countInYear(y)})`;
-          yearSelect.appendChild(opt);
-        });
-
-        yearSelect.value = activeYear;
-      }
-
-      function buildAuthorDropdown() {
-        if (!authorSelect) return;
-
-        const counts = new Map();
-
-        // Count papers per collaborator (excluding you)
-        entriesAll().forEach(e => {
-          const uniqueAuthors = new Set(authorsOfEntry(e));
-          uniqueAuthors.forEach(a => counts.set(a, (counts.get(a) || 0) + 1));
-        });
-
-        const sorted = Array.from(counts.entries())
-          .sort((x, y) => (y[1] - x[1]) || x[0].localeCompare(y[0]));
-
-        authorSelect.innerHTML = '';
-
-        const optAll = document.createElement('option');
-        optAll.value = 'all';
-        optAll.textContent = `All collaborators (${counts.size})`;
-        authorSelect.appendChild(optAll);
-
-        sorted.forEach(([name, c]) => {
-          const opt = document.createElement('option');
-          opt.value = name;
-          opt.textContent = `${name} (${c})`;
-          authorSelect.appendChild(opt);
-        });
-
-        authorSelect.value = activeAuthor;
-      }
-
-      function applyFilters() {
-        let visibleCount = 0;
-
-        entriesAll().forEach(entry => {
-          const yearBlock = entry.closest('.pub-year-block');
-          const y = yearBlock ? String(yearBlock.dataset.year || '') : '';
-          const text = normalize(entry.textContent);
-
-          // collaborators list for filtering excludes you
-          const collaborators = authorsOfEntry(entry);
-
-          const matchYear   = activeYear === 'all' || y === activeYear;
-          const matchAuthor = activeAuthor === 'all' || collaborators.includes(activeAuthor);
-          const matchQuery  = !query || text.includes(query);
-
-          const show = matchYear && matchAuthor && matchQuery;
-          entry.style.display = show ? '' : 'none';
-          if (show) visibleCount++;
-        });
-
-        // hide year blocks that become empty
-        blocks().forEach(b => {
-          const anyVisible = Array.from(b.querySelectorAll('.pub-entry'))
-            .some(e => e.style.display !== 'none');
-          b.style.display = anyVisible ? '' : 'none';
-        });
-
-        if (emptyState) emptyState.style.display = visibleCount ? 'none' : '';
-
-        // Keep dropdown labels synced (handy as you add papers)
-        buildYearDropdown();
-        buildAuthorDropdown();
-      }
-
-      // events
-      yearSelect?.addEventListener('change', () => {
-        activeYear = yearSelect.value;
-        applyFilters();
-      });
-
-      authorSelect?.addEventListener('change', () => {
-        activeAuthor = authorSelect.value;
-        applyFilters();
-      });
-
-      searchInput?.addEventListener('input', () => {
-        query = normalize(searchInput.value);
-        if (clearBtn) clearBtn.style.display = query ? '' : 'none';
-        applyFilters();
-      });
-
-      clearBtn?.addEventListener('click', () => {
-        if (!searchInput) return;
-        searchInput.value = '';
-        query = '';
-        clearBtn.style.display = 'none';
-        applyFilters();
-        searchInput.focus();
-      });
-
-      // init
-      buildYearDropdown();
-      buildAuthorDropdown();
-      applyFilters();
-    })();
   </script>
+
+  <script>
+  (function () {
+    const overlay = document.getElementById('elevatorOverlay');
+    const iframe  = document.getElementById('elevatorIframe');
+
+    if (!overlay || !iframe) return;
+
+    function ytCommand(func, args=[]) {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func, args }),
+        '*'
+      );
+    }
+
+    overlay.addEventListener('click', () => {
+      // Click is a user gesture => browsers allow unmute
+      ytCommand('unMute');
+      ytCommand('setVolume', [70]);
+      ytCommand('playVideo');
+
+      // Hide overlay after enabling sound
+      overlay.style.display = 'none';
+    });
+  })();
+</script>
+
+
 </body>
 </html>
