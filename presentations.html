@@ -1448,7 +1448,7 @@
 
         <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
-          Hosted on <a href="https://pages.github.com/">GitHub Pages</a>.
+          Made on <a href="https://pages.github.com/">GitHub Pages</a>.
         </div>
       </section>
     </main>
@@ -1480,15 +1480,43 @@
     const yearSpan = document.getElementById("year");
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // Mobile hamburger toggle
+    // ----- Mobile hamburger toggle -----
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks  = document.querySelector('.top-nav-links');
-
+  
+    function closeMobileMenu() {
+      if (!navLinks) return;
+      navLinks.classList.remove('open');
+      if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+    }
+  
     if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-      navLinks.addEventListener('click', (event) => {
-        if (event.target.tagName.toLowerCase() === 'a') navLinks.classList.remove('open');
+      // keep aria in sync (nice for accessibility)
+      navToggle.setAttribute('aria-expanded', 'false');
+  
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
       });
+  
+      // close when clicking a link
+      navLinks.addEventListener('click', (event) => {
+        if (event.target.tagName.toLowerCase() === 'a') closeMobileMenu();
+      });
+  
+      // ✅ close while scrolling / swiping
+      let lastY = window.scrollY;
+      window.addEventListener('scroll', () => {
+        if (!navLinks.classList.contains('open')) return;
+        const y = window.scrollY;
+        if (Math.abs(y - lastY) > 8) closeMobileMenu(); // small threshold prevents jitter-close
+        lastY = y;
+      }, { passive: true });
+  
+      // iOS/Android sometimes scroll via touchmove before scroll fires
+      window.addEventListener('touchmove', () => {
+        if (navLinks.classList.contains('open')) closeMobileMenu();
+      }, { passive: true });
     }
 
     // "More" dropdown click toggle
