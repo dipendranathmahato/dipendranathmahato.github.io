@@ -399,12 +399,16 @@
     color: #1e40af; 
       font-weight: 900;
       position: relative;
-      padding-left: 28px; /* space for icon */
+      
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding-left: 10px; 
     }
     
     /* Inject Font Awesome icon */
     body.presentations-page .pill-board::before{
-      content: "\f51c "; /* fa-chalkboard */
+      content: "\f51c"; /* fa-chalkboard */
       font-family: "Font Awesome 6 Free";
       font-weight: 900;
       position: absolute;
