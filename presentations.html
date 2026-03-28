@@ -392,6 +392,34 @@
       color: rgba(226,232,240,0.92);
     }
 
+    /* ===== Board Presentation pill (with FA icon in CSS) ===== */
+    body.presentations-page .pill-board{
+      border-color: rgba(234, 88, 12, 0.40);
+      background: rgba(234, 88, 12, 0.12);
+      color: #9a3412;
+      font-weight: 900;
+      position: relative;
+      padding-left: 28px; /* space for icon */
+    }
+    
+    /* Inject Font Awesome icon */
+    body.presentations-page .pill-board::before{
+      content: "\f51c"; /* fa-chalkboard */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.85rem;
+    }
+    
+    html[data-theme="dark"] body.presentations-page .pill-board{
+      border-color: rgba(251, 146, 60, 0.35);
+      background: rgba(251, 146, 60, 0.18);
+      color: #fed7aa;
+    }
+
     /* ===== Toggle counters ===== */
     body.presentations-page .seg-count{
       display:inline-flex;
@@ -830,7 +858,7 @@
                       </span>
                     </div>
                     <div class="tp-links">
-                      <a class="pill-link pill-pdf" target="_blank" rel="noopener">
+                      <a class="pill-link pill-board" target="_blank" rel="noopener">
                         Board Presentation
                       </a>
                       <button class="pill-link pill-abstract abstract-btn" type="button"
@@ -909,7 +937,7 @@
                       <span>Nov 11, 2025 · Graduate Colloquium — Department of Mathematics, Tulane University</span>
                     </div>
                     <div class="tp-links">
-                      <a class="pill-link pill-pdf" target="_blank" rel="noopener">
+                      <a class="pill-link pill-board" target="_blank" rel="noopener">
                         Board Presentation
                       </a>
                       <button class="pill-link pill-abstract abstract-btn" type="button"
