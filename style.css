@@ -1054,8 +1054,8 @@ a:hover { text-decoration: underline; }
 
 .events-ticker {
   position: relative;
-  height: 220px;
-  overflow: hidden;
+  height: auto;           /* remove fixed height */
+  overflow: visible;      /* allow full content */
   padding: 0.25rem 0;
 }
 
@@ -1063,7 +1063,7 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  animation: events-scroll-up 10s linear infinite;
+  animation: none;        /* 🚀 remove scrolling */
 }
 
 .events-ticker:hover .events-track { animation-play-state: paused; }
@@ -1098,11 +1098,6 @@ a:hover { text-decoration: underline; }
 }
 
 .event-location { font-size: 0.8rem; opacity: 0.85; }
-
-@keyframes events-scroll-up {
-  0% { transform: translateY(100%); }
-  100% { transform: translateY(-100%); }
-}
 
 @media (max-width: 900px) {
   .home-cards { grid-template-columns: minmax(0, 1fr); }
