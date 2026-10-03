@@ -1,0 +1,74 @@
+/* Loaded only on teaching.html; every selector is scoped to #teaching. */
+
+#teaching .teaching-rebuilt .teaching-intro { margin:0 0 1.2rem; opacity:.8; }
+#teaching .teaching-tabs { display:flex; flex-wrap:wrap; gap:.55rem; margin-bottom:1.3rem; border-bottom:1px solid rgba(127,148,178,.3); padding-bottom:.8rem; }
+#teaching .teaching-tab, #teaching .term-button { font:inherit; cursor:pointer; border:1px solid rgba(91,125,170,.35); border-radius:12px; background:transparent; color:inherit; padding:.7rem .9rem; text-align:left; }
+#teaching .teaching-tab { font-weight:800; }
+#teaching .teaching-tab[aria-selected="true"], #teaching .term-button[aria-pressed="true"] { color:white; background:#1261a8; border-color:#1261a8; }
+#teaching .teaching-tab:focus-visible, #teaching .term-button:focus-visible { outline:3px solid #e6aa2e; outline-offset:2px; }
+#teaching .institution-panel[hidden], #teaching .term-panel[hidden] { display:none!important; }
+#teaching .institution-heading h2 { font-size:1.45rem; margin:0 0 .2rem; }
+#teaching .institution-heading p { margin:0 0 1.2rem; opacity:.75; }
+#teaching .semester-browser { display:grid; grid-template-columns:minmax(145px,205px) minmax(0,1fr); gap:1.1rem; align-items:start; }
+#teaching .semester-list { display:flex; flex-direction:column; gap:.45rem; max-height:430px; overflow:auto; padding:2px; }
+#teaching .term-button { display:flex; justify-content:space-between; gap:.5rem; font-size:.92rem; }
+#teaching .term-button span { opacity:.75; }
+#teaching .semester-content { min-width:0; }
+#teaching .term-role + .term-role { margin-top:1.5rem; }
+#teaching .term-role h3 { margin:0 0 .7rem; font-size:1.05rem; }
+#teaching .role-count { opacity:.6; font-size:.85rem; margin-left:.3rem; }
+#teaching .term-items { display:grid; gap:.65rem; }
+#teaching .term-items .mentoring-item { list-style:none; padding:1rem; border:1px solid rgba(91,125,170,.35); border-radius:14px; }
+#teaching .term-items.mentoring-list { padding:0; margin:0; }
+@media(max-width:680px) { #teaching .semester-browser { grid-template-columns:1fr; } #teaching .semester-list { flex-direction:row; overflow:auto; max-height:none; padding-bottom:.5rem; } #teaching .term-button { flex:0 0 auto; } #teaching .teaching-tab { flex:1 1 100%; } }
+
+#teaching /* Institution colors and a consistent one-row navigation */
+#tab-utrgv, #teaching #panel-utrgv { --teaching-accent:#a84408; --teaching-tint:#fff0e4; --teaching-border:#efb78d; }
+#teaching #tab-tulane, #teaching #panel-tulane { --teaching-accent:#006747; --teaching-tint:#e7f4ed; --teaching-border:#9dc9b6; }
+#teaching #tab-mentoring, #teaching #panel-mentoring { --teaching-accent:#155aa5; --teaching-tint:#eaf2ff; --teaching-border:#a6c5ee; }
+#teaching .teaching-tabs { flex-wrap:nowrap; gap:.65rem; padding:.2rem .2rem 1rem; overflow-x:auto; }
+#teaching .teaching-tabs .teaching-tab { flex:1 1 0; min-width:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:1rem .7rem; border:1px solid var(--teaching-border); background:var(--teaching-tint); color:var(--teaching-accent); line-height:1.45; transition:background .16s ease, box-shadow .16s ease; }
+#teaching .teaching-tabs .teaching-tab[aria-selected="true"] { background:var(--teaching-accent); color:#fff; border-color:var(--teaching-accent); box-shadow:0 4px 12px rgba(20,40,60,.15); }
+#teaching .teaching-tabs .teaching-tab:hover { box-shadow:0 3px 10px rgba(20,40,60,.13); }
+#teaching .institution-heading { padding:.85rem 1rem; margin-bottom:1.1rem; border-left:4px solid var(--teaching-accent); border-radius:0 12px 12px 0; background:var(--teaching-tint); color:var(--teaching-accent); }
+#teaching .institution-heading p { margin-bottom:0; opacity:1; font-size:.9rem; }
+#teaching .institution-panel .term-button { background:var(--teaching-tint); border-color:var(--teaching-border); color:var(--teaching-accent); font-weight:650; padding:.8rem .85rem; }
+#teaching .institution-panel .term-button:hover { border-color:var(--teaching-accent); }
+#teaching .institution-panel .term-button[aria-pressed="true"] { background:var(--teaching-accent); border-color:var(--teaching-accent); color:#fff; box-shadow:0 3px 9px rgba(20,40,60,.12); }
+#teaching .institution-panel .term-button span { display:inline-flex; align-items:center; justify-content:center; min-width:1.5rem; border-radius:6px; padding:0 .3rem; background:rgba(100,100,100,.09); opacity:1; }
+#teaching .institution-panel .term-button[aria-pressed="true"] span { background:rgba(255,255,255,.2); }
+html[data-theme="dark"] #teaching #tab-utrgv, html[data-theme="dark"] #teaching #panel-utrgv { --teaching-accent:#bd4d0b; --teaching-tint:#30241e; --teaching-border:#945c3b; --teaching-text:#ffc393; }
+html[data-theme="dark"] #teaching #tab-tulane, html[data-theme="dark"] #teaching #panel-tulane { --teaching-accent:#007652; --teaching-tint:#172d26; --teaching-border:#3a7961; --teaching-text:#95dec0; }
+html[data-theme="dark"] #teaching #tab-mentoring, html[data-theme="dark"] #teaching #panel-mentoring { --teaching-accent:#1b64b8; --teaching-tint:#1c2a40; --teaching-border:#426d9e; --teaching-text:#acd1ff; }
+html[data-theme="dark"] #teaching .teaching-tab:not([aria-selected="true"]), html[data-theme="dark"] #teaching .institution-heading, html[data-theme="dark"] #teaching .term-button:not([aria-pressed="true"]) { color:var(--teaching-text); }
+@media(max-width:680px) { #teaching .teaching-tabs .teaching-tab { flex:1 0 155px; min-width:155px; font-size:.85rem; padding:.75rem .6rem; } }
+@media(prefers-reduced-motion:reduce) { #teaching .teaching-tabs .teaching-tab { transition:none; } }
+
+#teaching /* Teaching title, #teaching current institution and colored course area */
+#teaching > .card-header .card-title { font-size:2rem; font-weight:850; letter-spacing:-.03em; margin:0; line-height:1.2; color:#155aa5; }
+#teaching > .card-header { padding-top:1.3rem; padding-bottom:1.2rem; }
+#teaching .current-teaching-hero { display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:1.5rem; margin-bottom:1.4rem; border:1px solid #efb78d; border-left:5px solid #a84408; border-radius:16px; background:linear-gradient(120deg,#fff0e4,#fff9f4); color:#773106; }
+#teaching .hero-eyebrow { display:block; font-size:.73rem; font-weight:800; letter-spacing:.13em; margin-bottom:.5rem; }
+#teaching .current-teaching-hero h2 { font-size:1.5rem; line-height:1.35; margin:0 0 .4rem; }
+#teaching .current-teaching-hero p { margin:0 0 .8rem; }
+#teaching .current-teaching-badge { display:inline-block; font-size:.78rem; font-weight:700; padding:.35rem .65rem; border-radius:20px; background:#ffe0c9; }
+#teaching .institution-heading { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+#teaching .university-logo { flex:0 0 auto; display:flex; align-items:center; justify-content:center; background:transparent; border-radius:0; padding:.65rem .8rem; }
+#teaching .university-logo img { display:block; width:160px; height:58px; object-fit:contain; }
+#teaching .institution-panel .semester-content { background:var(--teaching-tint); border:1px solid var(--teaching-border); border-radius:14px; padding:1rem; min-height:260px; }
+#teaching .institution-panel .term-role h3 { color:var(--teaching-accent); }
+#teaching .institution-panel .teach-item, #teaching .institution-panel .mentoring-item { background:rgba(255,255,255,.65); border-color:var(--teaching-border); }
+html[data-theme="dark"] #teaching > .card-header .card-title { color:#acd1ff; }
+html[data-theme="dark"] #teaching .current-teaching-hero { background:linear-gradient(120deg,#30241e,#25211e); border-color:#945c3b; color:#ffc393; }
+html[data-theme="dark"] #teaching .current-teaching-badge { background:#50311d; }
+html[data-theme="dark"] #teaching .institution-panel .term-role h3 { color:var(--teaching-text); }
+html[data-theme="dark"] #teaching .institution-panel .teach-item, html[data-theme="dark"] #teaching .institution-panel .mentoring-item { background:rgba(0,0,0,.13); }
+@media(max-width:680px) { #teaching .current-teaching-hero { padding:1rem; gap:.75rem; } #teaching .current-teaching-hero h2 { font-size:1.15rem; } #teaching .university-logo img { width:110px; height:45px; } #teaching .university-logo { padding:.45rem; } #teaching .institution-heading h2 { font-size:1.1rem; } }
+@media(max-width:420px) { #teaching .current-teaching-hero { flex-wrap:wrap; } #teaching .current-teaching-hero .university-logo { margin-left:auto; } }
+
+#teaching .teach-summary { cursor:default; }
+#teaching .teach-details { display:block; padding:0 14px 14px; }
+#teaching .pedagogy-title { font-weight:800; }
+
+html[data-theme="dark"] #teaching [data-neon] { color:#acd1ff; font-weight:900; }
+html[data-theme="light"] #teaching [data-neon] { color:#155aa5; font-weight:900; }
