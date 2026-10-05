@@ -1,5 +1,5 @@
 /* Shared site template. Edit HEADER, SIDEBAR and FOOTER here to update every page.
-   HTML copies remain as a fallback if JavaScript is unavailable. */
+   Page files contain placeholders only; all shared markup lives here. */
 (() => {
   "use strict";
   const script = document.currentScript;
