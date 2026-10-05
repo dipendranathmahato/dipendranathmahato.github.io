@@ -7,9 +7,9 @@
   const HEADER = `
 <header class="top-nav">
       <div class="brand">
-        <img src="/assets/images/Tulane_University_Logo.svg.png"
+        <img src="/assets/images/utrgv-logo.svg"
              class="nav-logo"
-             alt="Tulane University Logo" />
+             alt="University of Texas Rio Grande Valley logo" style="width:110px;height:auto;object-fit:contain" />
         <a href="index.html" class="brand-name-link">
           <span>Dipendranath Mahato</span>
         </a>
@@ -64,8 +64,8 @@
         <div class="name">Dipendranath Mahato</div>
         <div class="title">Lecturer in Mathematics</div>
         <div class="affiliation">
-          <strong>The University of Texas Rio Grande Valley</strong><br />
-          Department of Mathematics
+          <strong>University of Texas Rio Grande Valley</strong><br />
+          School of Mathematical and Statistical Sciences
         </div>
 
         <!-- Research area padded block -->
@@ -87,7 +87,7 @@
           <ul class="info-list">
             <li>
               <i class="fa-regular fa-envelope"></i>
-              <span><a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a></span>
+              <span><a href="mailto:dipendranath.mahato@utrgv.edu">dipendranath.mahato@utrgv.edu</a></span>
             </li>
             <li>
               <i class="fa-regular fa-envelope"></i>
@@ -95,7 +95,7 @@
             </li>
             <li>
               <i class="fa-regular fa-building"></i>
-              <span>Department of Mathematics</span>
+              <span>School of Mathematical and Statistical Sciences</span>
             </li>
             <li>
               <i class="fa-solid fa-location-dot"></i>
@@ -156,6 +156,33 @@
   mount("header.top-nav", HEADER);
   mount("aside.sidebar", SIDEBAR);
   mount(".footer", FOOTER);
+  // One visit per browser session, shared across all pages on this origin.
+  // This is a local browser counter, not a site-wide visitor total.
+  try {
+    const key = "dm-browser-visits";
+    const sessionKey = "dm-visit-counted";
+    let visits = Number(localStorage.getItem(key)) || 0;
+    if (!sessionStorage.getItem(sessionKey)) {
+      visits += 1;
+      localStorage.setItem(key, String(visits));
+      sessionStorage.setItem(sessionKey, "1");
+    }
+    const sidebar = document.querySelector("aside.sidebar");
+    if (sidebar) {
+      const counter = document.createElement("div");
+      counter.className = "sidebar-section";
+      const label = document.createElement("h3");
+      label.textContent = "Visits on this browser";
+      const value = document.createElement("p");
+      value.style.cssText = "font-size:1.4rem;font-weight:800;margin:.3rem 0";
+      value.textContent = visits.toLocaleString();
+      counter.append(label, value);
+      sidebar.append(counter);
+    }
+  } catch (_) {
+    // Storage can be disabled; omit the counter in that case.
+  }
+
   const current = new URL(location.href);
   const isCourse = current.pathname.includes("/courses/");
   const page = isCourse ? "teaching.html" : (current.pathname.split("/").pop() || "index.html");
