@@ -306,3 +306,48 @@ html[data-theme=dark] .course-page .calc-scale-controls button {background:#2851
 html[data-theme=dark] .course-page .calc-inspect-output {background:#214631;color:#e8ffef;border-color:#4d8664}
 html[data-theme=dark] .course-page .calc-rep-card h5,html[data-theme=dark] .course-page .calc-discrete-feedback {color:#b9f7d3}
 @media(max-width:720px) {.course-page .calc-remember-grid,.course-page .calc-comparison-grid {grid-template-columns:1fr}.course-page .calc-scale-controls {grid-template-columns:1fr}.course-page .calc-scale-controls button {justify-self:start}.course-page .calc-graph-checks {flex-direction:column;align-items:flex-start}}
+
+
+/* Sidebar-only collapsible table of contents (main lessons always remain visible). */
+.course-page .calc-book-toc .calc-toc-chapter {
+  display:block; width:100%; min-width:0;
+  border:1px solid transparent; border-radius:10px;
+}
+.course-page .calc-book-toc .calc-toc-chapter[open] {
+  border-color:#cde6d7; background:#eef7f1;
+}
+.course-page .calc-book-toc .calc-toc-chapter-title {
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  cursor:pointer; padding:10px 9px; border-radius:9px;
+  color:#125b43; font-size:.81rem; font-weight:800; line-height:1.35;
+  list-style:none;
+}
+.course-page .calc-book-toc .calc-toc-chapter-title::-webkit-details-marker {display:none}
+.course-page .calc-book-toc .calc-toc-chapter-title::marker {content:""}
+.course-page .calc-book-toc .calc-toc-chapter-title:hover {background:#e1f1e7}
+.course-page .calc-book-toc .calc-toc-chapter-title:focus-visible {outline:2px solid #00724e;outline-offset:1px}
+.course-page .calc-book-toc .calc-toc-chapter-title span {min-width:0}
+.course-page .calc-book-toc .calc-toc-chapter-title i {
+  font-size:.69rem; flex:0 0 auto; color:#377960;
+  transition:transform .2s ease;
+}
+.course-page .calc-book-toc .calc-toc-chapter[open] .calc-toc-chapter-title i {transform:rotate(180deg)}
+.course-page .calc-book-toc .calc-toc-subsections {display:flex; flex-direction:column; padding:0 3px 7px 8px; gap:2px}
+.course-page .calc-book-toc .calc-toc-subsections a {display:block; border-radius:7px; overflow-wrap:anywhere}
+.course-page .calc-book-toc .calc-toc-subsections a.toc-overview {font-weight:800;color:#0c6448}
+.course-page .calc-book-toc > .toc-archive {display:block; margin-top:11px}
+@media(max-width:1040px) {
+ .course-page .calc-book-toc {display:flex; flex-direction:column; align-items:stretch; flex-wrap:nowrap; width:100%;}
+ .course-page .calc-book-toc .calc-toc-chapter {width:100%;}
+ .course-page .calc-book-toc .calc-toc-subsections {gap:3px}
+}
+html[data-theme=dark] .course-page .calc-book-toc .calc-toc-chapter[open] {
+  background:#1e3c2e; border-color:#4f775e;
+}
+html[data-theme=dark] .course-page .calc-book-toc .calc-toc-chapter-title {color:#e4ffef}
+html[data-theme=dark] .course-page .calc-book-toc .calc-toc-chapter-title i {color:#bae9d0}
+html[data-theme=dark] .course-page .calc-book-toc .calc-toc-chapter-title:hover {background:#2b503c}
+html[data-theme=dark] .course-page .calc-book-toc .calc-toc-subsections .toc-overview {color:#baf2d2}
+@media(prefers-reduced-motion:reduce) {
+ .course-page .calc-book-toc .calc-toc-chapter-title i {transition:none}
+}
