@@ -1,0 +1,5 @@
+/* Local course accents and preserved handwritten note archive */
+.course-page .uni-header.prominent{border-left:5px solid #006747}
+.course-page #handwritten-archive{scroll-margin-top:25px;border-top:4px solid #006747;padding-top:18px}
+.course-page #handwritten-archive .schedule-grid-title{color:#065a41}
+.course-page .top-nav .nav-logo{object-fit:contain;max-width:135px}

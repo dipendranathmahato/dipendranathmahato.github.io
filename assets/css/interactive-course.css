@@ -1,0 +1,178 @@
+/* Shared interactive course component library, version 1.0.
+   Used by any course page with <body class="course-page"> and .calc-learning markup.
+   It does not restyle ordinary site pages or the teaching page.
+   Colors may be customized using the --calc-* variables declared below. */
+.course-page .calc-learning {--calc-green:#006747;--calc-deep:#064b38;--calc-light:#ecf8f2;--calc-border:#c7ded3;--calc-ink:#16352c;--calc-muted:#52645e;--calc-accent:#006747;--calc-accent-hover:#004734;--calc-title:#074e39;color:var(--calc-ink);font-size:.95rem;margin:24px 0 34px}
+.course-page .calc-learning *{box-sizing:border-box}
+.course-page .calc-learning a{color:#05644b}
+.course-page .calc-hero{background:linear-gradient(115deg,var(--calc-deep),var(--calc-accent) 65%,#087e59);color:white;padding:30px 34px;border-radius:19px;display:flex;justify-content:space-between;gap:12px;align-items:center;box-shadow:0 12px 32px rgba(0,68,46,.18)}
+.course-page .calc-hero h1{font-size:clamp(1.45rem,2.5vw,2.3rem);line-height:1.18;margin:13px 0 12px;color:white!important;letter-spacing:-.025em}
+.course-page .calc-hero p{max-width:670px;color:#e0f5ea;margin:0;line-height:1.65}
+.course-page .calc-kicker{font-weight:800;font-size:.71rem;letter-spacing:.11em;color:#c4f6da}
+.course-page .calc-hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.course-page .calc-hero-actions a{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:.83rem;color:#054633;background:#f1fff5;padding:10px 14px;border-radius:9px;text-decoration:none;border:1px solid #bfe8cc}
+.course-page .calc-hero-actions a.calc-hero-secondary{color:#fff;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5)}
+.course-page .calc-hero-mark{font-family:Georgia,serif;font-size:5.8rem;opacity:.22;white-space:nowrap;line-height:1}
+.course-page .calc-hero-mark span{font-size:1.7rem}
+.course-page .calc-main-layout{display:grid;grid-template-columns:190px minmax(0,1fr);align-items:start;gap:18px;margin-top:22px}
+.course-page .calc-toc{position:sticky;top:20px;border:1px solid var(--calc-border);background:#f8fdf9;padding:17px 12px;display:flex;flex-direction:column;gap:4px;border-radius:14px;max-height:85vh;overflow:auto}
+.course-page .calc-toc strong{display:flex;align-items:center;gap:8px;color:var(--calc-deep);font-size:.72rem;letter-spacing:.07em;margin:0 0 8px 7px}
+.course-page .calc-toc a{padding:8px 10px;text-decoration:none;border-radius:8px;color:#2f5b4c;line-height:1.3;font-size:.8rem}
+.course-page .calc-toc a:hover,.course-page .calc-toc a:focus-visible{background:#e1f1e7;color:#063e2f}
+.course-page .calc-chapters{min-width:0;display:flex;flex-direction:column;gap:26px}
+.course-page .calc-chapter{background:#fff;border:1px solid #dae9e0;border-radius:16px;padding:clamp(17px,3vw,30px);box-shadow:0 5px 20px rgba(18,73,56,.045);min-width:0}
+.course-page .calc-chapter-label{display:flex;align-items:center;gap:9px;color:#00724e;font-size:.74rem;font-weight:900;letter-spacing:.08em}
+.course-page .calc-chapter-label span{background:#eaf6ed;border-radius:999px;padding:5px 8px;color:#4d7563;font-size:.64rem}
+.course-page .calc-chapter h2{font-size:clamp(1.5rem,2.5vw,2rem);color:var(--calc-title);margin:10px 0 7px;line-height:1.3}
+.course-page .calc-chapter h3{font-size:1.22rem;color:#08553f;margin:0 0 12px;line-height:1.4}
+.course-page .calc-chapter h4{color:#17573f;margin:24px 0 8px;font-size:1rem}
+.course-page .calc-chapter p{line-height:1.69}
+.course-page .calc-lede{font-size:.99rem;color:var(--calc-muted);margin:0 0 21px}
+.course-page .calc-learning-goals{padding:16px 18px;background:#f0f8f2;border:1px solid #cce8d5;border-radius:13px;margin:17px 0 25px}
+.course-page .calc-learning-goals strong{color:#145b44}
+.course-page .calc-learning-goals ul{padding-left:21px;margin:11px 0 0;line-height:1.8}
+.course-page .calc-metric-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.course-page .calc-metric-grid span{background:#fff;border:1px solid #d2e9d9;border-radius:9px;padding:11px 12px;display:flex;flex-direction:column;gap:5px}
+.course-page .calc-metric-grid b{font-size:.88rem;color:#14533d}
+.course-page .calc-metric-grid small{color:#60766e}
+.course-page .calc-section{margin-top:28px;padding-top:25px;border-top:1px solid #e2ebe6;scroll-margin-top:18px}
+.course-page .calc-definition{padding:18px 21px;border-radius:12px;background:#eff9f4;border-left:4px solid #0a855d;margin:17px 0}
+.course-page .calc-definition small{color:#04734f;font-weight:900;letter-spacing:.12em}
+.course-page .calc-definition p{margin:10px 0}
+.course-page .calc-formula{font-size:1.13rem;overflow:auto;padding:3px 0}
+.course-page .calc-grade-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:17px 0}
+.course-page .calc-grade-item{border:1px solid #d6e9df;border-radius:10px;padding:12px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px 10px;align-items:center;background:#fcfffd;font-size:.84rem}
+.course-page .calc-grade-item b{color:#00734e}
+.course-page .calc-grade-item>div{grid-column:span 2;height:7px;border-radius:99px;background:linear-gradient(to right,#087f58 var(--share),#e5f0eb var(--share))}
+.course-page .calc-disclosure{margin:12px 0;border:1px solid #c8e0d1;background:#fcfffd;border-radius:11px;padding:12px 16px}
+.course-page .calc-disclosure summary,.course-page .calc-guided details summary{cursor:pointer;color:#17694c;font-weight:750;line-height:1.5}
+.course-page .calc-disclosure[open]{background:#f6fbf7}
+.course-page .calc-disclosure p:last-child{margin-bottom:0}
+.course-page .calc-input-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.course-page .calc-input-grid label{font-size:.78rem;font-weight:700;display:flex;flex-direction:column;gap:6px}
+.course-page .calc-input-grid input{width:100%;border:1px solid #b4d2c3;border-radius:8px;padding:8px;color:#193d30;background:white;font:inherit}
+.course-page .calc-grade-result{font-size:1rem;font-weight:900;color:var(--calc-accent)}
+.course-page .calc-rubric{display:grid;gap:9px;margin:16px 0}
+.course-page .calc-rubric>div{display:flex;gap:12px;align-items:center;border:1px solid #e0eee5;border-radius:9px;padding:10px 12px}
+.course-page .calc-rubric strong{flex:0 0 86px;color:#08714e}
+.course-page .calc-tip{display:flex;gap:12px;background:#fff9e9;border:1px solid #f0dca4;border-radius:12px;padding:15px;margin:18px 0;color:#5f4820}
+.course-page .calc-tip i{font-size:1.3rem;color:#ad7500}
+.course-page .calc-tip p{margin:5px 0 0}
+.course-page .calc-note{font-size:.8rem;color:#68776d}
+.course-page .calc-assessment-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.course-page .calc-assessment-grid>div{border:1px solid #caddd1;border-top:4px solid #00734e;border-radius:9px;padding:12px;display:flex;flex-direction:column;gap:7px}
+.course-page .calc-assessment-grid b{color:#075741}
+.course-page .calc-assessment-grid small{color:#5b6f65}
+.course-page .calc-two-column{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:14px 0}
+.course-page .calc-rule,.course-page .calc-example-card{border:1px solid #d8e9df;border-radius:11px;padding:15px;background:#fbfefc;min-width:0}
+.course-page .calc-rule>b,.course-page .calc-example-card>b{color:#086044}
+.course-page .calc-rule span{font-size:.83rem;color:#0e6949;font-weight:750}
+.course-page .calc-demo{border:1px solid #bcded0;border-radius:13px;margin:18px 0;background:linear-gradient(180deg,#fbfffc,#f0f8f4);padding:17px;min-width:0}
+.course-page .calc-demo-head{display:flex;justify-content:space-between;gap:12px;align-items:start;margin-bottom:10px;flex-wrap:wrap}
+.course-page .calc-demo-head strong{color:#0b6749}
+.course-page .calc-demo-head p{margin:5px 0;font-size:.83rem;color:#587366}
+.course-page .calc-demo-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.course-page .calc-demo-controls button{border:1px solid #97b9a7;background:#fff;color:#286247;border-radius:8px;padding:8px 11px;cursor:pointer;font-size:.8rem;font-weight:750}
+.course-page .calc-demo-controls button.is-selected{background:var(--calc-accent);color:#fff}
+.course-page .calc-mapping,.course-page .calc-interval-svg{display:block;width:100%;height:auto;margin:5px 0}
+.course-page .calc-live,.course-page .calc-result{border-radius:8px;background:#e7f4ec;padding:10px 12px;color:#14583e;font-size:.85rem;margin:10px 0 0}
+.course-page .calc-interval-row{display:flex;gap:25px;flex-wrap:wrap;font-size:.83rem;font-weight:650;margin:8px 0}
+.course-page .calc-guided{border:1px solid #c6ded6;border-radius:12px;overflow:hidden;margin:16px 0}
+.course-page .calc-guided-header{background:var(--calc-accent);color:white;padding:11px 16px;font-weight:850;display:flex;gap:9px;align-items:center}
+.course-page .calc-guided>p{padding:0 16px}
+.course-page .calc-guided details{padding:13px 16px;border-top:1px solid #e0ece4}
+.course-page .calc-guided details[open]{background:#f5fcf7}
+.course-page .calc-guided details p{margin-bottom:0}
+.course-page .calc-graph{display:block;width:100%;height:auto;aspect-ratio:2/1;background:white;border:1px solid #d4e7dc;border-radius:10px}
+.course-page #calc-piecewise-graph{aspect-ratio:760/280}
+.course-page .calc-slider-line{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:15px}
+.course-page .calc-slider-line label{font-weight:750;font-size:.85rem}
+.course-page .calc-slider-line input[type=range]{flex:1;min-width:100px;accent-color:#08734f}
+.course-page .calc-slider-line output{font-size:.84rem;font-weight:700;color:#075b42}
+.course-page .calc-inline-label{font-size:.81rem;display:flex;gap:5px;align-items:center;cursor:pointer}
+.course-page .calc-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:.77rem}
+.course-page .calc-dot{display:inline-block;width:9px;height:9px;border-radius:99px;background:#d05e42;margin-right:4px}
+.course-page .calc-dot.g{background:#155ac5}.course-page .calc-dot.selected{background:#e2a00b}
+.course-page .calc-small-table{width:100%;border-collapse:collapse;text-align:center;font-size:.88rem;margin:10px 0}
+.course-page .calc-small-table td,.course-page .calc-small-table th{border:1px solid #cadecf;padding:7px}
+.course-page .calc-quizzes{display:grid;gap:14px}
+.course-page .calc-quiz{padding:16px;border:1px solid #d3e3d9;border-radius:12px;background:#fcfefc}
+.course-page .calc-q-label{color:#00764f;font-weight:850;letter-spacing:.075em;font-size:.67rem;margin-bottom:9px}
+.course-page .calc-quiz strong{display:block;line-height:1.5}
+.course-page .calc-quiz-options{display:grid;gap:7px;margin:12px 0}
+.course-page .calc-quiz-options button{width:100%;text-align:left;border:1px solid #c5d8cd;background:#fff;color:#244a38;padding:10px 13px;border-radius:9px;cursor:pointer;font:inherit;font-size:.85rem}
+.course-page .calc-quiz-options button:hover,.course-page .calc-quiz-options button:focus-visible{border-color:#078357;background:#f0fbf3}
+.course-page .calc-quiz-options button.is-correct{border-color:#08744f;background:#e1f4e7;font-weight:800}
+.course-page .calc-quiz-options button.is-wrong{border-color:#ad532d;background:#fff0e6}
+.course-page .calc-quiz-feedback{font-size:.87rem;line-height:1.6}
+.course-page .calc-quiz-feedback:not(:empty){padding:12px 14px;border-radius:9px;background:#ebf6ee;border-left:3px solid #0b8058}
+.course-page .calc-quiz-feedback.is-incorrect{background:#fff4ec;border-left-color:#b05c2b}
+.course-page .calc-score{background:#e7f7ed;color:#075f42;border-radius:10px;padding:12px 14px;font-weight:850;margin-top:14px}
+.course-page .calc-reference,.course-page .calc-to-archive{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:15px;background:#edf8f1;border-radius:12px;border:1px solid #cce7d5;margin-top:25px}
+.course-page .calc-reference{justify-content:start}
+.course-page .calc-reference>i{font-size:1.2rem;color:var(--calc-accent)}
+.course-page .calc-reference p,.course-page .calc-to-archive p{margin:4px 0;font-size:.84rem}
+.course-page .calc-to-archive>a{white-space:nowrap;background:var(--calc-accent);color:#fff!important;padding:10px 13px;border-radius:9px;text-decoration:none;font-weight:800;font-size:.82rem}
+html[data-theme=dark] .course-page .calc-learning{--calc-ink:#d8eee5;--calc-muted:#b4c9bf;--calc-border:#42675a;color:var(--calc-ink)}
+html[data-theme=dark] .course-page .calc-chapter,html[data-theme=dark] .course-page .calc-toc,html[data-theme=dark] .course-page .calc-grade-item,html[data-theme=dark] .course-page .calc-rule,html[data-theme=dark] .course-page .calc-example-card,html[data-theme=dark] .course-page .calc-quiz{background:#162921;border-color:#3f6756}
+html[data-theme=dark] .course-page .calc-learning-goals,html[data-theme=dark] .course-page .calc-definition,html[data-theme=dark] .course-page .calc-demo,html[data-theme=dark] .course-page .calc-disclosure,html[data-theme=dark] .course-page .calc-reference,html[data-theme=dark] .course-page .calc-to-archive,html[data-theme=dark] .course-page .calc-quiz-feedback:not(:empty){background:#203e30;border-color:#547b63;color:#d8eee5}
+html[data-theme=dark] .course-page .calc-learning :is(h2,h3,h4,.calc-chapter-label,.calc-toc a,.calc-toc strong,.calc-rule>b,.calc-example-card>b,.calc-definition small,.calc-grade-item b,.calc-rubric strong,.calc-reference a,.calc-live,.calc-result,.calc-score){color:#a7f0cb}
+html[data-theme=dark] .course-page .calc-metric-grid span{background:#153327;border-color:#4a715e}
+html[data-theme=dark] .course-page .calc-metric-grid b{color:#c3f7d7}
+html[data-theme=dark] .course-page .calc-metric-grid small{color:#b8d7c8}
+html[data-theme=dark] .course-page .calc-quiz-options button{background:#1f3b30;color:#e1f2e8;border-color:#547462}
+html[data-theme=dark] .course-page .calc-quiz-options button.is-correct{background:#18543c}
+html[data-theme=dark] .course-page .calc-quiz-options button.is-wrong{background:#663826}
+html[data-theme=dark] .course-page .calc-tip{background:#443821;color:#fae7c0;border-color:#86764c}
+html[data-theme=dark] .course-page .calc-guided{border-color:#476b5a}
+html[data-theme=dark] .course-page .calc-guided details[open]{background:#1c3228}
+html[data-theme=dark] .course-page .calc-quiz-feedback.is-incorrect{background:#583527;color:#ffe1c2}
+html[data-theme=dark] .course-page .calc-live,html[data-theme=dark] .course-page .calc-result,html[data-theme=dark] .course-page .calc-score{background:#244934}
+html[data-theme=dark] .course-page .calc-assessment-grid>div,html[data-theme=dark] .course-page .calc-rubric>div{border-color:#416852}
+@media(max-width:1040px){.course-page .calc-main-layout{grid-template-columns:1fr}.course-page .calc-toc{position:static;display:flex;flex-direction:row;flex-wrap:wrap;gap:3px;max-height:none}.course-page .calc-toc strong{width:100%}.course-page .calc-toc a{background:#e9f6ed}}
+@media(max-width:670px){.course-page .calc-hero{padding:22px}.course-page .calc-hero-mark{display:none}.course-page .calc-grade-grid,.course-page .calc-two-column,.course-page .calc-assessment-grid,.course-page .calc-input-grid{grid-template-columns:1fr}.course-page .calc-metric-grid{grid-template-columns:1fr 1fr}.course-page .calc-to-archive{flex-wrap:wrap}.course-page .calc-interval-row{gap:10px}.course-page .calc-demo{padding:12px}.course-page .calc-slider-line output{width:100%}}
+@media(prefers-reduced-motion:reduce){.course-page .calc-learning *{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* Dedicated interactive lessons and clear landing-page launch cards — visibility fix */
+.course-page .calc-landing{margin-top:19px}
+.course-page .calc-lesson-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin:22px 0}
+.course-page .calc-lesson-tile{display:flex;flex-direction:column;align-items:stretch;gap:9px;background:#fff;border:1px solid #bcd9cb;border-radius:17px;padding:23px;min-width:0;box-shadow:0 8px 22px var(--calc-accent)0e}
+.course-page .calc-lesson-tile.calc-lesson-featured{border:2px solid #00714e;background:linear-gradient(145deg,#f6fefa,#fff)}
+.course-page .calc-lesson-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.course-page .calc-lesson-number{font-weight:900;font-size:1.85rem;color:#b1cfc0}.course-page .calc-lesson-tag{font-size:.71rem;font-weight:800;color:#00704f;background:#e4f4eb;border-radius:99px;padding:6px 10px}
+.course-page .calc-lesson-tile h2{font-size:1.32rem;color:#064e39;margin:4px 0}.course-page .calc-lesson-tile p{color:#52685b;line-height:1.55;margin:0}.course-page .calc-lesson-tile ul{padding-left:19px;font-size:.87rem;line-height:1.9;color:#234c3d;margin:4px 0 13px}
+.course-page .calc-lesson-tile a.calc-lesson-open{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;border-radius:10px;color:#fff!important;background:var(--calc-accent);padding:14px;font-weight:900;text-decoration:none;font-size:.88rem}.course-page .calc-lesson-tile a.calc-lesson-open:hover{background:var(--calc-accent-hover)}
+.course-page .calc-archive-prompt{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#f5f9f7;border:1px solid #d9e5de;border-radius:13px;padding:16px 20px;margin:20px 0 34px}.course-page .calc-archive-prompt>div>i{margin-right:9px;color:#ae3b3b}.course-page .calc-archive-prompt p{margin:5px 0 0;color:#52645e;font-size:.84rem}.course-page .calc-archive-prompt a{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:800}
+.course-page .calc-lesson-note-link{margin-right:7px!important;background:#e9f7ed!important;color:var(--calc-accent)!important;border:1px solid #79b69a!important;text-decoration:none}
+.course-page .calc-standalone{margin-top:16px}.course-page .calc-lesson-bar{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center;padding:0 4px 13px;font-size:.83rem}.course-page .calc-lesson-bar a{color:var(--calc-accent);font-weight:800;text-decoration:none}.course-page .calc-lesson-bar span{color:#597166;font-weight:700}
+.course-page .calc-lesson-intro{background:linear-gradient(105deg,#063f2f,var(--calc-accent));border-radius:17px;color:#fff;padding:28px 32px}.course-page .calc-lesson-intro h1{margin:11px 0;color:#fff!important;font-size:clamp(1.5rem,2.7vw,2.5rem)}.course-page .calc-lesson-intro p{color:#dff5e7;line-height:1.65;max-width:710px;margin:0}.course-page .calc-lesson-intro .calc-hero-actions a{background:#fff;color:#06543e;border:1px solid #fff}.course-page .calc-lesson-intro .calc-hero-actions a.calc-hero-secondary{background:transparent;color:#fff;border-color:#9fd6b8}
+.course-page .calc-next-panel{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;border:1px solid #bfdacb;border-radius:13px;background:#f0faf5;padding:20px;margin-bottom:40px}.course-page .calc-next-panel strong{color:#06583f}.course-page .calc-next-panel p{font-size:.83rem;color:#536f60;margin:5px 0 0}.course-page .calc-next-panel a{font-size:.84rem;font-weight:900;text-decoration:none}
+@media(max-width:720px){.course-page .calc-lesson-gallery{grid-template-columns:1fr}.course-page .calc-lesson-intro{padding:22px}.course-page .calc-lesson-tile{padding:19px}}
+
+/* Integrated single-page Calculus I textbook */
+.course-page .calc-book{margin-top:20px;margin-bottom:20px}
+.course-page .calc-book-hero{position:relative}
+.course-page .calc-book-hero .calc-hero-actions{flex-wrap:wrap}
+.course-page .calc-book-intro{display:flex;gap:12px;align-items:flex-start;background:#e9f5ee;border:1px solid #b2d5c4;border-radius:12px;margin:18px 0 22px;padding:14px 18px;color:#164f3b;font-size:.87rem;line-height:1.6}
+.course-page .calc-book-intro>i{font-size:1.1rem;flex-shrink:0;color:var(--calc-accent);margin-top:3px}
+.course-page .calc-book-layout{margin:12px 0 8px}
+.course-page .calc-book-toc .toc-sub{font-size:.78rem;padding-left:20px;color:#567263}
+.course-page .calc-book-toc .toc-archive{margin-top:9px;background:#e4f2e9;color:#055d40;font-weight:900}
+.course-page .calc-book-layout .calc-chapter{scroll-margin-top:28px}
+.course-page .calc-book-layout .calc-section{scroll-margin-top:28px}
+.course-page .calc-chapter-break{padding:13px 10px 31px;text-align:center;color:#527563;font-size:.8rem;font-weight:800;letter-spacing:.025em}
+.course-page .calc-chapter-break>span{display:inline-flex;align-items:center;gap:9px;border-radius:99px;border:1px solid #b7d4c4;background:#edf7f1;padding:9px 17px}
+.course-page .calc-chapters>article#chapter-functions{border-top:4px solid var(--calc-accent)}
+.course-page .calc-vertical-svg{display:block;max-width:100%;width:100%;height:auto;background:#fff;border:1px solid #d3e6dc;border-radius:10px}
+.course-page #calc-vertical-result{margin-top:6px;line-height:1.55}
+.course-page .calc-book .calc-archive-prompt{margin:18px 0 30px}
+@media(max-width:800px){.course-page .calc-book-intro{font-size:.83rem}.course-page .calc-book-toc{max-height:none}.course-page .calc-book-hero .calc-hero-actions a{width:auto}}
+@media(prefers-reduced-motion:reduce){.course-page .calc-book *, .course-page .calc-book *::before,.course-page .calc-book *::after{scroll-behavior:auto!important;animation-duration:.01ms!important}}
+
+/* Optional institutional themes: set data-course-theme on .calc-learning. */
+.course-page .calc-learning[data-course-theme="utrgv"] {--calc-accent:#a44300;--calc-accent-hover:#803300;--calc-deep:#7e3400;--calc-title:#903d05;}
+.course-page .calc-learning[data-course-theme="tulane"] {--calc-accent:#006747;--calc-accent-hover:#004734;--calc-deep:#064b38;--calc-title:#074e39;}
+/* Interactive widgets are contained inside the reading area; prevent oversized SVGs on mobile. */
+.course-page .calc-learning svg, .course-page .calc-learning canvas {max-width:100%;}
+.course-page .calc-learning .calc-quiz-options button:focus-visible,
+.course-page .calc-learning .calc-choice:focus-visible {outline:3px solid var(--calc-accent);outline-offset:3px;}
