@@ -1,1172 +1,989 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
 
+<html data-theme="light" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Calculus I- Summer 2025 | Dipendranath Mahato</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" />
-
-  <!-- MathJax -->
-  <script>
+<meta charset="utf-8"/>
+<title>Calculus I- Summer 2025 | Dipendranath Mahato</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" rel="stylesheet"/>
+<!-- MathJax -->
+<script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
       svg: { fontCache: 'global' }
     };
   </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
-  <!-- Site CSS -->
-  
-    <link rel="stylesheet" href="/assets/css/style.css?v=1">
-    <link rel="stylesheet" href="/assets/css/course.css?v=1">
-
-</head>
+<script async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<!-- Site CSS -->
+<link href="/assets/css/style.css?v=1" rel="stylesheet"/>
+<link href="/assets/css/course.css?v=1" rel="stylesheet"/>
+<style id="tulane-course-brand">.course-page{--tulane-green:#006747;--tulane-blue:#418fde}.course-page .uni-header.prominent{border:1px solid #00674755;border-top:5px solid #006747;background:linear-gradient(110deg,#00674714,#418fde12)}.course-page .uni-title{color:#006747}.course-page .schedule-grid-title i,.course-page .person-title i{color:#006747}.course-page .notes-btn:not(.exam){border-color:#006747;color:#006747}.course-page .notes-btn:not(.exam):hover{background:#006747;color:#fff}.course-page .week-badge{background:#006747;color:white}.course-page .uni-header-logo img{max-height:90px;object-fit:contain}</style></head>
 <body class="course-page">
-  <div class="page">
-    <!-- ================= HEADER / NAV ================= -->
-    <header class="top-nav" data-shared-template="header"></header>
-
-    <!-- ================= LAYOUT ================= -->
-    <main class="layout">
-      <!-- Sidebar -->
-      <aside class="sidebar" data-shared-template="sidebar"></aside>
-
-
-      <!-- Main HOME content -->
-
-            <section class="main">
-
-                <div class="uni-header prominent">
-                  <div class="uni-header-left">
-                    <i class="fa-solid fa-school"></i>
-                    <div>
-                      <h3 class="uni-title">Tulane University</h3>
-                      <div class="uni-subtitle">Summer 2025- Online</div>
-                    </div>
-                  </div>
-                
-                  <div class="uni-header-logo">
-                    <img src="/assets/images/Tulane_University_Logo.svg.png"
-                         alt="Tulane University logo">
-                  </div>
-                </div>
-
+<div class="page">
+<!-- ================= HEADER / NAV ================= -->
+<header class="top-nav" data-shared-template="header"></header>
+<!-- ================= LAYOUT ================= -->
+<main class="layout">
+<!-- Sidebar -->
+<aside class="sidebar" data-shared-template="sidebar"></aside>
+<!-- Main HOME content -->
+<section class="main">
+<div class="uni-header prominent">
+<div class="uni-header-left">
+<i class="fa-solid fa-school"></i>
+<div>
+<h3 class="uni-title">Tulane University</h3>
+<div class="uni-subtitle">Summer 2025- Online</div>
+</div>
+</div>
+<div class="uni-header-logo">
+<img alt="Tulane University logo" src="/assets/images/Tulane_University_Logo.svg.png"/>
+</div>
+</div>
 <section class="course-people">
-
-              <!-- Instructor -->
-              <div class="person-card instructor">
-                <div class="person-head">
-                  <div class="person-title">
-                    <i class="fa-solid fa-chalkboard-user"></i>
+<!-- Instructor -->
+<div class="person-card instructor">
+<div class="person-head">
+<div class="person-title">
+<i class="fa-solid fa-chalkboard-user"></i>
                     Instructor
                   </div>
-                </div>
-            
-                <div class="person-body">
-                  <div class="person-name">Dipendranath Mahato</div>
-                  <div class="person-role">Ph.D. Candidate in Mathematics</div>
-            
-                  <ul class="person-info">
-                    <li>
-                      <i class="fa-regular fa-envelope"></i>
-                      <a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a>
-                    </li>
-                    <li>
-                      <i class="fa-solid fa-location-dot"></i>
+</div>
+<div class="person-body">
+<div class="person-name">Dipendranath Mahato</div>
+<div class="person-role">Ph.D. Candidate in Mathematics</div>
+<ul class="person-info">
+<li>
+<i class="fa-regular fa-envelope"></i>
+<a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a>
+</li>
+<li>
+<i class="fa-solid fa-location-dot"></i>
                       Office Hours: Zoom
                     </li>
-                    <li>
-                      <i class="fa-solid fa-clock"></i>
+<li>
+<i class="fa-solid fa-clock"></i>
                       Monday 7:00-8:00pm.
                     </li>
-                  </ul>
-                </div>
-              </div>
-            
-              <!-- Teaching Assistants -->
-              <div class="person-card ta">
-                <div class="person-head">
-                  <div class="person-title">
-                    <i class="fa-solid fa-user-graduate"></i>
+</ul>
+</div>
+</div>
+<!-- Teaching Assistants -->
+<div class="person-card ta">
+<div class="person-head">
+<div class="person-title">
+<i class="fa-solid fa-user-graduate"></i>
                     Teaching Assistants
                   </div>
-                </div>
-            
-                <div class="person-body">
-                  <div class="ta-note">
-                    <div class="person-name">Nathaniel T. Vaduthala</div>
-                  <div class="person-role">Ph.D. Candidate in Mathematics</div>
-            
-                  <ul class="person-info">
-                    <li>
-                      <i class="fa-regular fa-envelope"></i>
-                      <a href="mailto:nvaduthala@tulane.edu">nvaduthala@tulane.edu</a>
-                    </li>
-                  
-                    <li>
-                      <i class="fa-solid fa-location-dot"></i>
+</div>
+<div class="person-body">
+<div class="ta-note">
+<div class="person-name">Nathaniel T. Vaduthala</div>
+<div class="person-role">Ph.D. Candidate in Mathematics</div>
+<ul class="person-info">
+<li>
+<i class="fa-regular fa-envelope"></i>
+<a href="mailto:nvaduthala@tulane.edu">nvaduthala@tulane.edu</a>
+</li>
+<li>
+<i class="fa-solid fa-location-dot"></i>
                       Office Hours: Zoom
                     </li>
-                    <li>
-                      <i class="fa-solid fa-clock"></i>
-                      Tuesday 3:00-4:00pm.<br>
+<li>
+<i class="fa-solid fa-clock"></i>
+                      Tuesday 3:00-4:00pm.<br/>
                       Thursday 3:00-4:00pm.
                     </li>
-                  </ul>
-                </div>
-              </div>
-            
-            </section>
-
-              
-            <section class="schedule-grid-section" id="schedule">
-            <div class="schedule-grid-head">
-              <h2 class="schedule-grid-title">
-                <i class="fa-solid fa-calendar-days"></i> Summer 2025 - Calculus I : Course Schedule
+</ul>
+</div>
+</div>
+</div></section>
+<section class="schedule-grid-section" id="schedule">
+<div class="schedule-grid-head">
+<h2 class="schedule-grid-title">
+<i class="fa-solid fa-calendar-days"></i> Summer 2025 - Calculus I : Course Schedule
               </h2>
-              <p class="schedule-grid-subtitle">Day-by-day outline with quick links to class notes.</p>
-            </div>
-          
-            <!-- ===================== DAY 1 ===================== -->
-            <section class="week-block" aria-label="Week 1">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 1</span>
-                  <span class="week-dates">Module 1 begins</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 05/27</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">Introduction</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.0-Introduction.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+<p class="schedule-grid-subtitle">Day-by-day outline with quick links to class notes.</p>
+</div>
+<!-- ===================== DAY 1 ===================== -->
+<section aria-label="Week 1" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 1</span>
+<span class="week-dates">Module 1 begins</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 05/27</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">Introduction</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.0-Introduction.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 05/27</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">1.1 Review of Functions</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.1-Review_of_Functions.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 05/27</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">1.1 Review of Functions</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.1-Review_of_Functions.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-              </div>
-            </section>
-          
-            <!-- ===================== DAY 2 ===================== -->
-            <section class="week-block" aria-label="Week 1">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 2</span>
-                  <span class="week-dates">Modules 1</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Wed • 05/28</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">1.2 Basic Classes of Functions</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.2-Basics_of_Functions.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 2 ===================== -->
+<section aria-label="Week 1" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 2</span>
+<span class="week-dates">Modules 1</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Wed • 05/28</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">1.2 Basic Classes of Functions</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.2-Basics_of_Functions.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Wed • 05/28</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">1.3 Trigonometric Functions</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.3-Trigonometric_Functions.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Wed • 05/28</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">1.3 Trigonometric Functions</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.3-Trigonometric_Functions.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-                </div>
-            </section>
-          
-            <!-- ===================== DAY 3 ===================== -->
-            <section class="week-block" aria-label="Week 1">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 3</span>
-                  <span class="week-dates">Modules 2</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Thu • 05/29</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">1.4 Inverse Functions</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.4-Inverse_Functions.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 3 ===================== -->
+<section aria-label="Week 1" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 3</span>
+<span class="week-dates">Modules 2</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Thu • 05/29</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">1.4 Inverse Functions</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.4-Inverse_Functions.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Thu • 05/29</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">1.5 Exponential and Logarithmic Functions</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.5-Exponential_&_Logarithmic_Functions.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Thu • 05/29</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">1.5 Exponential and Logarithmic Functions</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.5-Exponential_&amp;_Logarithmic_Functions.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-                </div>
-            </section>
-
-
-              <!-- ===================== DAY 4 ===================== -->
-            <section class="week-block" aria-label="Week 1">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 4</span>
-                  <span class="week-dates">Modules 2-3</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Fri • 05/30</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">2.1 A Preview of Calculus</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.1-A Preview of Calculus.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 4 ===================== -->
+<section aria-label="Week 1" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 4</span>
+<span class="week-dates">Modules 2-3</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Fri • 05/30</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">2.1 A Preview of Calculus</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.1-A Preview of Calculus.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Fri • 05/30</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">2.2 The Limit of a Function</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.2-The Limit of a Function.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Fri • 05/30</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">2.2 The Limit of a Function</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.2-The Limit of a Function.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-                </div>
-            </section>
-
-
-              <!-- ===================== DAY 5 ===================== -->
-            <section class="week-block" aria-label="Week 1">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 5</span>
-                  <span class="week-dates">Modules 3</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Mon • 06/02</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">2.3 The Limit Laws</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.3-The Limit Laws.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 5 ===================== -->
+<section aria-label="Week 1" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 5</span>
+<span class="week-dates">Modules 3</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Mon • 06/02</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">2.3 The Limit Laws</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.3-The Limit Laws.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Mon • 06/02</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">2.4 Continuity</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.4-Continuity.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Mon • 06/02</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">2.4 Continuity</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.4-Continuity.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-                </div>
-            </section>
-
-
-              <!-- ===================== DAY 6 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 6</span>
-                  <span class="week-dates">Modules 4</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 06/03</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">3.1 Defining the Derivative</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.1-Defining the Derivative.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 6 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 6</span>
+<span class="week-dates">Modules 4</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 06/03</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">3.1 Defining the Derivative</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.1-Defining the Derivative.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 06/03</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">3.2 The Derivative as a Function</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.2-The Derivative as a Function.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 06/03</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">3.2 The Derivative as a Function</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.2-The Derivative as a Function.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-                </div>
-            </section>
-
-
-              <!-- ===================== DAY 7 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 7</span>
-                  <span class="week-dates">Modules 4</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Wed • 06/04</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">3.3 Differentiation Rules</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.3-Differentiation Rules.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 7 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 7</span>
+<span class="week-dates">Modules 4</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Wed • 06/04</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">3.3 Differentiation Rules</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.3-Differentiation Rules.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Wed • 06/04</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">Midterm 1 Review</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/Midterm 1 Review.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Wed • 06/04</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">Midterm 1 Review</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/Midterm 1 Review.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-                </div>
-            </section>
-
-
-              <!-- ===================== DAY 8- MIDTERM 1 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 8</span>
-                  <span class="week-dates">Midterm 1</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card exam">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Thu • 06/05</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic"><strong>Midterm 1</strong> (Modules 1,2,3)</div>
-                    <div class="meeting-meta">Assessment</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn exam">
-                         <i class="fa-solid fa-triangle-exclamation"></i> Midterm 1
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 8- MIDTERM 1 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 8</span>
+<span class="week-dates">Midterm 1</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card exam">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Fri • 06/27</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic"><strong>Midterm 1</strong> (Modules 1,2,3)</div>
+<div class="meeting-meta">Assessment · Date cross-checked against course introduction notes</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn exam">
+<i class="fa-solid fa-triangle-exclamation"></i> Midterm 1
                     </a>
-                  </div>
-                </article>
-          
-                </div>
-            </section>
-
-
-              <!-- ===================== DAY 9 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 9</span>
-                  <span class="week-dates">Modules 5</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Fri • 06/06</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">3.5 Derivatives of Trigonometric Functions</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.5-Derivatives of Trigonometric Functions.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 9 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 9</span>
+<span class="week-dates">Modules 5</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Fri • 06/06</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">3.5 Derivatives of Trigonometric Functions</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.5-Derivatives of Trigonometric Functions.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Fri • 06/06</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">3.6 The Chain Rule</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.6-The Chain Rule.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Fri • 06/06</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">3.6 The Chain Rule</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.6-The Chain Rule.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-
-                </div>
-            </section>
-
-
-                <!-- ===================== DAY 10 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 10</span>
-                  <span class="week-dates">Modules 5</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Mon • 06/09</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">3.7 The Chain Rule (Cont.)</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.7-The Chain Rule (Cont.).pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 10 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 10</span>
+<span class="week-dates">Modules 5</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Mon • 06/09</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">3.7 The Chain Rule (Cont.)</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.7-The Chain Rule (Cont.).pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Mon • 06/09</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">3.8 Derivatives of Exp and Log Functions</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.8-Derivatives of Exponential & Logarithmic Functions.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Mon • 06/09</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">3.8 Derivatives of Exp and Log Functions</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.8-Derivatives of Exponential &amp; Logarithmic Functions.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-
-                </div>
-            </section>
-
-
-                <!-- ===================== DAY 11 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 11</span>
-                  <span class="week-dates">Modules 6</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 06/10</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">3.9 Derivatives as Rates of Change</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.9-Derivatives as Rates of Change.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 11 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 11</span>
+<span class="week-dates">Modules 6</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 06/10</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">3.9 Derivatives as Rates of Change</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.9-Derivatives as Rates of Change.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 06/10</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">4.2 Linear Approximations and Differentials</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.2-Linear Approximations and Differentials.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 06/10</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">4.2 Linear Approximations and Differentials</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.2-Linear Approximations and Differentials.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-
-                </div>
-            </section>
-
-
-                <!-- ===================== DAY 12 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 12</span>
-                  <span class="week-dates">Modules 7</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Wed • 06/11</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">4.3 Maxima and Minima</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.3-Maxima and Minima.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 12 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 12</span>
+<span class="week-dates">Modules 7</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Wed • 06/11</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">4.3 Maxima and Minima</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.3-Maxima and Minima.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Wed • 06/11</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">4.5 Derivatives and the Shape of a Graph</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.5-Derivatives and the Shape of a Graph.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Wed • 06/11</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">4.5 Derivatives and the Shape of a Graph</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.5-Derivatives and the Shape of a Graph.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-              </div>
-            </section>
-
-
-              <!-- ===================== DAY 13 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 13</span>
-                  <span class="week-dates">Modules 7-8</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Thu • 06/12</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">4.7 Applied Optimization Problems</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.7-Applied Optimization Problems.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 13 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 13</span>
+<span class="week-dates">Modules 7-8</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Thu • 06/12</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">4.7 Applied Optimization Problems</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.7-Applied Optimization Problems.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Thu • 06/12</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">4.6 Limits at Infinity and Asymptotes</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.6-Limits at Infinity and Asymptotes.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Thu • 06/12</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">4.6 Limits at Infinity and Asymptotes</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.6-Limits at Infinity and Asymptotes.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-              </div>
-            </section>
-
-
-              <!-- ===================== DAY 14 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 14</span>
-                  <span class="week-dates">Modules 8</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Fri • 06/13</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">4.8 L’Hôpital’s Rule</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.8-L’Hôspital’s Rule.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 14 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 14</span>
+<span class="week-dates">Modules 8</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Fri • 06/13</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">4.8 L’Hôpital’s Rule</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.8-L’Hôspital’s Rule.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Fri • 06/13</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">4.10 Antiderivatives</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.10-Antiderivatives.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Fri • 06/13</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">4.10 Antiderivatives</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.10-Antiderivatives.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-              </div>
-            </section>
-
-
-              <!-- ===================== DAY 15 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 15</span>
-                  <span class="week-dates">Modules 9</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Mon • 06/16</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">5.1 Approximating Areas</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.1-Approximating Areas.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 15 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 15</span>
+<span class="week-dates">Modules 9</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Mon • 06/16</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">5.1 Approximating Areas</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.1-Approximating Areas.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Mon • 06/16</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">5.2 The Definite Integral</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.2-The Definite Integral.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Mon • 06/16</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">5.2 The Definite Integral</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.2-The Definite Integral.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-              </div>
-            </section>
-
-
-              <!-- ===================== DAY 16 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 16</span>
-                  <span class="week-dates">Modules 9</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 06/17</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">5.3 The Fundamental Theorem of Calculus</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.3-The Fundamental Theorem of Calculus.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 16 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 16</span>
+<span class="week-dates">Modules 9</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 06/17</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">5.3 The Fundamental Theorem of Calculus</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.3-The Fundamental Theorem of Calculus.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 06/17</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">Midterm 2 Review</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/Midterm 2 Review.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 06/17</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">Midterm 2 Review</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/Midterm 2 Review.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-              </div>
-            </section>
-
-
-              <!-- ===================== DAY 17- MIDTERM 1 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 17</span>
-                  <span class="week-dates">Midterm 2</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card exam">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Wed • 06/18</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic"><strong>Midterm 2</strong> (Modules 4,5,6,7,8)</div>
-                    <div class="meeting-meta">Assessment</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn exam">
-                         <i class="fa-solid fa-triangle-exclamation"></i> Midterm 2
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 17- MIDTERM 1 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 17</span>
+<span class="week-dates">Midterm 2</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card exam">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Wed • 06/18</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic"><strong>Midterm 2</strong> (Modules 4,5,6,7,8)</div>
+<div class="meeting-meta">Assessment</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn exam">
+<i class="fa-solid fa-triangle-exclamation"></i> Midterm 2
                     </a>
-                  </div>
-                </article>
-          
-                </div>
-            </section>
-
-
-              <!-- ===================== DAY 18 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 18</span>
-                  <span class="week-dates">Modules 9-10</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Thu • 06/19</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">5.3 The Fundamental Theorem of Calculus (Cont.)</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.3-The Fundamental Theorem of Calculus (Cont.).pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 18 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 18</span>
+<span class="week-dates">Modules 9-10</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Thu • 06/19</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">5.3 The Fundamental Theorem of Calculus (Cont.)</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.3-The Fundamental Theorem of Calculus (Cont.).pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Thu • 06/19</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">5.4 Integration Formulas & Net Change Theorem</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.4-Integration Formulas & the Net Change Theorem.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Thu • 06/19</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">5.4 Integration Formulas &amp; Net Change Theorem</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.4-Integration Formulas &amp; the Net Change Theorem.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-              </div>
-            </section>
-
-
-              <!-- ===================== DAY 19 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 19</span>
-                  <span class="week-dates">Modules 10</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Fri • 06/20</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">5.5 Substitution</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.5-Substitution.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 19 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 19</span>
+<span class="week-dates">Modules 10</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Fri • 06/20</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">5.5 Substitution</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.5-Substitution.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Fri • 06/20</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">5.6 Integrals Involving Exp and Log Functions</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.6-Integrals Involving Exponential & Logarithmic Functions.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Fri • 06/20</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">5.6 Integrals Involving Exp and Log Functions</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.6-Integrals Involving Exponential &amp; Logarithmic Functions.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-              </div>
-            </section>
-
-
-              <!-- ===================== DAY 20 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 20</span>
-                  <span class="week-dates">Modules 10</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Mon • 06/23</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">5.7 Integrals Resulting in Inverse Trig Functions</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.7-Integrals Resulting in Inverse Trigonometric Functions.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 20 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 20</span>
+<span class="week-dates">Modules 10</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Mon • 06/23</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">5.7 Integrals Resulting in Inverse Trig Functions</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.7-Integrals Resulting in Inverse Trigonometric Functions.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Mon • 06/23</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">6.1 Areas between Curves</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/6.1-Areas between Curves.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Mon • 06/23</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">6.1 Areas between Curves</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/6.1-Areas between Curves.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-          
-              </div>
-            </section>
-
-
-              <!-- ===================== DAY 21 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 21</span>
-                  <span class="week-dates">Modules 10</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 06/24</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">6.5 Physical Applications</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/6.5-Physical Applications.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 21 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 21</span>
+<span class="week-dates">Modules 10</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 06/24</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">6.5 Physical Applications</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/6.5-Physical Applications.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                    
-              </div>
-            </section>
-
-
-              <!-- ===================== DAY 22 ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 22</span>
-                  <span class="week-dates">Modules 10</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Wed • 06/25</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic">Final Exam Review</div>
-                    <div class="meeting-meta">Calculus I</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/Review for the Finals.pdf" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-file-lines"></i> Notes
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 22 ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 22</span>
+<span class="week-dates">Modules 10</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Wed • 06/25</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic">Final Exam Review</div>
+<div class="meeting-meta">Calculus I</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/Review for the Finals.pdf" rel="noopener" target="_blank">
+<i class="fa-solid fa-file-lines"></i> Notes
                     </a>
-                  </div>
-                </article>
-                    
-              </div>
-            </section>
-
-              <!-- ===================== DAY 23- Final Exam ===================== -->
-            <section class="week-block" aria-label="Week 2">
-              <div class="week-header">
-                <div class="week-left">
-                  <span class="week-badge">Day 23</span>
-                  <span class="week-dates">Final Exam</span>
-                </div>
-              </div>
-          
-              <div class="meeting-grid">
-
-
-                <article class="meeting-card exam">
-                  <div class="meeting-main">
-                    <div class="meeting-top">
-                      <div class="meeting-date">Tue • 06/20</div>
-                      <div class="meeting-module">—</div>
-                    </div>
-                    <div class="meeting-topic"><strong>	Final Exam (Cumulative)</strong></div>
-                    <div class="meeting-meta">Assessment</div>
-                  </div>
-                  <div class="meeting-actions">
-                    <a class="notes-btn exam">
-                         <i class="fa-solid fa-triangle-exclamation"></i> Final Exam
+</div>
+</article>
+</div>
+</section>
+<!-- ===================== DAY 23- Final Exam ===================== -->
+<section aria-label="Week 2" class="week-block">
+<div class="week-header">
+<div class="week-left">
+<span class="week-badge">Day 23</span>
+<span class="week-dates">Final Exam</span>
+</div>
+</div>
+<div class="meeting-grid">
+<article class="meeting-card exam">
+<div class="meeting-main">
+<div class="meeting-top">
+<div class="meeting-date">Tue • 06/20</div>
+<div class="meeting-module">—</div>
+</div>
+<div class="meeting-topic"><strong>	Final Exam (Cumulative)</strong></div>
+<div class="meeting-meta">Assessment</div>
+</div>
+<div class="meeting-actions">
+<a class="notes-btn exam">
+<i class="fa-solid fa-triangle-exclamation"></i> Final Exam
                     </a>
-                  </div>
-                </article>
-          
-                </div>
-            </section>
-
-              
-            </section> <!-- end #schedule -->
-
-            <div class="footer" data-shared-template="footer"></div>
-          </section> <!-- end .main -->
-          
-          </main>
-
-  </div>
-
-  <!-- ================= SCRIPTS ================= -->
-  <script src="../../assets/js/site-template.js"></script>
-  <script>
+</div>
+</article>
+</div>
+</section>
+</section> <!-- end #schedule -->
+<div class="footer" data-shared-template="footer"></div>
+</section> <!-- end .main -->
+</main>
+</div>
+<!-- ================= SCRIPTS ================= -->
+<script src="../../assets/js/site-template.js"></script>
+<script>
   // ----- Footer year -----
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
@@ -1246,6 +1063,5 @@
     });
   }
 </script>
-
 </body>
 </html>
