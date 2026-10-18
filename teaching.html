@@ -21,7 +21,25 @@
 <!-- Site CSS -->
 <link href="style.css" rel="stylesheet"/>
 <link href="assets/css/teaching.css" rel="stylesheet"/>
-<style id="summer-course-enhancements">.summer-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}.summer-info-grid>div{border:1px solid rgba(18,103,79,.18);background:rgba(19,125,94,.045);border-radius:12px;padding:13px;display:flex;flex-direction:column;gap:6px}.summer-info-grid strong{font-size:.86rem}.summer-info-grid span{font-weight:650}.summer-info-grid small{opacity:.8;line-height:1.45}.summer-info-grid a{overflow-wrap:anywhere}.summer-notes-link,.summer-schedule-trigger{display:inline-flex;align-items:center;gap:9px;padding:12px 16px;border-radius:12px;font-weight:800;text-decoration:none;cursor:pointer}.summer-notes-link{background:#006747!important;color:white!important;box-shadow:0 5px 15px rgba(0,103,71,.23);border:1px solid #006747}.summer-notes-link:hover{filter:brightness(1.12);transform:translateY(-1px)}.summer-schedule-trigger{border:1px solid #006747;color:#006747;background:transparent}.summer-action-row{margin-top:12px}.summer-schedule-overlay[hidden]{display:none!important}.summer-schedule-overlay{position:fixed;inset:0;z-index:10000;background:rgba(5,20,23,.65);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .27s}.summer-schedule-overlay.is-open{opacity:1}.summer-schedule-window{width:min(1020px,100%);max-height:min(90vh,900px);background:var(--card-bg,#fff);color:var(--text,#182c35);border-radius:20px;display:flex;flex-direction:column;overflow:hidden;transform:translateY(25px) scale(.91);transition:transform .32s cubic-bezier(.2,.8,.2,1);box-shadow:0 25px 85px #0005}.summer-schedule-overlay.is-open .summer-schedule-window{transform:translateY(0) scale(1)}.summer-modal-head{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:#006747;color:#fff}.summer-modal-head h2{margin:4px 0}.summer-modal-head small{letter-spacing:.1em}.summer-modal-close{background:#ffffff25;color:#fff;border:1px solid #ffffff70;border-radius:50%;width:40px;height:40px;cursor:pointer}.summer-modal-scroll{overflow:auto;padding:20px}.summer-modal-scroll .schedule-grid-section{margin:0}.summer-modal-scroll .schedule-grid-head{display:none}@media(prefers-reduced-motion:reduce){.summer-schedule-overlay,.summer-schedule-window{transition:none!important}}@media(max-width:640px){.summer-modal-scroll{padding:10px}.summer-modal-head{padding:14px}.summer-schedule-overlay{padding:8px}}</style></head>
+<style id="summer-course-enhancements">.summer-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0}.summer-info-grid>div{border:1px solid rgba(18,103,79,.18);background:rgba(19,125,94,.045);border-radius:12px;padding:13px;display:flex;flex-direction:column;gap:6px}.summer-info-grid strong{font-size:.86rem}.summer-info-grid span{font-weight:650}.summer-info-grid small{opacity:.8;line-height:1.45}.summer-info-grid a{overflow-wrap:anywhere}.summer-notes-link,.summer-schedule-trigger{display:inline-flex;align-items:center;gap:9px;padding:12px 16px;border-radius:12px;font-weight:800;text-decoration:none;cursor:pointer}.summer-notes-link{background:#006747!important;color:white!important;box-shadow:0 5px 15px rgba(0,103,71,.23);border:1px solid #006747}.summer-notes-link:hover{filter:brightness(1.12);transform:translateY(-1px)}.summer-schedule-trigger{border:1px solid #006747;color:#006747;background:transparent}.summer-action-row{margin-top:12px}.summer-schedule-overlay[hidden]{display:none!important}.summer-schedule-overlay{position:fixed;inset:0;z-index:10000;background:rgba(5,20,23,.65);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .27s}.summer-schedule-overlay.is-open{opacity:1}.summer-schedule-window{width:min(1020px,100%);max-height:min(90vh,900px);background:var(--card-bg,#fff);color:var(--text,#182c35);border-radius:20px;display:flex;flex-direction:column;overflow:hidden;transform:translateY(25px) scale(.91);transition:transform .32s cubic-bezier(.2,.8,.2,1);box-shadow:0 25px 85px #0005}.summer-schedule-overlay.is-open .summer-schedule-window{transform:translateY(0) scale(1)}.summer-modal-head{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:#006747;color:#fff}.summer-modal-head h2{margin:4px 0}.summer-modal-head small{letter-spacing:.1em}.summer-modal-close{background:#ffffff25;color:#fff;border:1px solid #ffffff70;border-radius:50%;width:40px;height:40px;cursor:pointer}.summer-modal-scroll{overflow:auto;padding:20px}.summer-modal-scroll .schedule-grid-section{margin:0}.summer-modal-scroll .schedule-grid-head{display:none}@media(prefers-reduced-motion:reduce){.summer-schedule-overlay,.summer-schedule-window{transition:none!important}}@media(max-width:640px){.summer-modal-scroll{padding:10px}.summer-modal-head{padding:14px}.summer-schedule-overlay{padding:8px}}</style><style id="summer-schedule-table-design">
+.summer-modal-scroll{padding:0 20px 22px!important}
+.summer-schedule-window{width:min(930px,96vw)!important}
+.summer-schedule-intro{padding:13px 0 8px;font-size:.86rem;line-height:1.5}
+.summer-schedule-intro p{margin:3px 0 8px}
+.summer-table-wrap{overflow-x:auto;border:1px solid #c8ded5;border-radius:12px}
+.summer-compact-table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:560px}
+.summer-compact-table th,.summer-compact-table td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #dbe9e3;line-height:1.45}
+.summer-compact-table thead{position:sticky;top:0;z-index:1;background:#006747;color:white}
+.summer-compact-table tbody tr:nth-child(even){background:rgba(0,103,71,.045)}
+.summer-compact-table tbody tr:hover{background:rgba(0,103,71,.095)}
+.summer-compact-table tbody tr.schedule-exam-row{background:#fff0dc!important;color:#833901;font-weight:750;border-left:5px solid #e28d19}
+.summer-compact-table tbody tr.schedule-exam-row td{border-color:#f2d3ac}
+html[data-theme=dark] .summer-compact-table tbody tr:nth-child(even){background:rgba(6,150,111,.1)}
+html[data-theme=dark] .summer-compact-table tbody tr.schedule-exam-row{background:#4b2b12!important;color:#ffd29c}
+#teaching .summer-info-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+#teaching .summer-info-grid>div{min-width:0}
+@media(prefers-reduced-motion:reduce){.summer-schedule-window,.summer-schedule-overlay{transition:none!important}}
+</style></head>
 <body>
 <div class="page">
 <!-- ================= HEADER / NAV ================= -->
@@ -58,7 +76,7 @@
 <img alt="University of Texas Rio Grande Valley logo" src="assets/images/utrgv-logo.svg"/>
 </a>
 </section>
-<p class="teaching-intro">Select a section and semester to find courses or mentoring projects. Course details open in place.</p>
+<p class="teaching-intro">Select a university and semester to explore classes, meeting information, course materials, or mentoring projects.</p>
 <div aria-label="Teaching sections" class="teaching-tabs" role="tablist">
 <button aria-controls="panel-utrgv" aria-selected="true" class="teaching-tab" data-target="utrgv" id="tab-utrgv" role="tab" tabindex="0" type="button">University of Texas Rio Grande Valley</button>
 <button aria-controls="panel-tulane" aria-selected="false" class="teaching-tab" data-target="tulane" id="tab-tulane" role="tab" tabindex="-1" type="button">Tulane University</button>
@@ -76,13 +94,13 @@
 </div>
 <div class="semester-browser">
 <div aria-label="Select semester" class="semester-list" role="group">
-<button aria-pressed="true" class="term-button" data-term="Fall 2026" type="button">Fall 2026 <span>3</span>
+<button aria-pressed="true" class="term-button" data-term="Fall 2026" type="button">Fall 2026 <span>4</span>
 </button>
 </div>
 <div class="semester-content">
 <div class="term-panel" data-term="Fall 2026">
 <section class="term-role">
-<h3>Instructor <span class="role-count">3</span>
+<h3>Instructor <span class="role-count">4</span>
 </h3>
 <div class="term-items">
 <article class="teach-item">
@@ -92,6 +110,19 @@
 <span class="teach-meta">
 <span class="meta-pill">Fall 2026</span>
 <span class="meta-pill meta-role">Section 804</span>
+</span>
+</span>
+</div>
+<div class="teach-details">
+<p>Instructor of Record · University of Texas Rio Grande Valley, Edinburg. Course materials and external PDF links can be added here.</p>
+</div>
+</article><article class="teach-item">
+<div class="teach-summary">
+<span class="teach-main">
+<span class="teach-course">MATH 2412 — Precalculus</span>
+<span class="teach-meta">
+<span class="meta-pill">Fall 2026</span>
+<span class="meta-pill meta-role">Section 805</span>
 </span>
 </span>
 </div>
@@ -225,7 +256,7 @@
 <a class="summer-notes-link" href="/courses/calculus-i-summer2025/" rel="noopener" target="_blank"><i class="fa-solid fa-book-open"></i> Class Notes and Course Details <i class="fa-solid fa-arrow-right"></i></a>
 </div>
 </div>
-<div class="teach-details"><div class="summer-info-grid"><div><strong><i class="fa-solid fa-video"></i> Class format</strong><span>Online · Summer 2025</span><small>Live meeting time not specified in the supplied course page.</small></div><div><strong><i class="fa-solid fa-user"></i> Instructor</strong><span>Dipendranath Mahato</span><a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a><small>Office hours: by appointment only (Zoom)</small></div><div><strong><i class="fa-solid fa-user-graduate"></i> Teaching Assistant</strong><span>Nathaniel T. Vaduthala</span><a href="mailto:nvaduthala@tulane.edu">nvaduthala@tulane.edu</a><small>TA office hours (Zoom): Tue &amp; Thu, 3:00–4:00 PM</small></div></div><div class="summer-action-row"><button aria-controls="summer-schedule-dialog" aria-haspopup="dialog" class="summer-schedule-trigger" type="button"><i class="fa-solid fa-calendar-days"></i> View course schedule <i class="fa-solid fa-arrow-up-right-from-square"></i></button></div></div>
+<div class="teach-details"><div class="summer-info-grid"><div><strong><i class="fa-solid fa-video"></i> Class sessions</strong><span>Monday–Friday · 11:00 AM–12:45 PM</span><small>Online · May 27–June 27, 2025</small></div><div><strong><i class="fa-solid fa-chalkboard-user"></i> Instructor</strong><span>Dipendranath Mahato</span><a href="mailto:dmahato@tulane.edu">dmahato@tulane.edu</a><small>Office hours: by appointment only (Zoom)</small></div><div><strong><i class="fa-solid fa-user-graduate"></i> Teaching assistant</strong><span>Nathaniel T. Vaduthala</span><a href="mailto:nvaduthala@tulane.edu">nvaduthala@tulane.edu</a><small>TA sessions: Tuesday &amp; Thursday, 3:00–4:00 PM (Zoom)</small><small>TA office hours: not specified</small></div></div><div class="summer-action-row"><button aria-controls="summer-schedule-dialog" aria-haspopup="dialog" class="summer-schedule-trigger" type="button"><i class="fa-solid fa-calendar-days"></i> View course schedule <i class="fa-solid fa-arrow-up-right-from-square"></i></button></div></div>
 </article>
 </div>
 </section>
@@ -574,13 +605,20 @@
 </div>
 <div class="semester-browser">
 <div aria-label="Select semester" class="semester-list" role="group">
-<button aria-pressed="true" class="term-button" data-term="Fall 2025" type="button">Fall 2025 <span>1</span>
+<button aria-pressed="true" class="term-button" data-term="Fall 2026" type="button">Fall 2026 <span>2</span></button><button aria-pressed="false" class="term-button" data-term="Fall 2025" type="button">Fall 2025 <span>1</span>
 </button>
 <button aria-pressed="false" class="term-button" data-term="Spring 2025" type="button">Spring 2025 <span>1</span>
 </button>
 </div>
-<div class="semester-content">
-<div class="term-panel" data-term="Fall 2025">
+<div class="semester-content"><div class="term-panel" data-term="Fall 2026"><section class="term-role"><h3>Mentoring <span class="role-count">2</span></h3><div class="term-items mentoring-list">
+<article class="mentoring-item" data-text="Dragos Gligor Babes Bolyai University Romania TWOPLES Fall 2026 mentoring algebra geometry combinatorics">
+<div class="mentoring-item-title"><span class="highlight">TWOPLES — Directed Mentoring</span></div><div class="mentoring-item-meta"><span class="pub-status pub-submitted">Dragos Gligor (Babeș-Bolyai University, Romania)</span> <span class="pub-status pub-preprint">Fall 2026</span></div>
+<div class="mentoring-item-desc"><p><strong>Areas of interest:</strong> Algebra and algebraic geometry, with additional interest in combinatorics. Previously participated in a Polymath Jr. commutative algebra project.</p></div></article>
+<article class="mentoring-item" data-text="Shazali Abdalla Fadul Adam Al Neelain University Sudan TWOPLES Fall 2026 mentoring algebra Galois theory algebraic geometry algebraic cohomology">
+<div class="mentoring-item-title"><span class="highlight">TWOPLES — Directed Mentoring</span></div><div class="mentoring-item-meta"><span class="pub-status pub-submitted">Shazali Abdalla Fadul Adam (Al-Neelain University, Sudan)</span> <span class="pub-status pub-preprint">Fall 2026</span></div>
+<div class="mentoring-item-desc"><p><strong>Areas of interest:</strong> Introductory algebra, Galois theory, algebraic geometry and algebraic cohomology, including connections between commutative algebra and combinatorial algebra.</p></div></article>
+</div></section></div>
+<div class="term-panel" data-term="Fall 2025" hidden="">
 <section class="term-role">
 <h3>Mentoring <span class="role-count">1</span>
 </h3>
@@ -806,880 +844,5 @@
       }));
     });
   </script>
-<div aria-labelledby="summer-modal-title" aria-modal="true" class="summer-schedule-overlay" hidden="" id="summer-schedule-dialog" role="dialog"><div class="summer-schedule-window"><div class="summer-modal-head"><div><small>SUMMER 2025 · MATH 1210</small><h2 id="summer-modal-title">Course Schedule</h2></div><button aria-label="Close schedule" class="summer-modal-close" type="button"><i class="fa-solid fa-xmark"></i></button></div><div class="summer-modal-scroll"><section class="schedule-grid-section" id="summer-schedule-content">
-<div class="schedule-grid-head">
-<h2 class="schedule-grid-title">
-<i class="fa-solid fa-calendar-days"></i> Summer 2025 - Calculus I : Course Schedule
-              </h2>
-<p class="schedule-grid-subtitle">Day-by-day outline with quick links to class notes.</p>
-</div>
-<!-- ===================== DAY 1 ===================== -->
-<section aria-label="Week 1" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 1</span>
-<span class="week-dates">Module 1 begins</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 05/27</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">Introduction</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.0-Introduction.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 05/27</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">1.1 Review of Functions</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.1-Review_of_Functions.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 2 ===================== -->
-<section aria-label="Week 1" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 2</span>
-<span class="week-dates">Modules 1</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Wed • 05/28</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">1.2 Basic Classes of Functions</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.2-Basics_of_Functions.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Wed • 05/28</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">1.3 Trigonometric Functions</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.3-Trigonometric_Functions.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 3 ===================== -->
-<section aria-label="Week 1" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 3</span>
-<span class="week-dates">Modules 2</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Thu • 05/29</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">1.4 Inverse Functions</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.4-Inverse_Functions.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Thu • 05/29</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">1.5 Exponential and Logarithmic Functions</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/1.5-Exponential_&amp;_Logarithmic_Functions.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 4 ===================== -->
-<section aria-label="Week 1" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 4</span>
-<span class="week-dates">Modules 2-3</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Fri • 05/30</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">2.1 A Preview of Calculus</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.1-A Preview of Calculus.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Fri • 05/30</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">2.2 The Limit of a Function</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.2-The Limit of a Function.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 5 ===================== -->
-<section aria-label="Week 1" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 5</span>
-<span class="week-dates">Modules 3</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Mon • 06/02</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">2.3 The Limit Laws</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.3-The Limit Laws.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Mon • 06/02</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">2.4 Continuity</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/2.4-Continuity.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 6 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 6</span>
-<span class="week-dates">Modules 4</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 06/03</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">3.1 Defining the Derivative</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.1-Defining the Derivative.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 06/03</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">3.2 The Derivative as a Function</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.2-The Derivative as a Function.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 7 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 7</span>
-<span class="week-dates">Modules 4</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Wed • 06/04</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">3.3 Differentiation Rules</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.3-Differentiation Rules.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Wed • 06/04</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">Midterm 1 Review</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/Midterm 1 Review.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 8- MIDTERM 1 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 8</span>
-<span class="week-dates">Midterm 1</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card exam">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Thu • 06/05</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic"><strong>Midterm 1</strong> (Modules 1,2,3)</div>
-<div class="meeting-meta">Assessment</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn exam">
-<i class="fa-solid fa-triangle-exclamation"></i> Midterm 1
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 9 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 9</span>
-<span class="week-dates">Modules 5</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Fri • 06/06</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">3.5 Derivatives of Trigonometric Functions</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.5-Derivatives of Trigonometric Functions.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Fri • 06/06</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">3.6 The Chain Rule</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.6-The Chain Rule.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 10 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 10</span>
-<span class="week-dates">Modules 5</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Mon • 06/09</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">3.7 The Chain Rule (Cont.)</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.7-The Chain Rule (Cont.).pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Mon • 06/09</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">3.8 Derivatives of Exp and Log Functions</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.8-Derivatives of Exponential &amp; Logarithmic Functions.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 11 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 11</span>
-<span class="week-dates">Modules 6</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 06/10</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">3.9 Derivatives as Rates of Change</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/3.9-Derivatives as Rates of Change.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 06/10</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">4.2 Linear Approximations and Differentials</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.2-Linear Approximations and Differentials.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 12 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 12</span>
-<span class="week-dates">Modules 7</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Wed • 06/11</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">4.3 Maxima and Minima</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.3-Maxima and Minima.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Wed • 06/11</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">4.5 Derivatives and the Shape of a Graph</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.5-Derivatives and the Shape of a Graph.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 13 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 13</span>
-<span class="week-dates">Modules 7-8</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Thu • 06/12</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">4.7 Applied Optimization Problems</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.7-Applied Optimization Problems.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Thu • 06/12</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">4.6 Limits at Infinity and Asymptotes</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.6-Limits at Infinity and Asymptotes.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 14 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 14</span>
-<span class="week-dates">Modules 8</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Fri • 06/13</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">4.8 L’Hôpital’s Rule</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.8-L’Hôspital’s Rule.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Fri • 06/13</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">4.10 Antiderivatives</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/4.10-Antiderivatives.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 15 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 15</span>
-<span class="week-dates">Modules 9</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Mon • 06/16</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">5.1 Approximating Areas</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.1-Approximating Areas.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Mon • 06/16</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">5.2 The Definite Integral</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.2-The Definite Integral.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 16 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 16</span>
-<span class="week-dates">Modules 9</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 06/17</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">5.3 The Fundamental Theorem of Calculus</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.3-The Fundamental Theorem of Calculus.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 06/17</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">Midterm 2 Review</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/Midterm 2 Review.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 17- MIDTERM 1 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 17</span>
-<span class="week-dates">Midterm 2</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card exam">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Wed • 06/18</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic"><strong>Midterm 2</strong> (Modules 4,5,6,7,8)</div>
-<div class="meeting-meta">Assessment</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn exam">
-<i class="fa-solid fa-triangle-exclamation"></i> Midterm 2
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 18 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 18</span>
-<span class="week-dates">Modules 9-10</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Thu • 06/19</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">5.3 The Fundamental Theorem of Calculus (Cont.)</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.3-The Fundamental Theorem of Calculus (Cont.).pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Thu • 06/19</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">5.4 Integration Formulas &amp; Net Change Theorem</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.4-Integration Formulas &amp; the Net Change Theorem.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 19 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 19</span>
-<span class="week-dates">Modules 10</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Fri • 06/20</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">5.5 Substitution</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.5-Substitution.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Fri • 06/20</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">5.6 Integrals Involving Exp and Log Functions</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.6-Integrals Involving Exponential &amp; Logarithmic Functions.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 20 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 20</span>
-<span class="week-dates">Modules 10</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Mon • 06/23</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">5.7 Integrals Resulting in Inverse Trig Functions</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/5.7-Integrals Resulting in Inverse Trigonometric Functions.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Mon • 06/23</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">6.1 Areas between Curves</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/6.1-Areas between Curves.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 21 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 21</span>
-<span class="week-dates">Modules 10</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 06/24</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">6.5 Physical Applications</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/6.5-Physical Applications.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 22 ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 22</span>
-<span class="week-dates">Modules 10</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Wed • 06/25</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic">Final Exam Review</div>
-<div class="meeting-meta">Calculus I</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn" href="/courses/calculus-i-summer2025/summer-notes/Review for the Finals.pdf" rel="noopener" target="_blank">
-<i class="fa-solid fa-file-lines"></i> Notes
-                    </a>
-</div>
-</article>
-</div>
-</section>
-<!-- ===================== DAY 23- Final Exam ===================== -->
-<section aria-label="Week 2" class="week-block">
-<div class="week-header">
-<div class="week-left">
-<span class="week-badge">Day 23</span>
-<span class="week-dates">Final Exam</span>
-</div>
-</div>
-<div class="meeting-grid">
-<article class="meeting-card exam">
-<div class="meeting-main">
-<div class="meeting-top">
-<div class="meeting-date">Tue • 06/20</div>
-<div class="meeting-module">—</div>
-</div>
-<div class="meeting-topic"><strong>	Final Exam (Cumulative)</strong></div>
-<div class="meeting-meta">Assessment</div>
-</div>
-<div class="meeting-actions">
-<a class="notes-btn exam">
-<i class="fa-solid fa-triangle-exclamation"></i> Final Exam
-                    </a>
-</div>
-</article>
-</div>
-</section>
-</section></div></div></div><script>(function(){const trigger=document.querySelector('.summer-schedule-trigger'),overlay=document.querySelector('.summer-schedule-overlay'),close=overlay?.querySelector('.summer-modal-close');if(!trigger||!overlay||!close)return;let previousFocus;function open(){previousFocus=document.activeElement;overlay.hidden=false;document.body.style.overflow='hidden';requestAnimationFrame(()=>overlay.classList.add('is-open'));close.focus()}function shut(){overlay.classList.remove('is-open');document.body.style.overflow='';setTimeout(()=>{overlay.hidden=true;previousFocus?.focus()},280)}trigger.addEventListener('click',open);close.addEventListener('click',shut);overlay.addEventListener('click',e=>{if(e.target===overlay)shut()});document.addEventListener('keydown',e=>{if(overlay.hidden)return;if(e.key==='Escape')shut();if(e.key==='Tab'){const f=[...overlay.querySelectorAll('button,a[href]')].filter(x=>x.getClientRects().length);if(!f.length)return;if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();f.at(-1).focus()}else if(!e.shiftKey&&document.activeElement===f.at(-1)){e.preventDefault();f[0].focus()}}})})();</script></body>
+<div aria-labelledby="summer-modal-title" aria-modal="true" class="summer-schedule-overlay" hidden="" id="summer-schedule-dialog" role="dialog"><div class="summer-schedule-window"><div class="summer-modal-head"><div><small>SUMMER 2025 · MATH 1210</small><h2 id="summer-modal-title">Course Schedule</h2></div><button aria-label="Close schedule" class="summer-modal-close" type="button"><i class="fa-solid fa-xmark"></i></button></div><div class="summer-modal-scroll"><div class="summer-schedule-intro"><p>May 27–June 27, 2025 · Monday–Friday · 11:00 AM–12:45 PM (online)</p><p>Exam dates are highlighted. Original handwritten notes remain on the <a href="/courses/calculus-i-summer2025/#handwritten-archive">course materials page</a>.</p></div><div class="summer-table-wrap"><table class="summer-compact-table"><thead><tr><th scope="col">Day</th><th scope="col">Date</th><th scope="col">Module</th><th scope="col">Class topics / assessment</th></tr></thead><tbody><tr><th scope="row">Day 1</th><td>Tue • 05/27</td><td>Module 1 begins</td><td>Introduction<br/>1.1 Review of Functions</td></tr><tr><th scope="row">Day 2</th><td>Wed • 05/28</td><td>Modules 1</td><td>1.2 Basic Classes of Functions<br/>1.3 Trigonometric Functions</td></tr><tr><th scope="row">Day 3</th><td>Thu • 05/29</td><td>Modules 2</td><td>1.4 Inverse Functions<br/>1.5 Exponential and Logarithmic Functions</td></tr><tr><th scope="row">Day 4</th><td>Fri • 05/30</td><td>Modules 2-3</td><td>2.1 A Preview of Calculus<br/>2.2 The Limit of a Function</td></tr><tr><th scope="row">Day 5</th><td>Mon • 06/02</td><td>Modules 3</td><td>2.3 The Limit Laws<br/>2.4 Continuity</td></tr><tr><th scope="row">Day 6</th><td>Tue • 06/03</td><td>Modules 4</td><td>3.1 Defining the Derivative<br/>3.2 The Derivative as a Function</td></tr><tr><th scope="row">Day 7</th><td>Wed • 06/04</td><td>Modules 4</td><td>3.3 Differentiation Rules<br/>Midterm 1 Review</td></tr><tr class="schedule-exam-row"><th scope="row">Day 8</th><td>Thu · 06/05</td><td>Midterm 1</td><td>Midterm 1 (Modules 1,2,3)</td></tr><tr><th scope="row">Day 9</th><td>Fri • 06/06</td><td>Modules 5</td><td>3.5 Derivatives of Trigonometric Functions<br/>3.6 The Chain Rule</td></tr><tr><th scope="row">Day 10</th><td>Mon • 06/09</td><td>Modules 5</td><td>3.7 The Chain Rule (Cont.)<br/>3.8 Derivatives of Exp and Log Functions</td></tr><tr><th scope="row">Day 11</th><td>Tue • 06/10</td><td>Modules 6</td><td>3.9 Derivatives as Rates of Change<br/>4.2 Linear Approximations and Differentials</td></tr><tr><th scope="row">Day 12</th><td>Wed • 06/11</td><td>Modules 7</td><td>4.3 Maxima and Minima<br/>4.5 Derivatives and the Shape of a Graph</td></tr><tr><th scope="row">Day 13</th><td>Thu • 06/12</td><td>Modules 7-8</td><td>4.7 Applied Optimization Problems<br/>4.6 Limits at Infinity and Asymptotes</td></tr><tr><th scope="row">Day 14</th><td>Fri • 06/13</td><td>Modules 8</td><td>4.8 L’Hôpital’s Rule<br/>4.10 Antiderivatives</td></tr><tr><th scope="row">Day 15</th><td>Mon • 06/16</td><td>Modules 9</td><td>5.1 Approximating Areas<br/>5.2 The Definite Integral</td></tr><tr><th scope="row">Day 16</th><td>Tue • 06/17</td><td>Modules 9</td><td>5.3 The Fundamental Theorem of Calculus<br/>Midterm 2 Review</td></tr><tr class="schedule-exam-row"><th scope="row">Day 17</th><td>Wed • 06/18</td><td>Midterm 2</td><td>Midterm 2 (Modules 4,5,6,7,8)</td></tr><tr><th scope="row">Day 18</th><td>Thu • 06/19</td><td>Modules 9-10</td><td>5.3 The Fundamental Theorem of Calculus (Cont.)<br/>5.4 Integration Formulas &amp; Net Change Theorem</td></tr><tr><th scope="row">Day 19</th><td>Fri • 06/20</td><td>Modules 10</td><td>5.5 Substitution<br/>5.6 Integrals Involving Exp and Log Functions</td></tr><tr><th scope="row">Day 20</th><td>Mon • 06/23</td><td>Modules 10</td><td>5.7 Integrals Resulting in Inverse Trig Functions<br/>6.1 Areas between Curves</td></tr><tr><th scope="row">Day 21</th><td>Tue • 06/24</td><td>Modules 10</td><td>6.5 Physical Applications</td></tr><tr><th scope="row">Day 22</th><td>Wed • 06/25</td><td>Modules 10</td><td>Final Exam Review</td></tr><tr class="schedule-exam-row"><th scope="row">Day 23</th><td>Fri · 06/27</td><td>Final Exam</td><td>Final Exam (Cumulative)</td></tr></tbody></table></div></div></div></div><script>(function(){const trigger=document.querySelector('.summer-schedule-trigger'),overlay=document.querySelector('.summer-schedule-overlay'),close=overlay?.querySelector('.summer-modal-close');if(!trigger||!overlay||!close)return;let previousFocus;function open(){previousFocus=document.activeElement;overlay.hidden=false;document.body.style.overflow='hidden';requestAnimationFrame(()=>overlay.classList.add('is-open'));close.focus()}function shut(){overlay.classList.remove('is-open');document.body.style.overflow='';setTimeout(()=>{overlay.hidden=true;previousFocus?.focus()},280)}trigger.addEventListener('click',open);close.addEventListener('click',shut);overlay.addEventListener('click',e=>{if(e.target===overlay)shut()});document.addEventListener('keydown',e=>{if(overlay.hidden)return;if(e.key==='Escape')shut();if(e.key==='Tab'){const f=[...overlay.querySelectorAll('button,a[href]')].filter(x=>x.getClientRects().length);if(!f.length)return;if(e.shiftKey&&document.activeElement===f[0]){e.preventDefault();f.at(-1).focus()}else if(!e.shiftKey&&document.activeElement===f.at(-1)){e.preventDefault();f[0].focus()}}})})();</script></body>
 </html>
