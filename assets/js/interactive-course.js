@@ -18,7 +18,6 @@ function paintMapping(invalid=false){
  const paths=curves.map(([a,b],i)=>`<path d="M 192 ${ys[a]} C 273 ${ys[a]}, 341 ${ys[b]}, 420 ${ys[b]}" fill="none" stroke="${invalid&&i===3?'#be5c2c':'#16845e'}" stroke-width="${invalid&&i===3?3:2.7}" marker-end="url(#calc-arrow)"/>`).join('');
  map.innerHTML=`<defs><marker id="calc-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1 L7 4 L1 7" fill="none" stroke="#16845e" stroke-width="1.5"/></marker></defs>
  <rect x="40" y="16" width="195" height="178" rx="72" fill="#e7f3ee" stroke="#85b4a2" stroke-width="2"/><rect x="382" y="16" width="190" height="178" rx="72" fill="#eff5fb" stroke="#93b6d2" stroke-width="2"/>
- <text x="125" y="16" fill="#14583f" font-size="13" font-weight="bold">DOMAIN</text><text x="440" y="16" fill="#195280" font-size="13" font-weight="bold">CODOMAIN</text>
  ${paths}${xs.map((y,i)=>`<circle cx="151" cy="${ys[i]}" r="16" fill="#fff" stroke="#578e73"/><text x="151" y="${ys[i]+5}" text-anchor="middle" font-size="14" fill="#1c4838">${i+1}</text>`).join('')}
  ${xsR.map((y,i)=>`<circle cx="483" cy="${y}" r="16" fill="#fff" stroke="#6699bd"/><text x="483" y="${y+5}" text-anchor="middle" font-size="14" fill="#1c4838">${[2,4,6][i]}</text>`).join('')}`;
  mapText.textContent=invalid?'Not a function: input 2 is assigned two outputs (2 and 6). A single input must never have two outputs.':'A valid function: inputs 2 and 3 both lead to output 6. Sharing an output is allowed; leaving a codomain value unused is also allowed.';
@@ -42,8 +41,45 @@ function transform(x,y,w,h,b){return [35+(x-b.left)/(b.right-b.left)*(w-49),14+(
 function line(ctx,w,h,b,fn,color,min,max,step=.023){ctx.beginPath();let started=false;ctx.lineWidth=3;ctx.strokeStyle=color;for(let x=min;x<=max;x+=step){const y=fn(x);if(!Number.isFinite(y)||y>b.top+1||y<b.bottom-1){started=false;continue}const [px,py]=transform(x,y,w,h,b);if(!started){ctx.moveTo(px,py);started=true}else ctx.lineTo(px,py)}ctx.stroke()}
 function mark(ctx,x,y,w,h,b,color,filled=true){const [px,py]=transform(x,y,w,h,b);ctx.beginPath();ctx.arc(px,py,6,0,Math.PI*2);ctx.fillStyle=filled?color:'#fff';ctx.strokeStyle=color;ctx.lineWidth=3;ctx.fill();ctx.stroke()}
 const graph=$('#calc-graph'),graphctx=canvasContext(graph),sx=$('#calc-point-x'),so=$('#calc-point-output'),showF=$('#calc-show-f'),showG=$('#calc-show-g');
-function drawGraph(){if(!graphctx||!sx||!so||!showF||!showG)return;const {ctx,w,h}=graphctx,b={left:-6,right:6,top:15,bottom:-5};ctx.clearRect(0,0,w,h);ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);axis(ctx,w,h,b);if(showF.checked)line(ctx,w,h,b,x=>x*x-4,'#d05e42',-6,6);if(showG.checked){line(ctx,w,h,b,x=>Math.sqrt(x*x-4),'#155ac5',-6,-2);line(ctx,w,h,b,x=>Math.sqrt(x*x-4),'#155ac5',2,6)}const x=Number(sx.value);const f=x*x-4,rad=x*x-4; if(showF.checked&&f<=b.top){}else if(showF.checked)mark(ctx,x,f,w,h,b,'#d05e42');if(showG.checked&&rad>=0)mark(ctx,x,Math.sqrt(rad),w,h,b,'#155ac5');const [px]=transform(x,0,w,h,b);ctx.strokeStyle='#c7931d';ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(px,14);ctx.lineTo(px,h-27);ctx.stroke();ctx.setLineDash([]);so.textContent=`x = ${safe(x)} | f(x) = ${safe(f)} | g(x) = ${rad>=0?safe(Math.sqrt(rad)):'not real'}`}
-[sx,showF,showG].forEach(x=>x?.addEventListener('input',drawGraph));drawGraph();
+const scaleX=$('#calc-scale-x'),scaleY=$('#calc-scale-y'),scaleXOut=$('#calc-scale-x-output'),scaleYOut=$('#calc-scale-y-output'),resetScale=$('#calc-scale-reset');
+function drawGraph(){
+ if(!graphctx||!sx||!so||!showF||!showG)return;
+ const {ctx,w,h}=graphctx, extent=Number(scaleX?.value||6), top=Number(scaleY?.value||15), bottom=-Math.max(5,Math.round(top/3));
+ const b={left:-extent,right:extent,top,bottom};
+ sx.min=-extent;sx.max=extent;
+ if(Number(sx.value)<-extent)sx.value=String(-extent);
+ if(Number(sx.value)>extent)sx.value=String(extent);
+ if(scaleXOut)scaleXOut.textContent=`−${extent} to ${extent}`;
+ if(scaleYOut)scaleYOut.textContent=`${bottom} to ${top}`;
+ ctx.clearRect(0,0,w,h);ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);
+ // Adaptive grid/ticks for zoomed-out graphs.
+ const tickX=extent>8?2:1,tickY=(top-bottom)>30?5:2;
+ ctx.strokeStyle='#e1ebe5';ctx.lineWidth=.8;ctx.font='12px system-ui';ctx.fillStyle='#556b60';
+ for(let x=Math.ceil(b.left/tickX)*tickX;x<=b.right;x+=tickX){const [px]=transform(x,0,w,h,b);ctx.beginPath();ctx.moveTo(px,14);ctx.lineTo(px,h-27);ctx.stroke();ctx.fillText(String(x),px-5,h-7)}
+ for(let y=Math.ceil(b.bottom/tickY)*tickY;y<=b.top;y+=tickY){const [,py]=transform(0,y,w,h,b);ctx.beginPath();ctx.moveTo(35,py);ctx.lineTo(w-14,py);ctx.stroke();ctx.fillText(String(y),6,py+4)}
+ const [zx,zy]=transform(0,0,w,h,b);ctx.strokeStyle='#4d6e5e';ctx.lineWidth=1.6;ctx.beginPath();ctx.moveTo(zx,14);ctx.lineTo(zx,h-27);ctx.moveTo(35,zy);ctx.lineTo(w-14,zy);ctx.stroke();
+ if(showF.checked)line(ctx,w,h,b,x=>x*x-4,'#d05e42',b.left,b.right);
+ if(showG.checked){if(b.left<=-2)line(ctx,w,h,b,x=>Math.sqrt(x*x-4),'#155ac5',b.left,Math.min(-2,b.right));if(b.right>=2)line(ctx,w,h,b,x=>Math.sqrt(x*x-4),'#155ac5',Math.max(2,b.left),b.right)}
+ const x=Number(sx.value),f=x*x-4,rad=x*x-4,values=[`x = ${safe(x)}`];
+ if(showF.checked){values.push(`f(x) = ${safe(f)}`);if(f>=b.bottom&&f<=b.top)mark(ctx,x,f,w,h,b,'#d05e42')}
+ if(showG.checked){values.push(`g(x) = ${rad>=0?safe(Math.sqrt(rad)):'not real at this input'}`);if(rad>=0&&Math.sqrt(rad)<=b.top)mark(ctx,x,Math.sqrt(rad),w,h,b,'#155ac5')}
+ if(!showF.checked&&!showG.checked)values.push('Select at least one function to display');
+ const [px]=transform(x,0,w,h,b);ctx.strokeStyle='#c7931d';ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(px,14);ctx.lineTo(px,h-27);ctx.stroke();ctx.setLineDash([]);
+ so.textContent=values.join('   |   ');
+ root.querySelectorAll('[data-legend-function]').forEach(el=>{el.hidden=el.dataset.legendFunction==='f'?!showF.checked:!showG.checked});
+}
+[sx,showF,showG,scaleX,scaleY].forEach(el=>el?.addEventListener('input',drawGraph));
+resetScale?.addEventListener('click',()=>{if(scaleX)scaleX.value='6';if(scaleY)scaleY.value='15';sx.value='2';drawGraph()});drawGraph();
+// A finite domain produces isolated points even when the formula has a continuous extension.
+const discrete=$('#calc-discrete-graph'),disctx=canvasContext(discrete),continuous=$('#calc-show-continuous'),discreteFeedback=$('#calc-discrete-feedback');
+function drawDiscrete(){
+ if(!disctx)return;const {ctx,w,h}=disctx,b={left:-3,right:3,bottom:-1,top:5.5};
+ ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);axis(ctx,w,h,b);
+ if(continuous?.checked){line(ctx,w,h,b,x=>x*x,'#8aadc7',-Math.sqrt(5.5),Math.sqrt(5.5),.015)}
+ for(const x of [-2,-1,0,1,2])mark(ctx,x,x*x,w,h,b,'#087752',true);
+ if(discreteFeedback)discreteFeedback.textContent=continuous?.checked?'The pale curve shows y = x² on all real inputs. The five dark points are the original discrete-domain function.':'Exactly five isolated points appear because the domain consists of five permitted inputs.';
+}
+continuous?.addEventListener('change',drawDiscrete);drawDiscrete();
 const piece=$('#calc-piecewise-graph'),piec=canvasContext(piece),ps=$('#calc-piecewise-x'),pf=$('#calc-piecewise-feedback');
 function drawPiece(){if(!piec||!ps||!pf)return;const {ctx,w,h}=piec,b={left:0,right:7,top:22,bottom:-8};ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);axis(ctx,w,h,b);line(ctx,w,h,b,x=>-x,'#d05e42',0,4);line(ctx,w,h,b,x=>x*x,'#155ac5',4,Math.sqrt(b.top));mark(ctx,4,-4,w,h,b,'#d05e42',false);mark(ctx,4,16,w,h,b,'#155ac5',false);mark(ctx,4,0,w,h,b,'#16845e',true);const x=Number(ps.value),y=x<4?-x:x===4?0:x*x;const branch=x<4?'−x (x < 4)':x===4?'0 (x = 4)':'x² (x > 4)';if(y<=b.top&&y>=b.bottom)mark(ctx,x,y,w,h,b,'#efaa1a');pf.textContent=`h(${safe(x)}) = ${safe(y)} · Rule: ${branch}`}
 ps?.addEventListener('input',drawPiece);drawPiece();
@@ -78,5 +114,27 @@ function drawVertical(){
 }
 verticalX?.addEventListener('input',drawVertical);
 verticalButtons.forEach(b=>b.addEventListener('click',()=>{verticalMode=b.dataset.verticalMode;drawVertical()}));drawVertical();
+
+// Anchor navigation into collapsed chapters: a TOC/hero link should open its chapter first.
+const expandForHash = (hash, scroll=false) => {
+  if (!hash || hash[0] !== '#') return;
+  const anchor = document.getElementById(decodeURIComponent(hash.slice(1)));
+  if (!anchor || !root.contains(anchor)) return;
+  const panel = anchor.closest('.calc-chapter-fold');
+  if (panel && !panel.open) panel.open = true;
+  if (scroll) requestAnimationFrame(() => anchor.scrollIntoView({behavior:'smooth',block:'start'}));
+};
+root.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click', event=>{
+  let hash=link.getAttribute('href');
+  const target=document.getElementById(hash.slice(1));
+  if (!target || !root.contains(target)) return;
+  if (target.closest('.calc-chapter-fold')) {
+    event.preventDefault();
+    expandForHash(hash,true);
+    history.replaceState(null,'',hash);
+  }
+}));
+window.addEventListener('hashchange',()=>expandForHash(location.hash,true));
+expandForHash(location.hash,false);
 });
 })();
