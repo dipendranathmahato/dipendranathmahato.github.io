@@ -25,7 +25,7 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="assets/css/homepage.css?v=20261022" />
+  <link rel="stylesheet" href="assets/css/homepage.css?v=20261023" />
 
   <style>
   /* Mobile: keep Elevator Pitch in normal flow BELOW Memberships,
@@ -195,7 +195,6 @@
                       <span class="membership-fallback">MAA</span>
                     </a>
                   </div>
-                  <p class="membership-credit">MAA logo: <a href="https://commons.wikimedia.org/wiki/File:MAA_Brand_Mark.png" target="_blank" rel="noopener">Kmorrismaa / CC BY-SA 4.0</a>. Logos link to their respective societies; membership does not imply their endorsement.</p>
                 </div>
               </div>
 
@@ -224,40 +223,66 @@
           </div>
         </section>
 
-        <!-- Substantive featured work, not a duplicate navigation menu. -->
-        <section class="home-featured" aria-labelledby="featured-heading">
+        <!-- Research directions and current teaching; no redundant navigation menu. -->
+        <section class="home-featured home-research-teaching" aria-labelledby="current-research-heading">
           <div class="home-featured-head">
             <div>
-              <span class="home-featured-eyebrow">From research to the classroom</span>
-              <h2 id="featured-heading">Selected work &amp; learning resources</h2>
-              <p>A few starting points for exploring the mathematics I study and teach.</p>
+              <span class="home-featured-eyebrow">Research directions</span>
+              <h2 id="current-research-heading">Current Research Interests</h2>
+              <p>Three areas I am currently exploring at the intersection of algebra, geometry, and combinatorics.</p>
             </div>
           </div>
-          <div class="home-featured-grid">
+          <div class="home-featured-grid home-research-cards">
             <article class="home-feature-card">
-              <span class="feature-type"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Research</span>
-              <h3>Rational symbolic powers of ideals</h3>
-              <p>A framework combining symbolic powers and rational powers, with connections to containments and convex-geometric methods.</p>
-              <a href="https://arxiv.org/abs/2511.02732" target="_blank" rel="noopener">Explore the preprint <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              <span class="feature-type"><i class="fa-solid fa-brain" aria-hidden="true"></i> Neural algebra</span>
+              <h3>Neural Ideals</h3>
+              <p>Studying the algebraic and combinatorial structure of neural codes through their associated ideals, relations, and receptive-field patterns.</p>
+              <a href="research.html">Research overview <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </article>
             <article class="home-feature-card">
-              <span class="feature-type"><i class="fa-solid fa-shapes" aria-hidden="true"></i> Research</span>
-              <h3>Demailly’s conjecture &amp; projective points</h3>
-              <p>Lower bounds and interpolation questions for general and very general points in projective space.</p>
-              <a href="https://arxiv.org/abs/2409.08535" target="_blank" rel="noopener">Explore the preprint <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              <span class="feature-type"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Commutative algebra</span>
+              <h3>Containment Problems</h3>
+              <p>Exploring containments between ordinary, symbolic, and rational symbolic powers of ideals and their connections to algebraic invariants.</p>
+              <a href="research.html">Research overview <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </article>
             <article class="home-feature-card">
-              <span class="feature-type"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Teaching</span>
-              <h3>Interactive Calculus I notes</h3>
-              <p>Definitions, visual demonstrations, guided examples, and practice with explanatory feedback, alongside original lecture notes.</p>
-              <a href="courses/calculus-i-summer2025/">Explore the learning material <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <span class="feature-type"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Graphs &amp; ideals</span>
+              <h3>Binomial Edge Ideals</h3>
+              <p>Investigating graph-associated binomial ideals and the relationships between the structure of a graph and algebraic properties of its ideal.</p>
+              <a href="research.html">Research overview <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </article>
           </div>
-          <p class="home-next-directions"><i class="fa-solid fa-compass" aria-hidden="true"></i>
-             <strong>Further directions:</strong> neural ideals, matroids in commutative algebra, and algebraic coding theory.</p>
+
+          <div class="home-featured-head home-teaching-head">
+            <div>
+              <span class="home-featured-eyebrow">Teaching · Fall 2026</span>
+              <h2 id="current-teaching-heading">Teaching at UTRGV</h2>
+              <p>My current undergraduate mathematics courses at the University of Texas Rio Grande Valley.</p>
+            </div>
+          </div>
+          <div class="home-featured-grid home-teaching-cards" aria-labelledby="current-teaching-heading">
+            <article class="home-feature-card home-teaching-card">
+              <span class="feature-type"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> MATH 1314</span>
+              <h3>College Algebra</h3>
+              <p>Fall 2026 · Section 204</p>
+              <a href="teaching.html#teaching">View teaching details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </article>
+            <article class="home-feature-card home-teaching-card">
+              <span class="feature-type"><i class="fa-solid fa-square-root-variable" aria-hidden="true"></i> MATH 2412</span>
+              <h3>Precalculus</h3>
+              <p>Fall 2026 · Sections 06, 804 &amp; 805</p>
+              <a href="teaching.html#teaching">View teaching details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </article>
+          </div>
         </section>
 
         <div class="footer" data-shared-template="footer"></div>
+        <details class="home-page-credits">
+          <summary>Image credits</summary>
+          <p>MAA logo: <a href="https://commons.wikimedia.org/wiki/User:Kmorrismaa" target="_blank" rel="noopener noreferrer">Kmorrismaa</a> ·
+             <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> ·
+             <a href="https://commons.wikimedia.org/wiki/File:MAA_Brand_Mark.png" target="_blank" rel="noopener noreferrer">Source image</a>.</p>
+        </details>
       </section>
     </main>
   </div>
