@@ -68,3 +68,17 @@
 
 /* Keep the favorite quotation readable immediately instead of delaying its appearance. */
 .home-favorite-quote { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+/* Homepage: three research cards and two teaching cards. */
+.home-research-teaching .home-teaching-head { margin-top: 28px; }
+.home-research-teaching .home-teaching-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.home-research-teaching .home-teaching-card { border-left: 3px solid var(--accent); }
+.home-research-teaching .home-teaching-card p { flex: 1; }
+.home-page-credits { margin: 3px 0 16px; color: var(--muted); font-size: .71rem; line-height: 1.55; }
+.home-page-credits summary { display: inline-block; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.home-page-credits p { margin: 6px 0 0; }
+.home-page-credits a { color: var(--accent); }
+.home-page-credits a:hover, .home-page-credits a:focus-visible { text-decoration: underline; }
+@media (max-width: 650px) {
+  .home-research-teaching .home-teaching-cards { grid-template-columns: minmax(0, 1fr); }
+}
