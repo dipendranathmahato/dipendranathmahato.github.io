@@ -135,7 +135,7 @@
   const FOOTER = `
 <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
-          Made on <a href="https://pages.github.com/">GitHub Pages</a>.
+          Made with <a href="https://pages.github.com/">GitHub Pages</a> · Enhanced with <a href="https://chatgpt.com/">ChatGPT</a>.
         </div>
 `;
   function mount(selector, markup) {
@@ -156,32 +156,48 @@
   mount("header.top-nav", HEADER);
   mount("aside.sidebar", SIDEBAR);
   mount(".footer", FOOTER);
-  // One visit per browser session, shared across all pages on this origin.
-  // This is a local browser counter, not a site-wide visitor total.
-  try {
-    const key = "dm-browser-visits";
-    const sessionKey = "dm-visit-counted";
-    let visits = Number(localStorage.getItem(key)) || 0;
-    if (!sessionStorage.getItem(sessionKey)) {
-      visits += 1;
-      localStorage.setItem(key, String(visits));
-      sessionStorage.setItem(sessionKey, "1");
-    }
+  const footerYear = document.getElementById("year");
+  if (footerYear) footerYear.textContent = String(new Date().getFullYear());
+  // Cross-visitor, cross-page counter (one increment per browser tab session).
+  // GitHub Pages cannot persist a true global count on its own. CounterAPI.com
+  // supplies the external storage. Historical visits before launch cannot be
+  // recovered. No private API token is embedded in the site.
+  function addSiteVisitsCounter() {
     const sidebar = document.querySelector("aside.sidebar");
-    if (sidebar) {
-      const counter = document.createElement("div");
-      counter.className = "sidebar-section";
-      const label = document.createElement("h3");
-      label.textContent = "Visits on this browser";
-      const value = document.createElement("p");
-      value.style.cssText = "font-size:1.4rem;font-weight:800;margin:.3rem 0";
-      value.textContent = visits.toLocaleString();
-      counter.append(label, value);
-      sidebar.append(counter);
+    if (!sidebar) return;
+    const counter = document.createElement("section");
+    counter.className = "sidebar-section sitewide-visit-counter";
+    counter.setAttribute("aria-label", "Site-wide visit count");
+    counter.innerHTML = `
+      <h3><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> All-time site visits</h3>
+      <p class="sitewide-count" aria-live="polite">—</p>
+      <p class="sitewide-note">Since public counting began · one visit per browsing session</p>`;
+    sidebar.append(counter);
+    const label = counter.querySelector(".sitewide-count");
+    if (!/^(?:www\.)?dipendranathmahato\.com$|^dipendranathmahato\.github\.io$/i.test(location.hostname)) {
+      label.textContent = "Live site only";
+      return;
     }
-  } catch (_) {
-    // Storage can be disabled; omit the counter in that case.
+    let alreadyCounted = false;
+    try { alreadyCounted = sessionStorage.getItem("dm-sitewide-visit-v1") === "1"; }
+    catch (_) { /* private browsing can disable sessionStorage */ }
+    const endpoint = "https://counterapi.com/api/dipendranathmahato.com/view/all-pages";
+    const query = alreadyCounted ? "?readOnly=true" : "";
+    fetch(endpoint + query, { mode: "cors", cache: "no-store" })
+      .then(response => { if (!response.ok) throw new Error("counter unavailable"); return response.json(); })
+      .then(data => {
+        if (typeof data.value !== "number" || !Number.isFinite(data.value)) throw new Error("invalid count");
+        label.textContent = data.value.toLocaleString();
+        if (!alreadyCounted) {
+          try { sessionStorage.setItem("dm-sitewide-visit-v1", "1"); } catch (_) {}
+        }
+      })
+      .catch(() => {
+        label.textContent = "Unavailable";
+        label.title = "The external visit counter could not be reached. No local number is substituted.";
+      });
   }
+  addSiteVisitsCounter();
 
   const current = new URL(location.href);
   const isCourse = current.pathname.includes("/courses/");
