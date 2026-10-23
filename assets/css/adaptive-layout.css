@@ -1,0 +1,80 @@
+/* Global responsive desktop/tablet layout — loaded for every shared-template page. */
+:root { --site-content-width: 2160px; }
+html, body { max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+.page {
+  width: 100%;
+  max-width: var(--site-content-width);
+  padding-inline: clamp(12px, 1.8vw, 40px);
+  margin: clamp(14px, 2vw, 36px) auto 48px;
+}
+.layout {
+  display: grid;
+  grid-template-columns: clamp(250px, 22.5vw, 350px) minmax(0, 1fr);
+  column-gap: clamp(14px, 1.6vw, 30px);
+  align-items: start;
+}
+.layout > *, .main, .card, .card-body, .institution-panel,
+.term-panel, .semester-content, .course-page .calc-book-layout,
+.course-page .calc-main-layout { min-width: 0; }
+.sidebar { width: 100%; padding: clamp(16px, 1.3vw, 25px); }
+.sidebar .avatar { width: min(100%, 260px); height: auto; aspect-ratio: 1 / 1; }
+.sidebar .avatar img { height: 100%; width: 100%; object-fit: cover; }
+.sidebar .info-list a, .sidebar .affiliation { overflow-wrap: anywhere; }
+.top-nav { gap: clamp(8px, 1.2vw, 20px); padding-inline: clamp(12px, 1.3vw, 22px); }
+.top-nav .brand, .top-nav .controls { flex-shrink: 0; }
+.top-nav-links { min-width: 0; gap: clamp(7px, 0.85vw, 18px); }
+.top-nav .brand-name-link { white-space: nowrap; }
+.main img, .main video, .main iframe { max-width: 100%; }
+.main pre, .main code { overflow-wrap: anywhere; }
+.main :is(.card, .term-panel, .home-feature-card, .meeting-card) { max-width: 100%; }
+/* Keep course books and charts inside the readable content area. */
+.course-page .calc-plot, .course-page .calc-demo,
+.course-page .calc-graph-frame, .course-page canvas, .course-page svg { max-width: 100%; }
+.course-page .calc-table-scroll, .course-page .calc-table-wrap,
+.main .responsive-table { overflow-x: auto; max-width: 100%; }
+
+/* Medium desktop aspect ratios: allow the nav to occupy an additional row
+   rather than squeeze the right-side content or spill past the viewport. */
+@media (min-width: 901px) and (max-width: 1270px) {
+  .top-nav { flex-wrap: wrap; border-radius: 24px; }
+  .top-nav .top-nav-links { order: 3; flex-basis: 100%; justify-content: center; flex-wrap: wrap; }
+  .top-nav .controls { margin-left: auto; }
+  .layout { grid-template-columns: clamp(244px, 26vw, 300px) minmax(0, 1fr); }
+}
+/* Widescreen: larger content region, proportional gaps and balanced type. */
+@media (min-width: 1650px) {
+  .layout { grid-template-columns: clamp(295px, 19.5vw, 355px) minmax(0, 1fr); }
+  .card-body { font-size: clamp(.9rem, .8vw, 1rem); }
+  .top-nav-links { font-size: clamp(.91rem, .75vw, 1rem); }
+}
+/* Existing mobile behavior remains stacked; eliminate accidental clipping. */
+@media (max-width: 900px) {
+  .page { padding-inline: clamp(9px, 2vw, 18px); }
+  .layout { display: flex !important; flex-direction: column !important; gap: 14px; }
+  .layout > .sidebar, .layout > .main { width: 100%; min-width: 0; max-width: none; }
+  .sidebar { position: static; }
+  .top-nav { max-width: 100%; }
+  .course-page .calc-book-layout, .course-page .calc-main-layout { max-width: 100%; }
+}
+@media (max-width: 520px) {
+  .main, .card, .card-body { min-width: 0; }
+  .card { border-radius: 16px; }
+  .top-nav { padding-inline: 10px; }
+}
+/* Use one consistent, accessible counter footprint on both themes. */
+.sitewide-visit-counter .sitewide-count { display: flex; align-items: center; min-height: 29px; margin: .4rem 0 0; }
+.sitewide-visit-counter .sitewide-count-badge { height: auto; max-width: min(100%, 160px); display: none; }
+.sitewide-visit-counter .sitewide-count.has-image .sitewide-count-badge { display: block; }
+.sitewide-visit-counter .sitewide-count.has-image .sitewide-placeholder { display: none; }
+.sitewide-visit-counter .sitewide-placeholder { font-size: 1.3rem; font-weight: 750; color: var(--muted); }
+/* CV section contains long academic references; do not let min-content size push
+   its main column beyond a narrow screen. */
+.cv-main, .cv-main .content-card, .cv-main .cv-title-row,
+.cv-main .cv-mini-nav, .cv-main .cv-mini-collapsible,
+.cv-main .cv-grid2, .cv-main .cv-item {
+  min-width: 0;
+  max-width: 100%;
+}
+.cv-main { width: 100%; }
+.cv-main :is(p, li, a, .m) { overflow-wrap: anywhere; }
