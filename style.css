@@ -3336,3 +3336,8 @@ html[data-theme="dark"] body.presentations-page
     filter: brightness(1.1);
   }
 }
+
+/* Shared cross-page visit counter in the sidebar. */
+.sitewide-visit-counter h3 i { margin-right: 5px; }
+.sitewide-visit-counter .sitewide-count { font-size: 1.42rem; font-weight: 850; color: var(--text); margin: .3rem 0 0; font-variant-numeric: tabular-nums; }
+.sitewide-visit-counter .sitewide-note { font-size: .68rem; line-height: 1.5; margin: .25rem 0 0; color: var(--muted); }
