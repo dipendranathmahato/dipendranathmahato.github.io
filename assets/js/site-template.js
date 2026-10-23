@@ -158,46 +158,63 @@
   mount(".footer", FOOTER);
   const footerYear = document.getElementById("year");
   if (footerYear) footerYear.textContent = String(new Date().getFullYear());
-  // Cross-visitor, cross-page counter (one increment per browser tab session).
-  // GitHub Pages cannot persist a true global count on its own. CounterAPI.com
-  // supplies the external storage. Historical visits before launch cannot be
-  // recovered. No private API token is embedded in the site.
+  // Site-wide public count: all pages use the same CounterAPI namespace and key.
+  // An image-based endpoint avoids CORS restrictions on JavaScript fetches.
+  // No number is invented if the independent counting service is unreachable.
   function addSiteVisitsCounter() {
     const sidebar = document.querySelector("aside.sidebar");
     if (!sidebar) return;
-    const counter = document.createElement("section");
-    counter.className = "sidebar-section sitewide-visit-counter";
-    counter.setAttribute("aria-label", "Site-wide visit count");
-    counter.innerHTML = `
-      <h3><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> All-time site visits</h3>
-      <p class="sitewide-count" aria-live="polite">—</p>
-      <p class="sitewide-note">Since public counting began · one visit per browsing session</p>`;
-    sidebar.append(counter);
-    const label = counter.querySelector(".sitewide-count");
-    if (!/^(?:www\.)?dipendranathmahato\.com$|^dipendranathmahato\.github\.io$/i.test(location.hostname)) {
-      label.textContent = "Live site only";
-      return;
-    }
-    let alreadyCounted = false;
-    try { alreadyCounted = sessionStorage.getItem("dm-sitewide-visit-v1") === "1"; }
-    catch (_) { /* private browsing can disable sessionStorage */ }
-    const endpoint = "https://counterapi.com/api/dipendranathmahato.com/view/all-pages";
-    const query = alreadyCounted ? "?readOnly=true" : "";
-    fetch(endpoint + query, { mode: "cors", cache: "no-store" })
-      .then(response => { if (!response.ok) throw new Error("counter unavailable"); return response.json(); })
-      .then(data => {
-        if (typeof data.value !== "number" || !Number.isFinite(data.value)) throw new Error("invalid count");
-        label.textContent = data.value.toLocaleString();
-        if (!alreadyCounted) {
-          try { sessionStorage.setItem("dm-sitewide-visit-v1", "1"); } catch (_) {}
-        }
-      })
-      .catch(() => {
-        label.textContent = "Unavailable";
-        label.title = "The external visit counter could not be reached. No local number is substituted.";
-      });
+    const block = document.createElement("section");
+    block.className = "sidebar-section sitewide-visit-counter";
+    block.setAttribute("aria-label", "All-time site visits");
+    block.innerHTML = `<h3><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> All-time site visits</h3>
+      <div class="sitewide-count"><span class="sitewide-placeholder" aria-hidden="true">—</span></div>`;
+    sidebar.append(block);
+
+    // Only public domain visits are counted; local previews do not inflate the total.
+    if (!/^(?:www\.)?dipendranathmahato\.com$|^dipendranathmahato\.github\.io$/i.test(location.hostname)) return;
+    const slot = block.querySelector(".sitewide-count");
+    const image = document.createElement("img");
+    image.className = "sitewide-count-badge";
+    image.alt = "Site-wide visit total";
+    image.decoding = "async";
+    image.referrerPolicy = "no-referrer";
+
+    // Use existing session key to preserve continuity from the previous counter.
+    let seen = false;
+    try { seen = sessionStorage.getItem("dm-sitewide-visit-v1") === "1"; } catch (_) {}
+    const args = new URLSearchParams({
+      ns: "dipendranathmahato.com", action: "view", key: "all-pages",
+      readOnly: seen ? "true" : "false",
+      style: "flat", label: "visits", color: "146b4b",
+      labelColor: "e2f3e9", noAnim: "true",
+      // Bypass stale image caches so published totals can refresh.
+      v: String(Date.now())
+    });
+    image.addEventListener("load", () => {
+      slot.classList.add("has-image");
+      if (!seen) {
+        try { sessionStorage.setItem("dm-sitewide-visit-v1", "1"); } catch (_) {}
+      }
+    });
+    image.addEventListener("error", () => {
+      image.remove();
+      slot.title = "The independent visit-counting service is temporarily unreachable.";
+    });
+    image.src = "https://counterapi.com/counter.svg?" + args.toString();
+    slot.append(image);
   }
   addSiteVisitsCounter();
+
+  // One shared responsive layer applies to homepage, teaching, research and
+  // all course pages, including those that load a different base stylesheet.
+  if (!document.querySelector('link[data-adaptive-site]')) {
+    const adaptive = document.createElement('link');
+    adaptive.rel = 'stylesheet';
+    adaptive.dataset.adaptiveSite = 'true';
+    adaptive.href = new URL('assets/css/adaptive-layout.css?v=20261023a', siteRoot).href;
+    document.head.append(adaptive);
+  }
 
   const current = new URL(location.href);
   const isCourse = current.pathname.includes("/courses/");
