@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <title>About | Dipendranath Mahato</title>
+  <title>Home | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts & Icons -->
@@ -24,9 +24,6 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="assets/css/about-journey.css?v=20261024" />
-  <!-- OpenStreetMap via Leaflet (used only for the academic journey map). -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <!-- Local-only small tweak: hero subtitle advisor link slightly whiter -->
   <style>
@@ -55,7 +52,7 @@
       <!-- Main ABOUT content -->
       <section class="main">
         <!-- Hero -->
-        <section class="hero-card about-journey-hero" id="about">
+        <section class="hero-card" id="about">
           <div class="hero-inner">
             <div class="hero-topline">
               <i class="fa-solid fa-user-graduate"></i>
@@ -64,7 +61,7 @@
 
             <h3 class="hero-title">
               My Math Journey:<br>
-              <span class="about-journey-route">🇮🇳 Kolkata &nbsp;→&nbsp; 🇮🇳 Tezpur &nbsp;→&nbsp; 🇺🇸 New Orleans &nbsp;→&nbsp; 🇺🇸 Edinburg, TX</span>
+              🇮🇳 Kolkata 🇮🇳 &nbsp;→&nbsp; 🇮🇳 Tezpur 🇮🇳 &nbsp;→&nbsp; 🇺🇸 New Orleans 🇺🇸
             </h3>
 
             <!-- Journey Timeline (Horizontal) -->
@@ -90,19 +87,12 @@
               </div>
 
               <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <span class="timeline-year">2021–2026</span>
-                  <span class="timeline-place">
-                    <i class="fa-solid fa-location-dot"></i> New Orleans, Louisiana, USA
-                  </span>
-                </div>
-              </div>
-              <div class="timeline-item">
                 <div class="timeline-dot active"></div>
                 <div class="timeline-content">
-                  <span class="timeline-year">2026–Present</span>
-                  <span class="timeline-place"><i class="fa-solid fa-location-dot"></i> Edinburg, Texas, USA</span>
+                  <span class="timeline-year">2021–Present</span>
+                  <span class="timeline-place">
+                    <i class="fa-solid fa-map-marker-line"></i> New Orleans, USA
+                  </span>
                 </div>
               </div>
             </div>
@@ -113,35 +103,6 @@
               My path runs through Dinabandhu Andrews College (University of Calcutta) and Tezpur University,
               and it is shaped by a long-standing fascination with algebra, geometry, and teaching.
             </p>
-          </div>
-        </section>
-
-
-        <!-- Interactive academic journey: all four stops are clearly country-labelled. -->
-        <section class="card journey-map-card" id="journey-map-section" aria-labelledby="journey-map-heading">
-          <div class="card-header">
-            <div>
-              <h2 class="card-title" id="journey-map-heading"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i> My Academic Journey · On the Map</h2>
-              <p class="card-subtitle">From India to the United States. Select a city to zoom in, or show the entire journey.</p>
-            </div>
-            <span class="pill-label">INTERACTIVE MAP</span>
-          </div>
-          <div class="card-body">
-            <div class="journey-map-toolbar" role="group" aria-label="Map view">
-              <button type="button" class="journey-map-control is-active" data-journey-view="all" aria-pressed="true"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i> Entire journey</button>
-              <button type="button" class="journey-map-control" data-journey-view="india" aria-pressed="false">🇮🇳 India</button>
-              <button type="button" class="journey-map-control" data-journey-view="usa" aria-pressed="false">🇺🇸 United States</button>
-            </div>
-            <div id="academicJourneyMap" class="journey-map-canvas" role="region" aria-label="Zoomable map with Kolkata, Tezpur, New Orleans, and Edinburg Texas" tabindex="0">
-              <p class="journey-map-loading">Loading map… All four locations are also accessible using the city buttons below.</p>
-            </div>
-            <div class="journey-stop-grid" aria-label="Journey locations">
-              <button class="journey-stop" type="button" data-journey-stop="kolkata" aria-pressed="false"><span class="journey-stop-flag" aria-hidden="true">🇮🇳</span><span><strong>Kolkata</strong><small>West Bengal, India · through 2018</small><em>Dinabandhu Andrews College</em></span></button>
-              <button class="journey-stop" type="button" data-journey-stop="tezpur" aria-pressed="false"><span class="journey-stop-flag" aria-hidden="true">🇮🇳</span><span><strong>Tezpur</strong><small>Assam, India · 2018–2021</small><em>Tezpur University</em></span></button>
-              <button class="journey-stop" type="button" data-journey-stop="new-orleans" aria-pressed="false"><span class="journey-stop-flag" aria-hidden="true">🇺🇸</span><span><strong>New Orleans</strong><small>Louisiana, USA · 2021–2026</small><em>Tulane University</em></span></button>
-              <button class="journey-stop" type="button" data-journey-stop="edinburg" aria-pressed="false"><span class="journey-stop-flag" aria-hidden="true">🇺🇸</span><span><strong>Edinburg</strong><small>Texas, USA · 2026–present</small><em>University of Texas Rio Grande Valley</em></span></button>
-            </div>
-            <p class="journey-location-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> <strong>Location clarification:</strong> My present city is <strong>Edinburg, Texas, USA</strong> — not Edinburgh, Scotland. The map shows both Indian and U.S. locations with their country labels.</p>
           </div>
         </section>
 
@@ -171,7 +132,7 @@
                   and geometry.
                 </p>
                 <p>
-                  From 2021 to 2026, I pursued my doctoral studies at Tulane University in New Orleans. In 2026, I moved to Edinburg, Texas, to join the University of Texas Rio Grande Valley as a Lecturer in Mathematics. My research lives at
+                  Since Fall 2021, I have been a doctoral student at Tulane University. My research lives at
                   the intersection of commutative algebra and algebraic geometry, focusing on interpolation
                   problems, symbolic powers of ideals, and asymptotic invariants attached to configurations
                   of points in projective spaces, polyhedral descriptions, valuative description, and etc.
@@ -184,7 +145,7 @@
                   <li class="timeline-item">
                     <div class="timeline-title">Ph.D. in Mathematics</div>
                     <div class="timeline-meta">
-                      Tulane University · 2021–2026<br>
+                      Tulane University · 2021–present<br>
                       Advisor: <a href="https://www.math.tulane.edu/~tai/" target="_blank" rel="noopener">Prof. Tài Huy Hà</a>
                     </div>
                   </li>
@@ -307,12 +268,6 @@
                   <div class="sib-photo sib-fallback">HH</div>
                   <span class="sib-name">Haoxi Hu</span>
                 </a>
-
-                <!-- Academic sibling: link to Aniketh's personal website. -->
-                <a class="sib" href="https://an8keth.github.io/index.html" target="_blank" rel="noopener noreferrer" aria-label="Aniketh Sivakumar — open his website">
-                  <div class="sib-photo sib-fallback" aria-hidden="true">AS</div>
-                  <span class="sib-name">Aniketh Sivakumar</span>
-                </a>
               </div>
           
             </div>
@@ -329,8 +284,6 @@
 
   <!-- ================= SCRIPTS ================= -->
   <script src="assets/js/site-template.js"></script>
-  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script defer src="assets/js/about-journey.js?v=20261024"></script>
   <script>
     // ----- Footer year -----
     const yearSpan = document.getElementById("year");
