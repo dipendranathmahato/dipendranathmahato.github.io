@@ -140,3 +140,95 @@ html[data-theme="dark"] .cvx-filterbar button.is-active{color:#12332b}
 @media(max-width:690px){.cvx-hero{border-radius:18px;padding:25px 21px}.cvx-hero-inner{margin-top:18px}.cvx-hero h1{font-size:clamp(2rem,10vw,3.4rem)}.cvx-update{font-size:.62rem}.cvx-hero-desc{font-size:.84rem}.cvx-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.cvx-nav{top:0}.cvx-course-grid,.cvx-mentor-grid,.cvx-project-grid{grid-template-columns:1fr}.cvx-timeline-row{grid-template-columns:1fr;gap:5px;padding-left:22px}.cvx-timeline-row:not(:last-child):before{left:4px;top:14px}.cvx-timeline-row:after{left:-1px;top:17px}.cvx-timeline-row>div{padding-left:0}.cvx-actions{align-items:stretch}.cvx-page .cvx-actions :is(a,button){flex:1 1 130px}.cvx-career-dot{display:none}.cvx-career-highlight>a{margin-left:0}.cvx-talk{grid-template-columns:67px minmax(0,1fr);gap:9px}.cvx-section{border-radius:15px;padding:20px 17px}}
 @media print{.cvx-page{display:block!important;color:#111!important}.cvx-nav,.cvx-actions,.cvx-toolbar,.cvx-filter-count{display:none!important}.cvx-section,.cvx-hero,.cvx-metrics>div{box-shadow:none!important;break-inside:avoid}.cvx-year{break-inside:auto}.cvx-year>.cvx-event-grid{display:grid!important}.cvx-hero{background:#fff!important;color:#111!important;border:2px solid #ddd}.cvx-hero *{color:#111!important}.cvx-page [hidden]{display:block!important}aside.sidebar,header.top-nav,.footer{display:none!important}.layout{display:block!important}}
 @media(prefers-reduced-motion:reduce){.cvx-page *, .cvx-page *::before{transition:none!important;animation:none!important}}
+
+/* ===== 2026 PDF-CV palette: royal blue headings + violet hyperlinks ===== */
+/* Keep changes scoped to the CV, leaving every other page's UTRGV/Tulane colors alone. */
+.cvx-page{
+  --cvx-ink:#172447;
+  --cvx-muted:#506087;
+  --cvx-accent:#2035e3;
+  --cvx-accent-deep:#1826b5;
+  --cvx-link:#7522aa;
+  --cvx-paper:rgba(255,255,255,.94);
+  --cvx-soft:#eff2ff;
+  --cvx-line:#d9defb;
+  --cvx-raised:#fff;
+  --cvx-gold:#a14980;
+}
+html[data-theme="dark"] .cvx-page{
+  --cvx-ink:#f0f2ff;
+  --cvx-muted:#c0c9eb;
+  --cvx-accent:#99acff;
+  --cvx-accent-deep:#b4c0ff;
+  --cvx-link:#d9b0ff;
+  --cvx-paper:rgba(25,28,54,.96);
+  --cvx-soft:#252c53;
+  --cvx-line:#444e82;
+  --cvx-raised:#202643;
+  --cvx-gold:#e7a6d7;
+}
+.cvx-page a{color:var(--cvx-link)}
+.cvx-hero{
+  background:radial-gradient(circle at 91% 12%,rgba(206,145,255,.24),transparent 42%),
+             linear-gradient(112deg,#101d56 0%,#2036c4 58%,#572a9a 100%);
+  box-shadow:0 20px 42px rgba(33,45,130,.19);
+}
+.cvx-kicker{color:#e0ddff}
+.cvx-hero h1 span{color:#cbbcff}
+.cvx-hero-role{color:#f0efff}
+.cvx-hero-desc{color:#e4e6ff}
+.cvx-hero-tags span{color:#f4efff}
+.cvx-page .cvx-primary{background:#fff;color:#1927a7}
+.cvx-page .cvx-textlink{color:#fff}
+.cvx-page .cvx-primary:hover{background:#e8e7ff}
+.cvx-section-head{border-bottom:2px solid var(--cvx-accent)}
+.cvx-section-head h2{color:var(--cvx-accent-deep);letter-spacing:-.03em}
+html[data-theme="dark"] .cvx-section-head h2{color:var(--cvx-accent)}
+.cvx-page .cvx-nav-links a:hover,.cvx-page .cvx-nav-links a.is-active{color:var(--cvx-accent-deep)}
+html[data-theme="dark"] .cvx-page .cvx-nav-links a:hover,
+html[data-theme="dark"] .cvx-page .cvx-nav-links a.is-active{color:var(--cvx-accent)}
+.cvx-filterbar button.is-active{color:#fff}
+html[data-theme="dark"] .cvx-filterbar button.is-active{color:#14204e}
+.cvx-career-dot{color:#fff}
+html[data-theme="dark"] .cvx-career-dot{color:#14204e}
+.cvx-page .cvx-talk h3 a,.cvx-page .cvx-event h3 a,
+.cvx-page .cvx-award h3 a{color:var(--cvx-ink);text-decoration:none;
+  text-decoration-color:var(--cvx-link);text-underline-offset:4px}
+.cvx-page .cvx-talk h3 a:hover,.cvx-page .cvx-event h3 a:hover,
+.cvx-page .cvx-award h3 a:hover{text-decoration:underline;color:var(--cvx-link)}
+.cvx-network-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:15px}
+.cvx-page .cvx-network-links a{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;
+  border:1px solid rgba(255,255,255,.3);border-radius:8px;color:#f4eeff;text-decoration:none;
+  font-size:.75rem;font-weight:750;background:rgba(255,255,255,.075)}
+.cvx-page .cvx-network-links a:hover{background:rgba(255,255,255,.2);color:#fff}
+.cvx-network-links i{font-size:.94rem}
+/* Accessible, persistent navigation on phones: dock it where thumbs can reach. */
+@media (max-width:690px){
+  .cvx-page{padding-bottom:115px}
+  .cvx-page .cvx-nav{
+    position:fixed!important;
+    top:auto!important;
+    bottom:max(10px,env(safe-area-inset-bottom,10px))!important;
+    left:12px;right:12px;width:calc(100vw - 24px);
+    z-index:1200;
+    display:flex;flex-direction:column;align-items:stretch;gap:5px;
+    padding:9px 10px;
+    border:1px solid var(--cvx-line);border-radius:15px;
+    box-shadow:0 13px 38px rgba(21,24,75,.25);
+    background:var(--cvx-paper);
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  }
+  .cvx-page .cvx-nav-label{
+    display:flex!important;align-items:center;
+    border-right:0;padding:0 4px;font-size:.72rem
+  }
+  .cvx-page .cvx-nav-links{
+    display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    padding:0 0 2px;max-width:100%;touch-action:pan-x;
+  }
+  .cvx-page .cvx-nav-links a{padding:8px 10px;font-size:.75rem;flex:0 0 auto}
+  .cvx-page .cvx-network-links a span{display:none}
+  .cvx-page .cvx-network-links a{width:34px;height:34px;justify-content:center;padding:5px}
+  .cvx-page .cvx-network-links i{font-size:1rem}
+}
