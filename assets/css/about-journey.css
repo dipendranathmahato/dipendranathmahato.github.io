@@ -1,0 +1,50 @@
+/* About page: full-width hero copy + four-stage international journey. */
+.about-journey-hero .hero-inner { width: 100%; }
+.about-journey-hero .hero-subtitle {
+  max-width: none !important;
+  width: 100%;
+  line-height: 1.7;
+  margin-top: 20px;
+  text-wrap: pretty;
+}
+.about-journey-hero .about-journey-route { display: block; font-size: clamp(1rem,1.8vw,1.45rem); line-height: 1.55; }
+.about-journey-hero .hero-timeline-horizontal { gap: 1rem; }
+.about-journey-hero .hero-timeline-horizontal .timeline-item { min-width: 0; flex: 1 1 0; }
+.about-journey-hero .timeline-place { overflow-wrap: anywhere; }
+.journey-map-card { margin-top: 16px; }
+.journey-map-card .card-header { flex-wrap: wrap; }
+.journey-map-card .card-title { font-size: 1.15rem; color: var(--text); }
+.journey-map-card .card-subtitle { margin: 7px 0 0; }
+.journey-map-toolbar { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 13px; }
+.journey-map-control { appearance: none; cursor: pointer; font: 650 .83rem/1.4 inherit; color: var(--text); background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 9px 14px; transition: border-color .2s, background .2s, transform .2s; }
+.journey-map-control:hover, .journey-map-control:focus-visible { border-color: #158064; transform: translateY(-1px); }
+.journey-map-control.is-active { background: #125e47; color: white; border-color: #125e47; }
+.journey-map-canvas { position: relative; width: 100%; height: clamp(300px, 32vw, 470px); background: linear-gradient(140deg,#dceef6,#a6c7d5); border: 1px solid var(--border); border-radius: 17px; overflow: hidden; z-index: 0; }
+.journey-map-loading { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; color: #124e4a; font-size: .95rem; text-align: center; padding: 20px; }
+.journey-stop-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
+.journey-stop { cursor:pointer; font: inherit; min-width: 0; text-align: left; display:flex; align-items:flex-start; gap: 9px; background: rgba(17,115,83,.035); border: 1px solid var(--border); border-radius: 13px; color: var(--text); padding: 13px 11px; transition: background .15s, border-color .15s, box-shadow .15s; }
+.journey-stop:hover, .journey-stop:focus-visible, .journey-stop[aria-pressed="true"] { background: rgba(19,129,91,.1); border-color:#23835f; box-shadow:0 6px 20px rgba(0,0,0,.05); }
+.journey-stop span:last-child { display:flex; flex-direction:column; gap: 3px; min-width:0; }
+.journey-stop strong { color: var(--text); font-size: .88rem; }
+.journey-stop small { color: var(--muted); font-size: .72rem; line-height: 1.4; }
+.journey-stop em { font-size: .7rem; font-style: normal; color: var(--muted); line-height: 1.4; }
+.journey-stop-flag { font-size: 1.2rem; flex:0 0 auto; }
+.journey-location-note { margin: 12px 1px 0; background: rgba(9,95,68,.075); border-left: 3px solid #16805a; color: var(--text); border-radius: 8px; padding: 11px 13px; font-size: .81rem; line-height: 1.55; }
+.journey-location-note i { color: #16805a; margin-right: 5px; }
+[data-theme="dark"] .journey-map-control { background: rgba(15,23,42,.7); }
+[data-theme="dark"] .journey-map-control.is-active { background:#116447; color:#fff; }
+[data-theme="dark"] .journey-stop { background: rgba(255,255,255,.035); }
+[data-theme="dark"] .journey-stop:hover, [data-theme="dark"] .journey-stop[aria-pressed="true"] { background: rgba(34,197,94,.12); }
+[data-theme="dark"] .journey-location-note { background:rgba(20,184,116,.12); }
+.journey-map-canvas .leaflet-popup-content { font-family: Inter,system-ui,sans-serif; line-height:1.5; min-width: 170px; }
+.journey-map-canvas .leaflet-popup-content strong { font-size: .95rem; }
+.journey-map-canvas .leaflet-control-attribution { font-size: 10px; }
+@media (max-width: 1120px) { .journey-stop-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 900px) { .about-journey-hero .hero-timeline-horizontal .timeline-item { flex: auto; } }
+@media (max-width: 580px) {
+  .journey-stop-grid { grid-template-columns: 1fr; }
+  .journey-map-control { flex: 1 1 auto; padding: 9px 10px; }
+  .journey-map-canvas { height: 340px; }
+  .about-journey-hero .hero-title { font-size:1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) { .journey-stop,.journey-map-control { transition: none; } }
