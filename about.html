@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <title>Home | Dipendranath Mahato</title>
+  <title>About | Dipendranath Mahato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Fonts & Icons -->
@@ -24,6 +24,9 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/about-journey.css?v=20261025" />
+  <!-- OpenStreetMap via Leaflet (used only for the academic journey map). -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <!-- Local-only small tweak: hero subtitle advisor link slightly whiter -->
   <style>
@@ -51,52 +54,61 @@
 
       <!-- Main ABOUT content -->
       <section class="main">
-        <!-- Hero -->
-        <section class="hero-card" id="about">
+        <!-- Academic journey map is now inside the hero (no duplicate map below). -->
+        <section class="hero-card about-journey-hero" id="about" aria-labelledby="about-journey-title">
           <div class="hero-inner">
             <div class="hero-topline">
-              <i class="fa-solid fa-user-graduate"></i>
-              <span>Mathematician · First-Generation Scholar</span>
+              <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
+              <span>Mathematical journey · India to the United States</span>
+            </div>
+            <div class="journey-hero-heading">
+              <div>
+                <h1 class="hero-title" id="about-journey-title">My Mathematical Journey</h1>
+                <p class="journey-hero-intro">Four academic chapters across two countries. Explore the map or select a university to visit its city.</p>
+              </div>
+              <span class="journey-hero-count" aria-label="Four academic locations">4 locations · 2 countries</span>
             </div>
 
-            <h3 class="hero-title">
-              My Math Journey:<br>
-              🇮🇳 Kolkata 🇮🇳 &nbsp;→&nbsp; 🇮🇳 Tezpur 🇮🇳 &nbsp;→&nbsp; 🇺🇸 New Orleans 🇺🇸
-            </h3>
-
-            <!-- Journey Timeline (Horizontal) -->
-            <div class="hero-timeline hero-timeline-horizontal">
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <span class="timeline-year">1995–2018</span>
-                  <span class="timeline-place">
-                    <i class="fa-solid fa-map-marker-line"></i> Kolkata, India
-                  </span>
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                  <span class="timeline-year">2018–2021</span>
-                  <span class="timeline-place">
-                    <i class="fa-solid fa-map-marker-line"></i> Tezpur, Assam
-                  </span>
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot active"></div>
-                <div class="timeline-content">
-                  <span class="timeline-year">2021–Present</span>
-                  <span class="timeline-place">
-                    <i class="fa-solid fa-map-marker-line"></i> New Orleans, USA
-                  </span>
-                </div>
-              </div>
+            <div class="journey-map-toolbar" role="group" aria-label="Academic journey map views">
+              <button type="button" class="journey-map-control is-active" data-journey-view="all" aria-pressed="true"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i> Entire journey</button>
+              <button type="button" class="journey-map-control" data-journey-view="india" aria-pressed="false">🇮🇳 India</button>
+              <button type="button" class="journey-map-control" data-journey-view="usa" aria-pressed="false">🇺🇸 United States</button>
             </div>
-
+            <div id="academicJourneyMap" class="journey-map-canvas" role="region" aria-label="Zoomable academic journey map showing Kolkata and Tezpur in India, New Orleans in Louisiana, and Edinburg in Texas" tabindex="0">
+              <p class="journey-map-loading">Loading interactive map… You can also select the universities below.</p>
+            </div>
+            <div class="journey-stop-grid" aria-label="Universities and academic locations">
+              <button class="journey-stop" type="button" data-journey-stop="kolkata" aria-pressed="false">
+                <span class="journey-stop-flag" aria-hidden="true">🇮🇳</span>
+                <span class="journey-stop-detail">
+                  <strong class="journey-stop-university">Dinabandhu Andrews College <span class="journey-stop-affiliation">(University of Calcutta)</span></strong>
+                  <small>Kolkata, India <span aria-hidden="true">·</span> through 2018</small>
+                </span>
+              </button>
+              <button class="journey-stop" type="button" data-journey-stop="tezpur" aria-pressed="false">
+                <span class="journey-stop-flag" aria-hidden="true">🇮🇳</span>
+                <span class="journey-stop-detail">
+                  <strong class="journey-stop-university">Tezpur University</strong>
+                  <small>Tezpur, Assam, India <span aria-hidden="true">·</span> 2018–2021</small>
+                </span>
+              </button>
+              <button class="journey-stop" type="button" data-journey-stop="new-orleans" aria-pressed="false">
+                <span class="journey-stop-flag" aria-hidden="true">🇺🇸</span>
+                <span class="journey-stop-detail">
+                  <strong class="journey-stop-university">Tulane University</strong>
+                  <small>New Orleans, Louisiana, USA <span aria-hidden="true">·</span> 2021–2026</small>
+                </span>
+              </button>
+              <button class="journey-stop" type="button" data-journey-stop="edinburg" aria-pressed="false">
+                <span class="journey-stop-flag" aria-hidden="true">🇺🇸</span>
+                <span class="journey-stop-detail">
+                  <strong class="journey-stop-university">University of Texas Rio Grande Valley</strong>
+                  <span class="journey-stop-current">Current institution</span>
+                  <small>Edinburg, Texas, USA <span aria-hidden="true">·</span> 2026–present</small>
+                </span>
+              </button>
+            </div>
+            <p class="journey-location-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> <strong>Edinburg, Texas, USA</strong> is not Edinburgh, Scotland.</p>
             <p class="hero-subtitle">
               I am a Ph.D. candidate in Mathematics at Tulane University, working with
               <a href="https://www.math.tulane.edu/~tai/" target="_blank" rel="noopener">Prof. Tài Huy Hà</a>.
@@ -105,6 +117,7 @@
             </p>
           </div>
         </section>
+
 
         <!-- About content card -->
         <section class="card">
@@ -132,7 +145,7 @@
                   and geometry.
                 </p>
                 <p>
-                  Since Fall 2021, I have been a doctoral student at Tulane University. My research lives at
+                  From 2021 to 2026, I pursued my doctoral studies at Tulane University in New Orleans. In 2026, I moved to Edinburg, Texas, to join the University of Texas Rio Grande Valley as a Lecturer in Mathematics. My research lives at
                   the intersection of commutative algebra and algebraic geometry, focusing on interpolation
                   problems, symbolic powers of ideals, and asymptotic invariants attached to configurations
                   of points in projective spaces, polyhedral descriptions, valuative description, and etc.
@@ -145,7 +158,7 @@
                   <li class="timeline-item">
                     <div class="timeline-title">Ph.D. in Mathematics</div>
                     <div class="timeline-meta">
-                      Tulane University · 2021–present<br>
+                      Tulane University · 2021–2026<br>
                       Advisor: <a href="https://www.math.tulane.edu/~tai/" target="_blank" rel="noopener">Prof. Tài Huy Hà</a>
                     </div>
                   </li>
@@ -268,6 +281,12 @@
                   <div class="sib-photo sib-fallback">HH</div>
                   <span class="sib-name">Haoxi Hu</span>
                 </a>
+
+                <!-- Academic sibling: link to Aniketh's personal website. -->
+                <a class="sib" href="https://an8keth.github.io/index.html" target="_blank" rel="noopener noreferrer" aria-label="Aniketh Sivakumar — open his website">
+                  <div class="sib-photo sib-fallback" aria-hidden="true">AS</div>
+                  <span class="sib-name">Aniketh Sivakumar</span>
+                </a>
               </div>
           
             </div>
@@ -284,6 +303,8 @@
 
   <!-- ================= SCRIPTS ================= -->
   <script src="assets/js/site-template.js"></script>
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="assets/js/about-journey.js?v=20261025"></script>
   <script>
     // ----- Footer year -----
     const yearSpan = document.getElementById("year");
