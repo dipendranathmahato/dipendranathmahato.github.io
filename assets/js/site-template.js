@@ -158,9 +158,10 @@
   mount(".footer", FOOTER);
   const footerYear = document.getElementById("year");
   if (footerYear) footerYear.textContent = String(new Date().getFullYear());
-  // Site-wide public counter — official CounterAPI widget integration.
-  // Prior handcrafted SVG badges did not load reliably on the live website.
-  // The provider stores the number (not GitHub Pages). Local previews do not count.
+  // All-page public visit counter for this static GitHub Pages site.
+  // The same hits.sh ID is used on every page, INCLUDING nested course pages.
+  // hits.sh increments on each fresh image request and persists the sum on its server.
+  // No browser-local count is shown or claimed to be the all-time total.
   function addSiteVisitsCounter() {
     const sidebar = document.querySelector("aside.sidebar");
     if (!sidebar) return;
@@ -168,46 +169,44 @@
     block.className = "sidebar-section sitewide-visit-counter";
     block.setAttribute("aria-label", "All-time site visits");
     block.innerHTML = `<h3><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> All-time site visits</h3>
-      <div class="sitewide-count"><span class="sitewide-placeholder" aria-label="Loading visit count">—</span></div>`;
+      <div class="sitewide-count" aria-live="polite"><span class="sitewide-placeholder">Loading…</span></div>`;
     sidebar.append(block);
-    // Keep test previews and local file sessions from inflating the public counter.
-    if (!/^(?:www\.)?dipendranathmahato\.com$|^dipendranathmahato\.github\.io$/i.test(location.hostname)) return;
-    const slot = block.querySelector(".sitewide-count");
-    const widget = document.createElement("div");
-    widget.className = "counterapi";
-    widget.setAttribute("key", "all-pages");
-    widget.setAttribute("noIcon", "true");
-    widget.setAttribute("noLink", "true");
-    widget.setAttribute("noCss", "true");
-    widget.setAttribute("noAnim", "true");
-    // Read-only after a visit has already been recorded in this browser session.
-    let recorded = false;
-    try { recorded = sessionStorage.getItem("dm-sitewide-visit-v1") === "1"; } catch (_) {}
-    if (recorded) widget.setAttribute("readOnly", "true");
-    slot.append(widget);
-    const loader = document.createElement("script");
-    loader.async = true;
-    loader.src = "https://counterapi.com/c.js?ns=dipendranathmahato.com";
-    loader.onload = () => {
-      // Don't claim success until the widget itself has actually rendered.
-      const observer = new MutationObserver(() => {
-        if (widget.textContent.trim() || widget.querySelector('svg,img,span')) {
-          slot.classList.add("has-widget");
-          if (!recorded) {
-            try { sessionStorage.setItem("dm-sitewide-visit-v1", "1"); } catch (_) {}
-          }
-          observer.disconnect();
-        }
-      });
-      observer.observe(widget, { childList: true, subtree: true, characterData: true });
-      if (widget.textContent.trim()) {
-        slot.classList.add("has-widget");
-        observer.disconnect();
-      }
-    };
-    // When unavailable, retain an unobtrusive dash rather than inventing a total.
-    loader.onerror = () => { widget.remove(); };
-    document.head.append(loader);
+
+    const placeholder = block.querySelector(".sitewide-placeholder");
+    // Prevent local/test previews from accidentally increasing the real public total.
+    const isPublicSite = /^(?:www\.)?dipendranathmahato\.com$|^dipendranathmahato\.github\.io$/i.test(location.hostname);
+    if (!isPublicSite) {
+      placeholder.textContent = "Displayed on the live website";
+      return;
+    }
+
+    const badge = document.createElement("img");
+    badge.className = "sitewide-count-badge";
+    badge.alt = "Total page visits across the entire website";
+    badge.decoding = "async";
+    badge.loading = "eager";
+    badge.referrerPolicy = "no-referrer";
+    badge.addEventListener("load", () => {
+      block.querySelector(".sitewide-count").classList.add("has-image");
+      placeholder.remove();
+    }, { once: true });
+    badge.addEventListener("error", () => {
+      badge.remove();
+      placeholder.textContent = "Visit count temporarily unavailable";
+    }, { once: true });
+
+    // Deliberately one *shared* counter ID, not a URL-based counter per page.
+    // Cache-buster ensures each actual page load requests the badge anew rather
+    // than displaying a browser-cached image without recording a visit.
+    const url = new URL("https://hits.sh/dipendranathmahato.com/all-pages.svg");
+    url.searchParams.set("view", "total");
+    url.searchParams.set("style", "flat-square");
+    url.searchParams.set("label", "visits");
+    url.searchParams.set("color", "12684b");
+    url.searchParams.set("labelColor", "24463c");
+    url.searchParams.set("_visit", `${Date.now()}-${Math.random().toString(36).slice(2)}`);
+    block.querySelector(".sitewide-count").append(badge);
+    badge.src = url.href;
   }
   addSiteVisitsCounter();
 
