@@ -25,7 +25,7 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Page-local CSS: 2 columns + colorful + per-pill preview + 85% modal -->
+  <!-- Page-local CSS: searchable, direct-link resource collections -->
   <style>
     /* Template uses .main */
     .main { min-width: 0; }
@@ -157,7 +157,7 @@
       white-space: nowrap;
     }
 
-    /* Card-like pill rows (two buttons: Preview + Link) */
+    /* Card-like rows with one direct resource link */
     .pill-list{
       padding: 12px;
       display:flex;
@@ -257,15 +257,6 @@
       background: rgba(17,24,39,.50);
     }
 
-    .btn.preview{
-      border-color: rgba(59,130,246,.30);
-      background: rgba(59,130,246,.10);
-    }
-    html[data-theme="dark"] .btn.preview{
-      border-color: rgba(59,130,246,.36);
-      background: rgba(59,130,246,.14);
-    }
-
     /* ✅ Small change: make buttons fully readable on click/focus */
     .btn:focus,
     .btn:focus-visible{
@@ -276,16 +267,6 @@
       transform: translateY(0);
       filter: brightness(1.03);
     }
-    /* When a button is clicked, keep "pressed" clarity during the click */
-    .btn.preview:active{
-      background: rgba(59,130,246,.18);
-      border-color: rgba(59,130,246,.45);
-    }
-    html[data-theme="dark"] .btn.preview:active{
-      background: rgba(59,130,246,.22);
-      border-color: rgba(59,130,246,.50);
-    }
-
     .note{
       padding: 0 12px 12px 12px;
       font-size: .88rem;
@@ -293,114 +274,6 @@
       line-height: 1.45;
     }
 
-    /* Modal preview: 85% of screen */
-    .modal{
-      position: fixed;
-      inset: 0;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      background: rgba(0,0,0,.58);
-      z-index: 9999;
-      padding: 16px;
-    }
-    .modal.open{ display:flex; }
-
-    .modal-card{
-      width: 85vw;
-      height: 85vh;
-      max-width: 1400px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,.12);
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 24px 80px rgba(0,0,0,.38);
-      display:flex;
-      flex-direction: column;
-    }
-    html[data-theme="dark"] .modal-card{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(17,24,39,.92);
-    }
-    @media (max-width: 980px){
-      .modal-card{ width: 94vw; height: 86vh; }
-    }
-
-    .modal-head{
-      padding: 12px 12px;
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 10px;
-      border-bottom: 1px solid rgba(0,0,0,.08);
-      background:
-        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.18), transparent 60%),
-        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.20), transparent 58%),
-        rgba(255,255,255,.60);
-    }
-    html[data-theme="dark"] .modal-head{
-      border-bottom: 1px solid rgba(255,255,255,.10);
-      background:
-        radial-gradient(1200px 260px at 10% 0%, rgba(34,197,94,.18), transparent 60%),
-        radial-gradient(900px 240px at 90% 0%, rgba(59,130,246,.22), transparent 58%),
-        rgba(17,24,39,.60);
-    }
-
-    .modal-title{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      min-width: 0;
-    }
-    .modal-title strong{
-      font-size: .95rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 70vw;
-    }
-    .modal-actions{
-      display:flex;
-      gap: 8px;
-      align-items:center;
-      flex: 0 0 auto;
-    }
-    .modal-actions button{
-      border-radius: 999px;
-      padding: 8px 10px;
-      border: 1px solid rgba(0,0,0,.12);
-      background: rgba(255,255,255,.62);
-      cursor:pointer;
-      font-size: .85rem;
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      transition: transform .12s ease;
-    }
-    .modal-actions button:hover{ transform: translateY(-1px); }
-    html[data-theme="dark"] .modal-actions button{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(17,24,39,.52);
-    }
-
-    .modal-body{ flex: 1 1 auto; }
-    .modal-body iframe{
-      width:100%;
-      height:100%;
-      border: none;
-      background: transparent;
-    }
-
-    .modal-foot{
-      padding: 10px 12px;
-      font-size: .86rem;
-      opacity: .82;
-      line-height: 1.45;
-      border-top: 1px solid rgba(0,0,0,.08);
-    }
-    html[data-theme="dark"] .modal-foot{
-      border-top: 1px solid rgba(255,255,255,.10);
-    }
   </style>
 </head>
 
@@ -420,7 +293,7 @@
           <h1>Resources</h1>
           <p>
             Two columns: <b>Favorite Working Sites and Resources</b> and <b>Favorite reading Materials</b>.
-            Each item has a <b>Preview</b> button (opens an 85% in-page preview) and a <b>Link</b> button to visit the site.
+            Search the collections and open any resource directly using its link.
           </p>
         </div>
 
@@ -430,7 +303,7 @@
             <input id="resSearch" type="text" placeholder="Search resources (Vakil, OEIS, CTAN, symbolic powers…)" autocomplete="off" />
           </div>
           <div class="res-hint">
-            If Preview is blank, that site likely blocks embedding.
+            Use the search box to filter titles and URLs.
           </div>
         </div>
 
@@ -445,7 +318,7 @@
             </div>
             <div class="pill-list" id="workList"></div>
             <div class="note">
-              Tip: Preview keeps you here; Link navigates to the page.
+              Open a working site or reference in a new tab.
             </div>
           </div>
 
@@ -459,7 +332,7 @@
             </div>
             <div class="pill-list" id="readList"></div>
             <div class="note">
-              PDFs usually preview well; some websites block embedding.
+              Reading materials open directly at their original source.
             </div>
           </div>
         </div>
@@ -467,29 +340,6 @@
         <div class="footer" data-shared-template="footer"></div>
       </section>
     </main>
-  </div>
-
-  <!-- ================= Preview Modal (85%) ================= -->
-  <div class="modal" id="previewModal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Resource preview">
-      <div class="modal-head">
-        <div class="modal-title">
-          <i class="fa-solid fa-eye" style="opacity:.75;"></i>
-          <strong id="modalTitle">Preview</strong>
-        </div>
-        <div class="modal-actions">
-          <button id="modalCloseBtn" type="button">
-            <i class="fa-solid fa-xmark"></i> Close
-          </button>
-        </div>
-      </div>
-      <div class="modal-body">
-        <iframe id="modalFrame" title="Embedded preview" src="about:blank"></iframe>
-      </div>
-      <div class="modal-foot" id="modalFoot">
-        If the preview area stays blank, the site likely blocks embedding. Use the Link button instead.
-      </div>
-    </div>
   </div>
 
   <!-- ================= SCRIPTS ================= -->
@@ -615,13 +465,6 @@
     const countRead = document.getElementById("countRead");
     const searchEl = document.getElementById("resSearch");
 
-    // modal
-    const modal = document.getElementById("previewModal");
-    const modalFrame = document.getElementById("modalFrame");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalFoot = document.getElementById("modalFoot");
-    const modalCloseBtn = document.getElementById("modalCloseBtn");
-
     let query = "";
 
     function iconHTML(cls){
@@ -632,29 +475,8 @@
     function matches(item){
       const q = query.trim().toLowerCase();
       if (!q) return true;
-      const hay = `${item.title} ${item.url}`.toLowerCase();
-      return hay.includes(q);
+      return `${item.title} ${item.url}`.toLowerCase().includes(q);
     }
-
-    function openPreview(item){
-      if (!item) return;
-      modalTitle.textContent = item.title;
-      modalFoot.textContent = item.url;
-      modalFrame.src = item.url;
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-    }
-    function closePreview(){
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      modalFrame.src = "about:blank";
-    }
-
-    modalCloseBtn.addEventListener("click", closePreview);
-    modal.addEventListener("click", (e) => { if (e.target === modal) closePreview(); });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("open")) closePreview();
-    });
 
     function pillRowHTML(item){
       return `
@@ -665,11 +487,8 @@
           </div>
 
           <div class="pill-actions">
-            <button class="btn preview" type="button" data-action="preview">
-              <i class="fa-solid fa-eye"></i> Preview
-            </button>
-            <a class="btn" href="${item.url}" target="_self" rel="noopener" data-action="link">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i> Link
+            <a class="btn" href="${item.url}" target="_blank" rel="noopener noreferrer" data-action="link">
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open link
             </a>
           </div>
         </div>
@@ -682,9 +501,6 @@
         const wrapper = document.createElement("div");
         wrapper.innerHTML = pillRowHTML(item);
         const row = wrapper.firstElementChild;
-
-        const previewBtn = row.querySelector('button[data-action="preview"]');
-        previewBtn.addEventListener("click", () => openPreview(item));
 
         container.appendChild(row);
       });

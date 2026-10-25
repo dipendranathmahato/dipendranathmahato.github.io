@@ -259,6 +259,51 @@
       color: var(--os-muted);
       margin: 10px 0 0;
     }
+
+    /* Refinements coordinated with the green-accent CV design. */
+    .outreach-page{ --os-accent:#12684b; --os-shadow:0 12px 30px rgba(21,68,52,.09); }
+    html[data-theme="dark"] .outreach-page{ --os-accent:#74d7ae; }
+    .os-hero{ position:relative; overflow:hidden; border:0; padding:clamp(23px,3.1vw,38px);
+      background:radial-gradient(circle at 91% 4%,rgba(149,237,178,.19),transparent 38%),linear-gradient(115deg,#103f38,#14624d 65%,#197c59); color:#fff; border-radius:22px; }
+    .os-eyebrow,.os-overline{ display:block; font-size:.72rem; font-weight:900; letter-spacing:.11em; text-transform:uppercase; }
+    .os-eyebrow{ color:#c9f7df; margin-bottom:11px; }
+    .os-title{ color:#fff; font-size:clamp(1.9rem,3.25vw,2.9rem); letter-spacing:-.04em; }
+    .os-subtitle{ color:#ddf1e7; max-width:75ch; margin-top:12px; line-height:1.75; }
+    .os-hero .os-badges{ justify-content:flex-start; }
+    .os-hero .os-badge{ background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.22); color:#eafff2; }
+    .os-hero .os-badge i{color:#b7efce;}
+    .os-kpis{margin-top:25px;}
+    .os-hero .os-kpi{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22);padding:15px;}
+    .os-hero .os-kpi .num{ color:#e1ffe9; display:block; font-weight:900; font-size:clamp(1.08rem,2.1vw,1.37rem); }
+    .os-hero .os-kpi .lab{ color:#d7f0e3; display:block; margin-top:5px; }
+    .os-grid{ grid-template-columns:minmax(0,1.55fr) minmax(245px,.7fr); gap:16px; align-items:start; }
+    .os-card{padding:clamp(18px,2.3vw,26px);}
+    .os-card-heading{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end;}
+    .os-overline{color:var(--os-accent);margin-bottom:8px;}
+    .os-card-heading h2{font-size:1.4rem;margin:0;letter-spacing:-.025em;}
+    .os-source{font-size:.72rem;font-weight:700;color:var(--os-muted);}
+    .os-intro{margin:12px 0 18px;}
+    .os-tabs{gap:7px;padding:5px;background:var(--os-surface);border:1px solid var(--os-border);border-radius:14px;margin:10px 0 14px;}
+    .os-tabbtn{flex:1 1 auto;justify-content:center;border:0;border-radius:9px;padding:11px 12px;font-weight:750;}
+    .os-tabbtn[aria-selected="true"]{background:var(--os-accent);color:white;border:0;box-shadow:0 7px 16px rgba(18,104,75,.17);}
+    html[data-theme="dark"] .os-tabbtn[aria-selected="true"]{color:#112d24;}
+    .os-tabbtn:focus-visible{outline:3px solid #e5ac55;outline-offset:2px;}
+    .os-item{grid-template-columns:120px minmax(0,1fr);gap:15px; padding:15px 0;}
+    .os-when{font-weight:750;color:var(--os-accent);line-height:1.5;}
+    .os-where{font-weight:830;line-height:1.4;}
+    .os-role{line-height:1.5;}
+    .os-bullets{margin-top:6px;}
+    .os-bullets li{margin:4px 0;}
+    .os-aside{display:grid;gap:16px;}
+    .os-side-list strong{color:var(--os-text);font-size:.87rem;line-height:1.4;display:block;}
+    .os-side-list small{color:var(--os-muted);font-size:.78rem;display:block;margin-top:5px;}
+    .os-spotlight{background:linear-gradient(145deg,rgba(22,126,87,.09),var(--os-bg));}
+    .os-spotlight h2{font-size:1.17rem;line-height:1.4;}
+    .os-spotlight p{margin-bottom:0;}
+    .os-mini{font-size:.78rem!important;border-top:1px solid var(--os-border);padding-top:10px;}
+    @media(max-width:1020px){.os-grid{grid-template-columns:1fr;}}
+    @media(max-width:650px){.os-hero-top{display:block;}.os-hero .os-badges{margin-top:16px;}.os-item{grid-template-columns:1fr;gap:3px;}.os-tabs{flex-wrap:wrap;}.os-tabbtn{flex:1 1 100%;}.os-kpis{grid-template-columns:repeat(2,minmax(0,1fr));}}
+
   </style>
 </head>
 
@@ -278,301 +323,154 @@
       <section class="content outreach-page">
         <div class="content-wrap">
 
-          <!-- HERO -->
-          <div class="os-hero">
-            <div class="os-hero-top">
-              <div>
-                <h1 class="os-title">Outreach &amp; Services</h1>
-                <p class="os-subtitle">
-                  I enjoy building mathematical community through departmental service, student organizations,
-                  mentoring, tutoring, and outreach. Below I separate my <strong>academic service &amp; mentoring</strong>
-                  from <strong>non-academic community engagement</strong>.
-                </p>
-              </div>
 
-              <div class="os-badges">
-                <div class="os-badge"><i class="fa-solid fa-people-group"></i> Community building</div>
-                <div class="os-badge"><i class="fa-solid fa-chalkboard-user"></i> Mentoring</div>
-                <div class="os-badge"><i class="fa-solid fa-handshake-angle"></i> Outreach</div>
-              </div>
-            </div>
-
-            <!-- Highlights -->
-            <div class="os-kpis">
-              <div class="os-kpi">
-                <div class="num">Mentoring</div>
-                <div class="lab">DRP / Research Projects</div>
-              </div>
-              <div class="os-kpi">
-                <div class="num">ALTC</div>
-                <div class="lab">Math tutoring (1:1 &amp; groups)</div>
-              </div>
-              <div class="os-kpi">
-                <div class="num">K–12 STEM</div>
-                <div class="lab">GiST &amp; BATS Math Sections</div>
-              </div>
-              <div class="os-kpi">
-                <div class="num">Alumni</div>
-                <div class="lab">
-                  <a href="https://www.tezu.ernet.in/" target="_blank" rel="noopener noreferrer"
-                     style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">
-                    Tezpur University
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="os-grid">
-
-            <!-- MAIN CARD -->
-            <div class="os-card">
-              <h2>Service timeline</h2>
-              <p style="margin:0 0 8px 0;">
-                Use the tabs to switch between <strong>Academic</strong> service (mentoring, tutoring, organizations, outreach programs)
-                and <strong>Non-Academic</strong> community engagement.
-              </p>
-
-              <div class="os-tabs" role="tablist" aria-label="Outreach tabs">
-                <button class="os-tabbtn" role="tab" aria-selected="true" aria-controls="panel-academic" id="tab-academic">
-                  <i class="fa-solid fa-graduation-cap"></i> Academic
-                </button>
-                <button class="os-tabbtn" role="tab" aria-selected="false" aria-controls="panel-nonacademic" id="tab-nonacademic">
-                  <i class="fa-solid fa-people-group"></i> Non-Academic
-                </button>
-              </div>
-
-              <!-- ACADEMIC -->
-              <div class="os-panel" role="tabpanel" id="panel-academic" aria-labelledby="tab-academic" data-open="true">
-                <ul class="os-timeline">
-
-                  <!-- Reordered: Mentoring + Tutoring first -->
-                  <li class="os-item">
-                    <div class="os-when">Spring 2025</div>
-                    <div>
-                      <div class="os-where">TWOPLES — Directed Reading Program</div>
-                      <div class="os-role">Mentor (Undergraduate &amp Graduate Projects)</div>
-                      <ul class="os-bullets">
-                        <li>Directed reading focused on foundational theory and examples.</li>
-                        <li>Research-oriented mentoring.</li>
-                        <li>Problem-solving experience.</li>
-                        <li>Exposure to Math-Oriented Softwares (Maple, MATLAB, GeoGebra, Macaulay2).</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <li class="os-item">
-                    <div class="os-when">Fall 2023 – Present</div>
-                    <div>
-                      <div class="os-where">Academic Learning &amp; Tutoring Center (ALTC), Tulane University</div>
-                      <div class="os-role">Math Department Teaching Assistant</div>
-                      <ul class="os-bullets">
-                        <li>Facilitating problem-solving in one-on-one and small-group settings.</li>
-                        <li>Supporting courses including Calculus I–III, Statistics, Linear Algebra, and Real Analysis.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <!-- K–12 outreach (academic) -->
-                  <li class="os-item">
-                    <div class="os-when">Oct 2022; Apr 2023</div>
-                    <div>
-                      <div class="os-where">K–12 STEM Outreach (Tulane)</div>
-                      <div class="os-role">Math Section Leader — GiST (Girls in STEM at Tulane)</div>
-                      <ul class="os-bullets">
-                        <li>Welcomed 5th–7th grade students for hands-on STEM experiences.</li>
-                        <li>Used interactive math models and activities to introduce advanced ideas.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <li class="os-item">
-                    <div class="os-when">Apr 2024; Sep 2024</div>
-                    <div>
-                      <div class="os-where">K–12 STEM Outreach (Tulane)</div>
-                      <div class="os-role">Math Section Leader — BATS (Boys At Tulane in STEM)</div>
-                      <ul class="os-bullets">
-                        <li>Designed and ran activity stations focused on exploration and confidence-building.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <!-- Org leadership (reverse-chron-ish) -->
-                  <li class="os-item">
-                    <div class="os-when">Jun 2023 – Jun 2024</div>
-                    <div>
-                      <div class="os-where">AMS Tulane Student Chapter</div>
-                      <div class="os-role">President</div>
-                      <ul class="os-bullets">
-                        <li>Organized AMS/AWM faculty talks (Fall 2023, Spring 2024).</li>
-                        <li>Supported Annual Math BBQ (2023, 2024).</li>
-                        <li>Compiled alumni data for the graduate student chapter website.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <li class="os-item">
-                    <div class="os-when">May 2022 – May 2023</div>
-                    <div>
-                      <div class="os-where">AMS Tulane Student Chapter</div>
-                      <div class="os-role">Treasurer</div>
-                      <ul class="os-bullets">
-                        <li>Supported community events and departmental engagement.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <li class="os-item">
-                    <div class="os-when">Jun 2022 – May 2023</div>
-                    <div>
-                      <div class="os-where">South Asian Graduate Association (SAGA), Tulane University</div>
-                      <div class="os-role">Vice President</div>
-                      <ul class="os-bullets">
-                        <li>Helped restart the association after COVID-19 and supported community programming.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <!-- Tezpur University service -->
-                  <li class="os-item">
-                    <div class="os-when">Jul 2023 – Present</div>
-                    <div>
-                      <div class="os-where">Tezpur University — Alumni Association</div>
-                      <div class="os-role">Secretary</div>
-                      <ul class="os-bullets">
-                        <li>Managing academic &amp; job allocation database.</li>
-                        <li>Organizer of the 1st Math Alumni Meet.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <li class="os-item">
-                    <div class="os-when">Aug 2019 – Jul 2020</div>
-                    <div>
-                      <div class="os-where">Training &amp; Placement Cell, Tezpur University</div>
-                      <div class="os-role">Departmental Coordinator</div>
-                      <ul class="os-bullets">
-                        <li>Managed academic &amp; job allocation database and coordinated department-level efforts.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <li class="os-item">
-                    <div class="os-when">Oct 2018 – Dec 2019; Jan 2020 – Jul 2020</div>
-                    <div>
-                      <div class="os-where">Department of Mathematical Sciences, Tezpur University</div>
-                      <div class="os-role">Departmental Coordinator; Volunteer</div>
-                      <ul class="os-bullets">
-                        <li>Organized math events for InSCIgnis (2019) and π-Day (2019 &amp; 2020 online).</li>
-                        <li>Organized/supervised math events and quizzes at the 2nd Assam Science Festival.</li>
-                        <li>Organized National Mathematics Day (online).</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <li class="os-item">
-                    <div class="os-when">Oct 2018 – Dec 2019</div>
-                    <div>
-                      <div class="os-where">Students Science Council, Tezpur University</div>
-                      <div class="os-role">Departmental Representative</div>
-                      <ul class="os-bullets">
-                        <li>Volunteered in outreach programs associated with InSCIgnis (2019).</li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-
-                <div class="os-chiprow" aria-label="Academic tags">
-                  <span class="os-chip"><i class="fa-solid fa-chalkboard-user"></i> Mentoring</span>
-                  <span class="os-chip"><i class="fa-solid fa-graduation-cap"></i> Tutoring</span>
-                  <span class="os-chip"><i class="fa-solid fa-calendar-check"></i> Event organization</span>
-                  <span class="os-chip"><i class="fa-solid fa-children"></i> K–12 outreach</span>
-                </div>
-              </div>
-
-              <!-- NON-ACADEMIC -->
-              <div class="os-panel" role="tabpanel" id="panel-nonacademic" aria-labelledby="tab-nonacademic" data-open="false">
-                <ul class="os-timeline">
-                  <li class="os-item">
-                    <div class="os-when">May 2020</div>
-                    <div>
-                      <div class="os-where">Shanko (NGO) — Cyclone Amphan relief</div>
-                      <div class="os-role">Community kitchens (coastal areas near Kolkata)</div>
-                      <ul class="os-bullets">
-                        <li>Organized/supported community kitchens after Cyclone Amphan.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <li class="os-item">
-                    <div class="os-when">2020 – 2021</div>
-                    <div>
-                      <div class="os-where">COVID-19 relief</div>
-                      <div class="os-role">Community support near Kolkata and surrounding districts</div>
-                      <ul class="os-bullets">
-                        <li>Support to local dwellers during phases 1–2.</li>
-                      </ul>
-                    </div>
-                  </li>
-
-                  <li class="os-item">
-                    <div class="os-when">May 2021</div>
-                    <div>
-                      <div class="os-where">Shanko (NGO) — Cyclone Yaas relief</div>
-                      <div class="os-role">Community kitchens (coastal areas near Kolkata)</div>
-                      <ul class="os-bullets">
-                        <li>Organized/supported community kitchens after Cyclone Yaas.</li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-
-                <div class="os-chiprow" aria-label="Non-academic tags">
-                  <span class="os-chip"><i class="fa-solid fa-hand-holding-heart"></i> Relief work</span>
-                  <span class="os-chip"><i class="fa-solid fa-people-group"></i> Community support</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- RIGHT CARD -->
-            <aside class="os-card">
-              <h2>Memberships</h2>
-              <ul class="os-side-list">
-                <li>
-                  <i class="fa-solid fa-circle-check"></i>
-                  <div>
-                    <div style="font-weight:750; color: var(--os-text);">American Mathematical Society (AMS)</div>
-                    <div style="color: var(--os-muted); font-size: .92rem;">Member (2021–present)</div>
-                  </div>
-                </li>
-                <li>
-                  <i class="fa-solid fa-circle-check"></i>
-                  <div>
-                    <div style="font-weight:750; color: var(--os-text);">Society for Industrial and Applied Mathematics (SIAM)</div>
-                    <div style="color: var(--os-muted); font-size: .92rem;">Member (2021–present)</div>
-                  </div>
-                </li>
-                <li>
-                  <i class="fa-solid fa-circle-check"></i>
-                  <div>
-                    <div style="font-weight:750; color: var(--os-text);">Mathematical Association of America (MAA)</div>
-                    <div style="color: var(--os-muted); font-size: .92rem;">Member (2022–present)</div>
-                  </div>
-                </li>
-              </ul>
-
-              <!-- Removed: Get in Touch + CV buttons (as requested) -->
-
-              <!--<p class="os-mini">
-                If you want, I can also add a compact “Photos / Flyers / Outreach materials” gallery here (same site style).
-              </p>-->
-            </aside>
-
-          </div>
-        </div>
-
-
-        
+<!-- UPDATED SERVICE CONTENT: aligns dated appointments and roles with October 25, 2026 CV -->
+<div class="content-wrap">
+  <div class="os-hero">
+    <span class="os-eyebrow"><i class="fa-solid fa-handshake-angle" aria-hidden="true"></i> People · Learning · Community</span>
+    <div class="os-hero-top">
+      <div>
+        <h1 class="os-title">Outreach &amp; Services</h1>
+        <p class="os-subtitle">Mathematical community is shaped through more than research. My activities include student mentoring, STEM outreach, professional service, organizational leadership, and community engagement.</p>
+      </div>
+      <div class="os-badges"><span class="os-badge"><i class="fa-solid fa-children" aria-hidden="true"></i> STEM outreach</span><span class="os-badge"><i class="fa-solid fa-users" aria-hidden="true"></i> Academic service</span></div>
+    </div>
+    <div class="os-kpis" aria-label="Outreach highlights">
+      <div class="os-kpi"><span class="num">2</span><span class="lab">TWOPLES mentees<br>Spring &amp; Fall 2025</span></div>
+      <div class="os-kpi"><span class="num">2023–26</span><span class="lab">Tulane ALTC<br>Math tutoring</span></div>
+      <div class="os-kpi"><span class="num">GiST &amp; BATS</span><span class="lab">K–12 hands-on<br>STEM activities</span></div>
+      <div class="os-kpi"><span class="num">AMS</span><span class="lab">Chapter leadership<br>and special sessions</span></div>
+    </div>
+  </div>
+  <div class="os-grid">
+    <section class="os-card os-primary-card" aria-label="Outreach timeline">
+      <div class="os-card-heading"><div><span class="os-overline">Experience</span><h2>Selected contributions</h2></div><span class="os-source">Updated from CV · Oct 2026</span></div>
+      <p class="os-intro">Explore mentoring and STEM activities, professional service, and additional community initiatives.</p>
+      <div class="os-tabs" role="tablist" aria-label="Service and outreach categories">
+        <button type="button" class="os-tabbtn" role="tab" aria-selected="true" aria-controls="panel-mentoring" id="tab-mentoring"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Mentoring &amp; STEM</button>
+        <button type="button" class="os-tabbtn" role="tab" aria-selected="false" aria-controls="panel-service" id="tab-service" tabindex="-1"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> Academic service</button>
+        <button type="button" class="os-tabbtn" role="tab" aria-selected="false" aria-controls="panel-community" id="tab-community" tabindex="-1"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i> Community</button>
+      </div>
+<div class="os-panel" role="tabpanel" id="panel-mentoring" aria-labelledby="tab-mentoring" data-open="true" >
+  <ul class="os-timeline"><li class="os-item"><div class="os-when">Fall 2025</div><div>
+  <div class="os-where">TWOPLES — Directed Reading Program</div>
+  <div class="os-role">Mentor · Nikhil S. Kumar (NIT Tiruchirappalli, India)</div>
+  <ul class="os-bullets"><li>Exploring Commutative Algebra.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Spring 2025</div><div>
+  <div class="os-where">TWOPLES — Directed Reading Program</div>
+  <div class="os-role">Mentor · Imdadul Hussain (Tezpur University, India)</div>
+  <ul class="os-bullets"><li>An Introduction to Symbolic Powers.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Fall 2023 – May 2026</div><div>
+  <div class="os-where">Academic Learning &amp; Tutoring Center (ALTC), Tulane University</div>
+  <div class="os-role">Mathematics Department Teaching Assistant</div>
+  <ul class="os-bullets"><li>Facilitated mathematical problem-solving in individual tutoring and small groups.</li><li>Supported Calculus I–III, Statistics, Linear Algebra, and Real Analysis.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Oct 2022 · Apr 2023</div><div>
+  <div class="os-where">GiST — Girls in STEM at Tulane</div>
+  <div class="os-role">K–12 STEM Outreach · Mathematics Section Leader</div>
+  <ul class="os-bullets"><li>Introduced grades 5–7 to mathematical ideas through hands-on models and activities.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Apr 2024 · Sep 2024</div><div>
+  <div class="os-where">BATS — Boys at Tulane in STEM</div>
+  <div class="os-role">K–12 STEM Outreach · Mathematics Section Leader</div>
+  <ul class="os-bullets"><li>Led hands-on mathematics activities for 5th–7th grade participants.</li></ul>
+</div></li>
+</ul>
+</div><div class="os-panel" role="tabpanel" id="panel-service" aria-labelledby="tab-service" data-open="false" hidden>
+  <ul class="os-timeline"><li class="os-item"><div class="os-when">Fall 2025</div><div>
+  <div class="os-where">American Mathematical Society — Fall Eastern Virtual Sectional Meeting</div>
+  <div class="os-role">Co-organizer · Special Session on Commutative Algebra</div>
+  <ul class="os-bullets"><li>Co-organizer: Souvik Dey.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Fall 2025</div><div>
+  <div class="os-where">American Mathematical Society — Fall Southeastern Sectional Meeting</div>
+  <div class="os-role">Co-organizer · Special Session on Commutative Algebra at Tulane University</div>
+  <ul class="os-bullets"><li>Co-organizers: Tài Huy Hà and Kuei-Nuan Lin.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Fall 2023 · Spring 2024</div><div>
+  <div class="os-where">Tulane University Research Talks (Mathematics)</div>
+  <div class="os-role">Co-organizer · AMS/AWM faculty talks</div>
+  <ul class="os-bullets"><li>Co-organizer: Rebecca Kahler.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Jun 2023 – Jun 2024</div><div>
+  <div class="os-where">American Mathematical Society — Tulane Student Chapter</div>
+  <div class="os-role">President</div>
+  <ul class="os-bullets"><li>Organized AMS/AWM faculty talks and the Annual Math BBQ in 2023 and 2024.</li><li>Compiled alumni data for the graduate student chapter website.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">May 2022 – May 2023</div><div>
+  <div class="os-where">American Mathematical Society — Tulane Student Chapter</div>
+  <div class="os-role">Treasurer</div>
+</div></li>
+<li class="os-item"><div class="os-when">Jul 2023 – Present</div><div>
+  <div class="os-where">Tezpur University — Mathematics Alumni Association</div>
+  <div class="os-role">Secretary</div>
+  <ul class="os-bullets"><li>Organized the first Math Alumni Meet at Tezpur University.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Aug 2019 – Jul 2020</div><div>
+  <div class="os-where">Training &amp; Placement Cell, Tezpur University</div>
+  <div class="os-role">Departmental Coordinator</div>
+  <ul class="os-bullets"><li>Coordinated academic and job-allocation information.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Oct 2018 – Dec 2019</div><div>
+  <div class="os-where">Department of Mathematical Sciences, Tezpur University</div>
+  <div class="os-role">Departmental Coordinator</div>
+  <ul class="os-bullets"><li>Organized mathematics events for InSCIgnis (2019) and π-Day (2019).</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Jan 2020 – Jul 2020</div><div>
+  <div class="os-where">Department of Mathematical Sciences, Tezpur University</div>
+  <div class="os-role">Volunteer</div>
+  <ul class="os-bullets"><li>Organized online π-Day (2020) and National Mathematics Day activities.</li><li>Helped organize mathematical events and quizzes at the 2nd Assam Science Festival.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">Oct 2018 – Dec 2019</div><div>
+  <div class="os-where">Students Science Council, Tezpur University</div>
+  <div class="os-role">Departmental Representative</div>
+  <ul class="os-bullets"><li>Volunteered in science outreach through InSCIgnis (2019).</li></ul>
+</div></li>
+</ul>
+</div><div class="os-panel" role="tabpanel" id="panel-community" aria-labelledby="tab-community" data-open="false" hidden>
+  <ul class="os-timeline"><li class="os-item"><div class="os-when">Jun 2022 – May 2023</div><div>
+  <div class="os-where">South Asian Graduate Association (SAGA), Tulane University</div>
+  <div class="os-role">Vice President</div>
+  <ul class="os-bullets"><li>Helped restart the association following the COVID-19 pandemic.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">May 2020</div><div>
+  <div class="os-where">Cyclone Amphan community relief</div>
+  <div class="os-role">Shanko (NGO)</div>
+  <ul class="os-bullets"><li>Supported community kitchens in coastal areas near Kolkata.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">2020 – 2021</div><div>
+  <div class="os-where">COVID-19 community support</div>
+  <div class="os-role">Kolkata and surrounding districts</div>
+  <ul class="os-bullets"><li>Supported local residents during phases of the pandemic.</li></ul>
+</div></li>
+<li class="os-item"><div class="os-when">May 2021</div><div>
+  <div class="os-where">Cyclone Yaas community relief</div>
+  <div class="os-role">Shanko (NGO)</div>
+  <ul class="os-bullets"><li>Supported community kitchens in coastal areas near Kolkata.</li></ul>
+</div></li>
+</ul><p class="os-mini">Community relief activities were retained from the earlier version of this page; they are not listed in the October 2026 CV.</p>
+</div>
+    </section>
+    <aside class="os-aside">
+      <div class="os-card">
+        <span class="os-overline">Professional community</span>
+        <h2>Memberships</h2>
+        <ul class="os-side-list">
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><div><strong>American Mathematical Society (AMS)</strong><small>2021 – present</small></div></li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><div><strong>Society for Industrial and Applied Mathematics (SIAM)</strong><small>2021 – present</small></div></li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><div><strong>Mathematical Association of America (MAA)</strong><small>2022 – present</small></div></li>
+        </ul>
+      </div>
+      <div class="os-card os-spotlight">
+        <span class="os-overline">Selected leadership</span>
+        <h2>Connecting mathematical communities</h2>
+        <p>Co-organized AMS special sessions on commutative algebra in 2025, supported Tulane faculty talks, and contributed to mathematics outreach and alumni programming at Tezpur University.</p>
+      </div>
+    </aside>
+  </div>
+</div>
 
         <div class="footer" data-shared-template="footer"></div>
       </section>
@@ -683,8 +581,9 @@
 
     // ----- Tabs: Academic vs Non-Academic -----
     const tabs = [
-      { btn: 'tab-academic', panel: 'panel-academic' },
-      { btn: 'tab-nonacademic', panel: 'panel-nonacademic' }
+      { btn: 'tab-mentoring', panel: 'panel-mentoring' },
+      { btn: 'tab-service', panel: 'panel-service' },
+      { btn: 'tab-community', panel: 'panel-community' }
     ];
 
     function setTab(activeBtnId){
@@ -692,14 +591,31 @@
         const b = document.getElementById(btn);
         const p = document.getElementById(panel);
         const on = (btn === activeBtnId);
-        if (b) b.setAttribute('aria-selected', on ? 'true' : 'false');
-        if (p) p.dataset.open = on ? 'true' : 'false';
+        if (b) {
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+          b.tabIndex = on ? 0 : -1;
+        }
+        if (p) {
+          p.dataset.open = on ? 'true' : 'false';
+          p.hidden = !on;
+        }
       });
     }
 
     tabs.forEach(({btn}) => {
       const b = document.getElementById(btn);
-      if (b) b.addEventListener('click', () => setTab(btn));
+      if (b) {
+        b.addEventListener('click', () => setTab(btn));
+        b.addEventListener('keydown', (e) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+          e.preventDefault();
+          const index = tabs.findIndex(item => item.btn === btn);
+          const next = e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 :
+            (index + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+          setTab(tabs[next].btn);
+          document.getElementById(tabs[next].btn).focus();
+        });
+      }
     });
   </script>
 

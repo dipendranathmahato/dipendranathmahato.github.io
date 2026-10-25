@@ -25,6 +25,36 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .blog-page { min-width:0; }
+    .blog-shell { display:grid; gap:20px; }
+    .blog-hero { border-radius:24px; padding:clamp(25px,4vw,46px); overflow:hidden;
+      background:radial-gradient(circle at 90% 8%,rgba(169,241,190,.18),transparent 41%),
+      linear-gradient(120deg,#103f38 0%,#14624d 60%,#197c59 100%);
+      color:#fff; box-shadow:0 18px 40px rgba(14,68,54,.16); }
+    .blog-eyebrow { display:inline-flex; align-items:center; gap:9px; font-size:.76rem;
+      font-weight:800; letter-spacing:.10em; text-transform:uppercase; color:#c9f6e0; }
+    .blog-hero h1 { color:#fff; font-size:clamp(2rem,4vw,3.3rem); line-height:1.1; margin:16px 0 12px; letter-spacing:-.045em; }
+    .blog-hero p { color:#dcf4e8; line-height:1.7; max-width:66ch; margin:0; font-size:1rem; }
+    .blog-card { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:start; gap:20px;
+      border-radius:20px; padding:clamp(20px,3vw,33px); border:1px solid #dbe8e4;
+      background:rgba(255,255,255,.88); box-shadow:0 12px 30px rgba(25,65,55,.06); }
+    html[data-theme="dark"] .blog-card { background:rgba(20,35,47,.93); border-color:#40575e; }
+    .blog-category { display:inline-block; font-weight:800; color:#12684b; font-size:.74rem; text-transform:uppercase; letter-spacing:.08em; }
+    html[data-theme="dark"] .blog-category { color:#74d7ae; }
+    .blog-card h2 { margin:9px 0 10px; font-size:clamp(1.25rem,2.3vw,1.9rem); letter-spacing:-.035em; }
+    .blog-card p { line-height:1.7; margin:0; color:#526777; max-width:62ch; }
+    html[data-theme="dark"] .blog-card p { color:#b3c4cd; }
+    .blog-tags { margin-top:18px; display:flex; flex-wrap:wrap; gap:8px; }
+    .blog-tags span { display:inline-flex; border-radius:999px; padding:7px 12px; font-size:.76rem;
+      font-weight:750; color:#12684b; background:#f0f7f4; border:1px solid #dbe8e4; }
+    html[data-theme="dark"] .blog-tags span { color:#9be7c5; background:#233d40; border-color:#40575e; }
+    .blog-pending { flex-shrink:0; display:inline-flex; align-items:center; gap:8px;
+      color:#12684b; border:1px solid #b9dccc; background:#eff9f3;
+      border-radius:999px; padding:10px 13px; font-weight:800; font-size:.8rem; white-space:nowrap; }
+    @media(max-width:680px) { .blog-card { grid-template-columns:1fr; } .blog-pending { width:max-content; } }
+  </style>
 </head>
 <body>
   <div class="page">
@@ -37,11 +67,23 @@
       <aside class="sidebar" data-shared-template="sidebar"></aside>
 
 
-      <!-- Main HOME content -->
-
-
-
-
+      <section class="main blog-page" aria-labelledby="blog-title">
+        <div class="blog-shell">
+          <header class="blog-hero">
+            <span class="blog-eyebrow"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> Notes &amp; perspectives</span>
+            <h1 id="blog-title">Blogs</h1>
+            <p>A space for longer-form reflections on mathematics, research, teaching, and ideas that connect disciplines.</p>
+          </header>
+          <article class="blog-card" aria-labelledby="forthcoming-title">
+            <div>
+              <span class="blog-category">Forthcoming essay</span>
+              <h2 id="forthcoming-title">Mathematics &amp; Artificial Intelligence</h2>
+              <p>My perspective on mathematics and AI will appear here soon. This is a placeholder for the forthcoming post—not a published article.</p>
+              <div class="blog-tags" aria-label="Topics"><span>Mathematics</span><span>Artificial intelligence</span><span>Perspective</span></div>
+            </div>
+            <span class="blog-pending"><i class="fa-regular fa-clock" aria-hidden="true"></i> Coming soon</span>
+          </article>
+        </div>
       <div class="footer" data-shared-template="footer"></div>
       </section>
     </main>
