@@ -24,7 +24,7 @@
 
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="assets/css/about-journey.css?v=20261025" />
+  <link rel="stylesheet" href="assets/css/about-journey.css?v=20261025b" />
   <!-- OpenStreetMap via Leaflet (used only for the academic journey map). -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
@@ -71,36 +71,32 @@
 
             <div class="journey-map-toolbar" role="group" aria-label="Academic journey map views">
               <button type="button" class="journey-map-control is-active" data-journey-view="all" aria-pressed="true"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i> Entire journey</button>
-              <button type="button" class="journey-map-control" data-journey-view="india" aria-pressed="false">🇮🇳 India</button>
-              <button type="button" class="journey-map-control" data-journey-view="usa" aria-pressed="false">🇺🇸 United States</button>
+              <button type="button" class="journey-map-control" data-journey-view="india" aria-pressed="false">India</button>
+              <button type="button" class="journey-map-control" data-journey-view="usa" aria-pressed="false">United States</button>
             </div>
             <div id="academicJourneyMap" class="journey-map-canvas" role="region" aria-label="Zoomable academic journey map showing Kolkata and Tezpur in India, New Orleans in Louisiana, and Edinburg in Texas" tabindex="0">
               <p class="journey-map-loading">Loading interactive map… You can also select the universities below.</p>
             </div>
             <div class="journey-stop-grid" aria-label="Universities and academic locations">
               <button class="journey-stop" type="button" data-journey-stop="kolkata" aria-pressed="false">
-                <span class="journey-stop-flag" aria-hidden="true">🇮🇳</span>
                 <span class="journey-stop-detail">
                   <strong class="journey-stop-university">Dinabandhu Andrews College <span class="journey-stop-affiliation">(University of Calcutta)</span></strong>
                   <small>Kolkata, India <span aria-hidden="true">·</span> through 2018</small>
                 </span>
               </button>
               <button class="journey-stop" type="button" data-journey-stop="tezpur" aria-pressed="false">
-                <span class="journey-stop-flag" aria-hidden="true">🇮🇳</span>
                 <span class="journey-stop-detail">
                   <strong class="journey-stop-university">Tezpur University</strong>
                   <small>Tezpur, Assam, India <span aria-hidden="true">·</span> 2018–2021</small>
                 </span>
               </button>
               <button class="journey-stop" type="button" data-journey-stop="new-orleans" aria-pressed="false">
-                <span class="journey-stop-flag" aria-hidden="true">🇺🇸</span>
                 <span class="journey-stop-detail">
                   <strong class="journey-stop-university">Tulane University</strong>
                   <small>New Orleans, Louisiana, USA <span aria-hidden="true">·</span> 2021–2026</small>
                 </span>
               </button>
               <button class="journey-stop" type="button" data-journey-stop="edinburg" aria-pressed="false">
-                <span class="journey-stop-flag" aria-hidden="true">🇺🇸</span>
                 <span class="journey-stop-detail">
                   <strong class="journey-stop-university">University of Texas Rio Grande Valley</strong>
                   <span class="journey-stop-current">Current institution</span>
@@ -108,12 +104,14 @@
                 </span>
               </button>
             </div>
-            <p class="journey-location-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> <strong>Edinburg, Texas, USA</strong> is not Edinburgh, Scotland.</p>
             <p class="hero-subtitle">
-              I am a Ph.D. candidate in Mathematics at Tulane University, working with
-              <a href="https://www.math.tulane.edu/~tai/" target="_blank" rel="noopener">Prof. Tài Huy Hà</a>.
-              My path runs through Dinabandhu Andrews College (University of Calcutta) and Tezpur University,
-              and it is shaped by a long-standing fascination with algebra, geometry, and teaching.
+              I am a Lecturer in Mathematics at the <strong>University of Texas Rio Grande Valley</strong>
+              in Edinburg, Texas, where I have taught since 2026. From 2021 to 2026, I pursued
+              doctoral studies in Mathematics at <strong>Tulane University</strong> in New Orleans,
+              working with <a href="https://www.math.tulane.edu/~tai/" target="_blank" rel="noopener">Prof. Tài Huy Hà</a>.
+              Earlier, I studied at <strong>Tezpur University</strong> and
+              <strong>Dinabandhu Andrews College (University of Calcutta)</strong> in India.
+              These experiences continue to shape my interests in algebra, geometry, and teaching.
             </p>
           </div>
         </section>
@@ -304,7 +302,7 @@
   <!-- ================= SCRIPTS ================= -->
   <script src="assets/js/site-template.js"></script>
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script defer src="assets/js/about-journey.js?v=20261025"></script>
+  <script defer src="assets/js/about-journey.js?v=20261025b"></script>
   <script>
     // ----- Footer year -----
     const yearSpan = document.getElementById("year");
