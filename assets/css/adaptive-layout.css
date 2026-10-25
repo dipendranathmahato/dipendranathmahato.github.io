@@ -79,7 +79,7 @@ html, body { max-width: 100%; }
 .cv-main { width: 100%; }
 .cv-main :is(p, li, a, .m) { overflow-wrap: anywhere; }
 
-/* Public counter widget — provider-generated number with local fallback only. */
-.sitewide-visit-counter .sitewide-count { display:flex; align-items:center; gap:5px; min-height: 31px; }
-.sitewide-visit-counter .counterapi { display:inline-flex; align-items:center; color:var(--text); font-size:1.35rem; font-weight:800; font-variant-numeric:tabular-nums; }
-.sitewide-visit-counter .sitewide-count.has-widget .sitewide-placeholder { display:none; }
+/* A shared hits.sh badge is loaded on every public page view. */
+.sitewide-visit-counter .sitewide-count { display:flex; align-items:center; min-height:31px; }
+.sitewide-visit-counter .sitewide-count-badge { display:block; width:auto; max-width:100%; min-height:22px; }
+.sitewide-visit-counter .sitewide-placeholder { font-size:.82rem; font-weight:600; line-height:1.5; }
