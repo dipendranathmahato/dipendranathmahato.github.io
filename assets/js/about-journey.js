@@ -7,7 +7,7 @@
     kolkata: { name:"Kolkata", region:"West Bengal, India", years:"Through 2018", institution:"Dinabandhu Andrews College", affiliation:"University of Calcutta", coords:[22.5726,88.3639] },
     tezpur: { name:"Tezpur", region:"Assam, India", years:"2018–2021", institution:"Tezpur University", coords:[26.6338,92.8000] },
     "new-orleans": { name:"New Orleans", region:"Louisiana, USA", years:"2021–2026", institution:"Tulane University", coords:[29.9511,-90.0715] },
-    edinburg: { name:"Edinburg", region:"Texas, USA (not Edinburgh, Scotland)", years:"2026–present", institution:"University of Texas Rio Grande Valley", coords:[26.3017,-98.1633] }
+    edinburg: { name:"Edinburg", region:"Texas, USA", years:"2026–present", institution:"University of Texas Rio Grande Valley", coords:[26.3017,-98.1633] }
   };
   const stopButtons = [...document.querySelectorAll("[data-journey-stop]")];
   const viewButtons = [...document.querySelectorAll("[data-journey-view]")];
@@ -48,7 +48,7 @@
     return;
   }
   map=window.L.map(element,{zoomControl:true,scrollWheelZoom:false,worldCopyJump:true,minZoom:2,maxZoom:15});
-  // Free OpenStreetMap basemap: dark appearance is applied by CSS to tile pane only.
+  // Standard OpenStreetMap basemap, consistent in light and dark website themes.
   // Avoid map styles that require a provider API key.
   window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
     attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
