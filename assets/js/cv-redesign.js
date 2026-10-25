@@ -49,7 +49,6 @@
     applyTheme(nextTheme);
   });
 
-  $('#cvx-print')?.addEventListener('click', () => window.print());
 
   let talkFilter = 'all';
   const talkQuery = $('#cvx-talk-query');
@@ -117,7 +116,16 @@
         .sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
       if (!visible.length) return;
       const id = visible[0].target.id;
-      navLinks.forEach(link => link.classList.toggle('is-active', link.hash === `#${id}`));
+      navLinks.forEach(link => {
+        const active = link.hash === `#${id}`;
+        link.classList.toggle('is-active', active);
+        if (active && window.matchMedia('(max-width:690px)').matches) {
+          const list = link.closest('.cvx-nav-links');
+          if (list && link.offsetLeft < list.scrollLeft) list.scrollLeft = Math.max(0, link.offsetLeft - 18);
+          else if (list && link.offsetLeft + link.offsetWidth > list.scrollLeft + list.clientWidth)
+            list.scrollLeft = link.offsetLeft + link.offsetWidth - list.clientWidth + 20;
+        }
+      });
     }, { rootMargin:'-90px 0px -68% 0px', threshold:0 });
     sections.forEach(section => observer.observe(section));
   }
