@@ -158,9 +158,9 @@
   mount(".footer", FOOTER);
   const footerYear = document.getElementById("year");
   if (footerYear) footerYear.textContent = String(new Date().getFullYear());
-  // Site-wide public counter — official CounterAPI widget integration.
-  // Prior handcrafted SVG badges did not load reliably on the live website.
-  // The provider stores the number (not GitHub Pages). Local previews do not count.
+  // Site-wide public count: all pages use the same CounterAPI namespace and key.
+  // An image-based endpoint avoids CORS restrictions on JavaScript fetches.
+  // No number is invented if the independent counting service is unreachable.
   function addSiteVisitsCounter() {
     const sidebar = document.querySelector("aside.sidebar");
     if (!sidebar) return;
@@ -168,46 +168,41 @@
     block.className = "sidebar-section sitewide-visit-counter";
     block.setAttribute("aria-label", "All-time site visits");
     block.innerHTML = `<h3><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> All-time site visits</h3>
-      <div class="sitewide-count"><span class="sitewide-placeholder" aria-label="Loading visit count">—</span></div>`;
+      <div class="sitewide-count"><span class="sitewide-placeholder" aria-hidden="true">—</span></div>`;
     sidebar.append(block);
-    // Keep test previews and local file sessions from inflating the public counter.
+
+    // Only public domain visits are counted; local previews do not inflate the total.
     if (!/^(?:www\.)?dipendranathmahato\.com$|^dipendranathmahato\.github\.io$/i.test(location.hostname)) return;
     const slot = block.querySelector(".sitewide-count");
-    const widget = document.createElement("div");
-    widget.className = "counterapi";
-    widget.setAttribute("key", "all-pages");
-    widget.setAttribute("noIcon", "true");
-    widget.setAttribute("noLink", "true");
-    widget.setAttribute("noCss", "true");
-    widget.setAttribute("noAnim", "true");
-    // Read-only after a visit has already been recorded in this browser session.
-    let recorded = false;
-    try { recorded = sessionStorage.getItem("dm-sitewide-visit-v1") === "1"; } catch (_) {}
-    if (recorded) widget.setAttribute("readOnly", "true");
-    slot.append(widget);
-    const loader = document.createElement("script");
-    loader.async = true;
-    loader.src = "https://counterapi.com/c.js?ns=dipendranathmahato.com";
-    loader.onload = () => {
-      // Don't claim success until the widget itself has actually rendered.
-      const observer = new MutationObserver(() => {
-        if (widget.textContent.trim() || widget.querySelector('svg,img,span')) {
-          slot.classList.add("has-widget");
-          if (!recorded) {
-            try { sessionStorage.setItem("dm-sitewide-visit-v1", "1"); } catch (_) {}
-          }
-          observer.disconnect();
-        }
-      });
-      observer.observe(widget, { childList: true, subtree: true, characterData: true });
-      if (widget.textContent.trim()) {
-        slot.classList.add("has-widget");
-        observer.disconnect();
+    const image = document.createElement("img");
+    image.className = "sitewide-count-badge";
+    image.alt = "Site-wide visit total";
+    image.decoding = "async";
+    image.referrerPolicy = "no-referrer";
+
+    // Use existing session key to preserve continuity from the previous counter.
+    let seen = false;
+    try { seen = sessionStorage.getItem("dm-sitewide-visit-v1") === "1"; } catch (_) {}
+    const args = new URLSearchParams({
+      ns: "dipendranathmahato.com", action: "view", key: "all-pages",
+      readOnly: seen ? "true" : "false",
+      style: "flat", label: "visits", color: "146b4b",
+      labelColor: "e2f3e9", noAnim: "true",
+      // Bypass stale image caches so published totals can refresh.
+      v: String(Date.now())
+    });
+    image.addEventListener("load", () => {
+      slot.classList.add("has-image");
+      if (!seen) {
+        try { sessionStorage.setItem("dm-sitewide-visit-v1", "1"); } catch (_) {}
       }
-    };
-    // When unavailable, retain an unobtrusive dash rather than inventing a total.
-    loader.onerror = () => { widget.remove(); };
-    document.head.append(loader);
+    });
+    image.addEventListener("error", () => {
+      image.remove();
+      slot.title = "The independent visit-counting service is temporarily unreachable.";
+    });
+    image.src = "https://counterapi.com/counter.svg?" + args.toString();
+    slot.append(image);
   }
   addSiteVisitsCounter();
 
