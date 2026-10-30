@@ -83,3 +83,6 @@ html, body { max-width: 100%; }
 .sitewide-visit-counter .sitewide-count { display:flex; align-items:center; min-height:31px; }
 .sitewide-visit-counter .sitewide-count-badge { display:block; width:auto; max-width:100%; min-height:22px; }
 .sitewide-visit-counter .sitewide-placeholder { font-size:.82rem; font-weight:600; line-height:1.5; }
+
+/* 2026-10-30: Keep CV reachable from the mobile header on course pages. */
+@media (max-width: 780px) { .top-nav .controls .cv-button { display: inline-flex !important; align-items:center; } .top-nav .controls .cv-button span { display: inline !important; } }
