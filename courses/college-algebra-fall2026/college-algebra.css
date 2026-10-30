@@ -75,3 +75,11 @@ html[data-theme="dark"] .ca-foundation-chapter-label span{background:#5a3023}
 html[data-theme="dark"] .ca-glance-grid>div,html[data-theme="dark"] .ca-weights-grid>div,html[data-theme="dark"] .ca-estimator,html[data-theme="dark"] .ca-assessments-grid>div{background:#202b3a;color:#edf0f5;border-color:#665044}
 html[data-theme="dark"] .ca-foundation-chapter h2,html[data-theme="dark"] .ca-foundation-lede{color:#edf0f5}
 @media(max-width:650px){.ca-foundation-book{padding:12px}.ca-glance-grid,.ca-weights-grid,.ca-assessments-grid{grid-template-columns:1fr}.ca-foundation-rows>div{grid-template-columns:1fr;gap:4px}.ca-foundation-section{padding:15px 0}}
+
+/* College Algebra hero schedule and Calculus-style chapter guidance (2026-10-30). */
+.ca-hero .ca-hero-schedule{display:flex;align-items:center;flex-wrap:wrap;gap:.35rem;max-width:none;font-weight:700;line-height:1.6;margin:14px 0 0;color:#fff;}
+.ca-hero .ca-hero-schedule i{margin-right:.25rem;}
+.ca-chapter-notice{display:flex;align-items:center;gap:12px;border:1px solid #e9bc9f;background:#fff2e9;color:#72361f;padding:13px 16px;border-radius:11px;line-height:1.55;margin:-3px 0 17px;font-size:.92rem;}
+.ca-chapter-notice i{color:#c84b22;flex-shrink:0;font-size:1.1rem;}
+[data-theme="dark"] .ca-chapter-notice{background:#39271f;color:#ffe9d7;border-color:#895035;}
+@media(max-width:520px){.ca-hero .ca-hero-schedule{font-size:.87rem;gap:.25rem}.ca-chapter-notice{align-items:flex-start;padding:12px;font-size:.85rem}}
