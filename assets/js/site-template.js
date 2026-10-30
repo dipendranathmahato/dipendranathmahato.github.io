@@ -10,7 +10,7 @@
         <img src="/assets/images/utrgv-logo.svg"
              class="nav-logo"
              alt="University of Texas Rio Grande Valley logo" style="width:110px;height:auto;object-fit:contain" />
-        <a href="index.html" class="brand-name-link">
+        <a href="/index.html" class="brand-name-link">
           <span>Dipendranath Mahato</span>
         </a>
       </div>
@@ -21,20 +21,20 @@
       </button>
 
       <nav class="top-nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="teaching.html">Teaching</a>
-        <a href="presentations.html">Presentations</a>
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/research.html">Research</a>
+        <a href="/teaching.html">Teaching</a>
+        <a href="/presentations.html">Presentations</a>
 
         <div class="dropdown">
           <button class="dropbtn">
             More <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="dropdown-content">
-            <a href="outreach-services.html">Outreach &amp; Services</a>
-            <a href="blogs.html">Blogs</a>
-            <a href="resources.html">Resources</a>
+            <a href="/outreach-services.html">Outreach &amp; Services</a>
+            <a href="/blogs.html">Blogs</a>
+            <a href="/resources.html">Resources</a>
           </div>
         </div>
       </nav>
@@ -45,7 +45,7 @@
           <span>Dark</span>
         </button>
 
-        <a href="cv.html" class="pill-button primary cv-button">
+        <a href="/cv.html" class="pill-button primary cv-button">
           <i class="fa-solid fa-file-lines"></i>
           <span>CV</span>
         </a>
@@ -216,7 +216,7 @@
     const adaptive = document.createElement('link');
     adaptive.rel = 'stylesheet';
     adaptive.dataset.adaptiveSite = 'true';
-    adaptive.href = new URL('assets/css/adaptive-layout.css?v=20261023a', siteRoot).href;
+    adaptive.href = new URL('assets/css/adaptive-layout.css?v=20261030fix2', siteRoot).href;
     document.head.append(adaptive);
   }
 
