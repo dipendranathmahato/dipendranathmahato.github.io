@@ -1,6 +1,284 @@
 <!DOCTYPE html>
+<html data-theme="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>College Algebra · Interactive Notes | Dipendranath Mahato</title><link href="/assets/css/style.css?v=b58e400b11f6" rel="stylesheet"/><link href="/assets/css/course.css?v=55f96e6298d0" rel="stylesheet"/><link href="/assets/css/interactive-course.css?v=65ffb2f69374" rel="stylesheet"/><style id="college-algebra-course-style-bundled"> .course-page{--ca-orange:#f05023;--ca-dark:#242c38}.course-page .uni-header.prominent{border-top:5px solid #f05023;background:linear-gradient(110deg,#f0502312,#6464690c)}.course-page .uni-title{color:#d84619}.uni-header-logo img{max-width:180px;max-height:68px}.ca{font-family:Inter,system-ui,sans-serif;color:var(--text,#252d37)}.ca-hero{position:relative;border-radius:22px;padding:clamp(25px,4vw,44px);background:linear-gradient(125deg,#662a1e,#bd461d 65%,#f05023);color:#fff;overflow:hidden;margin:18px 0 22px}.ca-eyebrow{font-size:.77rem;letter-spacing:.16em;font-weight:800;color:#ffe3d5}.ca-hero h1{font-size:clamp(1.9rem,3.8vw,3.1rem);line-height:1.12;margin:15px 0}.ca-hero h1 span{display:block;color:#ffe0ba}.ca-hero p{max-width:620px;color:#fff;line-height:1.6}.ca-hero-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.ca-hero-links button,.ca-hero-links a{background:white;color:#83321e;border:0;border-radius:11px;padding:12px 17px;font-weight:800;text-decoration:none;cursor:pointer}.ca-hero-links a{background:#ffffff20;color:white;border:1px solid #ffffff80}.ca-course-meta{font-size:.82rem;opacity:.9;margin-top:24px}.ca-layout{display:grid;grid-template-columns:minmax(175px,235px) minmax(0,1fr);gap:24px;align-items:start}.ca-toc{position:sticky;top:15px;display:flex;flex-direction:column;gap:5px;border:1px solid var(--border,#e3e4e7);padding:16px;border-radius:14px;background:var(--card-bg,#fff);max-height:85vh;overflow:auto}.ca-toc strong{font-size:.73rem;letter-spacing:.13em;color:#d04c25;margin-bottom:8px}.ca-toc a{padding:9px;border-radius:7px;font-size:.84rem;text-decoration:none;color:inherit}.ca-toc a:hover,.ca-toc a:focus{background:#f0502317;color:#bf3b16}.ca-content{min-width:0}.ca-lesson{padding:24px;border:1px solid var(--border,#e5e6eb);border-radius:16px;margin-bottom:23px;background:var(--card-bg,#fff);scroll-margin-top:18px}.ca-chapter{color:#d54820;letter-spacing:.14em;font-size:.78rem;font-weight:800}.ca-lesson h2{font-size:clamp(1.5rem,2.8vw,2rem);margin:11px 0}.ca-lede{font-size:1.02rem;line-height:1.7}.ca-goals{padding:14px 17px;border-left:4px solid #f05023;background:#f050230c;margin:20px 0;border-radius:8px;line-height:1.6}.ca-goals b{display:block}.ca-panel{padding:20px;border:1px solid var(--border,#e3e4e9);border-radius:14px;margin:20px 0;scroll-margin-top:20px}.ca-panel h3{font-size:1.18rem;margin:0 0 8px}.ca-panel p{line-height:1.6}.ca-controls{display:flex;flex-wrap:wrap;gap:13px;align-items:end;margin:14px 0}.ca-controls label{display:flex;flex-direction:column;gap:7px;font-size:.88rem;font-weight:650;min-width:120px}.ca-controls input:not([type=range]),.ca-controls select{max-width:190px;min-height:40px;padding:7px 10px;border:1px solid #a9afb9;border-radius:8px;background:var(--card-bg,#fff);color:inherit}.ca-controls input[type=range]{accent-color:#f05023;max-width:170px}.ca-check{display:flex;align-items:center;gap:8px;line-height:1.5}.ca-equation{font-size:1.1rem;font-weight:750;padding:15px;border-radius:10px;background:#f050230d;margin:12px 0;overflow-wrap:anywhere}.ca-feedback{border:1px solid #f0502355;background:#f050230a;padding:12px 15px;border-radius:10px;line-height:1.65;margin:12px 0}.ca-muted{font-size:.88rem;opacity:.82;line-height:1.6}.ca-panel svg{display:block;max-width:100%;height:auto;max-height:350px;margin:15px auto;background:var(--card-bg,#fff);border:1px solid var(--border,#ddd);border-radius:12px}.ca-table{border-collapse:collapse;width:100%;text-align:center}.ca-table th,.ca-table td{padding:10px;border:1px solid #c9ced5}.ca-table th{background:#f0502315}.ca-table tbody tr{cursor:pointer}.ca-table tbody tr:hover,.ca-table tbody tr.selected{background:#f0502330}.ca-btn{padding:11px 15px;border-radius:9px;border:1px solid #d9481f;background:#dc481d;color:white;cursor:pointer;font-weight:700}.ca-btn-outline{background:transparent;color:inherit}.ca-quiz-question{border:1px solid #d8dce2;border-radius:12px;padding:16px;margin:13px 0}.ca-quiz-question p{font-weight:650}.ca-quiz-question label{display:block;margin:8px 0;cursor:pointer}.ca-quiz-question input{accent-color:#f05023}.ca-footer{font-size:.82rem;opacity:.8;line-height:1.7;padding:12px 0 28px}.ca-modal{width:min(900px,94vw);max-height:90vh;border:1px solid #ccc;border-radius:18px;padding:0;background:var(--card-bg,#fff);color:var(--text,#252d37);box-shadow:0 22px 90px #0006}.ca-modal::backdrop{background:#111a27b8}.ca-modal-head{background:linear-gradient(100deg,#85371f,#e44e21);color:white;display:flex;justify-content:space-between;align-items:center;padding:20px;gap:12px}.ca-modal-head h2{margin:7px 0 0}.ca-modal-head button{color:white;border-color:white}.ca-modal-body{padding:22px;overflow:auto;max-height:72vh}.ca-stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ca-stat-grid>div{padding:12px;border-radius:10px;border:1px solid #e4c7b9;display:flex;flex-direction:column;gap:7px;line-height:1.45}.ca-stat-grid b{color:#ce4d24}.ca-grade-row{display:flex;align-items:center;justify-content:space-between;gap:9px;padding:9px 0;border-bottom:1px solid #ddd}.ca-grade-row input{width:80px;padding:7px}.ca-grade-row label{flex:1}.ca-grade-row b{width:45px}.ca-modal-body h3{margin-top:24px}@media(max-width:880px){.ca-layout{grid-template-columns:1fr}.ca-toc{position:relative;top:0;max-height:unset;display:flex;flex-direction:row;overflow:auto;white-space:nowrap}.ca-toc strong{display:none}.ca-toc a{flex-shrink:0}}@media(max-width:520px){.ca-lesson{padding:13px}.ca-panel{padding:13px}.ca-stat-grid{grid-template-columns:1fr}.ca-controls label{min-width:100px}.ca-hero{padding:23px}.ca-modal-head{align-items:start}}
+/* Explicit concept→experiment→prediction→feedback learning flow */
+.ca-definition{background:color-mix(in srgb,#f05023 8%,var(--card-bg,#fff));border-left:5px solid #f05023;padding:16px 18px;border-radius:10px;margin:15px 0}.ca-definition strong{color:#b43c18;font-size:1.05rem}.ca-definition p{margin:9px 0}.ca-mapping-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.ca-mapping-grid>div{border:1px solid var(--border,#d5d9df);padding:13px;border-radius:11px;min-width:0}.ca-mapping-grid h4{margin:0 0 12px}.ca-mapping-grid h4 small{font-size:.75rem;font-weight:400;display:block;margin-top:3px}.ca-pair-cards{display:flex;flex-wrap:wrap;gap:8px}.ca-pair{border:1px solid #9ba8b8;border-radius:7px;padding:8px 10px;background:var(--card-bg,#fff);font-variant-numeric:tabular-nums}.ca-pair.ca-conflict,.ca-map-row.ca-conflict{background:#fff0ed;border:2px solid #d63d28;color:#712d22}.ca-pair.ca-shared{background:#e9f5fb;border-color:#32799d}.ca-map-row{display:flex;align-items:center;gap:12px;padding:9px;border-radius:7px;border:1px solid var(--border,#d1d5db);margin-bottom:7px}.ca-map-input{flex:1}.ca-map-outputs{flex:1;display:flex;flex-wrap:wrap;gap:6px}.ca-map-outputs span{border-radius:6px;background:#f0502321;padding:4px 8px}.ca-observation{margin:14px 0;padding:13px 16px;border:1px solid #cbd5de;border-radius:10px}.ca-observation p{margin:6px 0}.ca-predict{border:1px solid #e8c6b5;border-radius:12px;padding:16px;margin:14px 0}.ca-choice-row{display:flex;gap:10px;flex-wrap:wrap}.ca-choice{background:var(--card-bg,#fff);color:inherit;border:2px solid #aeb7c4;border-radius:9px;padding:11px 17px;cursor:pointer;font-weight:750}.ca-choice.selected,.ca-choice[aria-pressed=true]{border-color:#dc4b20;background:#f0502323}.ca-correct{border-color:#16836d;background:#16836d17}.ca-incorrect{border-color:#c63e2f;background:#c63e2f14}.ca-explain{border:1px solid #d6dce4;border-radius:10px;padding:13px 16px}.ca-explain summary{cursor:pointer;font-weight:750}@media(max-width:650px){.ca-mapping-grid{grid-template-columns:1fr}}
 
-<html data-theme="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>College Algebra · Interactive Notes | Dipendranath Mahato</title><link href="/assets/css/style.css?v=b58e400b11f6" rel="stylesheet"/><link href="/assets/css/course.css?v=55f96e6298d0" rel="stylesheet"/><link href="/assets/css/interactive-course.css?v=65ffb2f69374" rel="stylesheet"/><link href="./college-algebra.css?v=20261031-visual-labs-2" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" rel="stylesheet"/><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+/* UTRGV identity overrides other global university themes */
+.course-page .uni-header.ca-university-header{border-left:4px solid #d94a17!important;border-top:0!important;border-bottom:0!important;background:linear-gradient(105deg,#fff3eb,#fce7dd)!important;color:#87320f!important}
+.course-page .uni-header.ca-university-header .uni-title,.course-page .uni-header.ca-university-header .uni-header-left>i{color:#a83c16!important}
+.course-page .ca-hero{background:linear-gradient(112deg,#6a2b1d,#b73e13 64%,#e44b12);padding:clamp(22px,3vw,34px);border-radius:17px;margin:14px 0 20px}
+.ca-hero h1 span{display:inline;color:inherit}.ca-hero h1{max-width:850px;font-size:clamp(1.55rem,3vw,2.5rem)}.ca-hero:after{content:'ƒ(x)';position:absolute;right:6%;top:12%;font:italic 100px Georgia,serif;color:#ffffff20;pointer-events:none}
+.ca-hero-links button{background:#fff7ee;color:#853016}.ca-hero-links button:hover,.ca-hero-links a:hover{filter:brightness(.96)}
+.ca-toc{gap:9px}.ca-toc-chapter{border:1px solid #efd5c7;border-radius:10px;background:var(--card-bg,#fff);overflow:hidden}.ca-toc-chapter>summary{padding:12px 10px;display:flex;align-items:center;gap:7px;cursor:pointer;font-weight:750;font-size:.84rem;color:#9a3718;list-style:none}.ca-toc-chapter>summary::-webkit-details-marker{display:none}.ca-toc-chapter>summary .fa-chevron-down{margin-left:auto;transition:transform .2s}.ca-toc-chapter[open]>summary .fa-chevron-down{transform:rotate(180deg)}.ca-toc-children{display:flex;flex-direction:column;border-top:1px solid #ecd5c6;padding:5px}.ca-toc-children a{font-size:.82rem;padding:9px 10px}
+.ca-remember{border-left:5px solid #f05023;border-radius:10px;background:#fff5ed;color:#51291a;padding:15px 18px;margin:17px 0}.ca-remember-heading{color:#a83911;font-weight:850;letter-spacing:.075em;font-size:.82rem}.ca-remember p{margin:7px 0}.remember-yes{color:#147b58;font-weight:900}.remember-no{color:#d63d28;font-weight:900}.ca-function-svg{width:100%;height:auto;max-height:400px!important}.ca-vline-rule{background:#fff6f0;border-left:5px solid #f05023;border-radius:9px;padding:13px 17px;margin:13px 0}.ca-vline-rule p{margin:5px 0}.ca-vline-status{display:flex;align-items:center;gap:12px;padding:15px;border-radius:11px;font-size:1.18rem;font-weight:850;margin:13px 0}.ca-vline-status small{font-size:.83rem;font-weight:600}.ca-vline-good{background:#e8f8ed;border:2px solid #23845f;color:#116044}.ca-vline-bad{background:#fff0eb;border:2px solid #cc4735;color:#992b24}.ca-foundations-extra{border-top:1px solid #ddd;margin-top:24px}.ca-foundations-extra li{margin:7px 0;line-height:1.55}
+@media(max-width:880px){.ca-toc{display:flex;flex-direction:column;overflow:visible;white-space:normal;max-height:none}.ca-toc strong{display:block}.ca-toc a{white-space:normal}.ca-hero:after{display:none}}
+
+/* October 30: match the clear card-and-item Calculus I table of contents */
+.course-page .ca-toc{background:#fff9f5!important;border:1px solid #f0cbb8!important;border-radius:15px!important;padding:12px!important;gap:9px!important;box-shadow:0 2px 10px #8b3e1810}
+.course-page .ca-toc>strong{display:flex!important;align-items:center;gap:7px;margin:2px 5px 4px!important;letter-spacing:.08em;color:#9d3716!important;font-size:.73rem!important}
+.course-page .ca-toc-chapter{display:block!important;border:1px solid #e8c4b2!important;background:#fff5ed!important;border-radius:11px!important;overflow:hidden!important;margin:0!important;flex:none!important}
+.course-page .ca-toc-chapter>summary{display:flex!important;align-items:center!important;gap:7px!important;padding:12px 10px!important;color:#8e3114!important;font-size:.86rem!important;font-weight:800!important;line-height:1.35!important;list-style:none!important}
+.course-page .ca-toc-chapter>summary .fa-chevron-down{margin-left:auto!important;flex-shrink:0}
+.course-page .ca-toc-children{display:flex!important;flex-direction:column!important;gap:3px!important;padding:6px 8px 10px!important;border-top:1px solid #f0d6c8!important}
+.course-page .ca-toc-children a{display:block!important;white-space:normal!important;padding:9px 10px!important;border-radius:8px!important;color:#704538!important;line-height:1.35!important;font-size:.82rem!important;text-decoration:none!important}
+.course-page .ca-toc-children a:hover,.course-page .ca-toc-children a:focus-visible,.course-page .ca-toc-children a.ca-active{background:#f8e1d3!important;color:#8e3114!important;font-weight:750!important}
+.course-page .uni-header.ca-university-header::after{background:#f05023!important;height:3px!important;opacity:.8!important}
+.course-page .uni-header.ca-university-header{border-color:#d94a17!important}
+.ca-vline-status{font-weight:900!important;flex-wrap:wrap;gap:9px!important}
+.ca-vline-status .ca-vline-verdict{font-size:1.28rem;font-weight:950;letter-spacing:.035em}
+.ca-vline-status small{flex-basis:100%;margin-left:30px;font-weight:650}
+.ca-vline-good .ca-vline-verdict{color:#086045}.ca-vline-bad .ca-vline-verdict{color:#aa251e}
+.ca-vline-result-strong{font-size:1.04rem;font-weight:900;padding:2px 5px;border-radius:5px}
+.ca-vline-result-strong.is-function{color:#086045;background:#e4f5ed}.ca-vline-result-strong.not-function{color:#ae2722;background:#ffe8e4}
+@media(max-width:880px){.course-page .ca-toc{max-height:none!important;overflow:visible!important}.course-page .ca-toc-children a{white-space:normal!important}}
+
+/* Nov course improvements: consistent labels, responsive hero, interval and domain references */
+.ca-hero h1{max-width:1100px!important;font-size:clamp(1.7rem,2.9vw,2.85rem)!important;line-height:1.2!important;text-wrap:balance}.ca-hero p{max-width:850px!important;text-wrap:pretty}.ca-hero:after{right:3%!important;opacity:.45}.ca-function-svg{max-height:none!important;overflow:visible}.ca-map-diagram .ca-muted{font-size:.84rem;line-height:1.55}.ca-interval-reference{margin:18px 0 24px;padding:20px;border:1px solid #f0bea8;background:#fffaf6;border-radius:14px}.ca-interval-reference h4{font-size:1.22rem!important;letter-spacing:.02em;color:#b83a16;margin:0 0 12px}.ca-interval-reference>p{margin:0 0 15px}.ca-interval-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ca-interval-grid>div{padding:13px;background:white;border:1px solid #efd7cb;border-radius:10px;display:flex;flex-direction:column;gap:5px}.ca-interval-grid b{font-size:.85rem;color:#763d2b}.ca-interval-grid strong{font-size:1.26rem;color:#bd421c;font-weight:850}.ca-interval-grid span{font-size:.86rem;color:#475569}.ca-interval-tip{margin:15px 0;padding:12px;background:#fff1e8;border-left:4px solid #f05023;border-radius:8px;line-height:1.5}.ca-interval-presets{display:flex;gap:7px;flex-wrap:wrap}.ca-interval-presets button{background:#fff;border:1px solid #d77b52;color:#8d381a;border-radius:8px;padding:8px 12px;cursor:pointer;font-weight:700}.ca-interval-presets button:hover,.ca-interval-presets button.active{background:#f05023;color:white}.ca-domain-rules{border:1px solid #efc5b2;background:#fffaf7;border-radius:14px;padding:17px;margin:15px 0}.ca-domain-rules h4{font-size:1.12rem;color:#b73e16;margin:0 0 13px}.ca-domain-rule{display:grid;grid-template-columns:minmax(155px,32%) 1fr;gap:14px;padding:11px;border-bottom:1px solid #edd8ce;line-height:1.55}.ca-domain-rule b{color:#a43b1c}.ca-domain-rules>p{margin-bottom:0}.ca-panel .ca-function-svg{margin:0 auto 12px}.ca-mapping-grid>div{overflow:hidden}@media(max-width:700px){.ca-interval-grid{grid-template-columns:1fr}.ca-domain-rule{grid-template-columns:1fr;gap:4px}.ca-hero h1{font-size:1.7rem!important}.ca-hero-links{gap:8px}}
+
+/* Shared site parity — 2026-10-30 */
+/* Sidebar research-area badges intentionally inherit the shared site styles in assets/css/style.css. */.course-page .top-nav-links{z-index:250}.course-page .nav-toggle{cursor:pointer}
+@media(max-width:640px){.course-page .controls .cv-button{display:inline-flex!important;align-items:center!important}.course-page .controls .cv-button span{display:inline!important}.course-page .top-nav-links.open{display:flex!important;width:100%;order:5;position:relative;flex-direction:column;align-items:stretch}.course-page .top-nav-links.open a{display:block}.course-page .dropdown.dropdown-open .dropdown-content{display:flex;flex-direction:column;position:static;box-shadow:none}.course-page .controls{margin-left:auto}}
+html[data-theme="dark"] .ca{color:var(--text,#e8edf5)}html[data-theme="dark"] .ca-lesson,html[data-theme="dark"] .ca-panel,html[data-theme="dark"] .ca-toc,html[data-theme="dark"] .ca-modal,html[data-theme="dark"] .ca-stat-grid>div,html[data-theme="dark"] .ca-foundation-cards>div{background:#202b3a;color:#eef2f8;border-color:#455568}html[data-theme="dark"] .ca-lesson h2,html[data-theme="dark"] .ca-panel h3,html[data-theme="dark"] .ca-modal h3{color:#fff}html[data-theme="dark"] .ca-muted{color:#bcc9db}html[data-theme="dark"] .ca-feedback{color:#e9eef8}html[data-theme="dark"] .ca-toc a{color:#f7d9c9}
+.ca-foundation-intro{border-left:4px solid #f05023;padding:10px 17px;background:#fff3ed;border-radius:10px;margin-bottom:20px}.ca-foundation-intro h3{margin:0 0 6px}.ca-foundation-intro p{margin:0}.ca-foundation-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ca-foundation-cards>div{background:#fff8f4;border:1px solid #f5cab6;border-radius:12px;padding:14px}.ca-foundation-cards b,.ca-foundation-cards span{display:block}.ca-foundation-cards span{margin-top:5px}.ca-foundation-syllabus{border-top:1px solid #e5bdad;margin-top:22px;padding-top:10px}html[data-theme="dark"] .ca-foundation-intro{background:#4d2b21;color:#fff}@media(max-width:650px){.ca-foundation-cards{grid-template-columns:1fr}}
+
+
+/* Course Foundations: matches the Tulane chapter-style modal, with UTRGV orange */
+.ca-foundation-book{padding:22px 26px;max-height:calc(90dvh - 90px);overflow:auto}
+.ca-foundation-chapter{max-width:none;margin:0;border:0;background:transparent}
+.ca-foundation-chapter-label{color:#b84422;font-size:.72rem;letter-spacing:.11em;font-weight:850}
+.ca-foundation-chapter-label span{background:#fff0e9;border-radius:20px;margin-left:10px;padding:4px 10px}
+.ca-foundation-chapter h2{font-size:clamp(1.45rem,2.5vw,2rem);margin:12px 0;color:var(--text,#202936)}
+.ca-foundation-lede{color:var(--text,#45515d);line-height:1.6;margin:0 0 18px}
+.ca-foundation-section{padding:20px 0;border-top:1px solid #efd6ca}
+.ca-foundation-section:first-of-type{border-top:0}
+.ca-foundation-section h3{font-size:1.08rem;color:#ab401d;margin:0 0 14px}
+.ca-foundation-section h3 i{margin-right:7px}
+.ca-glance{border:1px solid #f3cfbf;border-radius:12px;padding:16px;background:#fff6f1;margin-bottom:18px}
+.ca-glance-grid,.ca-weights-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.ca-glance-grid>div{background:var(--card-bg,#fff);border:1px solid #efd8cc;border-radius:8px;padding:11px}
+.ca-glance-grid b,.ca-glance-grid span{display:block;overflow-wrap:anywhere}
+.ca-glance-grid b{font-size:.9rem;color:#9f3b1c}.ca-glance-grid span{font-size:.83rem;margin-top:5px}
+.ca-weights-grid>div{background:var(--card-bg,#fff);border:1px solid #f0d5c8;padding:10px;border-radius:8px;display:grid;grid-template-columns:1fr auto;gap:8px;font-size:.86rem}
+.ca-weights-grid b{color:#b74320}.ca-weights-grid i{grid-column:1/-1;display:block;position:relative;background:#fae5da;height:7px;border-radius:10px;overflow:hidden}
+.ca-weights-grid i:before{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--fill);background:#dc4d23;border-radius:10px}
+.ca-estimator{border:1px solid #f2c7b5;border-radius:9px;margin-top:12px;padding:10px 12px;background:var(--card-bg,#fff)}
+.ca-estimator summary{cursor:pointer;color:#a93b19;font-weight:800}.ca-estimator summary i{margin-right:6px}
+.ca-foundation-note{font-size:.84rem;line-height:1.55;opacity:.85}
+.ca-foundation-rows{display:grid;gap:7px}.ca-foundation-rows>div{border:1px solid #f1d9cd;padding:10px 12px;border-radius:8px;display:grid;grid-template-columns:minmax(135px,25%) 1fr;gap:12px;font-size:.88rem}
+.ca-foundation-rows b{color:#a53b1a}
+.ca-foundation-highlight{display:flex;align-items:flex-start;gap:12px;background:#fff8e8;border:1px solid #edcf8f;color:#6e4c19;border-radius:9px;padding:13px;margin-top:12px}
+.ca-foundation-highlight p{margin:5px 0 0}.ca-foundation-highlight i{color:#d38d13;font-size:1.4rem}
+.ca-assessments-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.ca-assessments-grid>div{border:1px solid #eab8a4;border-top:4px solid #df4c22;border-radius:9px;background:var(--card-bg,#fff);padding:12px;display:flex;flex-direction:column;gap:5px}
+.ca-assessments-grid b{color:#a83b1a}.ca-assessments-grid small{opacity:.8;line-height:1.4}
+html[data-theme="dark"] .ca-glance,html[data-theme="dark"] .ca-foundation-highlight{background:#362a26;color:#f1ddd4;border-color:#84503a}
+html[data-theme="dark"] .ca-foundation-chapter-label span{background:#5a3023}
+html[data-theme="dark"] .ca-glance-grid>div,html[data-theme="dark"] .ca-weights-grid>div,html[data-theme="dark"] .ca-estimator,html[data-theme="dark"] .ca-assessments-grid>div{background:#202b3a;color:#edf0f5;border-color:#665044}
+html[data-theme="dark"] .ca-foundation-chapter h2,html[data-theme="dark"] .ca-foundation-lede{color:#edf0f5}
+@media(max-width:650px){.ca-foundation-book{padding:12px}.ca-glance-grid,.ca-weights-grid,.ca-assessments-grid{grid-template-columns:1fr}.ca-foundation-rows>div{grid-template-columns:1fr;gap:4px}.ca-foundation-section{padding:15px 0}}
+
+/* College Algebra hero schedule and Calculus-style chapter guidance (2026-10-30). */
+.ca-hero .ca-hero-schedule{display:flex;align-items:center;flex-wrap:wrap;gap:.35rem;max-width:none;font-weight:700;line-height:1.6;margin:14px 0 0;color:#fff;}
+.ca-hero .ca-hero-schedule i{margin-right:.25rem;}
+.ca-chapter-notice{display:flex;align-items:center;gap:12px;border:1px solid #e9bc9f;background:#fff2e9;color:#72361f;padding:13px 16px;border-radius:11px;line-height:1.55;margin:-3px 0 17px;font-size:.92rem;}
+.ca-chapter-notice i{color:#c84b22;flex-shrink:0;font-size:1.1rem;}
+[data-theme="dark"] .ca-chapter-notice{background:#39271f;color:#ffe9d7;border-color:#895035;}
+@media(max-width:520px){.ca-hero .ca-hero-schedule{font-size:.87rem;gap:.25rem}.ca-chapter-notice{align-items:flex-start;padding:12px;font-size:.85rem}}
+
+/* Section 3.1 teaching notes + inline guided problems (2026-10-31) */
+.course-page .ca-source-credit{font-size:.82rem;color:var(--muted,#607083);margin:-8px 0 16px;line-height:1.55}
+.course-page .ca-example{background:#fff8f2;border:1px solid #edc7b3;border-radius:12px;padding:15px 17px;margin:15px 0;min-width:0}
+.course-page .ca-example>b{color:#a33d1c;display:block;margin-bottom:8px}
+.course-page .ca-example p{margin:9px 0}
+.course-page .ca-example small{color:#665348;line-height:1.5}
+.course-page .ca-two-column{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-width:0}
+.course-page .ca-two-column>div{min-width:0}
+.course-page .ca-two-column>.ca-example{margin:0}
+.course-page .ca-two-column>div:not(.ca-example){background:#fffdf9;border:1px solid #edc7b3;border-radius:9px;padding:14px}
+.course-page .ca-two-column>div:not(.ca-example)>strong{color:#a33d1c}
+.course-page .ca-notation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+.course-page .ca-notation-grid>div{padding:16px;border:1px solid #edc7b3;border-radius:10px;background:#fff8f2}
+.course-page .ca-notation-grid strong{font-size:1.18rem;color:#a43d1d;display:block;margin-bottom:9px}
+.course-page .ca-notation-grid span{font-size:.87rem;line-height:1.55}
+.course-page .ca-table-wrap{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;margin:14px 0;border-radius:10px}
+.course-page .ca-table-wrap .ca-table{min-width:440px}
+.course-page .ca-table caption{font-weight:720;padding:8px;text-align:left;color:inherit}
+.course-page .ca-guided-mini{background:#fffbf7;border:1px solid #e7c3b2;border-left:4px solid #e25a2d;border-radius:10px;padding:13px 16px;margin:14px 0;line-height:1.65}
+.course-page .ca-guided-mini summary{font-weight:750;color:#9c3b1c;cursor:pointer;line-height:1.55}
+.course-page .ca-guided-mini>details{border-top:1px solid #efd8cc;margin-top:10px;padding:9px 3px}
+.course-page .ca-guided-mini>details>summary{font-weight:680}
+.course-page .ca-guided-mini p{margin:8px 0}
+.course-page .ca-toolkit{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px;margin-top:15px}
+.course-page .ca-toolkit>div{padding:13px;background:#fff8f2;border:1px solid #edc7b3;border-radius:10px;display:flex;flex-direction:column;gap:7px}
+.course-page .ca-toolkit b{color:#a43b1b}
+.course-page .ca-toolkit span{font-size:1.12rem}
+.course-page .ca-toolkit small{color:#625247}
+.course-page .ca-guided-section{border:1.5px solid #e8b69d;background:#fffcfa}
+.course-page .ca-guided-heading{border-bottom:1px solid #f0d9cc;padding-bottom:12px;margin-bottom:16px}
+.course-page .ca-guided-kicker{font-size:.73rem;font-weight:800;letter-spacing:.12em;color:#a43e1c}
+.course-page .ca-guided-heading h3{margin:7px 0!important}
+.course-page .ca-quiz-question{min-width:0;background:#fff;border-color:#e3c8bc;padding:16px}
+.course-page .ca-quiz-question legend{font-weight:760;padding:0 6px;line-height:1.5;max-width:100%}
+.course-page .ca-quiz-question label{padding:6px 9px;border-radius:8px;line-height:1.5;cursor:pointer}
+.course-page .ca-quiz-question label:has(input:checked){background:#fdf1e9}
+.course-page .ca-quiz-question.ca-answered-correct{border-color:#31856b}
+.course-page .ca-quiz-question.ca-answered-incorrect{border-color:#d28a57}
+.course-page .ca-quiz-question .ca-quiz-explanation:not([hidden]){display:block;margin-top:12px;padding:11px;border-radius:8px;background:#e8f5ee;color:#165740;opacity:1}
+.course-page .ca-quiz-hint{margin:8px 4px}
+.course-page .ca-quiz-hint summary{cursor:pointer;font-size:.83rem;font-weight:700;color:#a33e1e}
+.course-page .ca-quiz-hint p{font-size:.86rem;margin:7px 0}
+.course-page .ca-lesson,.course-page .ca-panel{min-width:0}
+.course-page .ca-panel mjx-container[display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:4px 0}
+@media(max-width:720px){
+ .course-page .ca-two-column,.course-page .ca-notation-grid{grid-template-columns:1fr}
+ .course-page .ca-example{padding:13px}
+ .course-page .ca-quiz-question{padding:12px}
+ .course-page .ca-quiz-question label{min-height:40px;display:flex;gap:7px;align-items:flex-start}
+ .course-page .ca-quiz-question input{margin-top:5px;flex-shrink:0}
+ .course-page .ca-toc-chapter>summary{min-height:45px}
+ .course-page .ca-panel .ca-controls>*{max-width:100%}
+ .course-page .ca-controls input:not([type=range]),.course-page .ca-controls select{max-width:min(100%,275px)}
+ .course-page .ca-toolkit{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .course-page .ca-modal-body{padding:12px}
+}
+@media(max-width:390px){.course-page .ca-toolkit{grid-template-columns:1fr}}
+
+/* Complete, mobile-safe dark palette. The old chapter-card rules forced white even
+   when html[data-theme=dark]; use equal/higher specificity after those rules. */
+html[data-theme="dark"] .course-page{color-scheme:dark;--ca-surface:#1b2736;--ca-raised:#263445;--ca-tint:#342d2b;--ca-line:#526477;--ca-copy:#ecf2fa;--ca-subtle:#c1cddd;--ca-highlight:#ffaf85;}
+html[data-theme="dark"] .course-page :is(.ca, .ca-content, .ca-lesson, .ca-panel){color:var(--ca-copy)}
+html[data-theme="dark"] .course-page .uni-header.ca-university-header{background:linear-gradient(110deg,#302821,#412d26)!important;border-color:#e47a48!important;color:#ffe3d3!important}
+html[data-theme="dark"] .course-page .uni-header.ca-university-header :is(.uni-title,.uni-header-left>i){color:#ffc3a4!important}
+html[data-theme="dark"] .course-page .uni-header.ca-university-header .uni-subtitle{color:#f6d7c9}
+html[data-theme="dark"] .course-page .ca-toc{background:#1c2938!important;border:1px solid #526477!important;box-shadow:0 5px 20px #0002}
+html[data-theme="dark"] .course-page .ca-toc>strong{color:#ffc4a4!important}
+html[data-theme="dark"] .course-page .ca-toc-chapter{background:#293547!important;border-color:#556476!important}
+html[data-theme="dark"] .course-page .ca-toc-chapter>summary{color:#ffd0b4!important}
+html[data-theme="dark"] .course-page .ca-toc-chapter>summary:hover{background:#37445a!important}
+html[data-theme="dark"] .course-page .ca-toc-children{border-top-color:#556476!important}
+html[data-theme="dark"] .course-page .ca-toc-children a{color:#e8edf6!important}
+html[data-theme="dark"] .course-page .ca-toc-children a:hover,html[data-theme="dark"] .course-page .ca-toc-children a:focus-visible,html[data-theme="dark"] .course-page .ca-toc-children a.ca-active{background:#54403b!important;color:#ffe1c7!important}
+html[data-theme="dark"] .course-page .ca-lesson,html[data-theme="dark"] .course-page .ca-panel{background:var(--ca-surface);border-color:var(--ca-line)}
+html[data-theme="dark"] .course-page :is(.ca-lesson h2,.ca-panel h3,.ca-panel h4,.ca-glance strong,.ca-mapping-grid h4){color:#f4f6fc}
+html[data-theme="dark"] .course-page :is(.ca-chapter,.ca-guided-kicker,.ca-toc strong,.ca-source-credit){color:#f4b89a}
+html[data-theme="dark"] .course-page .ca-goals{background:#392e2a;border-left-color:#f38f56;color:#f3e8e1}
+html[data-theme="dark"] .course-page :is(.ca-definition,.ca-vline-rule,.ca-remember,.ca-interval-reference,.ca-domain-rules,.ca-interval-tip,.ca-foundation-intro,.ca-notation-grid>div,.ca-example,.ca-toolkit>div,.ca-guided-mini,.ca-guided-section){background:var(--ca-tint);border-color:#825744;color:#faede5}
+html[data-theme="dark"] .course-page :is(.ca-definition strong,.ca-remember-heading,.ca-interval-reference h4,.ca-domain-rules h4,.ca-domain-rule b,.ca-notation-grid strong,.ca-example>b,.ca-two-column>div:not(.ca-example)>strong,.ca-toolkit b,.ca-guided-mini summary,.ca-quiz-hint summary){color:#ffbc95}
+html[data-theme="dark"] .course-page :is(.ca-predict,.ca-explain,.ca-observation,.ca-mapping-grid>div,.ca-map-row,.ca-two-column>div:not(.ca-example)){background:#202f40;border-color:#566576;color:#f0f4fb}
+html[data-theme="dark"] .course-page :is(.ca-pair,.ca-choice,.ca-interval-grid>div,.ca-interval-presets button,.ca-quiz-question,.ca-glance-grid>div,.ca-foundation-rows>div,.ca-stat-grid>div,.ca-foundation-cards>div){background:var(--ca-raised);color:#f0f3fc;border-color:#5e6c7e}
+html[data-theme="dark"] .course-page .ca-pair.ca-conflict,html[data-theme="dark"] .course-page .ca-map-row.ca-conflict{background:#58332f;color:#ffe0d6;border-color:#e17f69}
+html[data-theme="dark"] .course-page .ca-pair.ca-shared{background:#243f55;border-color:#63add2;color:#e0f6ff}
+html[data-theme="dark"] .course-page :is(.ca-map-outputs span,.ca-choice.selected,.ca-choice[aria-pressed="true"],.ca-quiz-question label:has(input:checked)){background:#543b32;color:#ffebdd}
+html[data-theme="dark"] .course-page :is(.ca-equation,.ca-feedback){background:#273646;border-color:#786051;color:#f2f5fb}
+html[data-theme="dark"] .course-page .ca-quiz-question .ca-quiz-explanation:not([hidden]){background:#234a40;color:#d5fff0}
+html[data-theme="dark"] .course-page :is(.ca-interval-grid span,.ca-toolkit small,.ca-example small,.ca-muted,.ca-notation-grid span,.ca-source-credit){color:#cdd8e4;opacity:1}
+html[data-theme="dark"] .course-page .ca-interval-grid strong{color:#ffd0ad}
+html[data-theme="dark"] .course-page :is(.ca-domain-rule,.ca-foundation-section,.ca-foundation-syllabus,.ca-guided-heading){border-color:#655b59}
+html[data-theme="dark"] .course-page .ca-interval-presets button.active,html[data-theme="dark"] .course-page .ca-interval-presets button:hover{background:#d95a28;color:white;border-color:#ed8a5a}
+html[data-theme="dark"] .course-page :is(.ca-vline-good,.ca-vline-result-strong.is-function){background:#21493d;color:#b8f9dd;border-color:#56b28d}
+html[data-theme="dark"] .course-page :is(.ca-vline-bad,.ca-vline-result-strong.not-function){background:#58322e;color:#ffbfb4;border-color:#e38d76}
+html[data-theme="dark"] .course-page .ca-vline-good .ca-vline-verdict{color:#a3f1d0}
+html[data-theme="dark"] .course-page .ca-vline-bad .ca-vline-verdict{color:#ffbaac}
+html[data-theme="dark"] .course-page :is(.ca-controls input:not([type=range]),.ca-controls select,.ca-grade-row input){background:#293747;border:1px solid #738297;color:#f5f8fc}
+html[data-theme="dark"] .course-page :is(.ca-controls select,.ca-grade-row input) option{background:#293747;color:#f5f8fc}
+html[data-theme="dark"] .course-page .ca-controls input::placeholder{color:#d0d8e3}
+html[data-theme="dark"] .course-page .ca-table{color:#f1f5fb}
+html[data-theme="dark"] .course-page .ca-table :is(td,th){border-color:#647185}
+html[data-theme="dark"] .course-page .ca-table th{background:#3d3b40;color:#ffdabf}
+html[data-theme="dark"] .course-page .ca-table tbody tr:hover,html[data-theme="dark"] .course-page .ca-table tbody tr.selected{background:#4a3e39}
+html[data-theme="dark"] .course-page .ca-panel svg{background:#233345;border-color:#5b697a}
+html[data-theme="dark"] .course-page .ca-modal{background:#1b2736;color:#edf3fa;border-color:#637085}
+html[data-theme="dark"] .course-page .ca-modal-body{color:#edf3fa}
+html[data-theme="dark"] .course-page :is(.ca-foundation-chapter h2,.ca-foundation-lede,.ca-foundation-note,.ca-foundation-rows span){color:#edf3fa}
+html[data-theme="dark"] .course-page :is(.ca-foundation-chapter-label,.ca-foundation-section h3,.ca-estimator summary,.ca-foundation-rows b,.ca-weights-grid b,.ca-glance-grid b,.ca-assessments-grid b,.ca-stat-grid b){color:#ffbd98}
+html[data-theme="dark"] .course-page :is(.ca-glance,.ca-foundation-highlight){background:#332f2d;color:#efdfd6;border-color:#8f6e52}
+html[data-theme="dark"] .course-page :is(.ca-weights-grid>div,.ca-estimator,.ca-assessments-grid>div){background:#263445;color:#eef4fc;border-color:#657085}
+html[data-theme="dark"] .course-page :is(.ca-foundation-chapter-label span,.ca-weights-grid i){background:#4b3732;color:#fce6d8}
+html[data-theme="dark"] .course-page .ca-grade-row{border-color:#5c6674}
+html[data-theme="dark"] .course-page .ca-grade-row b{color:#ffd0ad}
+html[data-theme="dark"] .course-page .ca-btn-outline{border-color:#f3a67c;color:#ffe2cb;background:#39312f}
+html[data-theme="dark"] .course-page .ca-chapter-notice{background:#392d2a;color:#ffe7d7;border-color:#966046}
+html[data-theme="dark"] .course-page .ca-chapter-notice i{color:#ffc09a}
+html[data-theme="dark"] .course-page .ca-quiz-hint{color:#d8e4ef}
+html[data-theme="dark"] .course-page .ca-guided-mini>details{border-color:#765f53}
+html[data-theme="dark"] .course-page :is(button,summary,a,select,input):focus-visible{outline:3px solid #e7a16c;outline-offset:3px}
+@media(max-width:880px){
+ html[data-theme="dark"] .course-page .ca-toc{background:#1c2938!important}
+ html[data-theme="dark"] .course-page .ca-toc-chapter{background:#293547!important}
+ html[data-theme="dark"] .course-page .ca-toc-chapter>summary{color:#ffd0b4!important}
+}
+.course-page .ca-quiz-question .ca-quiz-prompt{font-weight:760;margin:0 0 13px;line-height:1.55;color:inherit}
+
+
+/* Original Section 3.1 visual labs — theme-aware and touch-friendly */
+.course-page .ca-lab-kicker{color:#af411b;font-weight:820;letter-spacing:.115em;font-size:.73rem;margin:22px 0 9px}
+.course-page .ca-discover{display:flex;align-items:flex-start;gap:11px;background:#fdf5eb;border:1px dashed #daa677;border-radius:11px;padding:12px 14px;line-height:1.6;margin-top:15px;font-size:.91rem}
+.course-page .ca-discover i{color:#c26a27;margin-top:4px}
+.course-page .ca-mode-toggle{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 4px}
+.course-page .ca-mode{border-radius:999px;background:var(--card-bg,#fff);border:1px solid #e5ad8c;color:inherit;padding:9px 14px;min-height:44px;font-weight:750;cursor:pointer}
+.course-page .ca-mode.active{background:#f05023;color:#fff;border-color:#f05023}
+.course-page .ca-projection-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:14px;margin:14px 0}
+.course-page .ca-projection-grid>div,.course-page .ca-four-box,.course-page .ca-mini-story{border:1px solid var(--border,#d2dbe5);border-radius:12px;padding:14px;min-width:0;background:color-mix(in srgb,var(--card-bg,#fff) 97%,#edc5a6)}
+.course-page .ca-projection-grid small,.course-page .ca-four-box>small,.course-page .ca-live-formula>small{display:block;letter-spacing:.09em;font-size:.69rem;font-weight:820;color:#a84927;margin-bottom:9px}
+.course-page .ca-chip-wrap{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 4px;align-items:flex-start}
+.course-page .ca-selected-pair{border:2px solid var(--pair-tone,#ee712f);background:#f7e4d7;font-weight:800}
+.course-page .ca-set-result{font-weight:790;font-variant-numeric:tabular-nums;line-height:1.5;margin-bottom:12px;overflow-wrap:anywhere}
+.course-page .ca-story-map{margin:15px 0;display:grid;gap:8px}
+.course-page .ca-story-line{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1.2fr);gap:8px;align-items:center}
+.course-page .ca-story-input,.course-page .ca-story-output{border:1px solid #bbd3df;border-radius:10px;background:#e7f5fb;padding:12px;text-align:center;font-weight:730;line-height:1.4;overflow-wrap:anywhere}
+.course-page .ca-story-output{background:#fff2e4;border-color:#ecc8a8}
+.course-page .ca-story-output.ca-story-conflict{border:2px solid #d63d28;background:#ffebe6;color:#872b19}
+.course-page .ca-story-arrow{text-align:center;font-size:1.45rem;color:#de6337;font-weight:900}
+.course-page .ca-live-notes{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:14px 0}
+.course-page .ca-live-formula{padding:17px;border:1px solid #e0b59d;border-radius:12px;background:#fff6ec;min-width:0}
+.course-page .ca-display-large{font-weight:830;font-size:clamp(1.12rem,2vw,1.55rem);font-variant-numeric:tabular-nums;overflow-wrap:anywhere;margin:10px 0}
+.course-page .ca-symbol-key{display:flex;gap:7px;flex-wrap:wrap;font-size:.81rem}
+.course-page .ca-symbol-key span{padding:7px 9px;background:#f7e1d3;border-radius:8px}
+.course-page .ca-slider-head{display:flex;flex-direction:column;gap:7px;font-size:.88rem;font-weight:750;margin:14px 0 7px}
+.course-page .ca-live-formula input[type=range],.course-page .ca-example input[type=range]{width:100%;accent-color:#ee632f}
+.course-page .ca-readout{font-size:1.1rem;line-height:1.5;font-weight:830;color:#bd431f;margin-top:14px;min-height:1.7em;overflow-wrap:anywhere}
+.course-page .ca-cost-track{display:flex;overflow:hidden;min-height:48px;border-radius:12px;border:1px solid #ddae89;background:#fbefe7;align-items:stretch}
+.course-page .ca-cost-track>div{display:flex;align-items:center;justify-content:center;min-width:0;font-size:.78rem;font-weight:820;transition:width .18s ease;white-space:nowrap;overflow:hidden}
+.course-page .ca-cost-fixed{background:#d58a38;color:#fff}
+.course-page .ca-cost-variable{background:#197e91;color:#fff}
+.course-page .ca-four-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:14px 0}
+.course-page .ca-four-box .ca-table-compact{font-size:.83rem}
+.course-page .ca-four-box .ca-table-compact td,.course-page .ca-four-box .ca-table-compact th{padding:6px}
+.course-page .ca-four-box svg{margin:0 auto}
+.course-page .ca-toolkit-interactive{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:15px 0}
+.course-page .ca-toolkit-option{display:flex;flex-direction:column;gap:7px;align-items:flex-start;text-align:left;padding:12px 10px;min-height:70px;color:inherit;border-radius:10px;border:1px solid #dfbbaa;background:var(--card-bg,#fff);cursor:pointer}
+.course-page .ca-toolkit-option b{font-size:.83rem;color:inherit}
+.course-page .ca-toolkit-option small{font-size:.75rem;opacity:.85}
+.course-page .ca-toolkit-option:hover{border-color:#e87142}
+.course-page .ca-toolkit-option.active{border:2px solid #ee6232;background:#fbe5d7}
+.course-page .ca-table-wrap{max-width:100%;overflow-x:auto}
+.course-page #pairs-table tr{cursor:pointer}
+.course-page #pairs-table tr:focus-visible{outline:3px solid #e56b3a;outline-offset:-3px}
+html[data-theme="dark"] .course-page :is(.ca-projection-grid>div,.ca-four-box,.ca-mini-story){background:#202f40;border-color:#566576;color:#eaf1fa}
+html[data-theme="dark"] .course-page :is(.ca-live-formula,.ca-discover){background:#342f30;color:#f7e8de;border-color:#86644d}
+html[data-theme="dark"] .course-page :is(.ca-lab-kicker,.ca-projection-grid small,.ca-four-box>small,.ca-live-formula>small){color:#ffb793}
+html[data-theme="dark"] .course-page :is(.ca-display-large,.ca-readout){color:#ffd2ae}
+html[data-theme="dark"] .course-page .ca-symbol-key span{background:#523b30;color:#ffe2c8}
+html[data-theme="dark"] .course-page .ca-story-input{background:#254c60;color:#e7f6ff;border-color:#4c8fa7}
+html[data-theme="dark"] .course-page .ca-story-output{background:#55402d;color:#ffe5c9;border-color:#ac7d4b}
+html[data-theme="dark"] .course-page .ca-story-output.ca-story-conflict{background:#57312c;color:#ffcdc5;border-color:#e88372}
+html[data-theme="dark"] .course-page .ca-selected-pair{background:#62402f;color:#ffe5d1;border-color:#ffb57d}
+html[data-theme="dark"] .course-page .ca-mode{background:#283749;color:#f7e7d9;border-color:#8f7165}
+html[data-theme="dark"] .course-page .ca-mode.active{background:#c94a24;border-color:#e67f50;color:#fff}
+html[data-theme="dark"] .course-page .ca-cost-track{background:#394455;border-color:#70809a}
+html[data-theme="dark"] .course-page .ca-toolkit-option{background:#293747;color:#e9f2fa;border-color:#627388}
+html[data-theme="dark"] .course-page .ca-toolkit-option.active{background:#543b32;border-color:#ff9d70;color:#ffe8d6}
+html[data-theme="dark"] .course-page .ca-toolkit-option b{color:inherit}
+html[data-theme="dark"] .course-page :is(.ca-story-arrow,.ca-discover i){color:#ffb28b}
+@media(max-width:700px){.course-page .ca-four-grid,.course-page .ca-live-notes,.course-page .ca-projection-grid{grid-template-columns:1fr}.course-page .ca-toolkit-interactive{grid-template-columns:repeat(2,minmax(0,1fr))}.course-page .ca-controls label{flex:1 1 145px}}
+@media(prefers-reduced-motion:reduce){.course-page .ca-cost-track>div{transition:none}}
+
+.course-page .ca-fee-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.83rem;font-weight:650;margin:14px 0 7px}
+.course-page .ca-fee-legend span{display:flex;align-items:center;gap:6px}
+.course-page .ca-fee-legend i{display:inline-block;width:12px;height:12px;border-radius:3px}
+.course-page .ca-legend-fee{background:#d58a38}.course-page .ca-legend-games{background:#197e91}
+html[data-theme="dark"] .course-page .ca-fee-legend{color:#f2e7dc}
+</style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" rel="stylesheet"/><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style id="ca-art-club-arrow-styles">
 /* Responsive, theme-aware arrow diagram for the art-club function example. */
 .course-page #club-map.ca-story-map.ca-sets-diagram { display:block; margin:16px 0 13px; }
@@ -36,9 +314,73 @@ html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-caption { color:#
 }
 @media (prefers-reduced-motion: reduce) { .course-page .ca-sets-diagram * { transition:none !important; } }
 </style>
+<style id="ca-table-coordinate-styles">
+/* Section 08: synchronized table and coordinate-plane explorer. */
+.course-page #tables .ca-plot-grid-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start;margin:16px 0}
+.course-page #tables .ca-plot-table-side,.course-page #tables .ca-plot-graph-side{min-width:0}
+.course-page #tables .ca-plot-table-wrap{margin:0;border:1px solid var(--border,#d6dee9);border-radius:11px;overflow:hidden}
+.course-page #tables .ca-plot-table{min-width:0;width:100%;border-collapse:collapse;table-layout:fixed}
+.course-page #tables .ca-plot-table th,.course-page #tables .ca-plot-table td{border-width:0 0 1px 0;border-style:solid;border-color:#d6dde7;padding:15px 11px;text-align:center}
+.course-page #tables .ca-plot-table tr:last-child td{border-bottom:0}
+.course-page #tables .ca-plot-table th:first-child,.course-page #tables .ca-plot-table td:first-child{border-right:1px solid #d6dde7}
+.course-page #tables .ca-plot-table th{font-weight:800;background:#fcefe9}
+.course-page #tables .ca-plot-table td:nth-child(2){position:relative;font-weight:720;padding-left:38px;padding-right:38px}
+.course-page #tables .ca-point-tag{position:absolute;right:9px;top:50%;transform:translateY(-50%);min-width:25px;border-radius:7px;background:#ffdfd2;color:#a73815;font-weight:850;padding:4px 5px}
+.course-page #tables .ca-plot-table tbody tr:hover{background:#fff1e8}
+.course-page #tables .ca-plot-table tbody tr.selected{background:#ffddd0}
+.course-page #tables .ca-plot-table tbody tr.ca-output-match:not(.selected){background:#e5f5f8}
+.course-page #tables .ca-plot-table tbody tr.selected .ca-point-tag{background:#df491b;color:#fff}
+.course-page #tables .ca-plot-table tbody tr.ca-output-match:not(.selected) .ca-point-tag{background:#147a92;color:#fff}
+.course-page #tables .ca-plot-table tbody tr:focus-visible{outline:3px solid #e86637;outline-offset:-4px}
+.course-page #tables .ca-plot-search{margin:18px 0 0;align-items:end;gap:11px}
+.course-page #tables .ca-plot-search label{flex:0 1 160px}
+.course-page #tables .ca-plot-search select{width:100%;max-width:100%;}
+.course-page #tables .ca-plot-search .ca-btn{white-space:nowrap}
+.course-page #tables .ca-table-graph-box{padding:11px;border:1px solid #c9d9e8;border-radius:13px;background:var(--card-bg,#fff);--plot-grid:#d9e1e9;--plot-axis:#233a51;--plot-text:#344b60}
+.course-page #tables .ca-panel svg#ca-table-coordinate-plane{display:block;width:100%;height:auto;max-width:100%;max-height:none;margin:0;box-shadow:none;background:transparent;border:0;border-radius:0;overflow:visible;color:inherit}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point{cursor:pointer;outline:0}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point .ca-point-halo{fill:#ffbd9f;fill-opacity:0;stroke:#f05225;stroke-opacity:0}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point.ca-selected .ca-point-halo{fill-opacity:.22;stroke-opacity:.5}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point.ca-output-match:not(.ca-selected) .ca-point-halo{fill:#4aadc2;fill-opacity:.20;stroke:#13859a;stroke-opacity:.9}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point.ca-output-match.ca-selected .ca-point-halo{stroke:#13859a;stroke-opacity:1}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point:focus-visible .ca-point-halo{stroke:#14789e;stroke-width:4;stroke-opacity:1;fill-opacity:.16}
+.course-page #tables #ca-table-coordinate-plane .ca-point-marker{fill:#e75522;stroke:#fff;stroke-width:2.4}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point.ca-selected .ca-point-marker{fill:#e04411;stroke-width:3}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point text{fill:var(--plot-axis);font-weight:800;font-size:17px;paint-order:stroke;stroke:var(--card-bg,#fff);stroke-width:4;stroke-linejoin:round}
+.course-page #tables .ca-graph-interact-note{font-size:.77rem;text-align:center;color:var(--muted,#637387);margin:-2px 0 9px;line-height:1.4}
+.course-page #tables .ca-picked-pair{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;background:#fff4ef;border:1px solid #ffc1a8;border-radius:9px;padding:11px 13px;font-size:clamp(.82rem,1.4vw,.98rem);line-height:1.5}
+.course-page #tables .ca-picked-pair strong{color:#c73c13}
+.course-page #tables .ca-plot-result{margin:14px 0 12px}
+.course-page #tables .ca-plot-result strong{color:#c4431c}
+html[data-theme="dark"] .course-page #tables .ca-plot-table th,html[data-theme="dark"] .course-page #tables .ca-plot-table td{border-color:#526279}
+html[data-theme="dark"] .course-page #tables .ca-plot-table th{background:#3d3332;color:#ffd4bd}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr:hover{background:#493936}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr.selected{background:#5a3c34}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr.ca-output-match:not(.selected){background:#224251}
+html[data-theme="dark"] .course-page #tables .ca-plot-table .ca-point-tag{background:#634135;color:#ffccb5}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr.selected .ca-point-tag{background:#ec724b;color:#181d26}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr.ca-output-match:not(.selected) .ca-point-tag{background:#3d9ab4;color:#071e26}
+html[data-theme="dark"] .course-page #tables .ca-table-graph-box{background:var(--card-bg,#202d3c);border-color:#526c82;--plot-grid:#45576b;--plot-axis:#d9eafa;--plot-text:#cadcea}
+html[data-theme="dark"] .course-page #tables .ca-picked-pair{background:#45312f;border-color:#8e594a;color:#f9e4db}
+html[data-theme="dark"] .course-page #tables .ca-picked-pair strong,html[data-theme="dark"] .course-page #tables .ca-plot-result strong{color:#ffae88}
+@media(max-width:1450px){.course-page #tables .ca-plot-grid-layout{grid-template-columns:1fr}.course-page #tables .ca-plot-table-wrap .ca-table{min-width:0}}
+@media(max-width:520px){.course-page #tables .ca-plot-table th,.course-page #tables .ca-plot-table td{padding:11px 8px}.course-page #tables .ca-plot-search{align-items:stretch}.course-page #tables .ca-plot-search label{flex:1 1 110px}.course-page #tables .ca-plot-search .ca-btn{flex:0 1 auto}.course-page #tables .ca-table-graph-box{padding:7px}.course-page #tables .ca-picked-pair{padding:9px 10px}}
+@media(prefers-reduced-motion:reduce){.course-page #tables *{transition:none!important}}
+
+/* An obvious interactive chart, visible before the table on typical laptops. */
+.course-page #tables .ca-plot-graph-side{order:0}
+.course-page #tables .ca-plot-table-side{order:1}
+.course-page #tables .ca-table-graph-box{padding:clamp(8px,1.2vw,14px)}
+.course-page #tables .ca-graph-interact-note{margin:2px 0 12px}
+.course-page #tables .ca-plot-result{font-size:.95rem}
+/* Current block in the contents list is clearly marked. */
+.course-page .ca-toc-children a.ca-current-block{background:#f5dfd1!important;color:#903614!important;font-weight:760!important;border-left:3px solid #e65725}
+html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{background:#534039!important;color:#ffe1c6!important;border-left-color:#ffab81}
+@media(max-width:520px){.course-page #tables .ca-plot-grid-layout{gap:12px}.course-page #tables .ca-plot-result{font-size:.9rem}}
+</style>
 </head><body class="course-page"><div class="page"><header class="top-nav" data-shared-template="header"></header><main class="layout"><aside class="sidebar" data-shared-template="sidebar"></aside><section class="main"><div class="uni-header prominent ca-university-header"><div class="uni-header-left"><i class="fa-solid fa-school"></i><div><h3 class="uni-title">University of Texas Rio Grande Valley</h3><div class="uni-subtitle">Current teaching · Edinburg, Texas · Fall 2026</div></div></div><div class="uni-header-logo"><img alt="UTRGV" src="/assets/images/utrgv-logo.svg"/></div></div><div class="ca"><header class="ca-hero"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> UNIVERSITY OF TEXAS RIO GRANDE VALLEY · FALL 2026 · MATH 1314</span><h1>College Algebra — Interactive Course Notes</h1><p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 8:00–9:15 AM · EMAGC 1.206 <span class="ca-hero-schedule-separator">·</span> PLTL online 9:30–10:45 AM</p><div class="ca-hero-links"><button class="ca-foundations-btn" id="foundations-open"><i class="fa-solid fa-layer-group"></i> Course Foundations</button></div></header><div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open a chapter in the left-hand contents menu to reveal its topics. The full lecture notes remain visible in the main area.</span></div><div class="ca-layout"><nav aria-label="Lesson navigation" class="ca-toc"><strong><i class="fa-solid fa-list-ul"></i> ON THIS PAGE</strong>
-<details class="ca-toc-chapter" open=""><summary><i class="fa-solid fa-chart-line"></i> 3.1 · Functions &amp; Notation <i class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-31">Section overview</a><a href="#ordered-pairs">Coordinate studio</a><a href="#mappings">Mapping explorer</a><a href="#notation">Notation &amp; fees</a><a href="#representations">Four-view lab</a><a href="#vertical">Vertical line test</a><a href="#formula-examples">Two-way calculator</a><a href="#evaluation">Function machine</a><a href="#tables">Table detective</a><a href="#graph-reading">Graph detective</a><a href="#toolkit">Parent-function gallery</a><a href="#guided-31">Guided practice · 3.1</a></div></details>
-<details class="ca-toc-chapter"><summary><i class="fa-solid fa-ruler-combined"></i> 3.2 · Domain &amp; Range <i class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-32">Chapter introduction</a><a href="#intervals">Interval notation</a><a href="#domain-lab">Domain restrictions</a><a href="#range-graph">Graphs &amp; range</a><a href="#guided-32">Section 3.2 · Guided problems</a></div></details>
+<details class="ca-toc-chapter" open=""><summary><i class="fa-solid fa-chart-line"></i> 3.1 · Functions and Function Notation <i aria-hidden="true" class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-31">Section overview</a><a href="#ordered-pairs" title="01 · Ordered pairs, domain, and range">01 · Ordered pairs, domain, and range</a><a href="#mappings" title="02 · Is the relation a function?">02 · Is the relation a function?</a><a href="#notation" title="03 · Reading function notation">03 · Reading function notation</a><a href="#representations" title="04 · One function, four views">04 · One function, four views</a><a href="#vertical" title="05 · Vertical line test explorer">05 · Vertical line test explorer</a><a href="#formula-examples" title="06 · Forward and backward: from inputs to outputs">06 · Forward and backward: from inputs to outputs</a><a href="#evaluation" title="07 · Interactive function machine">07 · Interactive function machine</a><a href="#tables" title="08 · Search a function table">08 · Search a function table</a><a href="#graph-reading" title="09 · Read a graph in two directions">09 · Read a graph in two directions</a><a href="#toolkit" title="10 · Parent-function gallery">10 · Parent-function gallery</a><a href="#guided-31" title="Guided problems · Functions and Notation">Guided problems · Functions and Notation</a></div></details>
+<details class="ca-toc-chapter"><summary><i class="fa-solid fa-ruler-combined"></i> 3.2 · Domain and Range <i aria-hidden="true" class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-32">Section overview</a><a href="#intervals" title="01 · Interval notation — examples &amp; interactive builder">01 · Interval notation — examples &amp; interactive builder</a><a href="#domain-lab" title="02 · Domain restriction laboratory">02 · Domain restriction laboratory</a><a href="#range-graph" title="03 · Graph and range explorer">03 · Graph and range explorer</a><a href="#guided-32" title="Guided problems · Domain and Range">Guided problems · Domain and Range</a></div></details>
 </nav><div class="ca-content"><article class="ca-lesson" id="lesson-31"><span class="ca-chapter">SECTION 3.1</span><h2>Functions and Function Notation</h2><p class="ca-lede">A <b>relation</b> is a set of ordered pairs. It is a <b>function</b> when each input is assigned exactly one output. Learn to read, represent, evaluate, and graph functions.</p><div class="ca-goals"><b>Learning objectives</b> Determine whether a relation is a function; identify domain and range of ordered pairs; use function notation; find inputs and outputs from formulas, tables, and graphs; apply the vertical line test; recognize toolkit graphs.</div><p class="ca-source-credit">Learning objectives informed by the Section 3.1 course notes (Dr. Setayesh). The scenarios, visualizations, and practice activities here are newly authored.</p><section class="ca-panel" id="ordered-pairs">
 <h3>01 · Ordered pairs, domain, and range</h3>
 <div class="ca-definition"><strong>Start with a point</strong><p>An ordered pair <b>(x, y)</b> connects an <b>input</b> to an <b>output</b>. A <b>relation</b> is a set of such pairs. Its <b>domain</b> contains the distinct x-values, and its <b>range</b> contains the distinct y-values. Repeated values appear only once in a set.</p></div>
@@ -74,11 +416,31 @@ html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-caption { color:#
 <div aria-live="polite" class="ca-feedback" id="two-way-explanation"></div>
 <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Explain:</b> How can two different inputs give the same output without breaking the definition of a function?</span></div>
 </section><section class="ca-panel" id="evaluation"><h3>07 · Interactive function machine</h3><p>Adjust the coefficients and input to evaluate \(f(x)=ax^2+bx+c\).</p><div class="ca-controls ca-slider-grid"><label>a <input id="coeff-a" max="3" min="-3" step="1" type="range" value="1"/><output id="a-label">1</output></label><label>b <input id="coeff-b" max="5" min="-5" step="1" type="range" value="-2"/><output id="b-label">−2</output></label><label>c <input id="coeff-c" max="6" min="-6" step="1" type="range" value="1"/><output id="c-label">1</output></label><label>x <input id="input-x" max="6" min="-6" step="1" type="range" value="3"/><output id="x-label">3</output></label></div><div class="ca-equation" id="machine-expression"></div><div class="ca-feedback" id="machine-result"></div><div class="ca-muted" id="machine-steps"></div></section><section class="ca-panel" id="tables">
-<h3>08 · Search a function table</h3><p>A function table is a collection of input–output pairs. Tap a row to highlight a pair, or select an output to find <b>every</b> input that produces it. The data below are new examples for practice.</p>
-<div class="ca-table-wrap"><table class="ca-table"><thead><tr><th>Input x</th><th>Output t(x)</th><th>Tap to inspect</th></tr></thead><tbody id="pairs-table"><tr data-x="-4" data-y="3" tabindex="0"><td>−4</td><td>3</td><td>Point A</td></tr><tr data-x="-1" data-y="6" tabindex="0"><td>−1</td><td>6</td><td>Point B</td></tr><tr data-x="2" data-y="3" tabindex="0"><td>2</td><td>3</td><td>Point C</td></tr><tr data-x="5" data-y="8" tabindex="0"><td>5</td><td>8</td><td>Point D</td></tr></tbody></table></div>
-<div class="ca-controls"><label>Search for output<select id="lookup-y"><option value="3">3</option><option value="6">6</option><option value="8">8</option><option value="10">10 · not in table</option></select></label><button class="ca-btn" id="lookup-btn" type="button">Find every input</button></div>
-<div aria-live="polite" class="ca-feedback" id="lookup-result">Choose an output, then find all of its matching inputs.</div>
-<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span>Find t(−1). Then find all solutions of t(x) = 3. Why are those different questions?</span></div>
+<h3>08 · Search a function table</h3>
+<p>A function table is a collection of input–output pairs. <b>Select a row or point</b> to see the same ordered pair in the table and on the coordinate plane. Or choose an output to find <b>every</b> input that produces it.</p>
+<div class="ca-plot-grid-layout"><div class="ca-plot-graph-side">
+<div class="ca-table-graph-box">
+<svg aria-label="Interactive coordinate plane plotting A at negative four comma three, B at negative one comma six, C at two comma three, and D at five comma eight. Select a point to inspect it." id="ca-table-coordinate-plane" role="img" viewbox="0 0 560 430"></svg>
+<p class="ca-graph-interact-note">Select a plotted point or a table row.</p>
+<div aria-live="polite" class="ca-picked-pair" id="ca-table-selected-pair"><span>Selected ordered pair:</span> <strong>C = (2, 3)</strong></div>
+</div>
+</div>
+<div class="ca-plot-table-side">
+<div class="ca-table-wrap ca-plot-table-wrap"><table aria-label="Function table of four plotted ordered pairs" class="ca-table ca-plot-table">
+<thead><tr><th scope="col">Input x</th><th scope="col">Output t(x)</th></tr></thead>
+<tbody id="pairs-table">
+<tr aria-label="Select point A, negative four comma three" data-x="-4" data-y="3" role="button" tabindex="0"><td>−4</td><td><span>3</span><span class="ca-point-tag">A</span></td></tr>
+<tr aria-label="Select point B, negative one comma six" data-x="-1" data-y="6" role="button" tabindex="0"><td>−1</td><td><span>6</span><span class="ca-point-tag">B</span></td></tr>
+<tr aria-label="Select point C, two comma three" data-x="2" data-y="3" role="button" tabindex="0"><td>2</td><td><span>3</span><span class="ca-point-tag">C</span></td></tr>
+<tr aria-label="Select point D, five comma eight" data-x="5" data-y="8" role="button" tabindex="0"><td>5</td><td><span>8</span><span class="ca-point-tag">D</span></td></tr>
+</tbody>
+</table></div>
+<div class="ca-controls ca-plot-search"><label for="lookup-y">Search for output<select id="lookup-y"><option value="3">3</option><option value="6">6</option><option value="8">8</option><option value="10">10 · not in table</option></select></label><button class="ca-btn" id="lookup-btn" type="button">Find every input</button></div>
+</div>
+
+</div>
+<div aria-live="polite" class="ca-feedback ca-plot-result" id="lookup-result">Choose an output and select <b>Find every input</b> to highlight all matching points.</div>
+<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span>Find <b>t(−1)</b>. Then find all solutions of <b>t(x) = 3</b>. How is evaluating at a given input different from finding all inputs for a given output?</span></div>
 </section><section class="ca-panel" id="graph-reading">
 <h3>09 · Read a graph in two directions</h3><p>To find <b>g(a)</b>, begin at input x = a, move vertically to the curve, and read the output. To solve <b>g(x) = b</b>, use a <b>horizontal line</b> at y = b and read the x-values of <em>all</em> intersections.</p>
 <p>This new graph uses <b>g(x) = (x + 1)² − 1</b>. The orange point demonstrates the input-first question. The blue horizontal line demonstrates the output-first question.</p>
@@ -161,7 +523,214 @@ html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-caption { color:#
 <p>According to the course AI policy, AI can be used for checking definitions, formatting LaTeX, or brainstorming with appropriate disclosure. AI use on homework, PLTL assignments, and exams is prohibited. These interactive notes provide independent, ungraded practice.</p>
 </section>
 </article>
-</div></dialog><script defer="" src="/assets/js/site-template.js?v=c072320e8862"></script><script defer="" src="./college-algebra.js?v=20261031-visual-labs-2"></script><script id="ca-shared-site-controls">(()=>{const initialize=()=>{const nav=document.querySelector('.top-nav-links'),toggle=document.querySelector('.nav-toggle'),drop=document.querySelector('.dropdown'),dropbtn=document.querySelector('.dropbtn'),root=document.documentElement,theme=document.querySelector('.theme-toggle');if(toggle&&nav){toggle.setAttribute('aria-expanded','false');toggle.addEventListener('click',()=>{const state=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(state));toggle.querySelector('i')?.classList.toggle('fa-bars',!state);toggle.querySelector('i')?.classList.toggle('fa-xmark',state)});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}if(dropbtn){dropbtn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();drop?.classList.toggle('dropdown-open')});document.addEventListener('click',e=>{if(!drop?.contains(e.target))drop?.classList.remove('dropdown-open')})}function setTheme(v){root.setAttribute('data-theme',v);if(theme){const icon=theme.querySelector('i'),label=theme.querySelector('span');if(icon)icon.className=v==='dark'?'fa-solid fa-sun':'fa-solid fa-moon';if(label)label.textContent=v==='dark'?'Light':'Dark';theme.setAttribute('aria-pressed',String(v==='dark'))}}let saved;try{saved=localStorage.getItem('dm-theme')}catch(_){}setTheme(saved==='dark'?'dark':'light');theme?.addEventListener('click',()=>{const next=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('dm-theme',next)}catch(_){}})};if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initialize,{once:true});}else{initialize();}})();</script>
+</div></dialog><script defer="" src="/assets/js/site-template.js?v=c072320e8862"></script><script id="college-algebra-interactions-bundled">(()=>{'use strict';const $=id=>document.getElementById(id),fmt=v=>String(v).replaceAll('-', '−');function plot(svg,fn,{xmin=-6,xmax=6,ymin=-5,ymax=5}={}){const W=560,H=310,p=24,tx=x=>p+(x-xmin)/(xmax-xmin)*(W-2*p),ty=y=>H-p-(y-ymin)/(ymax-ymin)*(H-2*p);let s='';for(let i=Math.ceil(xmin);i<=xmax;i++)s+=`<line x1="${tx(i)}" y1="${p}" x2="${tx(i)}" y2="${H-p}" stroke="${i===0?'#777':'#d9dce3'}" stroke-width="${i===0?1.5:.7}"/>`;for(let j=Math.ceil(ymin);j<=ymax;j++)s+=`<line x1="${p}" y1="${ty(j)}" x2="${W-p}" y2="${ty(j)}" stroke="${j===0?'#777':'#d9dce3'}" stroke-width="${j===0?1.5:.7}"/>`;let seg='',last=false;for(let i=0;i<=700;i++){let x=xmin+(xmax-xmin)*i/700,y=fn(x);let good=Number.isFinite(y)&&y>=ymin-2&&y<=ymax+2;seg+=good?(last?'L':'M')+tx(x).toFixed(2)+' '+ty(y).toFixed(2)+' ':'';last=good;}svg.innerHTML=s+`<path d="${seg}" fill="none" stroke="#e65125" stroke-width="3" stroke-linecap="round"/>`;return{tx,ty,W,H,p};}
+let mappingChoice = null;
+function mappings() {
+  const arr = [...document.querySelectorAll('.mapping')].map(el => [+el.dataset.input, +el.value]);
+  if ($('double-output').checked) arr.push([0, 5]);
+  const groups = new Map();
+  arr.forEach(([x,y]) => {if (!groups.has(x)) groups.set(x, new Set()); groups.get(x).add(y);});
+  const repeatedInputs = [...groups].filter(([x,ys]) => ys.size > 1).map(([x]) => x);
+  const repeatedOutputs = [...new Set(arr.map(p => p[1]))].filter(y => new Set(arr.filter(p => p[1] === y).map(p => p[0])).size > 1);
+  const isFunction = repeatedInputs.length === 0;
+  $('mapping-pairs').innerHTML = arr.map(([x,y]) => `<span class="ca-pair ${repeatedInputs.includes(x)?'ca-conflict':repeatedOutputs.includes(y)?'ca-shared':''}">(<b>${fmt(x)}</b>, ${fmt(y)})</span>`).join('');
+  // A proper bipartite mapping diagram: input and output sets in two columns.
+  const inputs=[...groups.keys()],outputs=[...new Set(arr.map(pair=>pair[1]))].sort((a,b)=>a-b);
+  const H=Math.max(240, Math.max(inputs.length,outputs.length)*55+90),cxL=95,cxR=405,top=80,stepL=(H-125)/Math.max(1,inputs.length-1),stepR=(H-125)/Math.max(1,outputs.length-1);
+  const iy=new Map(inputs.map((v,i)=>[v,top+i*stepL])),oy=new Map(outputs.map((v,i)=>[v,top+i*stepR]));
+  const arrowLines=arr.map(([x,y])=>{const conflict=groups.get(x).size>1,shared=repeatedOutputs.includes(y);const color=conflict?'#d63d28':'#26749b';return `<path d="M ${cxL+18} ${iy.get(x)} C 200 ${iy.get(x)}, 295 ${oy.get(y)}, ${cxR-18} ${oy.get(y)}" fill="none" stroke="${color}" stroke-width="${conflict?3.7:2.6}" marker-end="url(#${conflict?'arrow-red':'arrow-blue'})"/>`;}).join('');
+  const nodes=(values,where,ys)=>values.map(v=>`<circle cx="${where}" cy="${ys.get(v)}" r="19" fill="${where===cxL&&groups.get(v).size>1?'#ffe4df':'#fff'}" stroke="${where===cxL&&groups.get(v).size>1?'#d63d28':'#aab5c1'}" stroke-width="2"/><text x="${where}" y="${ys.get(v)+5}" text-anchor="middle" font-size="16" font-weight="700" fill="#253345">${fmt(v)}</text>`).join('');
+  $('mapping-diagram').innerHTML=`<svg class="ca-function-svg" viewBox="0 0 500 ${H}" role="img" aria-label="Mapping diagram; red arrows show an input leading to two different outputs"><defs><marker id="arrow-red" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#d63d28"/></marker><marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#26749b"/></marker></defs><rect x="25" y="45" rx="55" width="145" height="${H-65}" fill="#fff6f1" stroke="#e8bcaa"/><rect x="330" y="45" rx="55" width="145" height="${H-65}" fill="#f1f6ff" stroke="#a5bdd7"/>${arrowLines}${nodes(inputs,cxL,iy)}${nodes(outputs,cxR,oy)}<text x="95" y="24" text-anchor="middle" font-size="16" font-weight="800" fill="#b33c1c">INPUTS</text><text x="405" y="24" text-anchor="middle" font-size="16" font-weight="800" fill="#26749b">OUTPUTS</text></svg><p class="ca-muted"><span style="color:#d63d28">●</span> Red arrows indicate a conflicting input. <span style="color:#26749b">●</span> Blue arrows show valid assignments (including shared outputs).</p>`;
+  $('mapping-observation').innerHTML = `<strong>${repeatedInputs.length?'⚠ Repeated input: '+repeatedInputs.map(fmt).join(', '):'✓ No input has conflicting outputs'}</strong><p>${repeatedInputs.length?'The highlighted input has two different outputs. A single input must not have multiple outputs.':'Each input points to exactly one output.'}</p><p>${repeatedOutputs.length?'Shared output(s): '+repeatedOutputs.map(fmt).join(', ')+'. This is allowed.':'No shared outputs at present; shared outputs are allowed.'}</p>`;
+  for (const [id,val] of [['mapping-yes',true],['mapping-no',false]]) {
+    $(id).setAttribute('aria-pressed',String(mappingChoice===val));
+    $(id).classList.toggle('selected',mappingChoice===val);
+  }
+  $('mapping-result').className = 'ca-feedback' + (mappingChoice===null?'':mappingChoice===isFunction?' ca-correct':' ca-incorrect');
+  $('mapping-result').textContent = mappingChoice===null ? 'Make your prediction above; the highlighted pairs and diagram are evidence.' : (mappingChoice===isFunction?'✓ Correct. ':'✗ Not quite. ') + (isFunction ? 'This is a function: every input has one distinct output. Two inputs may share an output.' : `This is NOT a function: input ${repeatedInputs.map(fmt).join(', ')} is assigned two different outputs. Look at the highlighted ordered pairs.`);
+}
+document.querySelectorAll('.mapping').forEach(el=>el.addEventListener('change',()=>{mappingChoice=null;mappings();}));
+$('double-output').addEventListener('change',()=>{mappingChoice=null;mappings();});
+$('mapping-yes').addEventListener('click',()=>{mappingChoice=true;mappings();});
+$('mapping-no').addEventListener('click',()=>{mappingChoice=false;mappings();});
+mappings();
+function vertical(){
+ let type=$('curve-type').value,x=+$('scan-x').value;$('scan-x-label').textContent=x.toFixed(1);
+ const svg=$('vline-svg');const func=type==='parabola'||type==='cubic';
+ const g=plot(svg,z=>type==='parabola'?z*z/4:type==='cubic'?z*z*z/9:NaN);
+ if(type==='circle'){let d='';for(let i=0;i<=500;i++){let a=2*Math.PI*i/500;d+=(i?'L':'M')+g.tx(3*Math.cos(a))+' '+g.ty(3*Math.sin(a))+' ';}svg.innerHTML+=`<path d="${d}" fill="none" stroke="#e65125" stroke-width="3"/>`;}
+ if(type==='sideways'){let d='';for(let i=0;i<=400;i++){let y=-Math.sqrt(6)+i/400*2*Math.sqrt(6);d+=(i?'L':'M')+g.tx(y*y)+' '+g.ty(y)+' ';}svg.innerHTML+=`<path d="${d}" fill="none" stroke="#e65125" stroke-width="3"/>`;}
+ let ys=type==='circle'?(Math.abs(x)<3?[-Math.sqrt(9-x*x),Math.sqrt(9-x*x)]:Math.abs(x)===3?[0]:[]):type==='sideways'?(x>0?[-Math.sqrt(x),Math.sqrt(x)]:x===0?[0]:[]):[type==='cubic'?x*x*x/9:x*x/4];
+ ys=ys.filter(y=>y>=-5&&y<=5);const count=ys.length;
+ const stroke=func?'#13836a':'#d63d28';svg.innerHTML+=`<line x1="${g.tx(x)}" y1="24" x2="${g.tx(x)}" y2="286" stroke="${stroke}" stroke-width="3" stroke-dasharray="7 5"/>`+ys.map(y=>`<circle cx="${g.tx(x)}" cy="${g.ty(y)}" r="8" fill="${stroke}" stroke="white" stroke-width="2"/>`).join('');
+ $('vline-status').className='ca-vline-status '+(func?'ca-vline-good':'ca-vline-bad');$('vline-status').innerHTML=`<i class="fa-solid fa-${func?'circle-check':'circle-xmark'}"></i> <strong class="ca-vline-verdict">${func?'FUNCTION':'NOT A FUNCTION'}</strong> <small>${func?'Every vertical line has at most one intersection.':'There are vertical lines that intersect this graph twice.'}</small>`;
+ $('vline-result').innerHTML=`<b>At x = ${x.toFixed(1)}:</b> ${count} visible intersection${count===1?'':'s'}. <strong class="ca-vline-result-strong ${func?'is-function':'not-function'}">${func?'FUNCTION':'NOT A FUNCTION'}</strong> — ${count>1?'Two red intersection points on the same vertical line prove this relation is NOT a function.':func?'Every vertical line intersects this graph at most once.':'This graph fails elsewhere: move the red test line until it crosses twice. One line with two intersections proves failure.'}`;
+}
+['curve-type','scan-x'].forEach(id=>$(id).addEventListener('input',vertical));vertical();
+function machine(){let [a,b,c,x]=['coeff-a','coeff-b','coeff-c','input-x'].map(id=>+$(id).value);['a-label','b-label','c-label','x-label'].forEach((id,i)=>$(id).textContent=fmt([a,b,c,x][i]));$('machine-expression').textContent=`f(x) = ${a}x² ${b<0?'−':'+'} ${Math.abs(b)}x ${c<0?'−':'+'} ${Math.abs(c)}`;$('machine-result').textContent=`f(${fmt(x)}) = ${a*x*x+b*x+c}`;$('machine-steps').textContent=`Substitute x = ${fmt(x)}: (${a})(${fmt(x)})² + (${b})(${fmt(x)}) + (${c}) = ${a*x*x} + (${b*x}) + (${c}).`;}['coeff-a','coeff-b','coeff-c','input-x'].forEach(id=>$(id).addEventListener('input',machine));machine();// Section 08 is driven solely by the synchronized table and coordinate explorer below.
+let intervalPreset='finite';
+function interval(){
+ const l=+$('int-left').value,r=+$('int-right').value,lc=$('left-closed').checked,rc=$('right-closed').checked;
+ if(!Number.isFinite(l)||!Number.isFinite(r)||l>=r){$('interval-answer').textContent='Left endpoint must be smaller than right endpoint.';$('interval-svg').innerHTML='';return;}
+ const mode=intervalPreset,tx=x=>30+(x+11)/22*500;
+ let svg=$('interval-svg'),marks=Array.from({length:23},(_,i)=>`<line x1="${tx(i-11)}" y1="58" x2="${tx(i-11)}" y2="64" stroke="#999"/>${i%2===0?`<text x="${tx(i-11)}" y="82" text-anchor="middle" font-size="11" fill="currentColor">${i-11}</text>`:''}`).join('');
+ let pieces=[];const segment=(a,b,closedA,closedB)=>{pieces.push(`<line x1="${a===null?25:tx(a)}" y1="60" x2="${b===null?535:tx(b)}" y2="60" stroke="#f05023" stroke-width="6" stroke-linecap="round"/>`);if(a!==null)pieces.push(`<circle cx="${tx(a)}" cy="60" r="7" stroke="#f05023" stroke-width="3" fill="${closedA?'#f05023':'white'}"/>`);if(b!==null)pieces.push(`<circle cx="${tx(b)}" cy="60" r="7" stroke="#f05023" stroke-width="3" fill="${closedB?'#f05023':'white'}"/>`);if(a===null)pieces.push('<path d="M25 60 L38 52 L38 68 Z" fill="#f05023"/>');if(b===null)pieces.push('<path d="M535 60 L522 52 L522 68 Z" fill="#f05023"/>');};
+ let notation='',meaning='';
+ if(mode==='leftopen'||mode==='leftinclusive'){const incl=mode==='leftinclusive';segment(null,r,false,incl);notation=`(−∞, ${r}${incl?']':')'}`;meaning=`x ${incl?'≤':'<'} ${r}`;}
+ else if(mode==='rightopen'||mode==='rightinclusive'){const incl=mode==='rightinclusive';segment(l,null,incl,false);notation=`${incl?'[':'('}${l}, ∞)`;meaning=`x ${incl?'≥':'>'} ${l}`;}
+ else if(mode==='all'){segment(null,null,false,false);notation='(−∞, ∞)';meaning='All real numbers.';}
+ else if(mode==='union'){segment(null,-2,false,false);segment(1,4,true,false);notation='(−∞, −2) ∪ [1, 4)';meaning='x < −2 or 1 ≤ x < 4.';}
+ else {segment(l,r,lc,rc);notation=`${lc?'[':'('}${l}, ${r}${rc?']':')'}`;meaning=`${l} ${lc?'≤':'<'} x ${rc?'≤':'<'} ${r}`;}
+ svg.innerHTML=`<line x1="25" y1="60" x2="535" y2="60" stroke="#777" stroke-width="2"/>${marks}${pieces.join('')}`;
+ $('interval-answer').textContent=`Interval Notation: ${notation}`;$('interval-text').textContent=`${meaning} Open circles exclude endpoints; filled circles include them.`;
+}
+['int-left','int-right','left-closed','right-closed'].forEach(id=>$(id).addEventListener('input',()=>{intervalPreset='finite';interval()}));
+document.querySelectorAll('#interval-presets button').forEach(btn=>btn.addEventListener('click',()=>{const mode=btn.dataset.kind;intervalPreset=mode==='open'||mode==='closed'||mode==='leftclosed'||mode==='rightclosed'?'finite':mode;const flags={open:[false,false],closed:[true,true],leftclosed:[true,false],rightclosed:[false,true]};if(flags[mode]){$('left-closed').checked=flags[mode][0];$('right-closed').checked=flags[mode][1];}document.querySelectorAll('#interval-presets button').forEach(b=>b.classList.toggle('active',b===btn));interval()}));interval();
+function domain(){let kind=$('domain-kind').value,k=+$('domain-k').value,x=+$('domain-x').value;$('k-output').textContent=fmt(k);let d=x-k,ok=kind==='quadratic'||kind==='oddroot'||(kind==='fraction'||kind==='oddrootden'?d!==0:kind==='root'?d>=0:d>0),v=kind==='quadratic'?d*d:kind==='fraction'?1/d:kind==='root'?Math.sqrt(d):kind==='rootden'?1/Math.sqrt(d):kind==='oddroot'?Math.cbrt(d):1/Math.cbrt(d);let expr={fraction:`f(x) = 1 / (x − (${k}))`,root:`f(x) = √(x − (${k}))`,rootden:`f(x) = 1 / √(x − (${k}))`,quadratic:`f(x) = (x − (${k}))²`,oddroot:`f(x) = ∛(x − (${k}))`,oddrootden:`f(x) = 1 / ∛(x − (${k}))`};$('domain-expression').textContent=expr[kind];$('domain-result').textContent=ok?`Allowed: x = ${x} gives f(x) ≈ ${Number(v.toFixed(5))}.`:`Not allowed: x = ${x} ${kind==='fraction'||kind==='oddrootden'?'makes the denominator zero':kind==='root'?'makes the radicand negative':'makes the even root zero or nonreal in the denominator'}.`;$('domain-interval').textContent='Domain: '+(kind==='quadratic'||kind==='oddroot'?'(−∞, ∞)':kind==='fraction'||kind==='oddrootden'?`(−∞, ${k}) ∪ (${k}, ∞)`:kind==='root'?`[${k}, ∞)`:`(${k}, ∞)`);}['domain-kind','domain-k','domain-x'].forEach(id=>$(id).addEventListener('input',domain));domain();
+function range(){let h=+$('vertex-h').value,k=+$('vertex-k').value,a=+$('vertex-a').value;$('h-display').textContent=fmt(h);$('v-display').textContent=fmt(k);let svg=$('range-svg'),g=plot(svg,x=>a*(x-h)**2+k,{xmin:-6,xmax:6,ymin:-7,ymax:7});svg.innerHTML+=`<circle cx="${g.tx(h)}" cy="${g.ty(k)}" r="6" fill="#147b79" stroke="white" stroke-width="2"/>`;$('range-answer').textContent=`Vertex (${h}, ${k}). Domain: (−∞, ∞). Range: ${a>0?`[${k}, ∞)`:`(−∞, ${k}]`}. ${a>0?'The vertex is the minimum.':'The vertex is the maximum.'}`;}['vertex-h','vertex-k','vertex-a'].forEach(id=>$(id).addEventListener('input',range));range();
+// Section 3.1: work backwards from y to find all x values.
+function graphReading(){
+ const x=Number($('graph-input').value),yTarget=Number($('graph-output').value),f=t=>(t+1)*(t+1)-1;
+ const svg=$('ca-read-graph'),g=plot(svg,f,{xmin:-5,xmax:3,ymin:-2,ymax:10});
+ const xPoints=[-1-Math.sqrt(yTarget+1),-1+Math.sqrt(yTarget+1)].filter((t,i,arr)=>i===0||Math.abs(t-arr[0])>1e-8);
+ svg.innerHTML+=`<line x1="${g.tx(-5)}" x2="${g.tx(3)}" y1="${g.ty(yTarget)}" y2="${g.ty(yTarget)}" stroke="#137b9a" stroke-dasharray="6 5" stroke-width="2.3"/>`;
+ svg.innerHTML+=`<line x1="${g.tx(x)}" x2="${g.tx(x)}" y1="${g.ty(0)}" y2="${g.ty(f(x))}" stroke="#d64d25" stroke-dasharray="4 4" stroke-width="2"/><circle cx="${g.tx(x)}" cy="${g.ty(f(x))}" r="6" fill="#e65125" stroke="#fff" stroke-width="2"/>`;
+ for(const t of xPoints){if(t>=-5&&t<=3)svg.innerHTML+=`<circle cx="${g.tx(t)}" cy="${g.ty(yTarget)}" r="5.5" fill="#137b9a" stroke="white" stroke-width="2"/>`;}
+ $('graph-read-feedback').textContent=`Input-first: g(${fmt(x)}) = ${f(x)}. Output-first: g(x) = ${yTarget} at x = ${xPoints.map(fmt).join(' or x = ')}.`;
+}
+['graph-input','graph-output'].forEach(id=>$(id).addEventListener('change',graphReading));graphReading();
+
+
+// Newly authored mobile-friendly visual activities for Section 3.1.
+const coordinatePoints=[[-3,2],[1,3],[2,-2],[4,1]],coordinateNames=['A','B','C','D'];let coordinateView='domain';
+const svgText=v=>fmt(v);
+function coordinateLab(){
+ const chosen=+$('coordinate-which').value, [mx,my]=coordinatePoints[chosen];
+ $('coordinate-x').value=mx;$('coordinate-y').value=my;$('coordinate-x-label').textContent=fmt(mx);$('coordinate-y-label').textContent=fmt(my);
+ const svg=$('coordinate-svg'),tx=x=>280+x*48,ty=y=>178-y*35;
+ let markup='';for(let x=-4;x<=4;x++){markup+=`<line x1="${tx(x)}" x2="${tx(x)}" y1="30" y2="320" stroke="${x===0?'#8394a8':'#8296a855'}" stroke-width="${x===0?2:1}"/><text x="${tx(x)}" y="342" text-anchor="middle" fill="currentColor" font-size="13">${fmt(x)}</text>`;}
+ for(let y=-4;y<=4;y++){markup+=`<line x1="60" x2="500" y1="${ty(y)}" y2="${ty(y)}" stroke="${y===0?'#8394a8':'#8296a855'}" stroke-width="${y===0?2:1}"/><text x="45" y="${ty(y)+5}" text-anchor="end" fill="currentColor" font-size="13">${fmt(y)}</text>`;}
+ const colors=['#d64d25','#008f91','#8c5acd','#cf8920'];
+ coordinatePoints.forEach(([x,y],i)=>{const px=tx(x),py=ty(y),active=i===chosen,col=colors[i];const vertical=coordinateView==='domain';
+ markup+=`<line x1="${px}" y1="${py}" x2="${vertical?px:tx(0)}" y2="${vertical?ty(0):py}" stroke="${col}" stroke-dasharray="5 4" stroke-width="${active?3:1.8}"/><circle cx="${px}" cy="${py}" r="${active?10:7.5}" fill="${col}" stroke="white" stroke-width="${active?3:1.6}"/><text x="${px+12}" y="${py-13}" fill="${col}" font-size="16" font-weight="800">${coordinateNames[i]}</text>`;
+ });
+ svg.innerHTML=markup;
+ const distinct=(index)=>[...new Set(coordinatePoints.map(pair=>pair[index]))].sort((a,b)=>a-b);
+ $('coordinate-pairs').innerHTML=coordinatePoints.map(([x,y],i)=>`<span class="ca-pair ${i===chosen?'ca-selected-pair':''}" style="--pair-tone:${colors[i]}">${coordinateNames[i]} (${fmt(x)}, ${fmt(y)})</span>`).join('');
+ $('coordinate-domain').textContent='{ '+distinct(0).map(fmt).join(', ')+' }';$('coordinate-range').textContent='{ '+distinct(1).map(fmt).join(', ')+' }';
+ const n=coordinateView==='domain'?0:1;
+ $('coordinate-feedback').textContent=`${coordinateView==='domain'?'Project onto the x-axis: first coordinates.':'Project onto the y-axis: second coordinates.'} You have ${distinct(n).length} distinct ${coordinateView==='domain'?'inputs':'outputs'} from ${coordinatePoints.length} points. Selected point ${coordinateNames[chosen]} = (${fmt(mx)}, ${fmt(my)}).`;
+ document.querySelectorAll('[data-coordinate-view]').forEach(button=>{const active=button.dataset.coordinateView===coordinateView;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+}
+$('coordinate-which').addEventListener('change',coordinateLab);
+for(const [id,idx] of [['coordinate-x',0],['coordinate-y',1]]) $(id).addEventListener('input',()=>{coordinatePoints[+$('coordinate-which').value][idx]=+$(id).value;coordinateLab()});
+document.querySelectorAll('[data-coordinate-view]').forEach(el=>el.addEventListener('click',()=>{coordinateView=el.dataset.coordinateView;coordinateLab();}));coordinateLab();
+
+const clubAssignments=[['Mia','Studio North'],['Leo','Studio North'],['Nora','Studio East']];let clubReverse=false;
+function clubMap(){const groups=new Map();for(const [person,room] of clubAssignments){const key=clubReverse?room:person,val=clubReverse?person:room;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(val)}const valid=[...groups.values()].every(out=>new Set(out).size===1);
+$('club-map').innerHTML=[...groups].map(([input,outs])=>`<div class="ca-story-line"><span class="ca-story-input">${input}</span><span aria-hidden="true" class="ca-story-arrow">→</span><span class="ca-story-output ${outs.length>1?'ca-story-conflict':''}">${outs.join(' · ')}</span></div>`).join('');
+$('club-feedback').textContent=(valid?'✓ FUNCTION. ':'✕ NOT A FUNCTION. ')+(clubReverse?'A studio is now the input. Studio North corresponds to Mia and Leo: two outputs for one input.':'A member is the input. Every member has exactly one assigned room—even though two members share Studio North.');
+$('club-flip').textContent=clubReverse?'Restore member → room ↔':'Reverse direction ↔';
+}
+$('club-flip').addEventListener('click',()=>{clubReverse=!clubReverse;clubMap()});clubMap();
+
+function notationLab(){const n=+$('notation-n').value,expense=5*n+2;$('notation-n-label').textContent=n;$('notation-reading').textContent=`p(${n}) = $${expense}`;$('notation-steps').textContent=`Substitute n = ${n}: 5 × ${n} + 2 = ${expense}. The total is $${expense}.`;
+ const total=Math.max(1,expense);$('notation-fee-bar').style.width=`${2/total*100}%`;$('notation-games-bar').style.width=`${5*n/total*100}%`;$('notation-games-value').textContent='$'+(5*n);$('notation-games-bar').textContent='';$('notation-fee-bar').setAttribute('title','Entry fee $2');$('notation-games-bar').setAttribute('title',`Games cost $${5*n}`);
+}
+$('notation-n').addEventListener('input',notationLab);notationLab();
+
+const rules={line:{name:'r(x) = x + 2',f:x=>x+2,why:'This is a straight line: the output increases by 1 whenever x increases by 1.'},square:{name:'r(x) = x² − 1',f:x=>x*x-1,why:'A parabola: opposite inputs can share an output without violating the function rule.'},absolute:{name:'r(x) = |x| + 1',f:x=>Math.abs(x)+1,why:'A V-shaped graph: absolute value measures distance from 0 before shifting up.'}};
+function fourViews(){const {name,f,why}=rules[$('four-rule').value],x=+$('four-input').value,y=f(x);$('four-input-label').textContent=fmt(x);$('four-formula').textContent=name;$('four-substitution').textContent=`Substitute x = ${fmt(x)} → r(${fmt(x)}) = ${fmt(y)}`;
+ const entries=[-2,-1,0,1,2];$('four-pairs').innerHTML=entries.map(v=>`<span class="ca-pair ${v===x?'ca-selected-pair':''}">(${fmt(v)}, ${fmt(f(v))})</span>`).join('');
+ $('four-tbody').innerHTML=entries.map(v=>`<tr class="${v===x?'selected':''}"><td>${fmt(v)}</td><td>${fmt(f(v))}</td></tr>`).join('');
+ const svg=$('four-graph'),g=plot(svg,f,{xmin:-4,xmax:4,ymin:-3,ymax:8});svg.innerHTML+=`<circle cx="${g.tx(x)}" cy="${g.ty(y)}" r="9" fill="#008f91" stroke="white" stroke-width="3"/><text x="${g.tx(x)+11}" y="${g.ty(y)-13}" fill="currentColor" font-size="18" font-weight="800">(${fmt(x)},${fmt(y)})</text>`;
+ $('four-feedback').textContent=`The point (${fmt(x)}, ${fmt(y)}) appears in all four representations. ${why}`;
+}
+['four-rule','four-input'].forEach(id=>$(id).addEventListener('input',fourViews));fourViews();
+
+function twoWay(){const x=+$('forward-x').value,t=+$('backward-y').value,forward=(x-2)**2+1,shift=Math.sqrt(t-1),roots=[2-shift,2+shift].filter((v,i,arr)=>i===0||Math.abs(v-arr[0])>1e-10);$('forward-x-label').textContent=fmt(x);
+ $('forward-result').textContent=`q(${fmt(x)}) = (${fmt(x)} − 2)² + 1 = ${forward}`;$('backward-result').textContent=`q(x) = ${t} → x = ${roots.map(fmt).join(' or ')}`;
+ $('two-way-explanation').textContent=`Work backward: (x − 2)² + 1 = ${t} → (x − 2)² = ${t-1} → x − 2 = ±${shift} → ${roots.length} input${roots.length===1?'':'s'}: ${roots.map(fmt).join(' or ')}. Each input still gives exactly one output.`;
+}
+$('forward-x').addEventListener('input',twoWay);$('backward-y').addEventListener('change',twoWay);twoWay();
+
+const toolkitFunctions={identity:{f:x=>x,clue:'Every point satisfies y = x, so input and output are equal.'},constant:{f:x=>2,clue:'All inputs share the same output 2. This is still a function.'},square:{f:x=>x*x,clue:'The graph has a U shape, with a minimum at (0, 0).'},cube:{f:x=>x*x*x,clue:'An S-shaped curve passes through the origin and keeps increasing.'},absolute:{f:x=>Math.abs(x),clue:'A V shape: both −3 and 3 produce output 3.'},root:{f:x=>x>=0?Math.sqrt(x):NaN,clue:'The square-root graph starts at the origin; negative x-values are not real inputs.'},reciprocal:{f:x=>x===0?NaN:1/x,clue:'The reciprocal graph never touches either axis. x = 0 is excluded.'}};
+function toolkitLab(name){const item=toolkitFunctions[name];plot($('toolkit-graph'),item.f,{xmin:-5,xmax:5,ymin:-5,ymax:5});$('toolkit-clue').textContent=item.clue;document.querySelectorAll('[data-toolkit]').forEach(b=>{let yes=b.dataset.toolkit===name;b.classList.toggle('active',yes);b.setAttribute('aria-pressed',String(yes));});}
+document.querySelectorAll('[data-toolkit]').forEach(button=>button.addEventListener('click',()=>toolkitLab(button.dataset.toolkit)));toolkitLab('identity');
+
+// Guided practice belongs inside each numbered section, not in a separate TOC chapter.
+const guidedBanks={
+ '31':[
+  {q:'For {(−4, 1), (2, 1), (2, 7)}, which set is the domain?',opts:['{−4, 2}','{1, 7}','{−4, 2, 2}'],correct:0,why:'Only the first coordinates belong to the domain. Write each distinct input once: {−4, 2}.'},
+  {q:'For {(−2, 6), (1, 4), (5, 6)}, what is the range?',opts:['{−2, 1, 5}','{4, 6}','{6, 4, 6}'],correct:1,why:'Collect the different outputs, 6 and 4, so the range is {4, 6}.'},
+  {q:'At the art club, Mia and Leo are assigned Studio North. Is member → studio a function?',opts:['No, North appears twice','Yes, each member has one room','No, different members must have different rooms'],correct:1,why:'Each member has exactly one room. Sharing an output is allowed.'},
+  {q:'Reverse the art-club assignment: studio → member. Is that a function when two members use Studio North?',opts:['Yes, because both people have a room','No, North would have two different outputs','Yes, because there are two inputs'],correct:1,why:'If the room is the input, Studio North would lead to two different people.'},
+  {q:'For the game-booth rule p(n) = 5n + 2, what does n represent?',opts:['The $2 entry fee','The amount paid','The number of games (input)'],correct:2,why:'n is the independent variable: number of games played. p(n) is the total cost.'},
+  {q:'Use the game-booth rule p(n) = 5n + 2. Find p(4).',opts:['14','22','27'],correct:1,why:'p(4) = 5(4) + 2 = 22.'},
+  {q:'For q(x) = (x − 2)² + 1, solve q(x) = 5.',opts:['x = 0 or 4','x = 2 only','x = −4 or 0'],correct:0,why:'(x − 2)² = 4. Therefore x − 2 = ±2, so x = 0 or x = 4.'},
+  {q:'The table lists t(−4)=3, t(−1)=6, t(2)=3, t(5)=8. Which inputs give output 3?',opts:['−1 and 5','−4 and 2','−4 only'],correct:1,why:'Inspect all table rows with output 3: inputs −4 and 2.'},
+  {q:'Which relation fails the vertical line test?',opts:['y = |x|','x²/4 + y² = 1','y = x + 2'],correct:1,why:'The ellipse has two different y-values when x = 0: y = 1 and y = −1.'},
+  {q:'For g(x) = (x + 1)² − 1, solve g(x) = 3.',opts:['x = −1','x = −3 or 1','x = −2 or 0'],correct:1,why:'(x + 1)² = 4. Taking both square roots gives x + 1 = ±2, hence x = −3 or 1.'}
+ ],
+ '32':[
+  {q:'What is the domain of 1/(x − 4)?',opts:['[4, ∞)','All real numbers except x = 4','All real numbers'],correct:1,why:'Division by zero is undefined, so exclude x = 4.'},
+  {q:'What is the domain of √(x + 3)?',opts:['(−3, ∞)','(−∞, −3]','[−3, ∞)'],correct:2,why:'x + 3 ≥ 0 gives x ≥ −3, so [−3, ∞).'},
+  {q:'Which interval represents −3 < x ≤ 10?',opts:['[−3, 10]','(−3, 10]','(−3, 10)'],correct:1,why:'−3 is excluded (parenthesis), while 10 is included (bracket).'},
+  {q:'What is the range of y = (x−1)² + 2?',opts:['[2, ∞)','(−∞, 2]','All real numbers'],correct:0,why:'The upward-opening parabola has its minimum at y = 2.'},
+  {q:'What is the domain of 1/√(x−5)?',opts:['[5, ∞)','(5, ∞)','All real x except 5'],correct:1,why:'The square-root denominator must be strictly positive: x − 5 > 0, so x > 5.'},
+  {q:'For y = −(x+2)² + 3, what is the range?',opts:['[3, ∞)','(−∞, 3]','(−∞, ∞)'],correct:1,why:'A downward-opening parabola has maximum y = 3, included in its range.'},
+  {q:'What is the domain of ∛(x−2)?',opts:['[2, ∞)','All real numbers','All real numbers except 2'],correct:1,why:'An odd root is defined for negative, zero, and positive real radicands.'},
+  {q:'What does a filled endpoint at x = 4 mean?',opts:['x = 4 is included','x = 4 is excluded','The graph stops before x = 4'],correct:0,why:'A filled dot means the endpoint belongs to the set.'}
+ ]
+};
+const guidedHints={
+ '31':[
+  'Domain comes from the first coordinates only; do not list a repeated input twice.',
+  'Range comes from the second coordinates only; remove duplicate outputs.',
+  'Does each member have just one room? Different members can share a room.',
+  'After reversing, which quantity becomes the input? Can it lead to two people?',
+  'Look inside the parentheses; that is the independent variable.',
+  'Replace n by 4 in the game-booth rule and simplify.',
+  'Subtract 1, then take both square roots.',
+  'Scan the outputs for 3, then collect every matching input.',
+  'Imagine a vertical line at x = 0. How many points will it hit?',
+  'Add 1 to both sides, then take positive and negative square roots.'
+ ],
+ '32':[
+  'Find any input that makes the denominator zero.',
+  'A square-root radicand must be nonnegative.',
+  'Use a parenthesis for an excluded endpoint and bracket for an included one.',
+  'The graph opens upward. Identify its smallest output.',
+  'A square root in the denominator cannot be zero.',
+  'The graph opens downward. Identify its largest output.',
+  'Cube roots are defined for negative, zero, and positive numbers.',
+  'Think about the difference between an open and a filled dot.'
+ ]
+};
+function setupGuided(which){
+ const bank=guidedBanks[which],count=which==='31'?5:4;let offset=0;
+ const container=$(`quiz-${which}-container`),status=$(`quiz-${which}-feedback`);
+ function render(){
+  const chosen=Array.from({length:count},(_,i)=>({q:bank[(offset+i)%bank.length],i}));
+  container.innerHTML=chosen.map(({q,i})=>`<div class="ca-quiz-question" role="group" aria-label="${q.q}" data-answer="${q.correct}"><p class="ca-quiz-prompt">${i+1}. ${q.q}</p>${q.opts.map((option,j)=>`<label><input type="radio" name="guided${which}-${i}" value="${j}"> ${option}</label>`).join('')}<details class="ca-quiz-hint"><summary>Need a hint?</summary><p>${guidedHints[which][(offset+i)%bank.length]}</p></details><div class="ca-muted ca-quiz-explanation" hidden>${q.why}</div></div>`).join('');
+  status.textContent='Choose an answer for each problem. You can reveal hints before checking.';
+ }
+ $(`quiz-${which}-check`).addEventListener('click',()=>{
+  let score=0,answered=0;
+  container.querySelectorAll('.ca-quiz-question').forEach((fieldset,i)=>{
+   const answer=fieldset.querySelector('input:checked');if(answer)answered++;
+   const yes=answer && Number(answer.value)===Number(fieldset.dataset.answer);if(yes)score++;
+   fieldset.classList.toggle('ca-answered-correct',Boolean(yes));fieldset.classList.toggle('ca-answered-incorrect',!yes);
+   const explanation=fieldset.querySelector('.ca-quiz-explanation');explanation.hidden=false;
+   explanation.textContent=(yes?'✓ Correct. ':'→ Worked explanation: ')+bank[(offset+i)%bank.length].why;
+  });
+  status.textContent=`${score} / ${count} correct (${answered} answered). Review the explanations and try another set when ready.`;
+ });
+ $(`quiz-${which}-reset`).addEventListener('click',()=>{offset=(offset+count)%bank.length;render();});
+ render();
+}
+setupGuided('31');setupGuided('32');
+let modal=$('foundations-modal');$('foundations-open').onclick=()=>modal.showModal();$('foundations-close').onclick=()=>modal.close();modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});let grades=[['Homework',25],['Reviews',5],['PLTL',10],['Class activities',10],['Three exams',35],['Final exam',15]];$('grade-rows').innerHTML=grades.map(([name,w],i)=>`<div class="ca-grade-row"><label for="grade-${i}">${name}</label><b>${w}%</b><input id="grade-${i}" class="grade-score" type="number" min="0" max="100" step="0.1" placeholder="0–100" aria-label="${name} score"></div>`).join('');function calcGrades(){let values=[...document.querySelectorAll('.grade-score')].map(el=>el.value===''?null:+el.value);if(values.some(v=>v!==null&&(v<0||v>100||!Number.isFinite(v)))){$('grade-total').textContent='Enter valid percentages between 0 and 100.';return;}let completed=grades.reduce((t,g,i)=>t+(values[i]===null?0:g[1]),0),earned=grades.reduce((t,g,i)=>t+(values[i]===null?0:g[1]*values[i]/100),0);$('grade-total').textContent=completed?`Earned: ${earned.toFixed(2)} percentage points toward the final grade. Average across entered categories: ${(earned/completed*100).toFixed(1)}%. Categories entered: ${completed}% of course weight.`:'Enter scores above to estimate your grade.';}document.querySelectorAll('.grade-score').forEach(el=>el.addEventListener('input',calcGrades));calcGrades();})();</script><script id="ca-shared-site-controls">(()=>{const initialize=()=>{const nav=document.querySelector('.top-nav-links'),toggle=document.querySelector('.nav-toggle'),drop=document.querySelector('.dropdown'),dropbtn=document.querySelector('.dropbtn'),root=document.documentElement,theme=document.querySelector('.theme-toggle');if(toggle&&nav){toggle.setAttribute('aria-expanded','false');toggle.addEventListener('click',()=>{const state=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(state));toggle.querySelector('i')?.classList.toggle('fa-bars',!state);toggle.querySelector('i')?.classList.toggle('fa-xmark',state)});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}if(dropbtn){dropbtn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();drop?.classList.toggle('dropdown-open')});document.addEventListener('click',e=>{if(!drop?.contains(e.target))drop?.classList.remove('dropdown-open')})}function setTheme(v){root.setAttribute('data-theme',v);if(theme){const icon=theme.querySelector('i'),label=theme.querySelector('span');if(icon)icon.className=v==='dark'?'fa-solid fa-sun':'fa-solid fa-moon';if(label)label.textContent=v==='dark'?'Light':'Dark';theme.setAttribute('aria-pressed',String(v==='dark'))}}let saved;try{saved=localStorage.getItem('dm-theme')}catch(_){}setTheme(saved==='dark'?'dark':'light');theme?.addEventListener('click',()=>{const next=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('dm-theme',next)}catch(_){}})};if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initialize,{once:true});}else{initialize();}})();</script>
 <script id="ca-art-club-arrow-interactivity">
 (()=>{
   'use strict';
@@ -225,4 +794,86 @@ html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-caption { color:#
   else initialize();
 })();
 </script>
-</body></html>
+<script id="ca-table-coordinate-interactivity">
+(()=>{'use strict';
+ const points=[{name:'A',x:-4,y:3},{name:'B',x:-1,y:6},{name:'C',x:2,y:3},{name:'D',x:5,y:8}];
+ const fmt=n=>String(n).replaceAll('-','−');
+ const ns='http://www.w3.org/2000/svg';
+ let selected=2,matches=[];
+ const $=id=>document.getElementById(id);
+ // Same scale on both axes: 33 SVG units represent one coordinate unit.
+ const tx=x=>290+x*33,ty=y=>347-y*33;
+ function draw(){
+  const svg=$('ca-table-coordinate-plane');if(!svg)return;
+  let parts=['<defs><marker id="ca-plot-axis-tip" markerWidth="7" markerHeight="7" refX="4" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="var(--plot-axis)"/></marker></defs>'];
+  for(let x=-6;x<=6;x++)parts.push(`<line x1="${tx(x)}" y1="17" x2="${tx(x)}" y2="413" stroke="var(--plot-grid)" stroke-width="1"/>`);
+  for(let y=-2;y<=10;y++)parts.push(`<line x1="92" y1="${ty(y)}" x2="488" y2="${ty(y)}" stroke="var(--plot-grid)" stroke-width="1"/>`);
+  parts.push(`<line x1="83" y1="347" x2="497" y2="347" stroke="var(--plot-axis)" stroke-width="2.2" marker-end="url(#ca-plot-axis-tip)"/><line x1="290" y1="421" x2="290" y2="9" stroke="var(--plot-axis)" stroke-width="2.2" marker-end="url(#ca-plot-axis-tip)"/>`);
+  for(let x=-6;x<=6;x+=2)parts.push(`<text x="${tx(x)}" y="370" font-size="14" fill="var(--plot-text)" text-anchor="middle">${fmt(x)}</text>`);
+  for(let y=-2;y<=10;y+=2){if(y!==0)parts.push(`<text x="279" y="${ty(y)+5}" font-size="14" fill="var(--plot-text)" text-anchor="end">${fmt(y)}</text>`);}
+  parts.push('<text x="505" y="354" font-size="20" font-style="italic" fill="var(--plot-axis)">x</text><text x="300" y="19" font-size="20" font-style="italic" fill="var(--plot-axis)">y</text>');
+  for(let i=0;i<points.length;i++){
+   const p=points[i],isSelected=selected===i,isMatch=matches.includes(i),x=tx(p.x),y=ty(p.y);
+   let lx=x+12,ly=y-13;
+   if(p.x===5)lx=x-22;
+   parts.push(`<g class="ca-plot-point${isSelected?' ca-selected':''}${isMatch?' ca-output-match':''}" role="button" tabindex="0" focusable="true" data-point-index="${i}" aria-label="Select point ${p.name}, ${fmt(p.x)} comma ${fmt(p.y)}"><title>Point ${p.name}: (${fmt(p.x)}, ${fmt(p.y)})</title><circle cx="${x}" cy="${y}" r="22" fill="transparent"/><circle class="ca-point-halo" cx="${x}" cy="${y}" r="16" stroke-width="2.6"/><circle class="ca-point-marker" cx="${x}" cy="${y}" r="${isSelected?8:6.5}"/><text x="${lx}" y="${ly}">${p.name}</text></g>`);
+  }
+  svg.innerHTML=parts.join('');
+ }
+ function sync(){
+  const p=points[selected];
+  document.querySelectorAll('#pairs-table tr').forEach((row,i)=>{
+   row.classList.toggle('selected',i===selected);row.classList.toggle('ca-output-match',matches.includes(i));row.setAttribute('aria-pressed',String(i===selected));
+  });
+  const pair=$('ca-table-selected-pair');pair.innerHTML=`<span>Selected ordered pair:</span> <strong>${p.name} = (${fmt(p.x)}, ${fmt(p.y)})</strong>`;
+  draw();
+ }
+ function choose(i){
+  if(!Number.isInteger(i)||i<0||i>=points.length)return;
+  selected=i;matches=[];sync();
+  $('lookup-result').textContent=`Point ${points[i].name} corresponds to the ordered pair (${fmt(points[i].x)}, ${fmt(points[i].y)}).`;
+ }
+ function search(){
+  const y=Number($('lookup-y').value);matches=points.flatMap((p,i)=>p.y===y?[i]:[]);
+  sync();
+  const res=$('lookup-result');
+  if(matches.length){
+   const xs=matches.map(i=>`x = ${fmt(points[i].x)}`),names=matches.map(i=>points[i].name);
+   const phrase=xs.length===1?xs[0]:xs.join(' and ');
+   res.innerHTML=`<strong>For t(x) = ${fmt(y)}, the matching input${xs.length===1?' is':'s are'} ${phrase}.</strong> These correspond to point${names.length===1?'':'s'} ${names.join(' and ')} on the coordinate plane.`;
+  }else res.textContent=`No input in the table produces output ${fmt(y)}. None of the plotted points has y-coordinate ${fmt(y)}.`;
+ }
+ function init(){
+  const tbody=$('pairs-table'),svg=$('ca-table-coordinate-plane'),btn=$('lookup-btn');if(!tbody||!svg||!btn)return;
+  // The existing course script manages the other activities; this module only enhances Section 08.
+  tbody.addEventListener('click',e=>{const row=e.target.closest('tr[data-x]');if(row)choose([...tbody.rows].indexOf(row));});
+  tbody.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const row=e.target.closest('tr[data-x]');if(row){e.preventDefault();choose([...tbody.rows].indexOf(row));}});
+  svg.addEventListener('click',e=>{const g=e.target.closest('g[data-point-index]');if(g)choose(Number(g.dataset.pointIndex));});
+  svg.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const g=e.target.closest('g[data-point-index]');if(g){e.preventDefault();choose(Number(g.dataset.pointIndex));}});
+  btn.addEventListener('click',search);
+  $('lookup-y').addEventListener('change',()=>{matches=[];sync();$('lookup-result').textContent='Select “Find every input” to highlight all points with this output.';});
+  sync();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+<script id="ca-toc-synced-navigation">
+(()=>{
+ function init(){
+   const toc=document.querySelector('.ca-toc'); if(!toc)return;
+   for(const link of toc.querySelectorAll('.ca-toc-children a[href^="#"]')){
+      const id=link.getAttribute('href').slice(1),block=document.getElementById(id),heading=block?.querySelector('h3');
+      if(heading && block.classList.contains('ca-panel')){link.textContent=heading.textContent.trim();link.title=heading.textContent.trim();}
+   }
+   const links=[...toc.querySelectorAll('.ca-toc-children a[href^="#"]')];
+   function markActive(id){for(const link of links){const active=link.hash==='#'+id;link.classList.toggle('ca-current-block',active);if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}}
+   toc.addEventListener('click',e=>{
+     const link=e.target.closest('a[href^="#"]'); if(!link)return;
+     const chapter=link.closest('details.ca-toc-chapter'); if(chapter)chapter.open=true;
+     markActive(link.hash.slice(1));
+   });
+   const id=location.hash.slice(1);if(id){const match=links.find(l=>l.hash==='#'+id);if(match){match.closest('details').open=true;markActive(id);}}
+ }
+ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
+})();
+</script></body></html>
