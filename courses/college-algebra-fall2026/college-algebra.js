@@ -42,7 +42,7 @@ function vertical(){
  $('vline-result').innerHTML=`<b>At x = ${x.toFixed(1)}:</b> ${count} visible intersection${count===1?'':'s'}. <strong class="ca-vline-result-strong ${func?'is-function':'not-function'}">${func?'FUNCTION':'NOT A FUNCTION'}</strong> — ${count>1?'Two red intersection points on the same vertical line prove this relation is NOT a function.':func?'Every vertical line intersects this graph at most once.':'This graph fails elsewhere: move the red test line until it crosses twice. One line with two intersections proves failure.'}`;
 }
 ['curve-type','scan-x'].forEach(id=>$(id).addEventListener('input',vertical));vertical();
-function machine(){let [a,b,c,x]=['coeff-a','coeff-b','coeff-c','input-x'].map(id=>+$(id).value);['a-label','b-label','c-label','x-label'].forEach((id,i)=>$(id).textContent=fmt([a,b,c,x][i]));$('machine-expression').textContent=`f(x) = ${a}x² ${b<0?'−':'+'} ${Math.abs(b)}x ${c<0?'−':'+'} ${Math.abs(c)}`;$('machine-result').textContent=`f(${fmt(x)}) = ${a*x*x+b*x+c}`;$('machine-steps').textContent=`Substitute x = ${fmt(x)}: (${a})(${fmt(x)})² + (${b})(${fmt(x)}) + (${c}) = ${a*x*x} + (${b*x}) + (${c}).`;}['coeff-a','coeff-b','coeff-c','input-x'].forEach(id=>$(id).addEventListener('input',machine));machine();document.querySelectorAll('#pairs-table tr').forEach(row=>row.addEventListener('click',()=>{document.querySelectorAll('#pairs-table tr').forEach(r=>r.classList.remove('selected'));row.classList.add('selected');$('lookup-result').textContent=`Selected ordered pair (${row.dataset.x}, ${row.dataset.y}).`;}));$('lookup-btn').onclick=()=>{let y=+$('lookup-y').value,inputs=[...document.querySelectorAll('#pairs-table tr')].filter(r=>+r.dataset.y===y).map(r=>r.dataset.x);$('lookup-result').textContent=inputs.length?`f(x) = ${y} at x = ${inputs.join(' and ')}. ${inputs.length>1?'Different inputs can give the same output.':''}`:`No input in this table has output ${y}.`};
+function machine(){let [a,b,c,x]=['coeff-a','coeff-b','coeff-c','input-x'].map(id=>+$(id).value);['a-label','b-label','c-label','x-label'].forEach((id,i)=>$(id).textContent=fmt([a,b,c,x][i]));$('machine-expression').textContent=`f(x) = ${a}x² ${b<0?'−':'+'} ${Math.abs(b)}x ${c<0?'−':'+'} ${Math.abs(c)}`;$('machine-result').textContent=`f(${fmt(x)}) = ${a*x*x+b*x+c}`;$('machine-steps').textContent=`Substitute x = ${fmt(x)}: (${a})(${fmt(x)})² + (${b})(${fmt(x)}) + (${c}) = ${a*x*x} + (${b*x}) + (${c}).`;}['coeff-a','coeff-b','coeff-c','input-x'].forEach(id=>$(id).addEventListener('input',machine));machine();document.querySelectorAll('#pairs-table tr').forEach(row=>{const select=()=>{document.querySelectorAll('#pairs-table tr').forEach(r=>r.classList.remove('selected'));row.classList.add('selected');$('lookup-result').textContent=`Selected ordered pair (${fmt(row.dataset.x)}, ${fmt(row.dataset.y)}).`;};row.addEventListener('click',select);row.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select();}});});$('lookup-btn').onclick=()=>{let y=+$('lookup-y').value,inputs=[...document.querySelectorAll('#pairs-table tr')].filter(r=>+r.dataset.y===y).map(r=>r.dataset.x);$('lookup-result').textContent=inputs.length?`t(x) = ${y} at x = ${inputs.map(fmt).join(' and ')}. ${inputs.length>1?'Different inputs can give the same output.':''}`:`No input in this table has output ${y}.`};
 let intervalPreset='finite';
 function interval(){
  const l=+$('int-left').value,r=+$('int-right').value,lc=$('left-closed').checked,rc=$('right-closed').checked;
@@ -65,30 +65,87 @@ function domain(){let kind=$('domain-kind').value,k=+$('domain-k').value,x=+$('d
 function range(){let h=+$('vertex-h').value,k=+$('vertex-k').value,a=+$('vertex-a').value;$('h-display').textContent=fmt(h);$('v-display').textContent=fmt(k);let svg=$('range-svg'),g=plot(svg,x=>a*(x-h)**2+k,{xmin:-6,xmax:6,ymin:-7,ymax:7});svg.innerHTML+=`<circle cx="${g.tx(h)}" cy="${g.ty(k)}" r="6" fill="#147b79" stroke="white" stroke-width="2"/>`;$('range-answer').textContent=`Vertex (${h}, ${k}). Domain: (−∞, ∞). Range: ${a>0?`[${k}, ∞)`:`(−∞, ${k}]`}. ${a>0?'The vertex is the minimum.':'The vertex is the maximum.'}`;}['vertex-h','vertex-k','vertex-a'].forEach(id=>$(id).addEventListener('input',range));range();
 // Section 3.1: work backwards from y to find all x values.
 function graphReading(){
- const x=Number($('graph-input').value), yTarget=Number($('graph-output').value), f=t=>(t-1)*(t-1);
- const svg=$('ca-read-graph'),g=plot(svg,f,{xmin:-3,xmax:5,ymin:-1,ymax:10});
- const xPoints=[1-Math.sqrt(yTarget),1+Math.sqrt(yTarget)].filter((t,i,arr)=>i===0||Math.abs(t-arr[0])>1e-8);
- svg.innerHTML+=`<line x1="${g.tx(-3)}" x2="${g.tx(5)}" y1="${g.ty(yTarget)}" y2="${g.ty(yTarget)}" stroke="#137b9a" stroke-dasharray="6 5" stroke-width="2.3"/>`;
+ const x=Number($('graph-input').value),yTarget=Number($('graph-output').value),f=t=>(t+1)*(t+1)-1;
+ const svg=$('ca-read-graph'),g=plot(svg,f,{xmin:-5,xmax:3,ymin:-2,ymax:10});
+ const xPoints=[-1-Math.sqrt(yTarget+1),-1+Math.sqrt(yTarget+1)].filter((t,i,arr)=>i===0||Math.abs(t-arr[0])>1e-8);
+ svg.innerHTML+=`<line x1="${g.tx(-5)}" x2="${g.tx(3)}" y1="${g.ty(yTarget)}" y2="${g.ty(yTarget)}" stroke="#137b9a" stroke-dasharray="6 5" stroke-width="2.3"/>`;
  svg.innerHTML+=`<line x1="${g.tx(x)}" x2="${g.tx(x)}" y1="${g.ty(0)}" y2="${g.ty(f(x))}" stroke="#d64d25" stroke-dasharray="4 4" stroke-width="2"/><circle cx="${g.tx(x)}" cy="${g.ty(f(x))}" r="6" fill="#e65125" stroke="#fff" stroke-width="2"/>`;
- for(const t of xPoints){if(t>=-3&&t<=5)svg.innerHTML+=`<circle cx="${g.tx(t)}" cy="${g.ty(yTarget)}" r="5.5" fill="#137b9a" stroke="white" stroke-width="2"/>`;}
- svg.innerHTML+=`<text x="${g.tx(5)-4}" y="${g.ty(0)-6}" text-anchor="end" font-size="14" fill="#b4bdd0">x</text><text x="${g.tx(0)+8}" y="${g.ty(10)+14}" font-size="14" fill="#b4bdd0">y</text>`;
- $('graph-read-feedback').textContent=`f(${fmt(x)}) = ${f(x)}.  To solve f(x) = ${yTarget}, read the horizontal line y = ${yTarget}: x = ${xPoints.map(v=>fmt(v)).join(' or x = ')}.`;
+ for(const t of xPoints){if(t>=-5&&t<=3)svg.innerHTML+=`<circle cx="${g.tx(t)}" cy="${g.ty(yTarget)}" r="5.5" fill="#137b9a" stroke="white" stroke-width="2"/>`;}
+ $('graph-read-feedback').textContent=`Input-first: g(${fmt(x)}) = ${f(x)}. Output-first: g(x) = ${yTarget} at x = ${xPoints.map(fmt).join(' or x = ')}.`;
 }
 ['graph-input','graph-output'].forEach(id=>$(id).addEventListener('change',graphReading));graphReading();
+
+
+// Newly authored mobile-friendly visual activities for Section 3.1.
+const coordinatePoints=[[-3,2],[1,3],[2,-2],[4,1]],coordinateNames=['A','B','C','D'];let coordinateView='domain';
+const svgText=v=>fmt(v);
+function coordinateLab(){
+ const chosen=+$('coordinate-which').value, [mx,my]=coordinatePoints[chosen];
+ $('coordinate-x').value=mx;$('coordinate-y').value=my;$('coordinate-x-label').textContent=fmt(mx);$('coordinate-y-label').textContent=fmt(my);
+ const svg=$('coordinate-svg'),tx=x=>280+x*48,ty=y=>178-y*35;
+ let markup='';for(let x=-4;x<=4;x++){markup+=`<line x1="${tx(x)}" x2="${tx(x)}" y1="30" y2="320" stroke="${x===0?'#8394a8':'#8296a855'}" stroke-width="${x===0?2:1}"/><text x="${tx(x)}" y="342" text-anchor="middle" fill="currentColor" font-size="13">${fmt(x)}</text>`;}
+ for(let y=-4;y<=4;y++){markup+=`<line x1="60" x2="500" y1="${ty(y)}" y2="${ty(y)}" stroke="${y===0?'#8394a8':'#8296a855'}" stroke-width="${y===0?2:1}"/><text x="45" y="${ty(y)+5}" text-anchor="end" fill="currentColor" font-size="13">${fmt(y)}</text>`;}
+ const colors=['#d64d25','#008f91','#8c5acd','#cf8920'];
+ coordinatePoints.forEach(([x,y],i)=>{const px=tx(x),py=ty(y),active=i===chosen,col=colors[i];const vertical=coordinateView==='domain';
+ markup+=`<line x1="${px}" y1="${py}" x2="${vertical?px:tx(0)}" y2="${vertical?ty(0):py}" stroke="${col}" stroke-dasharray="5 4" stroke-width="${active?3:1.8}"/><circle cx="${px}" cy="${py}" r="${active?10:7.5}" fill="${col}" stroke="white" stroke-width="${active?3:1.6}"/><text x="${px+12}" y="${py-13}" fill="${col}" font-size="16" font-weight="800">${coordinateNames[i]}</text>`;
+ });
+ svg.innerHTML=markup;
+ const distinct=(index)=>[...new Set(coordinatePoints.map(pair=>pair[index]))].sort((a,b)=>a-b);
+ $('coordinate-pairs').innerHTML=coordinatePoints.map(([x,y],i)=>`<span class="ca-pair ${i===chosen?'ca-selected-pair':''}" style="--pair-tone:${colors[i]}">${coordinateNames[i]} (${fmt(x)}, ${fmt(y)})</span>`).join('');
+ $('coordinate-domain').textContent='{ '+distinct(0).map(fmt).join(', ')+' }';$('coordinate-range').textContent='{ '+distinct(1).map(fmt).join(', ')+' }';
+ const n=coordinateView==='domain'?0:1;
+ $('coordinate-feedback').textContent=`${coordinateView==='domain'?'Project onto the x-axis: first coordinates.':'Project onto the y-axis: second coordinates.'} You have ${distinct(n).length} distinct ${coordinateView==='domain'?'inputs':'outputs'} from ${coordinatePoints.length} points. Selected point ${coordinateNames[chosen]} = (${fmt(mx)}, ${fmt(my)}).`;
+ document.querySelectorAll('[data-coordinate-view]').forEach(button=>{const active=button.dataset.coordinateView===coordinateView;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+}
+$('coordinate-which').addEventListener('change',coordinateLab);
+for(const [id,idx] of [['coordinate-x',0],['coordinate-y',1]]) $(id).addEventListener('input',()=>{coordinatePoints[+$('coordinate-which').value][idx]=+$(id).value;coordinateLab()});
+document.querySelectorAll('[data-coordinate-view]').forEach(el=>el.addEventListener('click',()=>{coordinateView=el.dataset.coordinateView;coordinateLab();}));coordinateLab();
+
+const clubAssignments=[['Mia','Studio North'],['Leo','Studio North'],['Nora','Studio East']];let clubReverse=false;
+function clubMap(){const groups=new Map();for(const [person,room] of clubAssignments){const key=clubReverse?room:person,val=clubReverse?person:room;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(val)}const valid=[...groups.values()].every(out=>new Set(out).size===1);
+$('club-map').innerHTML=[...groups].map(([input,outs])=>`<div class="ca-story-line"><span class="ca-story-input">${input}</span><span aria-hidden="true" class="ca-story-arrow">→</span><span class="ca-story-output ${outs.length>1?'ca-story-conflict':''}">${outs.join(' · ')}</span></div>`).join('');
+$('club-feedback').textContent=(valid?'✓ FUNCTION. ':'✕ NOT A FUNCTION. ')+(clubReverse?'A studio is now the input. Studio North corresponds to Mia and Leo: two outputs for one input.':'A member is the input. Every member has exactly one assigned room—even though two members share Studio North.');
+$('club-flip').textContent=clubReverse?'Restore member → room ↔':'Reverse direction ↔';
+}
+$('club-flip').addEventListener('click',()=>{clubReverse=!clubReverse;clubMap()});clubMap();
+
+function notationLab(){const n=+$('notation-n').value,expense=5*n+2;$('notation-n-label').textContent=n;$('notation-reading').textContent=`p(${n}) = $${expense}`;$('notation-steps').textContent=`Substitute n = ${n}: 5 × ${n} + 2 = ${expense}. The total is $${expense}.`;
+ const total=Math.max(1,expense);$('notation-fee-bar').style.width=`${2/total*100}%`;$('notation-games-bar').style.width=`${5*n/total*100}%`;$('notation-games-value').textContent='$'+(5*n);$('notation-games-bar').textContent='';$('notation-fee-bar').setAttribute('title','Entry fee $2');$('notation-games-bar').setAttribute('title',`Games cost $${5*n}`);
+}
+$('notation-n').addEventListener('input',notationLab);notationLab();
+
+const rules={line:{name:'r(x) = x + 2',f:x=>x+2,why:'This is a straight line: the output increases by 1 whenever x increases by 1.'},square:{name:'r(x) = x² − 1',f:x=>x*x-1,why:'A parabola: opposite inputs can share an output without violating the function rule.'},absolute:{name:'r(x) = |x| + 1',f:x=>Math.abs(x)+1,why:'A V-shaped graph: absolute value measures distance from 0 before shifting up.'}};
+function fourViews(){const {name,f,why}=rules[$('four-rule').value],x=+$('four-input').value,y=f(x);$('four-input-label').textContent=fmt(x);$('four-formula').textContent=name;$('four-substitution').textContent=`Substitute x = ${fmt(x)} → r(${fmt(x)}) = ${fmt(y)}`;
+ const entries=[-2,-1,0,1,2];$('four-pairs').innerHTML=entries.map(v=>`<span class="ca-pair ${v===x?'ca-selected-pair':''}">(${fmt(v)}, ${fmt(f(v))})</span>`).join('');
+ $('four-tbody').innerHTML=entries.map(v=>`<tr class="${v===x?'selected':''}"><td>${fmt(v)}</td><td>${fmt(f(v))}</td></tr>`).join('');
+ const svg=$('four-graph'),g=plot(svg,f,{xmin:-4,xmax:4,ymin:-3,ymax:8});svg.innerHTML+=`<circle cx="${g.tx(x)}" cy="${g.ty(y)}" r="9" fill="#008f91" stroke="white" stroke-width="3"/><text x="${g.tx(x)+11}" y="${g.ty(y)-13}" fill="currentColor" font-size="18" font-weight="800">(${fmt(x)},${fmt(y)})</text>`;
+ $('four-feedback').textContent=`The point (${fmt(x)}, ${fmt(y)}) appears in all four representations. ${why}`;
+}
+['four-rule','four-input'].forEach(id=>$(id).addEventListener('input',fourViews));fourViews();
+
+function twoWay(){const x=+$('forward-x').value,t=+$('backward-y').value,forward=(x-2)**2+1,shift=Math.sqrt(t-1),roots=[2-shift,2+shift].filter((v,i,arr)=>i===0||Math.abs(v-arr[0])>1e-10);$('forward-x-label').textContent=fmt(x);
+ $('forward-result').textContent=`q(${fmt(x)}) = (${fmt(x)} − 2)² + 1 = ${forward}`;$('backward-result').textContent=`q(x) = ${t} → x = ${roots.map(fmt).join(' or ')}`;
+ $('two-way-explanation').textContent=`Work backward: (x − 2)² + 1 = ${t} → (x − 2)² = ${t-1} → x − 2 = ±${shift} → ${roots.length} input${roots.length===1?'':'s'}: ${roots.map(fmt).join(' or ')}. Each input still gives exactly one output.`;
+}
+$('forward-x').addEventListener('input',twoWay);$('backward-y').addEventListener('change',twoWay);twoWay();
+
+const toolkitFunctions={identity:{f:x=>x,clue:'Every point satisfies y = x, so input and output are equal.'},constant:{f:x=>2,clue:'All inputs share the same output 2. This is still a function.'},square:{f:x=>x*x,clue:'The graph has a U shape, with a minimum at (0, 0).'},cube:{f:x=>x*x*x,clue:'An S-shaped curve passes through the origin and keeps increasing.'},absolute:{f:x=>Math.abs(x),clue:'A V shape: both −3 and 3 produce output 3.'},root:{f:x=>x>=0?Math.sqrt(x):NaN,clue:'The square-root graph starts at the origin; negative x-values are not real inputs.'},reciprocal:{f:x=>x===0?NaN:1/x,clue:'The reciprocal graph never touches either axis. x = 0 is excluded.'}};
+function toolkitLab(name){const item=toolkitFunctions[name];plot($('toolkit-graph'),item.f,{xmin:-5,xmax:5,ymin:-5,ymax:5});$('toolkit-clue').textContent=item.clue;document.querySelectorAll('[data-toolkit]').forEach(b=>{let yes=b.dataset.toolkit===name;b.classList.toggle('active',yes);b.setAttribute('aria-pressed',String(yes));});}
+document.querySelectorAll('[data-toolkit]').forEach(button=>button.addEventListener('click',()=>toolkitLab(button.dataset.toolkit)));toolkitLab('identity');
 
 // Guided practice belongs inside each numbered section, not in a separate TOC chapter.
 const guidedBanks={
  '31':[
-  {q:'For R = {(1,5), (−5,2), (0,0), (1,−3)}, what is the domain?',opts:['{−5, 0, 1}','{−3, 0, 2, 5}','{1, −5, 0, 1}'],correct:0,why:'Collect the first coordinates and list distinct values only once: {−5, 0, 1}.'},
-  {q:'For {(−7,−2), (3,0), (8,−2), (0,12), (−15,9)}, what is the range?',opts:['{−15, −7, 0, 3, 8}','{−2, 0, 9, 12}','{−2, 0, −2, 12, 9}'],correct:1,why:'The range is the set of distinct second coordinates: {−2, 0, 9, 12}.'},
-  {q:'Is {(p,m), (q,n), (r,n)} a function?',opts:['Yes, the inputs p, q, r each have one output','No, the output n occurs twice','Only if all outputs are different'],correct:0,why:'Different inputs q and r may share output n. Each input has exactly one output.'},
-  {q:'A shop sells a jelly and a chocolate donut for $1.99 each. Is item a function of price?',opts:['Yes, there is only one price','No, $1.99 would produce two different items','Yes, because the items are different'],correct:1,why:'Here price is the input. One input, $1.99, corresponds to two possible items.'},
-  {q:'In k = g(c), which symbol is the independent variable?',opts:['k','g','c'],correct:2,why:'g names the function; c is the input/independent variable; k is the output.'},
-  {q:'If f(x) = x³ − 6x + 1, what is f(−2)?',opts:['−19','5','−7'],correct:1,why:'f(−2) = (−2)³ − 6(−2) + 1 = −8 + 12 + 1 = 5.'},
-  {q:'If h(m) = m² − 5, solve h(m) = 4.',opts:['m = 3 only','m = ±3','m = ±9'],correct:1,why:'m² − 5 = 4 implies m² = 9, so m = −3 or m = 3.'},
-  {q:'Given g(n): (1,8), (2,6), (3,7), (4,6), (5,8), which inputs give output 8?',opts:['n = 1 and n = 5','n = 2 and n = 4','n = 3'],correct:0,why:'Find all pairs whose second coordinate is 8: (1,8) and (5,8).'},
-  {q:'Which equation fails the vertical line test?',opts:['y = 4 − x²','x² + y² = 6','y = x³'],correct:1,why:'At x = 0, the circle has two outputs y = ±√6; one vertical line intersects twice.'},
-  {q:'For f(x) = (x−1)², solve f(x) = 1.',opts:['x = 1','x = 0 or x = 2','x = −1 or x = 3'],correct:1,why:'(x−1)² = 1 implies x−1 = ±1, giving x = 0 or 2.'}
+  {q:'For {(−4, 1), (2, 1), (2, 7)}, which set is the domain?',opts:['{−4, 2}','{1, 7}','{−4, 2, 2}'],correct:0,why:'Only the first coordinates belong to the domain. Write each distinct input once: {−4, 2}.'},
+  {q:'For {(−2, 6), (1, 4), (5, 6)}, what is the range?',opts:['{−2, 1, 5}','{4, 6}','{6, 4, 6}'],correct:1,why:'Collect the different outputs, 6 and 4, so the range is {4, 6}.'},
+  {q:'At the art club, Mia and Leo are assigned Studio North. Is member → studio a function?',opts:['No, North appears twice','Yes, each member has one room','No, different members must have different rooms'],correct:1,why:'Each member has exactly one room. Sharing an output is allowed.'},
+  {q:'Reverse the art-club assignment: studio → member. Is that a function when two members use Studio North?',opts:['Yes, because both people have a room','No, North would have two different outputs','Yes, because there are two inputs'],correct:1,why:'If the room is the input, Studio North would lead to two different people.'},
+  {q:'For the game-booth rule p(n) = 5n + 2, what does n represent?',opts:['The $2 entry fee','The amount paid','The number of games (input)'],correct:2,why:'n is the independent variable: number of games played. p(n) is the total cost.'},
+  {q:'Use the game-booth rule p(n) = 5n + 2. Find p(4).',opts:['14','22','27'],correct:1,why:'p(4) = 5(4) + 2 = 22.'},
+  {q:'For q(x) = (x − 2)² + 1, solve q(x) = 5.',opts:['x = 0 or 4','x = 2 only','x = −4 or 0'],correct:0,why:'(x − 2)² = 4. Therefore x − 2 = ±2, so x = 0 or x = 4.'},
+  {q:'The table lists t(−4)=3, t(−1)=6, t(2)=3, t(5)=8. Which inputs give output 3?',opts:['−1 and 5','−4 and 2','−4 only'],correct:1,why:'Inspect all table rows with output 3: inputs −4 and 2.'},
+  {q:'Which relation fails the vertical line test?',opts:['y = |x|','x²/4 + y² = 1','y = x + 2'],correct:1,why:'The ellipse has two different y-values when x = 0: y = 1 and y = −1.'},
+  {q:'For g(x) = (x + 1)² − 1, solve g(x) = 3.',opts:['x = −1','x = −3 or 1','x = −2 or 0'],correct:1,why:'(x + 1)² = 4. Taking both square roots gives x + 1 = ±2, hence x = −3 or 1.'}
  ],
  '32':[
   {q:'What is the domain of 1/(x − 4)?',opts:['[4, ∞)','All real numbers except x = 4','All real numbers'],correct:1,why:'Division by zero is undefined, so exclude x = 4.'},
@@ -103,16 +160,16 @@ const guidedBanks={
 };
 const guidedHints={
  '31':[
-  'Look only at the first coordinates. Sets contain each distinct element once.',
-  'Look only at the second coordinates. Repeated outputs are listed once.',
-  'Does any one input point to two different outputs?',
-  'Choose which quantity is the input, then check if it leads to a unique output.',
-  'The variable inside the parentheses is the input.',
-  'Substitute −2 for every x; take the cube before applying the minus sign.',
-  'First add 5 to both sides; then solve the resulting square equation.',
-  'Scan the output column for the number 8, then collect matching inputs.',
-  'Think about whether one x-value can have both positive and negative y-values.',
-  'Set the expression equal to 1, then use the two square roots of 1.'
+  'Domain comes from the first coordinates only; do not list a repeated input twice.',
+  'Range comes from the second coordinates only; remove duplicate outputs.',
+  'Does each member have just one room? Different members can share a room.',
+  'After reversing, which quantity becomes the input? Can it lead to two people?',
+  'Look inside the parentheses; that is the independent variable.',
+  'Replace n by 4 in the game-booth rule and simplify.',
+  'Subtract 1, then take both square roots.',
+  'Scan the outputs for 3, then collect every matching input.',
+  'Imagine a vertical line at x = 0. How many points will it hit?',
+  'Add 1 to both sides, then take positive and negative square roots.'
  ],
  '32':[
   'Find any input that makes the denominator zero.',

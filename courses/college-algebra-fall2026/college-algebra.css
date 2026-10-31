@@ -207,3 +207,73 @@ html[data-theme="dark"] .course-page :is(button,summary,a,select,input):focus-vi
  html[data-theme="dark"] .course-page .ca-toc-chapter>summary{color:#ffd0b4!important}
 }
 .course-page .ca-quiz-question .ca-quiz-prompt{font-weight:760;margin:0 0 13px;line-height:1.55;color:inherit}
+
+
+/* Original Section 3.1 visual labs — theme-aware and touch-friendly */
+.course-page .ca-lab-kicker{color:#af411b;font-weight:820;letter-spacing:.115em;font-size:.73rem;margin:22px 0 9px}
+.course-page .ca-discover{display:flex;align-items:flex-start;gap:11px;background:#fdf5eb;border:1px dashed #daa677;border-radius:11px;padding:12px 14px;line-height:1.6;margin-top:15px;font-size:.91rem}
+.course-page .ca-discover i{color:#c26a27;margin-top:4px}
+.course-page .ca-mode-toggle{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 4px}
+.course-page .ca-mode{border-radius:999px;background:var(--card-bg,#fff);border:1px solid #e5ad8c;color:inherit;padding:9px 14px;min-height:44px;font-weight:750;cursor:pointer}
+.course-page .ca-mode.active{background:#f05023;color:#fff;border-color:#f05023}
+.course-page .ca-projection-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:14px;margin:14px 0}
+.course-page .ca-projection-grid>div,.course-page .ca-four-box,.course-page .ca-mini-story{border:1px solid var(--border,#d2dbe5);border-radius:12px;padding:14px;min-width:0;background:color-mix(in srgb,var(--card-bg,#fff) 97%,#edc5a6)}
+.course-page .ca-projection-grid small,.course-page .ca-four-box>small,.course-page .ca-live-formula>small{display:block;letter-spacing:.09em;font-size:.69rem;font-weight:820;color:#a84927;margin-bottom:9px}
+.course-page .ca-chip-wrap{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 4px;align-items:flex-start}
+.course-page .ca-selected-pair{border:2px solid var(--pair-tone,#ee712f);background:#f7e4d7;font-weight:800}
+.course-page .ca-set-result{font-weight:790;font-variant-numeric:tabular-nums;line-height:1.5;margin-bottom:12px;overflow-wrap:anywhere}
+.course-page .ca-story-map{margin:15px 0;display:grid;gap:8px}
+.course-page .ca-story-line{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1.2fr);gap:8px;align-items:center}
+.course-page .ca-story-input,.course-page .ca-story-output{border:1px solid #bbd3df;border-radius:10px;background:#e7f5fb;padding:12px;text-align:center;font-weight:730;line-height:1.4;overflow-wrap:anywhere}
+.course-page .ca-story-output{background:#fff2e4;border-color:#ecc8a8}
+.course-page .ca-story-output.ca-story-conflict{border:2px solid #d63d28;background:#ffebe6;color:#872b19}
+.course-page .ca-story-arrow{text-align:center;font-size:1.45rem;color:#de6337;font-weight:900}
+.course-page .ca-live-notes{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:14px 0}
+.course-page .ca-live-formula{padding:17px;border:1px solid #e0b59d;border-radius:12px;background:#fff6ec;min-width:0}
+.course-page .ca-display-large{font-weight:830;font-size:clamp(1.12rem,2vw,1.55rem);font-variant-numeric:tabular-nums;overflow-wrap:anywhere;margin:10px 0}
+.course-page .ca-symbol-key{display:flex;gap:7px;flex-wrap:wrap;font-size:.81rem}
+.course-page .ca-symbol-key span{padding:7px 9px;background:#f7e1d3;border-radius:8px}
+.course-page .ca-slider-head{display:flex;flex-direction:column;gap:7px;font-size:.88rem;font-weight:750;margin:14px 0 7px}
+.course-page .ca-live-formula input[type=range],.course-page .ca-example input[type=range]{width:100%;accent-color:#ee632f}
+.course-page .ca-readout{font-size:1.1rem;line-height:1.5;font-weight:830;color:#bd431f;margin-top:14px;min-height:1.7em;overflow-wrap:anywhere}
+.course-page .ca-cost-track{display:flex;overflow:hidden;min-height:48px;border-radius:12px;border:1px solid #ddae89;background:#fbefe7;align-items:stretch}
+.course-page .ca-cost-track>div{display:flex;align-items:center;justify-content:center;min-width:0;font-size:.78rem;font-weight:820;transition:width .18s ease;white-space:nowrap;overflow:hidden}
+.course-page .ca-cost-fixed{background:#d58a38;color:#fff}
+.course-page .ca-cost-variable{background:#197e91;color:#fff}
+.course-page .ca-four-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:14px 0}
+.course-page .ca-four-box .ca-table-compact{font-size:.83rem}
+.course-page .ca-four-box .ca-table-compact td,.course-page .ca-four-box .ca-table-compact th{padding:6px}
+.course-page .ca-four-box svg{margin:0 auto}
+.course-page .ca-toolkit-interactive{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:15px 0}
+.course-page .ca-toolkit-option{display:flex;flex-direction:column;gap:7px;align-items:flex-start;text-align:left;padding:12px 10px;min-height:70px;color:inherit;border-radius:10px;border:1px solid #dfbbaa;background:var(--card-bg,#fff);cursor:pointer}
+.course-page .ca-toolkit-option b{font-size:.83rem;color:inherit}
+.course-page .ca-toolkit-option small{font-size:.75rem;opacity:.85}
+.course-page .ca-toolkit-option:hover{border-color:#e87142}
+.course-page .ca-toolkit-option.active{border:2px solid #ee6232;background:#fbe5d7}
+.course-page .ca-table-wrap{max-width:100%;overflow-x:auto}
+.course-page #pairs-table tr{cursor:pointer}
+.course-page #pairs-table tr:focus-visible{outline:3px solid #e56b3a;outline-offset:-3px}
+html[data-theme="dark"] .course-page :is(.ca-projection-grid>div,.ca-four-box,.ca-mini-story){background:#202f40;border-color:#566576;color:#eaf1fa}
+html[data-theme="dark"] .course-page :is(.ca-live-formula,.ca-discover){background:#342f30;color:#f7e8de;border-color:#86644d}
+html[data-theme="dark"] .course-page :is(.ca-lab-kicker,.ca-projection-grid small,.ca-four-box>small,.ca-live-formula>small){color:#ffb793}
+html[data-theme="dark"] .course-page :is(.ca-display-large,.ca-readout){color:#ffd2ae}
+html[data-theme="dark"] .course-page .ca-symbol-key span{background:#523b30;color:#ffe2c8}
+html[data-theme="dark"] .course-page .ca-story-input{background:#254c60;color:#e7f6ff;border-color:#4c8fa7}
+html[data-theme="dark"] .course-page .ca-story-output{background:#55402d;color:#ffe5c9;border-color:#ac7d4b}
+html[data-theme="dark"] .course-page .ca-story-output.ca-story-conflict{background:#57312c;color:#ffcdc5;border-color:#e88372}
+html[data-theme="dark"] .course-page .ca-selected-pair{background:#62402f;color:#ffe5d1;border-color:#ffb57d}
+html[data-theme="dark"] .course-page .ca-mode{background:#283749;color:#f7e7d9;border-color:#8f7165}
+html[data-theme="dark"] .course-page .ca-mode.active{background:#c94a24;border-color:#e67f50;color:#fff}
+html[data-theme="dark"] .course-page .ca-cost-track{background:#394455;border-color:#70809a}
+html[data-theme="dark"] .course-page .ca-toolkit-option{background:#293747;color:#e9f2fa;border-color:#627388}
+html[data-theme="dark"] .course-page .ca-toolkit-option.active{background:#543b32;border-color:#ff9d70;color:#ffe8d6}
+html[data-theme="dark"] .course-page .ca-toolkit-option b{color:inherit}
+html[data-theme="dark"] .course-page :is(.ca-story-arrow,.ca-discover i){color:#ffb28b}
+@media(max-width:700px){.course-page .ca-four-grid,.course-page .ca-live-notes,.course-page .ca-projection-grid{grid-template-columns:1fr}.course-page .ca-toolkit-interactive{grid-template-columns:repeat(2,minmax(0,1fr))}.course-page .ca-controls label{flex:1 1 145px}}
+@media(prefers-reduced-motion:reduce){.course-page .ca-cost-track>div{transition:none}}
+
+.course-page .ca-fee-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.83rem;font-weight:650;margin:14px 0 7px}
+.course-page .ca-fee-legend span{display:flex;align-items:center;gap:6px}
+.course-page .ca-fee-legend i{display:inline-block;width:12px;height:12px;border-radius:3px}
+.course-page .ca-legend-fee{background:#d58a38}.course-page .ca-legend-games{background:#197e91}
+html[data-theme="dark"] .course-page .ca-fee-legend{color:#f2e7dc}
