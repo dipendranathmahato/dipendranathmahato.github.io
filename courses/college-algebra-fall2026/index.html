@@ -278,6 +278,29 @@ html[data-theme="dark"] .course-page :is(.ca-story-arrow,.ca-discover i){color:#
 .course-page .ca-fee-legend i{display:inline-block;width:12px;height:12px;border-radius:3px}
 .course-page .ca-legend-fee{background:#d58a38}.course-page .ca-legend-games{background:#197e91}
 html[data-theme="dark"] .course-page .ca-fee-legend{color:#f2e7dc}
+
+/* Section 06: synchronized, explicit forward/backward arithmetic */
+.course-page .ca-worked-side .ca-worked-intro{margin:12px 0 8px;color:var(--text,#303945);font-size:.88rem;font-weight:650}
+.course-page .ca-worked-side .ca-worked-answer{border-bottom:1px solid #e8bda8;padding-bottom:10px;margin:14px 0 0;min-height:0}
+.course-page .ca-calculation-steps{list-style:none;counter-reset:step;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.course-page .ca-calculation-steps li{display:block;min-width:0;background:rgba(255,255,255,.74);border:1px solid #ecd4c4;border-radius:9px;padding:10px 12px;line-height:1.4}
+.course-page .ca-step-label{display:block;color:#a44221;font-size:.8rem;font-weight:780;letter-spacing:.01em;margin-bottom:5px}
+.course-page .ca-step-math{display:block;font-family:inherit;font-size:1.025rem;font-weight:740;color:#1e293b;line-height:1.65;overflow-wrap:anywhere;font-variant-numeric:lining-nums tabular-nums}
+.course-page .ca-calculation-steps li:last-child{background:#fff0e6;border-color:#f2b28f}
+.course-page .ca-extra-calculation{border:1px dashed #dd9b77;border-radius:11px;margin:12px 0 16px;padding:0;background:rgba(240,80,35,.045)}
+.course-page .ca-extra-calculation summary{cursor:pointer;padding:12px 14px;font-weight:760;color:#a84220;list-style-position:inside}
+.course-page .ca-extra-calculation summary:focus-visible{outline:3px solid #dc6d33;outline-offset:3px}
+.course-page .ca-extra-calculation>p{padding:0 14px;margin:12px 0 8px;line-height:1.6}
+.course-page .ca-extra-calculation .ca-extra-step-list{padding:0 14px}
+.course-page .ca-extra-calculation .ca-extra-note{margin:10px 0 14px;font-size:.9rem}
+html[data-theme="dark"] .course-page .ca-worked-side .ca-worked-intro{color:#dce4f0}
+html[data-theme="dark"] .course-page .ca-worked-side .ca-worked-answer{border-bottom-color:#6b5761}
+html[data-theme="dark"] .course-page .ca-calculation-steps li{background:#273447;border-color:#4c5c70}
+html[data-theme="dark"] .course-page .ca-calculation-steps li:last-child{background:#422e2a;border-color:#955b43}
+html[data-theme="dark"] .course-page .ca-step-label,html[data-theme="dark"] .course-page .ca-extra-calculation summary{color:#ffa67b}
+html[data-theme="dark"] .course-page .ca-step-math{color:#f4f6fb}
+html[data-theme="dark"] .course-page .ca-extra-calculation{background:#292f3c;border-color:#9f745e;color:#e9eef8}
+@media(max-width:540px){.course-page .ca-calculation-steps li{padding:9px 10px}.course-page .ca-step-math{font-size:.94rem}.course-page .ca-step-label{font-size:.77rem}}
 </style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" rel="stylesheet"/><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style id="ca-art-club-arrow-styles">
 /* Responsive, theme-aware arrow diagram for the art-club function example. */
@@ -412,8 +435,33 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
 <h3>06 · Forward and backward: from inputs to outputs</h3><p>Evaluating <b>q(a)</b> means substituting an input a. Solving <b>q(x) = b</b> means finding <em>every input</em> producing output b. The two tasks are not the same.</p>
 <div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right-to-line"></i> INTERACTIVE · TWO-WAY CALCULATOR</div>
 <div class="ca-equation">q(x) = (x − 2)² + 1</div>
-<div class="ca-two-column"><div class="ca-example"><b><i class="fa-solid fa-arrow-right"></i> Forward · Given x, find q(x)</b><label class="ca-slider-head" for="forward-x">Choose x = <output id="forward-x-label">0</output></label><input id="forward-x" max="5" min="-1" step="1" type="range" value="0"/><div aria-live="polite" class="ca-readout" id="forward-result"></div></div><div class="ca-example"><b><i class="fa-solid fa-arrow-left"></i> Backward · Given q(x), find x</b><label class="ca-slider-head" for="backward-y">Choose an output<select id="backward-y"><option value="1">q(x) = 1</option><option value="2">q(x) = 2</option><option selected="" value="5">q(x) = 5</option><option value="10">q(x) = 10</option></select></label><div aria-live="polite" class="ca-readout" id="backward-result"></div></div></div>
+<div class="ca-two-column ca-two-way-worked">
+ <div class="ca-example ca-worked-side"><b><i class="fa-solid fa-arrow-right"></i> Forward · Given x, find q(x)</b>
+  <label class="ca-slider-head" for="forward-x">Choose x = <output id="forward-x-label">0</output></label>
+  <input id="forward-x" max="5" min="-1" step="1" type="range" value="0"/>
+  <div class="ca-readout ca-worked-answer" aria-live="polite" id="forward-result"></div>
+  <p class="ca-worked-intro">Follow the order of operations:</p>
+  <ol class="ca-calculation-steps" id="forward-steps" aria-label="Forward calculation shown step by step"></ol>
+ </div>
+ <div class="ca-example ca-worked-side"><b><i class="fa-solid fa-arrow-left"></i> Backward · Given q(x), find x</b>
+  <label class="ca-slider-head" for="backward-y">Choose an output<select id="backward-y"><option value="1">q(x) = 1</option><option value="2">q(x) = 2</option><option selected="" value="5">q(x) = 5</option><option value="10">q(x) = 10</option></select></label>
+  <div class="ca-readout ca-worked-answer" aria-live="polite" id="backward-result"></div>
+  <p class="ca-worked-intro">Undo operations in reverse order:</p>
+  <ol class="ca-calculation-steps" id="backward-steps" aria-label="Backward solution shown step by step"></ol>
+ </div>
+</div>
 <div aria-live="polite" class="ca-feedback" id="two-way-explanation"></div>
+<details class="ca-extra-calculation"><summary><i class="fa-solid fa-divide" aria-hidden="true"></i> Extra example: what if dividing is necessary?</summary>
+ <p>In our main function the squared expression has a coefficient of <b>1</b>, so there is nothing to divide by. Compare this variation:</p>
+ <ol class="ca-calculation-steps ca-extra-step-list">
+  <li><span class="ca-step-label">Start with the equation</span><span class="ca-step-math">2(x − 2)² + 1 = 9</span></li>
+  <li><span class="ca-step-label">Subtract 1 from both sides</span><span class="ca-step-math">2(x − 2)² = 9 − 1 = 8</span></li>
+  <li><span class="ca-step-label">Divide <b>both sides by 2</b></span><span class="ca-step-math">(x − 2)² = 8 ÷ 2 = 4</span></li>
+  <li><span class="ca-step-label">Take both square roots</span><span class="ca-step-math">x − 2 = ±√4 = ±2</span></li>
+  <li><span class="ca-step-label">Add 2 to both sides</span><span class="ca-step-math">x = 2 − 2 = 0 or x = 2 + 2 = 4</span></li>
+ </ol>
+ <p class="ca-extra-note">The extra coefficient is why this version requires division before taking square roots.</p>
+</details>
 <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Explain:</b> How can two different inputs give the same output without breaking the definition of a function?</span></div>
 </section><section class="ca-panel" id="evaluation"><h3>07 · Interactive function machine</h3><p>Adjust the coefficients and input to evaluate \(f(x)=ax^2+bx+c\).</p><div class="ca-controls ca-slider-grid"><label>a <input id="coeff-a" max="3" min="-3" step="1" type="range" value="1"/><output id="a-label">1</output></label><label>b <input id="coeff-b" max="5" min="-5" step="1" type="range" value="-2"/><output id="b-label">−2</output></label><label>c <input id="coeff-c" max="6" min="-6" step="1" type="range" value="1"/><output id="c-label">1</output></label><label>x <input id="input-x" max="6" min="-6" step="1" type="range" value="3"/><output id="x-label">3</output></label></div><div class="ca-equation" id="machine-expression"></div><div class="ca-feedback" id="machine-result"></div><div class="ca-muted" id="machine-steps"></div></section><section class="ca-panel" id="tables">
 <h3>08 · Search a function table</h3>
@@ -648,9 +696,33 @@ function fourViews(){const {name,f,why}=rules[$('four-rule').value],x=+$('four-i
 }
 ['four-rule','four-input'].forEach(id=>$(id).addEventListener('input',fourViews));fourViews();
 
-function twoWay(){const x=+$('forward-x').value,t=+$('backward-y').value,forward=(x-2)**2+1,shift=Math.sqrt(t-1),roots=[2-shift,2+shift].filter((v,i,arr)=>i===0||Math.abs(v-arr[0])>1e-10);$('forward-x-label').textContent=fmt(x);
- $('forward-result').textContent=`q(${fmt(x)}) = (${fmt(x)} − 2)² + 1 = ${forward}`;$('backward-result').textContent=`q(x) = ${t} → x = ${roots.map(fmt).join(' or ')}`;
- $('two-way-explanation').textContent=`Work backward: (x − 2)² + 1 = ${t} → (x − 2)² = ${t-1} → x − 2 = ±${shift} → ${roots.length} input${roots.length===1?'':'s'}: ${roots.map(fmt).join(' or ')}. Each input still gives exactly one output.`;
+function twoWay(){
+ const x=+$('forward-x').value,t=+$('backward-y').value;
+ const difference=x-2,squared=difference*difference,forward=squared+1;
+ const rhs=t-1,shift=Math.sqrt(rhs),roots=[2-shift,2+shift].filter((v,i,arr)=>i===0||Math.abs(v-arr[0])>1e-10);
+ const math=n=>String(n).replaceAll('-', '−');
+ const workStep=(title,equation)=>`<li><span class="ca-step-label">${title}</span><span class="ca-step-math">${equation}</span></li>`;
+ $('forward-x-label').textContent=fmt(x);
+ $('forward-result').textContent=`Answer: q(${fmt(x)}) = ${fmt(forward)}`;
+ $('forward-steps').innerHTML=[
+   workStep('1 · Substitute the input',`q(${fmt(x)}) = (${fmt(x)} − 2)² + 1`),
+   workStep('2 · Subtract inside the parentheses',`= (${fmt(difference)})² + 1`),
+   workStep('3 · Square the result',`= ${fmt(squared)} + 1`),
+   workStep('4 · Add 1',`= ${fmt(forward)}`)
+ ].join('');
+ $('backward-result').textContent=`Answer: ${roots.map(v=>`x = ${fmt(v)}`).join(' or ')}`;
+ const subtractStep=workStep('2 · Subtract 1 from both sides',`(x − 2)² = ${fmt(t)} − 1 = ${fmt(rhs)}`);
+ const rootStep=workStep('3 · Take both square roots',rhs===0?'x − 2 = √0 = 0':`x − 2 = ±√${fmt(rhs)} = ±${fmt(shift)}`);
+ const splitStep=roots.length===1
+   ?workStep('4 · Add 2 to both sides',`x = 0 + 2 = ${fmt(roots[0])}`)
+   :workStep('4 · Add 2 to both sides (both cases)',`x = 2 − ${fmt(shift)} = ${fmt(roots[0])}<br>x = 2 + ${fmt(shift)} = ${fmt(roots[1])}`);
+ const verify=roots.map(v=>`q(${fmt(v)}) = (${fmt(v)} − 2)² + 1 = ${fmt(t)}`).join('<br>');
+ $('backward-steps').innerHTML=[
+   workStep('1 · Set the formula equal to the output',`(x − 2)² + 1 = ${fmt(t)}`),
+   subtractStep,rootStep,splitStep,
+   workStep('5 · Check every solution',verify)
+ ].join('');
+ $('two-way-explanation').textContent=`Evaluating q(${fmt(x)}) uses one known input to find one output. Solving q(x) = ${fmt(t)} works backward to find ${roots.length===1?'the input':'all inputs'} with that output. Different inputs may share an output, and the relation is still a function.`;
 }
 $('forward-x').addEventListener('input',twoWay);$('backward-y').addEventListener('change',twoWay);twoWay();
 
