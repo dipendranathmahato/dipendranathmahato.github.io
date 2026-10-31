@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>College Algebra · Interactive Notes | Dipendranath Mahato</title><link href="/assets/css/style.css?v=b58e400b11f6" rel="stylesheet"/><link href="/assets/css/course.css?v=55f96e6298d0" rel="stylesheet"/><link href="/assets/css/interactive-course.css?v=65ffb2f69374" rel="stylesheet"/><link href="./college-algebra.css?v=20261031-visual-labs-2" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" rel="stylesheet"/><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style id="ca-art-club-arrow-styles">
+/* Responsive, theme-aware arrow diagram for the art-club function example. */
+.course-page #club-map.ca-story-map.ca-sets-diagram { display:block; margin:16px 0 13px; }
+.course-page .ca-sets-diagram .ca-sets-headings { display:grid; grid-template-columns:minmax(0,1fr) minmax(38px,.65fr) minmax(0,1fr); align-items:end; gap:0; margin:0 0 12px; }
+.course-page .ca-sets-diagram .ca-sets-label { font-weight:820; font-size:.81rem; letter-spacing:.045em; text-align:center; color:#ac451f; line-height:1.45; }
+.course-page .ca-sets-diagram .ca-sets-label.output-label { grid-column:3; color:#237c8e; }
+.course-page .ca-sets-diagram .ca-sets-body { display:grid; grid-template-columns:minmax(0,1fr) minmax(38px,.65fr) minmax(0,1fr); height:282px; position:relative; isolation:isolate; min-width:0; }
+.course-page .ca-sets-diagram .ca-sets-column { position:relative; min-width:0; height:100%; border:2px solid #d7a786; border-radius:48% / 23%; background:#fff4e9; display:flex; flex-direction:column; justify-content:space-evenly; align-items:stretch; padding:14px 12px; box-sizing:border-box; z-index:1; }
+.course-page .ca-sets-diagram .ca-sets-column.output-set { grid-column:3; border-color:#89b4c7; background:#eaf6fb; }
+.course-page .ca-sets-diagram .ca-sets-node { position:relative; z-index:3; border-radius:10px; background:#fff; border:1px solid #debdac; padding:9px 6px; min-height:39px; display:flex; align-items:center; justify-content:center; text-align:center; font-weight:730; font-size:clamp(.76rem,1.5vw,.94rem); line-height:1.3; box-sizing:border-box; overflow-wrap:anywhere; box-shadow:0 1px 3px rgba(24,42,55,.06); color:#1f3244; }
+.course-page .ca-sets-diagram .output-set .ca-sets-node { border-color:#9fc3d1; }
+.course-page .ca-sets-diagram .ca-sets-node.multi-target { border-color:#d55541; background:#ffe9e4; color:#8b291b; }
+.course-page .ca-sets-diagram .ca-sets-svg { position:absolute; inset:0; width:100%; height:100%; z-index:2; overflow:visible; pointer-events:none; }
+.course-page .ca-panel .ca-sets-diagram svg.ca-sets-svg {position:absolute;inset:0;width:100%;height:100%;max-height:none;max-width:none;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;}
+html[data-theme="dark"] .course-page .ca-panel .ca-sets-diagram svg.ca-sets-svg {background:transparent;border:0;}
+.course-page .ca-sets-diagram .ca-sets-caption { display:flex; gap:8px; align-items:flex-start; margin:12px 0 0; padding:10px 12px; border:1px dashed #b6c6d5; border-radius:9px; font-size:.87rem; line-height:1.5; color:#354b60; background:#f8fbfd; }
+.course-page .ca-sets-diagram .ca-sets-dot { flex:none; background:#247e96; border-radius:100%; width:11px; height:11px; margin-top:5px; }
+.course-page .ca-sets-diagram.reverse-map .ca-sets-dot { background:#c84733; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-column { background:#352f2c; border-color:#a06f53; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-column.output-set { background:#203949; border-color:#628ea3; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-node { background:#283544; color:#eff5fb; border-color:#ab816c; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .output-set .ca-sets-node { background:#294659; border-color:#78adc5; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-node.multi-target { background:#54332f; color:#ffd4ca; border-color:#f59a88; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-label { color:#ffbc93; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-label.output-label { color:#a1e4f4; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-caption { color:#e1edf9; border-color:#536878; background:#233343; }
+@media (max-width:480px) {
+  .course-page .ca-sets-diagram .ca-sets-body { height:258px; grid-template-columns:minmax(0,1fr) minmax(44px,.42fr) minmax(0,1fr); }
+  .course-page .ca-sets-diagram .ca-sets-headings { grid-template-columns:minmax(0,1fr) minmax(44px,.42fr) minmax(0,1fr); }
+  .course-page .ca-sets-diagram .ca-sets-column { padding:10px 6px; border-radius:43% / 19%; }
+  .course-page .ca-sets-diagram .ca-sets-node { padding:8px 4px; min-height:40px; font-size:.77rem; }
+  .course-page .ca-sets-diagram .ca-sets-label { font-size:.70rem; letter-spacing:0; }
+}
+@media (prefers-reduced-motion: reduce) { .course-page .ca-sets-diagram * { transition:none !important; } }
+</style>
+
+<style id="ca-table-coordinate-styles">
+/* Section 08: synchronized table and coordinate-plane explorer. */
+.course-page #tables .ca-plot-grid-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px;align-items:start;margin:16px 0}
+.course-page #tables .ca-plot-table-side,.course-page #tables .ca-plot-graph-side{min-width:0}
+.course-page #tables .ca-plot-table-wrap{margin:0;border:1px solid var(--border,#d6dee9);border-radius:11px;overflow:hidden}
+.course-page #tables .ca-plot-table{min-width:0;width:100%;border-collapse:collapse;table-layout:fixed}
+.course-page #tables .ca-plot-table th,.course-page #tables .ca-plot-table td{border-width:0 0 1px 0;border-style:solid;border-color:#d6dde7;padding:15px 11px;text-align:center}
+.course-page #tables .ca-plot-table tr:last-child td{border-bottom:0}
+.course-page #tables .ca-plot-table th:first-child,.course-page #tables .ca-plot-table td:first-child{border-right:1px solid #d6dde7}
+.course-page #tables .ca-plot-table th{font-weight:800;background:#fcefe9}
+.course-page #tables .ca-plot-table td:nth-child(2){position:relative;font-weight:720;padding-left:38px;padding-right:38px}
+.course-page #tables .ca-point-tag{position:absolute;right:9px;top:50%;transform:translateY(-50%);min-width:25px;border-radius:7px;background:#ffdfd2;color:#a73815;font-weight:850;padding:4px 5px}
+.course-page #tables .ca-plot-table tbody tr:hover{background:#fff1e8}
+.course-page #tables .ca-plot-table tbody tr.selected{background:#ffddd0}
+.course-page #tables .ca-plot-table tbody tr.ca-output-match:not(.selected){background:#e5f5f8}
+.course-page #tables .ca-plot-table tbody tr.selected .ca-point-tag{background:#df491b;color:#fff}
+.course-page #tables .ca-plot-table tbody tr.ca-output-match:not(.selected) .ca-point-tag{background:#147a92;color:#fff}
+.course-page #tables .ca-plot-table tbody tr:focus-visible{outline:3px solid #e86637;outline-offset:-4px}
+.course-page #tables .ca-plot-search{margin:18px 0 0;align-items:end;gap:11px}
+.course-page #tables .ca-plot-search label{flex:0 1 160px}
+.course-page #tables .ca-plot-search select{width:100%;max-width:100%;}
+.course-page #tables .ca-plot-search .ca-btn{white-space:nowrap}
+.course-page #tables .ca-table-graph-box{padding:11px;border:1px solid #c9d9e8;border-radius:13px;background:var(--card-bg,#fff);--plot-grid:#d9e1e9;--plot-axis:#233a51;--plot-text:#344b60}
+.course-page #tables .ca-panel svg#ca-table-coordinate-plane{display:block;width:100%;height:auto;max-width:100%;max-height:none;margin:0;box-shadow:none;background:transparent;border:0;border-radius:0;overflow:visible;color:inherit}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point{cursor:pointer;outline:0}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point .ca-point-halo{fill:#ffbd9f;fill-opacity:0;stroke:#f05225;stroke-opacity:0}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point.ca-selected .ca-point-halo{fill-opacity:.22;stroke-opacity:.5}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point.ca-output-match:not(.ca-selected) .ca-point-halo{fill:#4aadc2;fill-opacity:.20;stroke:#13859a;stroke-opacity:.9}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point.ca-output-match.ca-selected .ca-point-halo{stroke:#13859a;stroke-opacity:1}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point:focus-visible .ca-point-halo{stroke:#14789e;stroke-width:4;stroke-opacity:1;fill-opacity:.16}
+.course-page #tables #ca-table-coordinate-plane .ca-point-marker{fill:#e75522;stroke:#fff;stroke-width:2.4}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point.ca-selected .ca-point-marker{fill:#e04411;stroke-width:3}
+.course-page #tables #ca-table-coordinate-plane .ca-plot-point text{fill:var(--plot-axis);font-weight:800;font-size:17px;paint-order:stroke;stroke:var(--card-bg,#fff);stroke-width:4;stroke-linejoin:round}
+.course-page #tables .ca-graph-interact-note{font-size:.77rem;text-align:center;color:var(--muted,#637387);margin:-2px 0 9px;line-height:1.4}
+.course-page #tables .ca-picked-pair{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;background:#fff4ef;border:1px solid #ffc1a8;border-radius:9px;padding:11px 13px;font-size:clamp(.82rem,1.4vw,.98rem);line-height:1.5}
+.course-page #tables .ca-picked-pair strong{color:#c73c13}
+.course-page #tables .ca-plot-result{margin:14px 0 12px}
+.course-page #tables .ca-plot-result strong{color:#c4431c}
+html[data-theme="dark"] .course-page #tables .ca-plot-table th,html[data-theme="dark"] .course-page #tables .ca-plot-table td{border-color:#526279}
+html[data-theme="dark"] .course-page #tables .ca-plot-table th{background:#3d3332;color:#ffd4bd}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr:hover{background:#493936}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr.selected{background:#5a3c34}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr.ca-output-match:not(.selected){background:#224251}
+html[data-theme="dark"] .course-page #tables .ca-plot-table .ca-point-tag{background:#634135;color:#ffccb5}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr.selected .ca-point-tag{background:#ec724b;color:#181d26}
+html[data-theme="dark"] .course-page #tables .ca-plot-table tbody tr.ca-output-match:not(.selected) .ca-point-tag{background:#3d9ab4;color:#071e26}
+html[data-theme="dark"] .course-page #tables .ca-table-graph-box{background:var(--card-bg,#202d3c);border-color:#526c82;--plot-grid:#45576b;--plot-axis:#d9eafa;--plot-text:#cadcea}
+html[data-theme="dark"] .course-page #tables .ca-picked-pair{background:#45312f;border-color:#8e594a;color:#f9e4db}
+html[data-theme="dark"] .course-page #tables .ca-picked-pair strong,html[data-theme="dark"] .course-page #tables .ca-plot-result strong{color:#ffae88}
+@media(max-width:1500px){.course-page #tables .ca-plot-grid-layout{grid-template-columns:1fr}.course-page #tables .ca-plot-table-wrap .ca-table{min-width:0}}
+@media(max-width:520px){.course-page #tables .ca-plot-table th,.course-page #tables .ca-plot-table td{padding:11px 8px}.course-page #tables .ca-plot-search{align-items:stretch}.course-page #tables .ca-plot-search label{flex:1 1 110px}.course-page #tables .ca-plot-search .ca-btn{flex:0 1 auto}.course-page #tables .ca-table-graph-box{padding:7px}.course-page #tables .ca-picked-pair{padding:9px 10px}}
+@media(prefers-reduced-motion:reduce){.course-page #tables *{transition:none!important}}
+</style>
+</head><body class="course-page"><div class="page"><header class="top-nav" data-shared-template="header"></header><main class="layout"><aside class="sidebar" data-shared-template="sidebar"></aside><section class="main"><div class="uni-header prominent ca-university-header"><div class="uni-header-left"><i class="fa-solid fa-school"></i><div><h3 class="uni-title">University of Texas Rio Grande Valley</h3><div class="uni-subtitle">Current teaching · Edinburg, Texas · Fall 2026</div></div></div><div class="uni-header-logo"><img alt="UTRGV" src="/assets/images/utrgv-logo.svg"/></div></div><div class="ca"><header class="ca-hero"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> UNIVERSITY OF TEXAS RIO GRANDE VALLEY · FALL 2026 · MATH 1314</span><h1>College Algebra — Interactive Course Notes</h1><p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 8:00–9:15 AM · EMAGC 1.206 <span class="ca-hero-schedule-separator">·</span> PLTL online 9:30–10:45 AM</p><div class="ca-hero-links"><button class="ca-foundations-btn" id="foundations-open"><i class="fa-solid fa-layer-group"></i> Course Foundations</button></div></header><div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open a chapter in the left-hand contents menu to reveal its topics. The full lecture notes remain visible in the main area.</span></div><div class="ca-layout"><nav aria-label="Lesson navigation" class="ca-toc"><strong><i class="fa-solid fa-list-ul"></i> ON THIS PAGE</strong>
+<details class="ca-toc-chapter" open=""><summary><i class="fa-solid fa-chart-line"></i> 3.1 · Functions &amp; Notation <i class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-31">Section overview</a><a href="#ordered-pairs">Coordinate studio</a><a href="#mappings">Mapping explorer</a><a href="#notation">Notation &amp; fees</a><a href="#representations">Four-view lab</a><a href="#vertical">Vertical line test</a><a href="#formula-examples">Two-way calculator</a><a href="#evaluation">Function machine</a><a href="#tables">Table detective</a><a href="#graph-reading">Graph detective</a><a href="#toolkit">Parent-function gallery</a><a href="#guided-31">Guided practice · 3.1</a></div></details>
+<details class="ca-toc-chapter"><summary><i class="fa-solid fa-ruler-combined"></i> 3.2 · Domain &amp; Range <i class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-32">Chapter introduction</a><a href="#intervals">Interval notation</a><a href="#domain-lab">Domain restrictions</a><a href="#range-graph">Graphs &amp; range</a><a href="#guided-32">Section 3.2 · Guided problems</a></div></details>
+</nav><div class="ca-content"><article class="ca-lesson" id="lesson-31"><span class="ca-chapter">SECTION 3.1</span><h2>Functions and Function Notation</h2><p class="ca-lede">A <b>relation</b> is a set of ordered pairs. It is a <b>function</b> when each input is assigned exactly one output. Learn to read, represent, evaluate, and graph functions.</p><div class="ca-goals"><b>Learning objectives</b> Determine whether a relation is a function; identify domain and range of ordered pairs; use function notation; find inputs and outputs from formulas, tables, and graphs; apply the vertical line test; recognize toolkit graphs.</div><p class="ca-source-credit">Learning objectives informed by the Section 3.1 course notes (Dr. Setayesh). The scenarios, visualizations, and practice activities here are newly authored.</p><section class="ca-panel" id="ordered-pairs">
+<h3>01 · Ordered pairs, domain, and range</h3>
+<div class="ca-definition"><strong>Start with a point</strong><p>An ordered pair <b>(x, y)</b> connects an <b>input</b> to an <b>output</b>. A <b>relation</b> is a set of such pairs. Its <b>domain</b> contains the distinct x-values, and its <b>range</b> contains the distinct y-values. Repeated values appear only once in a set.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-compass-drafting"></i> INTERACTIVE · COORDINATE STUDIO</div>
+<p>Four points form a relation. Select a point, then slide it to a new location. Switch the projection to see which numbers belong to the domain or range.</p>
+<div class="ca-controls"><label>Point to move<select id="coordinate-which"><option value="0">Point A</option><option selected="" value="1">Point B</option><option value="2">Point C</option><option value="3">Point D</option></select></label><label>x-coordinate <output id="coordinate-x-label">1</output><input id="coordinate-x" max="4" min="-4" step="1" type="range" value="1"/></label><label>y-coordinate <output id="coordinate-y-label">3</output><input id="coordinate-y" max="4" min="-4" step="1" type="range" value="3"/></label></div>
+<div aria-label="Highlight axes" class="ca-mode-toggle" role="group"><button aria-pressed="true" class="ca-mode active" data-coordinate-view="domain" type="button">Highlight domain · x</button><button aria-pressed="false" class="ca-mode" data-coordinate-view="range" type="button">Highlight range · y</button></div>
+<svg aria-label="Coordinate plane with movable points and coordinate projections" id="coordinate-svg" role="img" viewbox="0 0 560 355"></svg>
+<div class="ca-projection-grid"><div><small>RELATION · ORDERED PAIRS</small><div class="ca-chip-wrap" id="coordinate-pairs"></div></div><div><small>DOMAIN · DISTINCT INPUTS</small><div class="ca-set-result" id="coordinate-domain"></div><small>RANGE · DISTINCT OUTPUTS</small><div class="ca-set-result" id="coordinate-range"></div></div></div>
+<div aria-live="polite" class="ca-feedback" id="coordinate-feedback"></div>
+<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i> <span><b>Try this:</b> Make points A and B share the same x-coordinate, but give them different y-coordinates. Does the relation remain a function? Explore the next activity to decide.</span></div>
+</section><section class="ca-panel" id="mappings"><h3>02 · Is the relation a function?</h3><div class="ca-definition"><strong>Definition · Function</strong><p>A <b>relation</b> is a collection of ordered pairs <b>(input, output)</b>. A <b>function</b> assigns <b>exactly one output to each input</b>.</p><p>A repeated <b>input</b> with <b>different outputs</b> means it is not a function; repeated <b>outputs</b> are perfectly allowed. A repeated identical pair does not add another element to the relation.</p></div><aside class="ca-remember" role="note"><div class="ca-remember-heading"><i class="fa-solid fa-bookmark"></i> POINT TO REMEMBER</div><p><span class="remember-yes">✓</span> <b>Outputs may repeat.</b> For example, (−3, 2) and (4, 2) have different inputs and one shared output.</p><p><span class="remember-no">✕</span> <b>One input cannot have two different outputs.</b> For example, (−3, 2) and (−3, −1) break the rule.</p><p>Repeating exactly the same ordered pair does not create a conflict: a relation is a set, so duplicate pairs count only once.</p></aside><p><b>Step 1.</b> Change the outputs below. Toggle the extra ordered pair to repeat an input. Watch the ordered-pair cards and the mapping diagram change.</p><div class="ca-controls"><label>Input −2 → <select class="mapping" data-input="-2"><option value="1">1</option><option value="3">3</option><option value="5">5</option></select></label><label>Input 0 → <select class="mapping" data-input="0"><option value="1">1</option><option selected="" value="3">3</option><option value="5">5</option></select></label><label>Input 2 → <select class="mapping" data-input="2"><option value="1">1</option><option value="3">3</option><option selected="" value="5">5</option></select></label></div><label class="ca-check"><input id="double-output" type="checkbox"/> Also assign input 0 a second output of 5</label><div class="ca-mapping-grid"><div><h4>Mapping diagram · input to output</h4><div aria-live="polite" class="ca-pair-cards" id="mapping-pairs"></div></div><div><h4>Input → output diagram</h4><div aria-live="polite" class="ca-map-diagram" id="mapping-diagram"></div></div></div><div aria-live="polite" class="ca-observation" id="mapping-observation"></div><div class="ca-predict"><b>Step 2 · Your decision</b><p>Is this relation a function?</p><div aria-label="Is this relation a function?" class="ca-choice-row" role="group"><button aria-pressed="false" class="ca-choice" id="mapping-yes" type="button">Yes · Function</button><button aria-pressed="false" class="ca-choice" id="mapping-no" type="button">No · Not a function</button></div><div aria-live="polite" class="ca-feedback" id="mapping-result">Choose an answer to check your reasoning.</div></div>
+<div class="ca-mini-story"><div class="ca-lab-kicker"><i class="fa-solid fa-right-left"></i> INTERACTIVE · REVERSE THE RULE</div><h4>Art club · Members and studio rooms</h4><p>A club assigns each member one studio room. Several members can use the same room. Press <b>Reverse direction</b> to ask whether a room can identify exactly one member.</p><button class="ca-btn ca-btn-outline" id="club-flip" type="button">Reverse direction ↔</button><div aria-label="Art club member-to-room assignments" class="ca-story-map" id="club-map" role="img"></div><div aria-live="polite" class="ca-feedback" id="club-feedback"></div></div>
+</section><section class="ca-panel" id="notation">
+<h3>03 · Reading function notation</h3><div class="ca-definition"><strong>What does f(x) mean?</strong><p>In <b>y = f(x)</b>, the letter <b>f</b> is the function’s name, <b>x</b> is the independent input, and <b>y</b> is the dependent output. The parentheses indicate an input to a function—not multiplication.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-ticket"></i> INTERACTIVE · BUILD A FUNCTION RULE</div><p>Imagine a game booth with a <strong>$2 entry fee</strong> and a <strong>$5 charge per game</strong>. Move the number of games and watch the algebraic notation and fee bar change together.</p>
+<div class="ca-live-notes"><div class="ca-live-formula"><small>FUNCTION NAME</small><div class="ca-display-large">p(n) = 5n + 2</div><div class="ca-symbol-key"><span><b>p</b> · name</span><span><b>n</b> · input</span><span><b>p(n)</b> · output</span></div></div><div class="ca-live-formula"><small>ENTER AN INPUT</small><label class="ca-slider-head" for="notation-n">Games played: <output id="notation-n-label">3</output></label><input id="notation-n" max="8" min="0" step="1" type="range" value="3"/><div aria-live="polite" class="ca-readout" id="notation-reading"></div></div></div>
+<div class="ca-fee-legend"><span><i aria-hidden="true" class="ca-legend-fee"></i> Entry fee <b>$2</b></span><span><i aria-hidden="true" class="ca-legend-games"></i> Games <b id="notation-games-value">$15</b></span></div><div aria-label="Total cost divided into $2 entry fee and variable game charges" class="ca-cost-track" role="img"><div class="ca-cost-fixed" id="notation-fee-bar" title="Entry fee: $2"></div><div class="ca-cost-variable" id="notation-games-bar"></div></div>
+<p class="ca-muted" id="notation-steps"></p>
+<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i> <span>Ask your partner: if <b>p(n) = 27</b>, how many games were played? Work backward from the output, then check by moving the slider.</span></div>
+</section>
+<section class="ca-panel" id="representations">
+<h3>04 · One function, four views</h3><p>The same relationship can appear as a <b>formula, table, ordered pairs, or graph</b>. Move the highlighted input or change the rule: all four views stay in sync.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shapes"></i> INTERACTIVE · FOUR-VIEW LAB</div>
+<div class="ca-controls"><label>Choose a function<select id="four-rule"><option value="line">r(x) = x + 2 · line</option><option value="square">r(x) = x² − 1 · curved graph</option><option value="absolute">r(x) = |x| + 1 · V graph</option></select></label><label>Highlight input x = <output id="four-input-label">1</output><input id="four-input" max="2" min="-2" step="1" type="range" value="1"/></label></div>
+<div class="ca-four-grid"><div class="ca-four-box"><small>01 · FORMULA</small><div class="ca-display-large" id="four-formula">r(x) = x + 2</div><p class="ca-muted" id="four-substitution"></p></div><div class="ca-four-box"><small>02 · ORDERED PAIRS</small><div class="ca-chip-wrap" id="four-pairs"></div></div><div class="ca-four-box"><small>03 · TABLE</small><table class="ca-table ca-table-compact"><thead><tr><th>Input x</th><th>Output r(x)</th></tr></thead><tbody id="four-tbody"></tbody></table></div><div class="ca-four-box ca-four-graph"><small>04 · GRAPH</small><svg aria-label="Function graph with highlighted selected ordered pair" id="four-graph" role="img" viewbox="0 0 560 310"></svg></div></div>
+<div aria-live="polite" class="ca-feedback" id="four-feedback"></div>
+</section><section class="ca-panel" id="vertical"><h3>05 · Vertical line test explorer</h3><p>Slide a vertical line across the graph. A function has at most one intersection at each x-value.</p><div class="ca-vline-rule"><strong>Definition · Vertical Line Test</strong><p>A graph represents a function if and only if <b>every vertical line meets the graph at most once</b>. Two intersections at the same x-value prove that it is not a function.</p></div><div aria-live="polite" class="ca-vline-status" id="vline-status" role="status"></div><div class="ca-controls"><label>Graph type <select id="curve-type"><option value="parabola">Parabola · y = x² / 4</option><option value="circle">Circle · x² + y² = 9</option><option value="sideways">Sideways parabola · x = y²</option><option value="cubic">Cubic · y = x³ / 9</option></select></label><label>Test line x = <output id="scan-x-label">1</output><input id="scan-x" max="4" min="-4" step="0.1" type="range" value="1"/></label></div><svg aria-label="Graph with adjustable vertical test line" id="vline-svg" role="img" viewbox="0 0 560 310"></svg><div aria-live="polite" class="ca-feedback" id="vline-result"></div></section><section class="ca-panel" id="formula-examples">
+<h3>06 · Forward and backward: from inputs to outputs</h3><p>Evaluating <b>q(a)</b> means substituting an input a. Solving <b>q(x) = b</b> means finding <em>every input</em> producing output b. The two tasks are not the same.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right-to-line"></i> INTERACTIVE · TWO-WAY CALCULATOR</div>
+<div class="ca-equation">q(x) = (x − 2)² + 1</div>
+<div class="ca-two-column"><div class="ca-example"><b><i class="fa-solid fa-arrow-right"></i> Forward · Given x, find q(x)</b><label class="ca-slider-head" for="forward-x">Choose x = <output id="forward-x-label">0</output></label><input id="forward-x" max="5" min="-1" step="1" type="range" value="0"/><div aria-live="polite" class="ca-readout" id="forward-result"></div></div><div class="ca-example"><b><i class="fa-solid fa-arrow-left"></i> Backward · Given q(x), find x</b><label class="ca-slider-head" for="backward-y">Choose an output<select id="backward-y"><option value="1">q(x) = 1</option><option value="2">q(x) = 2</option><option selected="" value="5">q(x) = 5</option><option value="10">q(x) = 10</option></select></label><div aria-live="polite" class="ca-readout" id="backward-result"></div></div></div>
+<div aria-live="polite" class="ca-feedback" id="two-way-explanation"></div>
+<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Explain:</b> How can two different inputs give the same output without breaking the definition of a function?</span></div>
+</section><section class="ca-panel" id="evaluation"><h3>07 · Interactive function machine</h3><p>Adjust the coefficients and input to evaluate \(f(x)=ax^2+bx+c\).</p><div class="ca-controls ca-slider-grid"><label>a <input id="coeff-a" max="3" min="-3" step="1" type="range" value="1"/><output id="a-label">1</output></label><label>b <input id="coeff-b" max="5" min="-5" step="1" type="range" value="-2"/><output id="b-label">−2</output></label><label>c <input id="coeff-c" max="6" min="-6" step="1" type="range" value="1"/><output id="c-label">1</output></label><label>x <input id="input-x" max="6" min="-6" step="1" type="range" value="3"/><output id="x-label">3</output></label></div><div class="ca-equation" id="machine-expression"></div><div class="ca-feedback" id="machine-result"></div><div class="ca-muted" id="machine-steps"></div></section><section class="ca-panel" id="tables">
+<h3>08 · Search a function table</h3>
+<p>A function table is a collection of input–output pairs. <b>Select a row or point</b> to see the same ordered pair in the table and on the coordinate plane. Or choose an output to find <b>every</b> input that produces it.</p>
+<div class="ca-plot-grid-layout">
+  <div class="ca-plot-table-side">
+    <div class="ca-table-wrap ca-plot-table-wrap"><table class="ca-table ca-plot-table" aria-label="Function table of four plotted ordered pairs">
+      <thead><tr><th scope="col">Input x</th><th scope="col">Output t(x)</th></tr></thead>
+      <tbody id="pairs-table">
+        <tr data-x="-4" data-y="3" tabindex="0" role="button" aria-label="Select point A, negative four comma three"><td>−4</td><td><span>3</span><span class="ca-point-tag">A</span></td></tr>
+        <tr data-x="-1" data-y="6" tabindex="0" role="button" aria-label="Select point B, negative one comma six"><td>−1</td><td><span>6</span><span class="ca-point-tag">B</span></td></tr>
+        <tr data-x="2" data-y="3" tabindex="0" role="button" aria-label="Select point C, two comma three"><td>2</td><td><span>3</span><span class="ca-point-tag">C</span></td></tr>
+        <tr data-x="5" data-y="8" tabindex="0" role="button" aria-label="Select point D, five comma eight"><td>5</td><td><span>8</span><span class="ca-point-tag">D</span></td></tr>
+      </tbody>
+    </table></div>
+    <div class="ca-controls ca-plot-search"><label for="lookup-y">Search for output<select id="lookup-y"><option value="3">3</option><option value="6">6</option><option value="8">8</option><option value="10">10 · not in table</option></select></label><button class="ca-btn" id="lookup-btn" type="button">Find every input</button></div>
+  </div>
+  <div class="ca-plot-graph-side">
+    <div class="ca-table-graph-box">
+      <svg id="ca-table-coordinate-plane" viewBox="0 0 560 430" role="img" aria-label="Interactive coordinate plane plotting A at negative four comma three, B at negative one comma six, C at two comma three, and D at five comma eight. Select a point to inspect it."></svg>
+      <p class="ca-graph-interact-note">Select a plotted point or a table row.</p>
+      <div class="ca-picked-pair" id="ca-table-selected-pair" aria-live="polite"><span>Selected ordered pair:</span> <strong>C = (2, 3)</strong></div>
+    </div>
+  </div>
+</div>
+<div aria-live="polite" class="ca-feedback ca-plot-result" id="lookup-result">Choose an output and select <b>Find every input</b> to highlight all matching points.</div>
+<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span>Find <b>t(−1)</b>. Then find all solutions of <b>t(x) = 3</b>. How is evaluating at a given input different from finding all inputs for a given output?</span></div>
+</section><section class="ca-panel" id="graph-reading">
+<h3>09 · Read a graph in two directions</h3><p>To find <b>g(a)</b>, begin at input x = a, move vertically to the curve, and read the output. To solve <b>g(x) = b</b>, use a <b>horizontal line</b> at y = b and read the x-values of <em>all</em> intersections.</p>
+<p>This new graph uses <b>g(x) = (x + 1)² − 1</b>. The orange point demonstrates the input-first question. The blue horizontal line demonstrates the output-first question.</p>
+<div class="ca-controls"><label>Evaluate at x =<select id="graph-input"><option value="-4">−4</option><option selected="" value="-3">−3</option><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></label><label>Solve g(x) =<select id="graph-output"><option value="-1">−1</option><option value="0">0</option><option selected="" value="3">3</option><option value="8">8</option></select></label></div>
+<svg aria-label="Parabola with orange input marker and blue output-level intersections" id="ca-read-graph" role="img" viewbox="0 0 560 310"></svg><div aria-live="polite" class="ca-feedback" id="graph-read-feedback"></div>
+<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span>Look for the vertex of the graph. What happens when you choose the <b>smallest possible output</b>?</span></div>
+</section>
+<section class="ca-panel" id="toolkit">
+<h3>10 · Parent-function gallery</h3><p>Recognizing the shape of a parent function helps you predict its behavior. Select a card to view its graph and a one-sentence geometric clue.</p>
+<div aria-label="Choose a parent function" class="ca-toolkit ca-toolkit-interactive" role="group"><button aria-pressed="true" class="ca-toolkit-option active" data-toolkit="identity" type="button"><b>Identity</b><small>y = x</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="constant" type="button"><b>Constant</b><small>y = 2</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="square" type="button"><b>Square</b><small>y = x²</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="cube" type="button"><b>Cube</b><small>y = x³</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="absolute" type="button"><b>Absolute value</b><small>y = |x|</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="root" type="button"><b>Square root</b><small>y = √x</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="reciprocal" type="button"><b>Reciprocal</b><small>y = 1/x</small></button></div>
+<svg aria-label="Preview of selected parent-function graph" id="toolkit-graph" role="img" viewbox="0 0 560 310"></svg><div aria-live="polite" class="ca-feedback" id="toolkit-clue"></div>
+</section>
+<section class="ca-panel ca-guided-section" id="guided-31"><div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.1 · PRACTICE</span><h3>Guided problems · Functions and Notation</h3><p>Try original questions based on the new visual labs. Reveal hints, check explanations, and generate another set. Ungraded practice stays inside Section 3.1.</p></div><div id="quiz-31-container"></div><div class="ca-controls"><button class="ca-btn" id="quiz-31-check" type="button">Check answers</button><button class="ca-btn ca-btn-outline" id="quiz-31-reset" type="button">Try more problems</button></div><div aria-live="polite" class="ca-feedback" id="quiz-31-feedback">Choose an answer for each problem.</div></section></article><article class="ca-lesson" id="lesson-32"><span class="ca-chapter">SECTION 3.2</span><h2>Domain and Range</h2><p class="ca-lede">The <b>domain</b> contains allowable inputs (x-values); the <b>range</b> contains actual outputs (y-values). An open endpoint is excluded; a filled endpoint is included.</p><div class="ca-goals"><b>Learning goals</b> Use interval notation, recognize excluded denominators and square-root restrictions, and determine domain and range from graphs.</div><section class="ca-panel" id="intervals"><h3>01 · Interval notation — examples &amp; interactive builder</h3><p>Choose endpoints and whether to include them. The number line and mathematical notation update together.</p><div class="ca-interval-reference"><h4><i class="fa-solid fa-ruler-horizontal"></i> INTERVAL NOTATION · Reference guide</h4><p><b>Parentheses ( )</b> exclude endpoints; <b>brackets [ ]</b> include endpoints. Infinity is never an endpoint you can include, so always use parentheses with ±∞.</p><div class="ca-interval-grid">
+<div><b>Open interval</b><strong>(a, b)</strong><span>a &lt; x &lt; b</span></div><div><b>Closed interval</b><strong>[a, b]</strong><span>a ≤ x ≤ b</span></div>
+<div><b>Left included</b><strong>[a, b)</strong><span>a ≤ x &lt; b</span></div><div><b>Right included</b><strong>(a, b]</strong><span>a &lt; x ≤ b</span></div>
+<div><b>Unbounded left</b><strong>(−∞, a)</strong><span>x &lt; a</span></div><div><b>Unbounded left, includes a</b><strong>(−∞, a]</strong><span>x ≤ a</span></div>
+<div><b>Unbounded right</b><strong>(a, ∞)</strong><span>x &gt; a</span></div><div><b>Unbounded right, includes a</b><strong>[a, ∞)</strong><span>x ≥ a</span></div>
+<div><b>All real numbers</b><strong>(−∞, ∞)</strong><span>x ∈ ℝ</span></div><div><b>Union of intervals</b><strong>(−∞, −2) ∪ [1, 4)</strong><span>x &lt; −2 or 1 ≤ x &lt; 4</span></div>
+</div><div class="ca-interval-tip"><b>Visual key:</b> ○ open circle = excluded; ● filled circle = included; ←/→ = extends indefinitely. Try the preset buttons to see each type on a number line.</div><div class="ca-interval-presets" id="interval-presets"><button data-kind="open" type="button">(a, b)</button><button data-kind="closed" type="button">[a, b]</button><button data-kind="leftclosed" type="button">[a, b)</button><button data-kind="rightclosed" type="button">(a, b]</button><button data-kind="leftopen" type="button">(−∞, a)</button><button data-kind="leftinclusive" type="button">(−∞, a]</button><button data-kind="rightopen" type="button">(a, ∞)</button><button data-kind="rightinclusive" type="button">[a, ∞)</button><button data-kind="all" type="button">(−∞, ∞)</button><button data-kind="union" type="button">Union</button></div></div><div class="ca-controls"><label>Left endpoint <input id="int-left" max="10" min="-10" type="number" value="-3"/></label><label>Right endpoint <input id="int-right" max="10" min="-10" type="number" value="5"/></label><label><input id="left-closed" type="checkbox"/> Include left</label><label><input checked="" id="right-closed" type="checkbox"/> Include right</label></div><svg aria-label="Number line with adjustable endpoints" id="interval-svg" role="img" viewbox="0 0 560 115"></svg><div class="ca-equation" id="interval-answer"></div><div class="ca-feedback" id="interval-text"></div></section><section class="ca-panel" id="domain-lab"><h3>02 · Domain restriction laboratory</h3><p>Experiment with the denominator or radicand. Watch what inputs become forbidden.</p><div class="ca-domain-rules"><h4>General domain rules (over the real numbers)</h4><div class="ca-domain-rule"><b>1 · Denominators</b><span>Every denominator must be nonzero: for <em>1/g(x)</em>, require <em>g(x) ≠ 0</em>. Example: 1/(x − 3) requires x ≠ 3.</span></div><div class="ca-domain-rule"><b>2 · Even-index roots</b><span>For √[2n]{g(x)} require <em>g(x) ≥ 0</em>. Example: √(x − 4) requires x ≥ 4.</span></div><div class="ca-domain-rule"><b>3 · Even roots in a denominator</b><span>For 1/√[2n]{g(x)} require <em>g(x) &gt; 0</em>. Example: 1/√(x − 4) requires x &gt; 4.</span></div><div class="ca-domain-rule"><b>4 · Odd-index roots</b><span>√[2n+1]{g(x)} permits negative, zero, and positive radicands (subject to g itself being defined). Example: ∛(x + 1) is defined for all real x.</span></div><div class="ca-domain-rule"><b>5 · Odd roots in a denominator</b><span>For 1/√[2n+1]{g(x)}, require <em>g(x) ≠ 0</em>. Example: 1/∛(x − 4) excludes x = 4.</span></div><p><b>Combined expressions:</b> apply every restriction simultaneously; the domain is the intersection of all allowed inputs.</p></div><div class="ca-controls"><label>Function type <select id="domain-kind"><option value="fraction">Reciprocal: 1 / (x − k)</option><option value="root">Square root: √(x − k)</option><option value="rootden">Root in denominator: 1 / √(x − k)</option><option value="quadratic">Polynomial: (x − k)²</option><option value="oddroot">Cube root: ∛(x − k)</option><option value="oddrootden">Cube root in denominator: 1 / ∛(x − k)</option></select></label><label>k = <output id="k-output">2</output><input id="domain-k" max="5" min="-5" step="1" type="range" value="2"/></label><label>Test x <input id="domain-x" step="0.5" type="number" value="2"/></label></div><div class="ca-equation" id="domain-expression"></div><div class="ca-feedback" id="domain-result"></div><div class="ca-muted" id="domain-interval"></div></section><section class="ca-panel" id="range-graph"><h3>03 · Graph and range explorer</h3><p>Move the vertex of \(f(x)=a(x-h)^2+k\), then observe the domain and range. Change the sign of a to flip the parabola.</p><div class="ca-controls"><label>Vertex h <input id="vertex-h" max="4" min="-4" type="range" value="1"/><output id="h-display">1</output></label><label>Vertex k <input id="vertex-k" max="4" min="-4" type="range" value="-2"/><output id="v-display">−2</output></label><label>Direction <select id="vertex-a"><option value="1">Upward opening</option><option value="-1">Downward opening</option></select></label></div><svg aria-label="Adjustable parabola with highlighted vertex" id="range-svg" role="img" viewbox="0 0 560 310"></svg><div class="ca-feedback" id="range-answer"></div></section><section class="ca-panel ca-guided-section" id="guided-32"><div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.2 · PRACTICE</span><h3>Guided problems · Domain and Range</h3><p>Work through interval notation, restrictions, and graph-range questions. Each answer includes an explanation. These questions are ungraded.</p></div><div id="quiz-32-container"></div><div class="ca-controls"><button class="ca-btn" id="quiz-32-check" type="button">Check answers</button><button class="ca-btn ca-btn-outline" id="quiz-32-reset" type="button">Try more problems</button></div><div aria-live="polite" class="ca-feedback" id="quiz-32-feedback">Choose an answer for each problem.</div></section></article><footer class="ca-footer">Concept sequence informed by course Section 3.1 notes (Dr. Setayesh); original interactive activities and practice created for this website. · <a href="https://openstax.org/books/college-algebra/pages/1-introduction-to-prerequisites" rel="noopener" target="_blank">OpenStax College Algebra</a></footer></div></div></div></section></main><footer data-shared-template="footer"></footer></div><dialog class="ca-modal" id="foundations-modal"><div class="ca-modal-head"><div><small>MATH 1314-204 · FALL 2026</small><h2>Course Foundations</h2></div><button aria-label="Close foundations" class="ca-btn ca-btn-outline" id="foundations-close">✕ Close</button></div><div class="ca-modal-body ca-foundation-book">
+<article class="ca-foundation-chapter">
+<div class="ca-foundation-chapter-label">CHAPTER 1.0 <span>COURSE FOUNDATIONS</span></div>
+<h2>Introduction to College Algebra</h2>
+<p class="ca-foundation-lede">A guide to course expectations, grading, participation, and assessments for MATH 1314-204, Fall 2026.</p>
+<section class="ca-foundation-section ca-glance">
+<h3><i class="fa-solid fa-circle-info"></i> Course at a glance</h3>
+<div class="ca-glance-grid">
+<div><b>Fall 2026 · Section 204</b><span>MATH 1314 · 3 credit hours</span></div>
+<div><b>Lecture · Tuesday &amp; Thursday</b><span>8:00–9:15 AM · EMAGC 1.206</span></div>
+<div><b>PLTL · Tuesday &amp; Thursday</b><span>9:30–10:45 AM · Online</span></div>
+<div><b>Instructor · Dipendranath Mahato</b><span><a href="mailto:dipendranath.mahato@utrgv.edu">dipendranath.mahato@utrgv.edu</a> · EMAGC 2.326</span></div>
+<div><b>Office hours</b><span>Tue &amp; Thu 3:30–5:30 PM · Fri 12:00–2:00 PM</span></div>
+<div><b>PLTL Leader · Joseph Awotoye</b><span><a href="mailto:joseph.awotoye01@utrgv.edu">joseph.awotoye01@utrgv.edu</a></span></div>
+</div>
+</section>
+<section class="ca-foundation-section">
+<h3><i class="fa-solid fa-chart-pie"></i> Grading policy</h3>
+<p>Grades are calculated using the six weighted components below, as listed in the syllabus.</p>
+<div class="ca-weights-grid">
+<div><span>Homework</span><b>25%</b><i style="--fill:25%"></i></div>
+<div><span>Reviews</span><b>5%</b><i style="--fill:5%"></i></div>
+<div><span>PLTL</span><b>10%</b><i style="--fill:10%"></i></div>
+<div><span>Class activities</span><b>10%</b><i style="--fill:10%"></i></div>
+<div><span>Three exams</span><b>35%</b><i style="--fill:35%"></i></div>
+<div><span>Final exam</span><b>15%</b><i style="--fill:15%"></i></div>
+</div>
+<details class="ca-estimator"><summary><i class="fa-solid fa-calculator"></i> Estimate a weighted course grade</summary>
+<p>Enter percentage scores for any completed categories. This calculator is an estimate, not an official grade.</p>
+<div id="grade-rows"></div><div aria-live="polite" class="ca-feedback" id="grade-total"></div>
+</details>
+<p class="ca-foundation-note">Grading scale: A 90–100%, B 80–89%, C 70–79%, D 60–69%, F below 60%.</p>
+</section>
+<section class="ca-foundation-section">
+<h3><i class="fa-solid fa-comments"></i> Attendance &amp; participation</h3>
+<p>Regular attendance and active participation are expected. Students participate in class examples, Think–Pair–Share exercises, and online Peer-Led Team Learning (PLTL) sessions.</p>
+<div class="ca-foundation-rows">
+<div><b>Class activities · 10%</b><span>Attend lectures, take notes, solve examples, and work with classmates on Think–Pair–Share tasks.</span></div>
+<div><b>PLTL · 10%</b><span>Participate in the scheduled online PLTL sessions and complete the worksheets with peers.</span></div>
+<div><b>Homework · 25%</b><span>Complete online ALEKS homework. The syllabus allows two attempts per homework assignment.</span></div>
+<div><b>Reviews · 5%</b><span>Four paper reviews: one before each chapter test and one before the final examination.</span></div>
+</div>
+<div class="ca-foundation-highlight"><i class="fa-solid fa-lightbulb"></i><div><b>Learning through participation</b><p>Think individually, discuss with a partner or group, and explain your mathematical reasoning. Follow the official syllabus for make-up and attendance requirements.</p></div></div>
+</section>
+<section class="ca-foundation-section">
+<h3><i class="fa-solid fa-calendar-check"></i> Assessments</h3>
+<div class="ca-assessments-grid">
+<div><b>Test 1</b><span>September 29, 2026</span><small>Tuesday/Thursday section · Part of 35% exam component</small></div>
+<div><b>Test 2</b><span>October 22, 2026</span><small>Tuesday/Thursday section · Part of 35% exam component</small></div>
+<div><b>Test 3</b><span>December 4, 2026</span><small>Tuesday/Thursday section · Part of 35% exam component</small></div>
+<div><b>Final examination</b><span>Date TBA</span><small>Comprehensive · 15% of final grade</small></div>
+</div>
+<p class="ca-foundation-note">The syllabus allows two attempts at chapter exams, subject to review and preparation requirements before a retest. See the complete syllabus for details and updates.</p>
+</section>
+<section class="ca-foundation-section">
+<h3><i class="fa-solid fa-bullseye"></i> Learning objectives</h3>
+<p>Learn to simplify expressions; solve equations, inequalities, and systems; identify functions, domains, and ranges; use transformations and inverse functions; and graph polynomial, rational, exponential, and logarithmic functions.</p>
+</section>
+<section class="ca-foundation-section">
+<h3><i class="fa-solid fa-book-open"></i> Resources &amp; academic integrity</h3>
+<p>Free textbook: <a href="https://openstax.org/books/college-algebra/pages/1-introduction-to-prerequisites" rel="noopener" target="_blank">OpenStax College Algebra</a>. A TI-83/TI-84 or non-programmable scientific calculator is listed in the syllabus.</p>
+<p>According to the course AI policy, AI can be used for checking definitions, formatting LaTeX, or brainstorming with appropriate disclosure. AI use on homework, PLTL assignments, and exams is prohibited. These interactive notes provide independent, ungraded practice.</p>
+</section>
+</article>
+</div></dialog><script defer="" src="/assets/js/site-template.js?v=c072320e8862"></script><script defer="" src="./college-algebra.js?v=20261031-visual-labs-2"></script><script id="ca-shared-site-controls">(()=>{const initialize=()=>{const nav=document.querySelector('.top-nav-links'),toggle=document.querySelector('.nav-toggle'),drop=document.querySelector('.dropdown'),dropbtn=document.querySelector('.dropbtn'),root=document.documentElement,theme=document.querySelector('.theme-toggle');if(toggle&&nav){toggle.setAttribute('aria-expanded','false');toggle.addEventListener('click',()=>{const state=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(state));toggle.querySelector('i')?.classList.toggle('fa-bars',!state);toggle.querySelector('i')?.classList.toggle('fa-xmark',state)});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}if(dropbtn){dropbtn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();drop?.classList.toggle('dropdown-open')});document.addEventListener('click',e=>{if(!drop?.contains(e.target))drop?.classList.remove('dropdown-open')})}function setTheme(v){root.setAttribute('data-theme',v);if(theme){const icon=theme.querySelector('i'),label=theme.querySelector('span');if(icon)icon.className=v==='dark'?'fa-solid fa-sun':'fa-solid fa-moon';if(label)label.textContent=v==='dark'?'Light':'Dark';theme.setAttribute('aria-pressed',String(v==='dark'))}}let saved;try{saved=localStorage.getItem('dm-theme')}catch(_){}setTheme(saved==='dark'?'dark':'light');theme?.addEventListener('click',()=>{const next=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('dm-theme',next)}catch(_){}})};if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initialize,{once:true});}else{initialize();}})();</script>
+<script id="ca-art-club-arrow-interactivity">
+(()=>{
+  'use strict';
+  const assignments=[['Mia','Studio North'],['Leo','Studio North'],['Nora','Studio East']];
+  const ns='http://www.w3.org/2000/svg';
+  const cleanName=(str)=>str.replace(/[^a-zA-Z0-9]/g,'-').toLowerCase();
+  function drawConnectors(map){
+    if(!map || !map.classList.contains('ca-sets-diagram')) return;
+    const svg=map.querySelector('.ca-sets-svg'),body=map.querySelector('.ca-sets-body');
+    if(!svg||!body) return;
+    const bounds=body.getBoundingClientRect();
+    if(!bounds.width || !bounds.height) return;
+    svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);
+    const reverse=map.classList.contains('reverse-map');
+    const pairs=assignments.map(([p,r])=>reverse?[r,p]:[p,r]);
+    let paths='';
+    for(const [src,dst] of pairs){
+      const a=map.querySelector(`[data-side="in"][data-name="${cleanName(src)}"]`);
+      const b=map.querySelector(`[data-side="out"][data-name="${cleanName(dst)}"]`);
+      if(!a || !b) continue;
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      const x1=ar.right-bounds.left+1, x2=br.left-bounds.left-7;
+      const y1=ar.top-bounds.top+ar.height/2, y2=br.top-bounds.top+br.height/2;
+      const color=(reverse&&src==='Studio North')?'#d75943':'#267d9e';
+      const marker=(reverse&&src==='Studio North')?'club-arrow-red':'club-arrow-blue';
+      const dx=Math.max(8,(x2-x1)*.42);
+      paths+=`<path d="M ${x1.toFixed(1)} ${y1.toFixed(1)} C ${(x1+dx).toFixed(1)} ${y1.toFixed(1)}, ${(x2-dx).toFixed(1)} ${y2.toFixed(1)}, ${x2.toFixed(1)} ${y2.toFixed(1)}" stroke="${color}" stroke-width="${reverse&&src==='Studio North'?3.1:2.6}" fill="none" stroke-linecap="round" marker-end="url(#${marker})"/>`;
+    }
+    svg.innerHTML=`<defs><marker id="club-arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#267d9e"/></marker><marker id="club-arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#d75943"/></marker></defs>${paths}`;
+  }
+  function renderClubDiagram(){
+    const map=document.getElementById('club-map'),flip=document.getElementById('club-flip');
+    if(!map || !flip) return;
+    // The page's original exercise owns the reverse button and feedback; we only redraw its diagram.
+    const reverse=flip.textContent.trim().startsWith('Restore');
+    const inputs=reverse?['Studio North','Studio East']:['Mia','Leo','Nora'];
+    const outputs=reverse?['Mia','Leo','Nora']:['Studio North','Studio East'];
+    const nodes=(list,side)=>list.map(name=>{
+      const conflict=reverse&&side==='in'&&name==='Studio North';
+      return `<span class="ca-sets-node${conflict?' multi-target':''}" data-side="${side}" data-name="${cleanName(name)}">${name}</span>`;
+    }).join('');
+    map.className='ca-story-map ca-sets-diagram'+(reverse?' reverse-map':'');
+    map.removeAttribute('role');
+    map.setAttribute('aria-label',reverse?'Mapping diagram: Studio North points to both Mia and Leo, and Studio East points to Nora. This is not a function.':'Mapping diagram: Mia and Leo both point to Studio North, and Nora points to Studio East. This is a function.');
+    map.innerHTML=`<div class="ca-sets-headings"><span class="ca-sets-label">INPUTS<br>${reverse?'Rooms':'Members'}</span><span class="ca-sets-label output-label">OUTPUTS<br>${reverse?'Members':'Rooms'}</span></div><div class="ca-sets-body"><div class="ca-sets-column input-set">${nodes(inputs,'in')}</div><svg class="ca-sets-svg" focusable="false" aria-hidden="true"></svg><div class="ca-sets-column output-set">${nodes(outputs,'out')}</div></div><div class="ca-sets-caption"><span class="ca-sets-dot" aria-hidden="true"></span><span>${reverse?'<strong>Not a function:</strong> two arrows leave the same input, Studio North.':'<strong>Function:</strong> each member has one outgoing arrow. Multiple arrows may arrive at the same room.'}</span></div>`;
+    drawConnectors(map);
+  }
+  function initialize(){
+    const flip=document.getElementById('club-flip');
+    if(!flip)return;
+    // The original button handler runs first and updates the answer; this handler changes only the visualization.
+    flip.addEventListener('click',renderClubDiagram);
+    window.addEventListener('resize',()=>drawConnectors(document.getElementById('club-map')),{passive:true});
+    if('ResizeObserver' in window){
+      const observer=new ResizeObserver(()=>drawConnectors(document.getElementById('club-map')));
+      observer.observe(document.getElementById('club-map'));
+    }
+    renderClubDiagram();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initialize,{once:true});
+  else initialize();
+})();
+</script>
+
+<script id="ca-table-coordinate-interactivity">
+(()=>{'use strict';
+ const points=[{name:'A',x:-4,y:3},{name:'B',x:-1,y:6},{name:'C',x:2,y:3},{name:'D',x:5,y:8}];
+ const fmt=n=>String(n).replaceAll('-','−');
+ const ns='http://www.w3.org/2000/svg';
+ let selected=2,matches=[];
+ const $=id=>document.getElementById(id);
+ // Same scale on both axes: 33 SVG units represent one coordinate unit.
+ const tx=x=>290+x*33,ty=y=>347-y*33;
+ function draw(){
+  const svg=$('ca-table-coordinate-plane');if(!svg)return;
+  let parts=['<defs><marker id="ca-plot-axis-tip" markerWidth="7" markerHeight="7" refX="4" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="var(--plot-axis)"/></marker></defs>'];
+  for(let x=-6;x<=6;x++)parts.push(`<line x1="${tx(x)}" y1="17" x2="${tx(x)}" y2="413" stroke="var(--plot-grid)" stroke-width="1"/>`);
+  for(let y=-2;y<=10;y++)parts.push(`<line x1="92" y1="${ty(y)}" x2="488" y2="${ty(y)}" stroke="var(--plot-grid)" stroke-width="1"/>`);
+  parts.push(`<line x1="83" y1="347" x2="497" y2="347" stroke="var(--plot-axis)" stroke-width="2.2" marker-end="url(#ca-plot-axis-tip)"/><line x1="290" y1="421" x2="290" y2="9" stroke="var(--plot-axis)" stroke-width="2.2" marker-end="url(#ca-plot-axis-tip)"/>`);
+  for(let x=-6;x<=6;x+=2)parts.push(`<text x="${tx(x)}" y="370" font-size="14" fill="var(--plot-text)" text-anchor="middle">${fmt(x)}</text>`);
+  for(let y=-2;y<=10;y+=2){if(y!==0)parts.push(`<text x="279" y="${ty(y)+5}" font-size="14" fill="var(--plot-text)" text-anchor="end">${fmt(y)}</text>`);}
+  parts.push('<text x="505" y="354" font-size="20" font-style="italic" fill="var(--plot-axis)">x</text><text x="300" y="19" font-size="20" font-style="italic" fill="var(--plot-axis)">y</text>');
+  for(let i=0;i<points.length;i++){
+   const p=points[i],isSelected=selected===i,isMatch=matches.includes(i),x=tx(p.x),y=ty(p.y);
+   let lx=x+12,ly=y-13;
+   if(p.x===5)lx=x-22;
+   parts.push(`<g class="ca-plot-point${isSelected?' ca-selected':''}${isMatch?' ca-output-match':''}" role="button" tabindex="0" focusable="true" data-point-index="${i}" aria-label="Select point ${p.name}, ${fmt(p.x)} comma ${fmt(p.y)}"><title>Point ${p.name}: (${fmt(p.x)}, ${fmt(p.y)})</title><circle cx="${x}" cy="${y}" r="22" fill="transparent"/><circle class="ca-point-halo" cx="${x}" cy="${y}" r="16" stroke-width="2.6"/><circle class="ca-point-marker" cx="${x}" cy="${y}" r="${isSelected?8:6.5}"/><text x="${lx}" y="${ly}">${p.name}</text></g>`);
+  }
+  svg.innerHTML=parts.join('');
+ }
+ function sync(){
+  const p=points[selected];
+  document.querySelectorAll('#pairs-table tr').forEach((row,i)=>{
+   row.classList.toggle('selected',i===selected);row.classList.toggle('ca-output-match',matches.includes(i));row.setAttribute('aria-pressed',String(i===selected));
+  });
+  const pair=$('ca-table-selected-pair');pair.innerHTML=`<span>Selected ordered pair:</span> <strong>${p.name} = (${fmt(p.x)}, ${fmt(p.y)})</strong>`;
+  draw();
+ }
+ function choose(i){
+  if(!Number.isInteger(i)||i<0||i>=points.length)return;
+  selected=i;matches=[];sync();
+  $('lookup-result').textContent=`Point ${points[i].name} corresponds to the ordered pair (${fmt(points[i].x)}, ${fmt(points[i].y)}).`;
+ }
+ function search(){
+  const y=Number($('lookup-y').value);matches=points.flatMap((p,i)=>p.y===y?[i]:[]);
+  sync();
+  const res=$('lookup-result');
+  if(matches.length){
+   const xs=matches.map(i=>`x = ${fmt(points[i].x)}`),names=matches.map(i=>points[i].name);
+   const phrase=xs.length===1?xs[0]:xs.join(' and ');
+   res.innerHTML=`<strong>For t(x) = ${fmt(y)}, the matching input${xs.length===1?' is':'s are'} ${phrase}.</strong> These correspond to point${names.length===1?'':'s'} ${names.join(' and ')} on the coordinate plane.`;
+  }else res.textContent=`No input in the table produces output ${fmt(y)}. None of the plotted points has y-coordinate ${fmt(y)}.`;
+ }
+ function init(){
+  const tbody=$('pairs-table'),svg=$('ca-table-coordinate-plane'),btn=$('lookup-btn');if(!tbody||!svg||!btn)return;
+  // The existing course script manages the other activities; this module only enhances Section 08.
+  tbody.addEventListener('click',e=>{const row=e.target.closest('tr[data-x]');if(row)choose([...tbody.rows].indexOf(row));});
+  tbody.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const row=e.target.closest('tr[data-x]');if(row){e.preventDefault();choose([...tbody.rows].indexOf(row));}});
+  svg.addEventListener('click',e=>{const g=e.target.closest('g[data-point-index]');if(g)choose(Number(g.dataset.pointIndex));});
+  svg.addEventListener('keydown',e=>{if(e.key!=='Enter'&&e.key!==' ')return;const g=e.target.closest('g[data-point-index]');if(g){e.preventDefault();choose(Number(g.dataset.pointIndex));}});
+  btn.addEventListener('click',search);
+  $('lookup-y').addEventListener('change',()=>{matches=[];sync();$('lookup-result').textContent='Select “Find every input” to highlight all points with this output.';});
+  sync();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+</body></html>
