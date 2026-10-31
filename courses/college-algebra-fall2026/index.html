@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 
-<html data-theme="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>College Algebra · Interactive Notes | Dipendranath Mahato</title><link href="/assets/css/style.css?v=b58e400b11f6" rel="stylesheet"/><link href="/assets/css/course.css?v=55f96e6298d0" rel="stylesheet"/><link href="/assets/css/interactive-course.css?v=65ffb2f69374" rel="stylesheet"/><link href="./college-algebra.css?v=20261031-visual-labs-2" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" rel="stylesheet"/><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script></head><body class="course-page"><div class="page"><header class="top-nav" data-shared-template="header"></header><main class="layout"><aside class="sidebar" data-shared-template="sidebar"></aside><section class="main"><div class="uni-header prominent ca-university-header"><div class="uni-header-left"><i class="fa-solid fa-school"></i><div><h3 class="uni-title">University of Texas Rio Grande Valley</h3><div class="uni-subtitle">Current teaching · Edinburg, Texas · Fall 2026</div></div></div><div class="uni-header-logo"><img alt="UTRGV" src="/assets/images/utrgv-logo.svg"/></div></div><div class="ca"><header class="ca-hero"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> UNIVERSITY OF TEXAS RIO GRANDE VALLEY · FALL 2026 · MATH 1314</span><h1>College Algebra — Interactive Course Notes</h1><p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 8:00–9:15 AM · EMAGC 1.206 <span class="ca-hero-schedule-separator">·</span> PLTL online 9:30–10:45 AM</p><div class="ca-hero-links"><button class="ca-foundations-btn" id="foundations-open"><i class="fa-solid fa-layer-group"></i> Course Foundations</button></div></header><div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open a chapter in the left-hand contents menu to reveal its topics. The full lecture notes remain visible in the main area.</span></div><div class="ca-layout"><nav aria-label="Lesson navigation" class="ca-toc"><strong><i class="fa-solid fa-list-ul"></i> ON THIS PAGE</strong>
+<html data-theme="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>College Algebra · Interactive Notes | Dipendranath Mahato</title><link href="/assets/css/style.css?v=b58e400b11f6" rel="stylesheet"/><link href="/assets/css/course.css?v=55f96e6298d0" rel="stylesheet"/><link href="/assets/css/interactive-course.css?v=65ffb2f69374" rel="stylesheet"/><link href="./college-algebra.css?v=20261031-visual-labs-2" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" rel="stylesheet"/><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style id="ca-art-club-arrow-styles">
+/* Responsive, theme-aware arrow diagram for the art-club function example. */
+.course-page #club-map.ca-story-map.ca-sets-diagram { display:block; margin:16px 0 13px; }
+.course-page .ca-sets-diagram .ca-sets-headings { display:grid; grid-template-columns:minmax(0,1fr) minmax(38px,.65fr) minmax(0,1fr); align-items:end; gap:0; margin:0 0 12px; }
+.course-page .ca-sets-diagram .ca-sets-label { font-weight:820; font-size:.81rem; letter-spacing:.045em; text-align:center; color:#ac451f; line-height:1.45; }
+.course-page .ca-sets-diagram .ca-sets-label.output-label { grid-column:3; color:#237c8e; }
+.course-page .ca-sets-diagram .ca-sets-body { display:grid; grid-template-columns:minmax(0,1fr) minmax(38px,.65fr) minmax(0,1fr); height:282px; position:relative; isolation:isolate; min-width:0; }
+.course-page .ca-sets-diagram .ca-sets-column { position:relative; min-width:0; height:100%; border:2px solid #d7a786; border-radius:48% / 23%; background:#fff4e9; display:flex; flex-direction:column; justify-content:space-evenly; align-items:stretch; padding:14px 12px; box-sizing:border-box; z-index:1; }
+.course-page .ca-sets-diagram .ca-sets-column.output-set { grid-column:3; border-color:#89b4c7; background:#eaf6fb; }
+.course-page .ca-sets-diagram .ca-sets-node { position:relative; z-index:3; border-radius:10px; background:#fff; border:1px solid #debdac; padding:9px 6px; min-height:39px; display:flex; align-items:center; justify-content:center; text-align:center; font-weight:730; font-size:clamp(.76rem,1.5vw,.94rem); line-height:1.3; box-sizing:border-box; overflow-wrap:anywhere; box-shadow:0 1px 3px rgba(24,42,55,.06); color:#1f3244; }
+.course-page .ca-sets-diagram .output-set .ca-sets-node { border-color:#9fc3d1; }
+.course-page .ca-sets-diagram .ca-sets-node.multi-target { border-color:#d55541; background:#ffe9e4; color:#8b291b; }
+.course-page .ca-sets-diagram .ca-sets-svg { position:absolute; inset:0; width:100%; height:100%; z-index:2; overflow:visible; pointer-events:none; }
+.course-page .ca-panel .ca-sets-diagram svg.ca-sets-svg {position:absolute;inset:0;width:100%;height:100%;max-height:none;max-width:none;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;}
+html[data-theme="dark"] .course-page .ca-panel .ca-sets-diagram svg.ca-sets-svg {background:transparent;border:0;}
+.course-page .ca-sets-diagram .ca-sets-caption { display:flex; gap:8px; align-items:flex-start; margin:12px 0 0; padding:10px 12px; border:1px dashed #b6c6d5; border-radius:9px; font-size:.87rem; line-height:1.5; color:#354b60; background:#f8fbfd; }
+.course-page .ca-sets-diagram .ca-sets-dot { flex:none; background:#247e96; border-radius:100%; width:11px; height:11px; margin-top:5px; }
+.course-page .ca-sets-diagram.reverse-map .ca-sets-dot { background:#c84733; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-column { background:#352f2c; border-color:#a06f53; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-column.output-set { background:#203949; border-color:#628ea3; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-node { background:#283544; color:#eff5fb; border-color:#ab816c; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .output-set .ca-sets-node { background:#294659; border-color:#78adc5; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-node.multi-target { background:#54332f; color:#ffd4ca; border-color:#f59a88; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-label { color:#ffbc93; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-label.output-label { color:#a1e4f4; }
+html[data-theme="dark"] .course-page .ca-sets-diagram .ca-sets-caption { color:#e1edf9; border-color:#536878; background:#233343; }
+@media (max-width:480px) {
+  .course-page .ca-sets-diagram .ca-sets-body { height:258px; grid-template-columns:minmax(0,1fr) minmax(44px,.42fr) minmax(0,1fr); }
+  .course-page .ca-sets-diagram .ca-sets-headings { grid-template-columns:minmax(0,1fr) minmax(44px,.42fr) minmax(0,1fr); }
+  .course-page .ca-sets-diagram .ca-sets-column { padding:10px 6px; border-radius:43% / 19%; }
+  .course-page .ca-sets-diagram .ca-sets-node { padding:8px 4px; min-height:40px; font-size:.77rem; }
+  .course-page .ca-sets-diagram .ca-sets-label { font-size:.70rem; letter-spacing:0; }
+}
+@media (prefers-reduced-motion: reduce) { .course-page .ca-sets-diagram * { transition:none !important; } }
+</style>
+</head><body class="course-page"><div class="page"><header class="top-nav" data-shared-template="header"></header><main class="layout"><aside class="sidebar" data-shared-template="sidebar"></aside><section class="main"><div class="uni-header prominent ca-university-header"><div class="uni-header-left"><i class="fa-solid fa-school"></i><div><h3 class="uni-title">University of Texas Rio Grande Valley</h3><div class="uni-subtitle">Current teaching · Edinburg, Texas · Fall 2026</div></div></div><div class="uni-header-logo"><img alt="UTRGV" src="/assets/images/utrgv-logo.svg"/></div></div><div class="ca"><header class="ca-hero"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> UNIVERSITY OF TEXAS RIO GRANDE VALLEY · FALL 2026 · MATH 1314</span><h1>College Algebra — Interactive Course Notes</h1><p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 8:00–9:15 AM · EMAGC 1.206 <span class="ca-hero-schedule-separator">·</span> PLTL online 9:30–10:45 AM</p><div class="ca-hero-links"><button class="ca-foundations-btn" id="foundations-open"><i class="fa-solid fa-layer-group"></i> Course Foundations</button></div></header><div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open a chapter in the left-hand contents menu to reveal its topics. The full lecture notes remain visible in the main area.</span></div><div class="ca-layout"><nav aria-label="Lesson navigation" class="ca-toc"><strong><i class="fa-solid fa-list-ul"></i> ON THIS PAGE</strong>
 <details class="ca-toc-chapter" open=""><summary><i class="fa-solid fa-chart-line"></i> 3.1 · Functions &amp; Notation <i class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-31">Section overview</a><a href="#ordered-pairs">Coordinate studio</a><a href="#mappings">Mapping explorer</a><a href="#notation">Notation &amp; fees</a><a href="#representations">Four-view lab</a><a href="#vertical">Vertical line test</a><a href="#formula-examples">Two-way calculator</a><a href="#evaluation">Function machine</a><a href="#tables">Table detective</a><a href="#graph-reading">Graph detective</a><a href="#toolkit">Parent-function gallery</a><a href="#guided-31">Guided practice · 3.1</a></div></details>
 <details class="ca-toc-chapter"><summary><i class="fa-solid fa-ruler-combined"></i> 3.2 · Domain &amp; Range <i class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-32">Chapter introduction</a><a href="#intervals">Interval notation</a><a href="#domain-lab">Domain restrictions</a><a href="#range-graph">Graphs &amp; range</a><a href="#guided-32">Section 3.2 · Guided problems</a></div></details>
 </nav><div class="ca-content"><article class="ca-lesson" id="lesson-31"><span class="ca-chapter">SECTION 3.1</span><h2>Functions and Function Notation</h2><p class="ca-lede">A <b>relation</b> is a set of ordered pairs. It is a <b>function</b> when each input is assigned exactly one output. Learn to read, represent, evaluate, and graph functions.</p><div class="ca-goals"><b>Learning objectives</b> Determine whether a relation is a function; identify domain and range of ordered pairs; use function notation; find inputs and outputs from formulas, tables, and graphs; apply the vertical line test; recognize toolkit graphs.</div><p class="ca-source-credit">Learning objectives informed by the Section 3.1 course notes (Dr. Setayesh). The scenarios, visualizations, and practice activities here are newly authored.</p><section class="ca-panel" id="ordered-pairs">
@@ -125,4 +161,68 @@
 <p>According to the course AI policy, AI can be used for checking definitions, formatting LaTeX, or brainstorming with appropriate disclosure. AI use on homework, PLTL assignments, and exams is prohibited. These interactive notes provide independent, ungraded practice.</p>
 </section>
 </article>
-</div></dialog><script defer="" src="/assets/js/site-template.js?v=c072320e8862"></script><script defer="" src="./college-algebra.js?v=20261031-visual-labs-2"></script><script id="ca-shared-site-controls">(()=>{const initialize=()=>{const nav=document.querySelector('.top-nav-links'),toggle=document.querySelector('.nav-toggle'),drop=document.querySelector('.dropdown'),dropbtn=document.querySelector('.dropbtn'),root=document.documentElement,theme=document.querySelector('.theme-toggle');if(toggle&&nav){toggle.setAttribute('aria-expanded','false');toggle.addEventListener('click',()=>{const state=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(state));toggle.querySelector('i')?.classList.toggle('fa-bars',!state);toggle.querySelector('i')?.classList.toggle('fa-xmark',state)});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}if(dropbtn){dropbtn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();drop?.classList.toggle('dropdown-open')});document.addEventListener('click',e=>{if(!drop?.contains(e.target))drop?.classList.remove('dropdown-open')})}function setTheme(v){root.setAttribute('data-theme',v);if(theme){const icon=theme.querySelector('i'),label=theme.querySelector('span');if(icon)icon.className=v==='dark'?'fa-solid fa-sun':'fa-solid fa-moon';if(label)label.textContent=v==='dark'?'Light':'Dark';theme.setAttribute('aria-pressed',String(v==='dark'))}}let saved;try{saved=localStorage.getItem('dm-theme')}catch(_){}setTheme(saved==='dark'?'dark':'light');theme?.addEventListener('click',()=>{const next=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('dm-theme',next)}catch(_){}})};if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initialize,{once:true});}else{initialize();}})();</script></body></html>
+</div></dialog><script defer="" src="/assets/js/site-template.js?v=c072320e8862"></script><script defer="" src="./college-algebra.js?v=20261031-visual-labs-2"></script><script id="ca-shared-site-controls">(()=>{const initialize=()=>{const nav=document.querySelector('.top-nav-links'),toggle=document.querySelector('.nav-toggle'),drop=document.querySelector('.dropdown'),dropbtn=document.querySelector('.dropbtn'),root=document.documentElement,theme=document.querySelector('.theme-toggle');if(toggle&&nav){toggle.setAttribute('aria-expanded','false');toggle.addEventListener('click',()=>{const state=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(state));toggle.querySelector('i')?.classList.toggle('fa-bars',!state);toggle.querySelector('i')?.classList.toggle('fa-xmark',state)});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}if(dropbtn){dropbtn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();drop?.classList.toggle('dropdown-open')});document.addEventListener('click',e=>{if(!drop?.contains(e.target))drop?.classList.remove('dropdown-open')})}function setTheme(v){root.setAttribute('data-theme',v);if(theme){const icon=theme.querySelector('i'),label=theme.querySelector('span');if(icon)icon.className=v==='dark'?'fa-solid fa-sun':'fa-solid fa-moon';if(label)label.textContent=v==='dark'?'Light':'Dark';theme.setAttribute('aria-pressed',String(v==='dark'))}}let saved;try{saved=localStorage.getItem('dm-theme')}catch(_){}setTheme(saved==='dark'?'dark':'light');theme?.addEventListener('click',()=>{const next=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('dm-theme',next)}catch(_){}})};if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initialize,{once:true});}else{initialize();}})();</script>
+<script id="ca-art-club-arrow-interactivity">
+(()=>{
+  'use strict';
+  const assignments=[['Mia','Studio North'],['Leo','Studio North'],['Nora','Studio East']];
+  const ns='http://www.w3.org/2000/svg';
+  const cleanName=(str)=>str.replace(/[^a-zA-Z0-9]/g,'-').toLowerCase();
+  function drawConnectors(map){
+    if(!map || !map.classList.contains('ca-sets-diagram')) return;
+    const svg=map.querySelector('.ca-sets-svg'),body=map.querySelector('.ca-sets-body');
+    if(!svg||!body) return;
+    const bounds=body.getBoundingClientRect();
+    if(!bounds.width || !bounds.height) return;
+    svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);
+    const reverse=map.classList.contains('reverse-map');
+    const pairs=assignments.map(([p,r])=>reverse?[r,p]:[p,r]);
+    let paths='';
+    for(const [src,dst] of pairs){
+      const a=map.querySelector(`[data-side="in"][data-name="${cleanName(src)}"]`);
+      const b=map.querySelector(`[data-side="out"][data-name="${cleanName(dst)}"]`);
+      if(!a || !b) continue;
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      const x1=ar.right-bounds.left+1, x2=br.left-bounds.left-7;
+      const y1=ar.top-bounds.top+ar.height/2, y2=br.top-bounds.top+br.height/2;
+      const color=(reverse&&src==='Studio North')?'#d75943':'#267d9e';
+      const marker=(reverse&&src==='Studio North')?'club-arrow-red':'club-arrow-blue';
+      const dx=Math.max(8,(x2-x1)*.42);
+      paths+=`<path d="M ${x1.toFixed(1)} ${y1.toFixed(1)} C ${(x1+dx).toFixed(1)} ${y1.toFixed(1)}, ${(x2-dx).toFixed(1)} ${y2.toFixed(1)}, ${x2.toFixed(1)} ${y2.toFixed(1)}" stroke="${color}" stroke-width="${reverse&&src==='Studio North'?3.1:2.6}" fill="none" stroke-linecap="round" marker-end="url(#${marker})"/>`;
+    }
+    svg.innerHTML=`<defs><marker id="club-arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#267d9e"/></marker><marker id="club-arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#d75943"/></marker></defs>${paths}`;
+  }
+  function renderClubDiagram(){
+    const map=document.getElementById('club-map'),flip=document.getElementById('club-flip');
+    if(!map || !flip) return;
+    // The page's original exercise owns the reverse button and feedback; we only redraw its diagram.
+    const reverse=flip.textContent.trim().startsWith('Restore');
+    const inputs=reverse?['Studio North','Studio East']:['Mia','Leo','Nora'];
+    const outputs=reverse?['Mia','Leo','Nora']:['Studio North','Studio East'];
+    const nodes=(list,side)=>list.map(name=>{
+      const conflict=reverse&&side==='in'&&name==='Studio North';
+      return `<span class="ca-sets-node${conflict?' multi-target':''}" data-side="${side}" data-name="${cleanName(name)}">${name}</span>`;
+    }).join('');
+    map.className='ca-story-map ca-sets-diagram'+(reverse?' reverse-map':'');
+    map.removeAttribute('role');
+    map.setAttribute('aria-label',reverse?'Mapping diagram: Studio North points to both Mia and Leo, and Studio East points to Nora. This is not a function.':'Mapping diagram: Mia and Leo both point to Studio North, and Nora points to Studio East. This is a function.');
+    map.innerHTML=`<div class="ca-sets-headings"><span class="ca-sets-label">INPUTS<br>${reverse?'Rooms':'Members'}</span><span class="ca-sets-label output-label">OUTPUTS<br>${reverse?'Members':'Rooms'}</span></div><div class="ca-sets-body"><div class="ca-sets-column input-set">${nodes(inputs,'in')}</div><svg class="ca-sets-svg" focusable="false" aria-hidden="true"></svg><div class="ca-sets-column output-set">${nodes(outputs,'out')}</div></div><div class="ca-sets-caption"><span class="ca-sets-dot" aria-hidden="true"></span><span>${reverse?'<strong>Not a function:</strong> two arrows leave the same input, Studio North.':'<strong>Function:</strong> each member has one outgoing arrow. Multiple arrows may arrive at the same room.'}</span></div>`;
+    drawConnectors(map);
+  }
+  function initialize(){
+    const flip=document.getElementById('club-flip');
+    if(!flip)return;
+    // The original button handler runs first and updates the answer; this handler changes only the visualization.
+    flip.addEventListener('click',renderClubDiagram);
+    window.addEventListener('resize',()=>drawConnectors(document.getElementById('club-map')),{passive:true});
+    if('ResizeObserver' in window){
+      const observer=new ResizeObserver(()=>drawConnectors(document.getElementById('club-map')));
+      observer.observe(document.getElementById('club-map'));
+    }
+    renderClubDiagram();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initialize,{once:true});
+  else initialize();
+})();
+</script>
+</body></html>
