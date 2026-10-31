@@ -63,5 +63,89 @@ function interval(){
 document.querySelectorAll('#interval-presets button').forEach(btn=>btn.addEventListener('click',()=>{const mode=btn.dataset.kind;intervalPreset=mode==='open'||mode==='closed'||mode==='leftclosed'||mode==='rightclosed'?'finite':mode;const flags={open:[false,false],closed:[true,true],leftclosed:[true,false],rightclosed:[false,true]};if(flags[mode]){$('left-closed').checked=flags[mode][0];$('right-closed').checked=flags[mode][1];}document.querySelectorAll('#interval-presets button').forEach(b=>b.classList.toggle('active',b===btn));interval()}));interval();
 function domain(){let kind=$('domain-kind').value,k=+$('domain-k').value,x=+$('domain-x').value;$('k-output').textContent=fmt(k);let d=x-k,ok=kind==='quadratic'||kind==='oddroot'||(kind==='fraction'||kind==='oddrootden'?d!==0:kind==='root'?d>=0:d>0),v=kind==='quadratic'?d*d:kind==='fraction'?1/d:kind==='root'?Math.sqrt(d):kind==='rootden'?1/Math.sqrt(d):kind==='oddroot'?Math.cbrt(d):1/Math.cbrt(d);let expr={fraction:`f(x) = 1 / (x − (${k}))`,root:`f(x) = √(x − (${k}))`,rootden:`f(x) = 1 / √(x − (${k}))`,quadratic:`f(x) = (x − (${k}))²`,oddroot:`f(x) = ∛(x − (${k}))`,oddrootden:`f(x) = 1 / ∛(x − (${k}))`};$('domain-expression').textContent=expr[kind];$('domain-result').textContent=ok?`Allowed: x = ${x} gives f(x) ≈ ${Number(v.toFixed(5))}.`:`Not allowed: x = ${x} ${kind==='fraction'||kind==='oddrootden'?'makes the denominator zero':kind==='root'?'makes the radicand negative':'makes the even root zero or nonreal in the denominator'}.`;$('domain-interval').textContent='Domain: '+(kind==='quadratic'||kind==='oddroot'?'(−∞, ∞)':kind==='fraction'||kind==='oddrootden'?`(−∞, ${k}) ∪ (${k}, ∞)`:kind==='root'?`[${k}, ∞)`:`(${k}, ∞)`);}['domain-kind','domain-k','domain-x'].forEach(id=>$(id).addEventListener('input',domain));domain();
 function range(){let h=+$('vertex-h').value,k=+$('vertex-k').value,a=+$('vertex-a').value;$('h-display').textContent=fmt(h);$('v-display').textContent=fmt(k);let svg=$('range-svg'),g=plot(svg,x=>a*(x-h)**2+k,{xmin:-6,xmax:6,ymin:-7,ymax:7});svg.innerHTML+=`<circle cx="${g.tx(h)}" cy="${g.ty(k)}" r="6" fill="#147b79" stroke="white" stroke-width="2"/>`;$('range-answer').textContent=`Vertex (${h}, ${k}). Domain: (−∞, ∞). Range: ${a>0?`[${k}, ∞)`:`(−∞, ${k}]`}. ${a>0?'The vertex is the minimum.':'The vertex is the maximum.'}`;}['vertex-h','vertex-k','vertex-a'].forEach(id=>$(id).addEventListener('input',range));range();
-const bank=[{q:'Is {(1, 2), (2, 4), (1, 5)} a function?',opts:['Yes, every ordered pair is different','No, input 1 has two outputs','No, the outputs must all be unique'],correct:1,why:'Input 1 maps to both 2 and 5.'},{q:'For f(x) = 2x² − 3, what is f(−2)?',opts:['5','−11','11'],correct:0,why:'2(−2)² − 3 = 8 − 3 = 5.'},{q:'What is the domain of 1/(x − 4)?',opts:['[4, ∞)','All real x except 4','All real numbers'],correct:1,why:'Division by zero is undefined, so x ≠ 4.'},{q:'What is the domain of √(x + 3)?',opts:['(−3, ∞)','(−∞, −3]','[−3, ∞)'],correct:2,why:'x + 3 ≥ 0 means x ≥ −3.'},{q:'Which interval represents −3 < x ≤ 10?',opts:['[−3,10]','(−3,10]','(−3,10)'],correct:1,why:'−3 is excluded and 10 is included.'},{q:'What is the range of y=(x−1)²+2?',opts:['[2, ∞)','(−∞, 2]','All real numbers'],correct:0,why:'The upward parabola has minimum y=2.'},{q:'If f(−3)=5 and f(4)=5, is that allowed for a function?',opts:['Yes','No'],correct:0,why:'Different inputs may share an output.'},{q:'What does the vertical line test check?',opts:['Whether every horizontal line crosses once','Whether a vertical line intersects more than once','Whether the graph has a y-intercept'],correct:1,why:'A graph is a function exactly when each vertical line meets it at most once.'}];let offset=0;function quiz(){let selected=[0,1,2,3].map(i=>bank[(offset+i)%bank.length]);$('quiz-container').innerHTML=selected.map((q,i)=>`<div class="ca-quiz-question" data-answer="${q.correct}"><p>${i+1}. ${q.q}</p>${q.opts.map((o,j)=>`<label><input type="radio" name="quiz${i}" value="${j}"> ${o}</label>`).join('')}<div class="ca-muted ca-quiz-explanation" hidden>${q.why}</div></div>`).join('');$('quiz-feedback').textContent='Choose an answer for each question.';}$('quiz-check').onclick=()=>{let score=0;document.querySelectorAll('.ca-quiz-question').forEach(q=>{let chosen=q.querySelector('input:checked');let good=chosen&&+chosen.value===+q.dataset.answer;score+=good?1:0;let explain=q.querySelector('.ca-quiz-explanation');explain.hidden=false;explain.textContent=(good?'✓ Correct. ':'✗ Review: ')+explain.textContent.replace(/^[✓✗].*?\. /,'');});$('quiz-feedback').textContent=`${score} out of 4 correct. Review the explanations, then try another set.`};$('quiz-reset').onclick=()=>{offset=(offset+4)%bank.length;quiz()};quiz();
+// Section 3.1: work backwards from y to find all x values.
+function graphReading(){
+ const x=Number($('graph-input').value), yTarget=Number($('graph-output').value), f=t=>(t-1)*(t-1);
+ const svg=$('ca-read-graph'),g=plot(svg,f,{xmin:-3,xmax:5,ymin:-1,ymax:10});
+ const xPoints=[1-Math.sqrt(yTarget),1+Math.sqrt(yTarget)].filter((t,i,arr)=>i===0||Math.abs(t-arr[0])>1e-8);
+ svg.innerHTML+=`<line x1="${g.tx(-3)}" x2="${g.tx(5)}" y1="${g.ty(yTarget)}" y2="${g.ty(yTarget)}" stroke="#137b9a" stroke-dasharray="6 5" stroke-width="2.3"/>`;
+ svg.innerHTML+=`<line x1="${g.tx(x)}" x2="${g.tx(x)}" y1="${g.ty(0)}" y2="${g.ty(f(x))}" stroke="#d64d25" stroke-dasharray="4 4" stroke-width="2"/><circle cx="${g.tx(x)}" cy="${g.ty(f(x))}" r="6" fill="#e65125" stroke="#fff" stroke-width="2"/>`;
+ for(const t of xPoints){if(t>=-3&&t<=5)svg.innerHTML+=`<circle cx="${g.tx(t)}" cy="${g.ty(yTarget)}" r="5.5" fill="#137b9a" stroke="white" stroke-width="2"/>`;}
+ svg.innerHTML+=`<text x="${g.tx(5)-4}" y="${g.ty(0)-6}" text-anchor="end" font-size="14" fill="#b4bdd0">x</text><text x="${g.tx(0)+8}" y="${g.ty(10)+14}" font-size="14" fill="#b4bdd0">y</text>`;
+ $('graph-read-feedback').textContent=`f(${fmt(x)}) = ${f(x)}.  To solve f(x) = ${yTarget}, read the horizontal line y = ${yTarget}: x = ${xPoints.map(v=>fmt(v)).join(' or x = ')}.`;
+}
+['graph-input','graph-output'].forEach(id=>$(id).addEventListener('change',graphReading));graphReading();
+
+// Guided practice belongs inside each numbered section, not in a separate TOC chapter.
+const guidedBanks={
+ '31':[
+  {q:'For R = {(1,5), (−5,2), (0,0), (1,−3)}, what is the domain?',opts:['{−5, 0, 1}','{−3, 0, 2, 5}','{1, −5, 0, 1}'],correct:0,why:'Collect the first coordinates and list distinct values only once: {−5, 0, 1}.'},
+  {q:'For {(−7,−2), (3,0), (8,−2), (0,12), (−15,9)}, what is the range?',opts:['{−15, −7, 0, 3, 8}','{−2, 0, 9, 12}','{−2, 0, −2, 12, 9}'],correct:1,why:'The range is the set of distinct second coordinates: {−2, 0, 9, 12}.'},
+  {q:'Is {(p,m), (q,n), (r,n)} a function?',opts:['Yes, the inputs p, q, r each have one output','No, the output n occurs twice','Only if all outputs are different'],correct:0,why:'Different inputs q and r may share output n. Each input has exactly one output.'},
+  {q:'A shop sells a jelly and a chocolate donut for $1.99 each. Is item a function of price?',opts:['Yes, there is only one price','No, $1.99 would produce two different items','Yes, because the items are different'],correct:1,why:'Here price is the input. One input, $1.99, corresponds to two possible items.'},
+  {q:'In k = g(c), which symbol is the independent variable?',opts:['k','g','c'],correct:2,why:'g names the function; c is the input/independent variable; k is the output.'},
+  {q:'If f(x) = x³ − 6x + 1, what is f(−2)?',opts:['−19','5','−7'],correct:1,why:'f(−2) = (−2)³ − 6(−2) + 1 = −8 + 12 + 1 = 5.'},
+  {q:'If h(m) = m² − 5, solve h(m) = 4.',opts:['m = 3 only','m = ±3','m = ±9'],correct:1,why:'m² − 5 = 4 implies m² = 9, so m = −3 or m = 3.'},
+  {q:'Given g(n): (1,8), (2,6), (3,7), (4,6), (5,8), which inputs give output 8?',opts:['n = 1 and n = 5','n = 2 and n = 4','n = 3'],correct:0,why:'Find all pairs whose second coordinate is 8: (1,8) and (5,8).'},
+  {q:'Which equation fails the vertical line test?',opts:['y = 4 − x²','x² + y² = 6','y = x³'],correct:1,why:'At x = 0, the circle has two outputs y = ±√6; one vertical line intersects twice.'},
+  {q:'For f(x) = (x−1)², solve f(x) = 1.',opts:['x = 1','x = 0 or x = 2','x = −1 or x = 3'],correct:1,why:'(x−1)² = 1 implies x−1 = ±1, giving x = 0 or 2.'}
+ ],
+ '32':[
+  {q:'What is the domain of 1/(x − 4)?',opts:['[4, ∞)','All real numbers except x = 4','All real numbers'],correct:1,why:'Division by zero is undefined, so exclude x = 4.'},
+  {q:'What is the domain of √(x + 3)?',opts:['(−3, ∞)','(−∞, −3]','[−3, ∞)'],correct:2,why:'x + 3 ≥ 0 gives x ≥ −3, so [−3, ∞).'},
+  {q:'Which interval represents −3 < x ≤ 10?',opts:['[−3, 10]','(−3, 10]','(−3, 10)'],correct:1,why:'−3 is excluded (parenthesis), while 10 is included (bracket).'},
+  {q:'What is the range of y = (x−1)² + 2?',opts:['[2, ∞)','(−∞, 2]','All real numbers'],correct:0,why:'The upward-opening parabola has its minimum at y = 2.'},
+  {q:'What is the domain of 1/√(x−5)?',opts:['[5, ∞)','(5, ∞)','All real x except 5'],correct:1,why:'The square-root denominator must be strictly positive: x − 5 > 0, so x > 5.'},
+  {q:'For y = −(x+2)² + 3, what is the range?',opts:['[3, ∞)','(−∞, 3]','(−∞, ∞)'],correct:1,why:'A downward-opening parabola has maximum y = 3, included in its range.'},
+  {q:'What is the domain of ∛(x−2)?',opts:['[2, ∞)','All real numbers','All real numbers except 2'],correct:1,why:'An odd root is defined for negative, zero, and positive real radicands.'},
+  {q:'What does a filled endpoint at x = 4 mean?',opts:['x = 4 is included','x = 4 is excluded','The graph stops before x = 4'],correct:0,why:'A filled dot means the endpoint belongs to the set.'}
+ ]
+};
+const guidedHints={
+ '31':[
+  'Look only at the first coordinates. Sets contain each distinct element once.',
+  'Look only at the second coordinates. Repeated outputs are listed once.',
+  'Does any one input point to two different outputs?',
+  'Choose which quantity is the input, then check if it leads to a unique output.',
+  'The variable inside the parentheses is the input.',
+  'Substitute −2 for every x; take the cube before applying the minus sign.',
+  'First add 5 to both sides; then solve the resulting square equation.',
+  'Scan the output column for the number 8, then collect matching inputs.',
+  'Think about whether one x-value can have both positive and negative y-values.',
+  'Set the expression equal to 1, then use the two square roots of 1.'
+ ],
+ '32':[
+  'Find any input that makes the denominator zero.',
+  'A square-root radicand must be nonnegative.',
+  'Use a parenthesis for an excluded endpoint and bracket for an included one.',
+  'The graph opens upward. Identify its smallest output.',
+  'A square root in the denominator cannot be zero.',
+  'The graph opens downward. Identify its largest output.',
+  'Cube roots are defined for negative, zero, and positive numbers.',
+  'Think about the difference between an open and a filled dot.'
+ ]
+};
+function setupGuided(which){
+ const bank=guidedBanks[which],count=which==='31'?5:4;let offset=0;
+ const container=$(`quiz-${which}-container`),status=$(`quiz-${which}-feedback`);
+ function render(){
+  const chosen=Array.from({length:count},(_,i)=>({q:bank[(offset+i)%bank.length],i}));
+  container.innerHTML=chosen.map(({q,i})=>`<div class="ca-quiz-question" role="group" aria-label="${q.q}" data-answer="${q.correct}"><p class="ca-quiz-prompt">${i+1}. ${q.q}</p>${q.opts.map((option,j)=>`<label><input type="radio" name="guided${which}-${i}" value="${j}"> ${option}</label>`).join('')}<details class="ca-quiz-hint"><summary>Need a hint?</summary><p>${guidedHints[which][(offset+i)%bank.length]}</p></details><div class="ca-muted ca-quiz-explanation" hidden>${q.why}</div></div>`).join('');
+  status.textContent='Choose an answer for each problem. You can reveal hints before checking.';
+ }
+ $(`quiz-${which}-check`).addEventListener('click',()=>{
+  let score=0,answered=0;
+  container.querySelectorAll('.ca-quiz-question').forEach((fieldset,i)=>{
+   const answer=fieldset.querySelector('input:checked');if(answer)answered++;
+   const yes=answer && Number(answer.value)===Number(fieldset.dataset.answer);if(yes)score++;
+   fieldset.classList.toggle('ca-answered-correct',Boolean(yes));fieldset.classList.toggle('ca-answered-incorrect',!yes);
+   const explanation=fieldset.querySelector('.ca-quiz-explanation');explanation.hidden=false;
+   explanation.textContent=(yes?'✓ Correct. ':'→ Worked explanation: ')+bank[(offset+i)%bank.length].why;
+  });
+  status.textContent=`${score} / ${count} correct (${answered} answered). Review the explanations and try another set when ready.`;
+ });
+ $(`quiz-${which}-reset`).addEventListener('click',()=>{offset=(offset+count)%bank.length;render();});
+ render();
+}
+setupGuided('31');setupGuided('32');
 let modal=$('foundations-modal');$('foundations-open').onclick=()=>modal.showModal();$('foundations-close').onclick=()=>modal.close();modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});let grades=[['Homework',25],['Reviews',5],['PLTL',10],['Class activities',10],['Three exams',35],['Final exam',15]];$('grade-rows').innerHTML=grades.map(([name,w],i)=>`<div class="ca-grade-row"><label for="grade-${i}">${name}</label><b>${w}%</b><input id="grade-${i}" class="grade-score" type="number" min="0" max="100" step="0.1" placeholder="0–100" aria-label="${name} score"></div>`).join('');function calcGrades(){let values=[...document.querySelectorAll('.grade-score')].map(el=>el.value===''?null:+el.value);if(values.some(v=>v!==null&&(v<0||v>100||!Number.isFinite(v)))){$('grade-total').textContent='Enter valid percentages between 0 and 100.';return;}let completed=grades.reduce((t,g,i)=>t+(values[i]===null?0:g[1]),0),earned=grades.reduce((t,g,i)=>t+(values[i]===null?0:g[1]*values[i]/100),0);$('grade-total').textContent=completed?`Earned: ${earned.toFixed(2)} percentage points toward the final grade. Average across entered categories: ${(earned/completed*100).toFixed(1)}%. Categories entered: ${completed}% of course weight.`:'Enter scores above to estimate your grade.';}document.querySelectorAll('.grade-score').forEach(el=>el.addEventListener('input',calcGrades));calcGrades();})();
