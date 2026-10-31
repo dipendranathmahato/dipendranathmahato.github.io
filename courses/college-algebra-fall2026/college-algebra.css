@@ -277,3 +277,65 @@ html[data-theme="dark"] .course-page :is(.ca-story-arrow,.ca-discover i){color:#
 .course-page .ca-fee-legend i{display:inline-block;width:12px;height:12px;border-radius:3px}
 .course-page .ca-legend-fee{background:#d58a38}.course-page .ca-legend-games{background:#197e91}
 html[data-theme="dark"] .course-page .ca-fee-legend{color:#f2e7dc}
+
+/* Section 3.2 — original interactive Domain & Range activities. */
+.course-page #lesson-32 .ca-definition{border:1px solid #e6c5b5;border-left:4px solid #ed6234;border-radius:12px;padding:15px 18px;background:#fff7ef;margin:14px 0 18px}
+.course-page #lesson-32 .ca-definition strong{display:block;font-size:1rem;color:#a84421;margin-bottom:6px}
+.course-page #lesson-32 .ca-definition p{margin:.35rem 0 .6rem}
+.course-page #lesson-32 .ca-interval-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+.course-page #lesson-32 .ca-interval-grid > div{min-width:0}
+.course-page #lesson-32 .ca-interval-grid strong{overflow-wrap:anywhere}
+.course-page #lesson-32 .ca-interval-presets{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.course-page #lesson-32 .ca-interval-presets button{border-radius:9px;border:1px solid #b8c4d0;background:var(--card-bg,#fff);padding:8px 11px;cursor:pointer;font-size:.87rem;color:inherit;font-weight:650}
+.course-page #lesson-32 .ca-interval-presets button.active{background:#d95026;color:#fff;border-color:#d95026}
+.course-page #lesson-32 .ca-interval-controls{align-items:center}
+.course-page #lesson-32 .ca-interval-controls .ca-inline-check{flex-direction:row;align-items:center;gap:7px;min-width:130px;font-size:.85rem}
+.course-page #lesson-32 input[type="checkbox"]{accent-color:#e45c2a;width:17px;height:17px;flex:none}
+.course-page #lesson-32 :is(#interval-svg,#domain-svg){width:100%;max-width:100%;height:auto;max-height:none;overflow:visible;display:block}
+.course-page #lesson-32 .ca-lab-kicker{margin-top:20px;margin-bottom:8px}
+.course-page #lesson-32 .ca-notation-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:13px 0}
+.course-page #lesson-32 .ca-notation-cards>div{min-width:0;border:1px solid #dfc5b9;border-radius:11px;padding:13px;background:#fff9f5}
+.course-page #lesson-32 .ca-notation-cards small{display:block;font-size:.71rem;font-weight:800;letter-spacing:.075em;color:#a44725;margin-bottom:8px}
+.course-page #lesson-32 .ca-notation-cards strong{display:block;font-size:clamp(.9rem,1.6vw,1.16rem);line-height:1.48;overflow-wrap:anywhere;font-family:Cambria,Georgia,serif;font-weight:700;color:#343f4d}
+.course-page #lesson-32 :is(.ca-domain-cards,.ca-dr-results){grid-template-columns:repeat(2,minmax(0,1fr))}
+.course-page #lesson-32 .ca-rule-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}
+.course-page #lesson-32 .ca-rule-cards>div{display:flex;flex-direction:column;gap:7px;border:1px solid #d9c1b2;background:#fffbf7;padding:14px;border-radius:11px;min-width:0}
+.course-page #lesson-32 .ca-rule-cards b{font-size:.9rem;color:#ab4829}
+.course-page #lesson-32 .ca-rule-cards span{font-family:Cambria,Georgia,serif;font-size:1.1rem;font-weight:700}
+.course-page #lesson-32 .ca-rule-cards small{line-height:1.5;opacity:.85}
+.course-page #lesson-32 .ca-domain-status{padding:12px 15px;border-radius:10px;border:1px solid #c6d2df;background:var(--card-bg,#fff);line-height:1.65;margin:10px 0;font-weight:700}
+.course-page #lesson-32 .ca-domain-status.ca-domain-allowed{border-color:#91cbbb;background:#e9f8f2;color:#12624a}
+.course-page #lesson-32 .ca-domain-status.ca-domain-forbidden{border-color:#ecb4a6;background:#fff0eb;color:#953f2e}
+.course-page #lesson-32 .ca-worked-box{background:#f7f9fc;border:1px solid #ccd7e5;padding:14px 17px;border-radius:12px;margin:14px 0}
+.course-page #lesson-32 .ca-worked-box>b{display:block;margin-bottom:10px;color:#315976}
+.course-page #lesson-32 .ca-worked-box .ca-calculation-steps{margin:0;padding-left:26px}
+.course-page #lesson-32 .ca-worked-box .ca-calculation-steps li{margin-bottom:8px;padding-left:4px;line-height:1.65}
+.course-page #lesson-32 #dr-graph-svg{width:100%;max-width:100%;height:auto;max-height:none;display:block;aspect-ratio:650/400}
+.course-page #lesson-32 .ca-reading-key{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.course-page #lesson-32 .ca-reading-key .ca-example{margin:0}
+.course-page #lesson-32 .ca-reading-key .ca-example p{margin:7px 0 0}
+.course-page #lesson-32 .ca-mode-toggle{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.course-page #lesson-32 .ca-mode-toggle .ca-mode{border-radius:10px}
+.course-page #lesson-32 .ca-discover{margin:14px 0 4px}
+.course-page #lesson-32 .ca-guided-section .ca-remember{margin-top:18px}
+html[data-theme="dark"] .course-page #lesson-32 .ca-definition{background:#342e2b;border-color:#a9704f;color:#f2e8e2}
+html[data-theme="dark"] .course-page #lesson-32 .ca-definition strong{color:#ffbe9a}
+html[data-theme="dark"] .course-page #lesson-32 :is(.ca-notation-cards>div,.ca-rule-cards>div){background:#253343;border-color:#657487;color:#edf5fe}
+html[data-theme="dark"] .course-page #lesson-32 :is(.ca-notation-cards small,.ca-rule-cards b){color:#ffbf9b}
+html[data-theme="dark"] .course-page #lesson-32 .ca-notation-cards strong{color:#f2f7fc}
+html[data-theme="dark"] .course-page #lesson-32 .ca-worked-box{background:#263545;color:#ecf2fa;border-color:#5d7189}
+html[data-theme="dark"] .course-page #lesson-32 .ca-worked-box>b{color:#9fdbff}
+html[data-theme="dark"] .course-page #lesson-32 .ca-domain-status.ca-domain-allowed{background:#1a473e;color:#b5f4df;border-color:#439c7f}
+html[data-theme="dark"] .course-page #lesson-32 .ca-domain-status.ca-domain-forbidden{background:#542e30;color:#ffccc3;border-color:#ad665f}
+html[data-theme="dark"] .course-page #lesson-32 .ca-interval-presets button{background:#2b3b4c;color:#eff6fa;border-color:#77849a}
+html[data-theme="dark"] .course-page #lesson-32 .ca-interval-presets button.active{background:#d4562e;border-color:#ec906b;color:#fff}
+html[data-theme="dark"] .course-page #lesson-32{--ca-graph-grid:#435366}
+@media(max-width:840px){.course-page #lesson-32 .ca-interval-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.course-page #lesson-32 .ca-notation-cards{grid-template-columns:1fr}.course-page #lesson-32 .ca-rule-cards,.course-page #lesson-32 .ca-reading-key{grid-template-columns:1fr}.course-page #lesson-32 .ca-interval-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.course-page #lesson-32 .ca-interval-presets button{font-size:.81rem;padding:9px}.course-page #lesson-32 .ca-notation-cards strong{font-size:1.03rem}.course-page #lesson-32 .ca-worked-box{padding:12px}.course-page #lesson-32 .ca-interval-controls>label{flex:1 1 130px}}
+@media(max-width:390px){.course-page #lesson-32 .ca-interval-grid{grid-template-columns:1fr}.course-page #lesson-32 .ca-interval-presets{gap:5px}}
+
+
+/* Readable labels and graphs in both light and dark palettes. */
+.course-page #lesson-32 #dr-graph-kind{max-width:100%;width:min(100%,440px)}
+html[data-theme="dark"] .course-page #lesson-32 .ca-interval-grid b{color:#ffcfac}
+html[data-theme="dark"] .course-page #lesson-32{--ca-plot-bg:#263648;--ca-plot-text:#e5effa;--ca-graph-grid:#475a70}

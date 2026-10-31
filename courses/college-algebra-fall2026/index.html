@@ -301,6 +301,68 @@ html[data-theme="dark"] .course-page .ca-step-label,html[data-theme="dark"] .cou
 html[data-theme="dark"] .course-page .ca-step-math{color:#f4f6fb}
 html[data-theme="dark"] .course-page .ca-extra-calculation{background:#292f3c;border-color:#9f745e;color:#e9eef8}
 @media(max-width:540px){.course-page .ca-calculation-steps li{padding:9px 10px}.course-page .ca-step-math{font-size:.94rem}.course-page .ca-step-label{font-size:.77rem}}
+
+/* Section 3.2 — original interactive Domain & Range activities. */
+.course-page #lesson-32 .ca-definition{border:1px solid #e6c5b5;border-left:4px solid #ed6234;border-radius:12px;padding:15px 18px;background:#fff7ef;margin:14px 0 18px}
+.course-page #lesson-32 .ca-definition strong{display:block;font-size:1rem;color:#a84421;margin-bottom:6px}
+.course-page #lesson-32 .ca-definition p{margin:.35rem 0 .6rem}
+.course-page #lesson-32 .ca-interval-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+.course-page #lesson-32 .ca-interval-grid > div{min-width:0}
+.course-page #lesson-32 .ca-interval-grid strong{overflow-wrap:anywhere}
+.course-page #lesson-32 .ca-interval-presets{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.course-page #lesson-32 .ca-interval-presets button{border-radius:9px;border:1px solid #b8c4d0;background:var(--card-bg,#fff);padding:8px 11px;cursor:pointer;font-size:.87rem;color:inherit;font-weight:650}
+.course-page #lesson-32 .ca-interval-presets button.active{background:#d95026;color:#fff;border-color:#d95026}
+.course-page #lesson-32 .ca-interval-controls{align-items:center}
+.course-page #lesson-32 .ca-interval-controls .ca-inline-check{flex-direction:row;align-items:center;gap:7px;min-width:130px;font-size:.85rem}
+.course-page #lesson-32 input[type="checkbox"]{accent-color:#e45c2a;width:17px;height:17px;flex:none}
+.course-page #lesson-32 :is(#interval-svg,#domain-svg){width:100%;max-width:100%;height:auto;max-height:none;overflow:visible;display:block}
+.course-page #lesson-32 .ca-lab-kicker{margin-top:20px;margin-bottom:8px}
+.course-page #lesson-32 .ca-notation-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:13px 0}
+.course-page #lesson-32 .ca-notation-cards>div{min-width:0;border:1px solid #dfc5b9;border-radius:11px;padding:13px;background:#fff9f5}
+.course-page #lesson-32 .ca-notation-cards small{display:block;font-size:.71rem;font-weight:800;letter-spacing:.075em;color:#a44725;margin-bottom:8px}
+.course-page #lesson-32 .ca-notation-cards strong{display:block;font-size:clamp(.9rem,1.6vw,1.16rem);line-height:1.48;overflow-wrap:anywhere;font-family:Cambria,Georgia,serif;font-weight:700;color:#343f4d}
+.course-page #lesson-32 :is(.ca-domain-cards,.ca-dr-results){grid-template-columns:repeat(2,minmax(0,1fr))}
+.course-page #lesson-32 .ca-rule-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}
+.course-page #lesson-32 .ca-rule-cards>div{display:flex;flex-direction:column;gap:7px;border:1px solid #d9c1b2;background:#fffbf7;padding:14px;border-radius:11px;min-width:0}
+.course-page #lesson-32 .ca-rule-cards b{font-size:.9rem;color:#ab4829}
+.course-page #lesson-32 .ca-rule-cards span{font-family:Cambria,Georgia,serif;font-size:1.1rem;font-weight:700}
+.course-page #lesson-32 .ca-rule-cards small{line-height:1.5;opacity:.85}
+.course-page #lesson-32 .ca-domain-status{padding:12px 15px;border-radius:10px;border:1px solid #c6d2df;background:var(--card-bg,#fff);line-height:1.65;margin:10px 0;font-weight:700}
+.course-page #lesson-32 .ca-domain-status.ca-domain-allowed{border-color:#91cbbb;background:#e9f8f2;color:#12624a}
+.course-page #lesson-32 .ca-domain-status.ca-domain-forbidden{border-color:#ecb4a6;background:#fff0eb;color:#953f2e}
+.course-page #lesson-32 .ca-worked-box{background:#f7f9fc;border:1px solid #ccd7e5;padding:14px 17px;border-radius:12px;margin:14px 0}
+.course-page #lesson-32 .ca-worked-box>b{display:block;margin-bottom:10px;color:#315976}
+.course-page #lesson-32 .ca-worked-box .ca-calculation-steps{margin:0;padding-left:26px}
+.course-page #lesson-32 .ca-worked-box .ca-calculation-steps li{margin-bottom:8px;padding-left:4px;line-height:1.65}
+.course-page #lesson-32 #dr-graph-svg{width:100%;max-width:100%;height:auto;max-height:none;display:block;aspect-ratio:650/400}
+.course-page #lesson-32 .ca-reading-key{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.course-page #lesson-32 .ca-reading-key .ca-example{margin:0}
+.course-page #lesson-32 .ca-reading-key .ca-example p{margin:7px 0 0}
+.course-page #lesson-32 .ca-mode-toggle{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.course-page #lesson-32 .ca-mode-toggle .ca-mode{border-radius:10px}
+.course-page #lesson-32 .ca-discover{margin:14px 0 4px}
+.course-page #lesson-32 .ca-guided-section .ca-remember{margin-top:18px}
+html[data-theme="dark"] .course-page #lesson-32 .ca-definition{background:#342e2b;border-color:#a9704f;color:#f2e8e2}
+html[data-theme="dark"] .course-page #lesson-32 .ca-definition strong{color:#ffbe9a}
+html[data-theme="dark"] .course-page #lesson-32 :is(.ca-notation-cards>div,.ca-rule-cards>div){background:#253343;border-color:#657487;color:#edf5fe}
+html[data-theme="dark"] .course-page #lesson-32 :is(.ca-notation-cards small,.ca-rule-cards b){color:#ffbf9b}
+html[data-theme="dark"] .course-page #lesson-32 .ca-notation-cards strong{color:#f2f7fc}
+html[data-theme="dark"] .course-page #lesson-32 .ca-worked-box{background:#263545;color:#ecf2fa;border-color:#5d7189}
+html[data-theme="dark"] .course-page #lesson-32 .ca-worked-box>b{color:#9fdbff}
+html[data-theme="dark"] .course-page #lesson-32 .ca-domain-status.ca-domain-allowed{background:#1a473e;color:#b5f4df;border-color:#439c7f}
+html[data-theme="dark"] .course-page #lesson-32 .ca-domain-status.ca-domain-forbidden{background:#542e30;color:#ffccc3;border-color:#ad665f}
+html[data-theme="dark"] .course-page #lesson-32 .ca-interval-presets button{background:#2b3b4c;color:#eff6fa;border-color:#77849a}
+html[data-theme="dark"] .course-page #lesson-32 .ca-interval-presets button.active{background:#d4562e;border-color:#ec906b;color:#fff}
+html[data-theme="dark"] .course-page #lesson-32{--ca-graph-grid:#435366}
+@media(max-width:840px){.course-page #lesson-32 .ca-interval-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.course-page #lesson-32 .ca-notation-cards{grid-template-columns:1fr}.course-page #lesson-32 .ca-rule-cards,.course-page #lesson-32 .ca-reading-key{grid-template-columns:1fr}.course-page #lesson-32 .ca-interval-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.course-page #lesson-32 .ca-interval-presets button{font-size:.81rem;padding:9px}.course-page #lesson-32 .ca-notation-cards strong{font-size:1.03rem}.course-page #lesson-32 .ca-worked-box{padding:12px}.course-page #lesson-32 .ca-interval-controls>label{flex:1 1 130px}}
+@media(max-width:390px){.course-page #lesson-32 .ca-interval-grid{grid-template-columns:1fr}.course-page #lesson-32 .ca-interval-presets{gap:5px}}
+
+
+/* Readable labels and graphs in both light and dark palettes. */
+.course-page #lesson-32 #dr-graph-kind{max-width:100%;width:min(100%,440px)}
+html[data-theme="dark"] .course-page #lesson-32 .ca-interval-grid b{color:#ffcfac}
+html[data-theme="dark"] .course-page #lesson-32{--ca-plot-bg:#263648;--ca-plot-text:#e5effa;--ca-graph-grid:#475a70}
 </style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/academicons/css/academicons.min.css" rel="stylesheet"/><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style id="ca-art-club-arrow-styles">
 /* Responsive, theme-aware arrow diagram for the art-club function example. */
@@ -403,7 +465,7 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
 </style>
 </head><body class="course-page"><div class="page"><header class="top-nav" data-shared-template="header"></header><main class="layout"><aside class="sidebar" data-shared-template="sidebar"></aside><section class="main"><div class="uni-header prominent ca-university-header"><div class="uni-header-left"><i class="fa-solid fa-school"></i><div><h3 class="uni-title">University of Texas Rio Grande Valley</h3><div class="uni-subtitle">Current teaching · Edinburg, Texas · Fall 2026</div></div></div><div class="uni-header-logo"><img alt="UTRGV" src="/assets/images/utrgv-logo.svg"/></div></div><div class="ca"><header class="ca-hero"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> UNIVERSITY OF TEXAS RIO GRANDE VALLEY · FALL 2026 · MATH 1314</span><h1>College Algebra — Interactive Course Notes</h1><p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 8:00–9:15 AM · EMAGC 1.206 <span class="ca-hero-schedule-separator">·</span> PLTL online 9:30–10:45 AM</p><div class="ca-hero-links"><button class="ca-foundations-btn" id="foundations-open"><i class="fa-solid fa-layer-group"></i> Course Foundations</button></div></header><div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open a chapter in the left-hand contents menu to reveal its topics. The full lecture notes remain visible in the main area.</span></div><div class="ca-layout"><nav aria-label="Lesson navigation" class="ca-toc"><strong><i class="fa-solid fa-list-ul"></i> ON THIS PAGE</strong>
 <details class="ca-toc-chapter" open=""><summary><i class="fa-solid fa-chart-line"></i> 3.1 · Functions and Function Notation <i aria-hidden="true" class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-31">Section overview</a><a href="#ordered-pairs" title="01 · Ordered pairs, domain, and range">01 · Ordered pairs, domain, and range</a><a href="#mappings" title="02 · Is the relation a function?">02 · Is the relation a function?</a><a href="#notation" title="03 · Reading function notation">03 · Reading function notation</a><a href="#representations" title="04 · One function, four views">04 · One function, four views</a><a href="#vertical" title="05 · Vertical line test explorer">05 · Vertical line test explorer</a><a href="#formula-examples" title="06 · Forward and backward: from inputs to outputs">06 · Forward and backward: from inputs to outputs</a><a href="#evaluation" title="07 · Interactive function machine">07 · Interactive function machine</a><a href="#tables" title="08 · Search a function table">08 · Search a function table</a><a href="#graph-reading" title="09 · Read a graph in two directions">09 · Read a graph in two directions</a><a href="#toolkit" title="10 · Parent-function gallery">10 · Parent-function gallery</a><a href="#guided-31" title="Guided problems · Functions and Notation">Guided problems · Functions and Notation</a></div></details>
-<details class="ca-toc-chapter"><summary><i class="fa-solid fa-ruler-combined"></i> 3.2 · Domain and Range <i aria-hidden="true" class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-32">Section overview</a><a href="#intervals" title="01 · Interval notation — examples &amp; interactive builder">01 · Interval notation — examples &amp; interactive builder</a><a href="#domain-lab" title="02 · Domain restriction laboratory">02 · Domain restriction laboratory</a><a href="#range-graph" title="03 · Graph and range explorer">03 · Graph and range explorer</a><a href="#guided-32" title="Guided problems · Domain and Range">Guided problems · Domain and Range</a></div></details>
+<details class="ca-toc-chapter"><summary><i class="fa-solid fa-ruler-combined"></i> 3.2 · Domain and Range <i aria-hidden="true" class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-32">Section overview</a><a href="#intervals" title="01 · Interval notation and number lines">01 · Interval notation and number lines</a><a href="#domain-lab" title="02 · Domain from a function’s equation">02 · Domain from a function’s equation</a><a href="#graph-domain-range" title="03 · Read domain and range from graphs">03 · Read domain and range from graphs</a><a href="#range-graph" title="04 · Experiment with the range of a parabola">04 · Experiment with the range of a parabola</a><a href="#guided-32" title="Guided problems · Domain and Range">Guided problems · Domain and Range</a></div></details>
 </nav><div class="ca-content"><article class="ca-lesson" id="lesson-31"><span class="ca-chapter">SECTION 3.1</span><h2>Functions and Function Notation</h2><p class="ca-lede">A <b>relation</b> is a set of ordered pairs. It is a <b>function</b> when each input is assigned exactly one output. Learn to read, represent, evaluate, and graph functions.</p><div class="ca-goals"><b>Learning objectives</b> Determine whether a relation is a function; identify domain and range of ordered pairs; use function notation; find inputs and outputs from formulas, tables, and graphs; apply the vertical line test; recognize toolkit graphs.</div><p class="ca-source-credit">Learning objectives informed by the Section 3.1 course notes (Dr. Setayesh). The scenarios, visualizations, and practice activities here are newly authored.</p><section class="ca-panel" id="ordered-pairs">
 <h3>01 · Ordered pairs, domain, and range</h3>
 <div class="ca-definition"><strong>Start with a point</strong><p>An ordered pair <b>(x, y)</b> connects an <b>input</b> to an <b>output</b>. A <b>relation</b> is a set of such pairs. Its <b>domain</b> contains the distinct x-values, and its <b>range</b> contains the distinct y-values. Repeated values appear only once in a set.</p></div>
@@ -501,13 +563,103 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
 <div aria-label="Choose a parent function" class="ca-toolkit ca-toolkit-interactive" role="group"><button aria-pressed="true" class="ca-toolkit-option active" data-toolkit="identity" type="button"><b>Identity</b><small>y = x</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="constant" type="button"><b>Constant</b><small>y = 2</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="square" type="button"><b>Square</b><small>y = x²</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="cube" type="button"><b>Cube</b><small>y = x³</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="absolute" type="button"><b>Absolute value</b><small>y = |x|</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="root" type="button"><b>Square root</b><small>y = √x</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="reciprocal" type="button"><b>Reciprocal</b><small>y = 1/x</small></button></div>
 <svg aria-label="Preview of selected parent-function graph" id="toolkit-graph" role="img" viewbox="0 0 560 310"></svg><div aria-live="polite" class="ca-feedback" id="toolkit-clue"></div>
 </section>
-<section class="ca-panel ca-guided-section" id="guided-31"><div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.1 · PRACTICE</span><h3>Guided problems · Functions and Notation</h3><p>Try original questions based on the new visual labs. Reveal hints, check explanations, and generate another set. Ungraded practice stays inside Section 3.1.</p></div><div id="quiz-31-container"></div><div class="ca-controls"><button class="ca-btn" id="quiz-31-check" type="button">Check answers</button><button class="ca-btn ca-btn-outline" id="quiz-31-reset" type="button">Try more problems</button></div><div aria-live="polite" class="ca-feedback" id="quiz-31-feedback">Choose an answer for each problem.</div></section></article><article class="ca-lesson" id="lesson-32"><span class="ca-chapter">SECTION 3.2</span><h2>Domain and Range</h2><p class="ca-lede">The <b>domain</b> contains allowable inputs (x-values); the <b>range</b> contains actual outputs (y-values). An open endpoint is excluded; a filled endpoint is included.</p><div class="ca-goals"><b>Learning goals</b> Use interval notation, recognize excluded denominators and square-root restrictions, and determine domain and range from graphs.</div><section class="ca-panel" id="intervals"><h3>01 · Interval notation — examples &amp; interactive builder</h3><p>Choose endpoints and whether to include them. The number line and mathematical notation update together.</p><div class="ca-interval-reference"><h4><i class="fa-solid fa-ruler-horizontal"></i> INTERVAL NOTATION · Reference guide</h4><p><b>Parentheses ( )</b> exclude endpoints; <b>brackets [ ]</b> include endpoints. Infinity is never an endpoint you can include, so always use parentheses with ±∞.</p><div class="ca-interval-grid">
-<div><b>Open interval</b><strong>(a, b)</strong><span>a &lt; x &lt; b</span></div><div><b>Closed interval</b><strong>[a, b]</strong><span>a ≤ x ≤ b</span></div>
-<div><b>Left included</b><strong>[a, b)</strong><span>a ≤ x &lt; b</span></div><div><b>Right included</b><strong>(a, b]</strong><span>a &lt; x ≤ b</span></div>
-<div><b>Unbounded left</b><strong>(−∞, a)</strong><span>x &lt; a</span></div><div><b>Unbounded left, includes a</b><strong>(−∞, a]</strong><span>x ≤ a</span></div>
-<div><b>Unbounded right</b><strong>(a, ∞)</strong><span>x &gt; a</span></div><div><b>Unbounded right, includes a</b><strong>[a, ∞)</strong><span>x ≥ a</span></div>
-<div><b>All real numbers</b><strong>(−∞, ∞)</strong><span>x ∈ ℝ</span></div><div><b>Union of intervals</b><strong>(−∞, −2) ∪ [1, 4)</strong><span>x &lt; −2 or 1 ≤ x &lt; 4</span></div>
-</div><div class="ca-interval-tip"><b>Visual key:</b> ○ open circle = excluded; ● filled circle = included; ←/→ = extends indefinitely. Try the preset buttons to see each type on a number line.</div><div class="ca-interval-presets" id="interval-presets"><button data-kind="open" type="button">(a, b)</button><button data-kind="closed" type="button">[a, b]</button><button data-kind="leftclosed" type="button">[a, b)</button><button data-kind="rightclosed" type="button">(a, b]</button><button data-kind="leftopen" type="button">(−∞, a)</button><button data-kind="leftinclusive" type="button">(−∞, a]</button><button data-kind="rightopen" type="button">(a, ∞)</button><button data-kind="rightinclusive" type="button">[a, ∞)</button><button data-kind="all" type="button">(−∞, ∞)</button><button data-kind="union" type="button">Union</button></div></div><div class="ca-controls"><label>Left endpoint <input id="int-left" max="10" min="-10" type="number" value="-3"/></label><label>Right endpoint <input id="int-right" max="10" min="-10" type="number" value="5"/></label><label><input id="left-closed" type="checkbox"/> Include left</label><label><input checked="" id="right-closed" type="checkbox"/> Include right</label></div><svg aria-label="Number line with adjustable endpoints" id="interval-svg" role="img" viewbox="0 0 560 115"></svg><div class="ca-equation" id="interval-answer"></div><div class="ca-feedback" id="interval-text"></div></section><section class="ca-panel" id="domain-lab"><h3>02 · Domain restriction laboratory</h3><p>Experiment with the denominator or radicand. Watch what inputs become forbidden.</p><div class="ca-domain-rules"><h4>General domain rules (over the real numbers)</h4><div class="ca-domain-rule"><b>1 · Denominators</b><span>Every denominator must be nonzero: for <em>1/g(x)</em>, require <em>g(x) ≠ 0</em>. Example: 1/(x − 3) requires x ≠ 3.</span></div><div class="ca-domain-rule"><b>2 · Even-index roots</b><span>For √[2n]{g(x)} require <em>g(x) ≥ 0</em>. Example: √(x − 4) requires x ≥ 4.</span></div><div class="ca-domain-rule"><b>3 · Even roots in a denominator</b><span>For 1/√[2n]{g(x)} require <em>g(x) &gt; 0</em>. Example: 1/√(x − 4) requires x &gt; 4.</span></div><div class="ca-domain-rule"><b>4 · Odd-index roots</b><span>√[2n+1]{g(x)} permits negative, zero, and positive radicands (subject to g itself being defined). Example: ∛(x + 1) is defined for all real x.</span></div><div class="ca-domain-rule"><b>5 · Odd roots in a denominator</b><span>For 1/√[2n+1]{g(x)}, require <em>g(x) ≠ 0</em>. Example: 1/∛(x − 4) excludes x = 4.</span></div><p><b>Combined expressions:</b> apply every restriction simultaneously; the domain is the intersection of all allowed inputs.</p></div><div class="ca-controls"><label>Function type <select id="domain-kind"><option value="fraction">Reciprocal: 1 / (x − k)</option><option value="root">Square root: √(x − k)</option><option value="rootden">Root in denominator: 1 / √(x − k)</option><option value="quadratic">Polynomial: (x − k)²</option><option value="oddroot">Cube root: ∛(x − k)</option><option value="oddrootden">Cube root in denominator: 1 / ∛(x − k)</option></select></label><label>k = <output id="k-output">2</output><input id="domain-k" max="5" min="-5" step="1" type="range" value="2"/></label><label>Test x <input id="domain-x" step="0.5" type="number" value="2"/></label></div><div class="ca-equation" id="domain-expression"></div><div class="ca-feedback" id="domain-result"></div><div class="ca-muted" id="domain-interval"></div></section><section class="ca-panel" id="range-graph"><h3>03 · Graph and range explorer</h3><p>Move the vertex of \(f(x)=a(x-h)^2+k\), then observe the domain and range. Change the sign of a to flip the parabola.</p><div class="ca-controls"><label>Vertex h <input id="vertex-h" max="4" min="-4" type="range" value="1"/><output id="h-display">1</output></label><label>Vertex k <input id="vertex-k" max="4" min="-4" type="range" value="-2"/><output id="v-display">−2</output></label><label>Direction <select id="vertex-a"><option value="1">Upward opening</option><option value="-1">Downward opening</option></select></label></div><svg aria-label="Adjustable parabola with highlighted vertex" id="range-svg" role="img" viewbox="0 0 560 310"></svg><div class="ca-feedback" id="range-answer"></div></section><section class="ca-panel ca-guided-section" id="guided-32"><div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.2 · PRACTICE</span><h3>Guided problems · Domain and Range</h3><p>Work through interval notation, restrictions, and graph-range questions. Each answer includes an explanation. These questions are ungraded.</p></div><div id="quiz-32-container"></div><div class="ca-controls"><button class="ca-btn" id="quiz-32-check" type="button">Check answers</button><button class="ca-btn ca-btn-outline" id="quiz-32-reset" type="button">Try more problems</button></div><div aria-live="polite" class="ca-feedback" id="quiz-32-feedback">Choose an answer for each problem.</div></section></article><footer class="ca-footer">Concept sequence informed by course Section 3.1 notes (Dr. Setayesh); original interactive activities and practice created for this website. · <a href="https://openstax.org/books/college-algebra/pages/1-introduction-to-prerequisites" rel="noopener" target="_blank">OpenStax College Algebra</a></footer></div></div></div></section></main><footer data-shared-template="footer"></footer></div><dialog class="ca-modal" id="foundations-modal"><div class="ca-modal-head"><div><small>MATH 1314-204 · FALL 2026</small><h2>Course Foundations</h2></div><button aria-label="Close foundations" class="ca-btn ca-btn-outline" id="foundations-close">✕ Close</button></div><div class="ca-modal-body ca-foundation-book">
+<section class="ca-panel ca-guided-section" id="guided-31"><div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.1 · PRACTICE</span><h3>Guided problems · Functions and Notation</h3><p>Try original questions based on the new visual labs. Reveal hints, check explanations, and generate another set. Ungraded practice stays inside Section 3.1.</p></div><div id="quiz-31-container"></div><div class="ca-controls"><button class="ca-btn" id="quiz-31-check" type="button">Check answers</button><button class="ca-btn ca-btn-outline" id="quiz-31-reset" type="button">Try more problems</button></div><div aria-live="polite" class="ca-feedback" id="quiz-31-feedback">Choose an answer for each problem.</div></section></article><article class="ca-lesson" id="lesson-32">
+  <span class="ca-chapter">SECTION 3.2</span>
+  <h2>Domain and Range</h2>
+  <p class="ca-lede">Every function has a collection of <b>allowed inputs</b> (its domain) and <b>possible outputs</b> (its range). Learn to read these sets on a number line, calculate restrictions from formulas, and project a graph onto its axes.</p>
+  <div class="ca-goals"><b>Learning objectives</b> Translate inequalities into interval and set-builder notation; determine the domain of a function from its equation; and read both domain and range from a graph.</div>
+  <p class="ca-source-credit">Concepts and lesson sequence adapted from the supplied Section 3.2 notes; examples, graphics, and activities are newly designed for this page.</p>
+
+  <section class="ca-panel" id="intervals">
+    <h3>01 · Interval notation and number lines</h3>
+    <div class="ca-definition"><strong>How to write an interval</strong>
+      <p>Write the <b>smaller value first</b>, then the larger value. Use a <b>parenthesis ( )</b> when a boundary is excluded, and a <b>bracket [ ]</b> when it is included. Always write parentheses beside <b>−∞</b> and <b>∞</b>: infinity is not a real number you can reach.</p>
+      <p><b>Set-builder notation:</b> {x ∈ ℝ | condition} means “all real numbers x such that the stated condition holds.” The symbol <b>∪</b> joins two pieces of a set.</p>
+    </div>
+    <div class="ca-interval-reference"><h4><i class="fa-solid fa-ruler-horizontal"></i> INTERVAL NOTATION · Quick reference</h4>
+      <div class="ca-interval-grid">
+        <div><b>Both excluded</b><strong>(a, b)</strong><span>a &lt; x &lt; b</span></div>
+        <div><b>Both included</b><strong>[a, b]</strong><span>a ≤ x ≤ b</span></div>
+        <div><b>Only a included</b><strong>[a, b)</strong><span>a ≤ x &lt; b</span></div>
+        <div><b>Only b included</b><strong>(a, b]</strong><span>a &lt; x ≤ b</span></div>
+        <div><b>Left ray</b><strong>(−∞, b]</strong><span>x ≤ b</span></div>
+        <div><b>Right ray</b><strong>(a, ∞)</strong><span>x &gt; a</span></div>
+        <div><b>All real numbers</b><strong>(−∞, ∞)</strong><span>x ∈ ℝ</span></div>
+        <div><b>Separate pieces</b><strong>(−∞, −1) ∪ [2, 5)</strong><span>x &lt; −1 or 2 ≤ x &lt; 5</span></div>
+      </div>
+    </div>
+    <div class="ca-lab-kicker"><i class="fa-solid fa-sliders"></i> INTERACTIVE · BUILD AN INTERVAL</div>
+    <p>Choose an interval shape, then move its boundaries. Watch the <b>inequality</b>, <b>set-builder notation</b>, and <b>interval notation</b> change together with the number line.</p>
+    <div class="ca-interval-presets" id="interval-presets" aria-label="Interval shape presets">
+      <button type="button" data-kind="open">(a, b)</button><button type="button" data-kind="closed">[a, b]</button><button type="button" data-kind="leftclosed">[a, b)</button><button type="button" data-kind="rightclosed">(a, b]</button><button type="button" data-kind="leftopen">(−∞, b)</button><button type="button" data-kind="leftinclusive">(−∞, b]</button><button type="button" data-kind="rightopen">(a, ∞)</button><button type="button" data-kind="rightinclusive">[a, ∞)</button><button type="button" data-kind="all">All ℝ</button><button type="button" data-kind="union">Two pieces</button>
+    </div>
+    <div class="ca-controls ca-interval-controls"><label>Left boundary, a<input id="int-left" type="number" min="-10" max="10" step="1" value="-3"></label><label>Right boundary, b<input id="int-right" type="number" min="-10" max="10" step="1" value="5"></label><label class="ca-inline-check"><input id="left-closed" type="checkbox"> Include left boundary</label><label class="ca-inline-check"><input id="right-closed" type="checkbox" checked> Include right boundary</label></div>
+    <svg id="interval-svg" viewBox="0 0 620 152" role="img" aria-label="Interactive number line showing which interval endpoints are included"></svg>
+    <div class="ca-notation-cards" aria-live="polite">
+      <div><small>INEQUALITY</small><strong id="interval-inequality">−3 &lt; x ≤ 5</strong></div>
+      <div><small>SET-BUILDER</small><strong id="interval-setbuilder">{x ∈ ℝ | −3 &lt; x ≤ 5}</strong></div>
+      <div><small>INTERVAL NOTATION</small><strong id="interval-answer">(−3, 5]</strong></div>
+    </div>
+    <div class="ca-feedback" id="interval-text" aria-live="polite"></div>
+    <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Think–pair–share:</b> Could an interval include ∞? What changes if an open circle becomes filled? Explain it using both inequality notation and the number line.</span></div>
+  </section>
+
+  <section class="ca-panel" id="domain-lab">
+    <h3>02 · Domain from a function's equation</h3>
+    <div class="ca-definition"><strong>What is a “good” input?</strong>
+      <p>An input x belongs to the <b>domain</b> precisely when the rule gives a real, defined output. For a polynomial, every real input works. For a rational expression, <b>no denominator may equal zero</b>. For an even root, its <b>radicand must be nonnegative</b>; if that root appears in a denominator, it must be <b>strictly positive</b>.</p>
+    </div>
+    <div class="ca-rule-cards">
+      <div><b><i class="fa-solid fa-divide"></i> Denominator</b><span>Require D(x) ≠ 0</span><small>Never divide by zero.</small></div>
+      <div><b><i class="fa-solid fa-square-root-variable"></i> Square root</b><span>Require R(x) ≥ 0</span><small>Zero is allowed under √.</small></div>
+      <div><b><i class="fa-solid fa-ban"></i> √ in denominator</b><span>Require R(x) &gt; 0</span><small>Zero is not allowed there.</small></div>
+      <div><b><i class="fa-solid fa-check"></i> Polynomial / cube root</b><span>Every real x works</span><small>Unless another restriction applies.</small></div>
+    </div>
+    <div class="ca-lab-kicker"><i class="fa-solid fa-flask"></i> INTERACTIVE · TEST THE INPUT</div>
+    <p>Pick a formula and change <b>k</b>. Try inputs to the left, at, and to the right of a restricted value. The number line shows the <b>whole domain</b>, while the indicator checks your chosen input.</p>
+    <div class="ca-controls">
+      <label>Function type<select id="domain-kind"><option value="fraction">Rational: 1/(x − k)</option><option value="fraction2">Two excluded inputs: 1/(x² − k²)</option><option value="root">Square root: √(x − k)</option><option value="rootleft">Square root: √(k − x)</option><option value="rootden">Square root in denominator</option><option value="quadratic">Polynomial: (x − k)² + 1</option><option value="oddroot">Cube root: ∛(x − k)</option><option value="oddrootden">Cube root in denominator</option></select></label>
+      <label>Change k = <output id="k-output">2</output><input id="domain-k" type="range" min="-5" max="5" value="2" step="1"></label>
+      <label>Test the input x =<input id="domain-x" type="number" step="0.5" value="2"></label>
+    </div>
+    <div class="ca-equation" id="domain-expression">f(x) = 1/(x − 2)</div>
+    <svg id="domain-svg" viewBox="0 0 620 160" role="img" aria-label="Domain number line highlighting allowed input values and the input being tested"></svg>
+    <div class="ca-domain-status" id="domain-result" aria-live="polite"></div>
+    <div class="ca-notation-cards ca-domain-cards" aria-live="polite"><div><small>SET-BUILDER DOMAIN</small><strong id="domain-setbuilder"></strong></div><div><small>INTERVAL DOMAIN</small><strong id="domain-interval"></strong></div></div>
+    <div class="ca-worked-box"><b><i class="fa-solid fa-list-ol"></i> Why is this the domain? · Step-by-step</b><ol id="domain-steps" class="ca-calculation-steps"></ol></div>
+    <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Try this:</b> Compare <b>√(x − k)</b> with <b>1/√(x − k)</b>. Why does the same boundary change from a filled dot to an open dot?</span></div>
+  </section>
+
+  <section class="ca-panel" id="graph-domain-range">
+    <h3>03 · Read domain and range directly from graphs</h3>
+    <div class="ca-two-column ca-reading-key"><div class="ca-example"><b><i class="fa-solid fa-arrows-left-right"></i> DOMAIN · Scan left to right</b><p>Ask <b>“Which x-values occur?”</b> Imagine the graph casting a shadow onto the <b>x-axis</b>. Include only x-values actually reached by the graph.</p></div><div class="ca-example"><b><i class="fa-solid fa-arrows-up-down"></i> RANGE · Scan bottom to top</b><p>Ask <b>“Which y-values occur?”</b> Imagine the graph casting a shadow onto the <b>y-axis</b>. Include only y-values actually reached.</p></div></div>
+    <div class="ca-lab-kicker"><i class="fa-solid fa-chart-area"></i> INTERACTIVE · SHADOWS ON THE AXES</div>
+    <p>Select a graph and choose which axis to inspect. <b>Orange</b> shows the function; the <b>blue highlight</b> shows all allowed inputs or all attained outputs. Open/filled endpoints and any asymptotes matter.</p>
+    <div class="ca-controls"><label>Choose a graph<select id="dr-graph-kind"><option value="segment">Finite line segment · one open endpoint</option><option value="root">Square-root curve · a starting point</option><option value="absolute">Absolute-value graph · a minimum</option><option value="parabola">Downward parabola · a maximum</option><option value="reciprocal">Reciprocal curve · a missing input and output</option></select></label></div>
+    <div class="ca-mode-toggle" role="group" aria-label="Highlight x or y axis"><button type="button" class="ca-mode active" data-dr-view="domain" aria-pressed="true">Show domain · x-shadow</button><button type="button" class="ca-mode" data-dr-view="range" aria-pressed="false">Show range · y-shadow</button></div>
+    <svg id="dr-graph-svg" viewBox="0 0 650 400" role="img" aria-label="Coordinate graph with the domain or range projected onto the corresponding axis"></svg>
+    <div class="ca-notation-cards ca-dr-results" aria-live="polite"><div><small>DOMAIN · LEFT TO RIGHT</small><strong id="dr-domain"></strong></div><div><small>RANGE · BOTTOM TO TOP</small><strong id="dr-range"></strong></div></div>
+    <div class="ca-feedback" id="dr-explanation" aria-live="polite"></div>
+    <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Think–pair–share:</b> Which type of graph can have every real input but only some output values? Find an example above and describe its range.</span></div>
+  </section>
+
+  <section class="ca-panel" id="range-graph">
+    <h3>04 · Experiment with the range of a parabola</h3>
+    <p>Move the vertex of <b>f(x) = a(x − h)² + k</b>. The x-values are unrestricted, but the vertex gives the <b>smallest</b> or <b>largest</b> y-value. The projections update as you move the vertex.</p>
+    <div class="ca-controls"><label>Vertex h = <output id="h-display">1</output><input id="vertex-h" type="range" min="-4" max="4" value="1"></label><label>Vertex k = <output id="v-display">−2</output><input id="vertex-k" type="range" min="-4" max="4" value="-2"></label><label>Opening direction<select id="vertex-a"><option value="1">Opens up · minimum</option><option value="-1">Opens down · maximum</option></select></label></div>
+    <svg id="range-svg" viewBox="0 0 560 310" role="img" aria-label="Parabola whose vertex and opening direction can be changed"></svg>
+    <div class="ca-notation-cards ca-dr-results" aria-live="polite"><div><small>DOMAIN</small><strong id="range-domain">(−∞, ∞)</strong></div><div><small>RANGE</small><strong id="range-range"></strong></div></div>
+    <div class="ca-feedback" id="range-answer" aria-live="polite"></div>
+  </section>
+
+  <section class="ca-panel ca-guided-section" id="guided-32">
+    <div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.2 · PRACTICE</span><h3>Guided problems · Domain and Range</h3><p>Practice each idea from the notes: inequality notation, set-builder language, restrictions from equations, and domains and ranges read from graphs. Reveal a hint, check your answers, then try another set.</p></div>
+    <div id="quiz-32-container"></div>
+    <div class="ca-controls"><button class="ca-btn" type="button" id="quiz-32-check">Check answers</button><button class="ca-btn ca-btn-outline" type="button" id="quiz-32-reset">Try more problems</button></div>
+    <div class="ca-feedback" id="quiz-32-feedback" aria-live="polite">Choose an answer for each problem.</div>
+    <div class="ca-remember" role="note"><div class="ca-remember-heading"><i class="fa-solid fa-bookmark"></i> SECTION 3.2 · QUICK RECAP</div><p><b>Intervals:</b> open means excluded, filled means included; ∞ always uses parentheses. <b>Equations:</b> exclude zero denominators and negative even-root radicands (strictly positive for roots in denominators). <b>Graphs:</b> read domain left → right and range bottom → top; identify included endpoints and missing values.</p></div>
+  </section>
+</article><footer class="ca-footer">Concept sequence informed by course Section 3.1 notes (Dr. Setayesh); original interactive activities and practice created for this website. · <a href="https://openstax.org/books/college-algebra/pages/1-introduction-to-prerequisites" rel="noopener" target="_blank">OpenStax College Algebra</a></footer></div></div></div></section></main><footer data-shared-template="footer"></footer></div><dialog class="ca-modal" id="foundations-modal"><div class="ca-modal-head"><div><small>MATH 1314-204 · FALL 2026</small><h2>Course Foundations</h2></div><button aria-label="Close foundations" class="ca-btn ca-btn-outline" id="foundations-close">✕ Close</button></div><div class="ca-modal-body ca-foundation-book">
 <article class="ca-foundation-chapter">
 <div class="ca-foundation-chapter-label">CHAPTER 1.0 <span>COURSE FOUNDATIONS</span></div>
 <h2>Introduction to College Algebra</h2>
@@ -571,7 +723,8 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
 <p>According to the course AI policy, AI can be used for checking definitions, formatting LaTeX, or brainstorming with appropriate disclosure. AI use on homework, PLTL assignments, and exams is prohibited. These interactive notes provide independent, ungraded practice.</p>
 </section>
 </article>
-</div></dialog><script defer="" src="/assets/js/site-template.js?v=c072320e8862"></script><script id="college-algebra-interactions-bundled">(()=>{'use strict';const $=id=>document.getElementById(id),fmt=v=>String(v).replaceAll('-', '−');function plot(svg,fn,{xmin=-6,xmax=6,ymin=-5,ymax=5}={}){const W=560,H=310,p=24,tx=x=>p+(x-xmin)/(xmax-xmin)*(W-2*p),ty=y=>H-p-(y-ymin)/(ymax-ymin)*(H-2*p);let s='';for(let i=Math.ceil(xmin);i<=xmax;i++)s+=`<line x1="${tx(i)}" y1="${p}" x2="${tx(i)}" y2="${H-p}" stroke="${i===0?'#777':'#d9dce3'}" stroke-width="${i===0?1.5:.7}"/>`;for(let j=Math.ceil(ymin);j<=ymax;j++)s+=`<line x1="${p}" y1="${ty(j)}" x2="${W-p}" y2="${ty(j)}" stroke="${j===0?'#777':'#d9dce3'}" stroke-width="${j===0?1.5:.7}"/>`;let seg='',last=false;for(let i=0;i<=700;i++){let x=xmin+(xmax-xmin)*i/700,y=fn(x);let good=Number.isFinite(y)&&y>=ymin-2&&y<=ymax+2;seg+=good?(last?'L':'M')+tx(x).toFixed(2)+' '+ty(y).toFixed(2)+' ':'';last=good;}svg.innerHTML=s+`<path d="${seg}" fill="none" stroke="#e65125" stroke-width="3" stroke-linecap="round"/>`;return{tx,ty,W,H,p};}
+</div></dialog><script defer="" src="/assets/js/site-template.js?v=c072320e8862"></script><script id="college-algebra-interactions-bundled">
+(()=>{'use strict';const $=id=>document.getElementById(id),fmt=v=>String(v).replaceAll('-', '−');function plot(svg,fn,{xmin=-6,xmax=6,ymin=-5,ymax=5}={}){const W=560,H=310,p=24,tx=x=>p+(x-xmin)/(xmax-xmin)*(W-2*p),ty=y=>H-p-(y-ymin)/(ymax-ymin)*(H-2*p);let s='';for(let i=Math.ceil(xmin);i<=xmax;i++)s+=`<line x1="${tx(i)}" y1="${p}" x2="${tx(i)}" y2="${H-p}" stroke="${i===0?'#777':'#d9dce3'}" stroke-width="${i===0?1.5:.7}"/>`;for(let j=Math.ceil(ymin);j<=ymax;j++)s+=`<line x1="${p}" y1="${ty(j)}" x2="${W-p}" y2="${ty(j)}" stroke="${j===0?'#777':'#d9dce3'}" stroke-width="${j===0?1.5:.7}"/>`;let seg='',last=false;for(let i=0;i<=700;i++){let x=xmin+(xmax-xmin)*i/700,y=fn(x);let good=Number.isFinite(y)&&y>=ymin-2&&y<=ymax+2;seg+=good?(last?'L':'M')+tx(x).toFixed(2)+' '+ty(y).toFixed(2)+' ':'';last=good;}svg.innerHTML=s+`<path d="${seg}" fill="none" stroke="#e65125" stroke-width="3" stroke-linecap="round"/>`;return{tx,ty,W,H,p};}
 let mappingChoice = null;
 function mappings() {
   const arr = [...document.querySelectorAll('.mapping')].map(el => [+el.dataset.input, +el.value]);
@@ -616,26 +769,120 @@ function vertical(){
 }
 ['curve-type','scan-x'].forEach(id=>$(id).addEventListener('input',vertical));vertical();
 function machine(){let [a,b,c,x]=['coeff-a','coeff-b','coeff-c','input-x'].map(id=>+$(id).value);['a-label','b-label','c-label','x-label'].forEach((id,i)=>$(id).textContent=fmt([a,b,c,x][i]));$('machine-expression').textContent=`f(x) = ${a}x² ${b<0?'−':'+'} ${Math.abs(b)}x ${c<0?'−':'+'} ${Math.abs(c)}`;$('machine-result').textContent=`f(${fmt(x)}) = ${a*x*x+b*x+c}`;$('machine-steps').textContent=`Substitute x = ${fmt(x)}: (${a})(${fmt(x)})² + (${b})(${fmt(x)}) + (${c}) = ${a*x*x} + (${b*x}) + (${c}).`;}['coeff-a','coeff-b','coeff-c','input-x'].forEach(id=>$(id).addEventListener('input',machine));machine();// Section 08 is driven solely by the synchronized table and coordinate explorer below.
-let intervalPreset='finite';
-function interval(){
- const l=+$('int-left').value,r=+$('int-right').value,lc=$('left-closed').checked,rc=$('right-closed').checked;
- if(!Number.isFinite(l)||!Number.isFinite(r)||l>=r){$('interval-answer').textContent='Left endpoint must be smaller than right endpoint.';$('interval-svg').innerHTML='';return;}
- const mode=intervalPreset,tx=x=>30+(x+11)/22*500;
- let svg=$('interval-svg'),marks=Array.from({length:23},(_,i)=>`<line x1="${tx(i-11)}" y1="58" x2="${tx(i-11)}" y2="64" stroke="#999"/>${i%2===0?`<text x="${tx(i-11)}" y="82" text-anchor="middle" font-size="11" fill="currentColor">${i-11}</text>`:''}`).join('');
- let pieces=[];const segment=(a,b,closedA,closedB)=>{pieces.push(`<line x1="${a===null?25:tx(a)}" y1="60" x2="${b===null?535:tx(b)}" y2="60" stroke="#f05023" stroke-width="6" stroke-linecap="round"/>`);if(a!==null)pieces.push(`<circle cx="${tx(a)}" cy="60" r="7" stroke="#f05023" stroke-width="3" fill="${closedA?'#f05023':'white'}"/>`);if(b!==null)pieces.push(`<circle cx="${tx(b)}" cy="60" r="7" stroke="#f05023" stroke-width="3" fill="${closedB?'#f05023':'white'}"/>`);if(a===null)pieces.push('<path d="M25 60 L38 52 L38 68 Z" fill="#f05023"/>');if(b===null)pieces.push('<path d="M535 60 L522 52 L522 68 Z" fill="#f05023"/>');};
- let notation='',meaning='';
- if(mode==='leftopen'||mode==='leftinclusive'){const incl=mode==='leftinclusive';segment(null,r,false,incl);notation=`(−∞, ${r}${incl?']':')'}`;meaning=`x ${incl?'≤':'<'} ${r}`;}
- else if(mode==='rightopen'||mode==='rightinclusive'){const incl=mode==='rightinclusive';segment(l,null,incl,false);notation=`${incl?'[':'('}${l}, ∞)`;meaning=`x ${incl?'≥':'>'} ${l}`;}
- else if(mode==='all'){segment(null,null,false,false);notation='(−∞, ∞)';meaning='All real numbers.';}
- else if(mode==='union'){segment(null,-2,false,false);segment(1,4,true,false);notation='(−∞, −2) ∪ [1, 4)';meaning='x < −2 or 1 ≤ x < 4.';}
- else {segment(l,r,lc,rc);notation=`${lc?'[':'('}${l}, ${r}${rc?']':')'}`;meaning=`${l} ${lc?'≤':'<'} x ${rc?'≤':'<'} ${r}`;}
- svg.innerHTML=`<line x1="25" y1="60" x2="535" y2="60" stroke="#777" stroke-width="2"/>${marks}${pieces.join('')}`;
- $('interval-answer').textContent=`Interval Notation: ${notation}`;$('interval-text').textContent=`${meaning} Open circles exclude endpoints; filled circles include them.`;
+// Section 3.2 — original interactive interval, restrictions, and graph-projection lessons.
+const caNum = n => String(Number.isInteger(n)?n:Number(n.toFixed(4))).replaceAll('-', '−');
+const caPoint = (x,y,filled=true,color='#e95b2c',r=7) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${filled?color:'var(--card-bg, #fff)'}" stroke="${color}" stroke-width="3"/>`;
+const caAxisNumberLine=(svg,{segments=[],holes=[],test=null}={})=>{
+ const W=620,l=32,r=588,y=99,tx=n=>l+(n+10)/20*(r-l);
+ let marks='';for(let t=-10;t<=10;t+=2) marks+=`<line x1="${tx(t)}" y1="${y-5}" x2="${tx(t)}" y2="${y+7}" stroke="var(--muted,#8895a4)" stroke-width="1"/><text x="${tx(t)}" y="${y+27}" fill="var(--text,#354356)" font-size="13" text-anchor="middle">${caNum(t)}</text>`;
+ let lines='';for(const z of segments){const x1=z.a===null?l:tx(z.a),x2=z.b===null?r:tx(z.b);lines+=`<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="#ee6334" stroke-width="8" stroke-linecap="round"/>`;
+ if(z.a===null)lines+=`<path d="M${l} ${y} l15 -9 v18 z" fill="#ee6334"/>`;else lines+=caPoint(x1,y,!!z.ac);
+ if(z.b===null)lines+=`<path d="M${r} ${y} l-15 -9 v18 z" fill="#ee6334"/>`;else lines+=caPoint(x2,y,!!z.bc);
+ }
+ for(const x of holes) lines+=caPoint(tx(x),y,false);
+ if(test!==null && Number.isFinite(test) && test>=-10 && test<=10){lines+=`<line x1="${tx(test)}" x2="${tx(test)}" y1="38" y2="${y-12}" stroke="#1687a2" stroke-width="2" stroke-dasharray="5 5"/><path d="M${tx(test)-7} 45 L${tx(test)} 34 L${tx(test)+7} 45 L${tx(test)} 56 Z" fill="#1687a2"/><text x="${Math.max(25,Math.min(595,tx(test)))}" y="24" font-size="13" text-anchor="middle" font-weight="700" fill="var(--text,#29394a)">Test x = ${caNum(test)}</text>`;}
+ svg.innerHTML=`<line x1="${l}" x2="${r}" y1="${y}" y2="${y}" stroke="var(--muted,#94a0aa)" stroke-width="2"/>${marks}${lines}`;
+};
+let caIntervalMode='finite';
+function caRenderInterval(){
+ const li=$('int-left'),ri=$('int-right'),a=Number(li.value),b=Number(ri.value),lc=$('left-closed').checked,rc=$('right-closed').checked;
+ if(li.value===''||ri.value===''||!Number.isFinite(a)||!Number.isFinite(b)||a<-10||a>10||b<-10||b>10||((caIntervalMode==='finite'||caIntervalMode==='union')&&a>=b)){$('interval-answer').textContent='Choose a < b between −10 and 10.';$('interval-inequality').textContent='—';$('interval-setbuilder').textContent='—';$('interval-text').textContent='Adjust the boundaries to continue.';$('interval-svg').innerHTML='';return;}
+ const m=caIntervalMode;let segments=[],ineq='',interval='';
+ if(m==='leftopen'||m==='leftinclusive'){const incl=m==='leftinclusive';segments=[{a:null,b,ac:false,bc:incl}];ineq=`x ${incl?'≤':'<'} ${caNum(b)}`;interval=`(−∞, ${caNum(b)}${incl?']':')'}`;}
+ else if(m==='rightopen'||m==='rightinclusive'){const incl=m==='rightinclusive';segments=[{a,b:null,ac:incl,bc:false}];ineq=`x ${incl?'≥':'>'} ${caNum(a)}`;interval=`${incl?'[':'('}${caNum(a)}, ∞)`;}
+ else if(m==='all'){segments=[{a:null,b:null}];ineq='x ∈ ℝ';interval='(−∞, ∞)';}
+ else if(m==='union'){segments=[{a:null,b:a,bc:lc},{a:b,b:null,ac:rc}];ineq=`x ${lc?'≤':'<'} ${caNum(a)} or x ${rc?'≥':'>'} ${caNum(b)}`;interval=`(−∞, ${caNum(a)}${lc?']':')'} ∪ ${rc?'[':'('}${caNum(b)}, ∞)`;}
+ else{segments=[{a,b,ac:lc,bc:rc}];ineq=`${caNum(a)} ${lc?'≤':'<'} x ${rc?'≤':'<'} ${caNum(b)}`;interval=`${lc?'[':'('}${caNum(a)}, ${caNum(b)}${rc?']':')'}`;}
+ caAxisNumberLine($('interval-svg'),{segments});$('interval-answer').textContent=interval;$('interval-inequality').textContent=ineq;
+ $('interval-setbuilder').textContent=ineq==='x ∈ ℝ'?'{x ∈ ℝ}':`{x ∈ ℝ | ${ineq}}`;
+ $('interval-text').innerHTML=`<b>Read the drawing:</b> orange marks are included in the set; a <b>filled dot</b> includes an endpoint, while a <b>hollow dot</b> excludes it. ${m==='union'?'The symbol ∪ combines both orange pieces.':m==='all'?'Every real x is allowed.':segments[0].a===null||segments[0].b===null?'The arrow continues without a finite endpoint.':'Move either boundary to see the interval change.'}`;
+ $('left-closed').disabled=m==='all'||m==='leftopen'||m==='leftinclusive';$('right-closed').disabled=m==='all'||m==='rightopen'||m==='rightinclusive';
+ document.querySelectorAll('#interval-presets button').forEach(btn=>btn.classList.toggle('active',btn.dataset.kind===(m==='finite'?(lc?(rc?'closed':'leftclosed'):(rc?'rightclosed':'open')):m)));
 }
-['int-left','int-right','left-closed','right-closed'].forEach(id=>$(id).addEventListener('input',()=>{intervalPreset='finite';interval()}));
-document.querySelectorAll('#interval-presets button').forEach(btn=>btn.addEventListener('click',()=>{const mode=btn.dataset.kind;intervalPreset=mode==='open'||mode==='closed'||mode==='leftclosed'||mode==='rightclosed'?'finite':mode;const flags={open:[false,false],closed:[true,true],leftclosed:[true,false],rightclosed:[false,true]};if(flags[mode]){$('left-closed').checked=flags[mode][0];$('right-closed').checked=flags[mode][1];}document.querySelectorAll('#interval-presets button').forEach(b=>b.classList.toggle('active',b===btn));interval()}));interval();
-function domain(){let kind=$('domain-kind').value,k=+$('domain-k').value,x=+$('domain-x').value;$('k-output').textContent=fmt(k);let d=x-k,ok=kind==='quadratic'||kind==='oddroot'||(kind==='fraction'||kind==='oddrootden'?d!==0:kind==='root'?d>=0:d>0),v=kind==='quadratic'?d*d:kind==='fraction'?1/d:kind==='root'?Math.sqrt(d):kind==='rootden'?1/Math.sqrt(d):kind==='oddroot'?Math.cbrt(d):1/Math.cbrt(d);let expr={fraction:`f(x) = 1 / (x − (${k}))`,root:`f(x) = √(x − (${k}))`,rootden:`f(x) = 1 / √(x − (${k}))`,quadratic:`f(x) = (x − (${k}))²`,oddroot:`f(x) = ∛(x − (${k}))`,oddrootden:`f(x) = 1 / ∛(x − (${k}))`};$('domain-expression').textContent=expr[kind];$('domain-result').textContent=ok?`Allowed: x = ${x} gives f(x) ≈ ${Number(v.toFixed(5))}.`:`Not allowed: x = ${x} ${kind==='fraction'||kind==='oddrootden'?'makes the denominator zero':kind==='root'?'makes the radicand negative':'makes the even root zero or nonreal in the denominator'}.`;$('domain-interval').textContent='Domain: '+(kind==='quadratic'||kind==='oddroot'?'(−∞, ∞)':kind==='fraction'||kind==='oddrootden'?`(−∞, ${k}) ∪ (${k}, ∞)`:kind==='root'?`[${k}, ∞)`:`(${k}, ∞)`);}['domain-kind','domain-k','domain-x'].forEach(id=>$(id).addEventListener('input',domain));domain();
-function range(){let h=+$('vertex-h').value,k=+$('vertex-k').value,a=+$('vertex-a').value;$('h-display').textContent=fmt(h);$('v-display').textContent=fmt(k);let svg=$('range-svg'),g=plot(svg,x=>a*(x-h)**2+k,{xmin:-6,xmax:6,ymin:-7,ymax:7});svg.innerHTML+=`<circle cx="${g.tx(h)}" cy="${g.ty(k)}" r="6" fill="#147b79" stroke="white" stroke-width="2"/>`;$('range-answer').textContent=`Vertex (${h}, ${k}). Domain: (−∞, ∞). Range: ${a>0?`[${k}, ∞)`:`(−∞, ${k}]`}. ${a>0?'The vertex is the minimum.':'The vertex is the maximum.'}`;}['vertex-h','vertex-k','vertex-a'].forEach(id=>$(id).addEventListener('input',range));range();
+document.querySelectorAll('#interval-presets button').forEach(btn=>btn.addEventListener('click',()=>{const m=btn.dataset.kind;caIntervalMode=['open','closed','leftclosed','rightclosed'].includes(m)?'finite':m;const opts={open:[false,false],closed:[true,true],leftclosed:[true,false],rightclosed:[false,true]};if(opts[m]){ $('left-closed').checked=opts[m][0];$('right-closed').checked=opts[m][1];}if(m==='leftopen'||m==='leftinclusive')$('right-closed').checked=m==='leftinclusive';if(m==='rightopen'||m==='rightinclusive')$('left-closed').checked=m==='rightinclusive';caRenderInterval();}));
+['int-left','int-right','left-closed','right-closed'].forEach(id=>$(id).addEventListener('input',()=>{if(caIntervalMode==='all')caIntervalMode='finite';else if(id==='right-closed'&&(caIntervalMode==='leftopen'||caIntervalMode==='leftinclusive'))caIntervalMode=$('right-closed').checked?'leftinclusive':'leftopen';else if(id==='left-closed'&&(caIntervalMode==='rightopen'||caIntervalMode==='rightinclusive'))caIntervalMode=$('left-closed').checked?'rightinclusive':'rightopen';else if(['left-closed','right-closed'].includes(id)&&caIntervalMode!=='union')caIntervalMode='finite';caRenderInterval();}));caRenderInterval();
+function caDomain(){
+ const kind=$('domain-kind').value,k=Number($('domain-k').value),raw=$('domain-x').value,x=Number(raw),validX=raw.trim()!==''&&Number.isFinite(x);
+ $('k-output').textContent=caNum(k);
+ const kk=caNum(k),pm=k<0?`+ ${caNum(-k)}`:`− ${kk}`,plus=k<0?`− ${caNum(-k)}`:`+ ${kk}`;
+ const expressions={fraction:`f(x) = 1 / (x ${pm})`,fraction2:`f(x) = 1 / (x² − ${k*k})`,root:`f(x) = √(x ${pm})`,rootleft:`f(x) = √(${kk} − x)`,rootden:`f(x) = 1 / √(x ${pm})`,quadratic:`f(x) = (x ${pm})² + 1`,oddroot:`f(x) = ∛(x ${pm})`,oddrootden:`f(x) = 1 / ∛(x ${pm})`};
+ const can = t=>kind==='fraction'||kind==='oddrootden'? t!==k : kind==='fraction2'? t!==k&&t!==-k : kind==='root'?t>=k :kind==='rootleft'?t<=k :kind==='rootden'?t>k:true;
+ const val=t=>{const d=t-k;switch(kind){case'fraction':return 1/d;case'fraction2':return 1/(t*t-k*k);case'root':return Math.sqrt(d);case'rootleft':return Math.sqrt(k-t);case'rootden':return 1/Math.sqrt(d);case'quadratic':return d*d+1;case'oddroot':return Math.cbrt(d);default:return 1/Math.cbrt(d);}};
+ const hole=Math.abs(k);let segments=[],interval='',condition='',steps=[];
+ if(kind==='fraction'||kind==='oddrootden'){
+  segments=[{a:null,b:k,bc:false},{a:k,b:null,ac:false}];
+  interval=`(−∞, ${kk}) ∪ (${kk}, ∞)`;condition=`x ≠ ${kk}`;
+  steps=kind==='fraction'?[`The denominator is x ${pm}. Set the restriction: x ${pm} ≠ 0.`,`Solve x ${pm} = 0 by isolating x: x = ${kk} is forbidden.`,`Every real number except ${kk} works. Use two open rays on the number line.`]:[`The denominator is ∛(x ${pm}), which may be negative but cannot equal zero.`,`∛(x ${pm}) ≠ 0 implies x ${pm} ≠ 0, so x ≠ ${kk}.`,`Exclude only ${kk}; all other inputs give real outputs.`];
+ }else if(kind==='fraction2'){
+  if(k===0){segments=[{a:null,b:0,bc:false},{a:0,b:null,ac:false}];interval='(−∞, 0) ∪ (0, ∞)';condition='x ≠ 0';}
+  else {segments=[{a:null,b:-hole,bc:false},{a:-hole,b:hole,ac:false,bc:false},{a:hole,b:null,ac:false}];interval=`(−∞, ${caNum(-hole)}) ∪ (${caNum(-hole)}, ${caNum(hole)}) ∪ (${caNum(hole)}, ∞)`;condition=`x ≠ ${caNum(-hole)} and x ≠ ${caNum(hole)}`;}
+  steps=[`Denominator restriction: x² − ${k*k} ≠ 0.`,`Factor: (x − ${caNum(hole)})(x + ${caNum(hole)}) ≠ 0.`,`The denominator is zero when x = ${caNum(-hole)} or x = ${caNum(hole)}${k===0?' (the same number).':'.'}`,`Draw an open circle at each distinct forbidden x-value and include the spaces between them.`];
+ }else if(kind==='root'||kind==='rootleft'||kind==='rootden'){
+  const right=kind!=='rootleft',strict=kind==='rootden';segments=[right?{a:k,b:null,ac:!strict}:{a:null,b:k,bc:true}];condition=`x ${right?(strict?'>':'≥'):'≤'} ${kk}`;
+  interval=right?`${strict?'(':'['}${kk}, ∞)`:`(−∞, ${kk}]`;
+  const inside=kind==='rootleft'?`${kk} − x`:`x ${pm}`;
+  steps=[`Identify the radicand ${inside}. ${strict?'Because its square root is in the denominator, it must be strictly positive.':'For a real square root it must be nonnegative.'}`,`Write the inequality: ${inside} ${strict?'>':'≥'} 0.`,kind==='rootleft'?`Subtract ${kk} and multiply by −1, <b>reversing</b> the inequality: x ≤ ${kk}.`:`Isolate x: x ${strict?'>':'≥'} ${kk}.`,`Choose ${strict?'an open':'a filled'} circle at ${kk}${right?' and shade to the right.':' and shade to the left.'}`];
+ }else{segments=[{a:null,b:null}];interval='(−∞, ∞)';condition='x ∈ ℝ';steps=kind==='quadratic'?[`Powers, addition, and subtraction are defined for every real number.`,`There are no denominators or even roots to restrict x.`,`Domain: all real numbers, (−∞, ∞).`]:[`A cube root is defined for a negative, zero, or positive radicand.`,`Therefore x ${pm} can take any real value.`,`Domain: all real numbers, (−∞, ∞).`];}
+ $('domain-expression').textContent=expressions[kind];$('domain-setbuilder').textContent=condition==='x ∈ ℝ'?'{x ∈ ℝ}':`{x ∈ ℝ | ${condition}}`;$('domain-interval').textContent=interval;
+ caAxisNumberLine($('domain-svg'),{segments,test:validX?x:null});
+ const result=$('domain-result');result.className='ca-domain-status '+(validX?(can(x)?'ca-domain-allowed':'ca-domain-forbidden'):'');
+ if(!validX){result.textContent='Enter a real input x to test whether this function accepts it.';}
+ else if(can(x)){const v=val(x);const output=Math.abs(v)<1e-10?'0':caNum(v);result.textContent=`✓ ALLOWED: x = ${caNum(x)} gives a real output f(${caNum(x)}) ${Math.abs(v-Math.round(v))<1e-9?'=':'≈'} ${output}.`;}
+ else {const why=(kind==='fraction'||kind==='fraction2'||kind==='oddrootden')?'the denominator becomes zero':kind==='root' || kind==='rootleft'?'the square-root radicand is negative':'the square-root denominator is zero or not real';result.textContent=`✕ NOT ALLOWED: x = ${caNum(x)} because ${why}.`;}
+ $('domain-steps').innerHTML=steps.map(t=>`<li>${t}</li>`).join('');
+}
+['domain-kind','domain-k','domain-x'].forEach(id=>$(id).addEventListener('input',caDomain));caDomain();
+// A full coordinate plane: finite endpoints, unbounded pieces and an excluded input/output.
+let caDRView='domain';
+const caGraphExamples={
+ segment:{domain:'(−4, 2]',range:'(−3, 3]',why:'The graph starts at (−4, −3) with an open circle and ends at (2, 3) with a filled circle. The x-shadow is (−4, 2]; the y-shadow is (−3, 3].',f:x=>x+1,parts:[[-4,2]],ends:[[-4,-3,false],[2,3,true]],dx:[{a:-4,b:2,ac:false,bc:true}],dy:[{a:-3,b:3,ac:false,bc:true}]},
+ root:{domain:'[−2, ∞)',range:'[−1, ∞)',why:'The square-root curve begins at the included point (−2, −1) and extends to the right and up. Both shadows start at filled endpoints.',f:x=>Math.sqrt(x+2)-1,parts:[[-2,6]],ends:[[-2,-1,true]],dx:[{a:-2,b:null,ac:true}],dy:[{a:-1,b:null,ac:true}]},
+ absolute:{domain:'(−∞, ∞)',range:'[−2, ∞)',why:'The V-shaped graph continues to both left and right, so every real x occurs. Its lowest point is (1, −2), which is included.',f:x=>Math.abs(x-1)-2,parts:[[-6,6]],ends:[],dx:[{a:null,b:null}],dy:[{a:-2,b:null,ac:true}]},
+ parabola:{domain:'(−∞, ∞)',range:'(−∞, 3]',why:'The parabola extends indefinitely in both horizontal directions. Its vertex (1, 3) is the greatest output, so y = 3 is included.',f:x=>-((x-1)**2)+3,parts:[[-6,6]],ends:[],dx:[{a:null,b:null}],dy:[{a:null,b:3,bc:true}]},
+ reciprocal:{domain:'(−∞, 1) ∪ (1, ∞)',range:'(−∞, 0) ∪ (0, ∞)',why:'The vertical asymptote x = 1 is forbidden. The curve approaches but never reaches y = 0. One x-value and one y-value are missing.',f:x=>1/(x-1),parts:[[-6,1],[1,6]],ends:[],dx:[{a:null,b:1,bc:false},{a:1,b:null,ac:false}],dy:[{a:null,b:0,bc:false},{a:0,b:null,ac:false}]}
+};
+function caRenderGraph(){
+ const key=$('dr-graph-kind').value,d=caGraphExamples[key],svg=$('dr-graph-svg'),xmin=-6,xmax=6,ymin=-5,ymax=7,W=650,H=400,pL=47,pR=34,pT=22,pB=43;
+ const tx=x=>pL+(x-xmin)*(W-pL-pR)/(xmax-xmin),ty=y=>H-pB-(y-ymin)*(H-pT-pB)/(ymax-ymin),axisY=ty(0),axisX=tx(0);
+ let grid='',paths='',projections='';for(let x=-6;x<=6;x++){grid+=`<line x1="${tx(x)}" x2="${tx(x)}" y1="${pT}" y2="${H-pB}" stroke="var(--ca-graph-grid,#dbe2e9)" stroke-width="${x===0?1.6:.8}"/><text x="${tx(x)}" y="${H-19}" font-size="12" fill="var(--ca-plot-text,#2f3c4a)" text-anchor="middle">${caNum(x)}</text>`;}
+ for(let y=-5;y<=7;y++){grid+=`<line x1="${pL}" x2="${W-pR}" y1="${ty(y)}" y2="${ty(y)}" stroke="var(--ca-graph-grid,#dbe2e9)" stroke-width="${y===0?1.6:.8}"/>`;if(y%2===0)grid+=`<text x="${pL-10}" y="${ty(y)+5}" font-size="12" fill="var(--ca-plot-text,#2f3c4a)" text-anchor="end">${caNum(y)}</text>`;}
+ const inBounds=v=>v>=ymin&&v<=ymax;
+ for(const [start,end] of d.parts){let points=[],was=false;const segments=[];const n=700;
+  for(let j=0;j<=n;j++){let x=start+(end-start)*j/n;if(key==='reciprocal'&&Math.abs(x-1)<1e-6){if(points.length>1)segments.push(points);points=[];was=false;continue;}let y=d.f(x);const ok=Number.isFinite(y)&&inBounds(y);if(ok){points.push([tx(x),ty(y)]);}else if(points.length){if(points.length>1)segments.push(points);points=[];}}
+  if(points.length>1)segments.push(points);
+  for(const seg of segments){const str=seg.map(([x,y],i)=>`${i?'L':'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');paths+=`<path d="${str}" fill="none" stroke="#ed6336" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" ${key==='segment'?'':`marker-end="url(#ca-graph-arrow)" ${key==='root'?'':'marker-start="url(#ca-graph-arrow)"'}`}/>`;}
+ }
+ if(key==='reciprocal'){paths+=`<line x1="${tx(1)}" x2="${tx(1)}" y1="${pT}" y2="${H-pB}" stroke="#a7819e" stroke-dasharray="8 6" stroke-width="2"/><line x1="${pL}" x2="${W-pR}" y1="${axisY}" y2="${axisY}" stroke="#a7819e" stroke-dasharray="8 6" stroke-width="2"/>`;
+ paths+=`<text x="${tx(1)+8}" y="${pT+18}" fill="var(--ca-plot-text,#39475b)" font-weight="700" font-size="13">x = 1</text>`;}
+ for(const [x,y,filled] of d.ends)paths+=caPoint(tx(x),ty(y),filled,'#ed6336',8);
+ const series=caDRView==='domain'?d.dx:d.dy;
+ for(const seg of series){let a,b,x1,y1,x2,y2;
+ if(caDRView==='domain'){a=seg.a===null?xmin:seg.a;b=seg.b===null?xmax:seg.b;x1=tx(a);x2=tx(b);y1=axisY;y2=axisY;}
+ else{a=seg.a===null?ymin:seg.a;b=seg.b===null?ymax:seg.b;x1=axisX;x2=axisX;y1=ty(a);y2=ty(b);}
+ projections+=`<line x1="${x1}" x2="${x2}" y1="${y1}" y2="${y2}" stroke="#1b88b0" stroke-width="11" stroke-opacity=".82" stroke-linecap="round"/>`;
+ if(seg.a!==null)projections+=caPoint(caDRView==='domain'?tx(seg.a):axisX,caDRView==='domain'?axisY:ty(seg.a),!!seg.ac,'#1b88b0',6);
+ if(seg.b!==null)projections+=caPoint(caDRView==='domain'?tx(seg.b):axisX,caDRView==='domain'?axisY:ty(seg.b),!!seg.bc,'#1b88b0',6);
+ if(seg.a===null){if(caDRView==='domain')projections+=`<path d="M${tx(xmin)} ${axisY} l15 -9 v18 z" fill="#1b88b0"/>`;else projections+=`<path d="M${axisX} ${ty(ymin)} l-9 -15 h18 z" fill="#1b88b0"/>`;}
+ if(seg.b===null){if(caDRView==='domain')projections+=`<path d="M${tx(xmax)} ${axisY} l-15 -9 v18 z" fill="#1b88b0"/>`;else projections+=`<path d="M${axisX} ${ty(ymax)} l-9 15 h18 z" fill="#1b88b0"/>`;}
+ }
+ // Blue axis-shadows are overlaid after the orange graph: visible even when axes overlap.
+ svg.innerHTML=`<defs><marker id="ca-graph-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6 Z" fill="#ed6336"/></marker></defs><rect x="${pL}" y="${pT}" width="${W-pL-pR}" height="${H-pT-pB}" fill="var(--ca-plot-bg,#fff)"/>${grid}${paths}${projections}<text x="${W-pR+5}" y="${axisY-9}" fill="var(--ca-plot-text,#344356)" font-size="15" font-weight="700">x</text><text x="${axisX+8}" y="${pT+12}" fill="var(--ca-plot-text,#344356)" font-size="15" font-weight="700">y</text>`;
+ $('dr-domain').textContent=d.domain;$('dr-range').textContent=d.range;
+ $('dr-explanation').innerHTML=`<b>${caDRView==='domain'?'Reading the x-shadow (left → right)':'Reading the y-shadow (bottom → top)'}:</b> ${d.why} <b>Highlighted ${caDRView}:</b> ${caDRView==='domain'?d.domain:d.range}. <span class="ca-muted">The drawing shows a finite window; arrows/continuation indicate the curve goes on beyond the window.</span>`;
+ document.querySelectorAll('[data-dr-view]').forEach(btn=>{const selected=btn.dataset.drView===caDRView;btn.classList.toggle('active',selected);btn.setAttribute('aria-pressed',String(selected));});
+}
+$('dr-graph-kind').addEventListener('change',caRenderGraph);document.querySelectorAll('[data-dr-view]').forEach(b=>b.addEventListener('click',()=>{caDRView=b.dataset.drView;caRenderGraph();}));caRenderGraph();
+function caRangeParabola(){
+ let h=+$('vertex-h').value,k=+$('vertex-k').value,a=+$('vertex-a').value;
+ $('h-display').textContent=caNum(h);$('v-display').textContent=caNum(k);
+ const svg=$('range-svg'),g=plot(svg,x=>a*(x-h)*(x-h)+k,{xmin:-6,xmax:6,ymin:-7,ymax:7});
+ const axis=g.tx(0),at=g.ty(k),top=a>0?g.ty(7):g.ty(-7);
+ svg.innerHTML+=`<line x1="${g.tx(-6)}" y1="${g.ty(0)}" x2="${g.tx(6)}" y2="${g.ty(0)}" stroke="#1b88b0" stroke-width="6" stroke-opacity=".75"/><line x1="${axis}" y1="${at}" x2="${axis}" y2="${top}" stroke="#1b88b0" stroke-width="9" stroke-opacity=".7"/>${caPoint(axis,at,true,'#1b88b0',6)}${caPoint(g.tx(h),g.ty(k),true,'#ed6336',8)}`;
+ const range=a>0?`[${caNum(k)}, ∞)`:`(−∞, ${caNum(k)}]`;
+ $('range-domain').textContent='(−∞, ∞)';$('range-range').textContent=range;
+ $('range-answer').innerHTML=`<b>Vertex:</b> (${caNum(h)}, ${caNum(k)}). <b>Domain:</b> all real x, (−∞, ∞). <b>Range:</b> ${range}. Because the parabola opens ${a>0?'upward':'downward'}, <b>y = ${caNum(k)}</b> is the included ${a>0?'minimum':'maximum'} output. The blue shadows mark the allowed x- and y-values.`;
+}
+['vertex-h','vertex-k','vertex-a'].forEach(id=>$(id).addEventListener('input',caRangeParabola));caRangeParabola();
 // Section 3.1: work backwards from y to find all x values.
 function graphReading(){
  const x=Number($('graph-input').value),yTarget=Number($('graph-output').value),f=t=>(t+1)*(t+1)-1;
@@ -745,14 +992,19 @@ const guidedBanks={
   {q:'For g(x) = (x + 1)² − 1, solve g(x) = 3.',opts:['x = −1','x = −3 or 1','x = −2 or 0'],correct:1,why:'(x + 1)² = 4. Taking both square roots gives x + 1 = ±2, hence x = −3 or 1.'}
  ],
  '32':[
-  {q:'What is the domain of 1/(x − 4)?',opts:['[4, ∞)','All real numbers except x = 4','All real numbers'],correct:1,why:'Division by zero is undefined, so exclude x = 4.'},
-  {q:'What is the domain of √(x + 3)?',opts:['(−3, ∞)','(−∞, −3]','[−3, ∞)'],correct:2,why:'x + 3 ≥ 0 gives x ≥ −3, so [−3, ∞).'},
-  {q:'Which interval represents −3 < x ≤ 10?',opts:['[−3, 10]','(−3, 10]','(−3, 10)'],correct:1,why:'−3 is excluded (parenthesis), while 10 is included (bracket).'},
-  {q:'What is the range of y = (x−1)² + 2?',opts:['[2, ∞)','(−∞, 2]','All real numbers'],correct:0,why:'The upward-opening parabola has its minimum at y = 2.'},
-  {q:'What is the domain of 1/√(x−5)?',opts:['[5, ∞)','(5, ∞)','All real x except 5'],correct:1,why:'The square-root denominator must be strictly positive: x − 5 > 0, so x > 5.'},
-  {q:'For y = −(x+2)² + 3, what is the range?',opts:['[3, ∞)','(−∞, 3]','(−∞, ∞)'],correct:1,why:'A downward-opening parabola has maximum y = 3, included in its range.'},
-  {q:'What is the domain of ∛(x−2)?',opts:['[2, ∞)','All real numbers','All real numbers except 2'],correct:1,why:'An odd root is defined for negative, zero, and positive real radicands.'},
-  {q:'What does a filled endpoint at x = 4 mean?',opts:['x = 4 is included','x = 4 is excluded','The graph stops before x = 4'],correct:0,why:'A filled dot means the endpoint belongs to the set.'}
+  {q:'The shaded number line starts with an open circle at −2 and ends with a filled circle at 6. Choose the interval.',opts:['[−2, 6]','(−2, 6]','(−2, 6)'],correct:1,why:'An open circle excludes −2; a filled circle includes 6. The interval is (−2, 6].'},
+  {q:'Which set-builder notation matches [3, ∞)?',opts:['{x ∈ ℝ | x > 3}','{x ∈ ℝ | x ≥ 3}','{x ∈ ℝ | x ≤ 3}'],correct:1,why:'The bracket at 3 includes the value 3, and the arrow goes to the right: x ≥ 3.'},
+  {q:'What is the domain of f(x) = 1/(x + 5)?',opts:['(−∞, ∞)','(−∞, −5) ∪ (−5, ∞)','[−5, ∞)'],correct:1,why:'x + 5 = 0 at x = −5. Exclude this one input because division by zero is undefined.'},
+  {q:'Find the domain of g(x) = √(x − 4).',opts:['(4, ∞)','(−∞, 4]','[4, ∞)'],correct:2,why:'The radicand must satisfy x − 4 ≥ 0, so x ≥ 4. The boundary is included.'},
+  {q:'Find the domain of h(x) = 1/√(x + 2).',opts:['(−2, ∞)','[−2, ∞)','(−∞, −2)'],correct:0,why:'The radical is in the denominator: x + 2 > 0. Hence x > −2; the endpoint is open.'},
+  {q:'What is the domain of p(x) = 1/(x² − 9)?',opts:['(−∞, −3) ∪ (−3, 3) ∪ (3, ∞)','[−3, 3]','(−∞, ∞)'],correct:0,why:'Factor x² − 9 = (x − 3)(x + 3). Exclude both −3 and 3.'},
+  {q:'A line segment goes from a hollow dot at (−4, −3) to a filled dot at (2, 3). What is its range?',opts:['[−4, 2)','(−3, 3]','[−3, 3)'],correct:1,why:'Read from bottom to top: −3 is excluded and 3 is included. The range is (−3, 3].'},
+  {q:'For f(x) = |x − 1| − 2, what is its range?',opts:['[−2, ∞)','(−∞, −2]','(−∞, ∞)'],correct:0,why:'Absolute value is never negative, so the lowest output is −2. It is attained at x = 1.'},
+  {q:'For f(x) = −(x − 1)² + 3, what is the range?',opts:['[3, ∞)','(−∞, 3]','(−∞, ∞)'],correct:1,why:'The parabola opens downward. The vertex has maximum y = 3, included.'},
+  {q:'Which value is excluded from the range of y = 1/(x − 1)?',opts:['y = 1','y = 0','y = −1'],correct:1,why:'A reciprocal can never equal zero; the horizontal asymptote is y = 0.'},
+  {q:'For f(x) = √(3 − x), which interval is the domain?',opts:['(−∞, 3]','[3, ∞)','(−∞, 3)'],correct:0,why:'3 − x ≥ 0 means −x ≥ −3, so x ≤ 3 after reversing the inequality.'},
+  {q:'Which statement about infinity is correct?',opts:['Use brackets when ∞ is included','Always use parentheses beside ±∞','Infinity is the largest real number'],correct:1,why:'Infinity is not a real endpoint, so it is never included in an interval.'},
+  {q:'What is the domain of ∛(x + 8)?',opts:['[−8, ∞)','(−∞, ∞)','(−∞, −8) ∪ (−8, ∞)'],correct:1,why:'Cube roots are defined for negative, zero, and positive inputs; there is no restriction.'}
  ]
 };
 const guidedHints={
@@ -769,18 +1021,23 @@ const guidedHints={
   'Add 1 to both sides, then take positive and negative square roots.'
  ],
  '32':[
-  'Find any input that makes the denominator zero.',
-  'A square-root radicand must be nonnegative.',
-  'Use a parenthesis for an excluded endpoint and bracket for an included one.',
-  'The graph opens upward. Identify its smallest output.',
-  'A square root in the denominator cannot be zero.',
-  'The graph opens downward. Identify its largest output.',
-  'Cube roots are defined for negative, zero, and positive numbers.',
-  'Think about the difference between an open and a filled dot.'
+  'A hollow dot means excluded; a filled dot means included.',
+  'The bracket at 3 includes 3. Which inequality matches that?',
+  'Set the denominator equal to zero to locate the forbidden x-value.',
+  'A real square root needs a nonnegative radicand.',
+  'If the root is in a denominator, zero is excluded as well.',
+  'Factor the denominator using the difference of two squares.',
+  'Range comes from y-values; scan bottom to top.',
+  'The absolute-value expression cannot be negative.',
+  'An upside-down parabola has a maximum at its vertex.',
+  'Can 1 divided by a real nonzero number ever be zero?',
+  'Remember: multiplying an inequality by a negative reverses it.',
+  'Is a cube root defined for negative numbers?',
+  'Infinity is not an attainable real endpoint.'
  ]
 };
 function setupGuided(which){
- const bank=guidedBanks[which],count=which==='31'?5:4;let offset=0;
+ const bank=guidedBanks[which],count=which==='31'?5:5;let offset=0;
  const container=$(`quiz-${which}-container`),status=$(`quiz-${which}-feedback`);
  function render(){
   const chosen=Array.from({length:count},(_,i)=>({q:bank[(offset+i)%bank.length],i}));
@@ -802,7 +1059,8 @@ function setupGuided(which){
  render();
 }
 setupGuided('31');setupGuided('32');
-let modal=$('foundations-modal');$('foundations-open').onclick=()=>modal.showModal();$('foundations-close').onclick=()=>modal.close();modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});let grades=[['Homework',25],['Reviews',5],['PLTL',10],['Class activities',10],['Three exams',35],['Final exam',15]];$('grade-rows').innerHTML=grades.map(([name,w],i)=>`<div class="ca-grade-row"><label for="grade-${i}">${name}</label><b>${w}%</b><input id="grade-${i}" class="grade-score" type="number" min="0" max="100" step="0.1" placeholder="0–100" aria-label="${name} score"></div>`).join('');function calcGrades(){let values=[...document.querySelectorAll('.grade-score')].map(el=>el.value===''?null:+el.value);if(values.some(v=>v!==null&&(v<0||v>100||!Number.isFinite(v)))){$('grade-total').textContent='Enter valid percentages between 0 and 100.';return;}let completed=grades.reduce((t,g,i)=>t+(values[i]===null?0:g[1]),0),earned=grades.reduce((t,g,i)=>t+(values[i]===null?0:g[1]*values[i]/100),0);$('grade-total').textContent=completed?`Earned: ${earned.toFixed(2)} percentage points toward the final grade. Average across entered categories: ${(earned/completed*100).toFixed(1)}%. Categories entered: ${completed}% of course weight.`:'Enter scores above to estimate your grade.';}document.querySelectorAll('.grade-score').forEach(el=>el.addEventListener('input',calcGrades));calcGrades();})();</script><script id="ca-shared-site-controls">(()=>{const initialize=()=>{const nav=document.querySelector('.top-nav-links'),toggle=document.querySelector('.nav-toggle'),drop=document.querySelector('.dropdown'),dropbtn=document.querySelector('.dropbtn'),root=document.documentElement,theme=document.querySelector('.theme-toggle');if(toggle&&nav){toggle.setAttribute('aria-expanded','false');toggle.addEventListener('click',()=>{const state=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(state));toggle.querySelector('i')?.classList.toggle('fa-bars',!state);toggle.querySelector('i')?.classList.toggle('fa-xmark',state)});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}if(dropbtn){dropbtn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();drop?.classList.toggle('dropdown-open')});document.addEventListener('click',e=>{if(!drop?.contains(e.target))drop?.classList.remove('dropdown-open')})}function setTheme(v){root.setAttribute('data-theme',v);if(theme){const icon=theme.querySelector('i'),label=theme.querySelector('span');if(icon)icon.className=v==='dark'?'fa-solid fa-sun':'fa-solid fa-moon';if(label)label.textContent=v==='dark'?'Light':'Dark';theme.setAttribute('aria-pressed',String(v==='dark'))}}let saved;try{saved=localStorage.getItem('dm-theme')}catch(_){}setTheme(saved==='dark'?'dark':'light');theme?.addEventListener('click',()=>{const next=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('dm-theme',next)}catch(_){}})};if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initialize,{once:true});}else{initialize();}})();</script>
+let modal=$('foundations-modal');$('foundations-open').onclick=()=>modal.showModal();$('foundations-close').onclick=()=>modal.close();modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});let grades=[['Homework',25],['Reviews',5],['PLTL',10],['Class activities',10],['Three exams',35],['Final exam',15]];$('grade-rows').innerHTML=grades.map(([name,w],i)=>`<div class="ca-grade-row"><label for="grade-${i}">${name}</label><b>${w}%</b><input id="grade-${i}" class="grade-score" type="number" min="0" max="100" step="0.1" placeholder="0–100" aria-label="${name} score"></div>`).join('');function calcGrades(){let values=[...document.querySelectorAll('.grade-score')].map(el=>el.value===''?null:+el.value);if(values.some(v=>v!==null&&(v<0||v>100||!Number.isFinite(v)))){$('grade-total').textContent='Enter valid percentages between 0 and 100.';return;}let completed=grades.reduce((t,g,i)=>t+(values[i]===null?0:g[1]),0),earned=grades.reduce((t,g,i)=>t+(values[i]===null?0:g[1]*values[i]/100),0);$('grade-total').textContent=completed?`Earned: ${earned.toFixed(2)} percentage points toward the final grade. Average across entered categories: ${(earned/completed*100).toFixed(1)}%. Categories entered: ${completed}% of course weight.`:'Enter scores above to estimate your grade.';}document.querySelectorAll('.grade-score').forEach(el=>el.addEventListener('input',calcGrades));calcGrades();})();
+</script><script id="ca-shared-site-controls">(()=>{const initialize=()=>{const nav=document.querySelector('.top-nav-links'),toggle=document.querySelector('.nav-toggle'),drop=document.querySelector('.dropdown'),dropbtn=document.querySelector('.dropbtn'),root=document.documentElement,theme=document.querySelector('.theme-toggle');if(toggle&&nav){toggle.setAttribute('aria-expanded','false');toggle.addEventListener('click',()=>{const state=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(state));toggle.querySelector('i')?.classList.toggle('fa-bars',!state);toggle.querySelector('i')?.classList.toggle('fa-xmark',state)});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')}})}if(dropbtn){dropbtn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();drop?.classList.toggle('dropdown-open')});document.addEventListener('click',e=>{if(!drop?.contains(e.target))drop?.classList.remove('dropdown-open')})}function setTheme(v){root.setAttribute('data-theme',v);if(theme){const icon=theme.querySelector('i'),label=theme.querySelector('span');if(icon)icon.className=v==='dark'?'fa-solid fa-sun':'fa-solid fa-moon';if(label)label.textContent=v==='dark'?'Light':'Dark';theme.setAttribute('aria-pressed',String(v==='dark'))}}let saved;try{saved=localStorage.getItem('dm-theme')}catch(_){}setTheme(saved==='dark'?'dark':'light');theme?.addEventListener('click',()=>{const next=root.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('dm-theme',next)}catch(_){}})};if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initialize,{once:true});}else{initialize();}})();</script>
 <script id="ca-art-club-arrow-interactivity">
 (()=>{
   'use strict';

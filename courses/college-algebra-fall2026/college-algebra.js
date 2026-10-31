@@ -43,26 +43,120 @@ function vertical(){
 }
 ['curve-type','scan-x'].forEach(id=>$(id).addEventListener('input',vertical));vertical();
 function machine(){let [a,b,c,x]=['coeff-a','coeff-b','coeff-c','input-x'].map(id=>+$(id).value);['a-label','b-label','c-label','x-label'].forEach((id,i)=>$(id).textContent=fmt([a,b,c,x][i]));$('machine-expression').textContent=`f(x) = ${a}x² ${b<0?'−':'+'} ${Math.abs(b)}x ${c<0?'−':'+'} ${Math.abs(c)}`;$('machine-result').textContent=`f(${fmt(x)}) = ${a*x*x+b*x+c}`;$('machine-steps').textContent=`Substitute x = ${fmt(x)}: (${a})(${fmt(x)})² + (${b})(${fmt(x)}) + (${c}) = ${a*x*x} + (${b*x}) + (${c}).`;}['coeff-a','coeff-b','coeff-c','input-x'].forEach(id=>$(id).addEventListener('input',machine));machine();document.querySelectorAll('#pairs-table tr').forEach(row=>{const select=()=>{document.querySelectorAll('#pairs-table tr').forEach(r=>r.classList.remove('selected'));row.classList.add('selected');$('lookup-result').textContent=`Selected ordered pair (${fmt(row.dataset.x)}, ${fmt(row.dataset.y)}).`;};row.addEventListener('click',select);row.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select();}});});$('lookup-btn').onclick=()=>{let y=+$('lookup-y').value,inputs=[...document.querySelectorAll('#pairs-table tr')].filter(r=>+r.dataset.y===y).map(r=>r.dataset.x);$('lookup-result').textContent=inputs.length?`t(x) = ${y} at x = ${inputs.map(fmt).join(' and ')}. ${inputs.length>1?'Different inputs can give the same output.':''}`:`No input in this table has output ${y}.`};
-let intervalPreset='finite';
-function interval(){
- const l=+$('int-left').value,r=+$('int-right').value,lc=$('left-closed').checked,rc=$('right-closed').checked;
- if(!Number.isFinite(l)||!Number.isFinite(r)||l>=r){$('interval-answer').textContent='Left endpoint must be smaller than right endpoint.';$('interval-svg').innerHTML='';return;}
- const mode=intervalPreset,tx=x=>30+(x+11)/22*500;
- let svg=$('interval-svg'),marks=Array.from({length:23},(_,i)=>`<line x1="${tx(i-11)}" y1="58" x2="${tx(i-11)}" y2="64" stroke="#999"/>${i%2===0?`<text x="${tx(i-11)}" y="82" text-anchor="middle" font-size="11" fill="currentColor">${i-11}</text>`:''}`).join('');
- let pieces=[];const segment=(a,b,closedA,closedB)=>{pieces.push(`<line x1="${a===null?25:tx(a)}" y1="60" x2="${b===null?535:tx(b)}" y2="60" stroke="#f05023" stroke-width="6" stroke-linecap="round"/>`);if(a!==null)pieces.push(`<circle cx="${tx(a)}" cy="60" r="7" stroke="#f05023" stroke-width="3" fill="${closedA?'#f05023':'white'}"/>`);if(b!==null)pieces.push(`<circle cx="${tx(b)}" cy="60" r="7" stroke="#f05023" stroke-width="3" fill="${closedB?'#f05023':'white'}"/>`);if(a===null)pieces.push('<path d="M25 60 L38 52 L38 68 Z" fill="#f05023"/>');if(b===null)pieces.push('<path d="M535 60 L522 52 L522 68 Z" fill="#f05023"/>');};
- let notation='',meaning='';
- if(mode==='leftopen'||mode==='leftinclusive'){const incl=mode==='leftinclusive';segment(null,r,false,incl);notation=`(−∞, ${r}${incl?']':')'}`;meaning=`x ${incl?'≤':'<'} ${r}`;}
- else if(mode==='rightopen'||mode==='rightinclusive'){const incl=mode==='rightinclusive';segment(l,null,incl,false);notation=`${incl?'[':'('}${l}, ∞)`;meaning=`x ${incl?'≥':'>'} ${l}`;}
- else if(mode==='all'){segment(null,null,false,false);notation='(−∞, ∞)';meaning='All real numbers.';}
- else if(mode==='union'){segment(null,-2,false,false);segment(1,4,true,false);notation='(−∞, −2) ∪ [1, 4)';meaning='x < −2 or 1 ≤ x < 4.';}
- else {segment(l,r,lc,rc);notation=`${lc?'[':'('}${l}, ${r}${rc?']':')'}`;meaning=`${l} ${lc?'≤':'<'} x ${rc?'≤':'<'} ${r}`;}
- svg.innerHTML=`<line x1="25" y1="60" x2="535" y2="60" stroke="#777" stroke-width="2"/>${marks}${pieces.join('')}`;
- $('interval-answer').textContent=`Interval Notation: ${notation}`;$('interval-text').textContent=`${meaning} Open circles exclude endpoints; filled circles include them.`;
+// Section 3.2 — original interactive interval, restrictions, and graph-projection lessons.
+const caNum = n => String(Number.isInteger(n)?n:Number(n.toFixed(4))).replaceAll('-', '−');
+const caPoint = (x,y,filled=true,color='#e95b2c',r=7) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${filled?color:'var(--card-bg, #fff)'}" stroke="${color}" stroke-width="3"/>`;
+const caAxisNumberLine=(svg,{segments=[],holes=[],test=null}={})=>{
+ const W=620,l=32,r=588,y=99,tx=n=>l+(n+10)/20*(r-l);
+ let marks='';for(let t=-10;t<=10;t+=2) marks+=`<line x1="${tx(t)}" y1="${y-5}" x2="${tx(t)}" y2="${y+7}" stroke="var(--muted,#8895a4)" stroke-width="1"/><text x="${tx(t)}" y="${y+27}" fill="var(--text,#354356)" font-size="13" text-anchor="middle">${caNum(t)}</text>`;
+ let lines='';for(const z of segments){const x1=z.a===null?l:tx(z.a),x2=z.b===null?r:tx(z.b);lines+=`<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="#ee6334" stroke-width="8" stroke-linecap="round"/>`;
+ if(z.a===null)lines+=`<path d="M${l} ${y} l15 -9 v18 z" fill="#ee6334"/>`;else lines+=caPoint(x1,y,!!z.ac);
+ if(z.b===null)lines+=`<path d="M${r} ${y} l-15 -9 v18 z" fill="#ee6334"/>`;else lines+=caPoint(x2,y,!!z.bc);
+ }
+ for(const x of holes) lines+=caPoint(tx(x),y,false);
+ if(test!==null && Number.isFinite(test) && test>=-10 && test<=10){lines+=`<line x1="${tx(test)}" x2="${tx(test)}" y1="38" y2="${y-12}" stroke="#1687a2" stroke-width="2" stroke-dasharray="5 5"/><path d="M${tx(test)-7} 45 L${tx(test)} 34 L${tx(test)+7} 45 L${tx(test)} 56 Z" fill="#1687a2"/><text x="${Math.max(25,Math.min(595,tx(test)))}" y="24" font-size="13" text-anchor="middle" font-weight="700" fill="var(--text,#29394a)">Test x = ${caNum(test)}</text>`;}
+ svg.innerHTML=`<line x1="${l}" x2="${r}" y1="${y}" y2="${y}" stroke="var(--muted,#94a0aa)" stroke-width="2"/>${marks}${lines}`;
+};
+let caIntervalMode='finite';
+function caRenderInterval(){
+ const li=$('int-left'),ri=$('int-right'),a=Number(li.value),b=Number(ri.value),lc=$('left-closed').checked,rc=$('right-closed').checked;
+ if(li.value===''||ri.value===''||!Number.isFinite(a)||!Number.isFinite(b)||a<-10||a>10||b<-10||b>10||((caIntervalMode==='finite'||caIntervalMode==='union')&&a>=b)){$('interval-answer').textContent='Choose a < b between −10 and 10.';$('interval-inequality').textContent='—';$('interval-setbuilder').textContent='—';$('interval-text').textContent='Adjust the boundaries to continue.';$('interval-svg').innerHTML='';return;}
+ const m=caIntervalMode;let segments=[],ineq='',interval='';
+ if(m==='leftopen'||m==='leftinclusive'){const incl=m==='leftinclusive';segments=[{a:null,b,ac:false,bc:incl}];ineq=`x ${incl?'≤':'<'} ${caNum(b)}`;interval=`(−∞, ${caNum(b)}${incl?']':')'}`;}
+ else if(m==='rightopen'||m==='rightinclusive'){const incl=m==='rightinclusive';segments=[{a,b:null,ac:incl,bc:false}];ineq=`x ${incl?'≥':'>'} ${caNum(a)}`;interval=`${incl?'[':'('}${caNum(a)}, ∞)`;}
+ else if(m==='all'){segments=[{a:null,b:null}];ineq='x ∈ ℝ';interval='(−∞, ∞)';}
+ else if(m==='union'){segments=[{a:null,b:a,bc:lc},{a:b,b:null,ac:rc}];ineq=`x ${lc?'≤':'<'} ${caNum(a)} or x ${rc?'≥':'>'} ${caNum(b)}`;interval=`(−∞, ${caNum(a)}${lc?']':')'} ∪ ${rc?'[':'('}${caNum(b)}, ∞)`;}
+ else{segments=[{a,b,ac:lc,bc:rc}];ineq=`${caNum(a)} ${lc?'≤':'<'} x ${rc?'≤':'<'} ${caNum(b)}`;interval=`${lc?'[':'('}${caNum(a)}, ${caNum(b)}${rc?']':')'}`;}
+ caAxisNumberLine($('interval-svg'),{segments});$('interval-answer').textContent=interval;$('interval-inequality').textContent=ineq;
+ $('interval-setbuilder').textContent=ineq==='x ∈ ℝ'?'{x ∈ ℝ}':`{x ∈ ℝ | ${ineq}}`;
+ $('interval-text').innerHTML=`<b>Read the drawing:</b> orange marks are included in the set; a <b>filled dot</b> includes an endpoint, while a <b>hollow dot</b> excludes it. ${m==='union'?'The symbol ∪ combines both orange pieces.':m==='all'?'Every real x is allowed.':segments[0].a===null||segments[0].b===null?'The arrow continues without a finite endpoint.':'Move either boundary to see the interval change.'}`;
+ $('left-closed').disabled=m==='all'||m==='leftopen'||m==='leftinclusive';$('right-closed').disabled=m==='all'||m==='rightopen'||m==='rightinclusive';
+ document.querySelectorAll('#interval-presets button').forEach(btn=>btn.classList.toggle('active',btn.dataset.kind===(m==='finite'?(lc?(rc?'closed':'leftclosed'):(rc?'rightclosed':'open')):m)));
 }
-['int-left','int-right','left-closed','right-closed'].forEach(id=>$(id).addEventListener('input',()=>{intervalPreset='finite';interval()}));
-document.querySelectorAll('#interval-presets button').forEach(btn=>btn.addEventListener('click',()=>{const mode=btn.dataset.kind;intervalPreset=mode==='open'||mode==='closed'||mode==='leftclosed'||mode==='rightclosed'?'finite':mode;const flags={open:[false,false],closed:[true,true],leftclosed:[true,false],rightclosed:[false,true]};if(flags[mode]){$('left-closed').checked=flags[mode][0];$('right-closed').checked=flags[mode][1];}document.querySelectorAll('#interval-presets button').forEach(b=>b.classList.toggle('active',b===btn));interval()}));interval();
-function domain(){let kind=$('domain-kind').value,k=+$('domain-k').value,x=+$('domain-x').value;$('k-output').textContent=fmt(k);let d=x-k,ok=kind==='quadratic'||kind==='oddroot'||(kind==='fraction'||kind==='oddrootden'?d!==0:kind==='root'?d>=0:d>0),v=kind==='quadratic'?d*d:kind==='fraction'?1/d:kind==='root'?Math.sqrt(d):kind==='rootden'?1/Math.sqrt(d):kind==='oddroot'?Math.cbrt(d):1/Math.cbrt(d);let expr={fraction:`f(x) = 1 / (x − (${k}))`,root:`f(x) = √(x − (${k}))`,rootden:`f(x) = 1 / √(x − (${k}))`,quadratic:`f(x) = (x − (${k}))²`,oddroot:`f(x) = ∛(x − (${k}))`,oddrootden:`f(x) = 1 / ∛(x − (${k}))`};$('domain-expression').textContent=expr[kind];$('domain-result').textContent=ok?`Allowed: x = ${x} gives f(x) ≈ ${Number(v.toFixed(5))}.`:`Not allowed: x = ${x} ${kind==='fraction'||kind==='oddrootden'?'makes the denominator zero':kind==='root'?'makes the radicand negative':'makes the even root zero or nonreal in the denominator'}.`;$('domain-interval').textContent='Domain: '+(kind==='quadratic'||kind==='oddroot'?'(−∞, ∞)':kind==='fraction'||kind==='oddrootden'?`(−∞, ${k}) ∪ (${k}, ∞)`:kind==='root'?`[${k}, ∞)`:`(${k}, ∞)`);}['domain-kind','domain-k','domain-x'].forEach(id=>$(id).addEventListener('input',domain));domain();
-function range(){let h=+$('vertex-h').value,k=+$('vertex-k').value,a=+$('vertex-a').value;$('h-display').textContent=fmt(h);$('v-display').textContent=fmt(k);let svg=$('range-svg'),g=plot(svg,x=>a*(x-h)**2+k,{xmin:-6,xmax:6,ymin:-7,ymax:7});svg.innerHTML+=`<circle cx="${g.tx(h)}" cy="${g.ty(k)}" r="6" fill="#147b79" stroke="white" stroke-width="2"/>`;$('range-answer').textContent=`Vertex (${h}, ${k}). Domain: (−∞, ∞). Range: ${a>0?`[${k}, ∞)`:`(−∞, ${k}]`}. ${a>0?'The vertex is the minimum.':'The vertex is the maximum.'}`;}['vertex-h','vertex-k','vertex-a'].forEach(id=>$(id).addEventListener('input',range));range();
+document.querySelectorAll('#interval-presets button').forEach(btn=>btn.addEventListener('click',()=>{const m=btn.dataset.kind;caIntervalMode=['open','closed','leftclosed','rightclosed'].includes(m)?'finite':m;const opts={open:[false,false],closed:[true,true],leftclosed:[true,false],rightclosed:[false,true]};if(opts[m]){ $('left-closed').checked=opts[m][0];$('right-closed').checked=opts[m][1];}if(m==='leftopen'||m==='leftinclusive')$('right-closed').checked=m==='leftinclusive';if(m==='rightopen'||m==='rightinclusive')$('left-closed').checked=m==='rightinclusive';caRenderInterval();}));
+['int-left','int-right','left-closed','right-closed'].forEach(id=>$(id).addEventListener('input',()=>{if(caIntervalMode==='all')caIntervalMode='finite';else if(id==='right-closed'&&(caIntervalMode==='leftopen'||caIntervalMode==='leftinclusive'))caIntervalMode=$('right-closed').checked?'leftinclusive':'leftopen';else if(id==='left-closed'&&(caIntervalMode==='rightopen'||caIntervalMode==='rightinclusive'))caIntervalMode=$('left-closed').checked?'rightinclusive':'rightopen';else if(['left-closed','right-closed'].includes(id)&&caIntervalMode!=='union')caIntervalMode='finite';caRenderInterval();}));caRenderInterval();
+function caDomain(){
+ const kind=$('domain-kind').value,k=Number($('domain-k').value),raw=$('domain-x').value,x=Number(raw),validX=raw.trim()!==''&&Number.isFinite(x);
+ $('k-output').textContent=caNum(k);
+ const kk=caNum(k),pm=k<0?`+ ${caNum(-k)}`:`− ${kk}`,plus=k<0?`− ${caNum(-k)}`:`+ ${kk}`;
+ const expressions={fraction:`f(x) = 1 / (x ${pm})`,fraction2:`f(x) = 1 / (x² − ${k*k})`,root:`f(x) = √(x ${pm})`,rootleft:`f(x) = √(${kk} − x)`,rootden:`f(x) = 1 / √(x ${pm})`,quadratic:`f(x) = (x ${pm})² + 1`,oddroot:`f(x) = ∛(x ${pm})`,oddrootden:`f(x) = 1 / ∛(x ${pm})`};
+ const can = t=>kind==='fraction'||kind==='oddrootden'? t!==k : kind==='fraction2'? t!==k&&t!==-k : kind==='root'?t>=k :kind==='rootleft'?t<=k :kind==='rootden'?t>k:true;
+ const val=t=>{const d=t-k;switch(kind){case'fraction':return 1/d;case'fraction2':return 1/(t*t-k*k);case'root':return Math.sqrt(d);case'rootleft':return Math.sqrt(k-t);case'rootden':return 1/Math.sqrt(d);case'quadratic':return d*d+1;case'oddroot':return Math.cbrt(d);default:return 1/Math.cbrt(d);}};
+ const hole=Math.abs(k);let segments=[],interval='',condition='',steps=[];
+ if(kind==='fraction'||kind==='oddrootden'){
+  segments=[{a:null,b:k,bc:false},{a:k,b:null,ac:false}];
+  interval=`(−∞, ${kk}) ∪ (${kk}, ∞)`;condition=`x ≠ ${kk}`;
+  steps=kind==='fraction'?[`The denominator is x ${pm}. Set the restriction: x ${pm} ≠ 0.`,`Solve x ${pm} = 0 by isolating x: x = ${kk} is forbidden.`,`Every real number except ${kk} works. Use two open rays on the number line.`]:[`The denominator is ∛(x ${pm}), which may be negative but cannot equal zero.`,`∛(x ${pm}) ≠ 0 implies x ${pm} ≠ 0, so x ≠ ${kk}.`,`Exclude only ${kk}; all other inputs give real outputs.`];
+ }else if(kind==='fraction2'){
+  if(k===0){segments=[{a:null,b:0,bc:false},{a:0,b:null,ac:false}];interval='(−∞, 0) ∪ (0, ∞)';condition='x ≠ 0';}
+  else {segments=[{a:null,b:-hole,bc:false},{a:-hole,b:hole,ac:false,bc:false},{a:hole,b:null,ac:false}];interval=`(−∞, ${caNum(-hole)}) ∪ (${caNum(-hole)}, ${caNum(hole)}) ∪ (${caNum(hole)}, ∞)`;condition=`x ≠ ${caNum(-hole)} and x ≠ ${caNum(hole)}`;}
+  steps=[`Denominator restriction: x² − ${k*k} ≠ 0.`,`Factor: (x − ${caNum(hole)})(x + ${caNum(hole)}) ≠ 0.`,`The denominator is zero when x = ${caNum(-hole)} or x = ${caNum(hole)}${k===0?' (the same number).':'.'}`,`Draw an open circle at each distinct forbidden x-value and include the spaces between them.`];
+ }else if(kind==='root'||kind==='rootleft'||kind==='rootden'){
+  const right=kind!=='rootleft',strict=kind==='rootden';segments=[right?{a:k,b:null,ac:!strict}:{a:null,b:k,bc:true}];condition=`x ${right?(strict?'>':'≥'):'≤'} ${kk}`;
+  interval=right?`${strict?'(':'['}${kk}, ∞)`:`(−∞, ${kk}]`;
+  const inside=kind==='rootleft'?`${kk} − x`:`x ${pm}`;
+  steps=[`Identify the radicand ${inside}. ${strict?'Because its square root is in the denominator, it must be strictly positive.':'For a real square root it must be nonnegative.'}`,`Write the inequality: ${inside} ${strict?'>':'≥'} 0.`,kind==='rootleft'?`Subtract ${kk} and multiply by −1, <b>reversing</b> the inequality: x ≤ ${kk}.`:`Isolate x: x ${strict?'>':'≥'} ${kk}.`,`Choose ${strict?'an open':'a filled'} circle at ${kk}${right?' and shade to the right.':' and shade to the left.'}`];
+ }else{segments=[{a:null,b:null}];interval='(−∞, ∞)';condition='x ∈ ℝ';steps=kind==='quadratic'?[`Powers, addition, and subtraction are defined for every real number.`,`There are no denominators or even roots to restrict x.`,`Domain: all real numbers, (−∞, ∞).`]:[`A cube root is defined for a negative, zero, or positive radicand.`,`Therefore x ${pm} can take any real value.`,`Domain: all real numbers, (−∞, ∞).`];}
+ $('domain-expression').textContent=expressions[kind];$('domain-setbuilder').textContent=condition==='x ∈ ℝ'?'{x ∈ ℝ}':`{x ∈ ℝ | ${condition}}`;$('domain-interval').textContent=interval;
+ caAxisNumberLine($('domain-svg'),{segments,test:validX?x:null});
+ const result=$('domain-result');result.className='ca-domain-status '+(validX?(can(x)?'ca-domain-allowed':'ca-domain-forbidden'):'');
+ if(!validX){result.textContent='Enter a real input x to test whether this function accepts it.';}
+ else if(can(x)){const v=val(x);const output=Math.abs(v)<1e-10?'0':caNum(v);result.textContent=`✓ ALLOWED: x = ${caNum(x)} gives a real output f(${caNum(x)}) ${Math.abs(v-Math.round(v))<1e-9?'=':'≈'} ${output}.`;}
+ else {const why=(kind==='fraction'||kind==='fraction2'||kind==='oddrootden')?'the denominator becomes zero':kind==='root' || kind==='rootleft'?'the square-root radicand is negative':'the square-root denominator is zero or not real';result.textContent=`✕ NOT ALLOWED: x = ${caNum(x)} because ${why}.`;}
+ $('domain-steps').innerHTML=steps.map(t=>`<li>${t}</li>`).join('');
+}
+['domain-kind','domain-k','domain-x'].forEach(id=>$(id).addEventListener('input',caDomain));caDomain();
+// A full coordinate plane: finite endpoints, unbounded pieces and an excluded input/output.
+let caDRView='domain';
+const caGraphExamples={
+ segment:{domain:'(−4, 2]',range:'(−3, 3]',why:'The graph starts at (−4, −3) with an open circle and ends at (2, 3) with a filled circle. The x-shadow is (−4, 2]; the y-shadow is (−3, 3].',f:x=>x+1,parts:[[-4,2]],ends:[[-4,-3,false],[2,3,true]],dx:[{a:-4,b:2,ac:false,bc:true}],dy:[{a:-3,b:3,ac:false,bc:true}]},
+ root:{domain:'[−2, ∞)',range:'[−1, ∞)',why:'The square-root curve begins at the included point (−2, −1) and extends to the right and up. Both shadows start at filled endpoints.',f:x=>Math.sqrt(x+2)-1,parts:[[-2,6]],ends:[[-2,-1,true]],dx:[{a:-2,b:null,ac:true}],dy:[{a:-1,b:null,ac:true}]},
+ absolute:{domain:'(−∞, ∞)',range:'[−2, ∞)',why:'The V-shaped graph continues to both left and right, so every real x occurs. Its lowest point is (1, −2), which is included.',f:x=>Math.abs(x-1)-2,parts:[[-6,6]],ends:[],dx:[{a:null,b:null}],dy:[{a:-2,b:null,ac:true}]},
+ parabola:{domain:'(−∞, ∞)',range:'(−∞, 3]',why:'The parabola extends indefinitely in both horizontal directions. Its vertex (1, 3) is the greatest output, so y = 3 is included.',f:x=>-((x-1)**2)+3,parts:[[-6,6]],ends:[],dx:[{a:null,b:null}],dy:[{a:null,b:3,bc:true}]},
+ reciprocal:{domain:'(−∞, 1) ∪ (1, ∞)',range:'(−∞, 0) ∪ (0, ∞)',why:'The vertical asymptote x = 1 is forbidden. The curve approaches but never reaches y = 0. One x-value and one y-value are missing.',f:x=>1/(x-1),parts:[[-6,1],[1,6]],ends:[],dx:[{a:null,b:1,bc:false},{a:1,b:null,ac:false}],dy:[{a:null,b:0,bc:false},{a:0,b:null,ac:false}]}
+};
+function caRenderGraph(){
+ const key=$('dr-graph-kind').value,d=caGraphExamples[key],svg=$('dr-graph-svg'),xmin=-6,xmax=6,ymin=-5,ymax=7,W=650,H=400,pL=47,pR=34,pT=22,pB=43;
+ const tx=x=>pL+(x-xmin)*(W-pL-pR)/(xmax-xmin),ty=y=>H-pB-(y-ymin)*(H-pT-pB)/(ymax-ymin),axisY=ty(0),axisX=tx(0);
+ let grid='',paths='',projections='';for(let x=-6;x<=6;x++){grid+=`<line x1="${tx(x)}" x2="${tx(x)}" y1="${pT}" y2="${H-pB}" stroke="var(--ca-graph-grid,#dbe2e9)" stroke-width="${x===0?1.6:.8}"/><text x="${tx(x)}" y="${H-19}" font-size="12" fill="var(--ca-plot-text,#2f3c4a)" text-anchor="middle">${caNum(x)}</text>`;}
+ for(let y=-5;y<=7;y++){grid+=`<line x1="${pL}" x2="${W-pR}" y1="${ty(y)}" y2="${ty(y)}" stroke="var(--ca-graph-grid,#dbe2e9)" stroke-width="${y===0?1.6:.8}"/>`;if(y%2===0)grid+=`<text x="${pL-10}" y="${ty(y)+5}" font-size="12" fill="var(--ca-plot-text,#2f3c4a)" text-anchor="end">${caNum(y)}</text>`;}
+ const inBounds=v=>v>=ymin&&v<=ymax;
+ for(const [start,end] of d.parts){let points=[],was=false;const segments=[];const n=700;
+  for(let j=0;j<=n;j++){let x=start+(end-start)*j/n;if(key==='reciprocal'&&Math.abs(x-1)<1e-6){if(points.length>1)segments.push(points);points=[];was=false;continue;}let y=d.f(x);const ok=Number.isFinite(y)&&inBounds(y);if(ok){points.push([tx(x),ty(y)]);}else if(points.length){if(points.length>1)segments.push(points);points=[];}}
+  if(points.length>1)segments.push(points);
+  for(const seg of segments){const str=seg.map(([x,y],i)=>`${i?'L':'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');paths+=`<path d="${str}" fill="none" stroke="#ed6336" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" ${key==='segment'?'':`marker-end="url(#ca-graph-arrow)" ${key==='root'?'':'marker-start="url(#ca-graph-arrow)"'}`}/>`;}
+ }
+ if(key==='reciprocal'){paths+=`<line x1="${tx(1)}" x2="${tx(1)}" y1="${pT}" y2="${H-pB}" stroke="#a7819e" stroke-dasharray="8 6" stroke-width="2"/><line x1="${pL}" x2="${W-pR}" y1="${axisY}" y2="${axisY}" stroke="#a7819e" stroke-dasharray="8 6" stroke-width="2"/>`;
+ paths+=`<text x="${tx(1)+8}" y="${pT+18}" fill="var(--ca-plot-text,#39475b)" font-weight="700" font-size="13">x = 1</text>`;}
+ for(const [x,y,filled] of d.ends)paths+=caPoint(tx(x),ty(y),filled,'#ed6336',8);
+ const series=caDRView==='domain'?d.dx:d.dy;
+ for(const seg of series){let a,b,x1,y1,x2,y2;
+ if(caDRView==='domain'){a=seg.a===null?xmin:seg.a;b=seg.b===null?xmax:seg.b;x1=tx(a);x2=tx(b);y1=axisY;y2=axisY;}
+ else{a=seg.a===null?ymin:seg.a;b=seg.b===null?ymax:seg.b;x1=axisX;x2=axisX;y1=ty(a);y2=ty(b);}
+ projections+=`<line x1="${x1}" x2="${x2}" y1="${y1}" y2="${y2}" stroke="#1b88b0" stroke-width="11" stroke-opacity=".82" stroke-linecap="round"/>`;
+ if(seg.a!==null)projections+=caPoint(caDRView==='domain'?tx(seg.a):axisX,caDRView==='domain'?axisY:ty(seg.a),!!seg.ac,'#1b88b0',6);
+ if(seg.b!==null)projections+=caPoint(caDRView==='domain'?tx(seg.b):axisX,caDRView==='domain'?axisY:ty(seg.b),!!seg.bc,'#1b88b0',6);
+ if(seg.a===null){if(caDRView==='domain')projections+=`<path d="M${tx(xmin)} ${axisY} l15 -9 v18 z" fill="#1b88b0"/>`;else projections+=`<path d="M${axisX} ${ty(ymin)} l-9 -15 h18 z" fill="#1b88b0"/>`;}
+ if(seg.b===null){if(caDRView==='domain')projections+=`<path d="M${tx(xmax)} ${axisY} l-15 -9 v18 z" fill="#1b88b0"/>`;else projections+=`<path d="M${axisX} ${ty(ymax)} l-9 15 h18 z" fill="#1b88b0"/>`;}
+ }
+ // Blue axis-shadows are overlaid after the orange graph: visible even when axes overlap.
+ svg.innerHTML=`<defs><marker id="ca-graph-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6 Z" fill="#ed6336"/></marker></defs><rect x="${pL}" y="${pT}" width="${W-pL-pR}" height="${H-pT-pB}" fill="var(--ca-plot-bg,#fff)"/>${grid}${paths}${projections}<text x="${W-pR+5}" y="${axisY-9}" fill="var(--ca-plot-text,#344356)" font-size="15" font-weight="700">x</text><text x="${axisX+8}" y="${pT+12}" fill="var(--ca-plot-text,#344356)" font-size="15" font-weight="700">y</text>`;
+ $('dr-domain').textContent=d.domain;$('dr-range').textContent=d.range;
+ $('dr-explanation').innerHTML=`<b>${caDRView==='domain'?'Reading the x-shadow (left → right)':'Reading the y-shadow (bottom → top)'}:</b> ${d.why} <b>Highlighted ${caDRView}:</b> ${caDRView==='domain'?d.domain:d.range}. <span class="ca-muted">The drawing shows a finite window; arrows/continuation indicate the curve goes on beyond the window.</span>`;
+ document.querySelectorAll('[data-dr-view]').forEach(btn=>{const selected=btn.dataset.drView===caDRView;btn.classList.toggle('active',selected);btn.setAttribute('aria-pressed',String(selected));});
+}
+$('dr-graph-kind').addEventListener('change',caRenderGraph);document.querySelectorAll('[data-dr-view]').forEach(b=>b.addEventListener('click',()=>{caDRView=b.dataset.drView;caRenderGraph();}));caRenderGraph();
+function caRangeParabola(){
+ let h=+$('vertex-h').value,k=+$('vertex-k').value,a=+$('vertex-a').value;
+ $('h-display').textContent=caNum(h);$('v-display').textContent=caNum(k);
+ const svg=$('range-svg'),g=plot(svg,x=>a*(x-h)*(x-h)+k,{xmin:-6,xmax:6,ymin:-7,ymax:7});
+ const axis=g.tx(0),at=g.ty(k),top=a>0?g.ty(7):g.ty(-7);
+ svg.innerHTML+=`<line x1="${g.tx(-6)}" y1="${g.ty(0)}" x2="${g.tx(6)}" y2="${g.ty(0)}" stroke="#1b88b0" stroke-width="6" stroke-opacity=".75"/><line x1="${axis}" y1="${at}" x2="${axis}" y2="${top}" stroke="#1b88b0" stroke-width="9" stroke-opacity=".7"/>${caPoint(axis,at,true,'#1b88b0',6)}${caPoint(g.tx(h),g.ty(k),true,'#ed6336',8)}`;
+ const range=a>0?`[${caNum(k)}, ∞)`:`(−∞, ${caNum(k)}]`;
+ $('range-domain').textContent='(−∞, ∞)';$('range-range').textContent=range;
+ $('range-answer').innerHTML=`<b>Vertex:</b> (${caNum(h)}, ${caNum(k)}). <b>Domain:</b> all real x, (−∞, ∞). <b>Range:</b> ${range}. Because the parabola opens ${a>0?'upward':'downward'}, <b>y = ${caNum(k)}</b> is the included ${a>0?'minimum':'maximum'} output. The blue shadows mark the allowed x- and y-values.`;
+}
+['vertex-h','vertex-k','vertex-a'].forEach(id=>$(id).addEventListener('input',caRangeParabola));caRangeParabola();
 // Section 3.1: work backwards from y to find all x values.
 function graphReading(){
  const x=Number($('graph-input').value),yTarget=Number($('graph-output').value),f=t=>(t+1)*(t+1)-1;
@@ -148,14 +242,19 @@ const guidedBanks={
   {q:'For g(x) = (x + 1)² − 1, solve g(x) = 3.',opts:['x = −1','x = −3 or 1','x = −2 or 0'],correct:1,why:'(x + 1)² = 4. Taking both square roots gives x + 1 = ±2, hence x = −3 or 1.'}
  ],
  '32':[
-  {q:'What is the domain of 1/(x − 4)?',opts:['[4, ∞)','All real numbers except x = 4','All real numbers'],correct:1,why:'Division by zero is undefined, so exclude x = 4.'},
-  {q:'What is the domain of √(x + 3)?',opts:['(−3, ∞)','(−∞, −3]','[−3, ∞)'],correct:2,why:'x + 3 ≥ 0 gives x ≥ −3, so [−3, ∞).'},
-  {q:'Which interval represents −3 < x ≤ 10?',opts:['[−3, 10]','(−3, 10]','(−3, 10)'],correct:1,why:'−3 is excluded (parenthesis), while 10 is included (bracket).'},
-  {q:'What is the range of y = (x−1)² + 2?',opts:['[2, ∞)','(−∞, 2]','All real numbers'],correct:0,why:'The upward-opening parabola has its minimum at y = 2.'},
-  {q:'What is the domain of 1/√(x−5)?',opts:['[5, ∞)','(5, ∞)','All real x except 5'],correct:1,why:'The square-root denominator must be strictly positive: x − 5 > 0, so x > 5.'},
-  {q:'For y = −(x+2)² + 3, what is the range?',opts:['[3, ∞)','(−∞, 3]','(−∞, ∞)'],correct:1,why:'A downward-opening parabola has maximum y = 3, included in its range.'},
-  {q:'What is the domain of ∛(x−2)?',opts:['[2, ∞)','All real numbers','All real numbers except 2'],correct:1,why:'An odd root is defined for negative, zero, and positive real radicands.'},
-  {q:'What does a filled endpoint at x = 4 mean?',opts:['x = 4 is included','x = 4 is excluded','The graph stops before x = 4'],correct:0,why:'A filled dot means the endpoint belongs to the set.'}
+  {q:'The shaded number line starts with an open circle at −2 and ends with a filled circle at 6. Choose the interval.',opts:['[−2, 6]','(−2, 6]','(−2, 6)'],correct:1,why:'An open circle excludes −2; a filled circle includes 6. The interval is (−2, 6].'},
+  {q:'Which set-builder notation matches [3, ∞)?',opts:['{x ∈ ℝ | x > 3}','{x ∈ ℝ | x ≥ 3}','{x ∈ ℝ | x ≤ 3}'],correct:1,why:'The bracket at 3 includes the value 3, and the arrow goes to the right: x ≥ 3.'},
+  {q:'What is the domain of f(x) = 1/(x + 5)?',opts:['(−∞, ∞)','(−∞, −5) ∪ (−5, ∞)','[−5, ∞)'],correct:1,why:'x + 5 = 0 at x = −5. Exclude this one input because division by zero is undefined.'},
+  {q:'Find the domain of g(x) = √(x − 4).',opts:['(4, ∞)','(−∞, 4]','[4, ∞)'],correct:2,why:'The radicand must satisfy x − 4 ≥ 0, so x ≥ 4. The boundary is included.'},
+  {q:'Find the domain of h(x) = 1/√(x + 2).',opts:['(−2, ∞)','[−2, ∞)','(−∞, −2)'],correct:0,why:'The radical is in the denominator: x + 2 > 0. Hence x > −2; the endpoint is open.'},
+  {q:'What is the domain of p(x) = 1/(x² − 9)?',opts:['(−∞, −3) ∪ (−3, 3) ∪ (3, ∞)','[−3, 3]','(−∞, ∞)'],correct:0,why:'Factor x² − 9 = (x − 3)(x + 3). Exclude both −3 and 3.'},
+  {q:'A line segment goes from a hollow dot at (−4, −3) to a filled dot at (2, 3). What is its range?',opts:['[−4, 2)','(−3, 3]','[−3, 3)'],correct:1,why:'Read from bottom to top: −3 is excluded and 3 is included. The range is (−3, 3].'},
+  {q:'For f(x) = |x − 1| − 2, what is its range?',opts:['[−2, ∞)','(−∞, −2]','(−∞, ∞)'],correct:0,why:'Absolute value is never negative, so the lowest output is −2. It is attained at x = 1.'},
+  {q:'For f(x) = −(x − 1)² + 3, what is the range?',opts:['[3, ∞)','(−∞, 3]','(−∞, ∞)'],correct:1,why:'The parabola opens downward. The vertex has maximum y = 3, included.'},
+  {q:'Which value is excluded from the range of y = 1/(x − 1)?',opts:['y = 1','y = 0','y = −1'],correct:1,why:'A reciprocal can never equal zero; the horizontal asymptote is y = 0.'},
+  {q:'For f(x) = √(3 − x), which interval is the domain?',opts:['(−∞, 3]','[3, ∞)','(−∞, 3)'],correct:0,why:'3 − x ≥ 0 means −x ≥ −3, so x ≤ 3 after reversing the inequality.'},
+  {q:'Which statement about infinity is correct?',opts:['Use brackets when ∞ is included','Always use parentheses beside ±∞','Infinity is the largest real number'],correct:1,why:'Infinity is not a real endpoint, so it is never included in an interval.'},
+  {q:'What is the domain of ∛(x + 8)?',opts:['[−8, ∞)','(−∞, ∞)','(−∞, −8) ∪ (−8, ∞)'],correct:1,why:'Cube roots are defined for negative, zero, and positive inputs; there is no restriction.'}
  ]
 };
 const guidedHints={
@@ -172,18 +271,23 @@ const guidedHints={
   'Add 1 to both sides, then take positive and negative square roots.'
  ],
  '32':[
-  'Find any input that makes the denominator zero.',
-  'A square-root radicand must be nonnegative.',
-  'Use a parenthesis for an excluded endpoint and bracket for an included one.',
-  'The graph opens upward. Identify its smallest output.',
-  'A square root in the denominator cannot be zero.',
-  'The graph opens downward. Identify its largest output.',
-  'Cube roots are defined for negative, zero, and positive numbers.',
-  'Think about the difference between an open and a filled dot.'
+  'A hollow dot means excluded; a filled dot means included.',
+  'The bracket at 3 includes 3. Which inequality matches that?',
+  'Set the denominator equal to zero to locate the forbidden x-value.',
+  'A real square root needs a nonnegative radicand.',
+  'If the root is in a denominator, zero is excluded as well.',
+  'Factor the denominator using the difference of two squares.',
+  'Range comes from y-values; scan bottom to top.',
+  'The absolute-value expression cannot be negative.',
+  'An upside-down parabola has a maximum at its vertex.',
+  'Can 1 divided by a real nonzero number ever be zero?',
+  'Remember: multiplying an inequality by a negative reverses it.',
+  'Is a cube root defined for negative numbers?',
+  'Infinity is not an attainable real endpoint.'
  ]
 };
 function setupGuided(which){
- const bank=guidedBanks[which],count=which==='31'?5:4;let offset=0;
+ const bank=guidedBanks[which],count=which==='31'?5:5;let offset=0;
  const container=$(`quiz-${which}-container`),status=$(`quiz-${which}-feedback`);
  function render(){
   const chosen=Array.from({length:count},(_,i)=>({q:bank[(offset+i)%bank.length],i}));
