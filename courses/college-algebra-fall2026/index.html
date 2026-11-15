@@ -463,11 +463,139 @@ html[data-theme="dark"] .course-page #tables .ca-picked-pair strong,html[data-th
 html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{background:#534039!important;color:#ffe1c6!important;border-left-color:#ffab81}
 @media(max-width:520px){.course-page #tables .ca-plot-grid-layout{gap:12px}.course-page #tables .ca-plot-result{font-size:.9rem}}
 </style>
-</head><body class="course-page"><div class="page"><header class="top-nav" data-shared-template="header"></header><main class="layout"><aside class="sidebar" data-shared-template="sidebar"></aside><section class="main"><div class="uni-header prominent ca-university-header"><div class="uni-header-left"><i class="fa-solid fa-school"></i><div><h3 class="uni-title">University of Texas Rio Grande Valley</h3><div class="uni-subtitle">Current teaching · Edinburg, Texas · Fall 2026</div></div></div><div class="uni-header-logo"><img alt="UTRGV" src="/assets/images/utrgv-logo.svg"/></div></div><div class="ca"><header class="ca-hero"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> UNIVERSITY OF TEXAS RIO GRANDE VALLEY · FALL 2026 · MATH 1314</span><h1>College Algebra — Interactive Course Notes</h1><p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 8:00–9:15 AM · EMAGC 1.206 <span class="ca-hero-schedule-separator">·</span> PLTL online 9:30–10:45 AM</p><div class="ca-hero-links"><button class="ca-foundations-btn" id="foundations-open"><i class="fa-solid fa-layer-group"></i> Course Foundations</button></div></header><div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open a chapter in the left-hand contents menu to reveal its topics. The full lecture notes remain visible in the main area.</span></div><div class="ca-layout"><nav aria-label="Lesson navigation" class="ca-toc"><strong><i class="fa-solid fa-list-ul"></i> ON THIS PAGE</strong>
-<details class="ca-toc-chapter" open=""><summary><i class="fa-solid fa-chart-line"></i> 3.1 · Functions and Function Notation <i aria-hidden="true" class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-31">Section overview</a><a href="#ordered-pairs" title="01 · Ordered pairs, domain, and range">01 · Ordered pairs, domain, and range</a><a href="#mappings" title="02 · Is the relation a function?">02 · Is the relation a function?</a><a href="#notation" title="03 · Reading function notation">03 · Reading function notation</a><a href="#representations" title="04 · One function, four views">04 · One function, four views</a><a href="#vertical" title="05 · Vertical line test explorer">05 · Vertical line test explorer</a><a href="#formula-examples" title="06 · Forward and backward: from inputs to outputs">06 · Forward and backward: from inputs to outputs</a><a href="#evaluation" title="07 · Interactive function machine">07 · Interactive function machine</a><a href="#tables" title="08 · Search a function table">08 · Search a function table</a><a href="#graph-reading" title="09 · Read a graph in two directions">09 · Read a graph in two directions</a><a href="#toolkit" title="10 · Parent-function gallery">10 · Parent-function gallery</a><a href="#guided-31" title="Guided problems · Functions and Notation">Guided problems · Functions and Notation</a></div></details>
-<details class="ca-toc-chapter"><summary><i class="fa-solid fa-ruler-combined"></i> 3.2 · Domain and Range <i aria-hidden="true" class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-32">Section overview</a><a href="#intervals" title="01 · Interval notation and number lines">01 · Interval notation and number lines</a><a href="#domain-lab" title="02 · Domain from a function’s equation">02 · Domain from a function’s equation</a><a href="#graph-domain-range" title="03 · Read domain and range from graphs">03 · Read domain and range from graphs</a><a href="#range-graph" title="04 · Experiment with the range of a parabola">04 · Experiment with the range of a parabola</a><a href="#guided-32" title="Guided problems · Domain and Range">Guided problems · Domain and Range</a></div></details>
-</nav><div class="ca-content"><article class="ca-lesson" id="lesson-31"><span class="ca-chapter">SECTION 3.1</span><h2>Functions and Function Notation</h2><p class="ca-lede">A <b>relation</b> is a set of ordered pairs. It is a <b>function</b> when each input is assigned exactly one output. Learn to read, represent, evaluate, and graph functions.</p><div class="ca-goals"><b>Learning objectives</b> Determine whether a relation is a function; identify domain and range of ordered pairs; use function notation; find inputs and outputs from formulas, tables, and graphs; apply the vertical line test; recognize toolkit graphs.</div><p class="ca-source-credit">Learning objectives informed by the Section 3.1 course notes (Dr. Setayesh). The scenarios, visualizations, and practice activities here are newly authored.</p><section class="ca-panel" id="ordered-pairs">
-<h3>01 · Ordered pairs, domain, and range</h3>
+<style id="ca-nov2026-enhancements">
+/* November 2026 enhancements — textbook links, notes tags, common mistakes, predict-first cards,
+   new labs, exit tickets, class/study mode, Desmos links, accessibility and print. */
+.course-page .ca [hidden],.course-page .ca-controls>[hidden],.course-page .ca-reveal-row[hidden],.course-page [hidden].ca-desmos-row{display:none!important}
+.course-page .ca-textbook-link{font-size:.86rem;margin:-6px 0 18px;color:var(--muted,#5b6878)}
+.course-page .ca-textbook-link a{color:#b43c18;font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.course-page .ca-textbook-link i{color:#c2410c;margin-right:4px}
+
+/* "In your notes" tag under each activity heading */
+.course-page .ca-notes-tag{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;margin:-4px 0 14px;padding:5px 11px;border-radius:999px;background:#fff1e6;border:1px solid #f1c7ae;color:#8e3114;font-size:.8rem;font-weight:700;line-height:1.4}
+.course-page .ca-notes-tag span{font-weight:850;letter-spacing:.04em;text-transform:uppercase;font-size:.7rem;color:#b43c18}
+.course-page .ca-notes-tag.ca-notes-extension{background:#eef5ff;border-color:#b8cde6;color:#25507a}
+.course-page .ca-notes-tag.ca-notes-extension span{color:#1f5f99}
+
+/* Common mistakes */
+.course-page .ca-mistake{border-left:5px solid #d97706;border-radius:10px;background:#fff8e7;color:#4a3410;padding:13px 18px;margin:16px 0}
+.course-page .ca-mistake-heading{color:#92400e;font-weight:850;letter-spacing:.075em;font-size:.8rem}
+.course-page .ca-mistake ul{margin:7px 0 0;padding-left:20px}.course-page .ca-mistake li{margin:5px 0;line-height:1.55}
+
+/* Predict first */
+.course-page .ca-predict-gate>b{display:flex;align-items:center;gap:8px;color:#a83911}
+.course-page .ca-predict-gate .ca-choice-row{align-items:center}
+.course-page .ca-gate-note{font-size:.86rem;color:var(--muted,#5b6878);margin:8px 0 4px;font-style:italic}
+.course-page .ca-gate-note i{margin-right:5px}
+.course-page .ca-gated.is-locked{opacity:.42;filter:saturate(.5);user-select:none}
+
+/* Solve for y (vertical line test) */
+.course-page .ca-solve-y{border:1px solid #9cc6d8;background:#eef8fc;color:#173b4c;border-radius:10px;padding:12px 15px;line-height:1.65;margin:10px 0}
+
+/* Letters as inputs */
+.course-page .ca-symbolic-lab{margin-top:22px;padding-top:6px;border-top:1px dashed #e8c4b2}
+
+/* Naming drill */
+.course-page .ca-name-drill{margin-top:22px;padding-top:6px;border-top:1px dashed #e8c4b2}
+.course-page .ca-name-drill .ca-display-large{margin:8px 0 14px}
+.course-page .ca-name-drill-rows{display:grid;gap:9px;margin-bottom:6px}
+.course-page .ca-name-row{display:grid;grid-template-columns:minmax(150px,230px) 1fr 28px;align-items:center;gap:10px;padding:8px 10px;border:1px solid #ecd6ca;border-radius:10px}
+.course-page .ca-name-row .ca-choice{min-width:52px;font-size:1.08rem;font-style:italic;padding:8px 14px}
+.course-page .ca-name-row.ca-row-correct{border-color:#16836d;background:#16836d12}
+.course-page .ca-name-row.ca-row-wrong{border-color:#c8372b;background:#c8372b10}
+.course-page .ca-name-mark{font-weight:900;font-size:1.2rem;text-align:center}
+.course-page .ca-row-correct .ca-name-mark{color:#0f7a5f}.course-page .ca-row-wrong .ca-name-mark{color:#b42d22}
+.course-page .ca-name-label{font-weight:750;font-size:.9rem}
+.course-page #name-drill-next{margin-top:4px}
+
+/* Inequality flip highlight */
+.course-page .ca-flip-note{background:#fde68a;color:#3f2a00;border-radius:4px;padding:1px 4px}
+
+/* Exit tickets */
+.course-page .ca-exit-ticket .ca-guided-kicker{color:#b43c18}
+.course-page .ca-exit-list{margin:10px 0 0;padding-left:22px}
+.course-page .ca-exit-list>li{margin:0 0 14px;line-height:1.6}
+.course-page .ca-exit-list>li>p{margin:0 0 6px;font-weight:650}
+.course-page .ca-exit-list details{border:1px solid #ecd6ca;border-radius:9px;padding:6px 12px;background:var(--card-bg,#fff)}
+.course-page .ca-exit-list summary{cursor:pointer;font-weight:750;color:#a83911}
+.course-page .ca-exit-list details p{margin:8px 0 4px}
+
+/* Desmos link */
+.course-page .ca-desmos-row{margin:12px 0 0}
+.course-page .ca-desmos-link{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:9px;border:1px solid #2f7d32;color:#1f6b24;font-weight:750;text-decoration:none;background:#f1f9f1}
+
+/* Study mode / Class mode toggle in the hero */
+.course-page .ca-hero-links .ca-view-toggle{display:inline-flex;border-radius:11px;overflow:hidden;border:1px solid #ffffff80;background:#ffffff1f}
+.course-page .ca-hero-links .ca-view-toggle button{background:transparent;color:#fff;border:0;border-radius:0;padding:12px 15px;font-weight:800;cursor:pointer}
+.course-page .ca-hero-links .ca-view-toggle button.active{background:#fff7ee;color:#853016}
+.course-page .ca-hero-links .ca-view-toggle button i{margin-right:6px}
+.ca-class-bar{position:fixed;right:18px;bottom:18px;z-index:400;display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;border-radius:12px;background:#6a2b1d;color:#fff;box-shadow:0 8px 24px #0004;font-weight:800}
+.ca-class-bar[hidden]{display:none}
+.ca-class-bar button{background:#fff7ee;color:#853016;border:0;border-radius:8px;padding:9px 12px;font-weight:800;cursor:pointer}
+.ca-class-bar i{margin-right:6px}
+
+/* Step-by-step reveal (only visible in class mode) */
+.course-page .ca-reveal-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.course-page .ca-answer-held{visibility:hidden}
+html.ca-class-mode .course-page .sidebar,html.ca-class-mode .course-page .ca-toc,html.ca-class-mode .course-page .ca-chapter-notice,html.ca-class-mode .course-page .ca-source-credit{display:none!important}
+html.ca-class-mode .course-page .layout,html.ca-class-mode .course-page .ca-layout{grid-template-columns:minmax(0,1fr)!important}
+html.ca-class-mode .course-page .ca-content{font-size:1.18rem}
+html.ca-class-mode .course-page .ca-content :is(.ca-equation,.ca-display-large,.ca-readout){font-size:1.35rem}
+html.ca-class-mode .course-page .ca-content svg{max-height:none}
+
+/* Dark theme */
+html[data-theme="dark"] .course-page .ca-notes-tag{background:#3b2a24;border-color:#8a5a44;color:#ffd8c2}
+html[data-theme="dark"] .course-page .ca-notes-tag span{color:#ffb793}
+html[data-theme="dark"] .course-page .ca-notes-tag.ca-notes-extension{background:#1f3347;border-color:#4f7397;color:#d6e8fb}
+html[data-theme="dark"] .course-page .ca-notes-tag.ca-notes-extension span{color:#9fcbf5}
+html[data-theme="dark"] .course-page .ca-textbook-link{color:#cdd8e4}
+html[data-theme="dark"] .course-page .ca-textbook-link a,html[data-theme="dark"] .course-page .ca-textbook-link i{color:#ffb793}
+html[data-theme="dark"] .course-page .ca-mistake{background:#3a2f1d;border-color:#d9a14a;color:#fbe7c6}
+html[data-theme="dark"] .course-page .ca-mistake-heading{color:#f6c56f}
+html[data-theme="dark"] .course-page .ca-predict-gate>b,html[data-theme="dark"] .course-page .ca-exit-list summary{color:#ffb793}
+html[data-theme="dark"] .course-page .ca-gate-note{color:#cdd8e4}
+html[data-theme="dark"] .course-page .ca-solve-y{background:#1d3442;border-color:#3f7590;color:#e3f3fb}
+html[data-theme="dark"] .course-page :is(.ca-symbolic-lab,.ca-name-drill){border-top-color:#6b4a3c}
+html[data-theme="dark"] .course-page .ca-name-row{border-color:#5e6c7e}
+html[data-theme="dark"] .course-page .ca-row-correct .ca-name-mark{color:#6fe0b8}
+html[data-theme="dark"] .course-page .ca-row-wrong .ca-name-mark{color:#ff9b8f}
+html[data-theme="dark"] .course-page .ca-flip-note{background:#6b5310;color:#fff3cf}
+html[data-theme="dark"] .course-page .ca-exit-list details{background:var(--ca-raised,#26313f);border-color:#5e6c7e}
+html[data-theme="dark"] .course-page .ca-desmos-link{background:#1f3322;border-color:#6fbf73;color:#c9f0cb}
+
+/* Keyboard focus, touch targets and reduced motion */
+.course-page .ca :is(button,select,input,summary,a,[role="button"]):focus-visible{outline:3px solid #1b6fd1;outline-offset:2px;border-radius:6px}
+@media (pointer:coarse){.course-page .ca :is(button,select,summary,.ca-choice,.ca-btn){min-height:44px}.course-page .ca input[type="range"]{min-height:32px}}
+@media (prefers-reduced-motion:reduce){.course-page *,.course-page *::before,.course-page *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* Small screens */
+@media (max-width:560px){
+ .course-page .ca-name-row{grid-template-columns:1fr 28px}
+ .course-page .ca-name-row .ca-name-label{grid-column:1/-1}
+ .course-page .ca-hero-links .ca-view-toggle{width:100%}
+ .course-page .ca-hero-links .ca-view-toggle button{flex:1}
+ .ca-class-bar{left:12px;right:12px;bottom:12px;justify-content:space-between}
+}
+
+/* Print: keep the notes and the current state of each activity, drop navigation and controls */
+@media print{
+ .course-page :is(.top-nav,.sidebar,.ca-toc,.ca-chapter-notice,.ca-hero-links,.ca-reveal-row,.ca-gate-note,.ca-desmos-row,.ca-quiz-hint,.ca-class-bar,footer[data-shared-template]),.ca-class-bar{display:none!important}
+ .course-page :is(.layout,.ca-layout){display:block!important}
+ .course-page .ca-gated.is-locked{opacity:1;filter:none}
+ .course-page .ca-answer-held{visibility:visible}
+ .course-page .ca-calculation-steps>li[hidden]{display:list-item!important}
+ .course-page .ca-hero{background:none!important;color:#000!important;border:1px solid #999}
+ .course-page .ca-hero *{color:#000!important}
+ .course-page .ca-panel{break-inside:auto;box-shadow:none!important}
+ .course-page :is(svg,.ca-definition,.ca-remember,.ca-mistake,.ca-feedback,.ca-quiz-question){break-inside:avoid}
+ .course-page input[type="range"],.course-page .ca-btn{display:none!important}
+}
+</style>
+</head><body class="course-page"><div class="page"><header class="top-nav" data-shared-template="header"></header><main class="layout"><aside class="sidebar" data-shared-template="sidebar"></aside><section class="main"><div class="uni-header prominent ca-university-header"><div class="uni-header-left"><i class="fa-solid fa-school"></i><div><h3 class="uni-title">University of Texas Rio Grande Valley</h3><div class="uni-subtitle">Current teaching · Edinburg, Texas · Fall 2026</div></div></div><div class="uni-header-logo"><img alt="UTRGV" src="/assets/images/utrgv-logo.svg"/></div></div><div class="ca"><header class="ca-hero"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> UNIVERSITY OF TEXAS RIO GRANDE VALLEY · FALL 2026 · MATH 1314</span><h1>College Algebra — Interactive Course Notes</h1><p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 8:00–9:15 AM · EMAGC 1.206 <span class="ca-hero-schedule-separator">·</span> PLTL online 9:30–10:45 AM</p><div class="ca-hero-links"><button class="ca-foundations-btn" id="foundations-open"><i class="fa-solid fa-layer-group"></i> Course Foundations</button><div aria-label="Page mode" class="ca-view-toggle" role="group"><button aria-pressed="true" class="active" data-view-mode="study" type="button"><i aria-hidden="true" class="fa-solid fa-book-open"></i>Study mode</button><button aria-pressed="false" data-view-mode="class" type="button"><i aria-hidden="true" class="fa-solid fa-person-chalkboard"></i>Class mode</button></div></div></header><div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open a chapter in the left-hand contents menu to reveal its topics. The full lecture notes remain visible in the main area.</span></div><div class="ca-layout"><nav aria-label="Lesson navigation" class="ca-toc"><strong><i class="fa-solid fa-list-ul"></i> ON THIS PAGE</strong>
+<details class="ca-toc-chapter" open=""><summary><i class="fa-solid fa-chart-line"></i> 3.1 · Functions and Function Notation <i aria-hidden="true" class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-31">Section overview</a><a href="#ordered-pairs" title="01 · Ordered pairs, domain, and range">01 · Ordered pairs, domain, and range</a><a href="#mappings" title="02 · Is the relation a function?">02 · Is the relation a function?</a><a href="#notation" title="03 · Reading function notation">03 · Reading function notation</a><a href="#representations" title="04 · One function, four views">04 · One function, four views</a><a href="#vertical" title="05 · Vertical line test explorer">05 · Vertical line test explorer</a><a href="#formula-examples" title="06 · Forward and backward: from inputs to outputs">06 · Forward and backward: from inputs to outputs</a><a href="#evaluation" title="07 · Interactive function machine">07 · Interactive function machine</a><a href="#tables" title="08 · Search a function table">08 · Search a function table</a><a href="#graph-reading" title="09 · Read a graph in two directions">09 · Read a graph in two directions</a><a href="#toolkit" title="10 · Parent-function gallery">10 · Parent-function gallery</a><a href="#guided-31" title="Guided problems · Functions and Notation">Guided problems · Functions and Notation</a><a href="#exit-31" title="Exit ticket · Functions and Notation">Exit ticket · Functions and Notation</a></div></details>
+<details class="ca-toc-chapter"><summary><i class="fa-solid fa-ruler-combined"></i> 3.2 · Domain and Range <i aria-hidden="true" class="fa-solid fa-chevron-down"></i></summary><div class="ca-toc-children"><a href="#lesson-32">Section overview</a><a href="#intervals" title="01 · Interval notation and number lines">01 · Interval notation and number lines</a><a href="#domain-lab" title="02 · Domain from a function’s equation">02 · Domain from a function’s equation</a><a href="#graph-domain-range" title="03 · Read domain and range from graphs">03 · Read domain and range from graphs</a><a href="#range-graph" title="04 · Experiment with the range of a parabola">04 · Experiment with the range of a parabola</a><a href="#guided-32" title="Guided problems · Domain and Range">Guided problems · Domain and Range</a><a href="#exit-32" title="Exit ticket · Domain and Range">Exit ticket · Domain and Range</a></div></details>
+</nav><div class="ca-content"><article class="ca-lesson" id="lesson-31"><span class="ca-chapter">SECTION 3.1</span><h2>Functions and Function Notation</h2><p class="ca-lede">A <b>relation</b> is a set of ordered pairs. It is a <b>function</b> when each input is assigned exactly one output. Learn to read, represent, evaluate, and graph functions.</p><div class="ca-goals"><b>Learning objectives</b> Determine whether a relation is a function; identify domain and range of ordered pairs; use function notation; find inputs and outputs from formulas, tables, and graphs; apply the vertical line test; recognize toolkit graphs.</div><p class="ca-source-credit">Learning objectives informed by the Section 3.1 course notes (Dr. Setayesh). The scenarios, visualizations, and practice activities here are newly authored.</p><p class="ca-textbook-link"><i aria-hidden="true" class="fa-solid fa-book"></i> Read in the textbook: <a href="https://openstax.org/books/college-algebra-2e/pages/3-1-functions-and-function-notation" rel="noopener" target="_blank">OpenStax College Algebra 2e · Section 3.1 Functions and Function Notation</a></p><section class="ca-panel" id="ordered-pairs">
+<h3>01 · Ordered pairs, domain, and range</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Ordered pairs · Example 1 · Think–Pair–Share 1</p>
 <div class="ca-definition"><strong>Start with a point</strong><p>An ordered pair <b>(x, y)</b> connects an <b>input</b> to an <b>output</b>. A <b>relation</b> is a set of such pairs. Its <b>domain</b> contains the distinct x-values, and its <b>range</b> contains the distinct y-values. Repeated values appear only once in a set.</p></div>
 <div class="ca-lab-kicker"><i class="fa-solid fa-compass-drafting"></i> INTERACTIVE · COORDINATE STUDIO</div>
 <p>Four points form a relation. Select a point, then slide it to a new location. Switch the projection to see which numbers belong to the domain or range.</p>
@@ -477,35 +605,36 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
 <div class="ca-projection-grid"><div><small>RELATION · ORDERED PAIRS</small><div class="ca-chip-wrap" id="coordinate-pairs"></div></div><div><small>DOMAIN · DISTINCT INPUTS</small><div class="ca-set-result" id="coordinate-domain"></div><small>RANGE · DISTINCT OUTPUTS</small><div class="ca-set-result" id="coordinate-range"></div></div></div>
 <div aria-live="polite" class="ca-feedback" id="coordinate-feedback"></div>
 <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i> <span><b>Try this:</b> Make points A and B share the same x-coordinate, but give them different y-coordinates. Does the relation remain a function? Explore the next activity to decide.</span></div>
-</section><section class="ca-panel" id="mappings"><h3>02 · Is the relation a function?</h3><div class="ca-definition"><strong>Definition · Function</strong><p>A <b>relation</b> is a collection of ordered pairs <b>(input, output)</b>. A <b>function</b> assigns <b>exactly one output to each input</b>.</p><p>A repeated <b>input</b> with <b>different outputs</b> means it is not a function; repeated <b>outputs</b> are perfectly allowed. A repeated identical pair does not add another element to the relation.</p></div><aside class="ca-remember" role="note"><div class="ca-remember-heading"><i class="fa-solid fa-bookmark"></i> POINT TO REMEMBER</div><p><span class="remember-yes">✓</span> <b>Outputs may repeat.</b> For example, (−3, 2) and (4, 2) have different inputs and one shared output.</p><p><span class="remember-no">✕</span> <b>One input cannot have two different outputs.</b> For example, (−3, 2) and (−3, −1) break the rule.</p><p>Repeating exactly the same ordered pair does not create a conflict: a relation is a set, so duplicate pairs count only once.</p></aside><p><b>Step 1.</b> Change the outputs below. Toggle the extra ordered pair to repeat an input. Watch the ordered-pair cards and the mapping diagram change.</p><div class="ca-controls"><label>Input −2 → <select class="mapping" data-input="-2"><option value="1">1</option><option value="3">3</option><option value="5">5</option></select></label><label>Input 0 → <select class="mapping" data-input="0"><option value="1">1</option><option selected="" value="3">3</option><option value="5">5</option></select></label><label>Input 2 → <select class="mapping" data-input="2"><option value="1">1</option><option value="3">3</option><option selected="" value="5">5</option></select></label></div><label class="ca-check"><input id="double-output" type="checkbox"/> Also assign input 0 a second output of 5</label><div class="ca-mapping-grid"><div><h4>Mapping diagram · input to output</h4><div aria-live="polite" class="ca-pair-cards" id="mapping-pairs"></div></div><div><h4>Input → output diagram</h4><div aria-live="polite" class="ca-map-diagram" id="mapping-diagram"></div></div></div><div aria-live="polite" class="ca-observation" id="mapping-observation"></div><div class="ca-predict"><b>Step 2 · Your decision</b><p>Is this relation a function?</p><div aria-label="Is this relation a function?" class="ca-choice-row" role="group"><button aria-pressed="false" class="ca-choice" id="mapping-yes" type="button">Yes · Function</button><button aria-pressed="false" class="ca-choice" id="mapping-no" type="button">No · Not a function</button></div><div aria-live="polite" class="ca-feedback" id="mapping-result">Choose an answer to check your reasoning.</div></div>
+</section><section class="ca-panel" id="mappings"><h3>02 · Is the relation a function?</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Function definition · Example 2 · Example 3 (coffee-shop menu)</p><div class="ca-definition"><strong>Definition · Function</strong><p>A <b>relation</b> is a collection of ordered pairs <b>(input, output)</b>. A <b>function</b> assigns <b>exactly one output to each input</b>.</p><p>A repeated <b>input</b> with <b>different outputs</b> means it is not a function; repeated <b>outputs</b> are perfectly allowed. A repeated identical pair does not add another element to the relation.</p></div><aside class="ca-remember" role="note"><div class="ca-remember-heading"><i class="fa-solid fa-bookmark"></i> POINT TO REMEMBER</div><p><span class="remember-yes">✓</span> <b>Outputs may repeat.</b> For example, (−3, 2) and (4, 2) have different inputs and one shared output.</p><p><span class="remember-no">✕</span> <b>One input cannot have two different outputs.</b> For example, (−3, 2) and (−3, −1) break the rule.</p><p>Repeating exactly the same ordered pair does not create a conflict: a relation is a set, so duplicate pairs count only once.</p></aside><p><b>Step 1.</b> Change the outputs below. Then check <b>“Also assign input 0 a second output of 5”</b> to repeat an input. Watch the ordered-pair cards and the mapping diagram change.</p><div class="ca-controls"><label>Input −2 → <select class="mapping" data-input="-2"><option value="1">1</option><option value="3">3</option><option value="5">5</option></select></label><label>Input 0 → <select class="mapping" data-input="0"><option value="1">1</option><option selected="" value="3">3</option><option value="5">5</option></select></label><label>Input 2 → <select class="mapping" data-input="2"><option value="1">1</option><option value="3">3</option><option selected="" value="5">5</option></select></label></div><label class="ca-check"><input id="double-output" type="checkbox"/> Also assign input 0 a second output of 5</label><div class="ca-mapping-grid"><div><h4>Mapping diagram · input to output</h4><div aria-live="polite" class="ca-pair-cards" id="mapping-pairs"></div></div><div><h4>Input → output diagram</h4><div aria-live="polite" class="ca-map-diagram" id="mapping-diagram"></div></div></div><div aria-live="polite" class="ca-observation" id="mapping-observation"></div><div class="ca-predict"><b>Step 2 · Your decision</b><p>Is this relation a function?</p><div aria-label="Is this relation a function?" class="ca-choice-row" role="group"><button aria-pressed="false" class="ca-choice" id="mapping-yes" type="button">Yes · Function</button><button aria-pressed="false" class="ca-choice" id="mapping-no" type="button">No · Not a function</button></div><div aria-live="polite" class="ca-feedback" id="mapping-result">Choose an answer to check your reasoning.</div></div>
 <div class="ca-mini-story"><div class="ca-lab-kicker"><i class="fa-solid fa-right-left"></i> INTERACTIVE · REVERSE THE RULE</div><h4>Art club · Members and studio rooms</h4><p>A club assigns each member one studio room. Several members can use the same room. Press <b>Reverse direction</b> to ask whether a room can identify exactly one member.</p><button class="ca-btn ca-btn-outline" id="club-flip" type="button">Reverse direction ↔</button><div aria-label="Art club member-to-room assignments" class="ca-story-map" id="club-map" role="img"></div><div aria-live="polite" class="ca-feedback" id="club-feedback"></div></div>
 </section><section class="ca-panel" id="notation">
-<h3>03 · Reading function notation</h3><div class="ca-definition"><strong>What does f(x) mean?</strong><p>In <b>y = f(x)</b>, the letter <b>f</b> is the function’s name, <b>x</b> is the independent input, and <b>y</b> is the dependent output. The parentheses indicate an input to a function—not multiplication.</p></div>
+<h3>03 · Reading function notation</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Function notation y = f(x) · Think–Pair–Share 2</p><div class="ca-definition"><strong>What does f(x) mean?</strong><p>In <b>y = f(x)</b>, the letter <b>f</b> is the function’s name, <b>x</b> is the independent input, and <b>y</b> is the dependent output. The parentheses indicate an input to a function—not multiplication.</p></div>
 <div class="ca-lab-kicker"><i class="fa-solid fa-ticket"></i> INTERACTIVE · BUILD A FUNCTION RULE</div><p>Imagine a game booth with a <strong>$2 entry fee</strong> and a <strong>$5 charge per game</strong>. Move the number of games and watch the algebraic notation and fee bar change together.</p>
 <div class="ca-live-notes"><div class="ca-live-formula"><small>FUNCTION NAME</small><div class="ca-display-large">p(n) = 5n + 2</div><div class="ca-symbol-key"><span><b>p</b> · name</span><span><b>n</b> · input</span><span><b>p(n)</b> · output</span></div></div><div class="ca-live-formula"><small>ENTER AN INPUT</small><label class="ca-slider-head" for="notation-n">Games played: <output id="notation-n-label">3</output></label><input id="notation-n" max="8" min="0" step="1" type="range" value="3"/><div aria-live="polite" class="ca-readout" id="notation-reading"></div></div></div>
 <div class="ca-fee-legend"><span><i aria-hidden="true" class="ca-legend-fee"></i> Entry fee <b>$2</b></span><span><i aria-hidden="true" class="ca-legend-games"></i> Games <b id="notation-games-value">$15</b></span></div><div aria-label="Total cost divided into $2 entry fee and variable game charges" class="ca-cost-track" role="img"><div class="ca-cost-fixed" id="notation-fee-bar" title="Entry fee: $2"></div><div class="ca-cost-variable" id="notation-games-bar"></div></div>
 <p class="ca-muted" id="notation-steps"></p>
 <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i> <span>Ask your partner: if <b>p(n) = 27</b>, how many games were played? Work backward from the output, then check by moving the slider.</span></div>
+<div class="ca-name-drill" id="name-drill"><div class="ca-lab-kicker"><i aria-hidden="true" class="fa-solid fa-tags"></i> INTERACTIVE · NAME THE PARTS</div><p>Function notation works with any letters. Read the equation, then pick the function’s <b>name</b>, its <b>input</b>, and its <b>output</b>.</p><div class="ca-display-large" id="name-drill-equation">s = v(t)</div><div class="ca-name-drill-rows" id="name-drill-rows"></div><div aria-live="polite" class="ca-feedback" id="name-drill-feedback"></div><button class="ca-btn ca-btn-outline" id="name-drill-next" type="button"><i aria-hidden="true" class="fa-solid fa-shuffle"></i> New equation</button></div>
 </section>
 <section class="ca-panel" id="representations">
-<h3>04 · One function, four views</h3><p>The same relationship can appear as a <b>formula, table, ordered pairs, or graph</b>. Move the highlighted input or change the rule: all four views stay in sync.</p>
+<h3>04 · One function, four views</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Representing a function: table, formula, graph</p><p>The same relationship can appear as a <b>formula, table, ordered pairs, or graph</b>. Move the highlighted input or change the rule: all four views stay in sync.</p>
 <div class="ca-lab-kicker"><i class="fa-solid fa-shapes"></i> INTERACTIVE · FOUR-VIEW LAB</div>
 <div class="ca-controls"><label>Choose a function<select id="four-rule"><option value="line">r(x) = x + 2 · line</option><option value="square">r(x) = x² − 1 · curved graph</option><option value="absolute">r(x) = |x| + 1 · V graph</option></select></label><label>Highlight input x = <output id="four-input-label">1</output><input id="four-input" max="2" min="-2" step="1" type="range" value="1"/></label></div>
 <div class="ca-four-grid"><div class="ca-four-box"><small>01 · FORMULA</small><div class="ca-display-large" id="four-formula">r(x) = x + 2</div><p class="ca-muted" id="four-substitution"></p></div><div class="ca-four-box"><small>02 · ORDERED PAIRS</small><div class="ca-chip-wrap" id="four-pairs"></div></div><div class="ca-four-box"><small>03 · TABLE</small><table class="ca-table ca-table-compact"><thead><tr><th>Input x</th><th>Output r(x)</th></tr></thead><tbody id="four-tbody"></tbody></table></div><div class="ca-four-box ca-four-graph"><small>04 · GRAPH</small><svg aria-label="Function graph with highlighted selected ordered pair" id="four-graph" role="img" viewbox="0 0 560 310"></svg></div></div>
 <div aria-live="polite" class="ca-feedback" id="four-feedback"></div>
-</section><section class="ca-panel" id="vertical"><h3>05 · Vertical line test explorer</h3><p>Slide a vertical line across the graph. A function has at most one intersection at each x-value.</p><div class="ca-vline-rule"><strong>Definition · Vertical Line Test</strong><p>A graph represents a function if and only if <b>every vertical line meets the graph at most once</b>. Two intersections at the same x-value prove that it is not a function.</p></div><div aria-live="polite" class="ca-vline-status" id="vline-status" role="status"></div><div class="ca-controls"><label>Graph type <select id="curve-type"><option value="parabola">Parabola · y = x² / 4</option><option value="circle">Circle · x² + y² = 9</option><option value="sideways">Sideways parabola · x = y²</option><option value="cubic">Cubic · y = x³ / 9</option></select></label><label>Test line x = <output id="scan-x-label">1</output><input id="scan-x" max="4" min="-4" step="0.1" type="range" value="1"/></label></div><svg aria-label="Graph with adjustable vertical test line" id="vline-svg" role="img" viewbox="0 0 560 310"></svg><div aria-live="polite" class="ca-feedback" id="vline-result"></div></section><section class="ca-panel" id="formula-examples">
-<h3>06 · Forward and backward: from inputs to outputs</h3><p>Evaluating <b>q(a)</b> means substituting an input a. Solving <b>q(x) = b</b> means finding <em>every input</em> producing output b. The two tasks are not the same.</p>
+<p class="ca-desmos-row" hidden=""><!-- Paste a saved Desmos graph link (https://www.desmos.com/calculator/...) into data-desmos to show this button. --><a class="ca-desmos-link" data-desmos="" href="#" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-solid fa-chart-line"></i> Open this graph in Desmos</a></p></section><section class="ca-panel" id="vertical"><h3>05 · Vertical line test explorer</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Representing a function: the vertical line test · Think–Pair–Share 3</p><p>Slide a vertical line across the graph. A function has at most one intersection at each x-value.</p><div class="ca-vline-rule"><strong>Definition · Vertical Line Test</strong><p>A graph represents a function if and only if <b>every vertical line meets the graph at most once</b>. Two intersections at the same x-value prove that it is not a function.</p></div><div class="ca-predict ca-predict-gate" data-correct="no" data-gate="vline-gated" data-set-id="curve-type" data-set-value="circle"><b><i aria-hidden="true" class="fa-solid fa-wand-magic-sparkles"></i> Predict first</b><p>Will the circle <b>x² + y² = 9</b> pass the vertical line test?</p><div aria-label="Your prediction" class="ca-choice-row" role="group"><button aria-pressed="false" class="ca-choice" data-predict="yes" type="button">Yes · it is a function</button><button aria-pressed="false" class="ca-choice" data-predict="no" type="button">No · it is not a function</button><button class="ca-btn ca-btn-outline ca-predict-skip" type="button">Skip</button></div><template class="ca-predict-why">A vertical line such as x = 1 meets the circle twice, at y = 2√2 and y = −2√2, so one input has two outputs. The circle is now selected below: slide the test line and watch both intersection points.</template><div aria-live="polite" class="ca-feedback ca-predict-feedback" hidden=""></div></div><div class="ca-gated" id="vline-gated"><div aria-live="polite" class="ca-vline-status" id="vline-status" role="status"></div><div class="ca-controls"><label>Graph type <select id="curve-type"><option value="parabola">Parabola · y = x² / 4</option><option value="circle">Circle · x² + y² = 9</option><option value="sideways">Sideways parabola · x = y²</option><option value="cubic">Cubic · y = x³ / 9</option></select></label><label>Test line x = <output id="scan-x-label">1</output><input id="scan-x" max="4" min="-4" step="0.1" type="range" value="1"/></label></div><svg aria-label="Graph with adjustable vertical test line" id="vline-svg" role="img" viewbox="0 0 560 310"></svg><div aria-live="polite" class="ca-feedback" id="vline-result"></div><div aria-live="polite" class="ca-solve-y" id="vline-solve"></div></div><p class="ca-desmos-row" hidden=""><!-- Paste a saved Desmos graph link (https://www.desmos.com/calculator/...) into data-desmos to show this button. --><a class="ca-desmos-link" data-desmos="" href="#" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-solid fa-chart-line"></i> Open this graph in Desmos</a></p></section><section class="ca-panel" id="formula-examples">
+<h3>06 · Forward and backward: from inputs to outputs</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Example 5 · Think–Pair–Share 5</p><p>Evaluating <b>q(a)</b> means substituting an input a. Solving <b>q(x) = b</b> means finding <em>every input</em> producing output b. The two tasks are not the same.</p>
 <div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right-to-line"></i> INTERACTIVE · TWO-WAY CALCULATOR</div>
-<div class="ca-equation">q(x) = (x − 2)² + 1</div>
+<div aria-label="Choose a function for the two-way calculator" class="ca-mode-toggle" role="group"><button aria-pressed="true" class="ca-mode active" data-twoway="square" type="button">Squared · q(x) = (x − 2)² + 1</button><button aria-pressed="false" class="ca-mode" data-twoway="root" type="button">Square root · r(x) = √(2x + 3)</button></div><div class="ca-equation" id="twoway-equation">q(x) = (x − 2)² + 1</div>
 <div class="ca-two-column ca-two-way-worked">
- <div class="ca-example ca-worked-side"><b><i class="fa-solid fa-arrow-right"></i> Forward · Given x, find q(x)</b>
+ <div class="ca-example ca-worked-side"><b><i class="fa-solid fa-arrow-right"></i> Forward · Given x, find <span class="twoway-name">q</span>(x)</b>
   <label class="ca-slider-head" for="forward-x">Choose x = <output id="forward-x-label">0</output></label>
   <input id="forward-x" max="5" min="-1" step="1" type="range" value="0"/>
   <div class="ca-readout ca-worked-answer" aria-live="polite" id="forward-result"></div>
   <p class="ca-worked-intro">Follow the order of operations:</p>
   <ol class="ca-calculation-steps" id="forward-steps" aria-label="Forward calculation shown step by step"></ol>
  </div>
- <div class="ca-example ca-worked-side"><b><i class="fa-solid fa-arrow-left"></i> Backward · Given q(x), find x</b>
+ <div class="ca-example ca-worked-side"><b><i class="fa-solid fa-arrow-left"></i> Backward · Given <span class="twoway-name">q</span>(x), find x</b>
   <label class="ca-slider-head" for="backward-y">Choose an output<select id="backward-y"><option value="1">q(x) = 1</option><option value="2">q(x) = 2</option><option selected="" value="5">q(x) = 5</option><option value="10">q(x) = 10</option></select></label>
   <div class="ca-readout ca-worked-answer" aria-live="polite" id="backward-result"></div>
   <p class="ca-worked-intro">Undo operations in reverse order:</p>
@@ -524,9 +653,9 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
  </ol>
  <p class="ca-extra-note">The extra coefficient is why this version requires division before taking square roots.</p>
 </details>
-<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Explain:</b> How can two different inputs give the same output without breaking the definition of a function?</span></div>
-</section><section class="ca-panel" id="evaluation"><h3>07 · Interactive function machine</h3><p>Adjust the coefficients and input to evaluate \(f(x)=ax^2+bx+c\).</p><div class="ca-controls ca-slider-grid"><label>a <input id="coeff-a" max="3" min="-3" step="1" type="range" value="1"/><output id="a-label">1</output></label><label>b <input id="coeff-b" max="5" min="-5" step="1" type="range" value="-2"/><output id="b-label">−2</output></label><label>c <input id="coeff-c" max="6" min="-6" step="1" type="range" value="1"/><output id="c-label">1</output></label><label>x <input id="input-x" max="6" min="-6" step="1" type="range" value="3"/><output id="x-label">3</output></label></div><div class="ca-equation" id="machine-expression"></div><div class="ca-feedback" id="machine-result"></div><div class="ca-muted" id="machine-steps"></div></section><section class="ca-panel" id="tables">
-<h3>08 · Search a function table</h3>
+<aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>Taking a square root gives two answers:</b> (x − 2)² = 4 means x − 2 = 2 <i>or</i> x − 2 = −2.</li><li><b>Check after squaring both sides.</b> Squaring can create an “answer” that does not work, as r(x) = −1 shows.</li></ul></aside><div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Explain:</b> How can two different inputs give the same output without breaking the definition of a function?</span></div>
+</section><section class="ca-panel" id="evaluation"><h3>07 · Interactive function machine</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Example 4 · Think–Pair–Share 4</p><p>Adjust the coefficients and input to evaluate \(f(x)=ax^2+bx+c\).</p><div class="ca-controls ca-slider-grid"><label>a <input id="coeff-a" max="3" min="-3" step="1" type="range" value="1"/><output id="a-label">1</output></label><label>b <input id="coeff-b" max="5" min="-5" step="1" type="range" value="-2"/><output id="b-label">−2</output></label><label>c <input id="coeff-c" max="6" min="-6" step="1" type="range" value="1"/><output id="c-label">1</output></label><label>x <input id="input-x" max="6" min="-6" step="1" type="range" value="3"/><output id="x-label">3</output></label></div><div class="ca-equation" id="machine-expression"></div><div aria-live="polite" class="ca-feedback" id="machine-result"></div><div class="ca-muted" id="machine-steps"></div><div class="ca-symbolic-lab"><div class="ca-lab-kicker"><i aria-hidden="true" class="fa-solid fa-font"></i> INTERACTIVE · LETTERS AS INPUTS</div><p>An input does not have to be a number. Any letter or expression can go inside the parentheses; your notes ask for <b>f(a)</b>. Keep the coefficients above and choose an input. Replace <b>every</b> x with the whole input, in parentheses. (This lab uses <b>t</b>, because a, b, and c already name the coefficients.)</p><div class="ca-controls"><label>Input expression<select id="symbolic-input"><option value="t">t</option><option selected="" value="t+1">t + 1</option><option value="-x">−x</option><option value="2t">2t</option><option value="t+h">t + h</option></select></label></div><div class="ca-equation" id="symbolic-expression"></div><ol aria-label="Substitution steps for a letter input" class="ca-calculation-steps" id="symbolic-steps"></ol><div aria-live="polite" class="ca-readout ca-worked-answer" id="symbolic-result"></div><div aria-live="polite" class="ca-feedback" id="symbolic-compare"></div></div><aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>f(t + 1) is not f(t) + 1.</b> Replace x with the whole input t + 1, inside parentheses.</li><li><b>Use parentheses for negative inputs:</b> (−2)² = 4, but −2² = −4.</li></ul></aside></section><section class="ca-panel" id="tables">
+<h3>08 · Search a function table</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Example 6 · Think–Pair–Share 6</p>
 <p>A function table is a collection of input–output pairs. <b>Select a row or point</b> to see the same ordered pair in the table and on the coordinate plane. Or choose an output to find <b>every</b> input that produces it.</p>
 <div class="ca-plot-grid-layout"><div class="ca-plot-graph-side">
 <div class="ca-table-graph-box">
@@ -552,26 +681,27 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
 <div aria-live="polite" class="ca-feedback ca-plot-result" id="lookup-result">Choose an output and select <b>Find every input</b> to highlight all matching points.</div>
 <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span>Find <b>t(−1)</b>. Then find all solutions of <b>t(x) = 3</b>. How is evaluating at a given input different from finding all inputs for a given output?</span></div>
 </section><section class="ca-panel" id="graph-reading">
-<h3>09 · Read a graph in two directions</h3><p>To find <b>g(a)</b>, begin at input x = a, move vertically to the curve, and read the output. To solve <b>g(x) = b</b>, use a <b>horizontal line</b> at y = b and read the x-values of <em>all</em> intersections.</p>
-<p>This new graph uses <b>g(x) = (x + 1)² − 1</b>. The orange point demonstrates the input-first question. The blue horizontal line demonstrates the output-first question.</p>
-<div class="ca-controls"><label>Evaluate at x =<select id="graph-input"><option value="-4">−4</option><option selected="" value="-3">−3</option><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></label><label>Solve g(x) =<select id="graph-output"><option value="-1">−1</option><option value="0">0</option><option selected="" value="3">3</option><option value="8">8</option></select></label></div>
+<h3>09 · Read a graph in two directions</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Example 7 · Think–Pair–Share 7</p><p>To find <b>g(a)</b>, begin at input x = a, move vertically to the curve, and read the output. To solve <b>g(x) = b</b>, use a <b>horizontal line</b> at y = b and read the x-values of <em>all</em> intersections.</p>
+<p>Choose one of three graphs. This graph uses <b id="graph-read-name">g(x) = (x + 1)² − 1</b>. The orange point demonstrates the input-first question; the blue horizontal line demonstrates the output-first question.</p>
+<div class="ca-controls"><label>Choose a graph<select id="graph-kind"><option value="parabola">Parabola · g(x)</option><option value="root">Square root · s(x)</option><option value="cubic">Cubic · c(x)</option></select></label><label>Evaluate at x =<select id="graph-input"><option value="-4">−4</option><option selected="" value="-3">−3</option><option value="-2">−2</option><option value="-1">−1</option><option value="0">0</option><option value="1">1</option><option value="2">2</option></select></label><label><span>Solve <span id="graph-solve-name">g</span>(x) =</span><select id="graph-output"><option value="-1">−1</option><option value="0">0</option><option selected="" value="3">3</option><option value="8">8</option></select></label></div>
 <svg aria-label="Parabola with orange input marker and blue output-level intersections" id="ca-read-graph" role="img" viewbox="0 0 560 310"></svg><div aria-live="polite" class="ca-feedback" id="graph-read-feedback"></div>
-<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span>Look for the vertex of the graph. What happens when you choose the <b>smallest possible output</b>?</span></div>
-</section>
+<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span id="graph-read-prompt">Look for the vertex of the graph. What happens when you choose the <b>smallest possible output</b>?</span></div>
+<p class="ca-desmos-row" hidden=""><!-- Paste a saved Desmos graph link (https://www.desmos.com/calculator/...) into data-desmos to show this button. --><a class="ca-desmos-link" data-desmos="" href="#" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-solid fa-chart-line"></i> Open this graph in Desmos</a></p></section>
 <section class="ca-panel" id="toolkit">
-<h3>10 · Parent-function gallery</h3><p>Recognizing the shape of a parent function helps you predict its behavior. Select a card to view its graph and a one-sentence geometric clue.</p>
+<h3>10 · Parent-function gallery</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Toolkit Functions (textbook Section 3.1, Table 13)</p><p>Recognizing the shape of a parent function helps you predict its behavior. Select a card to view its graph and a one-sentence geometric clue.</p>
 <div aria-label="Choose a parent function" class="ca-toolkit ca-toolkit-interactive" role="group"><button aria-pressed="true" class="ca-toolkit-option active" data-toolkit="identity" type="button"><b>Identity</b><small>y = x</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="constant" type="button"><b>Constant</b><small>y = 2</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="square" type="button"><b>Square</b><small>y = x²</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="cube" type="button"><b>Cube</b><small>y = x³</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="absolute" type="button"><b>Absolute value</b><small>y = |x|</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="root" type="button"><b>Square root</b><small>y = √x</small></button><button aria-pressed="false" class="ca-toolkit-option" data-toolkit="reciprocal" type="button"><b>Reciprocal</b><small>y = 1/x</small></button></div>
 <svg aria-label="Preview of selected parent-function graph" id="toolkit-graph" role="img" viewbox="0 0 560 310"></svg><div aria-live="polite" class="ca-feedback" id="toolkit-clue"></div>
-</section>
-<section class="ca-panel ca-guided-section" id="guided-31"><div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.1 · PRACTICE</span><h3>Guided problems · Functions and Notation</h3><p>Try original questions based on the new visual labs. Reveal hints, check explanations, and generate another set. Ungraded practice stays inside Section 3.1.</p></div><div id="quiz-31-container"></div><div class="ca-controls"><button class="ca-btn" id="quiz-31-check" type="button">Check answers</button><button class="ca-btn ca-btn-outline" id="quiz-31-reset" type="button">Try more problems</button></div><div aria-live="polite" class="ca-feedback" id="quiz-31-feedback">Choose an answer for each problem.</div></section></article><article class="ca-lesson" id="lesson-32">
+<p class="ca-desmos-row" hidden=""><!-- Paste a saved Desmos graph link (https://www.desmos.com/calculator/...) into data-desmos to show this button. --><a class="ca-desmos-link" data-desmos="" href="#" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-solid fa-chart-line"></i> Open this graph in Desmos</a></p></section>
+<section class="ca-panel ca-guided-section" id="guided-31"><div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.1 · PRACTICE</span><h3>Guided problems · Functions and Notation</h3><p>Try original questions based on the new visual labs. Reveal hints, check explanations, and generate another set. Ungraded practice stays inside Section 3.1.</p></div><div id="quiz-31-container"></div><div class="ca-controls"><button class="ca-btn" id="quiz-31-check" type="button">Check answers</button><button class="ca-btn ca-btn-outline" id="quiz-31-reset" type="button">Try more problems</button></div><div aria-live="polite" class="ca-feedback" id="quiz-31-feedback">Choose an answer for each problem.</div></section><section class="ca-panel ca-guided-section ca-exit-ticket" id="exit-31"><div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.1 · EXIT TICKET</span><h3>Exit ticket · Functions and Notation</h3><p>These are the summary questions from your notes. Answer each one on paper first, then open the answer to check yourself.</p></div><ol class="ca-exit-list"><li><p>How do we decide whether a relation is a function from a set of ordered pairs, a table, or a graph?</p><details><summary>Show answer</summary><p>Ordered pairs or a table: look at the inputs. If any input appears with two different outputs, it is <b>not</b> a function. Graph: use the vertical line test. If some vertical line meets the graph more than once, it is <b>not</b> a function.</p></details></li><li><p>In g = h(p), what is the independent variable (input)? What is the dependent variable (output)?</p><details><summary>Show answer</summary><p><b>h</b> is the name of the function, <b>p</b> is the input (independent variable), and <b>g</b> — also written h(p) — is the output (dependent variable).</p></details></li><li><p>If f(x) = 3x² − 7, how do we find f(−2)?</p><details><summary>Show answer</summary><p>Substitute −2 for x, with parentheses: f(−2) = 3(−2)² − 7 = 3(4) − 7 = 12 − 7 = <b>5</b>.</p></details></li><li><p>For the same function, how do we solve f(x) = 5?</p><details><summary>Show answer</summary><p>Set 3x² − 7 = 5. Then 3x² = 12, so x² = 4 and x = −2 or x = 2. Check: f(−2) = f(2) = 5. Two inputs share this output.</p></details></li><li><p>Using a graph, how do we find f(0) and f(2)? How do we solve f(x) = 9 and f(x) = 0?</p><details><summary>Show answer</summary><p>To find f(0) or f(2), start at that x-value, move vertically to the graph, and read the y-value. To solve f(x) = 9, draw the horizontal line y = 9 and read the x-value of <b>every</b> point where it meets the graph. To solve f(x) = 0, read every x-value where the graph meets the x-axis.</p></details></li></ol></section></article><article class="ca-lesson" id="lesson-32">
   <span class="ca-chapter">SECTION 3.2</span>
   <h2>Domain and Range</h2>
   <p class="ca-lede">Every function has a collection of <b>allowed inputs</b> (its domain) and <b>possible outputs</b> (its range). Learn to read these sets on a number line, calculate restrictions from formulas, and project a graph onto its axes.</p>
   <div class="ca-goals"><b>Learning objectives</b> Translate inequalities into interval and set-builder notation; determine the domain of a function from its equation; and read both domain and range from a graph.</div>
   <p class="ca-source-credit">Concepts and lesson sequence adapted from the supplied Section 3.2 notes; examples, graphics, and activities are newly designed for this page.</p>
+  <p class="ca-textbook-link"><i aria-hidden="true" class="fa-solid fa-book"></i> Read in the textbook: <a href="https://openstax.org/books/college-algebra-2e/pages/3-2-domain-and-range" rel="noopener" target="_blank">OpenStax College Algebra 2e · Section 3.2 Domain and Range</a></p>
 
   <section class="ca-panel" id="intervals">
-    <h3>01 · Interval notation and number lines</h3>
+    <h3>01 · Interval notation and number lines</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Interval notation · Set-builder notation · Example 1 · Think–Pair–Share 1</p>
     <div class="ca-definition"><strong>How to write an interval</strong>
       <p>Write the <b>smaller value first</b>, then the larger value. Use a <b>parenthesis ( )</b> when a boundary is excluded, and a <b>bracket [ ]</b> when it is included. Always write parentheses beside <b>−∞</b> and <b>∞</b>: infinity is not a real number you can reach.</p>
       <p><b>Set-builder notation:</b> {x ∈ ℝ | condition} means “all real numbers x such that the stated condition holds.” The symbol <b>∪</b> joins two pieces of a set.</p>
@@ -601,11 +731,11 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
       <div><small>INTERVAL NOTATION</small><strong id="interval-answer">(−3, 5]</strong></div>
     </div>
     <div class="ca-feedback" id="interval-text" aria-live="polite"></div>
-    <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Think–pair–share:</b> Could an interval include ∞? What changes if an open circle becomes filled? Explain it using both inequality notation and the number line.</span></div>
+    <aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>Write the smaller number first:</b> (−3, 5], never (5, −3].</li><li><b>∞ and −∞ always get a parenthesis:</b> [2, ∞), never [2, ∞].</li></ul></aside><div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Think–pair–share:</b> Could an interval include ∞? What changes if an open circle becomes filled? Explain it using both inequality notation and the number line.</span></div>
   </section>
 
   <section class="ca-panel" id="domain-lab">
-    <h3>02 · Domain from a function's equation</h3>
+    <h3>02 · Domain from a function's equation</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Domain and range of a function · Example 2 · Think–Pair–Share 2</p>
     <div class="ca-definition"><strong>What is a “good” input?</strong>
       <p>An input x belongs to the <b>domain</b> precisely when the rule gives a real, defined output. For a polynomial, every real input works. For a rational expression, <b>no denominator may equal zero</b>. For an even root, its <b>radicand must be nonnegative</b>; if that root appears in a denominator, it must be <b>strictly positive</b>.</p>
     </div>
@@ -616,10 +746,10 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
       <div><b><i class="fa-solid fa-check"></i> Polynomial / cube root</b><span>Every real x works</span><small>Unless another restriction applies.</small></div>
     </div>
     <div class="ca-lab-kicker"><i class="fa-solid fa-flask"></i> INTERACTIVE · TEST THE INPUT</div>
-    <p>Pick a formula and change <b>k</b>. Try inputs to the left, at, and to the right of a restricted value. The number line shows the <b>whole domain</b>, while the indicator checks your chosen input.</p>
+    <p>Pick a formula and change <b>k</b> (or <b>a</b> and <b>b</b> for the last three formulas). Try inputs to the left, at, and to the right of a restricted value. The number line shows the <b>whole domain</b>, while the indicator checks your chosen input.</p>
     <div class="ca-controls">
-      <label>Function type<select id="domain-kind"><option value="fraction">Rational: 1/(x − k)</option><option value="fraction2">Two excluded inputs: 1/(x² − k²)</option><option value="root">Square root: √(x − k)</option><option value="rootleft">Square root: √(k − x)</option><option value="rootden">Square root in denominator</option><option value="quadratic">Polynomial: (x − k)² + 1</option><option value="oddroot">Cube root: ∛(x − k)</option><option value="oddrootden">Cube root in denominator</option></select></label>
-      <label>Change k = <output id="k-output">2</output><input id="domain-k" type="range" min="-5" max="5" value="2" step="1"></label>
+      <label>Function type<select id="domain-kind"><option value="fraction">Rational: 1/(x − k)</option><option value="fraction2">Two excluded inputs: 1/(x² − k²)</option><option value="root">Square root: √(x − k)</option><option value="rootleft">Square root: √(k − x)</option><option value="rootden">Square root in denominator</option><option value="quadratic">Polynomial: (x − k)² + 1</option><option value="oddroot">Cube root: ∛(x − k)</option><option value="oddrootden">Cube root in denominator</option><option value="linfrac">1/(ax + b) · coefficient on x</option><option value="linroot">√(ax + b) · coefficient on x</option><option value="linrootden">1/√(ax + b) · coefficient on x</option></select></label>
+      <label id="domain-k-wrap">Change k = <output id="k-output">2</output><input id="domain-k" type="range" min="-5" max="5" value="2" step="1"></label><label hidden id="lin-a-wrap">Coefficient a = <output id="lin-a-output">3</output><input id="lin-a" type="range" min="-3" max="3" value="3" step="1"></label><label hidden id="lin-b-wrap">Constant b = <output id="lin-b-output">−4</output><input id="lin-b" type="range" min="-6" max="6" value="-4" step="1"></label>
       <label>Test the input x =<input id="domain-x" type="number" step="0.5" value="2"></label>
     </div>
     <div class="ca-equation" id="domain-expression">f(x) = 1/(x − 2)</div>
@@ -627,11 +757,11 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
     <div class="ca-domain-status" id="domain-result" aria-live="polite"></div>
     <div class="ca-notation-cards ca-domain-cards" aria-live="polite"><div><small>SET-BUILDER DOMAIN</small><strong id="domain-setbuilder"></strong></div><div><small>INTERVAL DOMAIN</small><strong id="domain-interval"></strong></div></div>
     <div class="ca-worked-box"><b><i class="fa-solid fa-list-ol"></i> Why is this the domain? · Step-by-step</b><ol id="domain-steps" class="ca-calculation-steps"></ol></div>
-    <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Try this:</b> Compare <b>√(x − k)</b> with <b>1/√(x − k)</b>. Why does the same boundary change from a filled dot to an open dot?</span></div>
+    <aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>Dividing an inequality by a negative number reverses it:</b> −3x ≥ −5 becomes x ≤ 5/3. Try √(5 − 3x) in the tester.</li><li><b>A root in a denominator needs “&gt; 0”, not “≥ 0”:</b> the endpoint gets an open circle.</li></ul></aside><div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Try this:</b> Compare <b>√(x − k)</b> with <b>1/√(x − k)</b>. Why does the same boundary change from a filled dot to an open dot?</span></div>
   </section>
 
   <section class="ca-panel" id="graph-domain-range">
-    <h3>03 · Read domain and range directly from graphs</h3>
+    <h3>03 · Read domain and range directly from graphs</h3><p class="ca-notes-tag"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>In your notes</span> Finding domain and range from graphs · Example 3 · Think–Pair–Share 3</p>
     <div class="ca-two-column ca-reading-key"><div class="ca-example"><b><i class="fa-solid fa-arrows-left-right"></i> DOMAIN · Scan left to right</b><p>Ask <b>“Which x-values occur?”</b> Imagine the graph casting a shadow onto the <b>x-axis</b>. Include only x-values actually reached by the graph.</p></div><div class="ca-example"><b><i class="fa-solid fa-arrows-up-down"></i> RANGE · Scan bottom to top</b><p>Ask <b>“Which y-values occur?”</b> Imagine the graph casting a shadow onto the <b>y-axis</b>. Include only y-values actually reached.</p></div></div>
     <div class="ca-lab-kicker"><i class="fa-solid fa-chart-area"></i> INTERACTIVE · SHADOWS ON THE AXES</div>
     <p>Select a graph and choose which axis to inspect. <b>Orange</b> shows the function; the <b>blue highlight</b> shows all allowed inputs or all attained outputs. Open/filled endpoints and any asymptotes matter.</p>
@@ -640,17 +770,17 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
     <svg id="dr-graph-svg" viewBox="0 0 650 400" role="img" aria-label="Coordinate graph with the domain or range projected onto the corresponding axis"></svg>
     <div class="ca-notation-cards ca-dr-results" aria-live="polite"><div><small>DOMAIN · LEFT TO RIGHT</small><strong id="dr-domain"></strong></div><div><small>RANGE · BOTTOM TO TOP</small><strong id="dr-range"></strong></div></div>
     <div class="ca-feedback" id="dr-explanation" aria-live="polite"></div>
-    <div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Think–pair–share:</b> Which type of graph can have every real input but only some output values? Find an example above and describe its range.</span></div>
-  </section>
+    <aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>Open dot = excluded, filled dot = included.</b> Copy the endpoint type into your interval.</li><li><b>An arrow means the graph keeps going,</b> so that end of the interval is −∞ or ∞.</li><li><b>Read the range bottom → top</b> on the y-axis, not in the order the graph is drawn.</li></ul></aside><div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Think–pair–share:</b> Which type of graph can have every real input but only some output values? Find an example above and describe its range.</span></div>
+  <p class="ca-desmos-row" hidden=""><!-- Paste a saved Desmos graph link (https://www.desmos.com/calculator/...) into data-desmos to show this button. --><a class="ca-desmos-link" data-desmos="" href="#" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-solid fa-chart-line"></i> Open this graph in Desmos</a></p></section>
 
   <section class="ca-panel" id="range-graph">
-    <h3>04 · Experiment with the range of a parabola</h3>
+    <h3>04 · Experiment with the range of a parabola</h3><p class="ca-notes-tag ca-notes-extension"><i aria-hidden="true" class="fa-solid fa-note-sticky"></i><span>Beyond the notes</span> Extension activity: ranges of parabolas</p>
     <p>Move the vertex of <b>f(x) = a(x − h)² + k</b>. The x-values are unrestricted, but the vertex gives the <b>smallest</b> or <b>largest</b> y-value. The projections update as you move the vertex.</p>
-    <div class="ca-controls"><label>Vertex h = <output id="h-display">1</output><input id="vertex-h" type="range" min="-4" max="4" value="1"></label><label>Vertex k = <output id="v-display">−2</output><input id="vertex-k" type="range" min="-4" max="4" value="-2"></label><label>Opening direction<select id="vertex-a"><option value="1">Opens up · minimum</option><option value="-1">Opens down · maximum</option></select></label></div>
+    <div class="ca-predict ca-predict-gate" data-correct="down" data-gate="range-gated" data-set-id="vertex-a" data-set-value="-1"><b><i aria-hidden="true" class="fa-solid fa-wand-magic-sparkles"></i> Predict first</b><p>The vertex is <b>(1, −2)</b>. If the parabola <b>opens down</b>, what is its range?</p><div aria-label="Your prediction" class="ca-choice-row" role="group"><button aria-pressed="false" class="ca-choice" data-predict="up" type="button">[−2, ∞)</button><button aria-pressed="false" class="ca-choice" data-predict="down" type="button">(−∞, −2]</button><button aria-pressed="false" class="ca-choice" data-predict="all" type="button">(−∞, ∞)</button><button class="ca-btn ca-btn-outline ca-predict-skip" type="button">Skip</button></div><template class="ca-predict-why">When the parabola opens down, the vertex (1, −2) is the <b>highest</b> point, so every output is −2 or less: (−∞, −2]. The graph below now opens down. Move the vertex and watch the range change.</template><div aria-live="polite" class="ca-feedback ca-predict-feedback" hidden=""></div></div><div class="ca-gated" id="range-gated"><div class="ca-controls"><label>Vertex h = <output id="h-display">1</output><input id="vertex-h" type="range" min="-4" max="4" value="1"></label><label>Vertex k = <output id="v-display">−2</output><input id="vertex-k" type="range" min="-4" max="4" value="-2"></label><label>Opening direction<select id="vertex-a"><option value="1">Opens up · minimum</option><option value="-1">Opens down · maximum</option></select></label></div>
     <svg id="range-svg" viewBox="0 0 560 310" role="img" aria-label="Parabola whose vertex and opening direction can be changed"></svg>
     <div class="ca-notation-cards ca-dr-results" aria-live="polite"><div><small>DOMAIN</small><strong id="range-domain">(−∞, ∞)</strong></div><div><small>RANGE</small><strong id="range-range"></strong></div></div>
-    <div class="ca-feedback" id="range-answer" aria-live="polite"></div>
-  </section>
+    <div class="ca-feedback" id="range-answer" aria-live="polite"></div></div>
+  <p class="ca-desmos-row" hidden=""><!-- Paste a saved Desmos graph link (https://www.desmos.com/calculator/...) into data-desmos to show this button. --><a class="ca-desmos-link" data-desmos="" href="#" rel="noopener" target="_blank"><i aria-hidden="true" class="fa-solid fa-chart-line"></i> Open this graph in Desmos</a></p></section>
 
   <section class="ca-panel ca-guided-section" id="guided-32">
     <div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.2 · PRACTICE</span><h3>Guided problems · Domain and Range</h3><p>Practice each idea from the notes: inequality notation, set-builder language, restrictions from equations, and domains and ranges read from graphs. Reveal a hint, check your answers, then try another set.</p></div>
@@ -659,7 +789,8 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
     <div class="ca-feedback" id="quiz-32-feedback" aria-live="polite">Choose an answer for each problem.</div>
     <div class="ca-remember" role="note"><div class="ca-remember-heading"><i class="fa-solid fa-bookmark"></i> SECTION 3.2 · QUICK RECAP</div><p><b>Intervals:</b> open means excluded, filled means included; ∞ always uses parentheses. <b>Equations:</b> exclude zero denominators and negative even-root radicands (strictly positive for roots in denominators). <b>Graphs:</b> read domain left → right and range bottom → top; identify included endpoints and missing values.</p></div>
   </section>
-</article><footer class="ca-footer">Concept sequence informed by course Section 3.1 notes (Dr. Setayesh); original interactive activities and practice created for this website. · <a href="https://openstax.org/books/college-algebra/pages/1-introduction-to-prerequisites" rel="noopener" target="_blank">OpenStax College Algebra</a></footer></div></div></div></section></main><footer data-shared-template="footer"></footer></div><dialog class="ca-modal" id="foundations-modal"><div class="ca-modal-head"><div><small>MATH 1314-204 · FALL 2026</small><h2>Course Foundations</h2></div><button aria-label="Close foundations" class="ca-btn ca-btn-outline" id="foundations-close">✕ Close</button></div><div class="ca-modal-body ca-foundation-book">
+<section class="ca-panel ca-guided-section ca-exit-ticket" id="exit-32"><div class="ca-guided-heading"><span class="ca-guided-kicker">SECTION 3.2 · EXIT TICKET</span><h3>Exit ticket · Domain and Range</h3><p>These are the summary questions from your notes. Answer each one on paper first, then open the answer to check yourself.</p></div><ol class="ca-exit-list"><li><p>How do we write −5 &lt; x ≤ 2 in interval notation?</p><details><summary>Show answer</summary><p><b>(−5, 2]</b>: −5 is excluded, so it gets a parenthesis; 2 is included, so it gets a bracket.</p></details></li><li><p>How do we find the domain of a function whose formula has a denominator?</p><details><summary>Show answer</summary><p>Set the denominator equal to 0 and solve. Those x-values are excluded; every other real number is in the domain.</p></details></li><li><p>How do we find the domain of a function whose formula contains an even root, such as a square root?</p><details><summary>Show answer</summary><p>The expression under the root must be ≥ 0. Solve that inequality, and reverse it if you multiply or divide by a negative number.</p></details></li><li><p>How do we find the domain of y = 2/√(x − 3)?</p><details><summary>Show answer</summary><p>The root is in a denominator, so x − 3 must be strictly positive: x − 3 &gt; 0, so x &gt; 3. The domain is <b>(3, ∞)</b>.</p></details></li><li><p>How do we find the domain and range from a graph?</p><details><summary>Show answer</summary><p>Domain: the x-values the graph covers, read left → right (its shadow on the x-axis). Range: the y-values it covers, read bottom → top (its shadow on the y-axis). Open dots exclude an endpoint, filled dots include it, and arrows mean the graph continues to −∞ or ∞.</p></details></li></ol></section>
+</article><footer class="ca-footer">Concept sequence informed by the course Section 3.1 and 3.2 notes (Dr. Setayesh); original interactive activities and practice created for this website. · <a href="https://openstax.org/details/books/college-algebra-2e" rel="noopener" target="_blank">OpenStax College Algebra 2e</a></footer></div></div></div></section></main><footer data-shared-template="footer"></footer></div><dialog class="ca-modal" id="foundations-modal"><div class="ca-modal-head"><div><small>MATH 1314-204 · FALL 2026</small><h2>Course Foundations</h2></div><button aria-label="Close foundations" class="ca-btn ca-btn-outline" id="foundations-close">✕ Close</button></div><div class="ca-modal-body ca-foundation-book">
 <article class="ca-foundation-chapter">
 <div class="ca-foundation-chapter-label">CHAPTER 1.0 <span>COURSE FOUNDATIONS</span></div>
 <h2>Introduction to College Algebra</h2>
@@ -719,7 +850,7 @@ html[data-theme="dark"] .course-page .ca-toc-children a.ca-current-block{backgro
 </section>
 <section class="ca-foundation-section">
 <h3><i class="fa-solid fa-book-open"></i> Resources &amp; academic integrity</h3>
-<p>Free textbook: <a href="https://openstax.org/books/college-algebra/pages/1-introduction-to-prerequisites" rel="noopener" target="_blank">OpenStax College Algebra</a>. A TI-83/TI-84 or non-programmable scientific calculator is listed in the syllabus.</p>
+<p>Free textbook: <a href="https://openstax.org/details/books/college-algebra-2e" rel="noopener" target="_blank">OpenStax College Algebra 2e</a>. A TI-83/TI-84 or non-programmable scientific calculator is listed in the syllabus.</p>
 <p>According to the course AI policy, AI can be used for checking definitions, formatting LaTeX, or brainstorming with appropriate disclosure. AI use on homework, PLTL assignments, and exams is prohibited. These interactive notes provide independent, ungraded practice.</p>
 </section>
 </article>
@@ -768,7 +899,7 @@ function vertical(){
  $('vline-result').innerHTML=`<b>At x = ${x.toFixed(1)}:</b> ${count} visible intersection${count===1?'':'s'}. <strong class="ca-vline-result-strong ${func?'is-function':'not-function'}">${func?'FUNCTION':'NOT A FUNCTION'}</strong> — ${count>1?'Two red intersection points on the same vertical line prove this relation is NOT a function.':func?'Every vertical line intersects this graph at most once.':'This graph fails elsewhere: move the red test line until it crosses twice. One line with two intersections proves failure.'}`;
 }
 ['curve-type','scan-x'].forEach(id=>$(id).addEventListener('input',vertical));vertical();
-function machine(){let [a,b,c,x]=['coeff-a','coeff-b','coeff-c','input-x'].map(id=>+$(id).value);['a-label','b-label','c-label','x-label'].forEach((id,i)=>$(id).textContent=fmt([a,b,c,x][i]));$('machine-expression').textContent=`f(x) = ${a}x² ${b<0?'−':'+'} ${Math.abs(b)}x ${c<0?'−':'+'} ${Math.abs(c)}`;$('machine-result').textContent=`f(${fmt(x)}) = ${a*x*x+b*x+c}`;$('machine-steps').textContent=`Substitute x = ${fmt(x)}: (${a})(${fmt(x)})² + (${b})(${fmt(x)}) + (${c}) = ${a*x*x} + (${b*x}) + (${c}).`;}['coeff-a','coeff-b','coeff-c','input-x'].forEach(id=>$(id).addEventListener('input',machine));machine();// Section 08 is driven solely by the synchronized table and coordinate explorer below.
+function machine(){let [a,b,c,x]=['coeff-a','coeff-b','coeff-c','input-x'].map(id=>+$(id).value);['a-label','b-label','c-label','x-label'].forEach((id,i)=>$(id).textContent=fmt([a,b,c,x][i]));$('machine-expression').textContent=`f(x) = ${a}x² ${b<0?'−':'+'} ${Math.abs(b)}x ${c<0?'−':'+'} ${Math.abs(c)}`;$('machine-result').textContent=`f(${fmt(x)}) = ${a*x*x+b*x+c}`;$('machine-steps').textContent=`Substitute x = ${fmt(x)}: (${fmt(a)})(${fmt(x)})² + (${fmt(b)})(${fmt(x)}) + (${fmt(c)}) = ${fmt(a*x*x)} + (${fmt(b*x)}) + (${fmt(c)}).`;}['coeff-a','coeff-b','coeff-c','input-x'].forEach(id=>$(id).addEventListener('input',machine));machine();// Section 08 is driven solely by the synchronized table and coordinate explorer below.
 // Section 3.2 — original interactive interval, restrictions, and graph-projection lessons.
 const caNum = n => String(Number.isInteger(n)?n:Number(n.toFixed(4))).replaceAll('-', '−');
 const caPoint = (x,y,filled=true,color='#e95b2c',r=7) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${filled?color:'var(--card-bg, #fff)'}" stroke="${color}" stroke-width="3"/>`;
@@ -801,7 +932,70 @@ function caRenderInterval(){
 }
 document.querySelectorAll('#interval-presets button').forEach(btn=>btn.addEventListener('click',()=>{const m=btn.dataset.kind;caIntervalMode=['open','closed','leftclosed','rightclosed'].includes(m)?'finite':m;const opts={open:[false,false],closed:[true,true],leftclosed:[true,false],rightclosed:[false,true]};if(opts[m]){ $('left-closed').checked=opts[m][0];$('right-closed').checked=opts[m][1];}if(m==='leftopen'||m==='leftinclusive')$('right-closed').checked=m==='leftinclusive';if(m==='rightopen'||m==='rightinclusive')$('left-closed').checked=m==='rightinclusive';caRenderInterval();}));
 ['int-left','int-right','left-closed','right-closed'].forEach(id=>$(id).addEventListener('input',()=>{if(caIntervalMode==='all')caIntervalMode='finite';else if(id==='right-closed'&&(caIntervalMode==='leftopen'||caIntervalMode==='leftinclusive'))caIntervalMode=$('right-closed').checked?'leftinclusive':'leftopen';else if(id==='left-closed'&&(caIntervalMode==='rightopen'||caIntervalMode==='rightinclusive'))caIntervalMode=$('left-closed').checked?'rightinclusive':'rightopen';else if(['left-closed','right-closed'].includes(id)&&caIntervalMode!=='union')caIntervalMode='finite';caRenderInterval();}));caRenderInterval();
+// Section 3.2 · 02: formulas with a coefficient on x (fraction endpoints and the inequality flip).
+let caDomainLastKind=null,caLinLastA=3;
+const caLinPresets={linfrac:[3,-4],linroot:[-3,5],linrootden:[1,-3]};
+function caFrac(n,d){
+ if(d<0){n=-n;d=-d;}
+ const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a),g=gcd(n,d)||1;n/=g;d/=g;
+ return{value:n/d,text:d===1?caNum(n):`${n<0?'−':''}${Math.abs(n)}/${d}`};
+}
+function caLinText(a,b){
+ const ax=a===1?'x':a===-1?'−x':`${caNum(a)}x`;
+ if(b===0)return ax;
+ if(a<0&&b>0)return `${caNum(b)} − ${Math.abs(a)===1?'':Math.abs(a)}x`;
+ return `${ax} ${b<0?'−':'+'} ${Math.abs(b)}`;
+}
 function caDomain(){
+ const kind=$('domain-kind').value,linear=kind.startsWith('lin');
+ if(linear&&kind!==caDomainLastKind){const [pa,pb]=caLinPresets[kind];$('lin-a').value=pa;$('lin-b').value=pb;caLinLastA=pa;}
+ caDomainLastKind=kind;
+ $('domain-k-wrap').hidden=linear;$('lin-a-wrap').hidden=!linear;$('lin-b-wrap').hidden=!linear;
+ return linear?caDomainLinear(kind):caDomainK();
+}
+function caDomainLinear(kind){
+ let a=Number($('lin-a').value);const b=Number($('lin-b').value);
+ if(a===0){a=caLinLastA>0?-1:1;$('lin-a').value=a;}
+ caLinLastA=a;
+ $('lin-a-output').textContent=caNum(a);$('lin-b-output').textContent=caNum(b);
+ const lin=caLinText(a,b),bound=caFrac(-b,a),X=bound.text,xv=bound.value,L=t=>a*t+b;
+ const ax=a===1?'x':a===-1?'−x':`${caNum(a)}x`;
+ const raw=$('domain-x').value,x=Number(raw),validX=raw.trim()!==''&&Number.isFinite(x);
+ const strict=kind==='linrootden',isFrac=kind==='linfrac';
+ const expression={linfrac:`f(x) = 1 / (${lin})`,linroot:`f(x) = √(${lin})`,linrootden:`f(x) = 1 / √(${lin})`}[kind];
+ let segments,interval,condition,steps;
+ if(isFrac){
+  segments=[{a:null,b:xv,bc:false},{a:xv,b:null,ac:false}];
+  interval=`(−∞, ${X}) ∪ (${X}, ∞)`;condition=`x ≠ ${X}`;
+  steps=[`The denominator is ${lin}. It cannot equal zero: ${lin} ≠ 0.`];
+  if(b!==0)steps.push(`Solve ${lin} = 0. Move the constant to the other side: ${ax} = ${caNum(-b)}.`);
+  if(a!==1)steps.push(`Divide both sides by ${caNum(a)}: x = ${X}.`);
+  steps.push(`Exclude only x = ${X}. Draw an open circle there and shade every other real number.`);
+ }else{
+  const rel=strict?'>':'≥',flip=strict?'<':'≤',right=a>0;
+  segments=[right?{a:xv,b:null,ac:!strict}:{a:null,b:xv,bc:!strict}];
+  condition=`x ${right?rel:flip} ${X}`;
+  interval=right?`${strict?'(':'['}${X}, ∞)`:`(−∞, ${X}${strict?')':']'}`;
+  steps=[`Identify the radicand ${lin}. ${strict?'The root is in a denominator, so the radicand must be strictly positive (zero would mean dividing by zero).':'For a real square root it must be nonnegative.'}`,
+   `Write the inequality: ${lin} ${rel} 0.`];
+  if(b!==0)steps.push(`Move the constant to the other side: ${ax} ${rel} ${caNum(-b)}.`);
+  if(a>1)steps.push(`Divide both sides by ${caNum(a)}. It is positive, so the inequality keeps its direction: x ${rel} ${X}.`);
+  else if(a<0)steps.push(`<span class="ca-flip-note">Divide both sides by ${caNum(a)}. Dividing by a negative number <b>reverses</b> the inequality:</span> x ${flip} ${X}.`);
+  steps.push(`Draw ${strict?'an open':'a filled'} circle at ${X} and shade to the ${right?'right':'left'}.`);
+ }
+ $('domain-expression').textContent=expression;
+ $('domain-setbuilder').textContent=`{x ∈ ℝ | ${condition}}`;$('domain-interval').textContent=interval;
+ caAxisNumberLine($('domain-svg'),{segments,test:validX?x:null});
+ const tx=n=>32+(n+10)/20*(588-32);
+ $('domain-svg').innerHTML+=`<text x="${tx(xv)}" y="149" font-size="14" font-weight="800" text-anchor="middle" fill="#d9481f">x = ${X}</text>`;
+ const result=$('domain-result'),can=t=>isFrac?L(t)!==0:strict?L(t)>0:L(t)>=0;
+ result.className='ca-domain-status '+(validX?(can(x)?'ca-domain-allowed':'ca-domain-forbidden'):'');
+ if(!validX){result.textContent='Enter a real input x to test whether this function accepts it.';}
+ else if(can(x)){const v=isFrac?1/L(x):strict?1/Math.sqrt(L(x)):Math.sqrt(L(x));const out=Math.abs(v)<1e-10?'0':caNum(v);result.textContent=`✓ ALLOWED: x = ${caNum(x)} gives a real output f(${caNum(x)}) ${Math.abs(v-Math.round(v))<1e-9?'=':'≈'} ${out}.`;}
+ else{const value=caNum(L(x));const why=isFrac?`the denominator ${lin} equals 0`:L(x)===0?`the radicand ${lin} equals 0, and √0 = 0 cannot be a denominator`:`the radicand ${lin} equals ${value}, which is negative`;result.textContent=`✕ NOT ALLOWED: at x = ${caNum(x)}, ${why}.`;}
+ $('domain-steps').innerHTML=steps.map(t=>`<li>${t}</li>`).join('');
+}
+function caDomainK(){
  const kind=$('domain-kind').value,k=Number($('domain-k').value),raw=$('domain-x').value,x=Number(raw),validX=raw.trim()!==''&&Number.isFinite(x);
  $('k-output').textContent=caNum(k);
  const kk=caNum(k),pm=k<0?`+ ${caNum(-k)}`:`− ${kk}`,plus=k<0?`− ${caNum(-k)}`:`+ ${kk}`;
@@ -831,7 +1025,7 @@ function caDomain(){
  else {const why=(kind==='fraction'||kind==='fraction2'||kind==='oddrootden')?'the denominator becomes zero':kind==='root' || kind==='rootleft'?'the square-root radicand is negative':'the square-root denominator is zero or not real';result.textContent=`✕ NOT ALLOWED: x = ${caNum(x)} because ${why}.`;}
  $('domain-steps').innerHTML=steps.map(t=>`<li>${t}</li>`).join('');
 }
-['domain-kind','domain-k','domain-x'].forEach(id=>$(id).addEventListener('input',caDomain));caDomain();
+['domain-kind','domain-k','domain-x','lin-a','lin-b'].forEach(id=>$(id).addEventListener('input',caDomain));caDomain();
 // A full coordinate plane: finite endpoints, unbounded pieces and an excluded input/output.
 let caDRView='domain';
 const caGraphExamples={
@@ -884,16 +1078,53 @@ function caRangeParabola(){
 }
 ['vertex-h','vertex-k','vertex-a'].forEach(id=>$(id).addEventListener('input',caRangeParabola));caRangeParabola();
 // Section 3.1: work backwards from y to find all x values.
-function graphReading(){
- const x=Number($('graph-input').value),yTarget=Number($('graph-output').value),f=t=>(t+1)*(t+1)-1;
- const svg=$('ca-read-graph'),g=plot(svg,f,{xmin:-5,xmax:3,ymin:-2,ymax:10});
- const xPoints=[-1-Math.sqrt(yTarget+1),-1+Math.sqrt(yTarget+1)].filter((t,i,arr)=>i===0||Math.abs(t-arr[0])>1e-8);
- svg.innerHTML+=`<line x1="${g.tx(-5)}" x2="${g.tx(3)}" y1="${g.ty(yTarget)}" y2="${g.ty(yTarget)}" stroke="#137b9a" stroke-dasharray="6 5" stroke-width="2.3"/>`;
- svg.innerHTML+=`<line x1="${g.tx(x)}" x2="${g.tx(x)}" y1="${g.ty(0)}" y2="${g.ty(f(x))}" stroke="#d64d25" stroke-dasharray="4 4" stroke-width="2"/><circle cx="${g.tx(x)}" cy="${g.ty(f(x))}" r="6" fill="#e65125" stroke="#fff" stroke-width="2"/>`;
- for(const t of xPoints){if(t>=-5&&t<=3)svg.innerHTML+=`<circle cx="${g.tx(t)}" cy="${g.ty(yTarget)}" r="5.5" fill="#137b9a" stroke="white" stroke-width="2"/>`;}
- $('graph-read-feedback').textContent=`Input-first: g(${fmt(x)}) = ${f(x)}. Output-first: g(x) = ${yTarget} at x = ${xPoints.map(fmt).join(' or x = ')}.`;
+// Section 3.1 · 09: read three different graphs in two directions (notes Example 7 / TPS 7).
+const graphKinds={
+ parabola:{name:'g',formula:'g(x) = (x + 1)² − 1',f:t=>(t+1)*(t+1)-1,win:{xmin:-5,xmax:3,ymin:-2,ymax:10},
+  inputs:[-4,-3,-2,-1,0,1,2],input:-3,outputs:[-1,0,3,8],output:3,
+  solve:b=>b<-1?[]:b===-1?[-1]:[-1-Math.sqrt(b+1),-1+Math.sqrt(b+1)],
+  none:b=>`no input gives g(x) = ${fmt(b)}, because the vertex (−1, −1) is the lowest point`,
+  undefinedText:()=>'',
+  preview:'Section 3.2 preview: domain (−∞, ∞), range [−1, ∞).',
+  prompt:'Look for the vertex of the graph. What happens when you choose the <b>smallest possible output</b>?'},
+ root:{name:'s',formula:'s(x) = √(x + 4) − 1',f:t=>t>=-4?Math.sqrt(t+4)-1:NaN,win:{xmin:-6,xmax:13,ymin:-3,ymax:4},
+  inputs:[-5,-4,-3,0,5,12],input:0,outputs:[-2,-1,0,1,2,3],output:2,
+  solve:b=>b<-1?[]:[(b+1)*(b+1)-4],
+  none:b=>`no input gives s(x) = ${fmt(b)}, because the graph starts at (−4, −1) and only rises`,
+  undefinedText:x=>`s(${fmt(x)}) is undefined: √(${fmt(x)} + 4) = √(${fmt(x+4)}) is not a real number, so x = ${fmt(x)} is not in the domain`,
+  preview:'Section 3.2 preview: domain [−4, ∞), range [−1, ∞).',
+  prompt:'Where does the graph <b>start</b>? What happens if you ask for an output below that starting height?'},
+ cubic:{name:'c',formula:'c(x) = −(x − 1)³ + 1',f:t=>1-(t-1)**3,win:{xmin:-2,xmax:4,ymin:-8,ymax:10},
+  inputs:[-1,0,1,2,3],input:0,outputs:[-7,0,1,2,9],output:1,
+  solve:b=>[1+Math.cbrt(1-b)],
+  none:()=>'',undefinedText:()=>'',
+  preview:'Section 3.2 preview: domain (−∞, ∞), range (−∞, ∞).',
+  prompt:'Try every output. Why does each output come from <b>exactly one input</b> here, but sometimes from two inputs on the parabola?'}
+};
+let graphKind='parabola';
+function graphSetKind(kind){
+ graphKind=kind;const d=graphKinds[kind];
+ $('graph-input').innerHTML=d.inputs.map(v=>`<option value="${v}"${v===d.input?' selected':''}>${fmt(v)}</option>`).join('');
+ $('graph-output').innerHTML=d.outputs.map(v=>`<option value="${v}"${v===d.output?' selected':''}>${fmt(v)}</option>`).join('');
+ $('graph-read-name').textContent=d.formula;$('graph-solve-name').textContent=d.name;$('graph-read-prompt').innerHTML=d.prompt;
+ $('ca-read-graph').setAttribute('aria-label',`Graph of ${d.formula} with an orange input marker and blue output-level intersections`);
+ graphReading();
 }
-['graph-input','graph-output'].forEach(id=>$(id).addEventListener('change',graphReading));graphReading();
+function graphReading(){
+ const d=graphKinds[graphKind],x=Number($('graph-input').value),yTarget=Number($('graph-output').value),f=d.f,n=d.name,w=d.win;
+ const clean=v=>Number(v.toFixed(9));
+ const svg=$('ca-read-graph'),g=plot(svg,f,w);
+ const xPoints=d.solve(yTarget).map(clean);
+ svg.innerHTML+=`<line x1="${g.tx(w.xmin)}" x2="${g.tx(w.xmax)}" y1="${g.ty(yTarget)}" y2="${g.ty(yTarget)}" stroke="#137b9a" stroke-dasharray="6 5" stroke-width="2.3"/>`;
+ const fx=f(x),defined=Number.isFinite(fx);
+ if(defined)svg.innerHTML+=`<line x1="${g.tx(x)}" x2="${g.tx(x)}" y1="${g.ty(0)}" y2="${g.ty(fx)}" stroke="#d64d25" stroke-dasharray="4 4" stroke-width="2"/><circle cx="${g.tx(x)}" cy="${g.ty(fx)}" r="6" fill="#e65125" stroke="#fff" stroke-width="2"/>`;
+ else svg.innerHTML+=`<text x="${g.tx(x)}" y="${g.ty(0)+6}" text-anchor="middle" font-size="20" font-weight="800" fill="#d64d25">✕</text>`;
+ for(const t of xPoints){if(t>=w.xmin&&t<=w.xmax)svg.innerHTML+=`<circle cx="${g.tx(t)}" cy="${g.ty(yTarget)}" r="5.5" fill="#137b9a" stroke="white" stroke-width="2"/>`;}
+ const inputText=defined?`${n}(${fmt(x)}) = ${fmt(clean(fx))}`:d.undefinedText(x);
+ const outputText=xPoints.length===0?d.none(yTarget):`${n}(x) = ${fmt(yTarget)} at x = ${xPoints.map(fmt).join(' or x = ')}${xPoints.length===1?' only':''}`;
+ $('graph-read-feedback').innerHTML=`<b>Input-first:</b> ${inputText}. <b>Output-first:</b> ${outputText}. <span class="ca-muted">${d.preview}</span>`;
+}
+['graph-input','graph-output'].forEach(id=>$(id).addEventListener('change',graphReading));$('graph-kind').addEventListener('change',e=>graphSetKind(e.target.value));graphReading();
 
 
 // Newly authored mobile-friendly visual activities for Section 3.1.
@@ -943,7 +1174,65 @@ function fourViews(){const {name,f,why}=rules[$('four-rule').value],x=+$('four-i
 }
 ['four-rule','four-input'].forEach(id=>$(id).addEventListener('input',fourViews));fourViews();
 
+// 06 · Two-way calculator: a second function with a square root (notes Example 5 / TPS 5).
+let twoWayMode='square';
+const twoWaySetup={
+ square:{name:'q',formula:'q(x) = (x − 2)² + 1',min:-1,max:5,x:0,targets:[1,2,5,10],target:5},
+ root:{name:'r',formula:'r(x) = √(2x + 3)',min:-1,max:11,x:3,targets:[1,3,5,-1],target:3}
+};
+function caSimplifyRoot(n){
+ if(n===0)return{text:'0',whole:true,value:0};
+ let outside=1,inside=n;
+ for(let f=2;f*f<=inside;f++){while(inside%(f*f)===0){inside/=f*f;outside*=f;}}
+ return inside===1?{text:fmt(outside),whole:true,value:outside}:{text:`${outside===1?'':fmt(outside)}√${inside}`,whole:false,value:outside*Math.sqrt(inside)};
+}
+function twoWaySwitch(mode){
+ twoWayMode=mode;const cfg=twoWaySetup[mode],slider=$('forward-x'),pick=$('backward-y');
+ slider.min=cfg.min;slider.max=cfg.max;slider.value=cfg.x;
+ pick.innerHTML=cfg.targets.map(t=>`<option value="${t}"${t===cfg.target?' selected':''}>${cfg.name}(x) = ${fmt(t)}</option>`).join('');
+ $('twoway-equation').textContent=cfg.formula;
+ document.querySelectorAll('.twoway-name').forEach(el=>el.textContent=cfg.name);
+ document.querySelectorAll('[data-twoway]').forEach(b=>{const on=b.dataset.twoway===mode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
+ const extra=document.querySelector('#formula-examples .ca-extra-calculation');if(extra)extra.hidden=mode!=='square';
+ twoWay();
+}
+function twoWayRoot(){
+ const workStep=(title,equation)=>`<li><span class="ca-step-label">${title}</span><span class="ca-step-math">${equation}</span></li>`;
+ const x=+$('forward-x').value,t=+$('backward-y').value;
+ $('forward-x-label').textContent=fmt(x);
+ const doubled=2*x,rad=doubled+3,root=caSimplifyRoot(rad),approx=root.whole?'':` ≈ ${fmt(Number(root.value.toFixed(2)))}`;
+ $('forward-result').textContent=`Answer: r(${fmt(x)}) = ${root.text}${approx}`;
+ $('forward-steps').innerHTML=[
+  workStep('1 · Substitute the input',`r(${fmt(x)}) = √(2(${fmt(x)}) + 3)`),
+  workStep('2 · Multiply',`= √(${fmt(doubled)} + 3)`),
+  workStep('3 · Add 3 under the root',`= √${fmt(rad)}`),
+  workStep(root.whole?'4 · Take the square root':'4 · Keep the exact root (then estimate)',`= ${root.text}${approx}`)
+ ].join('');
+ if(t<0){
+  const x0=(t*t-3)/2,back=2*x0+3;
+  $('backward-result').textContent='Answer: no solution';
+  $('backward-steps').innerHTML=[
+   workStep('1 · Set the formula equal to the output',`√(2x + 3) = ${fmt(t)}`),
+   workStep('2 · Look at the sign',`A square root is never negative, so no input can give ${fmt(t)}.`),
+   workStep('3 · What if we square anyway?',`2x + 3 = (${fmt(t)})² = ${fmt(t*t)}, so x = ${fmt(x0)}`),
+   workStep('4 · Check that answer',`r(${fmt(x0)}) = √${fmt(back)} = ${caSimplifyRoot(back).text}, not ${fmt(t)} ✗`)
+  ].join('');
+  $('two-way-explanation').textContent=`No input gives r(x) = ${fmt(t)}. Squaring both sides produced x = ${fmt(x0)}, but the check shows it does not work. Always check your answers after squaring both sides.`;
+  return;
+ }
+ const sq=t*t,minus=sq-3,x0=minus/2;
+ $('backward-result').textContent=`Answer: x = ${fmt(x0)}`;
+ $('backward-steps').innerHTML=[
+  workStep('1 · Set the formula equal to the output',`√(2x + 3) = ${fmt(t)}`),
+  workStep('2 · Square both sides',`2x + 3 = (${fmt(t)})² = ${fmt(sq)}`),
+  workStep('3 · Subtract 3 from both sides',`2x = ${fmt(sq)} − 3 = ${fmt(minus)}`),
+  workStep('4 · Divide both sides by 2',`x = ${fmt(minus)} ÷ 2 = ${fmt(x0)}`),
+  workStep('5 · Check the solution',`r(${fmt(x0)}) = √(2(${fmt(x0)}) + 3) = √${fmt(sq)} = ${fmt(t)} ✓`)
+ ].join('');
+ $('two-way-explanation').textContent=`Evaluating r(${fmt(x)}) uses one known input to find one output. Solving r(x) = ${fmt(t)} works backward and finds exactly one input. Squaring both sides can create answers that do not work, so always check.`;
+}
 function twoWay(){
+ if(twoWayMode==='root'){twoWayRoot();return;}
  const x=+$('forward-x').value,t=+$('backward-y').value;
  const difference=x-2,squared=difference*difference,forward=squared+1;
  const rhs=t-1,shift=Math.sqrt(rhs),roots=[2-shift,2+shift].filter((v,i,arr)=>i===0||Math.abs(v-arr[0])>1e-10);
@@ -971,7 +1260,7 @@ function twoWay(){
  ].join('');
  $('two-way-explanation').textContent=`Evaluating q(${fmt(x)}) uses one known input to find one output. Solving q(x) = ${fmt(t)} works backward to find ${roots.length===1?'the input':'all inputs'} with that output. Different inputs may share an output, and the relation is still a function.`;
 }
-$('forward-x').addEventListener('input',twoWay);$('backward-y').addEventListener('change',twoWay);twoWay();
+document.querySelectorAll('[data-twoway]').forEach(b=>b.addEventListener('click',()=>twoWaySwitch(b.dataset.twoway)));$('forward-x').addEventListener('input',twoWay);$('backward-y').addEventListener('change',twoWay);twoWay();
 
 const toolkitFunctions={identity:{f:x=>x,clue:'Every point satisfies y = x, so input and output are equal.'},constant:{f:x=>2,clue:'All inputs share the same output 2. This is still a function.'},square:{f:x=>x*x,clue:'The graph has a U shape, with a minimum at (0, 0).'},cube:{f:x=>x*x*x,clue:'An S-shaped curve passes through the origin and keeps increasing.'},absolute:{f:x=>Math.abs(x),clue:'A V shape: both −3 and 3 produce output 3.'},root:{f:x=>x>=0?Math.sqrt(x):NaN,clue:'The square-root graph starts at the origin; negative x-values are not real inputs.'},reciprocal:{f:x=>x===0?NaN:1/x,clue:'The reciprocal graph never touches either axis. x = 0 is excluded.'}};
 function toolkitLab(name){const item=toolkitFunctions[name];plot($('toolkit-graph'),item.f,{xmin:-5,xmax:5,ymin:-5,ymax:5});$('toolkit-clue').textContent=item.clue;document.querySelectorAll('[data-toolkit]').forEach(b=>{let yes=b.dataset.toolkit===name;b.classList.toggle('active',yes);b.setAttribute('aria-pressed',String(yes));});}
@@ -1205,5 +1494,193 @@ let modal=$('foundations-modal');$('foundations-open').onclick=()=>modal.showMod
    const id=location.hash.slice(1);if(id){const match=links.find(l=>l.hash==='#'+id);if(match){match.closest('details').open=true;markActive(id);}}
  }
  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
+})();
+</script>
+<script id="ca-nov2026-enhancements-js">
+(()=>{'use strict';
+/* November 2026 enhancements: letters as inputs, solve-for-y, naming drill,
+   predict-first cards, class/study mode, Desmos links, linkable Course Foundations. */
+const $=id=>document.getElementById(id),fmt=v=>String(v).replaceAll('-','−');
+const num=v=>fmt(Number(Number(v).toFixed(2)));
+function rootText(n){ // simplest radical form of √n for a positive integer n
+ let outside=1,inside=n;
+ for(let f=2;f*f<=inside;f++){while(inside%(f*f)===0){inside/=f*f;outside*=f;}}
+ return inside===1?fmt(outside):`${outside===1?'':fmt(outside)}√${inside}`;
+}
+
+/* ---------- 07 · Letters as inputs: exact symbolic substitution into ax² + bx + c ---------- */
+const VARS=['t','x','h'],SUP='⁰¹²³⁴⁵⁶⁷⁸⁹';
+const keyOf=m=>VARS.map(v=>m[v]||0).join(',');
+const clean=p=>{for(const [k,c] of p)if(c===0)p.delete(k);return p;};
+const poly=terms=>{const p=new Map();for(const [c,m] of terms){const k=keyOf(m);p.set(k,(p.get(k)||0)+c);}return clean(p);};
+const add=(...ps)=>{const out=new Map();for(const p of ps)for(const [k,c] of p)out.set(k,(out.get(k)||0)+c);return clean(out);};
+const mul=(p,q)=>{const out=new Map();for(const [k1,c1] of p)for(const [k2,c2] of q){const e2=k2.split(',').map(Number),k=k1.split(',').map((e,i)=>Number(e)+e2[i]).join(',');out.set(k,(out.get(k)||0)+c1*c2);}return clean(out);};
+const scale=(p,s)=>clean(new Map([...p].map(([k,c])=>[k,c*s])));
+const sup=n=>n===1?'':String(n).split('').map(d=>SUP[d]).join('');
+function show(p){
+ if(!p.size)return '0';
+ const terms=[...p].map(([k,c])=>({e:k.split(',').map(Number),c})).sort((A,B)=>{
+  const dA=A.e.reduce((s,v)=>s+v,0),dB=B.e.reduce((s,v)=>s+v,0);if(dA!==dB)return dB-dA;
+  for(let i=0;i<A.e.length;i++)if(A.e[i]!==B.e[i])return B.e[i]-A.e[i];return 0;});
+ return terms.map(({e,c},i)=>{const vars=e.map((n,j)=>n?VARS[j]+sup(n):'').join(''),mag=Math.abs(c);
+  const body=vars?(mag===1?'':mag)+vars:String(mag);return (c<0?(i?' − ':'−'):(i?' + ':''))+body;}).join('');
+}
+const joinSigned=parts=>parts.filter(p=>p.size).map(show).reduce((acc,s,i)=>i===0?s:acc+(s.startsWith('−')?' − '+s.slice(1):' + '+s),'')||'0';
+const symbolicInputs={
+ 't':{label:'t',p:poly([[1,{t:1}]])},
+ 't+1':{label:'t + 1',p:poly([[1,{t:1}],[1,{}]])},
+ '-x':{label:'−x',p:poly([[-1,{x:1}]])},
+ '2t':{label:'2t',p:poly([[2,{t:1}]])},
+ 't+h':{label:'t + h',p:poly([[1,{t:1}],[1,{h:1}]])}
+};
+function symbolic(){
+ if(!$('symbolic-input'))return;
+ const A=+$('coeff-a').value,B=+$('coeff-b').value,C=+$('coeff-c').value,choice=$('symbolic-input').value,{label,p:u}=symbolicInputs[choice];
+ const f=w=>add(scale(mul(w,w),A),scale(w,B),poly([[C,{}]]));
+ const sq=mul(u,u),termA=scale(sq,A),termB=scale(u,B),termC=poly([[C,{}]]),result=add(termA,termB,termC);
+ const step=(title,math)=>`<li><span class="ca-step-label">${title}</span><span class="ca-step-math">${math}</span></li>`;
+ const joined=joinSigned([termA,termB,termC]),final=show(result);
+ $('symbolic-expression').textContent=`f(x) = ${show(f(poly([[1,{x:1}]])))}`;
+ $('symbolic-steps').innerHTML=[
+  step(`1 · Replace every x with (${label})`,`f(${label}) = (${fmt(A)})(${label})² + (${fmt(B)})(${label}) + (${fmt(C)})`),
+  step('2 · Square the input',`(${label})² = ${show(sq)}`),
+  step('3 · Multiply by the coefficients',`(${fmt(A)})(${show(sq)}) = ${show(termA)}<br>(${fmt(B)})(${label}) = ${show(termB)}`),
+  step('4 · Combine like terms',joined===final?`= ${final}`:`= ${joined}<br>= ${final}`)
+ ].join('');
+ $('symbolic-result').textContent=`Answer: f(${label}) = ${final}`;
+ let compare='';
+ if(choice==='t+1'){const ft=f(poly([[1,{t:1}]])),plus=add(ft,poly([[1,{}]])),same=show(plus)===final;
+  compare=`<b>Compare:</b> f(t) + 1 = (${show(ft)}) + 1 = ${show(plus)}. ${same?'With these coefficients the two happen to match, but usually they do not.':`That is <b>not</b> the same as f(t + 1) = ${final}. Adding 1 to the <i>input</i> is different from adding 1 to the <i>output</i>.`}`;}
+ else if(choice==='-x'){const fx=f(poly([[1,{x:1}]]));compare=`<b>Compare:</b> −f(x) = −(${show(fx)}) = ${show(scale(fx,-1))}. f(−x) changes the sign of the <i>input</i>; −f(x) changes the sign of the <i>output</i>.`;}
+ else if(choice==='2t'){const ft=f(poly([[1,{t:1}]]));compare=`<b>Compare:</b> 2·f(t) = 2(${show(ft)}) = ${show(scale(ft,2))}. Doubling the input is different from doubling the output.`;}
+ else if(choice==='t'){compare='f(t) is the same rule written with a different letter. The function has not changed; only the name of the input has. Your notes use f(a) in exactly the same way.';}
+ else compare='Expressions like f(t + h) come back later in the course, when you study average rates of change.';
+ $('symbolic-compare').innerHTML=compare;
+}
+['coeff-a','coeff-b','coeff-c','symbolic-input'].forEach(id=>$(id)?.addEventListener('input',symbolic));symbolic();
+
+/* ---------- 05 · Solve for y beside the vertical line test ---------- */
+function vlineSolve(){
+ if(!$('vline-solve'))return;
+ const type=$('curve-type').value,xi=Math.round(+$('scan-x').value*10),xs=fmt(xi/10);
+ let html='';
+ if(type==='parabola'){html=`<b>Solve for y:</b> y = x²/4. At x = ${xs}: y = (${xs})²/4 = ${num(xi*xi/400)}. <b>One output</b> for this input.`;}
+ else if(type==='cubic'){const y=xi**3/9000,exact=Math.abs(y*100-Math.round(y*100))<1e-9;html=`<b>Solve for y:</b> y = x³/9. At x = ${xs}: y = (${xs})³/9 ${exact?'=':'≈'} ${num(y)}. <b>One output</b> for this input.`;}
+ else if(type==='circle'){
+  const r100=900-xi*xi,head='<b>Solve for y:</b> x² + y² = 9, so y² = 9 − x² and y = ±√(9 − x²).';
+  if(r100<0)html=`${head} At x = ${xs}: 9 − x² = ${num(r100/100)}, which is negative, so there is <b>no real y</b>. This vertical line misses the circle.`;
+  else if(r100===0)html=`${head} At x = ${xs}: y = ±√0 = 0, a single point. Other x-values give two outputs.`;
+  else{const exact=xi%10===0?rootText(r100/100):`√${num(r100/100)}`,hasRoot=exact.includes('√');
+   html=`${head} At x = ${xs}: y = ±${exact}${hasRoot?` ≈ ±${num(Math.sqrt(r100/100))}`:''}. The <b>±</b> gives <b>two outputs</b> for one input, so y is not a function of x.`;}
+ }else{
+  const head='<b>Solve for y:</b> x = y², so y = ±√x.';
+  if(xi<0)html=`${head} At x = ${xs}: √x is not a real number, so there is <b>no real y</b>. This vertical line misses the graph.`;
+  else if(xi===0)html=`${head} At x = 0: y = 0, a single point. Other x-values give two outputs.`;
+  else{const exact=xi%10===0?rootText(xi/10):`√${xs}`,hasRoot=exact.includes('√');
+   html=`${head} At x = ${xs}: y = ±${exact}${hasRoot?` ≈ ±${num(Math.sqrt(xi/10))}`:''}. The <b>±</b> gives <b>two outputs</b> for one input, so y is not a function of x.`;}
+ }
+ $('vline-solve').innerHTML=html;
+}
+['curve-type','scan-x'].forEach(id=>$(id)?.addEventListener('input',vlineSolve));vlineSolve();
+
+/* ---------- 03 · Name the parts of function notation ---------- */
+(function nameDrill(){
+ const rowsBox=$('name-drill-rows');if(!rowsBox)return;
+ const pool='abdmnpqrstuvwyz'.split('');let drill={out:'s',name:'v',inp:'t'},answers={};
+ const rows=()=>[['name','Name of the function',drill.name],['input','Input · independent variable',drill.inp],['output','Output · dependent variable',drill.out]];
+ function render(){
+  $('name-drill-equation').textContent=`${drill.out} = ${drill.name}(${drill.inp})`;
+  const letters=[drill.out,drill.name,drill.inp].sort();
+  rowsBox.innerHTML=rows().map(([k,label])=>`<div class="ca-name-row" data-row="${k}"><span class="ca-name-label">${label}</span><div class="ca-choice-row" role="group" aria-label="${label}">${letters.map(l=>`<button type="button" class="ca-choice" data-letter="${l}" aria-pressed="false">${l}</button>`).join('')}</div><span class="ca-name-mark" aria-hidden="true"></span></div>`).join('');
+  answers={};update();
+ }
+ function update(){
+  let right=0,done=0;
+  for(const [k,,ans] of rows()){
+   const row=rowsBox.querySelector(`[data-row="${k}"]`),pick=answers[k];
+   row.querySelectorAll('button').forEach(b=>{const on=b.dataset.letter===pick;b.classList.toggle('selected',on);b.setAttribute('aria-pressed',String(on));});
+   row.classList.toggle('ca-row-correct',pick===ans);row.classList.toggle('ca-row-wrong',!!pick&&pick!==ans);
+   row.querySelector('.ca-name-mark').textContent=pick?(pick===ans?'✓':'✕'):'';
+   if(pick){done++;if(pick===ans)right++;}
+  }
+  const fb=$('name-drill-feedback'),{out,name,inp}=drill;
+  fb.className='ca-feedback'+(done===3?(right===3?' ca-correct':' ca-incorrect'):'');
+  fb.innerHTML=done<3?'Pick a letter in each row.':right===3
+   ?`✓ All correct. <b>${out} = ${name}(${inp})</b> reads “${out} is a function of ${inp}.” <b>${name}</b> is the name, <b>${inp}</b> is the input (independent variable), and <b>${out}</b> — also written ${name}(${inp}) — is the output (dependent variable).`
+   :`${right} of 3 correct. Hint: the letter <b>in front of</b> the parentheses is the name, the letter <b>inside</b> them is the input, and the letter <b>alone</b> on the other side of “=” is the output.`;
+ }
+ rowsBox.addEventListener('click',e=>{const b=e.target.closest('button[data-letter]');if(!b)return;answers[b.closest('[data-row]').dataset.row]=b.dataset.letter;update();});
+ $('name-drill-next').addEventListener('click',()=>{
+  let pick;do{const bag=[...pool];pick=[0,1,2].map(()=>bag.splice(Math.floor(Math.random()*bag.length),1)[0]);}while(pick.join()===[drill.out,drill.name,drill.inp].join());
+  drill={out:pick[0],name:pick[1],inp:pick[2]};render();$('name-drill-rows').querySelector('button')?.focus();
+ });
+ render();
+})();
+
+/* ---------- Predict first: lock an activity until the student predicts (or skips) ---------- */
+document.querySelectorAll('.ca-predict-gate').forEach(card=>{
+ const target=$(card.dataset.gate);if(!target)return;
+ const note=document.createElement('p');note.className='ca-gate-note';note.innerHTML='<i aria-hidden="true" class="fa-solid fa-lock"></i> Make a prediction above (or skip) to unlock the explorer.';
+ target.before(note);
+ const lock=on=>{target.classList.toggle('is-locked',on);if(on)target.setAttribute('inert','');else target.removeAttribute('inert');note.hidden=!on;};
+ lock(true);
+ const feedback=card.querySelector('.ca-predict-feedback');
+ const after=()=>{const id=card.dataset.setId,val=card.dataset.setValue;if(id&&$(id)){$(id).value=val;$(id).dispatchEvent(new Event('input',{bubbles:true}));$(id).dispatchEvent(new Event('change',{bubbles:true}));}};
+ card.querySelectorAll('[data-predict]').forEach(btn=>btn.addEventListener('click',()=>{
+  const right=btn.dataset.predict===card.dataset.correct;
+  card.querySelectorAll('[data-predict]').forEach(b=>{const on=b===btn;b.classList.toggle('selected',on);b.setAttribute('aria-pressed',String(on));});
+  feedback.hidden=false;feedback.className='ca-feedback ca-predict-feedback '+(right?'ca-correct':'ca-incorrect');
+  feedback.innerHTML=(right?'✓ Good prediction. ':'✕ Not quite. ')+card.querySelector('template.ca-predict-why').innerHTML;
+  lock(false);after();
+ }));
+ card.querySelector('.ca-predict-skip')?.addEventListener('click',()=>{lock(false);feedback.hidden=false;feedback.className='ca-feedback ca-predict-feedback';feedback.textContent='Explorer unlocked. You can still make a prediction above.';});
+});
+
+/* ---------- Study mode / Class mode ---------- */
+const root=document.documentElement,MODE_KEY='ca-view-mode';
+const stepSets=[];
+document.querySelectorAll('ol.ca-calculation-steps').forEach(ol=>{
+ const row=document.createElement('div');row.className='ca-reveal-row';
+ row.innerHTML='<button type="button" class="ca-btn ca-reveal-next"></button><button type="button" class="ca-btn ca-btn-outline ca-reveal-all">Show all steps</button>';
+ ol.after(row);
+ const box=ol.closest('.ca-worked-side,.ca-symbolic-lab'),answer=box?box.querySelector('.ca-worked-answer'):null;
+ const set={ol,row,answer,shown:0};stepSets.push(set);
+ const refresh=()=>{const items=[...ol.children],classMode=root.classList.contains('ca-class-mode'),total=items.length,shown=classMode?Math.min(set.shown,total):total;
+  items.forEach((li,i)=>li.hidden=i>=shown);
+  const complete=shown>=total;row.hidden=!classMode||complete||total===0;
+  row.querySelector('.ca-reveal-next').textContent=`Reveal step ${Math.min(shown+1,total)} of ${total}`;
+  if(answer)answer.classList.toggle('ca-answer-held',classMode&&!complete);};
+ set.refresh=refresh;
+ row.querySelector('.ca-reveal-next').addEventListener('click',()=>{set.shown++;refresh();});
+ row.querySelector('.ca-reveal-all').addEventListener('click',()=>{set.shown=Infinity;refresh();});
+ new MutationObserver(()=>{set.shown=0;refresh();}).observe(ol,{childList:true});
+ refresh();
+});
+const bar=document.createElement('div');bar.className='ca-class-bar';bar.hidden=true;
+bar.innerHTML='<span><i aria-hidden="true" class="fa-solid fa-person-chalkboard"></i> Class mode</span><button type="button" data-view-mode="study">Exit class mode</button>';
+document.body.append(bar);
+function setMode(mode,save=true){
+ const cls=mode==='class';root.classList.toggle('ca-class-mode',cls);bar.hidden=!cls;
+ document.querySelectorAll('.ca-view-toggle [data-view-mode]').forEach(b=>{const on=b.dataset.viewMode===mode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
+ stepSets.forEach(s=>{s.shown=0;s.refresh();});
+ if(save){try{localStorage.setItem(MODE_KEY,mode);}catch(_){}}
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-view-mode]');if(b)setMode(b.dataset.viewMode);});
+let startMode='study';
+try{startMode=localStorage.getItem(MODE_KEY)==='class'?'class':'study';}catch(_){}
+const urlMode=new URLSearchParams(location.search).get('mode');if(urlMode==='class'||urlMode==='study')startMode=urlMode;
+setMode(startMode,false);
+
+/* ---------- Open in Desmos: buttons appear once a saved graph link is pasted into data-desmos ---------- */
+document.querySelectorAll('.ca-desmos-link').forEach(a=>{const url=(a.dataset.desmos||'').trim();if(/^https:\/\/www\.desmos\.com\//.test(url)){a.href=url;a.closest('.ca-desmos-row').hidden=false;}});
+
+/* ---------- Course Foundations: linkable at #course-foundations ---------- */
+const modal=$('foundations-modal'),HASH='#course-foundations';
+if(modal){
+ const openFromHash=()=>{if(location.hash===HASH&&!modal.open)modal.showModal();};
+ $('foundations-open')?.addEventListener('click',()=>{if(location.hash!==HASH)history.replaceState(null,'',HASH);});
+ modal.addEventListener('close',()=>{if(location.hash===HASH)history.replaceState(null,'',location.pathname+location.search);});
+ window.addEventListener('hashchange',openFromHash);openFromHash();
+}
 })();
 </script></body></html>
