@@ -1,0 +1,54 @@
+<p class="ca-lede">Shifts move a graph without changing its shape. This part changes the shape: a <b>negative sign</b> flips the graph over an axis, and a <b>multiplier</b> stretches or squeezes it. A multiplier outside the function acts on outputs (vertical); a multiplier inside acts on inputs (horizontal).</p>
+<div class="ca-goals"><b>Learning objectives</b> Graph functions using reflections about the x-axis and the y-axis; graph functions using vertical and horizontal stretches and compressions; combine several transformations in the correct order.</div>
+
+<section class="ca-panel" id="reflect"><h3>01 · Reflections over the x-axis and the y-axis</h3>
+<div class="ca-definition"><strong>Rule · Reflections</strong>
+<p><b>g(x) = −f(x)</b> reflects the graph over the <b>x-axis</b>: every output is multiplied by −1.</p>
+<p><b>g(x) = f(−x)</b> reflects the graph over the <b>y-axis</b>: every input is multiplied by −1.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right-to-line"></i> INTERACTIVE · MIRROR LAB</div>
+<p>Choose a toolkit function and a reflection. The arrows show each key point jumping across the mirror line.</p>
+<div id="reflect-lab"></div>
+<div class="ca-discover"><i class="fa-solid fa-lightbulb"></i><span><b>Try this:</b> Reflect y = x² over the y-axis, and reflect y = x³ over both axes. What do you notice? (These are the even and odd symmetries you will see again in Chapter 5.)</span></div>
+</section>
+
+<section class="ca-panel" id="vstretch"><h3>02 · Vertical stretches and compressions: g(x) = a·f(x)</h3>
+<div class="ca-definition"><strong>Rule · Vertical stretch or compression</strong>
+<p>Multiply every <b>output</b> by a. If |a| &gt; 1 the graph is <b>stretched</b> vertically; if 0 &lt; |a| &lt; 1 it is <b>compressed</b> vertically. If a &lt; 0, there is also a reflection over the <b>x-axis</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> INTERACTIVE · PULL AND SQUEEZE</div>
+<div id="vstretch-lab"></div>
+</section>
+
+<section class="ca-panel" id="hstretch"><h3>03 · Horizontal stretches and compressions: g(x) = f(bx)</h3>
+<div class="ca-definition"><strong>Rule · Horizontal stretch or compression</strong>
+<p>Every <b>input</b> is multiplied by 1/b. If |b| &gt; 1 the graph is <b>compressed</b> horizontally by a factor of 1/|b|; if 0 &lt; |b| &lt; 1 it is <b>stretched</b> horizontally by a factor of 1/|b|. If b &lt; 0, there is also a reflection over the <b>y-axis</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-left-right"></i> INTERACTIVE · WIDER OR NARROWER</div>
+<div id="hstretch-lab"></div>
+<div id="hstretch-choice"></div>
+<aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>Inside multipliers work “backwards”:</b> f(2x) is <i>narrower</i> (compressed by 1/2), not wider.</li><li><b>Outside affects outputs, inside affects inputs.</b> 2f(x) doubles heights; f(2x) halves x-coordinates.</li></ul></aside>
+</section>
+
+<section class="ca-panel" id="refl-table"><h3>04 · Reflections and stretches of a table</h3>
+<p>For a table, decide whether the change acts on the <b>inputs</b> (inside) or the <b>outputs</b> (outside), then do the arithmetic on that row.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-table"></i> INTERACTIVE · TABLE TRANSFORMER</div>
+<div id="refl-table-lab"></div>
+</section>
+
+<section class="ca-panel" id="combo"><h3>05 · Combining transformations step by step</h3>
+<div class="ca-definition"><strong>Order for k(x) = a·f(bx + c) + d</strong>
+<p>First factor the inside: bx + c = b(x − h) with h = −c/b. Then transform the inputs (horizontal stretch or compression and reflection, then the horizontal shift h), and finally the outputs (vertical stretch or compression and reflection by a, then the vertical shift d).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · ONE TRANSFORMATION AT A TIME</div>
+<p>Choose a toolkit graph and the four numbers, or load the example. Use <b>Next step</b> to apply one transformation at a time and follow the key points in the table.</p>
+<div id="combo-lab"></div>
+</section>
+
+<!--GUIDED|Reflections and Stretches|Original problems on reflections, stretches, compressions, and combinations. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Reflections and Stretches
+Q: How do the graphs of y = −f(x) and y = f(−x) differ from the graph of f?
+A: −f(x) multiplies the outputs by −1 (reflection over the x-axis). f(−x) multiplies the inputs by −1 (reflection over the y-axis).
+Q: Describe the transformations in g(x) = 3f(x/5).
+A: A vertical stretch by a factor of 3 (outputs × 3) and a horizontal stretch by a factor of 5 (inputs × 5).
+Q: Describe the transformations in h(x) = 2f(3x + 6) − 4.
+A: Factor: h(x) = 2f(3(x + 2)) − 4. Horizontal compression by 1/3, shift left 2, vertical stretch by 2, shift down 4.
+Q: The point (3, 2) is on the graph of f. Find the matching point on g(x) = −2f(x/3) + 4.
+A: Inputs × 3: x = 9. Outputs × (−2), then + 4: y = −4 + 4 = 0. The point is (9, 0).
+-->

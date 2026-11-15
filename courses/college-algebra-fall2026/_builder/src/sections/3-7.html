@@ -1,0 +1,58 @@
+<p class="ca-lede">An inverse function runs a function <b>backward</b>: it takes an output and returns the input that produced it. That only works when no two inputs share an output, so we first learn to recognize <b>one-to-one</b> functions.</p>
+<div class="ca-goals"><b>Learning objectives</b> Verify inverse functions; determine the domain and range of an inverse function and restrict the domain of a function to make it one-to-one; find or evaluate the inverse of a function; use the graph of a one-to-one function to graph its inverse on the same axes.</div>
+
+<section class="ca-panel" id="swap"><h3>01 · Swap the inputs and outputs</h3>
+<div class="ca-definition"><strong>Idea · Reversing a function</strong>
+<p>Reversing a function swaps every ordered pair (x, y) to (y, x). The result is a function only if no <b>output</b> of the original was repeated. Such a function is called <b>one-to-one</b>, and its reversal is the <b>inverse function f⁻¹</b>.</p>
+<p>Careful: f⁻¹(x) is <b>not</b> 1/f(x). The −1 is a label, not an exponent.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-right-left"></i> INTERACTIVE · SWAP AND CHECK</div>
+<div id="swap-lab"></div>
+</section>
+
+<section class="ca-panel" id="hlt"><h3>02 · The horizontal line test</h3>
+<div class="ca-definition"><strong>Definition · One-to-one and the horizontal line test</strong>
+<p>A function is one-to-one when every output comes from exactly one input. On a graph: <b>no horizontal line meets the graph more than once</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-grip-lines"></i> INTERACTIVE · SLIDE A HORIZONTAL LINE</div>
+<div id="hlt-lab"></div>
+</section>
+
+<section class="ca-panel" id="mirror"><h3>03 · The graph of an inverse: reflect over y = x</h3>
+<div class="ca-definition"><strong>Facts · Graphs, domains, and ranges</strong>
+<p>If (a, b) is on the graph of f, then (b, a) is on the graph of f⁻¹. So the two graphs are <b>reflections of each other over the line y = x</b>, and the <b>domain and range switch</b>: domain of f⁻¹ = range of f, and range of f⁻¹ = domain of f.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-clone"></i> INTERACTIVE · MIRROR POINT</div>
+<p>Slide the point along the graph of f. Its mirror image (b, a) traces the graph of f⁻¹.</p>
+<div id="mirror-lab"></div>
+</section>
+
+<section class="ca-panel" id="verify"><h3>04 · Verify inverses by composition</h3>
+<div class="ca-definition"><strong>Test · Inverses undo each other</strong>
+<p>f and g are inverses exactly when <b>f(g(x)) = x</b> and <b>g(f(x)) = x</b> for every x in the appropriate domains.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-check-double"></i> INTERACTIVE · DO THEY UNDO EACH OTHER?</div>
+<div id="verify-lab"></div>
+</section>
+
+<section class="ca-panel" id="find-inverse"><h3>05 · Find the inverse from a formula</h3>
+<div class="ca-definition"><strong>How to find f⁻¹</strong>
+<p>1. Check that f is one-to-one, and replace f(x) with y. &nbsp;2. Interchange x and y. &nbsp;3. Solve for y. &nbsp;4. Replace y with f⁻¹(x).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-person-walking-arrow-loop-left"></i> INTERACTIVE · STEP BY STEP</div>
+<p>Choose a function and reveal the algebra one step at a time. Then test the answer: f⁻¹ should send f(x) back to x.</p>
+<div id="find-lab"></div>
+</section>
+
+<section class="ca-panel" id="restrict"><h3>06 · Restrict the domain to make a function one-to-one</h3>
+<p>The parabola h(x) = (x − 2)² − 1 fails the horizontal line test. Keep only one half of it, either x ≥ 2 or x ≤ 2, and the restricted function has an inverse.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-scissors"></i> INTERACTIVE · KEEP HALF THE PARABOLA</div>
+<div id="restrict-lab"></div>
+</section>
+
+<!--GUIDED|Inverse Functions|Original problems on one-to-one functions and inverses. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Inverse Functions
+Q: What property must a function have in order to have an inverse function, and how can you check it on a graph?
+A: It must be one-to-one: no output is repeated. On a graph, no horizontal line meets the graph more than once.
+Q: How are the domain and range of f and f⁻¹ related?
+A: They switch: the domain of f⁻¹ is the range of f, and the range of f⁻¹ is the domain of f.
+Q: Find the inverse of f(x) = (x + 7)/3.
+A: y = (x + 7)/3. Swap: x = (y + 7)/3. Solve: 3x = y + 7, so y = 3x − 7. Therefore f⁻¹(x) = 3x − 7.
+Q: How can you verify that two functions f and g are inverses?
+A: Compose them in both orders. If f(g(x)) = x and g(f(x)) = x, they are inverses.
+-->
