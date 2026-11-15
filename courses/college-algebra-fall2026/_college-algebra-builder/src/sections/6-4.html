@@ -1,0 +1,50 @@
+<p class="ca-lede">Since y = log<sub>b</sub> x is the inverse of y = bˣ, its graph is the exponential graph <b>reflected over the line y = x</b>. Inputs and outputs trade places: the domain of the logarithm is the range of the exponential, and the horizontal asymptote becomes a vertical one.</p>
+<div class="ca-goals"><b>Learning objectives</b> Identify the domain of a logarithmic function; graph logarithmic functions.</div>
+
+<section class="ca-panel" id="reflect"><h3>01 · The logarithm as a reflection</h3>
+<div class="ca-definition"><strong>Characteristics of y = log<sub>b</sub> x</strong>
+<p>Domain (0, ∞) and range (−∞, ∞), the reverse of y = bˣ. Vertical asymptote x = 0. Key points <b>(1/b, −1)</b>, <b>(1, 0)</b> (the x-intercept), and <b>(b, 1)</b>. No y-intercept. Increasing if b &gt; 1, decreasing if 0 &lt; b &lt; 1.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-rotate"></i> INTERACTIVE · REFLECT bˣ OVER y = x</div>
+<p>Slide the reflection from 0% to 100% to watch each point (x, y) travel to (y, x).</p>
+<div id="refl-lab"></div>
+</section>
+
+<section class="ca-panel" id="log-domain"><h3>02 · The domain of a logarithmic function</h3>
+<div class="ca-definition"><strong>Rule · The argument must be positive</strong>
+<p>In y = log<sub>b</sub>(argument), set the <b>argument &gt; 0</b> and solve the inequality. The base, a vertical stretch, and a vertical shift do not affect the domain. Remember to flip the inequality when dividing by a negative number.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-filter"></i> INTERACTIVE · SOLVE ARGUMENT &gt; 0</div>
+<div id="dom-lab"></div>
+</section>
+
+<section class="ca-panel" id="log-transform"><h3>03 · Graphing with transformations</h3>
+<p>To graph y = a·log<sub>b</sub>(x − h) + k: start from the key points of log<sub>b</sub> x, multiply each y-coordinate by a, add h to each x-coordinate (the vertical asymptote moves to x = h), then add k to each y-coordinate.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shuffle"></i> INTERACTIVE · MOVE THE KEY POINTS STAGE BY STAGE</div>
+<div id="lt-lab"></div>
+</section>
+
+<section class="ca-panel" id="summary"><h3>04 · Summary: fill in the blanks</h3>
+<p>Complete the summary of transformations of y = a·log<sub>b</sub>(x − c) + d, then check.</p>
+<div class="ca-fill" id="fill-box">
+<ol class="ca-fill-list">
+<li>Vertical <select data-answer="stretch" aria-label="blank 1"><option value="">choose</option><option>stretch</option><option>compression</option></select> where |a| &gt; 1, such as y = 5log₈(x).</li>
+<li>Vertical <select data-answer="compression" aria-label="blank 2"><option value="">choose</option><option>stretch</option><option>compression</option></select> where 0 &lt; |a| &lt; 1, such as y = (1/5)log₈(x).</li>
+<li>Reflection over the <select data-answer="x-axis" aria-label="blank 3"><option value="">choose</option><option>x-axis</option><option>y-axis</option></select> if a &lt; 0, such as y = −5log₈(x).</li>
+<li><select data-answer="horizontal" aria-label="blank 4"><option value="">choose</option><option>horizontal</option><option>vertical</option></select> shift, c units to the <select data-answer="right" aria-label="blank 5"><option value="">choose</option><option>left</option><option>right</option></select> if c &gt; 0, such as y = log₈(x − 2).</li>
+<li><select data-answer="horizontal" aria-label="blank 6"><option value="">choose</option><option>horizontal</option><option>vertical</option></select> shift, |c| units to the <select data-answer="left" aria-label="blank 7"><option value="">choose</option><option>left</option><option>right</option></select> if c &lt; 0, such as y = log₈(x + 2) = log₈(x − (−2)).</li>
+<li><select data-answer="vertical" aria-label="blank 8"><option value="">choose</option><option>horizontal</option><option>vertical</option></select> shift, d units <select data-answer="up" aria-label="blank 9"><option value="">choose</option><option>up</option><option>down</option></select> if d &gt; 0, such as y = log₈(x) + 1.</li>
+<li><select data-answer="vertical" aria-label="blank 10"><option value="">choose</option><option>horizontal</option><option>vertical</option></select> shift, |d| units <select data-answer="down" aria-label="blank 11"><option value="">choose</option><option>up</option><option>down</option></select> if d &lt; 0, such as y = log₈(x) − 1.</li>
+</ol>
+<div class="ca-controls"><button type="button" class="ca-btn" id="fill-check">Check</button><button type="button" class="ca-btn ca-btn-outline" id="fill-reset">Clear</button></div>
+<div class="ca-feedback" id="fill-out" aria-live="polite">Choose an answer in each blank, then check.</div>
+</div>
+</section>
+
+<!--GUIDED|Graphs of Logarithmic Functions|Original problems on domains, key points, and transformations of logarithmic graphs. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Graphs of Logarithmic Functions
+Q: Find the domains of f(x) = (1/2)log(7 − x) − 3 and g(x) = ln(2x + 6) + 4.
+A: 7 − x &gt; 0 gives x &lt; 7: (−∞, 7). 2x + 6 &gt; 0 gives x &gt; −3: (−3, ∞).
+Q: What are the key points and the vertical asymptote of y = log₂(x + 1) + 4?
+A: (1/2, −1) → (−1/2, 3), (1, 0) → (0, 4), (2, 1) → (1, 5). Vertical asymptote x = −1; domain (−1, ∞).
+Q: Graph y = −3log₄(x + 5) − 2 from y = log₄x and give its domain.
+A: (1/4, −1) → (−19/4, 1), (1, 0) → (−4, −2), (4, 1) → (−1, −5). Vertical asymptote x = −5; domain (−5, ∞).
+-->

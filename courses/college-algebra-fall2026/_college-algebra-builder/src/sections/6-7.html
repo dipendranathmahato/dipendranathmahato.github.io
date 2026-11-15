@@ -1,0 +1,37 @@
+<p class="ca-lede">Bacteria colonies, viruses, radioactive isotopes, and medicines in the body all change at a rate proportional to how much is present. One formula models them all, and the equation-solving tools of Section 6.6 answer the questions: <b>how much, and when?</b></p>
+<div class="ca-goals"><b>Learning objective</b> Model exponential growth and decay.</div>
+
+<section class="ca-panel" id="model"><h3>01 · The model A = A₀e<sup>kt</sup></h3>
+<div class="ca-definition"><strong>Exponential growth and decay</strong>
+<p><b>A(t) = A₀e<sup>kt</sup></b>, where A₀ is the starting amount, t is time, and k is the rate: <b>k &gt; 0 for growth</b>, <b>k &lt; 0 for decay</b>. The <b>doubling time</b> is the time to reach 2A₀; the <b>half-life</b> is the time to fall to A₀/2.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-seedling"></i> INTERACTIVE · GROWTH, DECAY, AND THE CONSTANT DOUBLING TIME</div>
+<p>Notice that the doubling time (or half-life) does not depend on how much you start with or when you start counting: every equal time step multiplies the amount by the same factor.</p>
+<div id="model-lab"></div>
+</section>
+
+<section class="ca-panel" id="k-from-time"><h3>02 · Finding k from a doubling time or half-life</h3>
+<div class="ca-definition"><strong>Formulas</strong>
+<p><b>Doubling:</b> 2A₀ = A₀e<sup>kt</sup> ⇒ 2 = e<sup>kt</sup> ⇒ ln 2 = kt ⇒ <b>k = ln 2 / t</b>, and the doubling time is t = ln 2 / k.</p>
+<p><b>Half-life:</b> ½A₀ = A₀e<sup>kt</sup> ⇒ ln(½) = kt ⇒ <b>k = −ln 2 / t</b>, and the half-life is t = −ln 2 / k.</p>
+<p>The rate k belongs to the substance or population: once you find it, it stays the same even when A₀, A, and t change.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-hourglass-half"></i> INTERACTIVE · CONVERT BETWEEN k AND TIME</div>
+<div id="k-lab"></div>
+</section>
+
+<section class="ca-panel" id="problems"><h3>03 · Solving growth and decay problems</h3>
+<p>Every problem follows the same plan: <b>find k</b> (from a doubling time, a half-life, or a given rate), <b>write the model</b>, then <b>use it</b>, either evaluating A(t) or solving A₀e<sup>kt</sup> = A for t with logarithms.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-flask"></i> INTERACTIVE · WORK THROUGH EACH PROBLEM</div>
+<div id="prob-lab"></div>
+</section>
+
+<!--GUIDED|Exponential and Logarithmic Models|Original problems on growth and decay models, doubling time, and half-life. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Exponential and Logarithmic Models
+Q: A population doubles every 5 years. What is k?
+A: k = ln 2 / 5 ≈ 0.1386 per year.
+Q: A substance has k = −0.04 per day. What is its half-life?
+A: t = −ln 2 / k = ln 2 / 0.04 ≈ 17.3 days.
+Q: A virus population doubles in 6 days. How long until it quadruples?
+A: k = ln 2/6. Solve 4A₀ = A₀e<sup>kt</sup>: ln 4 = kt, so t = 6 ln 4 / ln 2 = 12 days (two doubling times).
+Q: How old is a bone with 35% of its original carbon-14 (half-life 5,730 years)?
+A: k = −ln 2/5730. Solve 0.35 = e<sup>kt</sup>: t = ln(0.35)/k ≈ 8,679 years.
+-->

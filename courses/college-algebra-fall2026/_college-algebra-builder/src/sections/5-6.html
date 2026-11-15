@@ -1,0 +1,60 @@
+<p class="ca-lede">Divide one polynomial by another and you get a <b>rational function</b>. The division brings something polynomials never had: inputs that are not allowed. Near those inputs the graph can have a <b>hole</b> or shoot off to infinity along a <b>vertical asymptote</b>, and far away it can level off along a <b>horizontal asymptote</b>.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use arrow notation; find the domains of rational functions; identify vertical asymptotes; identify horizontal asymptotes; graph rational functions.</div>
+
+<section class="ca-panel" id="domain"><h3>01 · Rational functions and their domains</h3>
+<div class="ca-definition"><strong>Definition · Rational function</strong>
+<p>A rational function can be written as f(x) = p(x)/q(x), where p and q are polynomials and q(x) ≠ 0. As in Section 3.2, <b>the denominator cannot be 0</b>: the domain is all real numbers except the zeros of the denominator. Find the domain <b>before</b> canceling any common factors.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-ruler-horizontal"></i> INTERACTIVE · FIND THE DOMAIN, THEN TEST AN INPUT</div>
+<div id="dom-lab"></div>
+</section>
+
+<section class="ca-panel" id="holes"><h3>02 · Holes: removable discontinuities</h3>
+<div class="ca-definition"><strong>Definition · Removable discontinuity</strong>
+<p>If x − a is a factor of both the numerator and the denominator, with multiplicity in the numerator <b>at least</b> as large as in the denominator, the graph has a <b>hole</b> at x = a. Factor both parts, cancel the common factor, and evaluate the reduced function at a to find the height of the hole.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-circle-dot"></i> INTERACTIVE · SNEAK UP ON A HOLE</div>
+<p>Move x closer and closer to the excluded input. The outputs settle on a single height, yet the function itself is undefined at that input.</p>
+<div id="hole-lab"></div>
+</section>
+
+<section class="ca-panel" id="arrows"><h3>03 · Arrow notation</h3>
+<div class="ca-definition"><strong>Reading the arrows</strong>
+<p><b>x → a⁻</b>: x approaches a from the left (x &lt; a). <b>x → a⁺</b>: x approaches a from the right (x &gt; a). <b>x → ∞</b> or <b>x → −∞</b>: x grows without bound in that direction. <b>f(x) → ∞</b>, <b>f(x) → −∞</b>, or <b>f(x) → c</b>: the outputs grow without bound or approach c.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right"></i> INTERACTIVE · WALK ALONG y = 1/x</div>
+<div id="arrow-lab"></div>
+</section>
+
+<section class="ca-panel" id="vertical"><h3>04 · Vertical asymptotes</h3>
+<div class="ca-definition"><strong>How to find vertical asymptotes</strong>
+<p>A vertical asymptote is a line x = a where f(x) → ∞ or −∞ as x → a⁻ or x → a⁺. 1. Factor the numerator and denominator. 2. Cancel common factors. 3. The zeros of the <b>reduced</b> denominator are the vertical asymptotes. The multiplicity tells the behavior: <b>odd</b> means the two sides go opposite ways; <b>even</b> means both sides go the same way.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-grip-lines-vertical"></i> INTERACTIVE · MULTIPLICITY AT A VERTICAL ASYMPTOTE</div>
+<div id="va-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-scale-balanced"></i> QUICK CHECK · ASYMPTOTE OR HOLE?</div>
+<p>Factor, cancel, and decide what happens at the given input.</p>
+<div id="va-cards"></div>
+</section>
+
+<section class="ca-panel" id="horizontal"><h3>05 · Horizontal and slant asymptotes</h3>
+<div class="ca-definition"><strong>Compare the degrees of the numerator (n) and the denominator (d)</strong>
+<p><b>Case 1</b>, n &lt; d: the horizontal asymptote is y = 0. <b>Case 2</b>, n = d: the horizontal asymptote is y = (leading coefficient of the numerator)/(leading coefficient of the denominator). <b>Case 3</b>, n &gt; d: no horizontal asymptote; when n = d + 1 there is a <b>slant asymptote</b>, the quotient from dividing the numerator by the denominator.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-magnifying-glass-minus"></i> INTERACTIVE · ZOOM OUT TO SEE THE END BEHAVIOR</div>
+<div id="ha-lab"></div>
+</section>
+
+<section class="ca-panel" id="graphing"><h3>06 · Graphing a rational function in 8 steps</h3>
+<div class="ca-definition"><strong>How to graph a rational function</strong>
+<p>1. Factor. 2. Find the domain. 3. Reduce by canceling common factors. 4. Mark the holes. 5. Find the x- and y-intercepts (multiplicity: odd crosses, even bounces). 6. Find the vertical asymptotes and the behavior near each. 7. Find the horizontal or slant asymptote. 8. Sketch.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-route"></i> INTERACTIVE · BUILD THE GRAPH ONE STEP AT A TIME</div>
+<div id="rat-lab"></div>
+</section>
+
+<!--GUIDED|Rational Functions|Original problems on domains, holes, intercepts, and asymptotes. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Rational Functions
+Q: Find the domain of h(x) = (6x³ − 5x)/(x² + 2x − 8) in interval notation.
+A: x² + 2x − 8 = (x + 4)(x − 2) ≠ 0, so x ≠ −4 and x ≠ 2. Domain: (−∞, −4) ∪ (−4, 2) ∪ (2, ∞).
+Q: Find the x- and y-intercepts of r(x) = 8x(x + 4)/(x² − 16).
+A: r(x) = 8x(x + 4)/((x − 4)(x + 4)) = 8x/(x − 4) with a hole at x = −4. x-intercept (0, 0) and y-intercept (0, 0).
+Q: Find the vertical asymptotes of f(x) = (2x − 12)/(x(x² + 1)(x − 6)) and describe the behavior near each.
+A: f(x) = 2(x − 6)/(x(x² + 1)(x − 6)) = 2/(x(x² + 1)) with a hole at x = 6. Vertical asymptote x = 0: as x → 0⁻, f(x) → −∞, and as x → 0⁺, f(x) → ∞.
+Q: Find the horizontal or slant asymptote of h(x) = (3x² + 7x − 5)/(x + 2).
+A: The degree of the numerator (2) is one more than the degree of the denominator (1), so there is a slant asymptote. Dividing gives 3x + 1 with remainder −7, so the slant asymptote is y = 3x + 1.
+-->
