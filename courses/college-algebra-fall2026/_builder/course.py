@@ -123,33 +123,6 @@ RECAP = {
 }
 
 # Weekly calendar (syllabus order). Items are section ids or ("event"/"test", text, detail).
-WEEKS = {
-    1: [("event", "Growth mindset and syllabus", "First class meetings"), "3.1"],
-    2: ["3.2", "3.3"],
-    3: ["3.4", "3.5a"],
-    4: ["3.5b", "3.7"],
-    5: ["7.1", ("event", "Review for Test 1", "PLTL Review Test 1")],
-    6: [("test", "Test 1 · Tuesday, September 29", "Tuesday/Thursday section"), "5.1"],
-    7: ["5.2", "5.3", ("event", "Retest 1", "")],
-    8: ["5.5", "5.6"],
-    9: [("event", "Review for Test 2", "PLTL Review Test 2"), ("test", "Test 2 · Thursday, October 22", "Tuesday/Thursday section")],
-    10: ["6.1", "6.2", ("event", "Retest 2", "")],
-    11: ["6.3", "6.4"],
-    12: ["6.5", "6.6"],
-    13: ["6.7", ("event", "Review for Test 3", "PLTL Review Test 3")],
-    14: [("test", "Test 3 · Friday, December 4", "Tuesday/Thursday section"), ("event", "Thanksgiving break", "November 26–27")],
-    15: [("event", "Retest 3", ""), ("event", "Review for the final exam", "PLTL Review Final Exam")],
-    16: [("test", "Final exam", "Comprehensive · date TBA")],
-}
-
-UNITS = [
-    ("Unit 1", "Functions: the toolkit", "Weeks 1–4", "What a function is, where it lives, how it changes, how to combine it, move it, and undo it.", ["3.1", "3.2", "3.3", "3.4", "3.5a", "3.5b", "3.7"], [1, 2, 3, 4]),
-    ("Unit 2", "Two conditions at once", "Week 5", "Systems of linear equations, then review for Test 1.", ["7.1"], [5]),
-    ("Unit 3", "Polynomial and rational functions", "Weeks 6–9", "Test 1, then parabolas, polynomials, their zeros, and quotients of polynomials, then Test 2.", ["5.1", "5.2", "5.3", "5.5", "5.6"], [6, 7, 8, 9]),
-    ("Unit 4", "Exponential and logarithmic functions", "Weeks 10–16", "Growth and decay, their inverses (logarithms), solving equations, and models, then Test 3 and the final exam.", ["6.1", "6.2", "6.3", "6.4", "6.5", "6.6", "6.7"], [10, 11, 12, 13, 14, 15, 16]),
-]
-
-
 def by_id(sid):
     for s in SECTIONS:
         if s[0] == sid:

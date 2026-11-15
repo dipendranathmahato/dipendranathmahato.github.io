@@ -137,35 +137,50 @@ def home_page():
             '<h1>College Algebra — Interactive Course Notes</h1><p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 8:00–9:15 AM · EMAGC 1.206 '
             '<span class="ca-hero-schedule-separator">·</span> PLTL online 9:30–10:45 AM</p><div class="ca-hero-links">'
             '<button class="ca-foundations-btn" id="foundations-open" type="button"><i class="fa-solid fa-layer-group"></i> Course Foundations</button>'
-            '<a href="#week-1" id="ca-this-week" hidden><i class="fa-solid fa-calendar-check"></i> <span>Jump to this week</span></a>' +
+            '<a href="#sections" id="ca-this-week" hidden><i class="fa-solid fa-calendar-check"></i> <span>This week</span></a>' +
             f'<a href="{C.TEXTBOOK}1-introduction-to-prerequisites" rel="noopener" target="_blank"><i class="fa-solid fa-book"></i> OpenStax College Algebra (textbook)</a></div></header>')
     intro = ('<div class="ca-home-intro">'
              '<div><b><i class="fa-solid fa-route"></i> One page per section.</b> Each section has its own page with interactive activities, guided problems, and a short wrap-up.</div>'
-             '<div><b><i class="fa-solid fa-calendar-week"></i> Follow the weeks.</b> The plan below follows the syllabus schedule, including test dates.</div>'
+             '<div><b><i class="fa-solid fa-list-ol"></i> Listed by chapter.</b> Sections appear in the order we cover them in class. The week-by-week order is at the bottom of this page.</div>'
              '<div><b><i class="fa-solid fa-link"></i> Every section connects.</b> Each page starts with where we are coming from and ends with why the next section matters.</div></div>')
-    weeks_html = []
-    for unit, uname, uweeks, udesc, _, wlist in C.UNITS:
-        weeks_html.append(f'<section class="ca-unit" aria-labelledby="unit-{unit[-1]}"><div class="ca-unit-head"><span>{unit} · {uweeks}</span><h2 id="unit-{unit[-1]}">{uname}</h2><p>{udesc}</p></div>')
-        for w in wlist:
-            a, b = C.week_dates(w)
-            dates = f'{a.strftime("%b")} {a.day}–{b.strftime("%b") + " " if b.month != a.month else ""}{b.day}'
-            items = []
-            for it in C.WEEKS[w]:
-                if isinstance(it, tuple):
-                    kind, text, detail = it
-                    items.append(f'<div class="ca-event{" test" if kind == "test" else ""}"><i class="fa-solid {"fa-file-pen" if kind == "test" else "fa-calendar-day"}"></i> {text}{f"<small>{detail}</small>" if detail else ""}</div>')
-                else:
-                    s = C.by_id(it)
-                    items.append(f'<a class="ca-sec-card" href="{BASE}{s["slug"]}/"><small>SECTION {C.label(it).upper()}</small><b>{s["title"]}</b><span>{s["blurb"]}</span><em><i class="fa-solid fa-circle-question"></i> {re.sub("<[^>]+>", "", s["q"])}</em></a>')
-            weeks_html.append(f'<div class="ca-week" id="week-{w}" data-start="{a.isoformat()}" data-end="{b.isoformat()}" data-week="{w}"><div class="ca-week-label">Week {w}<small>{dates}</small></div><div class="ca-week-items">{"".join(items)}</div></div>')
-        weeks_html.append('</section>')
+
+    def dates(w):
+        a, b = C.week_dates(w)
+        return a, b, f'{a.strftime("%b")} {a.day}–{b.strftime("%b") + " " if b.month != a.month else ""}{b.day}'
+
+    chapters = []
+    for ch, name, icon in C.CHAPTERS:
+        secs = [C.by_id(sid) for sid in C.order() if C.by_id(sid)["ch"] == ch]
+        weeks = sorted({s["week"] for s in secs})
+        wr = f'Week {weeks[0]}' if len(weeks) == 1 else f'Weeks {weeks[0]}–{weeks[-1]}'
+        cards = []
+        for s in secs:
+            a, b, _ = dates(s["week"])
+            cards.append(f'<a class="ca-sec-card" id="sec-{s["slug"]}" href="{BASE}{s["slug"]}/" data-start="{a.isoformat()}" data-end="{b.isoformat()}" data-label="{C.label(s["id"])}">'
+                         f'<small>SECTION {C.label(s["id"]).upper()}<span class="ca-week-tag">Week {s["week"]}</span></small><b>{s["title"]}</b><span>{s["blurb"]}</span>'
+                         f'<em><i class="fa-solid fa-circle-question"></i> {re.sub("<[^>]+>", "", s["q"])}</em></a>')
+        cnum, ctitle = name.split(' · ', 1)
+        chapters.append(f'<section class="ca-unit" id="chapter-{ch}" aria-labelledby="chapter-{ch}-h"><div class="ca-unit-head"><span><i class="fa-solid {icon}"></i> {cnum}</span>'
+                        f'<h2 id="chapter-{ch}-h">{ctitle}</h2><p>{len(secs)} section{"s" if len(secs) != 1 else ""} · {wr}</p></div><div class="ca-sec-grid">{"".join(cards)}</div></section>')
+
+    sched = []
+    for w in sorted({C.by_id(sid)["week"] for sid in C.order()}):
+        _, _, d = dates(w)
+        links = ', '.join(f'<a href="{BASE}{s["slug"]}/">{C.label(s["id"])} {s["title"]}</a>' for s in (C.by_id(x) for x in C.order()) if s["week"] == w)
+        sched.append(f'<li><b>Week {w}</b> <small>{d}</small><span>{links}</span></li>')
+    schedule = ('<details class="ca-schedule" id="weekly-order"><summary><i class="fa-solid fa-calendar-week"></i> Week-by-week order of the sections</summary>'
+                f'<ol>{"".join(sched)}</ol><p class="ca-note">Test dates, reviews, and breaks are in the syllabus and the Course Foundations panel.</p></details>')
+
     foundations = (SRC / "foundations-dialog.html").read_text()
     main = (hero + '<div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open any section below, or use the course map on each section page to move between sections.</span></div>'
-            + intro + '<div class="ca-roadmap">' + ''.join(weeks_html) + '</div>' + foundations)
+            + intro + '<div class="ca-roadmap" id="sections">' + ''.join(chapters) + '</div>' + schedule + foundations)
     grades = (SRC / "grade-calculator.js").read_text()
+    # Runs in the visitor's browser on every visit: marks the sections scheduled for the current week and shows the
+    # "This week" button. In weeks with no new section (test weeks, the end of the semester) nothing is shown.
     thisweek = """(()=>{const t=new Date(),d=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
-const w=[...document.querySelectorAll('.ca-week[data-start]')].find(e=>e.dataset.start<=d&&d<=e.dataset.end);if(!w)return;w.classList.add('is-now');
-const a=document.getElementById('ca-this-week');if(a){a.href='#'+w.id;a.querySelector('span').textContent='Jump to this week (Week '+w.dataset.week+')';a.hidden=false;}})();"""
+const now=[...document.querySelectorAll('.ca-sec-card[data-start]')].filter(e=>e.dataset.start<=d&&d<=e.dataset.end);if(!now.length)return;
+now.forEach(e=>e.classList.add('is-now'));const a=document.getElementById('ca-this-week');if(!a)return;a.href='#'+now[0].id;
+const ls=now.map(e=>e.dataset.label);a.querySelector('span').textContent='This week: Section'+(ls.length>1?'s ':' ')+ls.join(' and ');a.hidden=false;})();"""
     redirect = """(()=>{const map={%s};const go=()=>{const id=location.hash.slice(1);if(map[id])location.replace('%s'+map[id]+'/#'+id);};go();window.addEventListener('hashchange',go);
 const modal=document.getElementById('foundations-modal'),HASH='#course-foundations';if(!modal)return;const open=()=>{if(location.hash===HASH&&!modal.open)modal.showModal();};
 document.getElementById('foundations-open').addEventListener('click',()=>{if(location.hash!==HASH)history.replaceState(null,'',HASH);});
@@ -180,7 +195,7 @@ modal.addEventListener('close',()=>{if(location.hash===HASH)history.replaceState
     js = ','.join(f"'{k}':'{v}'" for k, v in old.items())
     scripts = f'<script>{grades}</script>\n<script>{thisweek}</script>\n<script>{redirect % (js, BASE)}</script>'
     return shell('College Algebra · Interactive Notes | Dipendranath Mahato',
-                 'Interactive course notes for College Algebra (MATH 1314) at UTRGV, Fall 2026: a weekly plan with one interactive page per section.', main, scripts)
+                 'Interactive course notes for College Algebra (MATH 1314) at UTRGV, Fall 2026: one interactive page per section, listed by chapter.', main, scripts)
 
 
 def main():

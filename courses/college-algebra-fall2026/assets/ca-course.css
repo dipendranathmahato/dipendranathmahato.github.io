@@ -713,29 +713,37 @@ html[data-theme="dark"] .course-page .ca-convert>div{background:#263445;border-c
 .course-page .ca-unit-head h2{margin:0;font-size:1.35rem}
 .course-page .ca-unit-head span{font-size:.78rem;font-weight:850;letter-spacing:.09em;color:#b43c18;text-transform:uppercase}
 .course-page .ca-unit-head p{flex-basis:100%;margin:4px 0 0;color:var(--muted,#5b6878)}
-.course-page .ca-week{display:grid;grid-template-columns:96px 1fr;gap:12px;margin:0 0 12px}
-.course-page .ca-week-label{font-weight:900;color:#8e3114;font-size:.86rem;padding-top:12px}
-.course-page .ca-week-label small{display:block;font-weight:650;color:var(--muted,#6b7785);font-size:.74rem}
-.course-page .ca-week.is-now .ca-week-label::after{content:'THIS WEEK';display:inline-block;margin-top:6px;background:#dc481d;color:#fff;border-radius:999px;padding:3px 8px;font-size:.62rem;letter-spacing:.08em}
-.course-page .ca-week-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
 .course-page .ca-sec-card{display:block;text-decoration:none;color:inherit;background:var(--card-bg,#fff);border:1px solid #efd5c7;border-radius:14px;padding:13px 15px;transition:transform .15s,box-shadow .15s}
 .course-page .ca-sec-card:hover,.course-page .ca-sec-card:focus-visible{transform:translateY(-2px);box-shadow:0 8px 20px #8b3e1818}
 .course-page .ca-sec-card small{font-weight:850;letter-spacing:.08em;color:#b43c18;font-size:.72rem}
 .course-page .ca-sec-card b{display:block;font-size:1.02rem;margin:3px 0 5px;color:var(--text,#1f2a37)}
 .course-page .ca-sec-card span{font-size:.87rem;line-height:1.5;color:var(--muted,#55626f)}
 .course-page .ca-sec-card em{display:block;margin-top:7px;font-style:normal;font-size:.78rem;font-weight:750;color:#1f6f95}
-.course-page .ca-event{border:1px dashed #d9a98f;border-radius:14px;padding:12px 15px;background:#fffaf5;font-weight:750;color:#7a3a20}
-.course-page .ca-event.test{border:1px solid #d94a17;background:#fff0e8}
-.course-page .ca-event small{display:block;font-weight:650;color:var(--muted,#6b7785);margin-top:3px}
+.course-page .ca-sec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.course-page .ca-unit-head span i{margin-right:4px}
+.course-page .ca-sec-card .ca-week-tag{float:right;font-size:.7rem;font-weight:800;letter-spacing:.03em;color:var(--muted,#6b7785);line-height:1.4}
+.course-page .ca-sec-card.is-now{border:2px solid #dc481d;box-shadow:0 8px 22px #dc481d22}
+.course-page .ca-sec-card.is-now .ca-week-tag{background:#dc481d;color:#fff;border-radius:999px;padding:1px 8px}
+.course-page .ca-sec-card.is-now .ca-week-tag::after{content:' · this week'}
+.course-page .ca-schedule{margin:6px 0 26px;border:1px solid #efd5c7;border-radius:14px;background:var(--card-bg,#fff);padding:0 16px}
+.course-page .ca-schedule summary{cursor:pointer;font-weight:850;color:#9a3718;padding:13px 0}
+.course-page .ca-schedule summary i{margin-right:6px}
+.course-page .ca-schedule ol{list-style:none;margin:0;padding:0 0 4px}
+.course-page .ca-schedule li{display:grid;grid-template-columns:80px 92px 1fr;gap:8px;padding:7px 0;border-top:1px solid #f3e1d7;align-items:baseline}
+.course-page .ca-schedule li small{color:var(--muted,#6b7785);font-weight:650}
+.course-page .ca-schedule li a{font-weight:650}
+.course-page .ca-schedule .ca-note{margin:4px 0 14px;font-size:.86rem;color:var(--muted,#6b7785)}
+@media(max-width:620px){.course-page .ca-schedule li{grid-template-columns:1fr}}
+html[data-theme="dark"] .course-page .ca-schedule{background:#263445;border-color:#5e6c7e}
+html[data-theme="dark"] .course-page .ca-schedule summary{color:#ffb793}
+html[data-theme="dark"] .course-page .ca-schedule li{border-color:#3d4b5c}
+html[data-theme="dark"] .course-page .ca-sec-card .ca-week-tag{color:#aebccb}
+html[data-theme="dark"] .course-page .ca-sec-card.is-now .ca-week-tag{color:#fff}
 html[data-theme="dark"] .course-page :is(.ca-home-intro>div,.ca-sec-card){background:#263445;border-color:#5e6c7e}
 html[data-theme="dark"] .course-page .ca-sec-card b{color:#f3f6fb}
 html[data-theme="dark"] .course-page .ca-sec-card span{color:#cdd8e4}
 html[data-theme="dark"] .course-page .ca-sec-card em{color:#8cc8f2}
-html[data-theme="dark"] .course-page .ca-event{background:#2f2a28;border-color:#8a5a44;color:#ffd3bd}
-html[data-theme="dark"] .course-page .ca-event.test{background:#40271d}
-html[data-theme="dark"] .course-page .ca-week-label{color:#ffb793}
 html[data-theme="dark"] .course-page .ca-home-intro b{color:#ffb793}
-@media(max-width:620px){.course-page .ca-week{grid-template-columns:1fr}.course-page .ca-week-label{padding-top:0}}
 @media print{.course-page .ca-bridge a.ca-bridge-link,.course-page .ca-pager{display:none!important}}
 
 .course-page .ca-two-plots{display:grid;grid-template-columns:1fr 1fr;gap:10px}
