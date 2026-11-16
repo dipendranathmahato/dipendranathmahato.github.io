@@ -20,11 +20,35 @@
       </div>
     </div>
     <div class="ca-lab-kicker"><i class="fa-solid fa-sliders"></i> INTERACTIVE · BUILD AN INTERVAL</div>
-    <p>Choose an interval shape, then move its boundaries. Watch the <b>inequality</b>, <b>set-builder notation</b>, and <b>interval notation</b> change together with the number line.</p>
+    <p>Choose an interval shape, then move its boundaries. Watch the <b>inequality</b>, <b>set-builder notation</b>, and <b>interval notation</b> change together with the number line. With <b>Two pieces</b>, build each piece separately: every finite end can be open or closed, and the outer ends can also run to −∞ or ∞.</p>
     <div class="ca-interval-presets" id="interval-presets" aria-label="Interval shape presets">
       <button type="button" data-kind="open">(a, b)</button><button type="button" data-kind="closed">[a, b]</button><button type="button" data-kind="leftclosed">[a, b)</button><button type="button" data-kind="rightclosed">(a, b]</button><button type="button" data-kind="leftopen">(−∞, b)</button><button type="button" data-kind="leftinclusive">(−∞, b]</button><button type="button" data-kind="rightopen">(a, ∞)</button><button type="button" data-kind="rightinclusive">[a, ∞)</button><button type="button" data-kind="all">All ℝ</button><button type="button" data-kind="union">Two pieces</button>
     </div>
     <div class="ca-controls ca-interval-controls"><label>Left boundary, a<input id="int-left" type="number" min="-10" max="10" step="1" value="-3"></label><label>Right boundary, b<input id="int-right" type="number" min="-10" max="10" step="1" value="5"></label><label class="ca-inline-check"><input id="left-closed" type="checkbox"> Include left boundary</label><label class="ca-inline-check"><input id="right-closed" type="checkbox" checked> Include right boundary</label></div>
+    <div class="ca-union-builder" id="union-builder" hidden>
+      <div class="ca-union-examples" id="union-examples" aria-label="Two-piece examples"><span>TRY</span>
+        <button type="button" class="active" data-union='[-6,-2,1,4,"[)","(]"]'>[−6, −2) ∪ (1, 4]</button>
+        <button type="button" data-union='[-8,-5,0,7,"(]","[)"]'>(−8, −5] ∪ [0, 7)</button>
+        <button type="button" data-union='[-7,-3,2,6,"[]","[]"]'>[−7, −3] ∪ [2, 6]</button>
+        <button type="button" data-union='[-9,-4,3,8,"()","()"]'>(−9, −4) ∪ (3, 8)</button>
+        <button type="button" data-union='[-5,0,0,5,"()","()"]'>(−5, 0) ∪ (0, 5)</button>
+        <button type="button" data-union='[null,-4,2,6,"()","[]"]'>(−∞, −4) ∪ [2, 6]</button>
+        <button type="button" data-union='[-9,-6,3,null,"[)","()"]'>[−9, −6) ∪ (3, ∞)</button>
+        <button type="button" data-union='[null,-1,3,null,"(]","()"]'>(−∞, −1] ∪ (3, ∞)</button>
+      </div>
+      <div class="ca-union-pieces">
+        <fieldset class="ca-union-piece"><legend>Piece 1 · on the left</legend>
+          <div class="ca-end-row"><b>Left end</b><div class="ca-end-inputs"><input id="u1-a" type="number" min="-10" max="10" step="1" value="-6" aria-label="Piece 1 left end"><span class="ca-end-toggle" data-end="u1a" role="group" aria-label="Piece 1 left end style"><button type="button" data-state="inf" title="Run to negative infinity">−∞</button><button type="button" data-state="open">( open</button><button type="button" data-state="closed">[ closed</button></span></div></div>
+          <div class="ca-end-row"><b>Right end</b><div class="ca-end-inputs"><input id="u1-b" type="number" min="-10" max="10" step="1" value="-2" aria-label="Piece 1 right end"><span class="ca-end-toggle" data-end="u1b" role="group" aria-label="Piece 1 right end style"><button type="button" data-state="open">) open</button><button type="button" data-state="closed">] closed</button></span></div></div>
+          <div class="ca-piece-readout" id="u1-readout"></div>
+        </fieldset>
+        <fieldset class="ca-union-piece"><legend>Piece 2 · on the right</legend>
+          <div class="ca-end-row"><b>Left end</b><div class="ca-end-inputs"><input id="u2-a" type="number" min="-10" max="10" step="1" value="1" aria-label="Piece 2 left end"><span class="ca-end-toggle" data-end="u2a" role="group" aria-label="Piece 2 left end style"><button type="button" data-state="open">( open</button><button type="button" data-state="closed">[ closed</button></span></div></div>
+          <div class="ca-end-row"><b>Right end</b><div class="ca-end-inputs"><input id="u2-b" type="number" min="-10" max="10" step="1" value="4" aria-label="Piece 2 right end"><span class="ca-end-toggle" data-end="u2b" role="group" aria-label="Piece 2 right end style"><button type="button" data-state="open">) open</button><button type="button" data-state="closed">] closed</button><button type="button" data-state="inf" title="Run to infinity">∞</button></span></div></div>
+          <div class="ca-piece-readout" id="u2-readout"></div>
+        </fieldset>
+      </div>
+    </div>
     <svg id="interval-svg" viewBox="0 0 620 152" role="img" aria-label="Interactive number line showing which interval endpoints are included"></svg>
     <div class="ca-notation-cards" aria-live="polite">
       <div><small>INEQUALITY</small><strong id="interval-inequality">−3 &lt; x ≤ 5</strong></div>

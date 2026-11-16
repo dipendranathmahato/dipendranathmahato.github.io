@@ -17,22 +17,72 @@ const caAxisNumberLine=(svg,{segments=[],holes=[],test=null}={})=>{
 };
 let caIntervalMode='finite';
 function caRenderInterval(){
+ const isUnion=caIntervalMode==='union';$('union-builder').hidden=!isUnion;document.querySelector('#intervals .ca-interval-controls').hidden=isUnion;
+ if(isUnion){document.querySelectorAll('#interval-presets button').forEach(btn=>btn.classList.toggle('active',btn.dataset.kind==='union'));caRenderUnion();return;}
  const li=$('int-left'),ri=$('int-right'),a=Number(li.value),b=Number(ri.value),lc=$('left-closed').checked,rc=$('right-closed').checked;
- if(li.value===''||ri.value===''||!Number.isFinite(a)||!Number.isFinite(b)||a<-10||a>10||b<-10||b>10||((caIntervalMode==='finite'||caIntervalMode==='union')&&a>=b)){$('interval-answer').textContent='Choose a < b between −10 and 10.';$('interval-inequality').textContent='—';$('interval-setbuilder').textContent='—';$('interval-text').textContent='Adjust the boundaries to continue.';$('interval-svg').innerHTML='';return;}
+ if(li.value===''||ri.value===''||!Number.isFinite(a)||!Number.isFinite(b)||a<-10||a>10||b<-10||b>10||(caIntervalMode==='finite'&&a>=b)){$('interval-answer').textContent='Choose a < b between −10 and 10.';$('interval-inequality').textContent='—';$('interval-setbuilder').textContent='—';$('interval-text').textContent='Adjust the boundaries to continue.';$('interval-svg').innerHTML='';return;}
  const m=caIntervalMode;let segments=[],ineq='',interval='';
  if(m==='leftopen'||m==='leftinclusive'){const incl=m==='leftinclusive';segments=[{a:null,b,ac:false,bc:incl}];ineq=`x ${incl?'≤':'<'} ${caNum(b)}`;interval=`(−∞, ${caNum(b)}${incl?']':')'}`;}
  else if(m==='rightopen'||m==='rightinclusive'){const incl=m==='rightinclusive';segments=[{a,b:null,ac:incl,bc:false}];ineq=`x ${incl?'≥':'>'} ${caNum(a)}`;interval=`${incl?'[':'('}${caNum(a)}, ∞)`;}
  else if(m==='all'){segments=[{a:null,b:null}];ineq='x ∈ ℝ';interval='(−∞, ∞)';}
- else if(m==='union'){segments=[{a:null,b:a,bc:lc},{a:b,b:null,ac:rc}];ineq=`x ${lc?'≤':'<'} ${caNum(a)} or x ${rc?'≥':'>'} ${caNum(b)}`;interval=`(−∞, ${caNum(a)}${lc?']':')'} ∪ ${rc?'[':'('}${caNum(b)}, ∞)`;}
  else{segments=[{a,b,ac:lc,bc:rc}];ineq=`${caNum(a)} ${lc?'≤':'<'} x ${rc?'≤':'<'} ${caNum(b)}`;interval=`${lc?'[':'('}${caNum(a)}, ${caNum(b)}${rc?']':')'}`;}
  caAxisNumberLine($('interval-svg'),{segments});$('interval-answer').textContent=interval;$('interval-inequality').textContent=ineq;
  $('interval-setbuilder').textContent=ineq==='x ∈ ℝ'?'{x ∈ ℝ}':`{x ∈ ℝ | ${ineq}}`;
- $('interval-text').innerHTML=`<b>Read the drawing:</b> orange marks are included in the set; a <b>filled dot</b> includes an endpoint, while a <b>hollow dot</b> excludes it. ${m==='union'?'The symbol ∪ combines both orange pieces.':m==='all'?'Every real x is allowed.':segments[0].a===null||segments[0].b===null?'The arrow continues without a finite endpoint.':'Move either boundary to see the interval change.'}`;
+ $('interval-text').innerHTML=`<b>Read the drawing:</b> orange marks are included in the set; a <b>filled dot</b> includes an endpoint, while a <b>hollow dot</b> excludes it. ${m==='all'?'Every real x is allowed.':segments[0].a===null||segments[0].b===null?'The arrow continues without a finite endpoint.':'Move either boundary to see the interval change.'}`;
  $('left-closed').disabled=m==='all'||m==='leftopen'||m==='leftinclusive';$('right-closed').disabled=m==='all'||m==='rightopen'||m==='rightinclusive';
  document.querySelectorAll('#interval-presets button').forEach(btn=>btn.classList.toggle('active',btn.dataset.kind===(m==='finite'?(lc?(rc?'closed':'leftclosed'):(rc?'rightclosed':'open')):m)));
 }
 document.querySelectorAll('#interval-presets button').forEach(btn=>btn.addEventListener('click',()=>{const m=btn.dataset.kind;caIntervalMode=['open','closed','leftclosed','rightclosed'].includes(m)?'finite':m;const opts={open:[false,false],closed:[true,true],leftclosed:[true,false],rightclosed:[false,true]};if(opts[m]){ $('left-closed').checked=opts[m][0];$('right-closed').checked=opts[m][1];}if(m==='leftopen'||m==='leftinclusive')$('right-closed').checked=m==='leftinclusive';if(m==='rightopen'||m==='rightinclusive')$('left-closed').checked=m==='rightinclusive';caRenderInterval();}));
 ['int-left','int-right','left-closed','right-closed'].forEach(id=>$(id).addEventListener('input',()=>{if(caIntervalMode==='all')caIntervalMode='finite';else if(id==='right-closed'&&(caIntervalMode==='leftopen'||caIntervalMode==='leftinclusive'))caIntervalMode=$('right-closed').checked?'leftinclusive':'leftopen';else if(id==='left-closed'&&(caIntervalMode==='rightopen'||caIntervalMode==='rightinclusive'))caIntervalMode=$('left-closed').checked?'rightinclusive':'rightopen';else if(['left-closed','right-closed'].includes(id)&&caIntervalMode!=='union')caIntervalMode='finite';caRenderInterval();}));caRenderInterval();
+
+// Two pieces: each piece has its own ends; every finite end can be open or closed.
+const caUnionEnds={u1a:'closed',u1b:'open',u2a:'open',u2b:'closed'};
+function caPieceText(p){
+ const L=p.a===null?'(−∞':(p.ac?'[':'(')+caNum(p.a),R=p.b===null?'∞)':caNum(p.b)+(p.bc?']':')');
+ const ineq=p.a===null?`x ${p.bc?'≤':'<'} ${caNum(p.b)}`:p.b===null?`x ${p.ac?'≥':'>'} ${caNum(p.a)}`:`${caNum(p.a)} ${p.ac?'≤':'<'} x ${p.bc?'≤':'<'} ${caNum(p.b)}`;
+ return{interval:`${L}, ${R}`,ineq};
+}
+function caUnionFail(msg){$('interval-answer').textContent='—';$('interval-inequality').textContent='—';$('interval-setbuilder').textContent='—';$('interval-text').innerHTML=`<b>Adjust the pieces:</b> ${msg}`;$('interval-svg').innerHTML='';$('u1-readout').textContent='';$('u2-readout').textContent='';}
+function caRenderUnion(){
+ const linf=caUnionEnds.u1a==='inf',rinf=caUnionEnds.u2b==='inf';
+ $('u1-a').disabled=linf;$('u2-b').disabled=rinf;
+ document.querySelectorAll('#union-builder .ca-end-toggle').forEach(g=>{const k=g.dataset.end;g.querySelectorAll('button').forEach(btn=>{const on=btn.dataset.state===caUnionEnds[k];btn.classList.toggle('active',on);btn.setAttribute('aria-pressed',String(on));});});
+ const read=id=>{const el=$(id);return el.value.trim()===''?NaN:Number(el.value);};
+ const a1=linf?null:read('u1-a'),b1=read('u1-b'),a2=read('u2-a'),b2=rinf?null:read('u2-b');
+ const ok=v=>v===null||(Number.isFinite(v)&&v>=-10&&v<=10);
+ if(![a1,b1,a2,b2].every(ok))return caUnionFail('use whole numbers from −10 to 10 for every finite end.');
+ if(a1!==null&&a1>=b1)return caUnionFail('in Piece 1, the left end must be smaller than the right end.');
+ if(b2!==null&&a2>=b2)return caUnionFail('in Piece 2, the left end must be smaller than the right end.');
+ const p1={a:a1,b:b1,ac:caUnionEnds.u1a==='closed',bc:caUnionEnds.u1b==='closed'},p2={a:a2,b:b2,ac:caUnionEnds.u2a==='closed',bc:caUnionEnds.u2b==='closed'};
+ const t1=caPieceText(p1),t2=caPieceText(p2);$('u1-readout').textContent=t1.interval;$('u2-readout').textContent=t2.interval;
+ if(b1>a2)return caUnionFail(`Piece 1 ends at ${caNum(b1)} but Piece 2 starts at ${caNum(a2)}, so they overlap. Overlapping pieces are really one interval; move Piece 2 to the right of Piece 1.`);
+ const svg=$('interval-svg'),tx=n=>32+(n+10)/20*556;
+ const label=(x,text,color)=>`<text x="${Math.max(30,Math.min(590,x))}" y="74" font-size="13" font-weight="800" text-anchor="middle" fill="${color}">${text}</text>`;
+ const mid=p=>p.a===null?(32+tx(p.b))/2:p.b===null?(tx(p.a)+588)/2:(tx(p.a)+tx(p.b))/2;
+ if(b1===a2&&(p1.bc||p2.ac)){
+  const merged={a:p1.a,b:p2.b,ac:p1.ac,bc:p2.bc},tm=caPieceText(merged);
+  caAxisNumberLine(svg,{segments:[merged]});svg.insertAdjacentHTML('beforeend',label(mid(merged),'one interval','#c2410c'));
+  $('interval-answer').textContent=tm.interval;$('interval-inequality').textContent=tm.ineq;$('interval-setbuilder').textContent=`{x ∈ ℝ | ${tm.ineq}}`;
+  $('interval-text').innerHTML=`<b>The pieces join.</b> They meet at x = ${caNum(b1)}, and ${caNum(b1)} is included by ${p1.bc&&p2.ac?'both pieces':p1.bc?'Piece 1':'Piece 2'}. Nothing is missing, so ${t1.interval} ∪ ${t2.interval} is the single interval <b>${tm.interval}</b>. Use ∪ only when there is a gap or a missing point between the pieces.`;
+  return;
+ }
+ caAxisNumberLine(svg,{segments:[p1,p2]});
+ let extra=label(mid(p1),'Piece 1','#c2410c')+label(mid(p2),'Piece 2','#c2410c');
+ if(b1<a2)extra+=`<text x="${(tx(b1)+tx(a2))/2}" y="${b1+2<=a2?74:58}" font-size="12" font-weight="700" text-anchor="middle" fill="#64748b">gap</text>`;
+ else extra+=`<text x="${tx(b1)}" y="58" font-size="12" font-weight="700" text-anchor="middle" fill="#64748b">hole</text>`;
+ svg.insertAdjacentHTML('beforeend',extra);
+ const ineq=`${t1.ineq} or ${t2.ineq}`,interval=`${t1.interval} ∪ ${t2.interval}`;
+ $('interval-answer').textContent=interval;$('interval-inequality').textContent=ineq;$('interval-setbuilder').textContent=`{x ∈ ℝ | ${ineq}}`;
+ const ends=(p,n)=>[p.a===null?`it runs left to −∞ (always a parenthesis)`:`${p.ac?'a filled dot includes':'a hollow dot excludes'} ${caNum(p.a)}`,p.b===null?`it runs right to ∞ (always a parenthesis)`:`${p.bc?'a filled dot includes':'a hollow dot excludes'} ${caNum(p.b)}`].join('; ');
+ const gap=b1<a2?`The numbers strictly between ${caNum(b1)} and ${caNum(a2)} are <b>not</b> in the set (for example, x = ${caNum((b1+a2)/2)}). That gap is why the two pieces are joined with ∪, read “or.”`:`Only the single number ${caNum(b1)} is missing: every other x between the outer ends is in the set. This is how a domain such as x ≠ ${caNum(b1)} is written.`;
+ $('interval-text').innerHTML=`<b>Piece 1:</b> ${ends(p1)}. <b>Piece 2:</b> ${ends(p2)}. ${gap}`;
+}
+document.querySelectorAll('#union-builder .ca-end-toggle button').forEach(btn=>btn.addEventListener('click',()=>{caUnionEnds[btn.closest('.ca-end-toggle').dataset.end]=btn.dataset.state;document.querySelectorAll('#union-examples button').forEach(b=>b.classList.remove('active'));caRenderUnion();}));
+['u1-a','u1-b','u2-a','u2-b'].forEach(id=>$(id).addEventListener('input',()=>{document.querySelectorAll('#union-examples button').forEach(b=>b.classList.remove('active'));caRenderUnion();}));
+document.querySelectorAll('#union-examples button').forEach(btn=>btn.addEventListener('click',()=>{const [a1,b1,a2,b2,s1,s2]=JSON.parse(btn.dataset.union);
+ if(a1!==null)$('u1-a').value=a1;$('u1-b').value=b1;$('u2-a').value=a2;if(b2!==null)$('u2-b').value=b2;
+ caUnionEnds.u1a=a1===null?'inf':s1[0]==='['?'closed':'open';caUnionEnds.u1b=s1[1]===']'?'closed':'open';caUnionEnds.u2a=s2[0]==='['?'closed':'open';caUnionEnds.u2b=b2===null?'inf':s2[1]===']'?'closed':'open';
+ document.querySelectorAll('#union-examples button').forEach(b=>b.classList.toggle('active',b===btn));caRenderUnion();}));
 // Section 3.2 · 02: formulas with a coefficient on x (fraction endpoints and the inequality flip).
 let caDomainLastKind=null,caLinLastA=3;
 const caLinPresets={linfrac:[3,-4],linroot:[-3,5],linrootden:[1,-3]};

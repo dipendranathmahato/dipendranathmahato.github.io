@@ -766,3 +766,34 @@ html[data-theme="dark"] .course-page .ca-side>div{background:#263445;border-colo
 .course-page .ca-fill-list select.right{border-color:#16836d;background:#16836d14}
 .course-page .ca-fill-list select.wrong{border-color:#c8372b;background:#c8372b10}
 html[data-theme="dark"] .course-page .ca-fill-list select{background:#263445;border-color:#5e6c7e}
+
+/* 3.2 · Build an interval: two-piece builder */
+.course-page #lesson-32 .ca-union-builder{margin:14px 0 6px}
+.course-page #lesson-32 .ca-union-examples{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:13px}
+.course-page #lesson-32 .ca-union-examples>span{font-size:.72rem;font-weight:850;letter-spacing:.12em;color:#a44725;margin-right:2px}
+.course-page #lesson-32 .ca-union-examples button{border:1px dashed #d77b52;background:#fff7f2;color:#8d381a;border-radius:999px;padding:6px 12px;font-family:Cambria,Georgia,serif;font-weight:700;font-size:.95rem;cursor:pointer;white-space:nowrap}
+.course-page #lesson-32 .ca-union-examples button:hover,.course-page #lesson-32 .ca-union-examples button.active{background:#f05023;border-style:solid;border-color:#f05023;color:#fff}
+.course-page #lesson-32 .ca-union-pieces{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.course-page #lesson-32 .ca-union-piece{min-width:0;margin:0;border:1px solid #e4c3b3;border-radius:12px;padding:10px 12px 12px;background:#fffaf7}
+.course-page #lesson-32 .ca-union-piece legend{padding:0 6px;font-size:.74rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:#b83a16}
+.course-page #lesson-32 .ca-end-row{margin:8px 0 10px}
+.course-page #lesson-32 .ca-end-row>b{display:block;font-size:.8rem;margin-bottom:5px}
+.course-page #lesson-32 .ca-end-inputs{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.course-page #lesson-32 .ca-end-inputs select,.course-page #lesson-32 .ca-end-inputs input{min-height:38px;padding:6px 8px;border:1px solid #a9afb9;border-radius:8px;background:var(--card-bg,#fff);color:inherit;font:inherit}
+.course-page #lesson-32 .ca-end-inputs input{width:3.9em}
+.course-page #lesson-32 .ca-end-inputs input:disabled{opacity:.4}
+.course-page #lesson-32 .ca-end-toggle{display:inline-flex;border:1px solid #c9ad9f;border-radius:8px;overflow:hidden}
+.course-page #lesson-32 .ca-end-toggle button{border:0;background:var(--card-bg,#fff);color:inherit;padding:8px 8px;font-size:.84rem;font-weight:750;cursor:pointer;white-space:nowrap}
+.course-page #lesson-32 .ca-end-toggle button+button{border-left:1px solid #c9ad9f}
+.course-page #lesson-32 .ca-end-toggle button.active{background:#f05023;color:#fff}
+.course-page #lesson-32 .ca-end-toggle button:disabled{opacity:.4;cursor:not-allowed}
+.course-page #lesson-32 .ca-piece-readout{margin-top:6px;font-family:Cambria,Georgia,serif;font-size:1.12rem;font-weight:700;color:#bd421c;min-height:1.4em}
+@media(max-width:680px){.course-page #lesson-32 .ca-union-pieces{grid-template-columns:1fr}}
+html[data-theme="dark"] .course-page #lesson-32 .ca-union-piece{background:#253343;border-color:#657487}
+html[data-theme="dark"] .course-page #lesson-32 .ca-union-piece legend,html[data-theme="dark"] .course-page #lesson-32 .ca-union-examples>span{color:#ffbf9b}
+html[data-theme="dark"] .course-page #lesson-32 .ca-piece-readout{color:#ffb38f}
+html[data-theme="dark"] .course-page #lesson-32 .ca-union-examples button{background:#2b3b4c;color:#eff6fa;border-color:#ec906b}
+html[data-theme="dark"] .course-page #lesson-32 .ca-union-examples button.active,html[data-theme="dark"] .course-page #lesson-32 .ca-union-examples button:hover{background:#d4562e;color:#fff}
+html[data-theme="dark"] .course-page #lesson-32 :is(.ca-end-inputs select,.ca-end-inputs input,.ca-end-toggle button){background:#293747;color:#f5f8fc;border-color:#738297}
+html[data-theme="dark"] .course-page #lesson-32 .ca-end-toggle{border-color:#738297}
+html[data-theme="dark"] .course-page #lesson-32 .ca-end-toggle button.active{background:#d4562e;color:#fff}
