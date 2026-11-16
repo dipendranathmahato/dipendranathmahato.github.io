@@ -390,25 +390,132 @@ CA.cards = (box, items, {options: shared} = {}) => {
   });
 };
 
+/* ---------- "see that problem" previews: hover (mouse) or tap/click (pins it) ---------- */
+// A guided bank entry may carry `ref`, pointing at the earlier problem it reuses:
+//   {panel: 'id', what: 'the game-booth rule', body: 'html', plot: {win: {...}, draw: P => ...}}   an activity on this page
+//   {problem: 3, what: 'the same functions', body: 'html'}                                          entry 3 (1-based) of the same bank
+//   {page: '3-7', panel: 'hlt', section: '3.7', title: '…', what: '…', body: 'html', plot: {…}}    an activity in another section
+let refCount = 0, openRef = null;
+const refClose = () => {
+  if (!openRef) return; const r = openRef; openRef = null; r.pinned = false;
+  r.pop.hidden = true; r.chip.setAttribute('aria-expanded', 'false'); r.chip.classList.remove('is-open', 'is-pinned');
+};
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && openRef) { const c = openRef.chip; refClose(); c.focus(); } });
+document.addEventListener('click', e => { if (openRef && openRef.pinned && !openRef.wrap.contains(e.target)) refClose(); });
+CA.backButton = (target, label) => {
+  document.querySelector('.ca-back-float')?.remove();
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'ca-back-float';
+  b.innerHTML = `<i aria-hidden="true" class="fa-solid fa-arrow-down"></i> ${label}`;
+  b.addEventListener('click', () => { b.remove(); CA.flashTo(target); });
+  document.body.append(b);
+};
+CA.flashTo = (target, block = 'center') => {
+  target.scrollIntoView({behavior: 'smooth', block});
+  target.classList.remove('ca-flash'); void target.offsetWidth; target.classList.add('ca-flash');
+  setTimeout(() => target.classList.remove('ca-flash'), 1800);
+};
+const panelTitle = id => { const h = document.getElementById(id)?.querySelector('h3'); return h ? h.textContent.replace(/\s+/g, ' ').trim() : 'an earlier activity'; };
+const refHTML = (ref, bank, chosen) => {
+  const n = ++refCount;
+  let kicker, source, body = ref.body || '', jump = '';
+  if (ref.problem) {
+    const target = bank[ref.problem - 1], pos = chosen.findIndex(c => c.q === target);
+    kicker = 'FROM THIS PRACTICE SET'; source = pos >= 0 ? `Problem ${pos + 1}` : 'a problem in another set';
+    body = `<p class="ca-ref-q">${target.q}</p>` + body;
+    if (pos >= 0) jump = `<a class="ca-ref-jump" href="#" data-problem="${pos}">Show Problem ${pos + 1} in the list <i aria-hidden="true" class="fa-solid fa-arrow-up"></i></a>`;
+  } else if (ref.page) {
+    kicker = `FROM SECTION ${ref.section}`; source = `Section ${ref.section} · ${ref.title}`;
+    jump = `<a class="ca-ref-jump" href="/courses/college-algebra-fall2026/${ref.page}/#${ref.panel}">Open Section ${ref.section} <i aria-hidden="true" class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+  } else {
+    const t = panelTitle(ref.panel);
+    kicker = 'EARLIER ON THIS PAGE'; source = `activity ${t}`;
+    jump = `<a class="ca-ref-jump" href="#${ref.panel}" data-panel="${ref.panel}">Go to activity ${t.split(' · ')[0]} <i aria-hidden="true" class="fa-solid fa-arrow-up"></i></a><span class="ca-ref-note">A “Back to the problem” button will bring you here.</span>`;
+  }
+  return `<div class="ca-ref" data-ref="${n}"><button type="button" class="ca-ref-chip" aria-expanded="false" aria-controls="ca-ref-pop-${n}">`
+    + `<span class="ca-ref-text"><i aria-hidden="true" class="fa-solid fa-link"></i> Uses ${ref.what} from <b>${source}</b></span>`
+    + `<span class="ca-ref-how"><i aria-hidden="true" class="fa-regular fa-hand-pointer"></i> Hover over or tap this link to see that problem here</span></button>`
+    + `<div class="ca-ref-pop" id="ca-ref-pop-${n}" role="dialog" aria-label="Preview: ${CA.esc(source.replace(/<[^>]+>/g, ''))}" hidden>`
+    + `<div class="ca-ref-head"><div><span class="ca-ref-kicker">${kicker}</span><b>${source.replace(/^activity /, '')}</b></div><button type="button" class="ca-ref-close" aria-label="Close preview">×</button></div>`
+    + `<div class="ca-ref-body">${body}${ref.plot ? `<svg class="ca-ref-plot" role="img" aria-label="${CA.esc(ref.plot.label || 'Graph from that problem')}"></svg>` : ''}</div>`
+    + (jump ? `<div class="ca-ref-foot">${jump}</div>` : '') + '</div></div>';
+};
+const wireRef = (wrap, ref, question, list) => {
+  const chip = wrap.querySelector('.ca-ref-chip'), pop = wrap.querySelector('.ca-ref-pop'), st = {wrap, chip, pop, pinned: false};
+  let timer = null;
+  const place = () => {
+    pop.classList.remove('is-above'); pop.style.left = '0px';
+    const vw = Math.min(innerWidth, document.documentElement.clientWidth || innerWidth, window.visualViewport ? visualViewport.width : innerWidth);
+    const r = pop.getBoundingClientRect(), c = chip.getBoundingClientRect();
+    if (r.right > vw - 10) pop.style.left = Math.max(10 - r.left, vw - 10 - r.right) + 'px';
+    if (r.bottom > innerHeight - 8 && c.top - r.height - 10 > 0) pop.classList.add('is-above');
+    else if (st.pinned && r.bottom > innerHeight - 8) pop.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+  };
+  const open = pin => {
+    clearTimeout(timer);
+    if (openRef && openRef !== st) refClose();
+    if (ref.plot && !pop._drawn) { const P = new CA.Plane(pop.querySelector('.ca-ref-plot'), Object.assign({w: 440, h: 270, tools: false}, ref.plot.win || {})); ref.plot.draw(P); P.render(); pop._drawn = true; }
+    pop.hidden = false; chip.setAttribute('aria-expanded', 'true'); chip.classList.add('is-open');
+    if (pin) st.pinned = true; chip.classList.toggle('is-pinned', st.pinned);
+    openRef = st; place();
+  };
+  wrap.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') open(false); });
+  wrap.addEventListener('pointerleave', e => { if (e.pointerType !== 'mouse' || st.pinned) return; clearTimeout(timer); timer = setTimeout(() => { if (openRef === st && !st.pinned) refClose(); }, 250); });
+  chip.addEventListener('click', () => { if (openRef === st && st.pinned) refClose(); else open(true); });
+  pop.querySelector('.ca-ref-close').addEventListener('click', () => { refClose(); chip.focus(); });
+  const jump = pop.querySelector('.ca-ref-jump');
+  if (jump && (jump.dataset.panel || jump.dataset.problem)) jump.addEventListener('click', e => {
+    e.preventDefault(); refClose();
+    const label = question.getAttribute('aria-label');
+    const target = jump.dataset.panel ? document.getElementById(jump.dataset.panel) : list[Number(jump.dataset.problem)];
+    if (!target) return;
+    CA.flashTo(target, jump.dataset.panel ? 'start' : 'center');
+    if (jump.dataset.panel) CA.backButton(question, `Back to ${label}`);
+  });
+};
+
 /* ---------- guided problems (multiple choice sets with hints) ---------- */
 CA.guided = (which, bank, {count = 5} = {}) => {
   const container = $(`quiz-${which}-container`), status = $(`quiz-${which}-feedback`); if (!container) return;
   let offset = 0;
-  const render = () => {
-    const chosen = Array.from({length: Math.min(count, bank.length)}, (_, i) => ({q: bank[(offset + i) % bank.length], i}));
-    container.innerHTML = chosen.map(({q, i}) => `<div class="ca-quiz-question" role="group" aria-label="Problem ${i + 1}" data-answer="${q.correct}"><p class="ca-quiz-prompt">${i + 1}. ${q.q}</p>${q.opts.map((o, j) => `<label><input type="radio" name="guided${which}-${i}" value="${j}"> ${o}</label>`).join('')}${q.hint ? `<details class="ca-quiz-hint"><summary>Need a hint?</summary><p>${q.hint}</p></details>` : ''}<div class="ca-muted ca-quiz-explanation" hidden></div></div>`).join('');
-    status.textContent = 'Choose an answer for each problem. You can open a hint before checking.';
-    container.querySelectorAll('.ca-quiz-question').forEach((el, i) => el._q = chosen[i].q);
+  const say = (cls, html) => { status.className = 'ca-feedback ca-quiz-status' + (cls ? ' ' + cls : ''); status.innerHTML = html; };
+  const clear = el => {
+    el.classList.remove('ca-answered-correct', 'ca-answered-incorrect', 'ca-answered-none');
+    el.querySelectorAll('label').forEach(l => { l.classList.remove('ca-opt-right', 'ca-opt-wrong'); l.querySelector('.ca-opt-tag')?.remove(); });
+    const ex = el.querySelector('.ca-quiz-explanation'); ex.hidden = true; ex.className = 'ca-quiz-explanation';
   };
-  $(`quiz-${which}-check`).addEventListener('click', () => {
-    let score = 0, answered = 0; const qs = container.querySelectorAll('.ca-quiz-question');
-    qs.forEach(el => {
-      const a = el.querySelector('input:checked'); if (a) answered++;
-      const ok = a && Number(a.value) === Number(el.dataset.answer); if (ok) score++;
-      el.classList.toggle('ca-answered-correct', !!ok); el.classList.toggle('ca-answered-incorrect', !ok);
-      const ex = el.querySelector('.ca-quiz-explanation'); ex.hidden = false; ex.innerHTML = (ok ? '✓ Correct. ' : '→ Worked explanation: ') + el._q.why;
+  const render = () => {
+    refClose();
+    const chosen = Array.from({length: Math.min(count, bank.length)}, (_, i) => ({q: bank[(offset + i) % bank.length], i}));
+    container.innerHTML = chosen.map(({q, i}) => `<div class="ca-quiz-question" role="group" aria-label="Problem ${i + 1}" data-answer="${q.correct}"><p class="ca-quiz-prompt">${i + 1}. ${q.q}</p>${q.ref ? refHTML(q.ref, bank, chosen) : ''}${q.opts.map((o, j) => `<label><input type="radio" name="guided${which}-${i}" value="${j}"> <span class="ca-opt-text">${o}</span></label>`).join('')}${q.hint ? `<details class="ca-quiz-hint"><summary>Need a hint?</summary><p>${q.hint}</p></details>` : ''}<div class="ca-quiz-explanation" aria-live="polite" hidden></div></div>`).join('');
+    say('', 'Choose an answer for each problem. You can open a hint before checking.');
+    const list = [...container.querySelectorAll('.ca-quiz-question')];
+    list.forEach((el, i) => {
+      el._q = chosen[i].q;
+      if (el._q.ref) wireRef(el.querySelector('.ca-ref'), el._q.ref, el, list);
+      el.addEventListener('change', () => { if (el.matches('[class*="ca-answered-"]')) clear(el); });
     });
-    status.textContent = `${score} / ${qs.length} correct (${answered} answered). Review the explanations, then try another set.`;
+  };
+  const optText = (el, j) => el.querySelectorAll('.ca-opt-text')[j].innerHTML;
+  const tag = (label, cls, text) => { const s = document.createElement('span'); s.className = 'ca-opt-tag ' + cls; s.textContent = text; label.querySelector('.ca-opt-text').append(s); };
+  $(`quiz-${which}-check`).addEventListener('click', () => {
+    let score = 0, answered = 0; const qs = [...container.querySelectorAll('.ca-quiz-question')];
+    qs.forEach(el => {
+      clear(el);
+      const a = el.querySelector('input:checked'), ans = Number(el.dataset.answer), labels = el.querySelectorAll('label');
+      const state = !a ? 'none' : Number(a.value) === ans ? 'correct' : 'incorrect';
+      if (a) answered++; if (state === 'correct') score++;
+      el.classList.add('ca-answered-' + state);
+      const ansText = optText(el, ans), pickText = a ? optText(el, Number(a.value)) : '';
+      labels[ans].classList.add('ca-opt-right'); tag(labels[ans], 'is-right', state === 'correct' ? '✓ your answer' : '✓ correct answer');
+      if (state === 'incorrect') { labels[Number(a.value)].classList.add('ca-opt-wrong'); tag(labels[Number(a.value)], 'is-wrong', '✕ your answer'); }
+      const ex = el.querySelector('.ca-quiz-explanation'); ex.hidden = false; ex.className = 'ca-quiz-explanation is-' + state;
+      ex.innerHTML = state === 'correct' ? `<b class="ca-x-head">✓ Correct.</b> ${el._q.why}`
+        : state === 'incorrect' ? `<b class="ca-x-head">✕ Not quite.</b> You chose <span class="ca-x-pick">${pickText}</span>, but the correct answer is <span class="ca-x-ans">${ansText}</span>.<span class="ca-x-why"><b>Worked explanation:</b> ${el._q.why}</span>`
+        : `<b class="ca-x-head">No answer chosen.</b> The correct answer is <span class="ca-x-ans">${ansText}</span>.<span class="ca-x-why"><b>Worked explanation:</b> ${el._q.why}</span>`;
+    });
+    const wrong = answered - score, blank = qs.length - answered;
+    if (score === qs.length) say('is-correct', `<b>✓ ${score} / ${qs.length} correct.</b> Well done. Press <b>Try more problems</b> for a new set.`);
+    else say(wrong ? 'is-incorrect' : 'is-none', `<b>${score} / ${qs.length} correct.</b> ${wrong ? `${wrong} answer${wrong === 1 ? ' is' : 's are'} wrong (marked in red)` : ''}${wrong && blank ? '; ' : ''}${blank ? `${blank} problem${blank === 1 ? ' was' : 's were'} not answered (marked in yellow)` : ''}. Read the worked explanations, change any answer, and check again.`);
   });
   $(`quiz-${which}-reset`).addEventListener('click', () => { offset = (offset + count) % bank.length; render(); });
   render();

@@ -297,7 +297,7 @@ CA.guided('32',[
   "why": "Factor x² − 9 = (x − 3)(x + 3). Exclude both −3 and 3.",
   "hint": "Factor the denominator using the difference of two squares."
  },
- {
+ {ref: {panel: "graph-domain-range", what: "the segment graph", body: "<p>Activity 03, graph menu: <b>Finite line segment</b>. The segment starts at (\u22124, \u22123) with an open circle and ends at (2, 3) with a filled circle.</p>", plot: {win: {xmin: -6, xmax: 6, ymin: -5, ymax: 5}, draw: P => P.curve(x => x + 1, {from: -4, to: 2, color: "orange", width: 3.5}).point(-4, -3, {color: "orange", filled: false, label: "(−4, −3)", labelOpt: {dy: 18}}).point(2, 3, {color: "orange", label: "(2, 3)"}), label: "Line segment from an open circle at (\u22124, \u22123) to a filled circle at (2, 3)"}}, 
   "q": "A line segment goes from a hollow dot at (−4, −3) to a filled dot at (2, 3). What is its range?",
   "opts": [
    "[−4, 2)",
@@ -308,7 +308,7 @@ CA.guided('32',[
   "why": "Read from bottom to top: −3 is excluded and 3 is included. The range is (−3, 3].",
   "hint": "Range comes from y-values; scan bottom to top."
  },
- {
+ {ref: {panel: "graph-domain-range", what: "the absolute-value graph", body: "<p>Activity 03, graph menu: <b>Absolute-value graph</b>.</p><div class=\"ca-ref-eq\">f(x) = |x \u2212 1| \u2212 2</div>", plot: {win: {xmin: -6, xmax: 6, ymin: -4, ymax: 5}, draw: P => P.curve(x => Math.abs(x - 1) - 2, {color: "orange", width: 3.5, arrows: true}), label: "Graph of f(x) = |x \u2212 1| \u2212 2"}}, 
   "q": "For f(x) = |x − 1| − 2, what is its range?",
   "opts": [
    "[−2, ∞)",
@@ -319,7 +319,7 @@ CA.guided('32',[
   "why": "Absolute value is never negative, so the lowest output is −2. It is attained at x = 1.",
   "hint": "The absolute-value expression cannot be negative."
  },
- {
+ {ref: {panel: "graph-domain-range", what: "the parabola graph", body: "<p>Activity 03, graph menu: <b>Downward parabola</b>.</p><div class=\"ca-ref-eq\">f(x) = \u2212(x \u2212 1)\u00b2 + 3</div>", plot: {win: {xmin: -6, xmax: 6, ymin: -5, ymax: 5}, draw: P => P.curve(x => -((x - 1) ** 2) + 3, {color: "orange", width: 3.5, arrows: true}), label: "Graph of f(x) = \u2212(x \u2212 1)\u00b2 + 3"}}, 
   "q": "For f(x) = −(x − 1)² + 3, what is the range?",
   "opts": [
    "[3, ∞)",
@@ -330,7 +330,7 @@ CA.guided('32',[
   "why": "The parabola opens downward. The vertex has maximum y = 3, included.",
   "hint": "An upside-down parabola has a maximum at its vertex."
  },
- {
+ {ref: {panel: "graph-domain-range", what: "the reciprocal graph", body: "<p>Activity 03, graph menu: <b>Reciprocal curve</b>.</p><div class=\"ca-ref-eq\">y = 1/(x \u2212 1)</div><p>The dashed lines are the asymptotes drawn in the activity.</p>", plot: {win: {xmin: -6, xmax: 6, ymin: -5, ymax: 5}, draw: P => P.vline(1, {color: "purple", dash: "7 6"}).hline(0, {color: "purple", dash: "7 6"}).curve(x => 1 / (x - 1), {color: "orange", width: 3.5, breaks: [1], arrows: true}), label: "Graph of y = 1/(x \u2212 1) with dashed asymptotes"}}, 
   "q": "Which value is excluded from the range of y = 1/(x − 1)?",
   "opts": [
    "y = 1",
@@ -361,7 +361,7 @@ CA.guided('32',[
   ],
   "correct": 1,
   "why": "Infinity is not a real endpoint, so it is never included in an interval.",
-  "hint": "Is a cube root defined for negative numbers?"
+  "hint": "Infinity is not an attainable real endpoint."
  },
  {
   "q": "What is the domain of ∛(x + 8)?",
@@ -372,7 +372,7 @@ CA.guided('32',[
   ],
   "correct": 1,
   "why": "Cube roots are defined for negative, zero, and positive inputs; there is no restriction.",
-  "hint": "Infinity is not an attainable real endpoint."
+  "hint": "Is a cube root defined for negative numbers?"
  }
 ]);
 })();

@@ -186,7 +186,7 @@ CA.guided('34', [
   {q: 'f(x) = x + 2 and g(x) = x². Find (f + g)(3).', opts: ['14', '25', '11'], correct: 0, hint: 'Add f(3) and g(3).', why: 'f(3) = 5 and g(3) = 9, so (f + g)(3) = 14.'},
   {q: 'f(x) = x and g(x) = x + 1. Find (fg)(x).', opts: ['2x + 1', 'x² + x', 'x² + 1'], correct: 1, hint: 'Multiply x by (x + 1).', why: 'x(x + 1) = x² + x.'},
   {q: 'f(x) = x + 1 and g(x) = 3x. Find f(g(2)).', opts: ['9', '7', '6'], correct: 1, hint: 'Start inside: g(2).', why: 'g(2) = 6, then f(6) = 7.'},
-  {q: 'Using the same functions, find g(f(2)).', opts: ['9', '7', '3'], correct: 0, hint: 'Now start with f(2).', why: 'f(2) = 3, then g(3) = 9. The order matters: f(g(2)) = 7 but g(f(2)) = 9.'},
+  {ref: {problem: 3, what: "the same functions"}, q: 'Using the same functions, find g(f(2)).', opts: ['9', '7', '3'], correct: 0, hint: 'Now start with f(2).', why: 'f(2) = 3, then g(3) = 9. The order matters: f(g(2)) = 7 but g(f(2)) = 9.'},
   {q: 'For most pairs of functions, how do f(g(x)) and g(f(x)) compare?', opts: ['They are always equal', 'They are usually different', 'They are always opposites'], correct: 1, hint: 'Try f(x) = x + 1 and g(x) = 3x.', why: 'Composition is not commutative: in general f(g(x)) ≠ g(f(x)).'},
   {q: 'A table gives f(2) = 5 and g(5) = −1. Find g(f(2)).', opts: ['5', '−1', '2'], correct: 1, hint: 'Find f(2) first.', why: 'f(2) = 5, and g(5) = −1, so g(f(2)) = −1.'},
   {q: 'f(x) = x² and g(x) = x − 3. Find f(g(x)).', opts: ['x² − 3', 'x² − 6x + 9', 'x² + 9'], correct: 1, hint: 'Replace x in f with (x − 3).', why: 'f(g(x)) = (x − 3)² = x² − 6x + 9.'},

@@ -258,7 +258,7 @@ CA.guided('31',[
   "why": "Collect the different outputs, 6 and 4, so the range is {4, 6}.",
   "hint": "Range comes from the second coordinates only; remove duplicate outputs."
  },
- {
+ {ref: {panel: "mappings", what: "the art-club assignment", body: "<p><b>Art club \u00b7 Members and studio rooms.</b> A club assigns each member one studio room. Several members can use the same room.</p><table class=\"ca-ref-table\"><tr><th>Member</th><th>Studio room</th></tr><tr><td>Mia</td><td>Studio North</td></tr><tr><td>Leo</td><td>Studio North</td></tr><tr><td>Nora</td><td>Studio East</td></tr></table><p>In the activity, <b>Reverse direction</b> turns the assignment around: studio \u2192 member.</p>"}, 
   "q": "At the art club, Mia and Leo are assigned Studio North. Is member → studio a function?",
   "opts": [
    "No, North appears twice",
@@ -269,7 +269,7 @@ CA.guided('31',[
   "why": "Each member has exactly one room. Sharing an output is allowed.",
   "hint": "Does each member have just one room? Different members can share a room."
  },
- {
+ {ref: {panel: "mappings", what: "the art-club assignment", body: "<p><b>Art club \u00b7 Members and studio rooms.</b> A club assigns each member one studio room. Several members can use the same room.</p><table class=\"ca-ref-table\"><tr><th>Member</th><th>Studio room</th></tr><tr><td>Mia</td><td>Studio North</td></tr><tr><td>Leo</td><td>Studio North</td></tr><tr><td>Nora</td><td>Studio East</td></tr></table><p>In the activity, <b>Reverse direction</b> turns the assignment around: studio \u2192 member.</p>"}, 
   "q": "Reverse the art-club assignment: studio → member. Is that a function when two members use Studio North?",
   "opts": [
    "Yes, because both people have a room",
@@ -280,7 +280,7 @@ CA.guided('31',[
   "why": "If the room is the input, Studio North would lead to two different people.",
   "hint": "After reversing, which quantity becomes the input? Can it lead to two people?"
  },
- {
+ {ref: {panel: "notation", what: "the game-booth rule", body: "<p><b>Build a function rule.</b> A game booth has a <b>$2 entry fee</b> and a <b>$5 charge per game</b>. Its rule in function notation is</p><div class=\"ca-ref-eq\">p(n) = 5n + 2</div>"}, 
   "q": "For the game-booth rule p(n) = 5n + 2, what does n represent?",
   "opts": [
    "The $2 entry fee",
@@ -291,7 +291,7 @@ CA.guided('31',[
   "why": "n is the independent variable: number of games played. p(n) is the total cost.",
   "hint": "Look inside the parentheses; that is the independent variable."
  },
- {
+ {ref: {panel: "notation", what: "the game-booth rule", body: "<p><b>Build a function rule.</b> A game booth has a <b>$2 entry fee</b> and a <b>$5 charge per game</b>. Its rule in function notation is</p><div class=\"ca-ref-eq\">p(n) = 5n + 2</div>"}, 
   "q": "Use the game-booth rule p(n) = 5n + 2. Find p(4).",
   "opts": [
    "14",
@@ -302,7 +302,7 @@ CA.guided('31',[
   "why": "p(4) = 5(4) + 2 = 22.",
   "hint": "Replace n by 4 in the game-booth rule and simplify."
  },
- {
+ {ref: {panel: "formula-examples", what: "the function q", body: "<p>Activity 06 uses this function in <b>Squared</b> mode:</p><div class=\"ca-ref-eq\">q(x) = (x \u2212 2)\u00b2 + 1</div><p><b>Forward:</b> choose an input x and compute q(x). <b>Backward:</b> choose an output and find every input x that produces it.</p>"}, 
   "q": "For q(x) = (x − 2)² + 1, solve q(x) = 5.",
   "opts": [
    "x = 0 or 4",
@@ -313,7 +313,7 @@ CA.guided('31',[
   "why": "(x − 2)² = 4. Therefore x − 2 = ±2, so x = 0 or x = 4.",
   "hint": "Subtract 1, then take both square roots."
  },
- {
+ {ref: {panel: "tables", what: "the function table t", body: "<p>Activity 08 uses this table of input\u2013output pairs:</p><table class=\"ca-ref-table\"><tr><th>Point</th><th>Input x</th><th>Output t(x)</th></tr><tr><td>A</td><td>\u22124</td><td>3</td></tr><tr><td>B</td><td>\u22121</td><td>6</td></tr><tr><td>C</td><td>2</td><td>3</td></tr><tr><td>D</td><td>5</td><td>8</td></tr></table><p>There you can choose an output and highlight every input that produces it.</p>"}, 
   "q": "The table lists t(−4)=3, t(−1)=6, t(2)=3, t(5)=8. Which inputs give output 3?",
   "opts": [
    "−1 and 5",
@@ -335,7 +335,7 @@ CA.guided('31',[
   "why": "The ellipse has two different y-values when x = 0: y = 1 and y = −1.",
   "hint": "Imagine a vertical line at x = 0. How many points will it hit?"
  },
- {
+ {ref: {panel: "graph-reading", what: "the parabola g", body: "<p>Activity 09 reads this graph in two directions (graph menu: <b>Parabola \u00b7 g(x)</b>):</p><div class=\"ca-ref-eq\">g(x) = (x + 1)\u00b2 \u2212 1</div>", plot: {win: {xmin: -5, xmax: 3, ymin: -2, ymax: 6}, draw: P => P.curve(x => (x + 1) ** 2 - 1, {color: "orange", width: 3, arrows: true}), label: "Graph of g(x) = (x + 1)\u00b2 \u2212 1"}}, 
   "q": "For g(x) = (x + 1)² − 1, solve g(x) = 3.",
   "opts": [
    "x = −1",

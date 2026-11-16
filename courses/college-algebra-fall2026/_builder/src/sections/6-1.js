@@ -137,6 +137,6 @@ CA.guided('61', [
   {q: 'Which formula gives $3,000 compounded continuously at 5% for 4 years?', opts: ['3000e<sup>0.2</sup>', '3000e<sup>20</sup>', '3000(1.05)⁴'], correct: 0, hint: 'A = Pe<sup>rt</sup> with r as a decimal.', why: 'rt = 0.05 · 4 = 0.2.'},
   {q: 'To the nearest hundredth, e² ≈ ?', opts: ['7.39', '5.44', '4.00'], correct: 0, hint: 'e ≈ 2.718.', why: 'e² ≈ 7.389.'},
   {q: 'For f(x) = 3(2)<sup>x + 1</sup>, which point is on the graph?', opts: ['(−1, 3)', '(0, 3)', '(1, 3)'], correct: 0, hint: 'The point (0, 3) of 3(2)ˣ shifts 1 left.', why: 'f(−1) = 3(2)⁰ = 3.'},
-  {q: 'In P = A(1 + r/n)<sup>−nt</sup>, what is P?', opts: ['The amount needed now', 'The interest earned', 'The future value'], correct: 0, hint: 'Present value.', why: 'P is the present value: what you must invest now to reach A.'}
+  {ref: {panel: "interest", what: "the compound-interest formulas", body: "<p>Activity 05 \u00b7 Compound interest uses these formulas, where r is the annual rate as a decimal, n is the number of compounding periods per year, and t is the time in years:</p><div class=\"ca-ref-eq\">A(t) = P(1 + r/n)<sup>nt</sup></div><div class=\"ca-ref-eq\">P = A(1 + r/n)<sup>\u2212nt</sup></div>"}, q: 'In P = A(1 + r/n)<sup>−nt</sup>, what is P?', opts: ['The amount needed now', 'The interest earned', 'The future value'], correct: 0, hint: 'Present value.', why: 'P is the present value: what you must invest now to reach A.'}
 ]);
 })();
