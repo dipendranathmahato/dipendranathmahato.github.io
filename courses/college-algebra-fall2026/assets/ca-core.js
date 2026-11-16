@@ -111,21 +111,74 @@ let planeCount = 0;
 const COLORS = {orange: 'var(--cp-orange)', blue: 'var(--cp-blue)', green: 'var(--cp-green)', purple: 'var(--cp-purple)', gray: 'var(--cp-gray)', red: '#d63d28', text: 'var(--cp-text)'};
 const col = c => COLORS[c] || c || COLORS.orange;
 CA.color = col;
+/* ---------- graph view: equal scale, zoom and pan (kept per graph across redraws) ---------- */
+const VIEWS = new WeakMap();
+const viewOf = svg => { let v = VIEWS.get(svg); if (!v) VIEWS.set(svg, v = {z: 1, px: 0, py: 0, eq: null}); return v; };
+/* req = the window the lesson asked for; pw, ph = drawing area in px.
+   auto: 'force' (always equal), true (equal unless that would widen an axis more than 3x), false (fit). */
+CA.viewWindow = (svg, req, pw, ph, auto = true) => {
+  const v = viewOf(svg), sx0 = req.xmax - req.xmin, sy0 = req.ymax - req.ymin;
+  const ux = pw / sx0, uy = ph / sy0, ratio = Math.max(ux, uy) / Math.min(ux, uy);
+  const autoEq = auto === 'force' || (auto === true && ratio <= 3.01), eq = v.eq === null ? autoEq : v.eq;
+  let sx = sx0, sy = sy0;
+  if (eq) { const u = Math.min(ux, uy); sx = pw / u; sy = ph / u; }
+  sx /= v.z; sy /= v.z;
+  const cx = (req.xmin + req.xmax) / 2 + v.px, cy = (req.ymin + req.ymax) / 2 + v.py;
+  return {xmin: cx - sx / 2, xmax: cx + sx / 2, ymin: cy - sy / 2, ymax: cy + sy / 2, eq, autoEq, ratio, z: v.z, moved: v.z !== 1 || v.px !== 0 || v.py !== 0 || v.eq !== null};
+};
+/* toolbar under a graph; svg._caRedraw must redraw the graph with the current view */
+CA.viewTools = (svg, win) => {
+  let bar = svg._caTools;
+  if (!bar) {
+    bar = document.createElement('div'); bar.className = 'ca-plot-tools'; bar.setAttribute('role', 'toolbar'); bar.setAttribute('aria-label', 'Graph view controls');
+    bar.innerHTML = `<span class="ca-pt-group"><button type="button" data-a="out" title="Zoom out" aria-label="Zoom out">−</button><button type="button" data-a="in" title="Zoom in" aria-label="Zoom in">+</button></span><span class="ca-pt-group ca-pt-pan"><button type="button" data-a="l" title="Move left" aria-label="Move the view left">←</button><button type="button" data-a="u" title="Move up" aria-label="Move the view up">↑</button><button type="button" data-a="d" title="Move down" aria-label="Move the view down">↓</button><button type="button" data-a="r" title="Move right" aria-label="Move the view right">→</button></span><button type="button" class="ca-pt-eq" data-a="eq" aria-pressed="false" title="Use the same unit length on both axes">1:1 scale</button><button type="button" class="ca-pt-reset" data-a="reset" title="Back to the original view">Reset</button><span class="ca-pt-note" aria-live="polite"></span>`;
+    svg.insertAdjacentElement('afterend', bar); svg._caTools = bar;
+    bar.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      const v = viewOf(svg), w = svg._caWin, a = b.dataset.a; if (!w) return;
+      if (a === 'in') v.z = Math.min(16, v.z * 1.5);
+      else if (a === 'out') v.z = Math.max(1 / 16, v.z / 1.5);
+      else if (a === 'l' || a === 'r') v.px += (a === 'r' ? 1 : -1) * (w.xmax - w.xmin) * 0.25;
+      else if (a === 'u' || a === 'd') v.py += (a === 'u' ? 1 : -1) * (w.ymax - w.ymin) * 0.25;
+      else if (a === 'eq') v.eq = !w.eq;
+      else if (a === 'reset') { v.z = 1; v.px = 0; v.py = 0; v.eq = null; }
+      if (svg._caRedraw) svg._caRedraw();
+    });
+  }
+  svg._caWin = win;
+  const eqb = bar.querySelector('[data-a=eq]'); eqb.classList.toggle('active', win.eq); eqb.setAttribute('aria-pressed', String(win.eq));
+  bar.querySelector('[data-a=reset]').disabled = !win.moved;
+  const note = bar.querySelector('.ca-pt-note');
+  note.textContent = win.eq ? 'Equal scale: 1 unit is the same length on both axes.' : win.autoEq ? 'The axes now use different unit lengths.' : 'The axes use different unit lengths so the graph fits. Press 1:1 for equal units.';
+  note.classList.toggle('warn', !win.eq);
+};
+
 class Plane {
   constructor(svg, o = {}) {
     this.svg = typeof svg === 'string' ? $(svg) : svg;
-    this.o = Object.assign({xmin: -6, xmax: 6, ymin: -5, ymax: 5, w: 560, h: 360, xstep: 0, ystep: 0, xname: 'x', yname: 'y', labels: true, grid: true, equal: false}, o);
+    this.o = Object.assign({xmin: -6, xmax: 6, ymin: -5, ymax: 5, w: 560, h: 360, xstep: 0, ystep: 0, xname: 'x', yname: 'y', labels: true, grid: true, equal: 'auto', tools: true}, o);
     const {w, h} = this.o; this.L = 38; this.R = w - 16; this.T = 14; this.B = h - 30;
-    this.id = 'cap' + (++planeCount); this.body = []; this.over = [];
+    this.id = 'cap' + (++planeCount); this.body = []; this.over = []; this.ops = [];
+    this.req = {xmin: this.o.xmin, xmax: this.o.xmax, ymin: this.o.ymin, ymax: this.o.ymax};
+    // equal scale by default for x–y graphs; quantity graphs (t, A, h, n …) start fitted to the window
+    const eqMode = this.o.equal === true ? 'force' : this.o.equal === false ? false : (this.o.xname === 'x' && this.o.yname === 'y');
+    this.eqMode = eqMode; this.fit();
     this.svg.setAttribute('viewBox', `0 0 ${w} ${h}`); this.svg.classList.add('ca-plot');
   }
+  fit() { const w = CA.viewWindow(this.svg, this.req, this.R - this.L, this.B - this.T, this.eqMode); this.win = w; Object.assign(this.o, {xmin: w.xmin, xmax: w.xmax, ymin: w.ymin, ymax: w.ymax}); return w; }
   tx(x) { const o = this.o; return this.L + (x - o.xmin) / (o.xmax - o.xmin) * (this.R - this.L); }
   ty(y) { const o = this.o; return this.B - (y - o.ymin) / (o.ymax - o.ymin) * (this.B - this.T); }
   static nice(range, target = 10) { const raw = range / target, p = 10 ** Math.floor(Math.log10(raw)); for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= raw) return m * p; return 10 * p; }
+  steps() {
+    const o = this.o, sx = o.xmax - o.xmin, sy = o.ymax - o.ymin;
+    let xs = o.xstep && sx / o.xstep <= 30 ? o.xstep : 0, ys = o.ystep && sy / o.ystep <= 24 ? o.ystep : 0;
+    if (this.win && this.win.eq && !(xs && ys && xs === ys)) { const s = Plane.nice(Math.max(sx, sy), 12); return [s, s]; }
+    return [xs || Plane.nice(sx, 12), ys || Plane.nice(sy, 9)];
+  }
   axes() {
-    const o = this.o, xs = o.xstep || Plane.nice(o.xmax - o.xmin, 12), ys = o.ystep || Plane.nice(o.ymax - o.ymin, 9);
+    const o = this.o, [xs, ys] = this.steps();
     let g = `<rect x="${this.L}" y="${this.T}" width="${this.R - this.L}" height="${this.B - this.T}" fill="var(--cp-bg)"/>`;
-    const fx = v => CA.num(v, 3);
+    const fx = v => CA.num(Math.abs(v) < 1e-9 ? 0 : v, 3);
     if (o.grid) {
       for (let x = Math.ceil(o.xmin / xs) * xs; x <= o.xmax + 1e-9; x += xs) g += `<line x1="${this.tx(x)}" y1="${this.T}" x2="${this.tx(x)}" y2="${this.B}" stroke="var(--cp-grid)" stroke-width="1"/>`;
       for (let y = Math.ceil(o.ymin / ys) * ys; y <= o.ymax + 1e-9; y += ys) g += `<line x1="${this.L}" y1="${this.ty(y)}" x2="${this.R}" y2="${this.ty(y)}" stroke="var(--cp-grid)" stroke-width="1"/>`;
@@ -133,15 +186,27 @@ class Plane {
     const ax = o.ymin <= 0 && o.ymax >= 0 ? this.ty(0) : this.B, ay = o.xmin <= 0 && o.xmax >= 0 ? this.tx(0) : this.L;
     g += `<line x1="${this.L}" y1="${ax}" x2="${this.R}" y2="${ax}" stroke="var(--cp-axis)" stroke-width="1.6"/><line x1="${ay}" y1="${this.T}" x2="${ay}" y2="${this.B}" stroke="var(--cp-axis)" stroke-width="1.6"/>`;
     if (o.labels) {
-      for (let x = Math.ceil(o.xmin / xs) * xs; x <= o.xmax + 1e-9; x += xs) { if (Math.abs(x) < 1e-9) continue; g += `<text x="${this.tx(x)}" y="${Math.min(this.B + 18, ax + 16)}" font-size="11.5" text-anchor="middle" fill="var(--cp-text)">${fx(x)}</text>`; }
-      for (let y = Math.ceil(o.ymin / ys) * ys; y <= o.ymax + 1e-9; y += ys) { if (Math.abs(y) < 1e-9) continue; g += `<text x="${Math.max(this.L - 5, ay - 6)}" y="${this.ty(y) + 4}" font-size="11.5" text-anchor="end" fill="var(--cp-text)">${fx(y)}</text>`; }
+      for (let x = Math.ceil(o.xmin / xs) * xs; x <= o.xmax + 1e-9; x += xs) { if (Math.abs(x) < xs / 1e6) continue; g += `<text x="${this.tx(x)}" y="${Math.min(this.B + 18, ax + 16)}" font-size="11.5" text-anchor="middle" fill="var(--cp-text)">${fx(x)}</text>`; }
+      for (let y = Math.ceil(o.ymin / ys) * ys; y <= o.ymax + 1e-9; y += ys) { if (Math.abs(y) < ys / 1e6) continue; g += `<text x="${Math.max(this.L - 5, ay - 6)}" y="${this.ty(y) + 4}" font-size="11.5" text-anchor="end" fill="var(--cp-text)">${fx(y)}</text>`; }
       g += `<text x="${this.R - 4}" y="${ax - 7}" font-size="13" font-weight="700" text-anchor="end" fill="var(--cp-text)">${o.xname}</text><text x="${ay + 7}" y="${this.T + 12}" font-size="13" font-weight="700" fill="var(--cp-text)">${o.yname}</text>`;
     }
     return g;
   }
   stroke(opt) { return `fill="none" stroke="${col(opt.color)}" stroke-width="${opt.width || 3}" stroke-linecap="round" stroke-linejoin="round"${opt.dash ? ` stroke-dasharray="${opt.dash === true ? '7 6' : opt.dash}"` : ''}${opt.opacity ? ` opacity="${opt.opacity}"` : ''}`; }
-  curve(f, opt = {}) {
+  // drawing calls are recorded and replayed at render(), so a zoom or pan redraws everything
+  curve(...a) { this.ops.push(() => this._curve(...a)); return this; }
+  param(...a) { this.ops.push(() => this._param(...a)); return this; }
+  seg(...a) { this.ops.push(() => this._seg(...a)); return this; }
+  vline(x, opt = {}) { this.ops.push(() => this._seg(x, this.o.ymin - 1, x, this.o.ymax + 1, Object.assign({dash: true, color: 'gray', width: 2}, opt))); return this; }
+  hline(y, opt = {}) { this.ops.push(() => this._seg(this.o.xmin - 1, y, this.o.xmax + 1, y, Object.assign({dash: true, color: 'gray', width: 2}, opt))); return this; }
+  lineMB(m, b, opt = {}) { this.ops.push(() => { const o = this.o; this._seg(o.xmin - 1, m * (o.xmin - 1) + b, o.xmax + 1, m * (o.xmax + 1) + b, Object.assign({width: 3}, opt)); }); return this; }
+  band(...a) { this.ops.push(() => this._band(...a)); return this; }
+  point(...a) { this.ops.push(() => this._point(...a)); return this; }
+  label(...a) { this.ops.push(() => this._label(...a)); return this; }
+  raw(s, over = false) { this.ops.push(() => (over ? this.over : this.body).push(s)); return this; }
+  _curve(f, opt = {}) {
     const o = this.o, a = Math.max(o.xmin, opt.from ?? -Infinity), b = Math.min(o.xmax, opt.to ?? Infinity), n = opt.samples || 900;
+    if (!(b > a)) return;
     const yr = o.ymax - o.ymin, lim = yr * 6, breaks = (opt.breaks || []).slice().sort((p, q) => p - q);
     let segs = [], cur = [], prevX = null;
     const flush = () => { if (cur.length > 1) segs.push(cur); cur = []; };
@@ -154,46 +219,41 @@ class Plane {
       cur.push([this.tx(x), this.ty(y)]); prevX = x;
     }
     flush();
-    // tighten endpoints near domain edges (e.g. square roots) by bisection
     const d = segs.map(s => 'M' + s.map(p => p[0].toFixed(2) + ' ' + p[1].toFixed(2)).join(' L')).join(' ');
-    if (!d) return this;
+    if (!d) return;
     this.body.push(`<path d="${d}" ${this.stroke(opt)}${opt.arrows ? ` marker-start="url(#${this.id}-arr)" marker-end="url(#${this.id}-arr)"` : ''}/>`);
-    return this;
   }
-  param(fx, fy, t0, t1, opt = {}) {
+  _param(fx, fy, t0, t1, opt = {}) {
     const n = opt.samples || 400; let d = '';
     for (let i = 0; i <= n; i++) { const t = t0 + (t1 - t0) * i / n; d += (i ? 'L' : 'M') + this.tx(fx(t)).toFixed(2) + ' ' + this.ty(fy(t)).toFixed(2) + ' '; }
-    this.body.push(`<path d="${d}" ${this.stroke(opt)}/>`); return this;
+    this.body.push(`<path d="${d}" ${this.stroke(opt)}/>`);
   }
-  seg(x1, y1, x2, y2, opt = {}) { this.body.push(`<line x1="${this.tx(x1)}" y1="${this.ty(y1)}" x2="${this.tx(x2)}" y2="${this.ty(y2)}" ${this.stroke(Object.assign({width: 2.2}, opt))}${opt.arrow ? ` marker-end="url(#${this.id}-arr2)"` : ''}/>`); return this; }
-  vline(x, opt = {}) { return this.seg(x, this.o.ymin - 1, x, this.o.ymax + 1, Object.assign({dash: true, color: 'gray', width: 2}, opt)); }
-  hline(y, opt = {}) { return this.seg(this.o.xmin - 1, y, this.o.xmax + 1, y, Object.assign({dash: true, color: 'gray', width: 2}, opt)); }
-  lineMB(m, b, opt = {}) { const o = this.o; return this.seg(o.xmin - 1, m * (o.xmin - 1) + b, o.xmax + 1, m * (o.xmax + 1) + b, Object.assign({width: 3}, opt)); }
-  band(axis, a, b, opt = {}) { // highlight an interval on an axis
+  _seg(x1, y1, x2, y2, opt = {}) { this.body.push(`<line x1="${this.tx(x1)}" y1="${this.ty(y1)}" x2="${this.tx(x2)}" y2="${this.ty(y2)}" ${this.stroke(Object.assign({width: 2.2}, opt))}${opt.arrow ? ` marker-end="url(#${this.id}-arr2)"` : ''}/>`); }
+  _band(axis, a, b, opt = {}) { // highlight an interval on an axis
     const o = this.o, c = col(opt.color || 'blue'), w = opt.width || 9;
     if (axis === 'x') { const y = o.ymin <= 0 && o.ymax >= 0 ? this.ty(0) : this.B; this.body.push(`<line x1="${this.tx(Math.max(a, o.xmin))}" y1="${y}" x2="${this.tx(Math.min(b, o.xmax))}" y2="${y}" stroke="${c}" stroke-width="${w}" stroke-opacity=".55" stroke-linecap="round"/>`); }
     else { const x = o.xmin <= 0 && o.xmax >= 0 ? this.tx(0) : this.L; this.body.push(`<line x1="${x}" y1="${this.ty(Math.max(a, o.ymin))}" x2="${x}" y2="${this.ty(Math.min(b, o.ymax))}" stroke="${c}" stroke-width="${w}" stroke-opacity=".55" stroke-linecap="round"/>`); }
-    return this;
   }
   inside(x, y) { const o = this.o; return x >= o.xmin - 1e-9 && x <= o.xmax + 1e-9 && y >= o.ymin - 1e-9 && y <= o.ymax + 1e-9; }
-  point(x, y, opt = {}) {
-    if (!Number.isFinite(x) || !Number.isFinite(y) || !this.inside(x, y)) return this;
+  _point(x, y, opt = {}) {
+    if (!Number.isFinite(x) || !Number.isFinite(y) || !this.inside(x, y)) return;
     const c = col(opt.color), r = opt.r || 6, filled = opt.filled !== false;
     this.over.push(`<circle cx="${this.tx(x)}" cy="${this.ty(y)}" r="${r}" fill="${filled ? c : 'var(--cp-bg)'}" stroke="${filled ? 'var(--cp-bg)' : c}" stroke-width="${filled ? 2 : 3}"/>`);
-    if (opt.label) this.label(x, y, opt.label, Object.assign({color: opt.color}, opt.labelOpt || {}));
-    return this;
+    if (opt.label) this._label(x, y, opt.label, Object.assign({color: opt.color}, opt.labelOpt || {}));
   }
-  label(x, y, text, opt = {}) {
-    if (!this.inside(x, y)) return this;
+  _label(x, y, text, opt = {}) {
+    if (!this.inside(x, y)) return;
     const dx = opt.dx ?? 9, dy = opt.dy ?? -10, anchor = opt.anchor || (this.tx(x) > this.R - 90 ? 'end' : 'start');
     const X = this.tx(x) + (anchor === 'end' ? -Math.abs(dx) : dx), Y = Math.max(this.T + 12, Math.min(this.B - 4, this.ty(y) + dy));
     this.over.push(`<text x="${X}" y="${Y}" font-size="${opt.size || 13}" font-weight="${opt.weight || 800}" text-anchor="${anchor}" fill="${col(opt.color || 'text')}" paint-order="stroke" stroke="var(--cp-bg)" stroke-width="4">${text}</text>`);
-    return this;
   }
-  raw(s, over = false) { (over ? this.over : this.body).push(s); return this; }
   render() {
+    const w = this.fit(); this.body = []; this.over = [];
+    this.ops.forEach(op => op());
     const arr = `<marker id="${this.id}-arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6 Z" fill="context-stroke"/></marker><marker id="${this.id}-arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="context-stroke"/></marker>`;
     this.svg.innerHTML = `<defs><clipPath id="${this.id}-clip"><rect x="${this.L}" y="${this.T}" width="${this.R - this.L}" height="${this.B - this.T}"/></clipPath>${arr}</defs>${this.axes()}<g clip-path="url(#${this.id}-clip)">${this.body.join('')}</g>${this.over.join('')}`;
+    this.svg._caRedraw = () => this.render();
+    if (this.o.tools) CA.viewTools(this.svg, w);
     return this;
   }
 }

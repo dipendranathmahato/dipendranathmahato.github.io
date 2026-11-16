@@ -89,7 +89,7 @@ CA.choice('intercept-choice', {q: 'Before you explore: how many x-intercepts can
   why: 'A parabola can miss the x-axis (0), touch it at the vertex (1), or cross it twice (2). It always has exactly one y-intercept.'});
 CA.lab('count-lab', {
   controls: [{type: 'range', key: 'c', label: 'f(x) = x² − 4x + c, with c =', min: -2, max: 8, step: 0.5, value: 6, fmt: v => num(v)}],
-  plot: {h: 340}, plotLabel: 'Parabola moving up and down', readouts: [['d', 'Discriminant b² − 4ac'], ['n', 'Number of x-intercepts'], ['x', 'x-intercepts']]
+  plot: {h: 440}, plotLabel: 'Parabola moving up and down', readouts: [['d', 'Discriminant b² − 4ac'], ['n', 'Number of x-intercepts'], ['x', 'x-intercepts']]
 }, (lab, st) => {
   const c = st.c, D = 16 - 4 * c, f = x => x * x - 4 * x + c, Pl = lab.plane({xmin: -2, xmax: 6, ymin: -7, ymax: 9});
   Pl.curve(f, {color: 'orange', width: 3.4}).point(2, c - 4, {color: 'purple', r: 6, label: `vertex (2, ${num(c - 4)})`});
@@ -104,7 +104,7 @@ let puzzle = {a: -1, h: 3, k: 4};
 const newPuzzle = () => { let p; do { p = {a: Math.random() < 0.5 ? 1 : -1, h: Math.floor(Math.random() * 9) - 4, k: Math.floor(Math.random() * 11) - 5}; } while (Math.abs(p.a * p.h * p.h + p.k) > 12 || (p.h === puzzle.h && p.k === puzzle.k)); puzzle = p; };
 const det = CA.lab('detective-lab', {
   top: '<div class="ca-answer-row"><label>Vertex x (h)<input id="det-h" inputmode="decimal"></label><label>Vertex y (k)<input id="det-k" inputmode="decimal"></label><label>Axis: x =<input id="det-ax" inputmode="decimal"></label><label>y-intercept (0, ?)<input id="det-y" inputmode="decimal"></label><label>Opens<select id="det-open"><option value="">choose</option><option value="up">up</option><option value="down">down</option></select></label></div><p><button class="ca-btn" id="det-check" type="button">Check</button> <button class="ca-btn ca-btn-outline" id="det-new" type="button"><i class="fa-solid fa-shuffle"></i> New parabola</button></p>',
-  plot: {h: 380}, plotLabel: 'Mystery parabola to read'
+  plot: {h: 440}, plotLabel: 'Mystery parabola to read'
 }, lab => {
   const {a, h, k} = puzzle, f = x => a * (x - h) ** 2 + k, Pl = lab.plane({xmin: -8, xmax: 8, ymin: -14, ymax: 14, xstep: 1, ystep: 2});
   Pl.curve(f, {color: 'orange', width: 3.4}).render();

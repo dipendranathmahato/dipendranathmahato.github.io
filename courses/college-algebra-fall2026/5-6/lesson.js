@@ -154,7 +154,7 @@ CA.lab('arrow-lab', {
 /* ---------- 04 · vertical asymptote multiplicity ---------- */
 CA.lab('va-lab', {
   controls: [{type: 'range', key: 'm', label: 'Multiplicity m of (x − 1) in the denominator', min: 1, max: 4, value: 1}, {type: 'seg', key: 's', label: 'Numerator', value: '1', options: [['1', '1'], ['-1', '−1']]}],
-  plot: {h: 320}, plotLabel: 'Graph near the vertical asymptote x = 1', readouts: [['fx', 'f(x)'], ['l', 'x → 1⁻'], ['r', 'x → 1⁺']]
+  plot: {h: 400}, plotLabel: 'Graph near the vertical asymptote x = 1', readouts: [['fx', 'f(x)'], ['l', 'x → 1⁻'], ['r', 'x → 1⁺']]
 }, (lab, st) => {
   const s = Number(st.s), f = x => s / (x - 1) ** st.m, Pl = lab.plane({xmin: -3, xmax: 5, ymin: -6, ymax: 6});
   Pl.curve(f, {color: 'orange', width: 3.4, breaks: [1], arrows: true}).vline(1, {color: 'purple', dash: '6 5'}).render();

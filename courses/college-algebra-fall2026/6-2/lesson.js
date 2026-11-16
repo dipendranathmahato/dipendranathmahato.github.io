@@ -90,7 +90,7 @@ const MG = [
 ];
 const order = [2, 0, 3, 1]; // graph letters A–D show MG[order[i]]
 document.getElementById('match-plots').innerHTML = order.map((m, i) => `<figure><svg id="mg-${i}" role="img" aria-label="Mystery graph ${'ABCD'[i]}"></svg><figcaption>Graph ${'ABCD'[i]}</figcaption></figure>`).join('');
-order.forEach((m, i) => { const Pl = new CA.Plane(document.getElementById(`mg-${i}`), {xmin: -4, xmax: 4, ymin: -4, ymax: 8, h: 260}); Pl.curve(MG[m].f, {color: 'orange', width: 3.2, arrows: true}); const asy = [0, -2, 3, 0][m]; Pl.hline(asy, {color: 'purple', dash: '6 5'}).render(); });
+order.forEach((m, i) => { const Pl = new CA.Plane(document.getElementById(`mg-${i}`), {xmin: -4, xmax: 4, ymin: -3, ymax: 7, w: 400, h: 440, equal: true, tools: false}); Pl.curve(MG[m].f, {color: 'orange', width: 3.2, arrows: true}); const asy = [0, -2, 3, 0][m]; Pl.hline(asy, {color: 'purple', dash: '6 5'}).render(); });
 CA.cards('match-cards', MG.map((g, m) => ({expr: g.t, correct: order.indexOf(m), why: [
   'Decreasing (b = 1/3 &lt; 1), asymptote y = 0, and (1, 1) is on the graph: Graph ' + 'ABCD'[order.indexOf(0)] + '.',
   'Increasing, asymptote y = −2, y-intercept (0, −1): Graph ' + 'ABCD'[order.indexOf(1)] + '.',

@@ -41,7 +41,7 @@ const coefS = A => A === '1' ? '' : A === '-1' ? '−' : A.includes('/') ? `(${f
 const dform = D => `${coefS(D.A)}${lname(D.b)}(${lin(D.m, D.c)})${D.d ? ` ${D.d > 0 ? '+' : '−'} ${Math.abs(D.d)}` : ''}`;
 CA.lab('dom-lab', {
   controls: [{type: 'select', key: 'f', label: 'Function', value: 'a', options: Object.entries(DM).map(([k, D]) => [k, dform(D).replace(/<[^>]+>/g, '')])}],
-  middle: '<svg id="log-dom-line" role="img" aria-label="Domain on a number line"></svg>', plot: {h: 300}, plotLabel: 'Graph of the logarithmic function with its vertical asymptote', readouts: [['f', 'Function'], ['arg', 'Argument'], ['dom', 'Domain']], steps: true
+  middle: '<svg id="log-dom-line" role="img" aria-label="Domain on a number line"></svg>', plot: {h: 400}, plotLabel: 'Graph of the logarithmic function with its vertical asymptote', readouts: [['f', 'Function'], ['arg', 'Argument'], ['dom', 'Domain']], steps: true
 }, (lab, st) => {
   const D = DM[st.f], A = toF(D.A).v, bb = bval(D.b), edge = F(-D.c, D.m), right = D.m > 0, f = x => { const u = D.m * x + D.c; return u > 0 ? A * Math.log(u) / Math.log(bb) + D.d : NaN; };
   lab.read('f', `y = ${dform(D)}`); lab.read('arg', lin(D.m, D.c)); lab.read('dom', right ? `(${edge}, ∞)` : `(−∞, ${edge})`);

@@ -1,6 +1,6 @@
 /* Section 3.1 · Functions and Function Notation — interactive activities */
 
-(()=>{'use strict';const $=id=>document.getElementById(id),fmt=v=>String(v).replaceAll('-', '−');function plot(svg,fn,{xmin=-6,xmax=6,ymin=-5,ymax=5}={}){const W=560,H=310,p=24,tx=x=>p+(x-xmin)/(xmax-xmin)*(W-2*p),ty=y=>H-p-(y-ymin)/(ymax-ymin)*(H-2*p);let s='';for(let i=Math.ceil(xmin);i<=xmax;i++)s+=`<line x1="${tx(i)}" y1="${p}" x2="${tx(i)}" y2="${H-p}" stroke="${i===0?'#777':'#d9dce3'}" stroke-width="${i===0?1.5:.7}"/>`;for(let j=Math.ceil(ymin);j<=ymax;j++)s+=`<line x1="${p}" y1="${ty(j)}" x2="${W-p}" y2="${ty(j)}" stroke="${j===0?'#777':'#d9dce3'}" stroke-width="${j===0?1.5:.7}"/>`;let seg='',last=false;for(let i=0;i<=700;i++){let x=xmin+(xmax-xmin)*i/700,y=fn(x);let good=Number.isFinite(y)&&y>=ymin-2&&y<=ymax+2;seg+=good?(last?'L':'M')+tx(x).toFixed(2)+' '+ty(y).toFixed(2)+' ':'';last=good;}svg.innerHTML=s+`<path d="${seg}" fill="none" stroke="#e65125" stroke-width="3" stroke-linecap="round"/>`;return{tx,ty,W,H,p};}
+(()=>{'use strict';const $=id=>document.getElementById(id),fmt=v=>String(v).replaceAll('-', '−');function plot(svg,fn,win={},owner){const P=CA.plane(svg,Object.assign({xmin:-6,xmax:6,ymin:-5,ymax:5,w:560,h:330},win));P.curve(fn,{color:'orange',width:3});P.render();if(owner)svg._caRedraw=owner;const o=P.o,clipId=P.id+'-clip';return{tx:x=>P.tx(x),ty:y=>P.ty(y),T:P.T,B:P.B,L:P.L,R:P.R,win:{xmin:o.xmin,xmax:o.xmax,ymin:o.ymin,ymax:o.ymax},clip:html=>`<g clip-path="url(#${clipId})">${html}</g>`};}
 let mappingChoice = null;
 function mappings() {
   const arr = [...document.querySelectorAll('.mapping')].map(el => [+el.dataset.input, +el.value]);
@@ -34,12 +34,12 @@ mappings();
 function vertical(){
  let type=$('curve-type').value,x=+$('scan-x').value;$('scan-x-label').textContent=x.toFixed(1);
  const svg=$('vline-svg');const func=type==='parabola'||type==='cubic';
- const g=plot(svg,z=>type==='parabola'?z*z/4:type==='cubic'?z*z*z/9:NaN);
- if(type==='circle'){let d='';for(let i=0;i<=500;i++){let a=2*Math.PI*i/500;d+=(i?'L':'M')+g.tx(3*Math.cos(a))+' '+g.ty(3*Math.sin(a))+' ';}svg.innerHTML+=`<path d="${d}" fill="none" stroke="#e65125" stroke-width="3"/>`;}
- if(type==='sideways'){let d='';for(let i=0;i<=400;i++){let y=-Math.sqrt(6)+i/400*2*Math.sqrt(6);d+=(i?'L':'M')+g.tx(y*y)+' '+g.ty(y)+' ';}svg.innerHTML+=`<path d="${d}" fill="none" stroke="#e65125" stroke-width="3"/>`;}
+ const g=plot(svg,z=>type==='parabola'?z*z/4:type==='cubic'?z*z*z/9:NaN,{},vertical);
+ if(type==='circle'){let d='';for(let i=0;i<=500;i++){let a=2*Math.PI*i/500;d+=(i?'L':'M')+g.tx(3*Math.cos(a))+' '+g.ty(3*Math.sin(a))+' ';}svg.innerHTML+=g.clip(`<path d="${d}" fill="none" stroke="#e65125" stroke-width="3"/>`);}
+ if(type==='sideways'){let d='';for(let i=0;i<=400;i++){let y=-Math.sqrt(6)+i/400*2*Math.sqrt(6);d+=(i?'L':'M')+g.tx(y*y)+' '+g.ty(y)+' ';}svg.innerHTML+=g.clip(`<path d="${d}" fill="none" stroke="#e65125" stroke-width="3"/>`);}
  let ys=type==='circle'?(Math.abs(x)<3?[-Math.sqrt(9-x*x),Math.sqrt(9-x*x)]:Math.abs(x)===3?[0]:[]):type==='sideways'?(x>0?[-Math.sqrt(x),Math.sqrt(x)]:x===0?[0]:[]):[type==='cubic'?x*x*x/9:x*x/4];
- ys=ys.filter(y=>y>=-5&&y<=5);const count=ys.length;
- const stroke=func?'#13836a':'#d63d28';svg.innerHTML+=`<line x1="${g.tx(x)}" y1="24" x2="${g.tx(x)}" y2="286" stroke="${stroke}" stroke-width="3" stroke-dasharray="7 5"/>`+ys.map(y=>`<circle cx="${g.tx(x)}" cy="${g.ty(y)}" r="8" fill="${stroke}" stroke="white" stroke-width="2"/>`).join('');
+ ys=ys.filter(y=>y>=g.win.ymin&&y<=g.win.ymax);const count=ys.length;
+ const stroke=func?'#13836a':'#d63d28';svg.innerHTML+=g.clip(`<line x1="${g.tx(x)}" y1="${g.T}" x2="${g.tx(x)}" y2="${g.B}" stroke="${stroke}" stroke-width="3" stroke-dasharray="7 5"/>`)+ys.map(y=>`<circle cx="${g.tx(x)}" cy="${g.ty(y)}" r="8" fill="${stroke}" stroke="white" stroke-width="2"/>`).join('');
  $('vline-status').className='ca-vline-status '+(func?'ca-vline-good':'ca-vline-bad');$('vline-status').innerHTML=`<i class="fa-solid fa-${func?'circle-check':'circle-xmark'}"></i> <strong class="ca-vline-verdict">${func?'FUNCTION':'NOT A FUNCTION'}</strong> <small>${func?'Every vertical line has at most one intersection.':'There are vertical lines that intersect this graph twice.'}</small>`;
  $('vline-result').innerHTML=`<b>At x = ${x.toFixed(1)}:</b> ${count} visible intersection${count===1?'':'s'}. <strong class="ca-vline-result-strong ${func?'is-function':'not-function'}">${func?'FUNCTION':'NOT A FUNCTION'}</strong> — ${count>1?'Two red intersection points on the same vertical line prove this relation is NOT a function.':func?'Every vertical line intersects this graph at most once.':'This graph fails elsewhere: move the red test line until it crosses twice. One line with two intersections proves failure.'}`;
 }
@@ -81,13 +81,13 @@ function graphSetKind(kind){
 function graphReading(){
  const d=graphKinds[graphKind],x=Number($('graph-input').value),yTarget=Number($('graph-output').value),f=d.f,n=d.name,w=d.win;
  const clean=v=>Number(v.toFixed(9));
- const svg=$('ca-read-graph'),g=plot(svg,f,w);
+ const svg=$('ca-read-graph'),g=plot(svg,f,Object.assign({h:420},w),graphReading),v=g.win;
  const xPoints=d.solve(yTarget).map(clean);
- svg.innerHTML+=`<line x1="${g.tx(w.xmin)}" x2="${g.tx(w.xmax)}" y1="${g.ty(yTarget)}" y2="${g.ty(yTarget)}" stroke="#137b9a" stroke-dasharray="6 5" stroke-width="2.3"/>`;
+ svg.innerHTML+=g.clip(`<line x1="${g.tx(v.xmin)}" x2="${g.tx(v.xmax)}" y1="${g.ty(yTarget)}" y2="${g.ty(yTarget)}" stroke="#137b9a" stroke-dasharray="6 5" stroke-width="2.3"/>`);
  const fx=f(x),defined=Number.isFinite(fx);
- if(defined)svg.innerHTML+=`<line x1="${g.tx(x)}" x2="${g.tx(x)}" y1="${g.ty(0)}" y2="${g.ty(fx)}" stroke="#d64d25" stroke-dasharray="4 4" stroke-width="2"/><circle cx="${g.tx(x)}" cy="${g.ty(fx)}" r="6" fill="#e65125" stroke="#fff" stroke-width="2"/>`;
+ if(defined)svg.innerHTML+=g.clip(`<line x1="${g.tx(x)}" x2="${g.tx(x)}" y1="${g.ty(0)}" y2="${g.ty(fx)}" stroke="#d64d25" stroke-dasharray="4 4" stroke-width="2"/><circle cx="${g.tx(x)}" cy="${g.ty(fx)}" r="6" fill="#e65125" stroke="#fff" stroke-width="2"/>`);
  else svg.innerHTML+=`<text x="${g.tx(x)}" y="${g.ty(0)+6}" text-anchor="middle" font-size="20" font-weight="800" fill="#d64d25">✕</text>`;
- for(const t of xPoints){if(t>=w.xmin&&t<=w.xmax)svg.innerHTML+=`<circle cx="${g.tx(t)}" cy="${g.ty(yTarget)}" r="5.5" fill="#137b9a" stroke="white" stroke-width="2"/>`;}
+ for(const t of xPoints){if(t>=v.xmin&&t<=v.xmax)svg.innerHTML+=`<circle cx="${g.tx(t)}" cy="${g.ty(yTarget)}" r="5.5" fill="#137b9a" stroke="white" stroke-width="2"/>`;}
  const inputText=defined?`${n}(${fmt(x)}) = ${fmt(clean(fx))}`:d.undefinedText(x);
  const outputText=xPoints.length===0?d.none(yTarget):`${n}(x) = ${fmt(yTarget)} at x = ${xPoints.map(fmt).join(' or x = ')}${xPoints.length===1?' only':''}`;
  $('graph-read-feedback').innerHTML=`<b>Input-first:</b> ${inputText}. <b>Output-first:</b> ${outputText}. <span class="ca-muted">${d.preview}</span>`;
@@ -137,7 +137,7 @@ const rules={line:{name:'r(x) = x + 2',f:x=>x+2,why:'This is a straight line: th
 function fourViews(){const {name,f,why}=rules[$('four-rule').value],x=+$('four-input').value,y=f(x);$('four-input-label').textContent=fmt(x);$('four-formula').textContent=name;$('four-substitution').textContent=`Substitute x = ${fmt(x)} → r(${fmt(x)}) = ${fmt(y)}`;
  const entries=[-2,-1,0,1,2];$('four-pairs').innerHTML=entries.map(v=>`<span class="ca-pair ${v===x?'ca-selected-pair':''}">(${fmt(v)}, ${fmt(f(v))})</span>`).join('');
  $('four-tbody').innerHTML=entries.map(v=>`<tr class="${v===x?'selected':''}"><td>${fmt(v)}</td><td>${fmt(f(v))}</td></tr>`).join('');
- const svg=$('four-graph'),g=plot(svg,f,{xmin:-4,xmax:4,ymin:-3,ymax:8});svg.innerHTML+=`<circle cx="${g.tx(x)}" cy="${g.ty(y)}" r="9" fill="#008f91" stroke="white" stroke-width="3"/><text x="${g.tx(x)+11}" y="${g.ty(y)-13}" fill="currentColor" font-size="18" font-weight="800">(${fmt(x)},${fmt(y)})</text>`;
+ const svg=$('four-graph'),g=plot(svg,f,{xmin:-4,xmax:4,ymin:-3,ymax:8,h:430},fourViews);svg.innerHTML+=g.clip(`<circle cx="${g.tx(x)}" cy="${g.ty(y)}" r="9" fill="#008f91" stroke="white" stroke-width="3"/><text x="${g.tx(x)+11}" y="${g.ty(y)-13}" fill="currentColor" font-size="18" font-weight="800">(${fmt(x)},${fmt(y)})</text>`);
  $('four-feedback').textContent=`The point (${fmt(x)}, ${fmt(y)}) appears in all four representations. ${why}`;
 }
 ['four-rule','four-input'].forEach(id=>$(id).addEventListener('input',fourViews));fourViews();
@@ -231,7 +231,7 @@ function twoWay(){
 document.querySelectorAll('[data-twoway]').forEach(b=>b.addEventListener('click',()=>twoWaySwitch(b.dataset.twoway)));$('forward-x').addEventListener('input',twoWay);$('backward-y').addEventListener('change',twoWay);twoWay();
 
 const toolkitFunctions={identity:{f:x=>x,clue:'Every point satisfies y = x, so input and output are equal.'},constant:{f:x=>2,clue:'All inputs share the same output 2. This is still a function.'},square:{f:x=>x*x,clue:'The graph has a U shape, with a minimum at (0, 0).'},cube:{f:x=>x*x*x,clue:'An S-shaped curve passes through the origin and keeps increasing.'},absolute:{f:x=>Math.abs(x),clue:'A V shape: both −3 and 3 produce output 3.'},root:{f:x=>x>=0?Math.sqrt(x):NaN,clue:'The square-root graph starts at the origin; negative x-values are not real inputs.'},reciprocal:{f:x=>x===0?NaN:1/x,clue:'The reciprocal graph never touches either axis. x = 0 is excluded.'}};
-function toolkitLab(name){const item=toolkitFunctions[name];plot($('toolkit-graph'),item.f,{xmin:-5,xmax:5,ymin:-5,ymax:5});$('toolkit-clue').textContent=item.clue;document.querySelectorAll('[data-toolkit]').forEach(b=>{let yes=b.dataset.toolkit===name;b.classList.toggle('active',yes);b.setAttribute('aria-pressed',String(yes));});}
+function toolkitLab(name){const item=toolkitFunctions[name];plot($('toolkit-graph'),item.f,{xmin:-5,xmax:5,ymin:-5,ymax:5},()=>toolkitLab(name));$('toolkit-clue').textContent=item.clue;document.querySelectorAll('[data-toolkit]').forEach(b=>{let yes=b.dataset.toolkit===name;b.classList.toggle('active',yes);b.setAttribute('aria-pressed',String(yes));});}
 document.querySelectorAll('[data-toolkit]').forEach(button=>button.addEventListener('click',()=>toolkitLab(button.dataset.toolkit)));toolkitLab('identity');
 
 

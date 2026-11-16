@@ -94,7 +94,7 @@ CA.choice('table-choice', {q: 'Between which two consecutive table entries does 
 const g = x => (x - 1) ** 2;
 CA.lab('graph-lab', {
   controls: [{type: 'seg', key: 'iv', label: 'Interval', value: '-1,2', options: [['-1,2', '[−1, 2]'], ['0,3', '[0, 3]'], ['1,3', '[1, 3]'], ['-2,1', '[−2, 1]'], ['0,2', '[0, 2]']]}],
-  plot: {h: 360}, plotLabel: 'Parabola with two highlighted points', steps: true
+  plot: {h: 440}, plotLabel: 'Parabola with two highlighted points', steps: true
 }, (lab, st) => {
   const [a, b] = st.iv.split(',').map(Number), ya = g(a), yb = g(b);
   const P = lab.plane({xmin: -3, xmax: 4, ymin: -1, ymax: 10});

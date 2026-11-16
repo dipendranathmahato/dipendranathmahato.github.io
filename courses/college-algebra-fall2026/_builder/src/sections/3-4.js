@@ -24,7 +24,7 @@ CA.lab('combine-lab', {
     {type: 'seg', key: 'op', label: 'Operation', value: 'sum', options: [['sum', 'f + g'], ['diff', 'f − g'], ['rdiff', 'g − f'], ['prod', 'fg'], ['quot', 'f / g'], ['rquot', 'g / f']]},
     {type: 'range', key: 'x', label: 'Check at x =', min: -4, max: 4, step: 1, value: 2}
   ],
-  plot: {h: 360}, plotLabel: 'Graphs of f, g, and the combined function',
+  plot: {h: 440}, plotLabel: 'Graphs of f, g, and the combined function',
   legend: [['blue', 'f', true], ['purple', 'g', true], ['orange', 'result']], steps: true
 }, (lab, st) => {
   const {f, g} = PAIRS[st.pair], sf = S(f), sg = S(g), x = st.x, op = st.op;
@@ -57,7 +57,11 @@ CA.lab('combine-lab', {
     breaks = zeros.map(z => z.v);
     domainNote = ` Domain: all real numbers except ${zeros.map(z => z.t).join(' and ')}.`;
   }
-  const Pl = lab.plane({xmin: -6, xmax: 6, ymin: -12, ymax: 12});
+  // y-window: every value the "Check at x" slider can reach stays on screen (zoom buttons show more)
+  const seen = [];
+  for (let t = -4; t <= 4; t++) [P.at(f, t), P.at(g, t), evalRes(t)].forEach(v => { if (Number.isFinite(v)) seen.push(v); });
+  const lo = Math.min(-6, ...seen), hi = Math.max(6, ...seen), pad = (hi - lo) * 0.08;
+  const Pl = lab.plane({xmin: -6, xmax: 6, ymin: lo - pad, ymax: hi + pad});
   Pl.curve(t => P.at(f, t), {color: 'blue', dash: '7 6', width: 2.4}).curve(t => P.at(g, t), {color: 'purple', dash: '7 6', width: 2.4});
   vas.forEach(v => Pl.vline(v, {color: 'gray'}));
   Pl.curve(evalRes, {color: 'orange', width: 3.4, breaks});
@@ -136,7 +140,7 @@ CA.lab('graph-comp-lab', {
 }, (lab, st, key) => {
   const [o, i] = st.e === 'fg' ? ['f', 'g'] : ['g', 'f'];
   if (key === 'e') { const list = allowed(o, i); st.setOptions('x', list.map(v => [v, v]), list[0]); }
-  const x = +st.x, u = GR[i](x), y = GR[o](u), win = {xmin: -0.5, xmax: 6.5, ymin: -4, ymax: 9, w: 420, h: 330, xstep: 1, ystep: 1};
+  const x = +st.x, u = GR[i](x), y = GR[o](u), win = {xmin: -0.5, xmax: 6.5, ymin: -4, ymax: 9, w: 420, h: 450, xstep: 1, ystep: 1};
   document.getElementById('gc-cap1').textContent = `Step 1 · inner graph ${i}(x)`; document.getElementById('gc-cap2').textContent = `Step 2 · outer graph ${o}(x)`;
   const A = CA.plane('gc-inner', win); A.curve(GR[i], {from: 0, to: 6, color: 'blue', width: 3.2}).point(0, GR[i](0), {color: 'blue', r: 5}).point(6, GR[i](6), {color: 'blue', r: 5});
   A.seg(x, 0, x, u, {color: 'orange', dash: '5 5'}).seg(x, u, -0.5, u, {color: 'orange', dash: '5 5'}).point(x, u, {color: 'orange', label: `(${x}, ${fmt(u)})`}).render();

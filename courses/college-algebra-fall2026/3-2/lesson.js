@@ -1,6 +1,6 @@
 /* Section 3.2 · Domain and Range — interactive activities */
 
-(()=>{'use strict';const $=id=>document.getElementById(id),fmt=v=>String(v).replaceAll('-', '−');function plot(svg,fn,{xmin=-6,xmax=6,ymin=-5,ymax=5}={}){const W=560,H=310,p=24,tx=x=>p+(x-xmin)/(xmax-xmin)*(W-2*p),ty=y=>H-p-(y-ymin)/(ymax-ymin)*(H-2*p);let s='';for(let i=Math.ceil(xmin);i<=xmax;i++)s+=`<line x1="${tx(i)}" y1="${p}" x2="${tx(i)}" y2="${H-p}" stroke="${i===0?'#777':'#d9dce3'}" stroke-width="${i===0?1.5:.7}"/>`;for(let j=Math.ceil(ymin);j<=ymax;j++)s+=`<line x1="${p}" y1="${ty(j)}" x2="${W-p}" y2="${ty(j)}" stroke="${j===0?'#777':'#d9dce3'}" stroke-width="${j===0?1.5:.7}"/>`;let seg='',last=false;for(let i=0;i<=700;i++){let x=xmin+(xmax-xmin)*i/700,y=fn(x);let good=Number.isFinite(y)&&y>=ymin-2&&y<=ymax+2;seg+=good?(last?'L':'M')+tx(x).toFixed(2)+' '+ty(y).toFixed(2)+' ':'';last=good;}svg.innerHTML=s+`<path d="${seg}" fill="none" stroke="#e65125" stroke-width="3" stroke-linecap="round"/>`;return{tx,ty,W,H,p};}
+(()=>{'use strict';const $=id=>document.getElementById(id),fmt=v=>String(v).replaceAll('-', '−');function plot(svg,fn,win={},owner){const P=CA.plane(svg,Object.assign({xmin:-6,xmax:6,ymin:-5,ymax:5,w:560,h:330},win));P.curve(fn,{color:'orange',width:3});P.render();if(owner)svg._caRedraw=owner;const o=P.o,clipId=P.id+'-clip';return{tx:x=>P.tx(x),ty:y=>P.ty(y),T:P.T,B:P.B,L:P.L,R:P.R,win:{xmin:o.xmin,xmax:o.xmax,ymin:o.ymin,ymax:o.ymax},clip:html=>`<g clip-path="url(#${clipId})">${html}</g>`};}
 // Section 3.2 — original interactive interval, restrictions, and graph-projection lessons.
 const caNum = n => String(Number.isInteger(n)?n:Number(n.toFixed(4))).replaceAll('-', '−');
 const caPoint = (x,y,filled=true,color='#e95b2c',r=7) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${filled?color:'var(--card-bg, #fff)'}" stroke="${color}" stroke-width="3"/>`;
@@ -187,12 +187,12 @@ const caGraphExamples={
  reciprocal:{domain:'(−∞, 1) ∪ (1, ∞)',range:'(−∞, 0) ∪ (0, ∞)',why:'The vertical asymptote x = 1 is forbidden. The curve approaches but never reaches y = 0. One x-value and one y-value are missing.',f:x=>1/(x-1),parts:[[-6,1],[1,6]],ends:[],dx:[{a:null,b:1,bc:false},{a:1,b:null,ac:false}],dy:[{a:null,b:0,bc:false},{a:0,b:null,ac:false}]}
 };
 function caRenderGraph(){
- const key=$('dr-graph-kind').value,d=caGraphExamples[key],svg=$('dr-graph-svg'),xmin=-6,xmax=6,ymin=-5,ymax=7,W=650,H=400,pL=47,pR=34,pT=22,pB=43;
- const tx=x=>pL+(x-xmin)*(W-pL-pR)/(xmax-xmin),ty=y=>H-pB-(y-ymin)*(H-pT-pB)/(ymax-ymin),axisY=ty(0),axisX=tx(0);
- let grid='',paths='',projections='';for(let x=-6;x<=6;x++){grid+=`<line x1="${tx(x)}" x2="${tx(x)}" y1="${pT}" y2="${H-pB}" stroke="var(--ca-graph-grid,#dbe2e9)" stroke-width="${x===0?1.6:.8}"/><text x="${tx(x)}" y="${H-19}" font-size="12" fill="var(--ca-plot-text,#2f3c4a)" text-anchor="middle">${caNum(x)}</text>`;}
- for(let y=-5;y<=7;y++){grid+=`<line x1="${pL}" x2="${W-pR}" y1="${ty(y)}" y2="${ty(y)}" stroke="var(--ca-graph-grid,#dbe2e9)" stroke-width="${y===0?1.6:.8}"/>`;if(y%2===0)grid+=`<text x="${pL-10}" y="${ty(y)+5}" font-size="12" fill="var(--ca-plot-text,#2f3c4a)" text-anchor="end">${caNum(y)}</text>`;}
+ const key=$('dr-graph-kind').value,d=caGraphExamples[key],svg=$('dr-graph-svg'),W=650,H=400,pL=47,pR=34,pT=22,pB=43,vw=CA.viewWindow(svg,{xmin:-6,xmax:6,ymin:-5,ymax:7},W-pL-pR,H-pT-pB,true),{xmin,xmax,ymin,ymax}=vw,stp=CA.Plane.nice(Math.max(xmax-xmin,ymax-ymin)*(vw.eq?1:1),12),stpY=vw.eq?stp:CA.Plane.nice(ymax-ymin,9),stpX=vw.eq?stp:CA.Plane.nice(xmax-xmin,12);
+ const tx=x=>pL+(x-xmin)*(W-pL-pR)/(xmax-xmin),ty=y=>H-pB-(y-ymin)*(H-pT-pB)/(ymax-ymin),axisY=Math.max(pT,Math.min(H-pB,ty(0))),axisX=Math.max(pL,Math.min(W-pR,tx(0)));
+ let grid='',paths='',projections='';for(let x=Math.ceil(xmin/stpX)*stpX;x<=xmax+1e-9;x+=stpX){grid+=`<line x1="${tx(x)}" x2="${tx(x)}" y1="${pT}" y2="${H-pB}" stroke="var(--ca-graph-grid,#dbe2e9)" stroke-width="${Math.abs(x)<1e-9?1.6:.8}"/><text x="${tx(x)}" y="${H-19}" font-size="12" fill="var(--ca-plot-text,#2f3c4a)" text-anchor="middle">${caNum(Number(x.toFixed(6)))}</text>`;}
+ for(let y=Math.ceil(ymin/stpY)*stpY;y<=ymax+1e-9;y+=stpY){grid+=`<line x1="${pL}" x2="${W-pR}" y1="${ty(y)}" y2="${ty(y)}" stroke="var(--ca-graph-grid,#dbe2e9)" stroke-width="${Math.abs(y)<1e-9?1.6:.8}"/>`;if(Math.abs(y)>1e-9)grid+=`<text x="${pL-10}" y="${ty(y)+5}" font-size="12" fill="var(--ca-plot-text,#2f3c4a)" text-anchor="end">${caNum(Number(y.toFixed(6)))}</text>`;}
  const inBounds=v=>v>=ymin&&v<=ymax;
- for(const [start,end] of d.parts){let points=[],was=false;const segments=[];const n=700;
+ for(const [s0,e0] of d.parts){const start=s0<=-6?xmin:s0,end=e0>=6?xmax:e0;let points=[],was=false;const segments=[];const n=700;
   for(let j=0;j<=n;j++){let x=start+(end-start)*j/n;if(key==='reciprocal'&&Math.abs(x-1)<1e-6){if(points.length>1)segments.push(points);points=[];was=false;continue;}let y=d.f(x);const ok=Number.isFinite(y)&&inBounds(y);if(ok){points.push([tx(x),ty(y)]);}else if(points.length){if(points.length>1)segments.push(points);points=[];}}
   if(points.length>1)segments.push(points);
   for(const seg of segments){const str=seg.map(([x,y],i)=>`${i?'L':'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join(' ');paths+=`<path d="${str}" fill="none" stroke="#ed6336" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" ${key==='segment'?'':`marker-end="url(#ca-graph-arrow)" ${key==='root'?'':'marker-start="url(#ca-graph-arrow)"'}`}/>`;}
@@ -211,7 +211,8 @@ function caRenderGraph(){
  if(seg.b===null){if(caDRView==='domain')projections+=`<path d="M${tx(xmax)} ${axisY} l-15 -9 v18 z" fill="#1b88b0"/>`;else projections+=`<path d="M${axisX} ${ty(ymax)} l-9 15 h18 z" fill="#1b88b0"/>`;}
  }
  // Blue axis-shadows are overlaid after the orange graph: visible even when axes overlap.
- svg.innerHTML=`<defs><marker id="ca-graph-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6 Z" fill="#ed6336"/></marker></defs><rect x="${pL}" y="${pT}" width="${W-pL-pR}" height="${H-pT-pB}" fill="var(--ca-plot-bg,#fff)"/>${grid}${paths}${projections}<text x="${W-pR+5}" y="${axisY-9}" fill="var(--ca-plot-text,#344356)" font-size="15" font-weight="700">x</text><text x="${axisX+8}" y="${pT+12}" fill="var(--ca-plot-text,#344356)" font-size="15" font-weight="700">y</text>`;
+ svg.innerHTML=`<defs><marker id="ca-graph-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0 L6 3 L0 6 Z" fill="#ed6336"/></marker><clipPath id="ca-dr-clip"><rect x="${pL-8}" y="${pT-8}" width="${W-pL-pR+16}" height="${H-pT-pB+16}"/></clipPath></defs><rect x="${pL}" y="${pT}" width="${W-pL-pR}" height="${H-pT-pB}" fill="var(--ca-plot-bg,#fff)"/>${grid}<g clip-path="url(#ca-dr-clip)">${paths}${projections}</g><text x="${W-pR+5}" y="${axisY-9}" fill="var(--ca-plot-text,#344356)" font-size="15" font-weight="700">x</text><text x="${axisX+8}" y="${pT+12}" fill="var(--ca-plot-text,#344356)" font-size="15" font-weight="700">y</text>`;
+ svg._caRedraw=caRenderGraph;CA.viewTools(svg,vw);
  $('dr-domain').textContent=d.domain;$('dr-range').textContent=d.range;
  $('dr-explanation').innerHTML=`<b>${caDRView==='domain'?'Reading the x-shadow (left → right)':'Reading the y-shadow (bottom → top)'}:</b> ${d.why} <b>Highlighted ${caDRView}:</b> ${caDRView==='domain'?d.domain:d.range}. <span class="ca-muted">The drawing shows a finite window; arrows/continuation indicate the curve goes on beyond the window.</span>`;
  document.querySelectorAll('[data-dr-view]').forEach(btn=>{const selected=btn.dataset.drView===caDRView;btn.classList.toggle('active',selected);btn.setAttribute('aria-pressed',String(selected));});
@@ -220,9 +221,9 @@ $('dr-graph-kind').addEventListener('change',caRenderGraph);document.querySelect
 function caRangeParabola(){
  let h=+$('vertex-h').value,k=+$('vertex-k').value,a=+$('vertex-a').value;
  $('h-display').textContent=caNum(h);$('v-display').textContent=caNum(k);
- const svg=$('range-svg'),g=plot(svg,x=>a*(x-h)*(x-h)+k,{xmin:-6,xmax:6,ymin:-7,ymax:7});
- const axis=g.tx(0),at=g.ty(k),top=a>0?g.ty(7):g.ty(-7);
- svg.innerHTML+=`<line x1="${g.tx(-6)}" y1="${g.ty(0)}" x2="${g.tx(6)}" y2="${g.ty(0)}" stroke="#1b88b0" stroke-width="6" stroke-opacity=".75"/><line x1="${axis}" y1="${at}" x2="${axis}" y2="${top}" stroke="#1b88b0" stroke-width="9" stroke-opacity=".7"/>${caPoint(axis,at,true,'#1b88b0',6)}${caPoint(g.tx(h),g.ty(k),true,'#ed6336',8)}`;
+ const svg=$('range-svg'),g=plot(svg,x=>a*(x-h)*(x-h)+k,{xmin:-6,xmax:6,ymin:-7,ymax:7},caRangeParabola),v=g.win;
+ const axis=g.tx(0),at=g.ty(k),top=a>0?g.ty(v.ymax):g.ty(v.ymin);
+ svg.innerHTML+=g.clip(`<line x1="${g.tx(v.xmin)}" y1="${g.ty(0)}" x2="${g.tx(v.xmax)}" y2="${g.ty(0)}" stroke="#1b88b0" stroke-width="6" stroke-opacity=".75"/><line x1="${axis}" y1="${at}" x2="${axis}" y2="${top}" stroke="#1b88b0" stroke-width="9" stroke-opacity=".7"/>${caPoint(axis,at,true,'#1b88b0',6)}${caPoint(g.tx(h),g.ty(k),true,'#ed6336',8)}`);
  const range=a>0?`[${caNum(k)}, ∞)`:`(−∞, ${caNum(k)}]`;
  $('range-domain').textContent='(−∞, ∞)';$('range-range').textContent=range;
  $('range-answer').innerHTML=`<b>Vertex:</b> (${caNum(h)}, ${caNum(k)}). <b>Domain:</b> all real x, (−∞, ∞). <b>Range:</b> ${range}. Because the parabola opens ${a>0?'upward':'downward'}, <b>y = ${caNum(k)}</b> is the included ${a>0?'minimum':'maximum'} output. The blue shadows mark the allowed x- and y-values.`;
