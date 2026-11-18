@@ -1,0 +1,38 @@
+<p class="ca-lede">Put β = α in the sum formulas and you get the <b>double-angle formulas</b>: sin(α + α), cos(α + α), and tan(α + α). Solve one of the cosine forms for sin²α or cos²α and you get the <b>half-angle formulas</b>. With these we can find exact values for angles like 600°, 15°, 22.5°, and 7π/8, and for 2θ or θ/2 when θ is given by a ratio and a quadrant.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use double-angle formulas to find exact values; use half-angle formulas to find exact values.</div>
+
+<section class="ca-panel" id="double"><h3>01 · Double-angle formulas</h3>
+<div class="ca-definition"><strong>Double-angle formulas</strong>
+<div class="ca-formula-grid"><div><b>sine</b>sin(2α) = 2 sin α cos α</div><div><b>cosine (three forms)</b>cos(2α) = cos²α − sin²α<br>= 1 − 2 sin²α<br>= 2 cos²α − 1</div><div><b>tangent</b>tan(2α) = 2 tan α / (1 − tan²α)</div></div>
+<p>The second and third forms of cos(2α) come from replacing cos²α by 1 − sin²α, or sin²α by 1 − cos²α. Pick the form that uses the value you are given.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-clone"></i> INTERACTIVE · DOUBLE A SPECIAL ANGLE (EXAMPLE 1 i–ii)</div>
+<div id="dsp-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-draw-polygon"></i> INTERACTIVE · DOUBLE AN ANGLE GIVEN BY A RATIO (EXAMPLE 1 iii–v, CHECKPOINT 1)</div>
+<div id="dbl-lab"></div>
+</section>
+
+<section class="ca-panel" id="half"><h3>02 · Half-angle formulas</h3>
+<div class="ca-definition"><strong>Half-angle formulas</strong>
+<div class="ca-formula-grid"><div><b>sine</b>sin(α/2) = ±√((1 − cos α)/2)</div><div><b>cosine</b>cos(α/2) = ±√((1 + cos α)/2)</div><div><b>tangent</b>tan(α/2) = ±√((1 − cos α)/(1 + cos α))<br>= sin α/(1 + cos α)<br>= (1 − cos α)/sin α</div></div>
+<p>The ± sign is <b>not</b> a choice of two answers: pick + or − from the quadrant where <b>α/2</b> terminates. The last two tangent forms need no sign decision.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-scissors"></i> INTERACTIVE · HALF OF A SPECIAL ANGLE (EXAMPLE 2 i–iii, CHECKPOINT 2 i–iii)</div>
+<div id="half-lab"></div>
+<aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>sin(α/2) ≠ ½ sin α.</b> For α = 60°: sin 30° = 1/2, but ½ sin 60° = √3/4.</li><li><b>Match the sign in the formula:</b> cos(α/2) uses <b>1 + cos α</b>; sin(α/2) uses <b>1 − cos α</b>. Mixing them up is the most common error.</li></ul></aside>
+</section>
+
+<section class="ca-panel" id="half-given"><h3>03 · Half of an angle given by a ratio</h3>
+<p>If θ is given by a ratio and an interval, first find cos θ, then decide where θ/2 lies by halving the interval. Example 2 (iv): cos θ = 1/5 with 3π/2 &lt; θ &lt; 2π gives 3π/4 &lt; θ/2 &lt; π, in Quadrant II.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-divide"></i> INTERACTIVE · HALVE THE INTERVAL, THEN THE ANGLE</div>
+<div id="hg-lab"></div>
+<aside class="ca-remember" role="note"><div class="ca-remember-heading"><i class="fa-solid fa-bookmark"></i> NOTE ON EXAMPLE 2 (iv)</div><p>Since cos(θ/2) uses 1 + cos θ: cos(θ/2) = −√((1 + 1/5)/2) = −√(3/5) = <b>−√15/5 ≈ −0.775</b>. A calculator check agrees: θ = 2π − cos⁻¹(1/5) ≈ 4.914, and cos(θ/2) ≈ −0.775. (The value −√10/5 comes from 1 − cos θ, which gives sin(θ/2) up to sign.)</p></aside>
+</section>
+
+<!--GUIDED|Double-Angle and Half-Angle Formulas|Original problems on double-angle and half-angle formulas and their signs. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Double-Angle and Half-Angle Formulas
+Q: If tan θ = 4/3 and π &lt; θ &lt; 3π/2, find sin(2θ), cos(2θ), and tan(2θ).
+A: sin θ = −4/5 and cos θ = −3/5. sin 2θ = 2(−4/5)(−3/5) = 24/25; cos 2θ = 9/25 − 16/25 = −7/25; tan 2θ = 2(4/3)/(1 − 16/9) = −24/7.
+Q: Use half-angle formulas to find sin(7π/8), cos 75°, and tan 15° exactly.
+A: sin(7π/8) = +√((1 − cos(7π/4))/2) = √(2 − √2)/2. cos 75° = +√((1 + cos 150°)/2) = √(2 − √3)/2. tan 15° = (1 − cos 30°)/sin 30° = 2 − √3.
+Q: If sin θ = −5/13 and π &lt; θ &lt; 3π/2, find sin(θ/2) and cos(θ/2).
+A: cos θ = −12/13; π/2 &lt; θ/2 &lt; 3π/4 (Quadrant II). sin(θ/2) = +√((1 + 12/13)/2) = 5√26/26; cos(θ/2) = −√((1 − 12/13)/2) = −√26/26.
+-->
