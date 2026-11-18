@@ -1,0 +1,52 @@
+<p class="ca-lede">On a circle of radius r, the point at angle t is (x, y) with cos t = x/r, sin t = y/r, and tan t = y/x. Drop a perpendicular from the point to the x-axis and those three numbers become ratios of the sides of a <b>right triangle</b>. That lets us measure heights and distances we cannot reach with a tape measure.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use right triangles to evaluate trigonometric functions; find function values for 30° (π/6), 45° (π/4), and 60° (π/3); use cofunctions of complementary angles; use right-triangle trigonometry to solve applied problems.</div>
+
+<section class="ca-panel" id="sohcahtoa"><h3>01 · Opposite, adjacent, hypotenuse</h3>
+<div class="ca-definition"><strong>Right-triangle ratios for an acute angle t</strong>
+<div class="ca-formula-grid"><div><b>sine</b>sin t = opposite / hypotenuse</div><div><b>cosine</b>cos t = adjacent / hypotenuse</div><div><b>tangent</b>tan t = opposite / adjacent</div></div>
+<p>The reciprocals are csc t = hyp/opp, sec t = hyp/adj, and cot t = adj/opp. The <b>hypotenuse</b> is always across from the right angle; “opposite” and “adjacent” depend on which acute angle you stand at. The Pythagorean Theorem a² + b² = c² connects the sides, and the acute angles are complementary: α + β = 90°.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-draw-polygon"></i> INTERACTIVE · STAND AT AN ANGLE AND LABEL THE SIDES</div>
+<p>Switch between α and β to see the labels trade places (Example 1). Then change the size of the triangle: the ratios stay the same as long as the angle does.</p>
+<div id="tri-lab"></div>
+</section>
+
+<section class="ca-panel" id="missing-side"><h3>02 · Find the missing side, then the ratios</h3>
+<p>When two sides are known, the Pythagorean Theorem gives the third. Then every ratio is exact. The presets are Example 2, Checkpoint 2, and Checkpoint 4.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-square-root-variable"></i> INTERACTIVE · EXACT RATIOS FROM TWO SIDES</div>
+<div id="ms-lab"></div>
+</section>
+
+<section class="ca-panel" id="cofunctions"><h3>03 · Cofunctions of complementary angles</h3>
+<div class="ca-definition"><strong>Cofunction identities</strong>
+<p>Two angles are <b>complementary</b> if their sum is 90° (π/2). The complement of t is π/2 − t, and the side opposite one acute angle is adjacent to the other, so</p>
+<div class="ca-formula-grid"><div><b>sine · cosine</b>cos t = sin(π/2 − t)<br>sin t = cos(π/2 − t)</div><div><b>tangent · cotangent</b>tan t = cot(π/2 − t)<br>cot t = tan(π/2 − t)</div><div><b>secant · cosecant</b>sec t = csc(π/2 − t)<br>csc t = sec(π/2 − t)</div></div></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-right-left"></i> INTERACTIVE · ONE TRIANGLE, TWO ANGLES</div>
+<div id="co-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-pen"></i> FILL IN THE BLANKS · CHECKPOINT 4 (2)</div>
+<div class="ca-fill" id="co-fill"><ol class="ca-fill-list">
+<li>sin <select data-answer="β" aria-label="blank 1"><option value="">choose</option><option>α</option><option>β</option></select> = cos α</li>
+<li>cot α = <select data-answer="tan" aria-label="blank 2"><option value="">choose</option><option>sin</option><option>tan</option><option>sec</option><option>cot</option></select>(β)</li>
+<li>sec <select data-answer="β" aria-label="blank 3"><option value="">choose</option><option>α</option><option>β</option></select> = csc α</li>
+<li>If sin t = 3/7, then cos(π/2 − t) = <select data-answer="3/7" aria-label="blank 4"><option value="">choose</option><option>3/7</option><option>4/7</option><option>7/3</option><option>√40/7</option></select> (Example 4)</li>
+<li>tan 53° = cot <select data-answer="37°" aria-label="blank 5"><option value="">choose</option><option>53°</option><option>37°</option><option>127°</option><option>143°</option></select> (Example 4)</li>
+</ol><div class="ca-controls"><button type="button" class="ca-btn" id="co-check">Check</button><button type="button" class="ca-btn ca-btn-outline" id="co-reset">Clear</button></div><div class="ca-feedback" id="co-out" aria-live="polite">Choose an answer in each blank, then check.</div></div>
+</section>
+
+<section class="ca-panel" id="elevation"><h3>04 · Angles of elevation and depression</h3>
+<div class="ca-definition"><strong>Definitions</strong>
+<p>The <b>angle of elevation</b> is the angle between the horizontal line from the observer's eye and the line of sight to an object <b>above</b> the observer. The <b>angle of depression</b> is the angle between the horizontal line and the line of sight to an object <b>below</b> the observer.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-mountain-sun"></i> INTERACTIVE · THREE APPLIED PROBLEMS</div>
+<p>Choose a situation from Example 3 or Checkpoint 3, change the numbers, and decide which ratio connects the known side to the unknown side.</p>
+<div id="el-lab"></div>
+<aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>Degree mode:</b> sin 40 in radian mode is about 0.745, not 0.643.</li><li><b>The angle of depression is measured from the horizontal</b>, not from the vertical tree or building. By alternate interior angles it equals the angle of elevation from the object.</li></ul></aside>
+</section>
+
+<!--GUIDED|Right Triangle Trigonometry|Original problems on side ratios, missing sides, cofunctions, and elevation and depression. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Right Triangle Trigonometry
+Q: A right triangle has legs 8 and 10; α is the acute angle opposite the side 10 and β is the other acute angle. Find sin α, cos β, tan α, cot β, sec α, and csc β.
+A: Hypotenuse = √(64 + 100) = 2√41. sin α = cos β = 10/(2√41) = 5√41/41; tan α = cot β = 10/8 = 5/4; sec α = csc β = 2√41/8 = √41/4.
+Q: The angle of elevation to the top of a building is 27° from a point on the ground 140 ft from its base. Find the height to one decimal place.
+A: tan 27° = h/140, so h = 140 tan 27° ≈ 71.3 ft.
+Q: A hawk on top of a 25-ft tree sees a rat on the ground with an angle of depression of 34°. How far is the hawk from the rat?
+A: sin 34° = 25/d, so d = 25/sin 34° ≈ 44.7 ft.
+-->
