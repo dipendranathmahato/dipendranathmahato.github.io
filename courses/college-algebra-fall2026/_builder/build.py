@@ -37,8 +37,8 @@ UNI = ('<div class="uni-header prominent ca-university-header"><div class="uni-h
 def shell(title, desc, main, scripts):
     return (head(title, desc) + '<body class="course-page"><div class="page"><header class="top-nav" data-shared-template="header"></header>'
             '<main class="layout"><aside class="sidebar" data-shared-template="sidebar"></aside><section class="main">' + UNI +
-            '<div class="ca">' + main + '</div></section></main><footer data-shared-template="footer"></footer></div>\n'
-            '<script defer src="/assets/js/site-template.js?v=c072320e8862"></script>\n'
+            '<div class="ca">' + main + '</div><div class="footer" data-shared-template="footer"></div></section></main></div>\n'
+            '<script defer src="/assets/js/site-template.js?v=269f880fda8c"></script>\n'
             f'<script id="ca-shared-site-controls">{SITE_CONTROLS}</script>\n' + scripts + '\n</body></html>\n')
 
 
@@ -166,7 +166,7 @@ def home_page():
     sched = []
     for w in sorted({C.by_id(sid)["week"] for sid in C.order()}):
         _, _, d = dates(w)
-        links = ', '.join(f'<a href="{BASE}{s["slug"]}/">{C.label(s["id"])} {s["title"]}</a>' for s in (C.by_id(x) for x in C.order()) if s["week"] == w)
+        links = ';<br>'.join(f'<a href="{BASE}{s["slug"]}/">{C.label(s["id"])} {s["title"]}</a>' for s in (C.by_id(x) for x in C.order()) if s["week"] == w)
         sched.append(f'<li><b>Week {w}</b> <small>{d}</small><span>{links}</span></li>')
     schedule = ('<details class="ca-schedule" id="weekly-order"><summary><i class="fa-solid fa-calendar-week"></i> Week-by-week order of the sections</summary>'
                 f'<ol>{"".join(sched)}</ol><p class="ca-note">Test dates, reviews, and breaks are in the syllabus and the Course Foundations panel.</p></details>')

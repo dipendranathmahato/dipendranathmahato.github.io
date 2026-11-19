@@ -18,9 +18,9 @@ function graph(lab, f, ivKey, sols, breaks = []) {
 
 /* ---------- 01 · factored form ---------- */
 const FP = [
-  {t: 'Example 2 (i) · cos θ (2 + csc θ) = 0 on [0, 2π)', eq: 'cos θ (2 + csc θ) = 0', iv: 'std', dp: 4, fac: [['cos', '1', '0'], ['csc', '1', '2']], f: x => Math.cos(x) * (2 + 1 / Math.sin(x)), br: [0, PI, 2 * PI]},
-  {t: 'Checkpoint 2 (1) · 5 sin²θ + 2 sin θ = 0 on [0, 2π)', eq: '5 sin²θ + 2 sin θ = 0 ⟹ sin θ (5 sin θ + 2) = 0', iv: 'std', dp: 2, fac: [['sin', '1', '0'], ['sin', '5', '2']], f: x => 5 * Math.sin(x) ** 2 + 2 * Math.sin(x)},
-  {t: 'Checkpoint 2 (2) · (8 sec θ + 8)(tan θ − √3) = 0 on [−2π, 0)', eq: '(8 sec θ + 8)(tan θ − √3) = 0', iv: 'neg2', dp: 4, fac: [['sec', '8', '8'], ['tan', '1', '-√3']], f: x => (8 / Math.cos(x) + 8) * (Math.tan(x) - Math.sqrt(3)), br: [-3 * PI / 2, -PI / 2]}
+  {t: 'cos θ (2 + csc θ) = 0 on [0, 2π)', eq: 'cos θ (2 + csc θ) = 0', iv: 'std', dp: 4, fac: [['cos', '1', '0'], ['csc', '1', '2']], f: x => Math.cos(x) * (2 + 1 / Math.sin(x)), br: [0, PI, 2 * PI]},
+  {t: '5 sin²θ + 2 sin θ = 0 on [0, 2π)', eq: '5 sin²θ + 2 sin θ = 0 ⟹ sin θ (5 sin θ + 2) = 0', iv: 'std', dp: 2, fac: [['sin', '1', '0'], ['sin', '5', '2']], f: x => 5 * Math.sin(x) ** 2 + 2 * Math.sin(x)},
+  {t: '(8 sec θ + 8)(tan θ − √3) = 0 on [−2π, 0)', eq: '(8 sec θ + 8)(tan θ − √3) = 0', iv: 'neg2', dp: 4, fac: [['sec', '8', '8'], ['tan', '1', '-√3']], f: x => (8 / Math.cos(x) + 8) * (Math.tan(x) - Math.sqrt(3)), br: [-3 * PI / 2, -PI / 2]}
 ];
 CA.lab('fac-lab', {
   controls: [{type: 'select', key: 'p', label: 'Equation', value: '0', options: FP.map((p, i) => [String(i), p.t])}],
@@ -35,7 +35,7 @@ CA.lab('fac-lab', {
 });
 
 /* ---------- 02 · quadratic in form ---------- */
-const QP = {e2: ['cos', 2, 0, -1, 'deg', 'Example 2 (ii) · 2cos²θ − 1 = 0 on [0°, 360°)'], e3: ['sin', 3, 5, -2, 'std', 'Example 2 (iii) · 3sin²θ + 5 sin θ − 2 = 0 on [0, 2π)'], c3: ['cos', 1, -2, -1, 'deg', 'Checkpoint 2 (3) · cos²θ − 2 cos θ − 1 = 0 on [0°, 360°)'], x: ['sin', 2, -1, -1, 'std', '2sin²θ − sin θ − 1 = 0 on [0, 2π)']};
+const QP = {e2: ['cos', 2, 0, -1, 'deg', '2cos²θ − 1 = 0 on [0°, 360°)'], e3: ['sin', 3, 5, -2, 'std', '3sin²θ + 5 sin θ − 2 = 0 on [0, 2π)'], c3: ['cos', 1, -2, -1, 'deg', 'cos²θ − 2 cos θ − 1 = 0 on [0°, 360°)'], x: ['sin', 2, -1, -1, 'std', '2sin²θ − sin θ − 1 = 0 on [0, 2π)']};
 const quadStr = (u, a, b, c) => `${a === 1 ? '' : a === -1 ? '−' : a}${u}²θ${b ? ` ${b < 0 ? '−' : '+'} ${Math.abs(b) === 1 ? '' : Math.abs(b)}${u} θ` : ''}${c ? ` ${c < 0 ? '−' : '+'} ${Math.abs(c)}` : ''} = 0`;
 CA.lab('quad-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Equation', value: 'e3', options: Object.entries(QP).map(([k, v]) => [k, v[5]]).concat([['own', 'Set your own']])},
@@ -62,13 +62,13 @@ CA.lab('quad-lab', {
 /* ---------- 03 · identities first ---------- */
 const s = Math.sin, c = Math.cos;
 const IP = [
-  {t: 'Example 3 (i) · sin(2x)cos x − sin x cos(2x) = √2/2 on [0, 2π)', iv: 'std', dp: 4, f: x => s(2 * x) * c(x) - s(x) * c(2 * x) - Math.SQRT2 / 2,
+  {t: 'sin(2x)cos x − sin x cos(2x) = √2/2 on [0, 2π)', iv: 'std', dp: 4, f: x => s(2 * x) * c(x) - s(x) * c(2 * x) - Math.SQRT2 / 2,
     lines: [['Difference formula for sine', 'sin(2x)cos x − cos(2x)sin x = sin(2x − x)'], ['Simplify', 'sin x = √2/2']], eqs: [{fn: 'sin', v: Math.SQRT2 / 2, label: 'sin x = √2/2'}]},
-  {t: 'Example 3 (ii) · 5cos²x + sin x − 5 = 0 on [0°, 360°)', iv: 'deg', dp: 2, f: x => 5 * c(x) ** 2 + s(x) - 5,
+  {t: '5cos²x + sin x − 5 = 0 on [0°, 360°)', iv: 'deg', dp: 2, f: x => 5 * c(x) ** 2 + s(x) - 5,
     lines: [['Pythagorean identity', '5(1 − sin²x) + sin x − 5 = 0'], ['Simplify', '−5sin²x + sin x = 0'], ['Factor', 'sin x(−5 sin x + 1) = 0'], ['Zero-product property', 'sin x = 0 or sin x = 1/5']], eqs: [{fn: 'sin', v: 0, label: 'sin x = 0'}, {fn: 'sin', v: 0.2, label: 'sin x = 1/5 (reference angle sin⁻¹(1/5) ≈ 11.54°)'}]},
-  {t: 'Checkpoint 3 (1) · 4 sin(2x) − cos x = 0 on [0, 2π)', iv: 'std', dp: 2, f: x => 4 * s(2 * x) - c(x),
+  {t: '4 sin(2x) − cos x = 0 on [0, 2π)', iv: 'std', dp: 2, f: x => 4 * s(2 * x) - c(x),
     lines: [['Double-angle formula', '4(2 sin x cos x) − cos x = 8 sin x cos x − cos x = 0'], ['Factor', 'cos x(8 sin x − 1) = 0'], ['Zero-product property', 'cos x = 0 or sin x = 1/8']], eqs: [{fn: 'cos', v: 0, label: 'cos x = 0'}, {fn: 'sin', v: 0.125, label: 'sin x = 1/8'}]},
-  {t: 'Checkpoint 3 (2) · 3sin²x + 2 cos x = 0 on [0, 2π)', iv: 'std', dp: 2, f: x => 3 * s(x) ** 2 + 2 * c(x),
+  {t: '3sin²x + 2 cos x = 0 on [0, 2π)', iv: 'std', dp: 2, f: x => 3 * s(x) ** 2 + 2 * c(x),
     lines: [['Pythagorean identity', '3(1 − cos²x) + 2 cos x = 0'], ['Simplify and multiply by −1', '3cos²x − 2 cos x − 3 = 0'], ['Quadratic formula', 'cos x = (2 ± √40)/6 = (1 ± √10)/3'], ['Reject', '(1 + √10)/3 ≈ 1.387 is outside [−1, 1]']], eqs: [{fn: 'cos', v: (1 - Math.sqrt(10)) / 3, label: 'cos x = (1 − √10)/3 ≈ −0.7208'}]}
 ];
 CA.lab('idn-lab', {
@@ -82,9 +82,9 @@ CA.lab('idn-lab', {
 
 /* ---------- guided problems ---------- */
 CA.guided('75b', [
-  {q: 'Solve cos θ (2 + csc θ) = 0 on [0, 2π).', opts: ['π/2, 7π/6, 3π/2, 11π/6', 'π/2, 3π/2 only', '7π/6, 11π/6 only', 'π/6, π/2, 5π/6, 3π/2'], correct: 0, hint: 'cos θ = 0 or csc θ = −2 (sin θ = −1/2).', why: 'cos θ = 0 gives π/2, 3π/2; sin θ = −1/2 gives 7π/6, 11π/6.', ref: {panel: 'factored', what: 'Example 2 (i)', body: '<p>Solve <b>cos θ (2 + csc θ) = 0</b> on [0, 2π).</p>'}},
+  {q: 'Solve cos θ (2 + csc θ) = 0 on [0, 2π).', opts: ['π/2, 7π/6, 3π/2, 11π/6', 'π/2, 3π/2 only', '7π/6, 11π/6 only', 'π/6, π/2, 5π/6, 3π/2'], correct: 0, hint: 'cos θ = 0 or csc θ = −2 (sin θ = −1/2).', why: 'cos θ = 0 gives π/2, 3π/2; sin θ = −1/2 gives 7π/6, 11π/6.', ref: {panel: 'factored', what: 'the equation cos θ (2 + csc θ) = 0', body: '<p>Solve <b>cos θ (2 + csc θ) = 0</b> on [0, 2π).</p>'}},
   {q: 'Solve 2cos²θ − 1 = 0 on [0°, 360°).', opts: ['45°, 135°, 225°, 315°', '45°, 315°', '60°, 300°', '30°, 150°, 210°, 330°'], correct: 0, hint: 'cos θ = ±√2/2.', why: 'cos θ = √2/2: 45°, 315°; cos θ = −√2/2: 135°, 225°.'},
-  {q: 'In 3sin²θ + 5 sin θ − 2 = 0, which value of sin θ is rejected?', opts: ['−2', '1/3', '−1/3', '2'], correct: 0, hint: '(sin θ + 2)(3 sin θ − 1) = 0.', why: 'sin θ = −2 is outside [−1, 1]; sin θ = 1/3 is kept.', ref: {panel: 'quadratic', what: 'Example 2 (iii)', body: '<p>Solve <b>3sin²θ + 5 sin θ − 2 = 0</b> on [0, 2π).</p>'}},
+  {q: 'In 3sin²θ + 5 sin θ − 2 = 0, which value of sin θ is rejected?', opts: ['−2', '1/3', '−1/3', '2'], correct: 0, hint: '(sin θ + 2)(3 sin θ − 1) = 0.', why: 'sin θ = −2 is outside [−1, 1]; sin θ = 1/3 is kept.', ref: {panel: 'quadratic', what: 'the equation 3sin²θ + 5 sin θ − 2 = 0', body: '<p>Solve <b>3sin²θ + 5 sin θ − 2 = 0</b> on [0, 2π).</p>'}},
   {q: 'The solutions of 3sin²θ + 5 sin θ − 2 = 0 in [0, 2π) are approximately…', opts: ['0.34 and 2.80', '0.34 and 5.94', '3.48 and 5.94', '0.34 only'], correct: 0, hint: 'sin θ = 1/3 is positive: Quadrants I and II.', why: 'sin⁻¹(1/3) ≈ 0.34 and π − 0.34 ≈ 2.80.', ref: {problem: 3, what: 'the same equation'}},
   {q: 'sin(2x)cos x − sin x cos(2x) simplifies to…', opts: ['sin x', 'sin 3x', 'cos x', '2 sin x'], correct: 0, hint: 'sin α cos β − cos α sin β = sin(α − β).', why: 'sin(2x − x) = sin x.'},
   {q: 'After using sin²x + cos²x = 1, 5cos²x + sin x − 5 = 0 becomes…', opts: ['−5sin²x + sin x = 0', '5sin²x + sin x = 0', '−5sin²x + sin x − 10 = 0', 'sin x = 0'], correct: 0, hint: 'Replace cos²x by 1 − sin²x.', why: '5 − 5sin²x + sin x − 5 = −5sin²x + sin x.'},

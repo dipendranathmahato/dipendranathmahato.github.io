@@ -55,8 +55,8 @@ CA.drag(def.svg, (x, y, ph) => {
 });
 
 /* ---------- 02 · equation → features ---------- */
-const RPRE = [['x', '1', '7', 'Example 2 (i) · x² = 7y'], ['x', '2', '-1', 'Example 2 (ii) · 2x² = −y'], ['y', '1', '1', 'Example 2 (iii) · y² = x'], ['y', '-1/2', '9', 'Example 2 (iv) · −(1/2)y² = 9x'],
-  ['x', '-2', '5', 'Checkpoint 2 (i) · −2x² = 5y'], ['x', '1', '6', 'Checkpoint 2 (ii) · x² = 6y'], ['y', '4', '10', 'Checkpoint 2 (iii) · 4y² = 10x'], ['y', '-1', '5', 'Checkpoint 2 (iv) · −y² = 5x']];
+const RPRE = [['x', '1', '7', 'x² = 7y'], ['x', '2', '-1', '2x² = −y'], ['y', '1', '1', 'y² = x'], ['y', '-1/2', '9', '−(1/2)y² = 9x'],
+  ['x', '-2', '5', '−2x² = 5y'], ['x', '1', '6', 'x² = 6y'], ['y', '4', '10', '4y² = 10x'], ['y', '-1', '5', '−y² = 5x']];
 CA.lab('read-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Equation', value: '0', options: RPRE.map((p, i) => [String(i), p[3]]).concat([['own', 'Set your own']])}, {type: 'seg', key: 'sq', label: 'Squared variable', value: 'x', options: [['x', 'x² = …y'], ['y', 'y² = …x']]}, {type: 'text', key: 'k', label: 'Coefficient of the square', value: '1'}, {type: 'text', key: 'm', label: 'Coefficient on the other side', value: '7'}],
   top: '<div class="ca-equation" id="read-eq"></div>', plot: {w: 560, h: 440}, plotLabel: 'Graph of the parabola with its focus, directrix, and latus rectum', legend: LEG,
@@ -86,8 +86,8 @@ CA.cards('open-cards', [
 
 /* ---------- 03 · features → equation ---------- */
 const MODES = {f: ['the focus', 'Focus'], d: ['the directrix', 'Directrix'], lr: ['an endpoint of the latus rectum', 'Endpoint'], fd: ['the focus and the directrix', 'Focus']};
-const PRE = [['f', '(0, 2)', '', 'Example 1 (i) · vertex (0, 0), focus (0, 2)'], ['d', 'y = 1/3', '', 'Example 1 (ii) · vertex (0, 0), directrix y = 1/3'], ['fd', '(5/2, 0)', 'x = -5/2', 'Example 1 (iii) · focus (5/2, 0), directrix x = −5/2'], ['lr', '(-1, 2)', '', 'Example 1 (iv) · latus rectum endpoints (−1, ±2)'],
-  ['d', 'x = -7/3', '', 'Checkpoint 1 (i) · vertex (0, 0), directrix x = −7/3'], ['f', '(0, -2/5)', '', 'Checkpoint 1 (ii) · vertex (0, 0), focus (0, −2/5)'], ['lr', '(3, 3/2)', '', 'Checkpoint 1 (iii) · latus rectum endpoints (±3, 3/2)'], ['f', '(-6/5, 0)', '', 'Checkpoint 1 (iv) · focus (−6/5, 0), axis along the x-axis']];
+const PRE = [['f', '(0, 2)', '', 'vertex (0, 0), focus (0, 2)'], ['d', 'y = 1/3', '', 'vertex (0, 0), directrix y = 1/3'], ['fd', '(5/2, 0)', 'x = -5/2', 'focus (5/2, 0), directrix x = −5/2'], ['lr', '(-1, 2)', '', 'latus rectum endpoints (−1, ±2)'],
+  ['d', 'x = -7/3', '', 'vertex (0, 0), directrix x = −7/3'], ['f', '(0, -2/5)', '', 'vertex (0, 0), focus (0, −2/5)'], ['lr', '(3, 3/2)', '', 'latus rectum endpoints (±3, 3/2)'], ['f', '(-6/5, 0)', '', 'focus (−6/5, 0), axis along the x-axis']];
 const parseLine = txt => { const m = String(txt).trim().replace(/−/g, '-').replace(/\s/g, '').match(/^([xy])=(.+)$/i); if (!m) return null; const c = CA.parseFrac(m[2]); return c ? [m[1].toLowerCase(), c] : null; };
 function solve(mode, g1, g2) {
   const fail = m => ({err: m}), steps = [];
@@ -134,11 +134,11 @@ CA.guided('103', [
   {q: 'The focus of x² = 12y is:', opts: ['(0, 3)', '(0, 12)', '(3, 0)', '(0, −3)'], correct: 0, hint: '4p = 12.', why: 'p = 3 and the axis is the y-axis.'},
   {q: 'The directrix of y² = −8x is:', opts: ['x = 2', 'x = −2', 'y = 2', 'x = 8'], correct: 0, hint: '4p = −8, and the directrix is x = −p.', why: 'p = −2, so the directrix is x = 2.'},
   {q: 'Which way does x² = −6y open?', keep: true, opts: ['up', 'down', 'left', 'right'], correct: 1, hint: 'x² = 4py with 4p = −6.', why: 'p &lt; 0 with x² = 4py: downward.', ref: {panel: 'read', what: 'the two standard forms', body: '<p>x² = 4py opens up if p &gt; 0 and down if p &lt; 0; y² = 4px opens right or left.</p>'}},
-  {q: 'Vertex (0, 0), focus (0, 2). The equation is:', opts: ['x² = 8y', 'x² = 2y', 'y² = 8x', 'x² = −8y'], correct: 0, hint: 'p = 2 in x² = 4py.', why: '4p = 8.', ref: {panel: 'build', what: 'Example 1 (i)', body: '<p>Vertex at <b>(0, 0)</b>, focus at <b>(0, 2)</b>.</p>'}},
-  {q: 'Vertex (0, 0), directrix y = 1/3. The equation is:', opts: ['x² = −(4/3)y', 'x² = (4/3)y', 'y² = −(4/3)x', 'x² = −(1/3)y'], correct: 0, hint: 'The directrix y = −p gives p = −1/3.', why: '4p = −4/3, and the directrix is horizontal, so x² = 4py.', ref: {panel: 'build', what: 'Example 1 (ii)', body: '<p>Vertex <b>(0, 0)</b>, directrix <b>y = 1/3</b>.</p>'}},
-  {q: 'The focus of 2x² = −y is:', opts: ['(0, −1/8)', '(0, −1/2)', '(0, −2)', '(−1/8, 0)'], correct: 0, hint: 'Divide by 2: x² = −(1/2)y, so 4p = −1/2.', why: 'p = −1/8.', ref: {panel: 'read', what: 'Example 2 (ii)', body: '<p>Find the focus, directrix, and latus rectum of <b>2x² = −y</b>.</p>'}},
-  {q: 'The latus rectum endpoints of −(1/2)y² = 9x are:', opts: ['(−9/2, ±9)', '(9/2, ±9)', '(±9, −9/2)', '(−18, ±36)'], correct: 0, hint: 'y² = −18x, so p = −9/2.', why: '(p, ±2p) = (−9/2, ±9).', ref: {panel: 'read', what: 'Example 2 (iv)', body: '<p>Find the features of <b>−(1/2)y² = 9x</b>.</p>'}},
-  {q: 'Vertex (0, 0) and latus rectum endpoints (−1, ±2). The equation is:', opts: ['y² = −4x', 'x² = −4y', 'y² = 4x', 'y² = −x'], correct: 0, hint: '(p, ±2p) with p = −1.', why: '4p = −4 and the axis is the x-axis.', ref: {panel: 'build', what: 'Example 1 (iv)', body: '<p>Vertex at <b>(0, 0)</b>, endpoints of latus rectum <b>(−1, ±2)</b>.</p>'}},
+  {q: 'Vertex (0, 0), focus (0, 2). The equation is:', opts: ['x² = 8y', 'x² = 2y', 'y² = 8x', 'x² = −8y'], correct: 0, hint: 'p = 2 in x² = 4py.', why: '4p = 8.', ref: {panel: 'build', what: 'the parabola with focus (0, 2)', body: '<p>Vertex at <b>(0, 0)</b>, focus at <b>(0, 2)</b>.</p>'}},
+  {q: 'Vertex (0, 0), directrix y = 1/3. The equation is:', opts: ['x² = −(4/3)y', 'x² = (4/3)y', 'y² = −(4/3)x', 'x² = −(1/3)y'], correct: 0, hint: 'The directrix y = −p gives p = −1/3.', why: '4p = −4/3, and the directrix is horizontal, so x² = 4py.', ref: {panel: 'build', what: 'the parabola with directrix y = 1/3', body: '<p>Vertex <b>(0, 0)</b>, directrix <b>y = 1/3</b>.</p>'}},
+  {q: 'The focus of 2x² = −y is:', opts: ['(0, −1/8)', '(0, −1/2)', '(0, −2)', '(−1/8, 0)'], correct: 0, hint: 'Divide by 2: x² = −(1/2)y, so 4p = −1/2.', why: 'p = −1/8.', ref: {panel: 'read', what: 'the parabola 2x² = −y', body: '<p>Find the focus, directrix, and latus rectum of <b>2x² = −y</b>.</p>'}},
+  {q: 'The latus rectum endpoints of −(1/2)y² = 9x are:', opts: ['(−9/2, ±9)', '(9/2, ±9)', '(±9, −9/2)', '(−18, ±36)'], correct: 0, hint: 'y² = −18x, so p = −9/2.', why: '(p, ±2p) = (−9/2, ±9).', ref: {panel: 'read', what: 'the parabola −(1/2)y² = 9x', body: '<p>Find the features of <b>−(1/2)y² = 9x</b>.</p>'}},
+  {q: 'Vertex (0, 0) and latus rectum endpoints (−1, ±2). The equation is:', opts: ['y² = −4x', 'x² = −4y', 'y² = 4x', 'y² = −x'], correct: 0, hint: '(p, ±2p) with p = −1.', why: '4p = −4 and the axis is the x-axis.', ref: {panel: 'build', what: 'the latus-rectum problem', body: '<p>Vertex at <b>(0, 0)</b>, endpoints of latus rectum <b>(−1, ±2)</b>.</p>'}},
   {q: 'Every point P on a parabola is the same distance from the focus as from:', opts: ['the directrix', 'the vertex', 'the latus rectum', 'the axis of symmetry'], correct: 0, hint: 'Recall the definition.', why: 'A parabola is the set of points equidistant from the focus and the directrix.'},
   {q: 'The length of the latus rectum of y² = 10x is:', opts: ['10', '5/2', '5', '20'], correct: 0, hint: 'The length is |4p|.', why: '4p = 10, so the latus rectum has length 10 (from (5/2, −5) to (5/2, 5)).'}
 ]);

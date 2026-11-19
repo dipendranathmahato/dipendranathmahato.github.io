@@ -8,7 +8,7 @@ const inQ = d => { const q = CA.quadName(d); return q.startsWith('on') ? q : 'in
 const rStr = r => { const f = CA.simpleFrac(r, 12); return f ? f.toString() : num(r, 3); };
 
 /* ---------- 01 · plotting ---------- */
-const PP = [['4', '2π/3', 'Example 1 (i) · A(4, 2π/3)'], ['-3', '7π/6', 'Example 1 (ii) · B(−3, 7π/6)'], ['5', '-π/4', '(5, −π/4)'], ['-2', 'π', '(−2, π)'], ['3', '-5π/6', '(3, −5π/6)']];
+const PP = [['4', '2π/3', 'A(4, 2π/3)'], ['-3', '7π/6', 'B(−3, 7π/6)'], ['5', '-π/4', '(5, −π/4)'], ['-2', 'π', '(−2, π)'], ['3', '-5π/6', '(3, −5π/6)']];
 CA.lab('pp-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Point', value: '1', options: PP.map((p, i) => [String(i), p[2]]).concat([['own', 'Set your own']])}, {type: 'range', key: 'r', label: 'r =', min: -5, max: 5, step: 0.5, value: -3}, {type: 'text', key: 't', label: 'θ =', value: '7π/6'}],
   plot: {xmin: -6, xmax: 6, ymin: -6, ymax: 6, labels: false, grid: false, w: 520, h: 520}, plotLabel: 'Polar grid with a plotted point', readouts: [['rt', '(r, θ)'], ['xy', '(x, y)'], ['alt', 'Other names']], steps: true
@@ -32,7 +32,7 @@ CA.lab('pp-lab', {
 function Frac_(r) { const f = CA.simpleFrac(r, 12); return f || r; }
 
 /* ---------- 02 · polar to rectangular ---------- */
-const PR = [['-4', '3π/2', 'Example 2 · (−4, 3π/2)'], ['5', '-5π/3', 'Checkpoint 2 · (5, −5π/3)'], ['-1/2', '2', 'Checkpoint 2 · (−1/2, 2)'], ['6', '5π/4', '(6, 5π/4)']];
+const PR = [['-4', '3π/2', '(−4, 3π/2)'], ['5', '-5π/3', '(5, −5π/3)'], ['-1/2', '2', '(−1/2, 2)'], ['6', '5π/4', '(6, 5π/4)']];
 CA.lab('pr-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Point', value: '0', options: PR.map((p, i) => [String(i), p[2]]).concat([['own', 'Set your own']])}, {type: 'text', key: 'r', label: 'r =', value: '-4'}, {type: 'text', key: 't', label: 'θ =', value: '3π/2'}],
   plot: {xmin: -7, xmax: 7, ymin: -7, ymax: 7, w: 480, h: 440}, plotLabel: 'Polar point and its rectangular coordinates', readouts: [['xy', '(x, y)']], steps: true
@@ -49,7 +49,7 @@ CA.lab('pr-lab', {
 });
 
 /* ---------- 03 · rectangular to polar ---------- */
-const RP = [[4, -2, 'Example 3 (i) · (4, −2)'], [-5, -6, 'Example 3 (ii) · (−5, −6)'], [7, 5, 'Checkpoint 3 · (7, 5)'], [-3, 1, 'Checkpoint 3 · (−3, 1)'], [-2, -6, 'Checkpoint 3 · (−2, −6)'], [9, -4, 'Checkpoint 3 · (9, −4)']];
+const RP = [[4, -2, '(4, −2)'], [-5, -6, '(−5, −6)'], [7, 5, '(7, 5)'], [-3, 1, '(−3, 1)'], [-2, -6, '(−2, −6)'], [9, -4, '(9, −4)']];
 let XY = [4, -2];
 const rp = CA.lab('rp-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Point', value: '0', options: RP.map((p, i) => [String(i), p[2]]).concat([['own', 'Drag your own']])}],
@@ -74,16 +74,16 @@ CA.drag(rp.svg, (x, y, ph) => { if (ph === 'start') { dragOn = Math.hypot(x - XY
 const circle = (cx, cy, r) => P => P.param(t => cx + r * Math.cos(t), t => cy + r * Math.sin(t), 0, 2 * PI, {color: 'orange', width: 8, opacity: 0.45});
 const line = (a, b, c) => P => { if (Math.abs(b) > 1e-12) P.curve(x => (c - a * x) / b, {color: 'orange', width: 8, opacity: 0.45}); else P.vline(c / a, {color: 'orange', dash: false, width: 8, opacity: 0.45}); };
 const EQ = [
-  {t: 'Example 4 (i) · x² + y² = 12', draw: circle(0, 0, Math.sqrt(12)), r: [t => Math.sqrt(12), t => -Math.sqrt(12)], polar: 'r = ±2√3', steps: [['Use x² + y² = r²', 'r² = 12'], ['Solve', 'r = ±√12 = ±2√3 (a circle of radius 2√3)']]},
-  {t: 'Example 4 (ii) · 3x + 5y = 2', draw: line(3, 5, 2), r: [t => 2 / (3 * Math.cos(t) + 5 * Math.sin(t))], polar: 'r = 2/(3 cos θ + 5 sin θ)', steps: [['Substitute x = r cos θ, y = r sin θ', '3r cos θ + 5r sin θ = 2'], ['Factor r', 'r(3 cos θ + 5 sin θ) = 2'], ['Solve for r', 'r = 2/(3 cos θ + 5 sin θ)']]},
-  {t: 'Example 4 (iii) · x² + y² = 4x', draw: circle(2, 0, 2), r: [t => 4 * Math.cos(t)], polar: 'r = 4 cos θ', steps: [['Substitute', 'r² = 4r cos θ'], ['Factor', 'r(r − 4 cos θ) = 0'], ['Drop r = 0 (only the pole, already on the curve)', 'r = 4 cos θ']]},
-  {t: 'Checkpoint 4 (i) · 2x − y = 6', draw: line(2, -1, 6), r: [t => 6 / (2 * Math.cos(t) - Math.sin(t))], polar: 'r = 6/(2 cos θ − sin θ)', steps: [['Substitute', '2r cos θ − r sin θ = 6'], ['Factor and solve', 'r = 6/(2 cos θ − sin θ)']]},
-  {t: 'Checkpoint 4 (ii) · 3x² + 5y = 1', draw: P => P.curve(x => (1 - 3 * x * x) / 5, {color: 'orange', width: 8, opacity: 0.45}), r: [t => { const a = 3 * Math.cos(t) ** 2, b = 5 * Math.sin(t); return Math.abs(a) < 1e-9 ? 1 / b : (-b + Math.sqrt(b * b + 4 * a)) / (2 * a); }, t => { const a = 3 * Math.cos(t) ** 2, b = 5 * Math.sin(t); return Math.abs(a) < 1e-9 ? NaN : (-b - Math.sqrt(b * b + 4 * a)) / (2 * a); }], polar: '3r² cos²θ + 5r sin θ = 1', steps: [['Substitute', '3(r cos θ)² + 5(r sin θ) = 1'], ['Simplify', '3r² cos²θ + 5r sin θ = 1 (a quadratic in r; leaving it in this form is fine)']]},
-  {t: 'Checkpoint 4 (iii) · x² + y² = 8y', draw: circle(0, 4, 4), r: [t => 8 * Math.sin(t)], polar: 'r = 8 sin θ', steps: [['Substitute', 'r² = 8r sin θ'], ['Factor and drop r = 0', 'r = 8 sin θ']]},
-  {t: 'Example 5 (i) · r = 3 cos θ', draw: circle(1.5, 0, 1.5), r: [t => 3 * Math.cos(t)], polar: 'r = 3 cos θ', rect: '(x − 3/2)² + y² = 9/4', steps: [['Multiply both sides by r', 'r² = 3r cos θ'], ['Substitute', 'x² + y² = 3x'], ['Complete the square', 'x² − 3x + 9/4 + y² = 9/4 ⟹ (x − 3/2)² + y² = 9/4']]},
-  {t: 'Example 5 (ii) · r = 4 sec θ', draw: line(1, 0, 4), r: [t => 4 / Math.cos(t)], polar: 'r = 4 sec θ', rect: 'x = 4', steps: [['Reciprocal identity', 'r = 4/cos θ'], ['Multiply by cos θ', 'r cos θ = 4'], ['Substitute', 'x = 4']]},
-  {t: 'Checkpoint 5 (i) · r = 7 sin θ', draw: circle(0, 3.5, 3.5), r: [t => 7 * Math.sin(t)], polar: 'r = 7 sin θ', rect: 'x² + (y − 7/2)² = 49/4', steps: [['Multiply by r', 'r² = 7r sin θ'], ['Substitute', 'x² + y² = 7y'], ['Complete the square', 'x² + (y − 7/2)² = 49/4']]},
-  {t: 'Checkpoint 5 (ii) · r = 2 csc θ', draw: line(0, 1, 2), r: [t => 2 / Math.sin(t)], polar: 'r = 2 csc θ', rect: 'y = 2', steps: [['Reciprocal identity', 'r = 2/sin θ'], ['Multiply by sin θ', 'r sin θ = 2'], ['Substitute', 'y = 2']]}
+  {t: 'x² + y² = 12', draw: circle(0, 0, Math.sqrt(12)), r: [t => Math.sqrt(12), t => -Math.sqrt(12)], polar: 'r = ±2√3', steps: [['Use x² + y² = r²', 'r² = 12'], ['Solve', 'r = ±√12 = ±2√3 (a circle of radius 2√3)']]},
+  {t: '3x + 5y = 2', draw: line(3, 5, 2), r: [t => 2 / (3 * Math.cos(t) + 5 * Math.sin(t))], polar: 'r = 2/(3 cos θ + 5 sin θ)', steps: [['Substitute x = r cos θ, y = r sin θ', '3r cos θ + 5r sin θ = 2'], ['Factor r', 'r(3 cos θ + 5 sin θ) = 2'], ['Solve for r', 'r = 2/(3 cos θ + 5 sin θ)']]},
+  {t: 'x² + y² = 4x', draw: circle(2, 0, 2), r: [t => 4 * Math.cos(t)], polar: 'r = 4 cos θ', steps: [['Substitute', 'r² = 4r cos θ'], ['Factor', 'r(r − 4 cos θ) = 0'], ['Drop r = 0 (only the pole, already on the curve)', 'r = 4 cos θ']]},
+  {t: '2x − y = 6', draw: line(2, -1, 6), r: [t => 6 / (2 * Math.cos(t) - Math.sin(t))], polar: 'r = 6/(2 cos θ − sin θ)', steps: [['Substitute', '2r cos θ − r sin θ = 6'], ['Factor and solve', 'r = 6/(2 cos θ − sin θ)']]},
+  {t: '3x² + 5y = 1', draw: P => P.curve(x => (1 - 3 * x * x) / 5, {color: 'orange', width: 8, opacity: 0.45}), r: [t => { const a = 3 * Math.cos(t) ** 2, b = 5 * Math.sin(t); return Math.abs(a) < 1e-9 ? 1 / b : (-b + Math.sqrt(b * b + 4 * a)) / (2 * a); }, t => { const a = 3 * Math.cos(t) ** 2, b = 5 * Math.sin(t); return Math.abs(a) < 1e-9 ? NaN : (-b - Math.sqrt(b * b + 4 * a)) / (2 * a); }], polar: '3r² cos²θ + 5r sin θ = 1', steps: [['Substitute', '3(r cos θ)² + 5(r sin θ) = 1'], ['Simplify', '3r² cos²θ + 5r sin θ = 1 (a quadratic in r; leaving it in this form is fine)']]},
+  {t: 'x² + y² = 8y', draw: circle(0, 4, 4), r: [t => 8 * Math.sin(t)], polar: 'r = 8 sin θ', steps: [['Substitute', 'r² = 8r sin θ'], ['Factor and drop r = 0', 'r = 8 sin θ']]},
+  {t: 'r = 3 cos θ', draw: circle(1.5, 0, 1.5), r: [t => 3 * Math.cos(t)], polar: 'r = 3 cos θ', rect: '(x − 3/2)² + y² = 9/4', steps: [['Multiply both sides by r', 'r² = 3r cos θ'], ['Substitute', 'x² + y² = 3x'], ['Complete the square', 'x² − 3x + 9/4 + y² = 9/4 ⟹ (x − 3/2)² + y² = 9/4']]},
+  {t: 'r = 4 sec θ', draw: line(1, 0, 4), r: [t => 4 / Math.cos(t)], polar: 'r = 4 sec θ', rect: 'x = 4', steps: [['Reciprocal identity', 'r = 4/cos θ'], ['Multiply by cos θ', 'r cos θ = 4'], ['Substitute', 'x = 4']]},
+  {t: 'r = 7 sin θ', draw: circle(0, 3.5, 3.5), r: [t => 7 * Math.sin(t)], polar: 'r = 7 sin θ', rect: 'x² + (y − 7/2)² = 49/4', steps: [['Multiply by r', 'r² = 7r sin θ'], ['Substitute', 'x² + y² = 7y'], ['Complete the square', 'x² + (y − 7/2)² = 49/4']]},
+  {t: 'r = 2 csc θ', draw: line(0, 1, 2), r: [t => 2 / Math.sin(t)], polar: 'r = 2 csc θ', rect: 'y = 2', steps: [['Reciprocal identity', 'r = 2/sin θ'], ['Multiply by sin θ', 'r sin θ = 2'], ['Substitute', 'y = 2']]}
 ];
 CA.lab('eq-lab', {
   controls: [{type: 'select', key: 'p', label: 'Equation', value: '2', options: EQ.map((e, i) => [String(i), e.t])}, {type: 'range', key: 'th', label: 'Trace θ up to', min: 0, max: 360, step: 5, value: 360, fmt: v => CA.radText(v)}],
@@ -102,13 +102,13 @@ CA.lab('eq-lab', {
 
 /* ---------- guided problems ---------- */
 CA.guided('83', [
-  {q: 'Where is the polar point (−3, 7π/6)?', keep: true, opts: ['Quadrant I', 'Quadrant II', 'Quadrant III', 'Quadrant IV'], correct: 0, hint: 'r &lt; 0: go the opposite way from the terminal side of 7π/6.', why: '7π/6 points into Quadrant III; a negative r sends the point to the opposite ray, in Quadrant I (at angle π/6).', ref: {panel: 'plot', what: 'Example 1 (ii)', body: '<p>Plot <b>B(−3, 7π/6)</b> on the polar grid.</p>'}},
+  {q: 'Where is the polar point (−3, 7π/6)?', keep: true, opts: ['Quadrant I', 'Quadrant II', 'Quadrant III', 'Quadrant IV'], correct: 0, hint: 'r &lt; 0: go the opposite way from the terminal side of 7π/6.', why: '7π/6 points into Quadrant III; a negative r sends the point to the opposite ray, in Quadrant I (at angle π/6).', ref: {panel: 'plot', what: 'the point B(−3, 7π/6)', body: '<p>Plot <b>B(−3, 7π/6)</b> on the polar grid.</p>'}},
   {q: 'Convert (−4, 3π/2) to rectangular coordinates.', opts: ['(0, 4)', '(0, −4)', '(4, 0)', '(−4, 0)'], correct: 0, hint: 'cos(3π/2) = 0, sin(3π/2) = −1.', why: 'x = −4 · 0 = 0 and y = −4 · (−1) = 4.'},
   {q: 'Convert (5, −5π/3) to rectangular coordinates.', opts: ['(5/2, 5√3/2)', '(5/2, −5√3/2)', '(5√3/2, 5/2)', '(−5/2, 5√3/2)'], correct: 0, hint: '−5π/3 is coterminal with π/3.', why: 'x = 5 cos(π/3) = 5/2 and y = 5 sin(π/3) = 5√3/2.'},
-  {q: 'For the rectangular point (4, −2), r = ?', opts: ['2√5', '√12', '2', '6'], correct: 0, hint: 'r² = 16 + 4.', why: 'r = √20 = 2√5.', ref: {panel: 'to-polar', what: 'Example 3 (i)', body: '<p>Convert <b>(4, −2)</b> to polar coordinates.</p>'}},
+  {q: 'For the rectangular point (4, −2), r = ?', opts: ['2√5', '√12', '2', '6'], correct: 0, hint: 'r² = 16 + 4.', why: 'r = √20 = 2√5.', ref: {panel: 'to-polar', what: 'the point (4, −2)', body: '<p>Convert <b>(4, −2)</b> to polar coordinates.</p>'}},
   {q: 'Which polar name is correct for (−5, −6)?', opts: ['(√61, ≈ 4.02)', '(√61, ≈ 0.88)', '(−√61, ≈ 4.02)', '(61, ≈ 0.88)'], correct: 0, hint: 'The point is in Quadrant III; tan⁻¹(6/5) ≈ 0.88 points into Quadrant I.', why: 'With r &gt; 0 add π: 0.88 + π ≈ 4.02. (−√61, 0.88) would also work.'},
   {q: 'Which is another name for the polar point (4, 2π/3)?', opts: ['(−4, 5π/3)', '(−4, 2π/3)', '(4, −2π/3)', '(4, 5π/3)'], correct: 0, hint: '(−r, θ + π).', why: '(−4, 2π/3 + π) = (−4, 5π/3) names the same point.'},
-  {q: 'Write x² + y² = 4x in polar form.', opts: ['r = 4 cos θ', 'r = 4 sin θ', 'r = 4', 'r² = 4 cos θ'], correct: 0, hint: 'r² = 4r cos θ.', why: 'Divide by r (r = 0 is already on the curve): r = 4 cos θ.', ref: {panel: 'equations', what: 'Example 4 (iii)', body: '<p>Write <b>x² + y² = 4x</b> in polar form.</p>'}},
+  {q: 'Write x² + y² = 4x in polar form.', opts: ['r = 4 cos θ', 'r = 4 sin θ', 'r = 4', 'r² = 4 cos θ'], correct: 0, hint: 'r² = 4r cos θ.', why: 'Divide by r (r = 0 is already on the curve): r = 4 cos θ.', ref: {panel: 'equations', what: 'the equation x² + y² = 4x', body: '<p>Write <b>x² + y² = 4x</b> in polar form.</p>'}},
   {q: 'Write 3x + 5y = 2 in polar form.', opts: ['r = 2/(3 cos θ + 5 sin θ)', 'r = 2(3 cos θ + 5 sin θ)', 'r = 3 cos θ + 5 sin θ − 2', 'r = 2/(3 sin θ + 5 cos θ)'], correct: 0, hint: 'Replace x and y, then factor r.', why: 'r(3 cos θ + 5 sin θ) = 2.'},
   {q: 'Write r = 4 sec θ in rectangular form.', opts: ['x = 4', 'y = 4', 'x² + y² = 16', 'x = 4y'], correct: 0, hint: 'Multiply by cos θ.', why: 'r cos θ = 4, which is x = 4.'},
   {q: 'Write r = 3 cos θ in rectangular form.', opts: ['(x − 3/2)² + y² = 9/4', 'x² + y² = 9', 'x = 3', '(x − 3)² + y² = 9'], correct: 0, hint: 'Multiply by r, then complete the square.', why: 'x² + y² = 3x, so (x − 3/2)² + y² = 9/4: a circle of radius 3/2 centered at (3/2, 0).'}

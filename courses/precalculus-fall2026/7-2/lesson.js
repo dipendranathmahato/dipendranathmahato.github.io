@@ -9,10 +9,10 @@ const P = s => `(${s})`;
 
 /* ---------- 02 · exact values ---------- */
 const SP = [
-  [420, 'cos', 120, '+', 300, 'deg', 'Example 1.1 · cos 420°'], [195, 'cos', 225, '-', 30, 'rad', 'Example 1.2 · cos(13π/12)'], [255, 'sin', 135, '+', 120, 'deg', 'Example 2.1 · sin 255°'],
-  [15, 'sin', 60, '-', 45, 'rad', 'Example 2.2 · sin(π/12)'], [105, 'tan', 45, '+', 60, 'deg', 'Example 3.1 · tan 105°'], [195, 'tan', 330, '-', 135, 'rad', 'Example 3.2 · tan(13π/12)'],
-  [345, 'cos', 300, '+', 45, 'rad', 'Checkpoint 1.1 · cos(23π/12)'], [15, 'cos', 45, '-', 30, 'deg', 'Checkpoint 1.2 · cos 15°'], [75, 'sin', 30, '+', 45, 'rad', 'Checkpoint 2.1 · sin(5π/12)'],
-  [75, 'sin', 120, '-', 45, 'deg', 'Checkpoint 2.2 · sin 75°'], [75, 'tan', 30, '+', 45, 'rad', 'Checkpoint 3.1 · tan(5π/12)'], [75, 'tan', 120, '-', 45, 'deg', 'Checkpoint 3.2 · tan 75°']
+  [420, 'cos', 120, '+', 300, 'deg', 'cos 420°'], [195, 'cos', 225, '-', 30, 'rad', 'cos(13π/12)'], [255, 'sin', 135, '+', 120, 'deg', 'sin 255°'],
+  [15, 'sin', 60, '-', 45, 'rad', 'sin(π/12)'], [105, 'tan', 45, '+', 60, 'deg', 'tan 105°'], [195, 'tan', 330, '-', 135, 'rad', 'tan(13π/12)'],
+  [345, 'cos', 300, '+', 45, 'rad', 'cos(23π/12)'], [15, 'cos', 45, '-', 30, 'deg', 'cos 15°'], [75, 'sin', 30, '+', 45, 'rad', 'sin(5π/12)'],
+  [75, 'sin', 120, '-', 45, 'deg', 'sin 75°'], [75, 'tan', 30, '+', 45, 'rad', 'tan(5π/12)'], [75, 'tan', 120, '-', 45, 'deg', 'tan 75°']
 ];
 let target = 420;
 CA.lab('sum-lab', {
@@ -50,7 +50,7 @@ CA.lab('sum-lab', {
 
 /* ---------- 03 · given a ratio and a quadrant ---------- */
 const FNS = [['sin', 'sin'], ['cos', 'cos'], ['tan', 'tan'], ['csc', 'csc'], ['sec', 'sec'], ['cot', 'cot']], QS = [['I', 'I'], ['II', 'II'], ['III', 'III'], ['IV', 'IV']];
-const GP = {ex: [['cos', 2, 5, 'IV'], ['cot', 4, 3, 'III'], 'Examples 1.3 and 2.3 · cos α = 2/5 (Q IV), cot β = 4/3 (Q III)'], cp: [['sin', 3, 5, 'II'], ['tan', 7, 2, 'I'], 'Checkpoint 2.3 · sin α = 3/5 (Q II), tan β = 7/2 (Q I)'], x: [['sin', -5, 13, 'III'], ['cos', 3, 5, 'IV'], 'sin α = −5/13 (Q III), cos β = 3/5 (Q IV)']};
+const GP = {ex: [['cos', 2, 5, 'IV'], ['cot', 4, 3, 'III'], 'cos α = 2/5 (Q IV), cot β = 4/3 (Q III)'], cp: [['sin', 3, 5, 'II'], ['tan', 7, 2, 'I'], 'sin α = 3/5 (Q II), tan β = 7/2 (Q I)'], x: [['sin', -5, 13, 'III'], ['cos', 3, 5, 'IV'], 'sin α = −5/13 (Q III), cos β = 3/5 (Q IV)']};
 const resolve = CA.resolveRatio;
 const tryDiv = (a, b) => { try { return b.isZero() ? null : a.div(b); } catch (e) { return a.v / b.v; } };
 CA.lab('giv-lab', {
@@ -88,11 +88,11 @@ CA.proof('co-proof', [
 CA.guided('72', [
   {q: 'Which formula is correct?', opts: ['cos(α + β) = cos α cos β − sin α sin β', 'cos(α + β) = cos α cos β + sin α sin β', 'cos(α + β) = cos α + cos β', 'cos(α + β) = sin α cos β + cos α sin β'], correct: 0, hint: 'The cosine formulas switch the sign.', why: 'cos(α + β) = cos α cos β − sin α sin β.'},
   {q: 'Which formula is correct?', opts: ['sin(α − β) = sin α cos β − cos α sin β', 'sin(α − β) = sin α cos β + cos α sin β', 'sin(α − β) = sin α − sin β', 'sin(α − β) = cos α cos β − sin α sin β'], correct: 0, hint: 'The sine formulas keep the sign.', why: 'sin(α − β) = sin α cos β − cos α sin β.'},
-  {q: 'cos 15° = ?', opts: ['(√6 + √2)/4', '(√6 − √2)/4', '(√3 − 1)/2', '√2/2 − √3/2'], correct: 0, hint: '15° = 45° − 30°.', why: 'cos 45° cos 30° + sin 45° sin 30° = (√6)/4 + (√2)/4.', ref: {panel: 'exact', what: 'Checkpoint 1.2', body: '<p>Use the difference formula of cosine to find <b>cos 15°</b>.</p>'}},
+  {q: 'cos 15° = ?', opts: ['(√6 + √2)/4', '(√6 − √2)/4', '(√3 − 1)/2', '√2/2 − √3/2'], correct: 0, hint: '15° = 45° − 30°.', why: 'cos 45° cos 30° + sin 45° sin 30° = (√6)/4 + (√2)/4.', ref: {panel: 'exact', what: 'the value cos 15°', body: '<p>Use the difference formula of cosine to find <b>cos 15°</b>.</p>'}},
   {q: 'sin(π/12) = ?', opts: ['(√6 − √2)/4', '(√6 + √2)/4', '(√2 − √6)/4', '1/2 − √2/2'], correct: 0, hint: 'π/12 = π/3 − π/4.', why: 'sin(π/3)cos(π/4) − cos(π/3)sin(π/4) = √6/4 − √2/4.'},
-  {q: 'tan 105° = ?', opts: ['−(2 + √3)', '2 + √3', '2 − √3', '−(2 − √3)'], correct: 0, hint: '105° = 45° + 60°, then rationalize.', why: '(1 + √3)/(1 − √3) = (1 + √3)²/(1 − 3) = (4 + 2√3)/(−2) = −(2 + √3).', ref: {panel: 'exact', what: 'Example 3.1', body: '<p>Find the exact value of <b>tan 105°</b>.</p>'}},
+  {q: 'tan 105° = ?', opts: ['−(2 + √3)', '2 + √3', '2 − √3', '−(2 − √3)'], correct: 0, hint: '105° = 45° + 60°, then rationalize.', why: '(1 + √3)/(1 − √3) = (1 + √3)²/(1 − 3) = (4 + 2√3)/(−2) = −(2 + √3).', ref: {panel: 'exact', what: 'the value tan 105°', body: '<p>Find the exact value of <b>tan 105°</b>.</p>'}},
   {q: 'cos(13π/12) = ?', opts: ['−(√6 + √2)/4', '(√6 + √2)/4', '−(√6 − √2)/4', '(√2 − √6)/4'], correct: 0, hint: '13π/12 = 5π/4 − π/6, Quadrant III.', why: 'cos(5π/4)cos(π/6) + sin(5π/4)sin(π/6) = −√6/4 − √2/4.'},
-  {q: 'Given cos α = 2/5 (3π/2 &lt; α &lt; 2π) and cot β = 4/3 (π &lt; β &lt; 3π/2), cos(α + β) = ?', opts: ['(−8 − 3√21)/25', '(−8 + 3√21)/25', '(8 − 3√21)/25', '(4√21 − 6)/25'], correct: 0, hint: 'sin α = −√21/5, sin β = −3/5, cos β = −4/5.', why: '(2/5)(−4/5) − (−√21/5)(−3/5) = −8/25 − 3√21/25.', ref: {panel: 'given', what: 'Example 1.3', body: '<p>cos α = <b>2/5</b>, 3π/2 &lt; α &lt; 2π; cot β = <b>4/3</b>, π &lt; β &lt; 3π/2. Find cos(α + β).</p>'}},
+  {q: 'Given cos α = 2/5 (3π/2 &lt; α &lt; 2π) and cot β = 4/3 (π &lt; β &lt; 3π/2), cos(α + β) = ?', opts: ['(−8 − 3√21)/25', '(−8 + 3√21)/25', '(8 − 3√21)/25', '(4√21 − 6)/25'], correct: 0, hint: 'sin α = −√21/5, sin β = −3/5, cos β = −4/5.', why: '(2/5)(−4/5) − (−√21/5)(−3/5) = −8/25 − 3√21/25.', ref: {panel: 'given', what: 'the angles α and β', body: '<p>cos α = <b>2/5</b>, 3π/2 &lt; α &lt; 2π; cot β = <b>4/3</b>, π &lt; β &lt; 3π/2. Find cos(α + β).</p>'}},
   {q: 'With the same α and β, sin(α + β) = ?', opts: ['(4√21 − 6)/25', '(−4√21 − 6)/25', '(6 − 4√21)/25', '(−8 − 3√21)/25'], correct: 0, hint: 'sin α cos β + cos α sin β.', why: '(−√21/5)(−4/5) + (2/5)(−3/5) = 4√21/25 − 6/25.', ref: {problem: 7, what: 'the same α and β'}},
   {q: 'Which is the difference formula for tangent?', opts: ['(tan α − tan β)/(1 + tan α tan β)', '(tan α − tan β)/(1 − tan α tan β)', '(tan α + tan β)/(1 + tan α tan β)', 'tan α − tan β'], correct: 0, hint: 'The denominator has the opposite sign of the numerator.', why: 'tan(α − β) = (tan α − tan β)/(1 + tan α tan β).'},
   {q: 'cos(π/2 − θ) equals…', opts: ['sin θ', 'cos θ', '−sin θ', '−cos θ'], correct: 0, hint: 'Use the difference formula with α = π/2.', why: 'cos(π/2)cos θ + sin(π/2)sin θ = sin θ.'}

@@ -103,8 +103,8 @@ def section_page(sid):
     num = s["id"].replace(".", "")
     body = expand_macros((SRC / "sections" / f'{s["slug"]}.html').read_text(), num)
     sub = panels(body)
-    hero = (f'<header class="ca-hero ca-hero-section"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> {C.COURSE} · '
-            f'WEEK {s["week"]} · SECTION {C.label(sid).upper()}</span><h1>{s["title"]}</h1><p class="ca-hero-question">{s["q"]}</p>'
+    hero = (f'<header class="ca-hero ca-hero-section"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> {C.COURSE} {C.NAME.upper()} · '
+            f'WEEK {s["week"]} · {C.label(sid).upper()}</span><h1>{s["title"]}</h1><p class="ca-hero-question">{s["q"]}</p>'
             f'<div class="ca-hero-links"><a class="ca-hero-home" href="{BASE}"><i class="fa-solid fa-house"></i> Course home</a>'
             f'<a href="{s["book"]}" rel="noopener" target="_blank"><i class="fa-solid fa-book"></i> Textbook reading · Section {C.number(sid)}</a></div></header>')
     bridge_from = ''
@@ -123,8 +123,8 @@ def section_page(sid):
             (f'<a href="{BASE}{nxt["slug"]}/">{C.label(nxt["id"])} · {nxt["title"]} →</a>' if nxt else '') + '</nav>'
     main = (hero + '<div class="ca-layout">' + toc(sid, sub) + '<div class="ca-content">' + bridge_from +
             f'<article class="ca-lesson" id="lesson-{num}">' + body + '</article>' + bridge_next + pager + '</div></div>')
-    title = f'{C.label(sid)} {s["title"]} · Precalculus | Dipendranath Mahato'
-    desc = f'Interactive notes for Precalculus ({C.COURSE}, UTRGV) Section {C.label(sid)}: {re.sub("<[^>]+>", "", s["blurb"])}'
+    title = f'{C.label(sid)} {s["title"]} · {C.NAME} | Dipendranath Mahato'
+    desc = f'Interactive notes for {C.NAME} ({C.COURSE}, UTRGV), {C.label(sid)}: {re.sub("<[^>]+>", "", s["blurb"])}'
     core = OUT / "assets" / "pc-core.js"
     lesson = OUT / s["slug"] / "lesson.js"
     scripts = (f'<script src="{BASE}assets/pc-core.js?v={ver(core)}"></script>\n<script src="{BASE}{s["slug"]}/lesson.js?v={ver(lesson)}"></script>')
@@ -132,9 +132,10 @@ def section_page(sid):
 
 
 def home_page():
-    hero = (f'<header class="ca-hero"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> UNIVERSITY OF TEXAS RIO GRANDE VALLEY · FALL 2026 · {C.COURSE}</span>'
-            '<h1>Precalculus — Interactive Course Notes</h1><p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 11:00 AM–12:15 PM '
-            '<span class="ca-hero-schedule-separator">·</span> Fri · 11:00–11:50 AM <span class="ca-hero-schedule-separator">·</span> EMAGC 1.206</p><div class="ca-hero-links">'
+    hero = (f'<header class="ca-hero"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> UNIVERSITY OF TEXAS RIO GRANDE VALLEY · FALL 2026 · {C.COURSE}-804</span>'
+            f'<h1>{C.NAME}<span class="ca-h1-sub">Interactive Course Notes</span></h1>'
+            '<p class="ca-hero-schedule"><i aria-hidden="true" class="fa-regular fa-calendar-days"></i> Tue &amp; Thu · 11:00 AM–12:15 PM '
+            '<span class="ca-hero-schedule-separator">·</span> Fri · 11:00–11:50 AM (Lab) <span class="ca-hero-schedule-separator">·</span> EMAGC 1.206</p><div class="ca-hero-links">'
             '<button class="ca-foundations-btn" id="foundations-open" type="button"><i class="fa-solid fa-layer-group"></i> Course Foundations</button>'
             '<a href="#sections" id="ca-this-week" hidden><i class="fa-solid fa-calendar-check"></i> <span>This week</span></a>' +
             f'<a href="{C.TEXTBOOK}5-introduction-to-trigonometric-functions" rel="noopener" target="_blank"><i class="fa-solid fa-book"></i> OpenStax Precalculus 2e (textbook)</a></div></header>')
@@ -165,7 +166,7 @@ def home_page():
     sched = []
     for w in sorted({C.by_id(sid)["week"] for sid in C.order()}):
         _, _, d = dates(w)
-        links = ', '.join(f'<a href="{BASE}{s["slug"]}/">{C.label(s["id"])} {s["title"]}</a>' for s in (C.by_id(x) for x in C.order()) if s["week"] == w)
+        links = ';<br>'.join(f'<a href="{BASE}{s["slug"]}/">{C.label(s["id"])} {s["title"]}</a>' for s in (C.by_id(x) for x in C.order()) if s["week"] == w)
         sched.append(f'<li><b>Week {w}</b> <small>{d}</small><span>{links}</span></li>')
     schedule = ('<details class="ca-schedule" id="weekly-order"><summary><i class="fa-solid fa-calendar-week"></i> Week-by-week order of the sections</summary>'
                 f'<ol>{"".join(sched)}</ol><p class="ca-note">Test dates, recitation labs, reviews, and breaks are in the syllabus and the Course Foundations panel.</p></details>')
@@ -184,8 +185,8 @@ const ls=now.map(e=>e.dataset.label);a.querySelector('span').textContent='This w
 document.getElementById('foundations-open').addEventListener('click',()=>{if(location.hash!==HASH)history.replaceState(null,'',HASH);});
 modal.addEventListener('close',()=>{if(location.hash===HASH)history.replaceState(null,'',location.pathname+location.search);});window.addEventListener('hashchange',open);open();})();"""
     scripts = f'<script>{grades}</script>\n<script>{thisweek}</script>\n<script>{dialog}</script>'
-    return shell('Precalculus · Interactive Notes | Dipendranath Mahato',
-                 f'Interactive course notes for Precalculus ({C.COURSE}) at UTRGV, Fall 2026: one interactive page per section, listed by chapter.', main, scripts)
+    return shell(f'{C.NAME} · Interactive Notes | Dipendranath Mahato',
+                 f'Interactive course notes for {C.NAME} ({C.COURSE}) at UTRGV, Fall 2026: one interactive page per section, listed by chapter.', main, scripts)
 
 
 def main():

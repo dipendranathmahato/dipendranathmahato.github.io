@@ -10,7 +10,7 @@ const valHTML = (fn, d, dp = 3) => isSpecial(d) ? CA.exact(fn, d).html() : num(C
 const valTxt = (fn, d, dp = 3) => isSpecial(d) ? CA.exact(fn, d).str() : num(CA.trig[fn](toRad(d)), dp);
 
 /* ---------- 01 · unit circle with draggable point ---------- */
-const UC_PRE = [['30', 't = 30° (π/6)'], ['83.6', 'Example 1 (a) · t ≈ 83.6°'], ['198.5', 'Example 1 (b) · t ≈ 198.5°'], ['135', 't = 135°'], ['240', 't = 240°'], ['300', 't = 300°'], ['90', 't = 90°'], ['180', 't = 180°']];
+const UC_PRE = [['30', 't = 30° (π/6)'], ['83.6', 't ≈ 83.6°'], ['198.5', 't ≈ 198.5°'], ['135', 't = 135°'], ['240', 't = 240°'], ['300', 't = 300°'], ['90', 't = 90°'], ['180', 't = 180°']];
 const signGrid = document.getElementById('sign-grid');
 const uc = CA.lab('uc-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Angle', value: '30', options: UC_PRE}, {type: 'range', key: 't', label: 't =', min: 0, max: 360, step: 0.1, value: 30, fmt: v => num(v, 1) + '°'},
@@ -38,7 +38,7 @@ CA.drag(uc.svg, (x, y, ph) => {
 });
 
 /* ---------- 02 · Pythagorean identity ---------- */
-const PY_PRE = {ex2: ['cos', 7, 25, 'IV', 'Example 2 · cos t = 7/25, Quadrant IV'], c1: ['cos', 2, 7, 'I', 'Checkpoint 2 (1) · cos t = 2/7, Quadrant I'], c2: ['sin', -3, 5, 'III', 'Checkpoint 2 (2) · sin t = −3/5, Quadrant III'], x1: ['sin', 5, 13, 'II', 'sin t = 5/13, Quadrant II']};
+const PY_PRE = {ex2: ['cos', 7, 25, 'IV', 'cos t = 7/25, Quadrant IV'], c1: ['cos', 2, 7, 'I', 'cos t = 2/7, Quadrant I'], c2: ['sin', -3, 5, 'III', 'sin t = −3/5, Quadrant III'], x1: ['sin', 5, 13, 'II', 'sin t = 5/13, Quadrant II']};
 CA.lab('pyth-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Problem', value: 'ex2', options: Object.entries(PY_PRE).map(([k, v]) => [k, v[4]]).concat([['own', 'Set your own']])},
     {type: 'seg', key: 'given', label: 'Given', value: 'cos', options: [['cos', 'cos t'], ['sin', 'sin t']]}, {type: 'number', key: 'n', label: 'Numerator', value: 7, step: 1}, {type: 'number', key: 'd', label: 'Denominator', value: 25, step: 1, min: 1},
@@ -101,9 +101,9 @@ function newQuiz() {
 }
 
 /* ---------- 04 · reference angles → exact values ---------- */
-const REF_PRE = [['120', 'deg', 'Example 3 (i) · 120°'], ['7π/6', 'rad', 'Example 3 (ii) · 7π/6'], ['315', 'deg', 'Example 3 (iii) · 315°'], ['800', 'deg', 'Example 3 (iv) · 800°'],
-  ['5π/6', 'rad', 'Checkpoint 3 · 5π/6'], ['238', 'deg', 'Checkpoint 3 · 238°'], ['150', 'deg', 'Example 4 (a) · 150°'], ['13π/4', 'rad', 'Example 4 (b) · 13π/4'],
-  ['23π/6', 'rad', 'Checkpoint 4 (a) · 23π/6'], ['480', 'deg', 'Checkpoint 4 (b) · 480°']];
+const REF_PRE = [['120', 'deg', '120°'], ['7π/6', 'rad', '7π/6'], ['315', 'deg', '315°'], ['800', 'deg', '800°'],
+  ['5π/6', 'rad', '5π/6'], ['238', 'deg', '238°'], ['150', 'deg', '150°'], ['13π/4', 'rad', '13π/4'],
+  ['23π/6', 'rad', '23π/6'], ['480', 'deg', '480°']];
 CA.lab('ref-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Angle', value: '6', options: REF_PRE.map((p, i) => [String(i), p[2]]).concat([['own', 'Type your own']])},
     {type: 'seg', key: 'unit', label: 'Unit', value: 'deg', options: [['deg', 'Degrees'], ['rad', 'Radians']]}, {type: 'text', key: 'val', label: 't =', value: '150', placeholder: '150 or 13π/4'}],
@@ -134,12 +134,12 @@ CA.guided('52', [
   {q: 'The terminal side of t meets the unit circle at (−0.6, 0.8). What is cos t?', fig: UCfig(126.87, '(−0.6, 0.8)'), opts: ['−0.6', '0.8', '−0.75', '0.6'], correct: 0, hint: 'cos t is the x-coordinate.', why: 'cos t = x = −0.6 (and sin t = y = 0.8).'},
   {q: 'What is sin(5π/6)?', opts: ['1/2', '−1/2', '√3/2', '−√3/2'], correct: 0, hint: '5π/6 is in Quadrant II with reference angle π/6.', why: 'sin(π/6) = 1/2, and y is positive in Quadrant II, so sin(5π/6) = 1/2.'},
   {q: 'What is cos(210°)?', opts: ['−√3/2', '√3/2', '−1/2', '1/2'], correct: 0, hint: 'Reference angle 30°, Quadrant III.', why: 'cos 30° = √3/2 and x is negative in Quadrant III, so cos 210° = −√3/2.'},
-  {q: 'If cos t = 7/25 and t is in Quadrant IV, what is sin t?', opts: ['−24/25', '24/25', '−18/25', '18/25'], correct: 0, hint: 'Use cos²t + sin²t = 1, then the sign of y in Quadrant IV.', why: 'sin²t = 1 − 49/625 = 576/625, so sin t = ±24/25. In Quadrant IV y &lt; 0: sin t = −24/25.', ref: {panel: 'pythagorean', what: 'Example 2', body: '<p>cos t = <b>7/25</b> and t is in <b>Quadrant IV</b>. Find sin t.</p>'}},
+  {q: 'If cos t = 7/25 and t is in Quadrant IV, what is sin t?', opts: ['−24/25', '24/25', '−18/25', '18/25'], correct: 0, hint: 'Use cos²t + sin²t = 1, then the sign of y in Quadrant IV.', why: 'sin²t = 1 − 49/625 = 576/625, so sin t = ±24/25. In Quadrant IV y &lt; 0: sin t = −24/25.', ref: {panel: 'pythagorean', what: 'the cos t = 7/25 problem', body: '<p>cos t = <b>7/25</b> and t is in <b>Quadrant IV</b>. Find sin t.</p>'}},
   {q: 'If sin t = −3/5 and t is in Quadrant III, what is cos t?', opts: ['−4/5', '4/5', '−2/5', '−√34/5'], correct: 0, hint: 'cos²t = 1 − 9/25.', why: 'cos²t = 16/25, so cos t = ±4/5; x &lt; 0 in Quadrant III, so cos t = −4/5.', ref: {problem: 4, what: 'the same method'}},
-  {q: 'What is the reference angle of 7π/6?', opts: ['π/6', '7π/6', '5π/6', 'π/3'], correct: 0, hint: '7π/6 is in Quadrant III.', why: '|π − 7π/6| = π/6.', ref: {panel: 'reference', what: 'Example 3 (ii)', body: '<p>Find the reference angle of <b>7π/6</b>.</p>'}},
+  {q: 'What is the reference angle of 7π/6?', opts: ['π/6', '7π/6', '5π/6', 'π/3'], correct: 0, hint: '7π/6 is in Quadrant III.', why: '|π − 7π/6| = π/6.', ref: {panel: 'reference', what: 'the reference angle of 7π/6', body: '<p>Find the reference angle of <b>7π/6</b>.</p>'}},
   {q: 'In which quadrant are both sin t and cos t negative?', keep: true, opts: ['Quadrant I', 'Quadrant II', 'Quadrant III', 'Quadrant IV'], correct: 2, hint: 'Both x and y are negative.', why: 'In Quadrant III both coordinates of the point are negative.'},
   {q: 'What is the range of y = sin t?', opts: ['[−1, 1]', '(−∞, ∞)', '[0, 1]', '[−π, π]'], correct: 0, hint: 'sin t is a coordinate of a point on the unit circle.', why: 'The y-coordinate of a point on the unit circle is between −1 and 1, inclusive.'},
-  {q: 'What is cos(13π/4)?', opts: ['−√2/2', '√2/2', '−1/2', '1'], correct: 0, hint: '13π/4 − 2π = 5π/4.', why: '5π/4 is in Quadrant III with reference angle π/4, so cos(13π/4) = −√2/2.', ref: {panel: 'reference', what: 'Example 4 (b)', body: '<p>Use the reference angle to find cos(<b>13π/4</b>) and sin(13π/4).</p>'}},
+  {q: 'What is cos(13π/4)?', opts: ['−√2/2', '√2/2', '−1/2', '1'], correct: 0, hint: '13π/4 − 2π = 5π/4.', why: '5π/4 is in Quadrant III with reference angle π/4, so cos(13π/4) = −√2/2.', ref: {panel: 'reference', what: 'the values at 13π/4', body: '<p>Use the reference angle to find cos(<b>13π/4</b>) and sin(13π/4).</p>'}},
   {q: 'What is sin(480°)?', opts: ['√3/2', '−√3/2', '1/2', '−1/2'], correct: 0, hint: '480° − 360° = 120°.', why: '120° is in Quadrant II with reference angle 60°: sin 480° = sin 120° = √3/2.'}
 ]);
 })();

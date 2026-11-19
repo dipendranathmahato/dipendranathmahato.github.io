@@ -24,7 +24,7 @@ const win = E => { const m = Math.max(E.a, E.b); return E.vertical ? {xmin: -(E.
 const LEG = [['orange', 'vertices'], ['green', 'co-vertices'], ['purple', 'foci']];
 
 /* ---------- 01 · equation → features ---------- */
-const PRE = [['18', '15', 'Example 2 (i) · x²/18 + y²/15 = 1'], ['9', '16', 'Example 2 (ii) · x²/9 + y²/16 = 1'], ['30', '20', 'Checkpoint 2 (i) · x²/30 + y²/20 = 1'], ['25', '40', 'Checkpoint 2 (ii) · x²/25 + y²/40 = 1']];
+const PRE = [['18', '15', 'x²/18 + y²/15 = 1'], ['9', '16', 'x²/9 + y²/16 = 1'], ['30', '20', 'x²/30 + y²/20 = 1'], ['25', '40', 'x²/25 + y²/40 = 1']];
 CA.lab('read-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Equation', value: '0', options: PRE.map((p, i) => [String(i), p[2]]).concat([['own', 'Set your own']])}, {type: 'text', key: 'x', label: 'Under x²', value: '18'}, {type: 'text', key: 'y', label: 'Under y²', value: '15'}],
   top: '<div class="ca-equation" id="read-eq"></div>', plot: {w: 560, h: 420}, plotLabel: 'Graph of the ellipse with its vertices, co-vertices, and foci', legend: LEG,
@@ -97,8 +97,8 @@ const fg = CA.lab('fg-lab', {
 
 /* ---------- guided problems ---------- */
 CA.guided('101b', [
-  {q: 'For x²/9 + y²/16 = 1, the major axis is:', keep: true, opts: ['along the x-axis', 'along the y-axis'], correct: 1, hint: 'Which denominator is larger?', why: '16 &gt; 9 and 16 is under y².', ref: {panel: 'read', what: 'Example 2 (ii)', body: '<p>Find the features of <b>x²/9 + y²/16 = 1</b>.</p>'}},
-  {q: 'The foci of x²/18 + y²/15 = 1 are:', opts: ['(±√3, 0)', '(±3, 0)', '(0, ±√3)', '(±√33, 0)'], correct: 0, hint: 'c² = 18 − 15.', why: 'c² = 3, so c = √3, and the major axis is along x.', ref: {panel: 'read', what: 'Example 2 (i)', body: '<p>Find the features of <b>x²/18 + y²/15 = 1</b>.</p>'}},
+  {q: 'For x²/9 + y²/16 = 1, the major axis is:', keep: true, opts: ['along the x-axis', 'along the y-axis'], correct: 1, hint: 'Which denominator is larger?', why: '16 &gt; 9 and 16 is under y².', ref: {panel: 'read', what: 'the ellipse x²/9 + y²/16 = 1', body: '<p>Find the features of <b>x²/9 + y²/16 = 1</b>.</p>'}},
+  {q: 'The foci of x²/18 + y²/15 = 1 are:', opts: ['(±√3, 0)', '(±3, 0)', '(0, ±√3)', '(±√33, 0)'], correct: 0, hint: 'c² = 18 − 15.', why: 'c² = 3, so c = √3, and the major axis is along x.', ref: {panel: 'read', what: 'the ellipse x²/18 + y²/15 = 1', body: '<p>Find the features of <b>x²/18 + y²/15 = 1</b>.</p>'}},
   {q: 'The vertices of x²/9 + y²/16 = 1 are:', opts: ['(0, ±4)', '(±3, 0)', '(0, ±16)', '(±4, 0)'], correct: 0, hint: 'a² = 16 is under y².', why: 'a = 4 along the y-axis.'},
   {q: 'For x²/49 + y²/24 = 1, c = ?', opts: ['5', '√73', '25', '7'], correct: 0, hint: 'c² = a² − b².', why: 'c² = 49 − 24 = 25, so c = 5.'},
   {q: 'The length of the major axis of x²/36 + y²/11 = 1 is:', opts: ['12', '6', '36', '2√11'], correct: 0, hint: 'The length is 2a.', why: 'a = 6, so 2a = 12.'},

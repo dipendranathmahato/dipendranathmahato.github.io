@@ -18,9 +18,9 @@ CA.lab('law-lab', {
 
 /* ---------- 02 · SAS ---------- */
 const SP = [
-  {t: 'Example 1 (1) · a = 25, b = 17, γ = 62°', s1: ['a', 25], s2: ['b', 17], ang: 62},
-  {t: 'Example 1 (2) · bus: 41 mi north, then 26 mi after turning 45° west', s1: ['b', 41], s2: ['c', 26], ang: 135, ctx: 'The bus travels 41 mi north, turns 45° toward the west, and travels 26 mi. The angle between the two legs at the turn is 180° − 45° = 135°. The distance back to the station is the side opposite that angle.', unit: 'mi'},
-  {t: 'Checkpoint 1 (1) · β = 106°, a = 11, c = 16', s1: ['a', 11], s2: ['c', 16], ang: 106},
+  {t: 'a = 25, b = 17, γ = 62°', s1: ['a', 25], s2: ['b', 17], ang: 62},
+  {t: 'Bus: 41 mi north, then 26 mi after turning 45° west', s1: ['b', 41], s2: ['c', 26], ang: 135, ctx: 'The bus travels 41 mi north, turns 45° toward the west, and travels 26 mi. The angle between the two legs at the turn is 180° − 45° = 135°. The distance back to the station is the side opposite that angle.', unit: 'mi'},
+  {t: 'β = 106°, a = 11, c = 16', s1: ['a', 11], s2: ['c', 16], ang: 106},
   {t: 'a = 8, c = 5, β = 40°', s1: ['a', 8], s2: ['c', 5], ang: 40}
 ];
 const GR = {a: 'α', b: 'β', c: 'γ'};
@@ -42,7 +42,7 @@ CA.lab('sas-lab', {
 });
 
 /* ---------- 03 · SSS ---------- */
-const SS = [[16, 13, 20, 'Example 2 · a = 16, b = 13, c = 20'], [35, 29, 21, 'Checkpoint 2 · a = 35, b = 29, c = 21'], [5, 7, 10, 'a = 5, b = 7, c = 10'], [3, 4, 9, 'a = 3, b = 4, c = 9 (impossible)']];
+const SS = [[16, 13, 20, 'a = 16, b = 13, c = 20'], [35, 29, 21, 'a = 35, b = 29, c = 21'], [5, 7, 10, 'a = 5, b = 7, c = 10'], [3, 4, 9, 'a = 3, b = 4, c = 9 (impossible)']];
 CA.lab('sss-lab', {
   controls: [{type: 'select', key: 'p', label: 'Triangle', value: '0', options: SS.map((p, i) => [String(i), p[3]]).concat([['own', 'Set your own']])}, {type: 'number', key: 'a', label: 'a =', value: 16, min: 0.1, step: 0.1}, {type: 'number', key: 'b', label: 'b =', value: 13, min: 0.1, step: 0.1}, {type: 'number', key: 'c', label: 'c =', value: 20, min: 0.1, step: 0.1}],
   middle: '<svg id="sss-svg" role="img" aria-label="Solved SSS triangle"></svg>', readouts: [['ang', 'Angles'], ['type', 'Type']], steps: true
@@ -59,7 +59,7 @@ CA.lab('sss-lab', {
 });
 
 /* ---------- 04 · Heron ---------- */
-const HP = [[47, 58, 62, 'Example 3 · a = 47, b = 58, c = 62'], [18, 24, 27, 'Checkpoint 3 · a = 18, b = 24, c = 27'], [3, 4, 5, '3-4-5 right triangle']];
+const HP = [[47, 58, 62, 'a = 47, b = 58, c = 62'], [18, 24, 27, 'a = 18, b = 24, c = 27'], [3, 4, 5, '3-4-5 right triangle']];
 CA.lab('her-lab', {
   controls: [{type: 'select', key: 'p', label: 'Triangle', value: '0', options: HP.map((p, i) => [String(i), p[3]])}],
   readouts: [['s', 's'], ['her', "Heron's formula"], ['sin', '½ab sin γ (check)']], steps: true
@@ -84,7 +84,7 @@ CA.cards('which-cards', [
 CA.guided('82', [
   {q: 'Which is the Law of Cosines for side c?', opts: ['c² = a² + b² − 2ab cos γ', 'c² = a² + b² + 2ab cos γ', 'c² = a² + b² − 2ab sin γ', 'c = a + b − 2ab cos γ'], correct: 0, hint: 'γ is the angle opposite c.', why: 'c² = a² + b² − 2ab cos γ.'},
   {q: 'Which given information calls for the Law of Cosines first?', opts: ['SAS', 'AAS', 'ASA', 'SSA'], correct: 0, hint: 'Is there a known angle with its opposite side?', why: 'In SAS the known angle is between the known sides, so no opposite pair is known.'},
-  {q: 'For a = 25, b = 17, γ = 62°, c ≈ ?', opts: ['22.7', '30.2', '42.0', '18.4'], correct: 0, hint: 'c² = 625 + 289 − 850 cos 62°.', why: 'c² ≈ 914 − 399.1 ≈ 514.9, so c ≈ 22.7.', ref: {panel: 'sas', what: 'Example 1 (1)', body: '<p>Solve the triangle with <b>a = 25, b = 17, γ = 62°</b>.</p>'}},
+  {q: 'For a = 25, b = 17, γ = 62°, c ≈ ?', opts: ['22.7', '30.2', '42.0', '18.4'], correct: 0, hint: 'c² = 625 + 289 − 850 cos 62°.', why: 'c² ≈ 914 − 399.1 ≈ 514.9, so c ≈ 22.7.', ref: {panel: 'sas', what: 'the triangle a = 25, b = 17, γ = 62°', body: '<p>Solve the triangle with <b>a = 25, b = 17, γ = 62°</b>.</p>'}},
   {q: 'In the same triangle, α ≈ ?', opts: ['76.6°', '41.4°', '62.0°', '103.4°'], correct: 0, hint: 'α = cos⁻¹((b² + c² − a²)/(2bc)).', why: 'cos⁻¹((289 + 515.3 − 625)/(2 · 17 · 22.7)) ≈ 76.6°.', ref: {problem: 3, what: 'the same triangle'}},
   {q: 'For a = 16, b = 13, c = 20, α ≈ ?', opts: ['53.0°', '40.5°', '86.5°', '60.0°'], correct: 0, hint: 'cos α = (13² + 20² − 16²)/(2 · 13 · 20).', why: 'cos α = 313/520 ≈ 0.6019, α ≈ 53.0°.'},
   {q: 'A bus goes 41 mi north, turns 45° toward the west, and goes 26 mi. How far is it from the start?', opts: ['≈ 62.2 mi', '≈ 29.1 mi', '≈ 67.0 mi', '≈ 48.5 mi'], correct: 0, hint: 'The angle between the legs is 135°.', why: 'd² = 26² + 41² − 2(26)(41) cos 135° ≈ 3864.6, so d ≈ 62.2 mi.'},

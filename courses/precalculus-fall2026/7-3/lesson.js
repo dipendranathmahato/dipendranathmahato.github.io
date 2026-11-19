@@ -7,7 +7,7 @@ const show = (d, u) => u === 'rad' ? CA.radText(d) : `${fmt(d)}°`;
 const FNS = [['sin', 'sin'], ['cos', 'cos'], ['tan', 'tan'], ['csc', 'csc'], ['sec', 'sec'], ['cot', 'cot']], QS = [['I', 'I'], ['II', 'II'], ['III', 'III'], ['IV', 'IV']];
 
 /* ---------- 01a · double a special angle ---------- */
-const DS = [[600, 'sin', 'deg', 'Example 1 (i) · sin 600°'], [480, 'cos', 'rad', 'Example 1 (ii) · cos(8π/3)'], [120, 'sin', 'deg', 'sin 120° from 60°'], [300, 'tan', 'deg', 'tan 300° from 150°'], [270, 'cos', 'rad', 'cos(3π/2) from 3π/4']];
+const DS = [[600, 'sin', 'deg', 'sin 600°'], [480, 'cos', 'rad', 'cos(8π/3)'], [120, 'sin', 'deg', 'sin 120° from 60°'], [300, 'tan', 'deg', 'tan 300° from 150°'], [270, 'cos', 'rad', 'cos(3π/2) from 3π/4']];
 CA.lab('dsp-lab', {
   controls: [{type: 'select', key: 'p', label: 'Problem', value: '0', options: DS.map((d, i) => [String(i), d[3]])}, {type: 'seg', key: 'cf', label: 'cos 2α form', value: 'a', options: [['a', 'cos²α − sin²α'], ['b', '1 − 2sin²α'], ['c', '2cos²α − 1']]}],
   readouts: [['ans', 'Exact value'], ['chk', 'Calculator check']], steps: true
@@ -23,7 +23,7 @@ CA.lab('dsp-lab', {
 });
 
 /* ---------- 01b · double an angle given by a ratio ---------- */
-const DB = {e3: ['tan', 3, 2, 'I', 'Example 1 (iii) · tan θ = 3/2, 0 < θ < π/2'], e4: ['cos', 4, 5, 'I', 'Example 1 (iv) · cos θ = 4/5, 0 < θ < π/2'], e5: ['sin', -2, 5, 'III', 'Example 1 (v) · sin θ = −2/5, π < θ < 3π/2'], c1: ['tan', 4, 3, 'III', 'Checkpoint 1 · tan θ = 4/3, π < θ < 3π/2']};
+const DB = {e3: ['tan', 3, 2, 'I', 'tan θ = 3/2, 0 < θ < π/2'], e4: ['cos', 4, 5, 'I', 'cos θ = 4/5, 0 < θ < π/2'], e5: ['sin', -2, 5, 'III', 'sin θ = −2/5, π < θ < 3π/2'], c1: ['tan', 4, 3, 'III', 'tan θ = 4/3, π < θ < 3π/2']};
 CA.lab('dbl-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Problem', value: 'c1', options: Object.entries(DB).map(([k, v]) => [k, v[4]]).concat([['own', 'Set your own']])},
     {type: 'select', key: 'f', label: 'Given', value: 'tan', options: FNS}, {type: 'number', key: 'p', label: 'numerator', value: 4, step: 1}, {type: 'number', key: 'q', label: 'denominator', value: 3, step: 1}, {type: 'select', key: 'Q', label: 'θ in Quadrant', value: 'III', options: QS},
@@ -46,8 +46,8 @@ CA.lab('dbl-lab', {
 });
 
 /* ---------- 02 · half of a special angle ---------- */
-const HS = [[15, 'sin', 'deg', 'Example 2 (i) · sin 15°'], [105, 'cos', 'rad', 'Example 2 (ii) · cos(7π/12)'], [22.5, 'tan', 'deg', 'Example 2 (iii) · tan 22.5°'], [157.5, 'sin', 'rad', 'Checkpoint 2 (i) · sin(7π/8)'],
-  [75, 'cos', 'deg', 'Checkpoint 2 (ii) · cos 75°'], [15, 'tan', 'deg', 'Checkpoint 2 (iii) · tan 15°'], [112.5, 'cos', 'deg', 'cos 112.5°'], [67.5, 'sin', 'rad', 'sin(3π/8)']];
+const HS = [[15, 'sin', 'deg', 'sin 15°'], [105, 'cos', 'rad', 'cos(7π/12)'], [22.5, 'tan', 'deg', 'tan 22.5°'], [157.5, 'sin', 'rad', 'sin(7π/8)'],
+  [75, 'cos', 'deg', 'cos 75°'], [15, 'tan', 'deg', 'tan 15°'], [112.5, 'cos', 'deg', 'cos 112.5°'], [67.5, 'sin', 'rad', 'sin(3π/8)']];
 CA.lab('half-lab', {
   controls: [{type: 'select', key: 'p', label: 'Problem', value: '0', options: HS.map((d, i) => [String(i), d[3]])}, {type: 'seg', key: 'tf', label: 'tan form', value: 'b', options: [['a', '(1 − cos α)/sin α'], ['b', 'sin α/(1 + cos α)']]}],
   plot: {xmin: -1.4, xmax: 1.4, ymin: -1.2, ymax: 1.2, w: 460, h: 340, xstep: 0.5, ystep: 0.5}, plotLabel: 'The half angle and the full angle on the unit circle', readouts: [['al', 'α = 2 × target'], ['sg', 'Sign'], ['ans', 'Exact value'], ['chk', 'Calculator check']], steps: true
@@ -71,7 +71,7 @@ CA.lab('half-lab', {
 });
 
 /* ---------- 03 · half of an angle given by a ratio ---------- */
-const HG = {e4: ['cos', 1, 5, 'IV', 'Example 2 (iv) · cos θ = 1/5, 3π/2 < θ < 2π'], c4: ['sin', -5, 13, 'III', 'Checkpoint 2 (iv) · sin θ = −5/13, π < θ < 3π/2'], x: ['cos', -7, 25, 'II', 'cos θ = −7/25, π/2 < θ < π']};
+const HG = {e4: ['cos', 1, 5, 'IV', 'cos θ = 1/5, 3π/2 < θ < 2π'], c4: ['sin', -5, 13, 'III', 'sin θ = −5/13, π < θ < 3π/2'], x: ['cos', -7, 25, 'II', 'cos θ = −7/25, π/2 < θ < π']};
 const HALFQ = {I: ['0 &lt; θ/2 &lt; π/4', 'I'], II: ['π/4 &lt; θ/2 &lt; π/2', 'I'], III: ['π/2 &lt; θ/2 &lt; 3π/4', 'II'], IV: ['3π/4 &lt; θ/2 &lt; π', 'II']};
 CA.lab('hg-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Problem', value: 'e4', options: Object.entries(HG).map(([k, v]) => [k, v[4]]).concat([['own', 'Set your own']])},
@@ -95,13 +95,13 @@ CA.lab('hg-lab', {
 CA.guided('73', [
   {q: 'sin(2α) = ?', opts: ['2 sin α cos α', '2 sin α', 'sin²α − cos²α', '2 sin α + 2 cos α'], correct: 0, hint: 'Set β = α in sin(α + β).', why: 'sin α cos α + cos α sin α = 2 sin α cos α.'},
   {q: 'Which is NOT a correct formula for cos(2α)?', opts: ['2 sin²α − 1', 'cos²α − sin²α', '1 − 2 sin²α', '2 cos²α − 1'], correct: 0, hint: 'Check α = 0.', why: 'At α = 0, cos 0 = 1 but 2 sin²0 − 1 = −1. The correct form is 1 − 2 sin²α.'},
-  {q: 'Use 600° = 2 × 300° to find sin 600°.', opts: ['−√3/2', '√3/2', '−1/2', '1/2'], correct: 0, hint: 'sin 300° = −√3/2 and cos 300° = 1/2.', why: '2(−√3/2)(1/2) = −√3/2.', ref: {panel: 'double', what: 'Example 1 (i)', body: '<p>Use a double-angle formula to find <b>sin 600°</b>.</p>'}},
+  {q: 'Use 600° = 2 × 300° to find sin 600°.', opts: ['−√3/2', '√3/2', '−1/2', '1/2'], correct: 0, hint: 'sin 300° = −√3/2 and cos 300° = 1/2.', why: '2(−√3/2)(1/2) = −√3/2.', ref: {panel: 'double', what: 'the value sin 600°', body: '<p>Use a double-angle formula to find <b>sin 600°</b>.</p>'}},
   {q: 'If tan θ = 3/2 and 0 &lt; θ &lt; π/2, tan(2θ) = ?', opts: ['−12/5', '12/5', '3', '−3/5'], correct: 0, hint: '2 tan θ/(1 − tan²θ).', why: '3/(1 − 9/4) = 3/(−5/4) = −12/5.'},
   {q: 'If cos θ = 4/5 and 0 &lt; θ &lt; π/2, cos(2θ) = ?', opts: ['7/25', '8/5', '24/25', '−7/25'], correct: 0, hint: 'Use 2cos²θ − 1.', why: '2(16/25) − 1 = 7/25.'},
-  {q: 'If sin θ = −2/5 and π &lt; θ &lt; 3π/2, sin(2θ) = ?', opts: ['4√21/25', '−4√21/25', '−4/5', '2√21/25'], correct: 0, hint: 'cos θ = −√21/5.', why: '2(−2/5)(−√21/5) = 4√21/25.', ref: {panel: 'double', what: 'Example 1 (v)', body: '<p>sin θ = <b>−2/5</b> and π &lt; θ &lt; 3π/2. Find sin(2θ).</p>'}},
+  {q: 'If sin θ = −2/5 and π &lt; θ &lt; 3π/2, sin(2θ) = ?', opts: ['4√21/25', '−4√21/25', '−4/5', '2√21/25'], correct: 0, hint: 'cos θ = −√21/5.', why: '2(−2/5)(−√21/5) = 4√21/25.', ref: {panel: 'double', what: 'the sin θ = −2/5 problem', body: '<p>sin θ = <b>−2/5</b> and π &lt; θ &lt; 3π/2. Find sin(2θ).</p>'}},
   {q: 'sin 15° = ?', opts: ['√(2 − √3)/2', '√(2 + √3)/2', '(√3 − 1)/2', '√3/4'], correct: 0, hint: '15° = 30°/2 and cos 30° = √3/2.', why: '√((1 − √3/2)/2) = √((2 − √3)/4) = √(2 − √3)/2 (positive in Quadrant I).'},
   {q: 'cos(7π/12) is…', opts: ['negative, because 7π/12 is in Quadrant II', 'positive, because 7π/6 is in Quadrant III', 'positive, because square roots are positive', 'zero'], correct: 0, hint: 'The sign comes from the half angle.', why: '7π/12 ≈ 105° is in Quadrant II, where cosine is negative: cos(7π/12) = −√(2 − √3)/2.'},
   {q: 'tan 22.5° = ?', opts: ['√2 − 1', '√2 + 1', '(2 − √2)/2', '1/2'], correct: 0, hint: '(1 − cos 45°)/sin 45°.', why: '(1 − √2/2)/(√2/2) = (2 − √2)/√2 = √2 − 1.'},
-  {q: 'If cos θ = 1/5 and 3π/2 &lt; θ &lt; 2π, cos(θ/2) = ?', opts: ['−√15/5', '√15/5', '−√10/5', '√10/5'], correct: 0, hint: 'θ/2 is in Quadrant II; cos(θ/2) uses 1 + cos θ.', why: '−√((1 + 1/5)/2) = −√(3/5) = −√15/5. (−√10/5 would come from 1 − cos θ.)', ref: {panel: 'half-given', what: 'Example 2 (iv)', body: '<p>cos θ = <b>1/5</b> and 3π/2 &lt; θ &lt; 2π. Find cos(θ/2).</p>'}}
+  {q: 'If cos θ = 1/5 and 3π/2 &lt; θ &lt; 2π, cos(θ/2) = ?', opts: ['−√15/5', '√15/5', '−√10/5', '√10/5'], correct: 0, hint: 'θ/2 is in Quadrant II; cos(θ/2) uses 1 + cos θ.', why: '−√((1 + 1/5)/2) = −√(3/5) = −√15/5. (−√10/5 would come from 1 − cos θ.)', ref: {panel: 'half-given', what: 'the cos θ = 1/5 problem', body: '<p>cos θ = <b>1/5</b> and 3π/2 &lt; θ &lt; 2π. Find cos(θ/2).</p>'}}
 ]);
 })();

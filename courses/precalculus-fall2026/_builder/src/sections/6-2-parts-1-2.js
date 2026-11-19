@@ -26,10 +26,10 @@ CA.lab('tan-lab', {
 
 /* ---------- 02 · tangent lab ---------- */
 const TP = [
-  {label: 'Example 1 (i) · y = 2 tan(x/3)', fn: 'tan', A: '2', B: '1/3', C: '0', D: '0'}, {label: 'Example 1 (ii) · y = −½ tan(πx)', fn: 'tan', A: '-1/2', B: 'π', C: '0', D: '0'},
-  {label: 'Checkpoint 1 (i) · y = −4 tan(2x)', fn: 'tan', A: '-4', B: '2', C: '0', D: '0'}, {label: 'Checkpoint 1 (ii) · y = (2/3) tan(πx/4)', fn: 'tan', A: '2/3', B: 'π/4', C: '0', D: '0'},
-  {label: 'Example 2 (i) · y = 3 tan(πx/4 − π/3) − 1', fn: 'tan', A: '3', B: 'π/4', C: 'π/3', D: '-1'}, {label: 'Example 2 (ii) · y = −tan(x/3 + π/4) + 2', fn: 'tan', A: '-1', B: '1/3', C: '-π/4', D: '2'},
-  {label: 'Checkpoint 2 (i) · y = 4 tan(πx/3 + π/6) − 2', fn: 'tan', A: '4', B: 'π/3', C: '-π/6', D: '-2'}, {label: 'Checkpoint 2 (ii) · y = −(5/2) tan(2x − π/3) + 4', fn: 'tan', A: '-5/2', B: '2', C: 'π/3', D: '4'}
+  {label: 'y = 2 tan(x/3)', fn: 'tan', A: '2', B: '1/3', C: '0', D: '0'}, {label: 'y = −½ tan(πx)', fn: 'tan', A: '-1/2', B: 'π', C: '0', D: '0'},
+  {label: 'y = −4 tan(2x)', fn: 'tan', A: '-4', B: '2', C: '0', D: '0'}, {label: 'y = (2/3) tan(πx/4)', fn: 'tan', A: '2/3', B: 'π/4', C: '0', D: '0'},
+  {label: 'y = 3 tan(πx/4 − π/3) − 1', fn: 'tan', A: '3', B: 'π/4', C: 'π/3', D: '-1'}, {label: 'y = −tan(x/3 + π/4) + 2', fn: 'tan', A: '-1', B: '1/3', C: '-π/4', D: '2'},
+  {label: 'y = 4 tan(πx/3 + π/6) − 2', fn: 'tan', A: '4', B: 'π/3', C: '-π/6', D: '-2'}, {label: 'y = −(5/2) tan(2x − π/3) + 4', fn: 'tan', A: '-5/2', B: '2', C: 'π/3', D: '4'}
 ];
 CA.waveLab('tan-wave', {fns: ['tan'], presets: TP, readouts: [['dir', 'Stretch and direction'], ['per', 'Period'], ['ph', 'Phase shift'], ['asy', 'Asymptotes (highlighted period)'], ['pts', 'Reference points']],
   update(lab, w) {
@@ -52,8 +52,8 @@ CA.waveLab('tan-wave', {fns: ['tan'], presets: TP, readouts: [['dir', 'Stretch a
 
 /* ---------- 03 · cotangent lab ---------- */
 const CP = [
-  {label: 'Example 3 · y = 2 cot(x/3)', fn: 'cot', A: '2', B: '1/3', C: '0', D: '0'}, {label: 'Checkpoint 3 · y = −4 cot(2x)', fn: 'cot', A: '-4', B: '2', C: '0', D: '0'},
-  {label: 'Example 4 · y = 3 cot(πx/4 − π/3) − 1', fn: 'cot', A: '3', B: 'π/4', C: 'π/3', D: '-1'}, {label: 'Checkpoint 4 · y = ½ cot(2x − π/3) + 4', fn: 'cot', A: '1/2', B: '2', C: 'π/3', D: '4'},
+  {label: 'y = 2 cot(x/3)', fn: 'cot', A: '2', B: '1/3', C: '0', D: '0'}, {label: 'y = −4 cot(2x)', fn: 'cot', A: '-4', B: '2', C: '0', D: '0'},
+  {label: 'y = 3 cot(πx/4 − π/3) − 1', fn: 'cot', A: '3', B: 'π/4', C: 'π/3', D: '-1'}, {label: 'y = ½ cot(2x − π/3) + 4', fn: 'cot', A: '1/2', B: '2', C: 'π/3', D: '4'},
   {label: 'Parent · y = cot x', fn: 'cot', A: '1', B: '1', C: '0', D: '0'}
 ];
 CA.waveLab('cot-wave', {fns: ['cot'], presets: CP, readouts: [['dir', 'Stretch and direction'], ['per', 'Period'], ['asy', 'Asymptotes (highlighted period)'], ['pts', 'Reference points']],
@@ -89,10 +89,10 @@ CA.cards('match-cards', [
 CA.guided('62a', [
   {q: 'What is the period of y = tan x?', opts: ['π', '2π', 'π/2', '4π'], correct: 0, hint: 'The tangent graph repeats on intervals of kπ.', why: 'tan(x + π) = tan x, so the period is π.'},
   {q: 'Where does y = tan x have vertical asymptotes?', opts: ['x = π/2 + kπ', 'x = kπ', 'x = 2kπ', 'x = π/4 + kπ'], correct: 0, hint: 'Where is cos x = 0?', why: 'tan x = sin x/cos x is undefined at the odd multiples of π/2.'},
-  {q: 'What is the period of y = 2 tan(x/3)?', opts: ['3π', 'π/3', '6π', '2π/3'], correct: 0, hint: 'P = π/|B| with B = 1/3.', why: 'P = π ÷ (1/3) = 3π.', ref: {panel: 'tan-transform', what: 'Example 1 (i)', body: '<p>Sketch <b>y = 2 tan(x/3)</b> over one period.</p>'}},
+  {q: 'What is the period of y = 2 tan(x/3)?', opts: ['3π', 'π/3', '6π', '2π/3'], correct: 0, hint: 'P = π/|B| with B = 1/3.', why: 'P = π ÷ (1/3) = 3π.', ref: {panel: 'tan-transform', what: 'the graph of y = 2 tan(x/3)', body: '<p>Sketch <b>y = 2 tan(x/3)</b> over one period.</p>'}},
   {q: 'Which are the asymptotes of one period of y = 2 tan(x/3)?', opts: ['x = −3π/2 and x = 3π/2', 'x = −π/2 and x = π/2', 'x = −3π and x = 3π', 'x = −π/6 and x = π/6'], correct: 0, hint: 'x = ±P/2.', why: 'P = 3π, so x = ±3π/2.', ref: {problem: 3, what: 'the same function'}},
   {q: 'Which point is on one period of y = −½ tan(πx)?', opts: ['(1/4, −1/2)', '(1/4, 1/2)', '(1/2, −1/2)', '(π/4, −1/2)'], correct: 0, hint: 'P = 1; the point (P/4, A).', why: 'P = π/π = 1 and A = −1/2, so (P/4, A) = (1/4, −1/2).'},
-  {q: 'What is the phase shift of y = 3 tan(πx/4 − π/3) − 1?', opts: ['4/3 to the right', 'π/3 to the right', '3/4 to the right', '4/3 to the left'], correct: 0, hint: 'C/B = (π/3)/(π/4).', why: 'C/B = (π/3) · (4/π) = 4/3 &gt; 0: right.', ref: {panel: 'tan-transform', what: 'Example 2 (i)', body: '<p>Graph <b>y = 3 tan(πx/4 − π/3) − 1</b> over one period.</p>'}},
+  {q: 'What is the phase shift of y = 3 tan(πx/4 − π/3) − 1?', opts: ['4/3 to the right', 'π/3 to the right', '3/4 to the right', '4/3 to the left'], correct: 0, hint: 'C/B = (π/3)/(π/4).', why: 'C/B = (π/3) · (4/π) = 4/3 &gt; 0: right.', ref: {panel: 'tan-transform', what: 'the graph of y = 3 tan(πx/4 − π/3) − 1', body: '<p>Graph <b>y = 3 tan(πx/4 − π/3) − 1</b> over one period.</p>'}},
   {q: 'For y = 3 tan(πx/4 − π/3) − 1, where are the asymptotes of the shifted period?', opts: ['x = −2/3 and x = 10/3', 'x = −2 and x = 2', 'x = −5/3 and x = 7/3', 'x = 1/3 and x = 7/3'], correct: 0, hint: 'P = 4, so ±2, then add 4/3.', why: '±2 + 4/3 gives −2/3 and 10/3; the vertical shift does not move them.', ref: {problem: 6, what: 'the same function'}},
   {q: 'Where does y = cot x have vertical asymptotes?', opts: ['x = kπ', 'x = π/2 + kπ', 'x = 2kπ', 'nowhere'], correct: 0, hint: 'Where is sin x = 0?', why: 'cot x = cos x/sin x is undefined at the integer multiples of π.'},
   {q: 'On the interval (0, 3π), the graph of y = 2 cot(x/3) is…', opts: ['decreasing', 'increasing', 'constant', 'increasing, then decreasing'], correct: 0, hint: 'cot x decreases on each period; A = 2 &gt; 0.', why: 'A positive multiple of cotangent keeps the decreasing shape of cot x.'},

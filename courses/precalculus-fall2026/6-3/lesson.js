@@ -25,9 +25,9 @@ CA.lab('res-lab', {
 });
 
 /* ---------- 02 · evaluate inverse values ---------- */
-const INV_PRE = [['sin', '0', 'Example 1 (i) · sin⁻¹(0)'], ['sin', '-√2/2', 'Example 1 (ii) · sin⁻¹(−√2/2)'], ['cos', '-√2/2', 'Example 1 (iii) · cos⁻¹(−√2/2)'], ['cos', '0.7439', 'Example 1 (iv) · cos⁻¹(0.7439)'],
-  ['tan', '2.6851', 'Example 1 (v) · tan⁻¹(2.6851)'], ['tan', '-√3', 'Example 1 (vi) · tan⁻¹(−√3)'], ['cos', '0', 'Checkpoint 1 (i) · cos⁻¹(0)'], ['cos', '-0.1374', 'Checkpoint 1 (ii) · cos⁻¹(−0.1374)'],
-  ['sin', '0.2219', 'Checkpoint 1 (iii) · sin⁻¹(0.2219)'], ['sin', '-√3/2', 'Checkpoint 1 (iv) · sin⁻¹(−√3/2)'], ['tan', '-4.0152', 'Checkpoint 1 (v) · tan⁻¹(−4.0152)'], ['tan', '√3/3', 'Checkpoint 1 (vi) · tan⁻¹(√3/3)']];
+const INV_PRE = [['sin', '0', 'sin⁻¹(0)'], ['sin', '-√2/2', 'sin⁻¹(−√2/2)'], ['cos', '-√2/2', 'cos⁻¹(−√2/2)'], ['cos', '0.7439', 'cos⁻¹(0.7439)'],
+  ['tan', '2.6851', 'tan⁻¹(2.6851)'], ['tan', '-√3', 'tan⁻¹(−√3)'], ['cos', '0', 'cos⁻¹(0)'], ['cos', '-0.1374', 'cos⁻¹(−0.1374)'],
+  ['sin', '0.2219', 'sin⁻¹(0.2219)'], ['sin', '-√3/2', 'sin⁻¹(−√3/2)'], ['tan', '-4.0152', 'tan⁻¹(−4.0152)'], ['tan', '√3/3', 'tan⁻¹(√3/3)']];
 CA.lab('inv-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Problem', value: '1', options: INV_PRE.map((p, i) => [String(i), p[2]]).concat([['own', 'Type your own']])},
     {type: 'seg', key: 'fn', label: 'Inverse', value: 'sin', options: [['sin', 'sin⁻¹'], ['cos', 'cos⁻¹'], ['tan', 'tan⁻¹']]}, {type: 'text', key: 'v', label: 'Value', value: '-√2/2', placeholder: '−√3/2 or 0.62'}],
@@ -53,13 +53,13 @@ CA.lab('inv-lab', {
 
 /* ---------- 03 · compositions ---------- */
 const CP = [
-  {m: 'ff', fn: 'sin', v: '0.62', t: 'Example 2.1 (i) · sin(sin⁻¹(0.62))'}, {m: 'ff', fn: 'cos', v: '-1/4', t: 'Example 2.1 (ii) · cos(cos⁻¹(−1/4))'}, {m: 'ff', fn: 'tan', v: '5.394', t: 'Example 2.1 (iii) · tan(tan⁻¹(5.394))'},
-  {m: 'ff', fn: 'sin', v: '-2.8', t: 'Example 2.1 (iv) · sin(sin⁻¹(−2.8))'}, {m: 'ff', fn: 'cos', v: '5/3', t: 'Example 2.1 (v) · cos(cos⁻¹(5/3))'},
-  {m: 'if', fn: 'sin', v: '2π/5', t: 'Example 2.2 (i) · sin⁻¹(sin(2π/5))'}, {m: 'if', fn: 'cos', v: '3π/4', t: 'Example 2.2 (ii) · cos⁻¹(cos(3π/4))'}, {m: 'if', fn: 'tan', v: '-4π/9', t: 'Example 2.2 (iii) · tan⁻¹(tan(−4π/9))'},
-  {m: 'if', fn: 'sin', v: '5π/6', t: 'Example 2.2 (iv) · sin⁻¹(sin(5π/6))'}, {m: 'if', fn: 'cos', v: '7π/4', t: 'Example 2.2 (v) · cos⁻¹(cos(7π/4))'}, {m: 'if', fn: 'tan', v: '8π/7', t: 'Example 2.2 (vi) · tan⁻¹(tan(8π/7))'},
-  {m: 'if', fn: 'sin', v: '5π/4', t: 'Checkpoint 2.2 (i) · sin⁻¹(sin(5π/4))'}, {m: 'if', fn: 'tan', v: '9π/10', t: 'Checkpoint 2.2 (iii) · tan⁻¹(tan(9π/10))'},
-  {m: 'ig', fn: 'cos', g: 'sin', v: '7π/3', t: 'Example 3 (i) · cos⁻¹(sin(7π/3))'}, {m: 'ig', fn: 'sin', g: 'cos', v: 'π', t: 'Example 3 (ii) · sin⁻¹(cos(π))'}, {m: 'ig', fn: 'tan', g: 'cos', v: '2π/5', t: 'Example 3 (iii) · tan⁻¹(cos(2π/5))'},
-  {m: 'ig', fn: 'sin', g: 'cos', v: '4π/3', t: 'Checkpoint 3 (i) · sin⁻¹(cos(4π/3))'}, {m: 'ig', fn: 'cos', g: 'sin', v: '-π/4', t: 'Checkpoint 3 (ii) · cos⁻¹(sin(−π/4))'}
+  {m: 'ff', fn: 'sin', v: '0.62', t: 'sin(sin⁻¹(0.62))'}, {m: 'ff', fn: 'cos', v: '-1/4', t: 'cos(cos⁻¹(−1/4))'}, {m: 'ff', fn: 'tan', v: '5.394', t: 'tan(tan⁻¹(5.394))'},
+  {m: 'ff', fn: 'sin', v: '-2.8', t: 'sin(sin⁻¹(−2.8))'}, {m: 'ff', fn: 'cos', v: '5/3', t: 'cos(cos⁻¹(5/3))'},
+  {m: 'if', fn: 'sin', v: '2π/5', t: 'sin⁻¹(sin(2π/5))'}, {m: 'if', fn: 'cos', v: '3π/4', t: 'cos⁻¹(cos(3π/4))'}, {m: 'if', fn: 'tan', v: '-4π/9', t: 'tan⁻¹(tan(−4π/9))'},
+  {m: 'if', fn: 'sin', v: '5π/6', t: 'sin⁻¹(sin(5π/6))'}, {m: 'if', fn: 'cos', v: '7π/4', t: 'cos⁻¹(cos(7π/4))'}, {m: 'if', fn: 'tan', v: '8π/7', t: 'tan⁻¹(tan(8π/7))'},
+  {m: 'if', fn: 'sin', v: '5π/4', t: 'sin⁻¹(sin(5π/4))'}, {m: 'if', fn: 'tan', v: '9π/10', t: 'tan⁻¹(tan(9π/10))'},
+  {m: 'ig', fn: 'cos', g: 'sin', v: '7π/3', t: 'cos⁻¹(sin(7π/3))'}, {m: 'ig', fn: 'sin', g: 'cos', v: 'π', t: 'sin⁻¹(cos(π))'}, {m: 'ig', fn: 'tan', g: 'cos', v: '2π/5', t: 'tan⁻¹(cos(2π/5))'},
+  {m: 'ig', fn: 'sin', g: 'cos', v: '4π/3', t: 'sin⁻¹(cos(4π/3))'}, {m: 'ig', fn: 'cos', g: 'sin', v: '-π/4', t: 'cos⁻¹(sin(−π/4))'}
 ];
 const RNG = {sin: [-PI / 2, PI / 2, '[−π/2, π/2]'], cos: [0, PI, '[0, π]'], tan: [-PI / 2, PI / 2, '(−π/2, π/2)']};
 const valStr = (fn, ang) => { const d = Math.round(ang.deg * 1e6) / 1e6, e = Number.isInteger(d) ? CA.exact(fn, d) : null; return e ? e.str() : num(CA.trig[fn](ang.v), 5); };
@@ -91,8 +91,8 @@ CA.lab('comp-lab', {
 });
 
 /* ---------- 04 · f(g⁻¹(x)) with a triangle ---------- */
-const TP = [['sin', 'tan', 6, 7, 'Example 4 (i) · sin(tan⁻¹(6/7))'], ['cos', 'sin', -1, 5, 'Example 4 (ii) · cos(sin⁻¹(−1/5))'], ['tan', 'cos', -9, 12, 'Example 4 (iii) · tan(cos⁻¹(−9/12))'],
-  ['cos', 'tan', -9, 4, 'Checkpoint 4 (i) · cos(tan⁻¹(−9/4))'], ['sin', 'cos', 2, 3, 'Checkpoint 4 (ii) · sin(cos⁻¹(2/3))'], ['tan', 'sin', -3, 7, 'Checkpoint 4 (iii) · tan(sin⁻¹(−3/7))']];
+const TP = [['sin', 'tan', 6, 7, 'sin(tan⁻¹(6/7))'], ['cos', 'sin', -1, 5, 'cos(sin⁻¹(−1/5))'], ['tan', 'cos', -9, 12, 'tan(cos⁻¹(−9/12))'],
+  ['cos', 'tan', -9, 4, 'cos(tan⁻¹(−9/4))'], ['sin', 'cos', 2, 3, 'sin(cos⁻¹(2/3))'], ['tan', 'sin', -3, 7, 'tan(sin⁻¹(−3/7))']];
 CA.lab('tri-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Expression', value: '0', options: TP.map((p, i) => [String(i), p[4]]).concat([['own', 'Set your own']])},
     {type: 'select', key: 'f', label: 'Outer f', value: 'sin', options: [['sin', 'sin'], ['cos', 'cos'], ['tan', 'tan']]}, {type: 'select', key: 'g', label: 'Inner g⁻¹', value: 'tan', options: [['sin', 'sin⁻¹'], ['cos', 'cos⁻¹'], ['tan', 'tan⁻¹']]},
@@ -128,13 +128,13 @@ CA.guided('63', [
   {q: 'What is sin⁻¹(1)?', opts: ['π/2', '0', 'π', '5π/2'], correct: 0, hint: 'Which angle in [−π/2, π/2] has sine 1?', why: 'sin(π/2) = 1 and π/2 is in [−π/2, π/2].'},
   {q: 'What is cos⁻¹(√3/2)?', opts: ['π/6', 'π/3', '−π/6', '11π/6'], correct: 0, hint: 'Look in [0, π].', why: 'cos(π/6) = √3/2.'},
   {q: 'What is tan⁻¹(−√3)?', opts: ['−π/3', '2π/3', '5π/3', '−π/6'], correct: 0, hint: 'The answer must be in (−π/2, π/2).', why: 'tan(−π/3) = −√3. 2π/3 and 5π/3 also have tangent −√3 but are outside the range.'},
-  {q: 'What is sin⁻¹(−√2/2)?', opts: ['−π/4', '5π/4', '7π/4', '3π/4'], correct: 0, hint: 'Negative input: a negative angle in [−π/2, 0).', why: 'sin(−π/4) = −√2/2 and −π/4 is in [−π/2, π/2].', ref: {panel: 'evaluate', what: 'Example 1 (ii)', body: '<p>Evaluate <b>sin⁻¹(−√2/2)</b>.</p>'}},
+  {q: 'What is sin⁻¹(−√2/2)?', opts: ['−π/4', '5π/4', '7π/4', '3π/4'], correct: 0, hint: 'Negative input: a negative angle in [−π/2, 0).', why: 'sin(−π/4) = −√2/2 and −π/4 is in [−π/2, π/2].', ref: {panel: 'evaluate', what: 'the value sin⁻¹(−√2/2)', body: '<p>Evaluate <b>sin⁻¹(−√2/2)</b>.</p>'}},
   {q: 'What is cos⁻¹(−√2/2)?', opts: ['3π/4', '−π/4', '5π/4', 'π/4'], correct: 0, hint: 'Negative input: Quadrant II for arccos.', why: 'cos(3π/4) = −√2/2 and 3π/4 is in [0, π].'},
   {q: 'What is the range of y = cos⁻¹x?', keep: true, opts: ['[−π/2, π/2]', '[0, π]', '(−π/2, π/2)', '[−1, 1]'], correct: 1, hint: 'It is the restricted domain of cosine.', why: 'cos is restricted to [0, π], so arccos returns angles in [0, π].'},
-  {q: 'What is sin⁻¹(sin(5π/6))?', opts: ['π/6', '5π/6', '−π/6', '7π/6'], correct: 0, hint: '5π/6 is not in [−π/2, π/2].', why: 'sin(5π/6) = 1/2 = sin(π/6), and π/6 is in the restricted domain.', ref: {panel: 'compose', what: 'Example 2.2 (iv)', body: '<p>Evaluate <b>sin⁻¹(sin(5π/6))</b>.</p>'}},
+  {q: 'What is sin⁻¹(sin(5π/6))?', opts: ['π/6', '5π/6', '−π/6', '7π/6'], correct: 0, hint: '5π/6 is not in [−π/2, π/2].', why: 'sin(5π/6) = 1/2 = sin(π/6), and π/6 is in the restricted domain.', ref: {panel: 'compose', what: 'the value sin⁻¹(sin(5π/6))', body: '<p>Evaluate <b>sin⁻¹(sin(5π/6))</b>.</p>'}},
   {q: 'What is cos(cos⁻¹(5/3))?', opts: ['undefined', '5/3', '3/5', '1'], correct: 0, hint: 'Check the domain of cos⁻¹.', why: '5/3 is not in [−1, 1], so cos⁻¹(5/3) does not exist.'},
   {q: 'What is cos⁻¹(sin(7π/3))?', opts: ['π/6', 'π/3', '7π/3', '5π/6'], correct: 0, hint: 'sin(7π/3) = sin(π/3).', why: 'sin(7π/3) = √3/2 and cos⁻¹(√3/2) = π/6.'},
   {q: 'In the right triangle, θ = ?', fig: triFig, opts: ['≈ 49.4°', '≈ 40.6°', '≈ 41.2°', '≈ 59.0°'], correct: 0, hint: 'tan θ = opposite/adjacent = 7/6.', why: 'θ = tan⁻¹(7/6) ≈ 0.8622 rad ≈ 49.4°.'},
-  {q: 'What is sin(tan⁻¹(6/7))?', opts: ['6√85/85', '7√85/85', '6/7', '√85/6'], correct: 0, hint: 'x = 7, y = 6, r = √85.', why: 'sin θ = y/r = 6/√85 = 6√85/85.', ref: {panel: 'triangle', what: 'Example 4 (i)', body: '<p>Evaluate <b>sin(tan⁻¹(6/7))</b>.</p>'}}
+  {q: 'What is sin(tan⁻¹(6/7))?', opts: ['6√85/85', '7√85/85', '6/7', '√85/6'], correct: 0, hint: 'x = 7, y = 6, r = √85.', why: 'sin θ = y/r = 6/√85 = 6√85/85.', ref: {panel: 'triangle', what: 'the value sin(tan⁻¹(6/7))', body: '<p>Evaluate <b>sin(tan⁻¹(6/7))</b>.</p>'}}
 ]);
 })();

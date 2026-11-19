@@ -19,7 +19,7 @@ CA.lab('tri-lab', {
 });
 
 /* ---------- 02 · missing side, exact ratios ---------- */
-const MS_PRE = {ex2: [33, 56, null, 'α', 'β', 'Example 2 · legs 33 and 56'], cp2: [null, 10, 15, 'β', 'α', 'Checkpoint 2 · leg 10, hypotenuse 15'], cp4: [8, 10, null, 'β', 'α', 'Checkpoint 4 · legs 8 and 10'], tri: [5, 12, null, 'α', 'β', 'legs 5 and 12']};
+const MS_PRE = {ex2: [33, 56, null, 'α', 'β', 'legs 33 and 56'], cp2: [null, 10, 15, 'β', 'α', 'leg 10, hypotenuse 15'], cp4: [8, 10, null, 'β', 'α', 'legs 8 and 10'], tri: [5, 12, null, 'α', 'β', 'legs 5 and 12']};
 const FN = ['sin', 'cos', 'tan', 'csc', 'sec', 'cot'];
 CA.lab('ms-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Triangle', value: 'ex2', options: Object.entries(MS_PRE).map(([k, v]) => [k, v[5]]).concat([['own', 'Set your own']])},
@@ -58,9 +58,9 @@ $('co-reset').addEventListener('click', () => { fsels.forEach(s => { s.value = '
 
 /* ---------- 04 · elevation and depression ---------- */
 const SC = {
-  kite: {t: 'Example 3 · kite string', known: 130, ang: 40, kl: 'String length (ft)'},
-  bld: {t: 'Checkpoint 3 (1) · building', known: 140, ang: 27, kl: 'Distance to the building (ft)'},
-  hawk: {t: 'Checkpoint 3 (2) · hawk and rat', known: 25, ang: 34, kl: 'Height of the tree (ft)'}
+  kite: {t: 'Kite string', known: 130, ang: 40, kl: 'String length (ft)'},
+  bld: {t: 'Building', known: 140, ang: 27, kl: 'Distance to the building (ft)'},
+  hawk: {t: 'Hawk and rat', known: 25, ang: 34, kl: 'Height of the tree (ft)'}
 };
 CA.lab('el-lab', {
   controls: [{type: 'select', key: 'sc', label: 'Situation', value: 'kite', options: Object.entries(SC).map(([k, v]) => [k, v.t])}, {type: 'number', key: 'L', label: 'Known length (ft)', value: 130, min: 1, step: 1}, {type: 'range', key: 'th', label: 'Angle =', min: 5, max: 80, step: 1, value: 40, fmt: v => v + '°'}],
@@ -94,12 +94,12 @@ CA.lab('el-lab', {
 /* ---------- guided problems ---------- */
 const fig = (a, b, opt) => CA.triSVG({A: [0, 0], C: [b, 0], B: [b, a]}, Object.assign({right: 'C'}, opt));
 CA.guided('54', [
-  {q: 'In the triangle, find sin α.', fig: fig(33, 56, {angles: {A: 'α'}, sides: {a: '33', b: '56', c: 'c'}}), opts: ['33/65', '56/65', '33/56', '65/33'], correct: 0, hint: 'First find c = √(33² + 56²).', why: 'c = √(1089 + 3136) = √4225 = 65, so sin α = opposite/hypotenuse = 33/65.', ref: {panel: 'missing-side', what: 'Example 2', body: '<p>Legs <b>33</b> (opposite α) and <b>56</b> (adjacent to α). Evaluate sin α, cos α, tan α.</p>'}},
+  {q: 'In the triangle, find sin α.', fig: fig(33, 56, {angles: {A: 'α'}, sides: {a: '33', b: '56', c: 'c'}}), opts: ['33/65', '56/65', '33/56', '65/33'], correct: 0, hint: 'First find c = √(33² + 56²).', why: 'c = √(1089 + 3136) = √4225 = 65, so sin α = opposite/hypotenuse = 33/65.', ref: {panel: 'missing-side', what: 'the triangle with legs 33 and 56', body: '<p>Legs <b>33</b> (opposite α) and <b>56</b> (adjacent to α). Evaluate sin α, cos α, tan α.</p>'}},
   {q: 'In the same triangle (legs 33 and 56), find tan α.', opts: ['33/56', '56/33', '33/65', '56/65'], correct: 0, hint: 'tan = opposite/adjacent.', why: 'tan α = 33/56.', ref: {problem: 1, what: 'the same triangle'}},
   {q: 'A right triangle has hypotenuse 15 and one leg 10 adjacent to angle β. What is cos β?', opts: ['2/3', '√5/3', '3/2', '√5/2'], correct: 0, hint: 'cos = adjacent/hypotenuse.', why: 'cos β = 10/15 = 2/3.'},
   {q: 'If sin t = 3/7, what is cos(π/2 − t)?', opts: ['3/7', '4/7', '7/3', '√40/7'], correct: 0, hint: 'Cofunction identity.', why: 'cos(π/2 − t) = sin t = 3/7.'},
   {q: 'tan 53° = cot x for which acute angle x?', opts: ['37°', '53°', '127°', '143°'], correct: 0, hint: 'Complementary angles add to 90°.', why: 'tan 53° = cot(90° − 53°) = cot 37°.'},
-  {q: '130 ft of kite string is out and the angle of elevation is 40°. How high is the kite?', opts: ['≈ 83.6 ft', '≈ 99.6 ft', '≈ 109.1 ft', '≈ 202.2 ft'], correct: 0, hint: 'sin 40° = h/130.', why: 'h = 130 sin 40° ≈ 130(0.6428) ≈ 83.6 ft. (99.6 uses cos, 109.1 uses tan.)', ref: {panel: 'elevation', what: 'Example 3', body: '<p><b>130 ft</b> of string, angle of elevation <b>40°</b>. Find the height of the kite.</p>'}},
+  {q: '130 ft of kite string is out and the angle of elevation is 40°. How high is the kite?', opts: ['≈ 83.6 ft', '≈ 99.6 ft', '≈ 109.1 ft', '≈ 202.2 ft'], correct: 0, hint: 'sin 40° = h/130.', why: 'h = 130 sin 40° ≈ 130(0.6428) ≈ 83.6 ft. (99.6 uses cos, 109.1 uses tan.)', ref: {panel: 'elevation', what: 'the kite-string problem', body: '<p><b>130 ft</b> of string, angle of elevation <b>40°</b>. Find the height of the kite.</p>'}},
   {q: 'From 140 ft away, the angle of elevation to the top of a building is 27°. How tall is it?', opts: ['≈ 71.3 ft', '≈ 63.6 ft', '≈ 124.7 ft', '≈ 274.8 ft'], correct: 0, hint: 'tan 27° = h/140.', why: 'h = 140 tan 27° ≈ 140(0.5095) ≈ 71.3 ft.'},
   {q: 'A hawk on a 25-ft tree sees a rat with an angle of depression of 34°. How far apart are they?', opts: ['≈ 44.7 ft', '≈ 14.0 ft', '≈ 30.2 ft', '≈ 37.1 ft'], correct: 0, hint: 'sin 34° = 25/d.', why: 'd = 25/sin 34° ≈ 25/0.5592 ≈ 44.7 ft.'},
   {q: 'The two acute angles of a right triangle are always…', opts: ['complementary', 'supplementary', 'equal', 'coterminal'], correct: 0, hint: 'The three angles add to 180°.', why: 'α + β + 90° = 180°, so α + β = 90°.'},

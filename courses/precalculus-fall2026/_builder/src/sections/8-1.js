@@ -24,14 +24,14 @@ CA.drag(law.svg, (x, y) => { C = [Math.max(-0.8, Math.min(7.8, x)), Math.max(0.5
 
 /* ---------- 02 · ASA / AAS solver ---------- */
 const AP = [
-  {t: 'Example 1 (1) · α = 40°, β = 78°, c = 7', ang: {A: 40, B: 78}, side: 'c', len: 7},
-  {t: 'Example 1 (2) · birdwatchers 36 ft apart', ang: {A: 47, B: 65}, side: 'c', len: 36, ask: 'a', names: {A: 'watcher 1', B: 'watcher 2', C: 'bird'}, ctx: 'Two birdwatchers 36 ft apart see a bird between them with angles of elevation 47° and 65°. The distance from the bird to the second birdwatcher is side a.', unit: 'ft'},
-  {t: 'Checkpoint 1 (1) · β = 52°, γ = 96°, a = 15', ang: {B: 52, C: 96}, side: 'a', len: 15},
-  {t: 'Checkpoint 1 (2) · radar stations 15 mi apart', ang: {A: 38, B: 20}, side: 'c', len: 15, ask: 'b', names: {A: 'station 1', B: 'station 2', C: 'aircraft'}, ctx: 'Two radar stations 15 mi apart detect an aircraft between them with angles of elevation 38° and 20°. The distance from the aircraft to the first station is side b.', unit: 'mi'},
-  {t: 'Example 2 (1) · α = 52°, β = 70°, a = 17', ang: {A: 52, B: 70}, side: 'a', len: 17},
-  {t: 'Example 2 (2) · satellite and two tracking stations', ang: {A: 83.9, B: 93.8}, side: 'b', len: 940, ask: 'a', names: {A: 'A', B: 'B', C: 'satellite'}, ctx: 'The angles of elevation at A and B are 83.9° and 86.2°, so the interior angle at B is 180° − 86.2° = 93.8°. The satellite is 940 km from A (side b). Find its distance from B (side a).', unit: 'km', round: 0},
-  {t: 'Checkpoint 2 (1) · α = 37°, γ = 81°, c = 8', ang: {A: 37, C: 81}, side: 'c', len: 8},
-  {t: 'Checkpoint 2 (2) · across the lake', ang: {A: 98, B: 62}, side: 'b', len: 97, ask: 'c', names: {A: 'A', B: 'B', C: 'C'}, ctx: 'C is 97 m from A (side b), ∠BAC = 98°, and ∠ABC = 62°. Find the distance AB across the lake (side c).', unit: 'm', round: 0}
+  {t: 'α = 40°, β = 78°, c = 7', ang: {A: 40, B: 78}, side: 'c', len: 7},
+  {t: 'Birdwatchers 36 ft apart', ang: {A: 47, B: 65}, side: 'c', len: 36, ask: 'a', names: {A: 'watcher 1', B: 'watcher 2', C: 'bird'}, ctx: 'Two birdwatchers 36 ft apart see a bird between them with angles of elevation 47° and 65°. The distance from the bird to the second birdwatcher is side a.', unit: 'ft'},
+  {t: 'β = 52°, γ = 96°, a = 15', ang: {B: 52, C: 96}, side: 'a', len: 15},
+  {t: 'Radar stations 15 mi apart', ang: {A: 38, B: 20}, side: 'c', len: 15, ask: 'b', names: {A: 'station 1', B: 'station 2', C: 'aircraft'}, ctx: 'Two radar stations 15 mi apart detect an aircraft between them with angles of elevation 38° and 20°. The distance from the aircraft to the first station is side b.', unit: 'mi'},
+  {t: 'α = 52°, β = 70°, a = 17', ang: {A: 52, B: 70}, side: 'a', len: 17},
+  {t: 'Satellite and two tracking stations', ang: {A: 83.9, B: 93.8}, side: 'b', len: 940, ask: 'a', names: {A: 'A', B: 'B', C: 'satellite'}, ctx: 'The angles of elevation at A and B are 83.9° and 86.2°, so the interior angle at B is 180° − 86.2° = 93.8°. The satellite is 940 km from A (side b). Find its distance from B (side a).', unit: 'km', round: 0},
+  {t: 'α = 37°, γ = 81°, c = 8', ang: {A: 37, C: 81}, side: 'c', len: 8},
+  {t: 'Across the lake', ang: {A: 98, B: 62}, side: 'b', len: 97, ask: 'c', names: {A: 'A', B: 'B', C: 'C'}, ctx: 'C is 97 m from A (side b), ∠BAC = 98°, and ∠ABC = 62°. Find the distance AB across the lake (side c).', unit: 'm', round: 0}
 ];
 const OPP = {a: 'A', b: 'B', c: 'C'}, GR = {A: 'α', B: 'β', C: 'γ'};
 CA.lab('aas-lab', {
@@ -52,7 +52,7 @@ CA.lab('aas-lab', {
 });
 
 /* ---------- 03 · SSA ambiguous case ---------- */
-const SP = [[63, 5, 8, 'Example 3 (i) · α = 63°, a = 5, b = 8'], [25, 10, 8, 'Example 3 (ii) · α = 25°, a = 10, b = 8'], [38, 10, 12, 'Example 3 (iii) · α = 38°, a = 10, b = 12'], [58, 5, 7, 'Checkpoint 3 · α = 58°, a = 5, b = 7'], [63, 9, 6, 'Checkpoint 3 · α = 63°, a = 9, b = 6'], [34, 6, 9, 'Checkpoint 3 · α = 34°, a = 6, b = 9'], [120, 9, 6, 'Obtuse · α = 120°, a = 9, b = 6']];
+const SP = [[63, 5, 8, 'α = 63°, a = 5, b = 8'], [25, 10, 8, 'α = 25°, a = 10, b = 8'], [38, 10, 12, 'α = 38°, a = 10, b = 12'], [58, 5, 7, 'α = 58°, a = 5, b = 7'], [63, 9, 6, 'α = 63°, a = 9, b = 6'], [34, 6, 9, 'α = 34°, a = 6, b = 9'], [120, 9, 6, 'Obtuse · α = 120°, a = 9, b = 6']];
 function ssa(al, a, b) {
   const h = b * sin(al), s = b * sin(al) / a, out = {h, s, tris: []};
   if (s > 1 + 1e-12) return out;
@@ -84,7 +84,7 @@ CA.lab('ssa-lab', {
 });
 
 /* ---------- 04 · area ---------- */
-const AR = [[7, 10, 102, 'B', 'a', 'c', 'Example 4 · β = 102°, a = 7, c = 10'], [28, 20, 62, 'C', 'a', 'b', 'Checkpoint 4 · γ = 62°, a = 28, b = 20'], [5, 8, 30, 'A', 'b', 'c', 'α = 30°, b = 5, c = 8']];
+const AR = [[7, 10, 102, 'B', 'a', 'c', 'β = 102°, a = 7, c = 10'], [28, 20, 62, 'C', 'a', 'b', 'γ = 62°, a = 28, b = 20'], [5, 8, 30, 'A', 'b', 'c', 'α = 30°, b = 5, c = 8']];
 CA.lab('area-lab', {
   controls: [{type: 'select', key: 'p', label: 'Triangle', value: '0', options: AR.map((p, i) => [String(i), p[6]])}],
   middle: '<svg id="area-svg" role="img" aria-label="Triangle with two sides and the included angle"></svg>', readouts: [['f', 'Formula'], ['ar', 'Area']], steps: true
@@ -101,11 +101,11 @@ CA.lab('area-lab', {
 CA.guided('81', [
   {q: 'Which equation is the Law of Sines?', opts: ['a/sin α = b/sin β = c/sin γ', 'a/sin β = b/sin γ = c/sin α', 'a sin α = b sin β = c sin γ', 'a² = b² + c² − 2bc cos α'], correct: 0, hint: 'Each side is paired with its opposite angle.', why: 'The ratio of each side to the sine of its opposite angle is the same.'},
   {q: 'For which given information can you use the Law of Sines directly?', opts: ['AAS', 'SSS', 'SAS', 'AAA'], correct: 0, hint: 'You need a known angle with its opposite side.', why: 'ASA, AAS, and SSA work with the Law of Sines; SSS and SAS need the Law of Cosines, and AAA does not fix the size.'},
-  {q: 'In Example 1 (α = 40°, β = 78°, c = 7), what is γ?', opts: ['62°', '118°', '52°', '72°'], correct: 0, hint: 'α + β + γ = 180°.', why: '180° − 40° − 78° = 62°.', ref: {panel: 'asa-aas', what: 'Example 1 (1)', body: '<p>Solve the triangle with <b>α = 40°, β = 78°, c = 7</b>.</p>'}},
+  {q: 'A triangle has α = 40°, β = 78°, and c = 7. What is γ?', opts: ['62°', '118°', '52°', '72°'], correct: 0, hint: 'α + β + γ = 180°.', why: '180° − 40° − 78° = 62°.', ref: {panel: 'asa-aas', what: 'the triangle α = 40°, β = 78°, c = 7', body: '<p>Solve the triangle with <b>α = 40°, β = 78°, c = 7</b>.</p>'}},
   {q: 'In the same triangle, a ≈ ?', opts: ['5.1', '7.8', '4.6', '9.6'], correct: 0, hint: 'a = 7 sin 40°/sin 62°.', why: '7(0.6428)/0.8829 ≈ 5.1.', ref: {problem: 3, what: 'the same triangle'}},
   {q: 'In the same triangle, b ≈ ?', opts: ['7.8', '5.1', '4.6', '6.2'], correct: 0, hint: 'b uses sin 78°.', why: 'b = 7 sin 78°/sin 62° ≈ 7(0.9781)/0.8829 ≈ 7.8.', ref: {problem: 3, what: 'the same triangle'}},
   {q: 'Solve for b when α = 52°, β = 70°, a = 17.', opts: ['≈ 20.3', '≈ 18.3', '≈ 14.3', '≈ 22.1'], correct: 0, hint: 'b = 17 sin 70°/sin 52°.', why: '17(0.9397)/0.7880 ≈ 20.3.'},
-  {q: 'How many triangles have α = 63°, a = 5, b = 8?', opts: ['none', 'one', 'two', 'infinitely many'], correct: 0, hint: 'Compute sin β = 8 sin 63°/5.', why: 'sin β ≈ 1.43 &gt; 1 (a is shorter than h ≈ 7.13), so no triangle exists.', ref: {panel: 'ssa', what: 'Example 3 (i)', body: '<p>α = 63°, a = 5, b = 8. Is there a triangle?</p>'}},
+  {q: 'How many triangles have α = 63°, a = 5, b = 8?', opts: ['none', 'one', 'two', 'infinitely many'], correct: 0, hint: 'Compute sin β = 8 sin 63°/5.', why: 'sin β ≈ 1.43 &gt; 1 (a is shorter than h ≈ 7.13), so no triangle exists.', ref: {panel: 'ssa', what: 'the SSA case α = 63°, a = 5, b = 8', body: '<p>α = 63°, a = 5, b = 8. Is there a triangle?</p>'}},
   {q: 'How many triangles have α = 38°, a = 10, b = 12?', opts: ['two', 'one', 'none', 'three'], correct: 0, hint: 'h = 12 sin 38° ≈ 7.39.', why: 'h &lt; a &lt; b (7.39 &lt; 10 &lt; 12), the ambiguous case: β₁ ≈ 47.6° and β₂ ≈ 132.4°.'},
   {q: 'Find the area of triangle ABC with β = 102°, a = 7, c = 10.', opts: ['≈ 34.2', '≈ 68.5', '≈ 7.3', '≈ 35.0'], correct: 0, hint: '½ac sin β.', why: '½(7)(10) sin 102° ≈ 35(0.9781) ≈ 34.2.'},
   {q: 'Two birdwatchers 36 ft apart see a bird between them at angles of elevation 47° and 65°. How far is the bird from the second birdwatcher (angle 65°)?', opts: ['≈ 28.4 ft', '≈ 35.2 ft', '≈ 33.4 ft', '≈ 26.3 ft'], correct: 0, hint: 'The angle at the bird is 68°; the side you want is opposite 47°.', why: 'x/sin 47° = 36/sin 68°, so x = 36 sin 47°/sin 68° ≈ 28.4 ft.'}

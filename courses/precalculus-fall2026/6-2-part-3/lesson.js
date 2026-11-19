@@ -30,12 +30,12 @@ function recipLab(id, fn, presets) {
     }});
 }
 recipLab('sec-wave', 'sec', [
-  {label: 'Example 1 · y = (3/2) sec(2x)', fn: 'sec', A: '3/2', B: '2', C: '0', D: '0'}, {label: 'Checkpoint 1 · y = −3 sec(πx/3)', fn: 'sec', A: '-3', B: 'π/3', C: '0', D: '0'},
-  {label: 'Example 2 · y = −2 sec(πx/2 + π) − 1', fn: 'sec', A: '-2', B: 'π/2', C: '-π', D: '-1'}, {label: 'Checkpoint 2 · y = (1/3) sec(3x − 2π) + 2', fn: 'sec', A: '1/3', B: '3', C: '2π', D: '2'},
+  {label: 'y = (3/2) sec(2x)', fn: 'sec', A: '3/2', B: '2', C: '0', D: '0'}, {label: 'y = −3 sec(πx/3)', fn: 'sec', A: '-3', B: 'π/3', C: '0', D: '0'},
+  {label: 'y = −2 sec(πx/2 + π) − 1', fn: 'sec', A: '-2', B: 'π/2', C: '-π', D: '-1'}, {label: 'y = (1/3) sec(3x − 2π) + 2', fn: 'sec', A: '1/3', B: '3', C: '2π', D: '2'},
   {label: 'Parent · y = sec x', fn: 'sec', A: '1', B: '1', C: '0', D: '0'}]);
 recipLab('csc-wave', 'csc', [
-  {label: 'Example 3 · y = 2 csc(πx/3)', fn: 'csc', A: '2', B: 'π/3', C: '0', D: '0'}, {label: 'Checkpoint 3 · y = −¼ csc(3x)', fn: 'csc', A: '-1/4', B: '3', C: '0', D: '0'},
-  {label: 'Example 4 · y = −½ csc(4x − 2π/3) + 3', fn: 'csc', A: '-1/2', B: '4', C: '2π/3', D: '3'}, {label: 'Checkpoint 4 · y = 5 csc(x/6 + 4π/3) − 2', fn: 'csc', A: '5', B: '1/6', C: '-4π/3', D: '-2'},
+  {label: 'y = 2 csc(πx/3)', fn: 'csc', A: '2', B: 'π/3', C: '0', D: '0'}, {label: 'y = −¼ csc(3x)', fn: 'csc', A: '-1/4', B: '3', C: '0', D: '0'},
+  {label: 'y = −½ csc(4x − 2π/3) + 3', fn: 'csc', A: '-1/2', B: '4', C: '2π/3', D: '3'}, {label: 'y = 5 csc(x/6 + 4π/3) − 2', fn: 'csc', A: '5', B: '1/6', C: '-4π/3', D: '-2'},
   {label: 'Parent · y = csc x', fn: 'csc', A: '1', B: '1', C: '0', D: '0'}]);
 
 /* ---------- 03 · all six graphs ---------- */
@@ -70,10 +70,10 @@ CA.cards('sc-cards', [
 CA.guided('62b', [
   {q: 'What is the range of y = sec x?', opts: ['(−∞, −1] ∪ [1, ∞)', '[−1, 1]', '(−∞, ∞)', '(−1, 1)'], correct: 0, hint: 'Reciprocals of numbers in [−1, 1].', why: '|cos x| ≤ 1, so |sec x| = 1/|cos x| ≥ 1.'},
   {q: 'Where does y = csc x have vertical asymptotes?', opts: ['x = kπ', 'x = π/2 + kπ', 'x = 2kπ', 'x = π/4 + kπ'], correct: 0, hint: 'Where is sin x = 0?', why: 'csc x = 1/sin x is undefined at every integer multiple of π.'},
-  {q: 'What is the period of y = (3/2) sec(2x)?', opts: ['π', '2π', '4π', '3π'], correct: 0, hint: 'P = 2π/|B|.', why: 'P = 2π/2 = π.', ref: {panel: 'secant', what: 'Example 1', body: '<p>Graph <b>y = (3/2) sec(2x)</b> over two periods.</p>'}},
+  {q: 'What is the period of y = (3/2) sec(2x)?', opts: ['π', '2π', '4π', '3π'], correct: 0, hint: 'P = 2π/|B|.', why: 'P = 2π/2 = π.', ref: {panel: 'secant', what: 'the graph of y = (3/2) sec(2x)', body: '<p>Graph <b>y = (3/2) sec(2x)</b> over two periods.</p>'}},
   {q: 'What is the range of y = (3/2) sec(2x)?', opts: ['(−∞, −3/2] ∪ [3/2, ∞)', '[−3/2, 3/2]', '(−∞, −1] ∪ [1, ∞)', '(−∞, ∞)'], correct: 0, hint: '(−∞, −|A|] ∪ [|A|, ∞).', why: '|A| = 3/2, so the range is (−∞, −3/2] ∪ [3/2, ∞).', ref: {problem: 3, what: 'the same function'}},
   {q: 'Where are the asymptotes of y = 2 csc(πx/3)?', opts: ['x = 3k', 'x = 6k', 'x = πk/3', 'x = 3/2 + 3k'], correct: 0, hint: 'x = (π/|B|)k.', why: 'π ÷ (π/3) = 3, so x = 3k: …, −3, 0, 3, 6, ….'},
-  {q: 'What is the period of y = −2 sec(πx/2 + π) − 1?', opts: ['4', '2', '4π', 'π'], correct: 0, hint: 'B = π/2.', why: 'P = 2π ÷ (π/2) = 4.', ref: {panel: 'secant', what: 'Example 2', body: '<p>Graph <b>y = −2 sec(πx/2 + π) − 1</b> over one period.</p>'}},
+  {q: 'What is the period of y = −2 sec(πx/2 + π) − 1?', opts: ['4', '2', '4π', 'π'], correct: 0, hint: 'B = π/2.', why: 'P = 2π ÷ (π/2) = 4.', ref: {panel: 'secant', what: 'the graph of y = −2 sec(πx/2 + π) − 1', body: '<p>Graph <b>y = −2 sec(πx/2 + π) − 1</b> over one period.</p>'}},
   {q: 'What is the range of y = −2 sec(πx/2 + π) − 1?', opts: ['(−∞, −3] ∪ [1, ∞)', '[−3, 1]', '(−∞, −2] ∪ [2, ∞)', '(−∞, −1] ∪ [3, ∞)'], correct: 0, hint: 'D ± |A| with D = −1 and |A| = 2.', why: '−1 − 2 = −3 and −1 + 2 = 1: (−∞, −3] ∪ [1, ∞).', ref: {problem: 6, what: 'the same function'}},
   {q: 'What is the phase shift of y = −½ csc(4x − 2π/3) + 3?', opts: ['π/6 to the right', '2π/3 to the right', 'π/6 to the left', '8π/3 to the right'], correct: 0, hint: 'C/B with C = 2π/3 and B = 4.', why: '(2π/3)/4 = π/6 &gt; 0: right.'},
   {q: 'Which is the guide curve for y = 4 sec x − 1?', opts: ['y = 4 cos x − 1', 'y = 4 sin x − 1', 'y = (1/4) cos x − 1', 'y = cos x'], correct: 0, hint: 'Replace sec by cos and keep A and D.', why: 'Secant is graphed from y = A cos(Bx − C) + D, here 4 cos x − 1.'},

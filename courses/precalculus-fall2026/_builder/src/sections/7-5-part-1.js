@@ -25,9 +25,9 @@ CA.lab('circ-lab', {
 
 /* ---------- 02 · linear equation solver ---------- */
 const IVS = {std: [{a: 0, b: 2 * PI}, false, '[0, 2π)'], deg: [{a: 0, b: 2 * PI}, true, '[0°, 360°)'], neg: [{a: -PI, b: PI}, false, '[−π, π)'], all: [{a: -Infinity, b: Infinity}, false, 'all real numbers (general solution)']};
-const LP = [['sin', '1', '-1/2', '0', 'all', 'Example 1 (i) · sin θ − 1/2 = 0'], ['cos', '1', '1', '0', 'all', 'Example 1 (ii) · cos θ + 1 = 0'], ['sin', '2', '√3', '0', 'std', 'Example 1 (iii) · 2 sin θ + √3 = 0'],
-  ['tan', '3', '5', '2', 'deg', 'Example 1 (iv) · 3 tan θ + 5 = 2'], ['sin', '5', '3', '0', 'std', 'Example 1 (v) · 5 sin θ + 3 = 0'], ['sin', '4', '3', '1', 'all', 'Checkpoint 1 (1) · 4 sin x + 3 = 1'],
-  ['cos', '√2', '-1', '0', 'std', 'Checkpoint 1 (2) · √2 cos x − 1 = 0'], ['tan', '-1', '1', '2', 'neg', 'Checkpoint 1 (3) · 1 − tan x = 2']];
+const LP = [['sin', '1', '-1/2', '0', 'all', 'sin θ − 1/2 = 0'], ['cos', '1', '1', '0', 'all', 'cos θ + 1 = 0'], ['sin', '2', '√3', '0', 'std', '2 sin θ + √3 = 0'],
+  ['tan', '3', '5', '2', 'deg', '3 tan θ + 5 = 2'], ['sin', '5', '3', '0', 'std', '5 sin θ + 3 = 0'], ['sin', '4', '3', '1', 'all', '4 sin x + 3 = 1'],
+  ['cos', '√2', '-1', '0', 'std', '√2 cos x − 1 = 0'], ['tan', '-1', '1', '2', 'neg', '1 − tan x = 2']];
 const term = (a, fn) => { const s = a.str; return s === '1' ? `${fn} θ` : s === '−1' || s === '-1' ? `−${fn} θ` : `${s} ${fn} θ`; };
 CA.lab('lin-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Equation', value: '2', options: LP.map((p, i) => [String(i), p[5]]).concat([['own', 'Set your own a, b, c']])},
@@ -61,10 +61,10 @@ CA.lab('lin-lab', {
 /* ---------- guided problems ---------- */
 CA.guided('75a', [
   {q: 'Solve sin θ = 1/2 on [0, 2π).', opts: ['π/6 and 5π/6', 'π/6 and 11π/6', 'π/3 and 2π/3', 'π/6 only'], correct: 0, hint: 'Sine is positive in Quadrants I and II.', why: 'Reference angle π/6: θ = π/6 and π − π/6 = 5π/6.'},
-  {q: 'What is the general solution of cos θ + 1 = 0?', opts: ['θ = π + 2kπ', 'θ = 2kπ', 'θ = π/2 + kπ', 'θ = π + kπ/2'], correct: 0, hint: 'cos θ = −1 happens once per turn.', why: 'cos θ = −1 only at θ = π in [0, 2π); add 2kπ.', ref: {panel: 'linear', what: 'Example 1 (ii)', body: '<p>Solve <b>cos θ + 1 = 0</b> (all solutions).</p>'}},
-  {q: 'Solve 2 sin θ + √3 = 0 on [0, 2π).', opts: ['4π/3 and 5π/3', 'π/3 and 2π/3', '7π/6 and 11π/6', '2π/3 and 4π/3'], correct: 0, hint: 'sin θ = −√3/2: Quadrants III and IV with reference angle π/3.', why: 'π + π/3 = 4π/3 and 2π − π/3 = 5π/3.', ref: {panel: 'linear', what: 'Example 1 (iii)', body: '<p>Solve <b>2 sin θ + √3 = 0</b> on [0, 2π).</p>'}},
+  {q: 'What is the general solution of cos θ + 1 = 0?', opts: ['θ = π + 2kπ', 'θ = 2kπ', 'θ = π/2 + kπ', 'θ = π + kπ/2'], correct: 0, hint: 'cos θ = −1 happens once per turn.', why: 'cos θ = −1 only at θ = π in [0, 2π); add 2kπ.', ref: {panel: 'linear', what: 'the equation cos θ + 1 = 0', body: '<p>Solve <b>cos θ + 1 = 0</b> (all solutions).</p>'}},
+  {q: 'Solve 2 sin θ + √3 = 0 on [0, 2π).', opts: ['4π/3 and 5π/3', 'π/3 and 2π/3', '7π/6 and 11π/6', '2π/3 and 4π/3'], correct: 0, hint: 'sin θ = −√3/2: Quadrants III and IV with reference angle π/3.', why: 'π + π/3 = 4π/3 and 2π − π/3 = 5π/3.', ref: {panel: 'linear', what: 'the equation 2 sin θ + √3 = 0', body: '<p>Solve <b>2 sin θ + √3 = 0</b> on [0, 2π).</p>'}},
   {q: 'Solve 3 tan θ + 5 = 2 on [0°, 360°).', opts: ['135° and 315°', '45° and 225°', '135° and 225°', '45° and 315°'], correct: 0, hint: 'tan θ = −1.', why: 'Reference angle 45°, tangent negative in Quadrants II and IV: 135° and 315°.'},
-  {q: 'Solve 5 sin θ + 3 = 0 on [0, 2π), to two decimals.', opts: ['3.79 and 5.64', '0.64 and 2.50', '−0.64 and 3.79', '2.50 and 5.64'], correct: 0, hint: 'Reference angle sin⁻¹(3/5) ≈ 0.64; Quadrants III and IV.', why: 'π + 0.6435 ≈ 3.79 and 2π − 0.6435 ≈ 5.64.', ref: {panel: 'linear', what: 'Example 1 (v)', body: '<p>Solve <b>5 sin θ + 3 = 0</b> on [0, 2π); round to two decimals.</p>'}},
+  {q: 'Solve 5 sin θ + 3 = 0 on [0, 2π), to two decimals.', opts: ['3.79 and 5.64', '0.64 and 2.50', '−0.64 and 3.79', '2.50 and 5.64'], correct: 0, hint: 'Reference angle sin⁻¹(3/5) ≈ 0.64; Quadrants III and IV.', why: 'π + 0.6435 ≈ 3.79 and 2π − 0.6435 ≈ 5.64.', ref: {panel: 'linear', what: 'the equation 5 sin θ + 3 = 0', body: '<p>Solve <b>5 sin θ + 3 = 0</b> on [0, 2π); round to two decimals.</p>'}},
   {q: 'Which is the general solution of 4 sin x + 3 = 1?', opts: ['x = 7π/6 + 2kπ, x = 11π/6 + 2kπ', 'x = π/6 + 2kπ, x = 5π/6 + 2kπ', 'x = 7π/6 + kπ', 'x = −π/6 + 2kπ only'], correct: 0, hint: 'sin x = −1/2.', why: 'Reference angle π/6 in Quadrants III and IV.'},
   {q: 'Solve √2 cos x − 1 = 0 on [0, 2π).', opts: ['π/4 and 7π/4', 'π/4 and 3π/4', '3π/4 and 5π/4', 'π/4 only'], correct: 0, hint: 'cos x = √2/2.', why: 'Cosine is positive in Quadrants I and IV: π/4 and 2π − π/4.'},
   {q: 'Solve 1 − tan x = 2 on [−π, π).', opts: ['−π/4 and 3π/4', '3π/4 and 7π/4', 'π/4 and 5π/4', '−3π/4 and π/4'], correct: 0, hint: 'tan x = −1, then stay inside [−π, π).', why: 'tan x = −1 at 3π/4 + kπ; inside [−π, π) that is −π/4 and 3π/4.'},

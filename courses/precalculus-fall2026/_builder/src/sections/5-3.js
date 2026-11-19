@@ -11,7 +11,7 @@ const table6 = (vals, forms) => `<div class="ca-scroll-x"><table class="ca-data-
 /* ---------- 01 · unit circle point ---------- */
 const ANG = CA.SPECIAL.slice(0, -1);
 CA.lab('six-lab', {
-  controls: [{type: 'select', key: 'd', label: 'Angle t', value: '300', options: ANG.map(d => [String(d), `${CA.radText(d)} (${d}°)${d === 300 ? ' · Example 1' : d === 135 ? ' · Checkpoint 1' : ''}`])}],
+  controls: [{type: 'select', key: 'd', label: 'Angle t', value: '300', options: ANG.map(d => [String(d), `${CA.radText(d)} (${d}°)`])}],
   plot: UC_WIN, plotLabel: 'Point on the unit circle', readouts: [['pt', 'Point (x, y)'], ['q', 'Location']], middle: '<div id="six-table"></div>', steps: true
 }, (lab, st) => {
   const d = +st.d, x = CA.exact('cos', d), y = CA.exact('sin', d), P = lab.plane(), th = toRad(d);
@@ -29,7 +29,7 @@ CA.lab('six-lab', {
 });
 
 /* ---------- 02 · point on a circle of radius r ---------- */
-const PT_PRE = {ex2: [10, 'x', 2, 'IV', 'Example 2 · (2, y) on x² + y² = 10, Quadrant IV'], cp2: [20, 'y', -4, 'III', 'Checkpoint 2 (i) · (x, −4) on x² + y² = 20, Quadrant III'], a: [25, 'x', -3, 'II', '(−3, y) on x² + y² = 25, Quadrant II']};
+const PT_PRE = {ex2: [10, 'x', 2, 'IV', '(2, y) on x² + y² = 10, Quadrant IV'], cp2: [20, 'y', -4, 'III', '(x, −4) on x² + y² = 20, Quadrant III'], a: [25, 'x', -3, 'II', '(−3, y) on x² + y² = 25, Quadrant II']};
 CA.lab('pt-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Problem', value: 'ex2', options: Object.entries(PT_PRE).map(([k, v]) => [k, v[4]]).concat([['own', 'Set your own']])},
     {type: 'number', key: 'r2', label: 'r² (right side of x² + y² = r²)', value: 10, step: 1, min: 1}, {type: 'seg', key: 'known', label: 'Known coordinate', value: 'x', options: [['x', 'x'], ['y', 'y']]},
@@ -90,13 +90,13 @@ CA.cards('eo-cards', FN.map(f => ({expr: `y = ${f} x`, correct: ['cos', 'sec'].i
 /* ---------- 05 · simplification walker ---------- */
 const sec = x => 1 / Math.cos(x), csc = x => 1 / Math.sin(x), cot = x => Math.cos(x) / Math.sin(x);
 CA.proof('id-proof', [
-  {title: 'Example 3 (iv) · tan(−x)(csc x + cot(−x))', goal: 'Simplify <b>tan(−x)(csc x + cot(−x))</b>.', done: '✓ Simplified: tan(−x)(csc x + cot(−x)) = <b>1 − sec x</b>.',
+  {title: 'tan(−x)(csc x + cot(−x))', goal: 'Simplify <b>tan(−x)(csc x + cot(−x))</b>.', done: '✓ Simplified: tan(−x)(csc x + cot(−x)) = <b>1 − sec x</b>.',
     lines: [['tan(−x)(csc x + cot(−x))', 'Start'], ['= −tan x (csc x − cot x)', 'Odd functions: tan(−x) = −tan x, cot(−x) = −cot x'], ['= −tan x csc x + tan x cot x', 'Distribute'], ['= −(sin x/cos x)(1/sin x) + tan x · (1/tan x)', 'Quotient and reciprocal identities'], ['= −1/cos x + 1', 'Cancel'], ['= 1 − sec x', 'Reciprocal identity']],
     lhs: x => Math.tan(-x) * (csc(x) + cot(-x)), rhs: x => 1 - sec(x)},
-  {title: 'Checkpoint 3 (i) · cot(−x) sec(−x)', goal: 'Simplify <b>cot(−x) sec(−x)</b>.', done: '✓ Simplified: cot(−x) sec(−x) = <b>−csc x</b>.',
+  {title: 'cot(−x) sec(−x)', goal: 'Simplify <b>cot(−x) sec(−x)</b>.', done: '✓ Simplified: cot(−x) sec(−x) = <b>−csc x</b>.',
     lines: [['cot(−x) sec(−x)', 'Start'], ['= (−cot x)(sec x)', 'cot is odd, sec is even'], ['= −(cos x/sin x)(1/cos x)', 'Quotient and reciprocal identities'], ['= −1/sin x', 'Cancel cos x'], ['= −csc x', 'Reciprocal identity']],
     lhs: x => cot(-x) * sec(-x), rhs: x => -csc(x)},
-  {title: 'Checkpoint 3 (ii) · sin x (csc(−x) + cot x)', goal: 'Simplify <b>sin x (csc(−x) + cot x)</b>.', done: '✓ Simplified: sin x (csc(−x) + cot x) = <b>cos x − 1</b>.',
+  {title: 'sin x (csc(−x) + cot x)', goal: 'Simplify <b>sin x (csc(−x) + cot x)</b>.', done: '✓ Simplified: sin x (csc(−x) + cot x) = <b>cos x − 1</b>.',
     lines: [['sin x (csc(−x) + cot x)', 'Start'], ['= sin x (−csc x + cot x)', 'csc is odd'], ['= −sin x · (1/sin x) + sin x · (cos x/sin x)', 'Distribute; reciprocal and quotient identities'], ['= −1 + cos x', 'Cancel sin x'], ['= cos x − 1', 'Rearrange']],
     lhs: x => Math.sin(x) * (csc(-x) + cot(x)), rhs: x => Math.cos(x) - 1}
 ], {label: 'Expression'});
@@ -118,7 +118,7 @@ CA.lab('calc-lab', {
 
 /* ---------- guided problems ---------- */
 CA.guided('53', [
-  {q: 'The point (1/2, −√3/2) is on the unit circle at angle t. What is tan t?', opts: ['−√3', '−√3/3', '√3', '−1/2'], correct: 0, hint: 'tan t = y/x.', why: '(−√3/2) ÷ (1/2) = −√3.', ref: {panel: 'six', what: 'Example 1', body: '<p>The point <b>(1/2, −√3/2)</b> is on the unit circle. Find all six values.</p>'}},
+  {q: 'The point (1/2, −√3/2) is on the unit circle at angle t. What is tan t?', opts: ['−√3', '−√3/3', '√3', '−1/2'], correct: 0, hint: 'tan t = y/x.', why: '(−√3/2) ÷ (1/2) = −√3.', ref: {panel: 'six', what: 'the point (1/2, −√3/2)', body: '<p>The point <b>(1/2, −√3/2)</b> is on the unit circle. Find all six values.</p>'}},
   {q: 'For the same point (1/2, −√3/2), what is csc t?', opts: ['−2√3/3', '−2', '2', '−√3/2'], correct: 0, hint: 'csc t = 1/y, then rationalize.', why: '1 ÷ (−√3/2) = −2/√3 = −2√3/3.', ref: {problem: 1, what: 'the same point'}},
   {q: 'What is sec(π/3)?', opts: ['2', '1/2', '2√3/3', '√3'], correct: 0, hint: 'cos(π/3) = 1/2.', why: 'sec(π/3) = 1/cos(π/3) = 1 ÷ (1/2) = 2.'},
   {q: 'What is cot(π/4)?', opts: ['1', '√2', '√2/2', '0'], correct: 0, hint: 'x = y at π/4.', why: 'cot(π/4) = x/y = (√2/2)/(√2/2) = 1.'},
@@ -126,8 +126,8 @@ CA.guided('53', [
   {q: 'If sin x = 0.52, what is sin(−x)?', opts: ['−0.52', '0.52', '1/0.52', '0.48'], correct: 0, hint: 'Sine is odd.', why: 'sin(−x) = −sin x = −0.52.'},
   {q: 'If cos x = −1/5, what is cos(−x)?', opts: ['−1/5', '1/5', '−5', '5'], correct: 0, hint: 'Cosine is even.', why: 'cos(−x) = cos x = −1/5.'},
   {q: 'Which pair lists exactly the even trigonometric functions?', opts: ['cosine and secant', 'sine and cosecant', 'tangent and cotangent', 'cosine and sine'], correct: 0, hint: 'Which functions use only x?', why: 'cos(−x) = cos x and sec(−x) = sec x; the other four are odd.'},
-  {q: 'Simplify cot(−x) sec(−x).', opts: ['−csc x', 'csc x', '−sec x', '−1'], correct: 0, hint: 'cot is odd, sec is even; then write in sines and cosines.', why: '−cot x sec x = −(cos x/sin x)(1/cos x) = −1/sin x = −csc x.', ref: {panel: 'identities', what: 'Checkpoint 3 (i)', body: '<p>Simplify <b>cot(−x) sec(−x)</b>.</p>'}},
-  {q: 'An angle t in Quadrant IV has endpoint (2, y) on x² + y² = 10. What is tan t?', opts: ['−√6/2', '√6/2', '−√6/3', '−√15/5'], correct: 0, hint: 'y = −√6.', why: 'y² = 10 − 4 = 6 and y &lt; 0, so y = −√6; tan t = y/x = −√6/2.', ref: {panel: 'any-circle', what: 'Example 2', body: '<p>t is in Quadrant IV with endpoint <b>(2, y)</b> on <b>x² + y² = 10</b>.</p>'}},
+  {q: 'Simplify cot(−x) sec(−x).', opts: ['−csc x', 'csc x', '−sec x', '−1'], correct: 0, hint: 'cot is odd, sec is even; then write in sines and cosines.', why: '−cot x sec x = −(cos x/sin x)(1/cos x) = −1/sin x = −csc x.', ref: {panel: 'identities', what: 'the simplification of cot(−x) sec(−x)', body: '<p>Simplify <b>cot(−x) sec(−x)</b>.</p>'}},
+  {q: 'An angle t in Quadrant IV has endpoint (2, y) on x² + y² = 10. What is tan t?', opts: ['−√6/2', '√6/2', '−√6/3', '−√15/5'], correct: 0, hint: 'y = −√6.', why: 'y² = 10 − 4 = 6 and y &lt; 0, so y = −√6; tan t = y/x = −√6/2.', ref: {panel: 'any-circle', what: 'the point (2, y) on x² + y² = 10', body: '<p>t is in Quadrant IV with endpoint <b>(2, y)</b> on <b>x² + y² = 10</b>.</p>'}},
   {q: 'Using a calculator in degree mode, csc 40° ≈ ?', opts: ['1.5557', '0.6428', '0.6981', '−1.3410'], correct: 0, hint: 'Press 1 ÷ sin 40.', why: 'sin 40° ≈ 0.6428, so csc 40° = 1/0.6428 ≈ 1.5557. (0.6428 is sin 40° itself, and 0.6981 is 40° written in radians.)'}
 ]);
 })();

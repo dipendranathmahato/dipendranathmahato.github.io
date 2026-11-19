@@ -16,7 +16,7 @@ const dragHandles = (lab, handles) => { let cur = null; CA.drag(lab.svg, (x, y, 
 const quadRule = (a, b) => a > 0 && b >= 0 ? ['Quadrant I', 'θ = tan⁻¹(b/a)'] : a < 0 ? [b >= 0 ? 'Quadrant II' : 'Quadrant III', 'θ = tan⁻¹(b/a) + 180°'] : a > 0 ? ['Quadrant IV', 'θ = tan⁻¹(b/a) + 360°'] : ['on the y-axis', b > 0 ? 'θ = 90°' : 'θ = 270°'];
 
 /* ---------- 01 · P to Q ---------- */
-const PQ = {ex1: [[-1, 2], [-4, -1], 'Example 1 · P(−1, 2), Q(−4, −1)'], cp1: [[5, 2], [-1, 7], 'Checkpoint 1 · A(5, 2), B(−1, 7)']};
+const PQ = {ex1: [[-1, 2], [-4, -1], 'P(−1, 2), Q(−4, −1)'], cp1: [[5, 2], [-1, 7], 'A(5, 2), B(−1, 7)']};
 let Pp = [-1, 2], Qp = [-4, -1];
 const pq = CA.lab('pq-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Vector', value: 'ex1', options: Object.entries(PQ).map(([k, v]) => [k, v[2]]).concat([['own', 'Drag your own']])}],
@@ -35,7 +35,7 @@ const pq = CA.lab('pq-lab', {
 dragHandles(pq, () => [[...Pp, (x, y) => { Pp = [x, y]; pq.state.set('pre', 'own', true); pq.refresh(); }], [...Qp, (x, y) => { Qp = [x, y]; pq.state.set('pre', 'own', true); pq.refresh(); }]]);
 
 /* ---------- 02 · magnitude and direction ---------- */
-const MD = {ex21: [[-3, 3], [1, -2], 'Example 2 (1) · P(−3, 3) to Q(1, −2)'], ex22: [[2, -1], [-3, 1], 'Example 2 (2) · P(2, −1) to Q(−3, 1)'], cp21: [[-6, -1], [2, 5], 'Checkpoint 2 (1) · P(−6, −1) to Q(2, 5)'], cp22: [[3, 7], [1, 1], 'Checkpoint 2 (2) · P(3, 7) to Q(1, 1)']};
+const MD = {ex21: [[-3, 3], [1, -2], 'P(−3, 3) to Q(1, −2)'], ex22: [[2, -1], [-3, 1], 'P(2, −1) to Q(−3, 1)'], cp21: [[-6, -1], [2, 5], 'P(−6, −1) to Q(2, 5)'], cp22: [[3, 7], [1, 1], 'P(3, 7) to Q(1, 1)']};
 let V = [4, -5];
 const md = CA.lab('md-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Vector', value: 'ex21', options: Object.entries(MD).map(([k, v]) => [k, v[2]]).concat([['own', 'Drag your own']])}],
@@ -56,12 +56,12 @@ dragHandles(md, () => [[...V, (x, y) => { V = [x, y]; md.state.set('pre', 'own',
 
 /* ---------- 03 · operations ---------- */
 const OP = [
-  {t: 'Example 3 · u = ⟨5, −2⟩, v = ⟨−1, 7⟩: u + v', u: [5, -2], v: [-1, 7], m: 'sum'}, {t: 'Example 3 · u − v', u: [5, -2], v: [-1, 7], m: 'diff'},
-  {t: 'Checkpoint 3 · u = ⟨−1, −5⟩, v = ⟨3, −6⟩: u + v', u: [-1, -5], v: [3, -6], m: 'sum'}, {t: 'Checkpoint 3 · u − v', u: [-1, -5], v: [3, -6], m: 'diff'},
-  {t: 'Example 4.1 · 2v for v = ⟨7, −3⟩', u: [7, -3], v: [7, -3], m: 'scal', k: 2}, {t: 'Example 4.1 · (1/3)v', u: [7, -3], v: [7, -3], m: 'scal', k: 1 / 3}, {t: 'Example 4.1 · −4v', u: [7, -3], v: [7, -3], m: 'scal', k: -4},
-  {t: 'Example 4.2 · 2v + 4w, v = ⟨8, −2⟩, w = ⟨5, 1⟩', u: [8, -2], v: [5, 1], m: 'combo', a: 2, b: 4}, {t: 'Checkpoint 4 · −v, ½v, 2v for v = ⟨2, 5⟩', u: [2, 5], v: [2, 5], m: 'scal', k: -1},
-  {t: 'Checkpoint 4 · 3v − 2w, v = ⟨−4, 4⟩, w = ⟨6, −5⟩', u: [-4, 4], v: [6, -5], m: 'combo', a: 3, b: -2}, {t: 'Example 6.2 · 3v + 5w, v = −i + 3j, w = 6i − 2j', u: [-1, 3], v: [6, -2], m: 'combo', a: 3, b: 5},
-  {t: 'Checkpoint 6.2 · 2v − 4w, v = 5i − 2j, w = −4i + j', u: [5, -2], v: [-4, 1], m: 'combo', a: 2, b: -4}
+  {t: 'u + v for u = ⟨5, −2⟩, v = ⟨−1, 7⟩', u: [5, -2], v: [-1, 7], m: 'sum'}, {t: 'u − v for u = ⟨5, −2⟩, v = ⟨−1, 7⟩', u: [5, -2], v: [-1, 7], m: 'diff'},
+  {t: 'u + v for u = ⟨−1, −5⟩, v = ⟨3, −6⟩', u: [-1, -5], v: [3, -6], m: 'sum'}, {t: 'u − v for u = ⟨−1, −5⟩, v = ⟨3, −6⟩', u: [-1, -5], v: [3, -6], m: 'diff'},
+  {t: '2v for v = ⟨7, −3⟩', u: [7, -3], v: [7, -3], m: 'scal', k: 2}, {t: '(1/3)v for v = ⟨7, −3⟩', u: [7, -3], v: [7, -3], m: 'scal', k: 1 / 3}, {t: '−4v for v = ⟨7, −3⟩', u: [7, -3], v: [7, -3], m: 'scal', k: -4},
+  {t: '2v + 4w, v = ⟨8, −2⟩, w = ⟨5, 1⟩', u: [8, -2], v: [5, 1], m: 'combo', a: 2, b: 4}, {t: '−v, ½v, 2v for v = ⟨2, 5⟩', u: [2, 5], v: [2, 5], m: 'scal', k: -1},
+  {t: '3v − 2w, v = ⟨−4, 4⟩, w = ⟨6, −5⟩', u: [-4, 4], v: [6, -5], m: 'combo', a: 3, b: -2}, {t: '3v + 5w, v = −i + 3j, w = 6i − 2j', u: [-1, 3], v: [6, -2], m: 'combo', a: 3, b: 5},
+  {t: '2v − 4w, v = 5i − 2j, w = −4i + j', u: [5, -2], v: [-4, 1], m: 'combo', a: 2, b: -4}
 ];
 let U = [5, -2], W = [-1, 7];
 const kf = k => { const f = CA.simpleFrac(k, 12); return f && f.d !== 1 ? `(${f})` : fmt(k); };
@@ -92,7 +92,7 @@ dragHandles(op, () => [[...U, (x, y) => { U = [x, y]; op.state.set('pre', 'own',
 
 /* ---------- 04 · unit vectors; length and angle ---------- */
 CA.lab('unit-lab', {
-  controls: [{type: 'select', key: 'pre', label: 'Vector', value: 'e5', options: [['e5', 'Example 5 · v = ⟨−3, −4⟩'], ['c5', 'Checkpoint 5 · v = ⟨−7, 3⟩'], ['x', 'v = ⟨2, 2⟩'], ['own', 'Set your own']]}, {type: 'number', key: 'a', label: 'a =', value: -3, step: 1}, {type: 'number', key: 'b', label: 'b =', value: -4, step: 1}],
+  controls: [{type: 'select', key: 'pre', label: 'Vector', value: 'e5', options: [['e5', 'v = ⟨−3, −4⟩'], ['c5', 'v = ⟨−7, 3⟩'], ['x', 'v = ⟨2, 2⟩'], ['own', 'Set your own']]}, {type: 'number', key: 'a', label: 'a =', value: -3, step: 1}, {type: 'number', key: 'b', label: 'b =', value: -4, step: 1}],
   plot: {xmin: -8, xmax: 8, ymin: -6, ymax: 6, w: 560, h: 380}, plotLabel: 'A vector and its unit vector', readouts: [['m', '|v|'], ['u', 'Unit vector'], ['chk', '|u|']], steps: true
 }, (lab, st, key) => {
   if (key === 'pre' && st.pre !== 'own') { const v = {e5: [-3, -4], c5: [-7, 3], x: [2, 2]}[st.pre]; st.set('a', v[0], true); st.set('b', v[1], true); } else if (key && key !== 'pre') st.set('pre', 'own', true);
@@ -104,7 +104,7 @@ CA.lab('unit-lab', {
   lab.out('u points the same way as v but ends on the unit circle (dashed): its length is exactly 1.', 'ca-correct');
 });
 CA.lab('ld-lab', {
-  controls: [{type: 'select', key: 'pre', label: 'Vector', value: 'e', options: [['e', 'Example 6.3 · length 9 at 120°'], ['c', 'Checkpoint 6.3 · length 3 at 210°'], ['own', 'Set your own']]}, {type: 'number', key: 'L', label: '|v| =', value: 9, min: 1, step: 1}, {type: 'select', key: 'th', label: 'θ =', value: '120', options: CA.SPECIAL.slice(0, -1).map(d => [String(d), d + '°'])}],
+  controls: [{type: 'select', key: 'pre', label: 'Vector', value: 'e', options: [['e', 'length 9 at 120°'], ['c', 'length 3 at 210°'], ['own', 'Set your own']]}, {type: 'number', key: 'L', label: '|v| =', value: 9, min: 1, step: 1}, {type: 'select', key: 'th', label: 'θ =', value: '120', options: CA.SPECIAL.slice(0, -1).map(d => [String(d), d + '°'])}],
   plot: {xmin: -10, xmax: 10, ymin: -10, ymax: 10, w: 520, h: 400}, plotLabel: 'Vector from its length and direction', readouts: [['v', 'v in i, j form']], steps: true
 }, (lab, st, key) => {
   if (key === 'pre' && st.pre !== 'own') { const v = {e: [9, '120'], c: [3, '210']}[st.pre]; st.set('L', v[0], true); st.set('th', v[1], true); } else if (key && key !== 'pre') st.set('pre', 'own', true);
@@ -117,7 +117,7 @@ CA.lab('ld-lab', {
 });
 
 /* ---------- 05 · dot product ---------- */
-const DP = {e7: [[3, 8], [-2, 6], 'Example 7 · v = ⟨3, 8⟩, w = ⟨−2, 6⟩'], c7: [[-2, -5], [9, -1], 'Checkpoint 7 · v = ⟨−2, −5⟩, w = ⟨9, −1⟩'], p: [[4, 2], [-1, 2], 'v = ⟨4, 2⟩, w = ⟨−1, 2⟩']};
+const DP = {e7: [[3, 8], [-2, 6], 'v = ⟨3, 8⟩, w = ⟨−2, 6⟩'], c7: [[-2, -5], [9, -1], 'v = ⟨−2, −5⟩, w = ⟨9, −1⟩'], p: [[4, 2], [-1, 2], 'v = ⟨4, 2⟩, w = ⟨−1, 2⟩']};
 let D1 = [3, 8], D2 = [-2, 6];
 const dot = CA.lab('dot-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Vectors', value: 'e7', options: Object.entries(DP).map(([k, v]) => [k, v[2]]).concat([['own', 'Drag your own']])}],
@@ -137,16 +137,16 @@ dragHandles(dot, () => [[...D1, (x, y) => { D1 = [x, y]; dot.state.set('pre', 'o
 
 /* ---------- guided problems ---------- */
 CA.guided('88', [
-  {q: 'What is the position vector equal to PQ⃗ with P(−1, 2) and Q(−4, −1)?', opts: ['⟨−3, −3⟩', '⟨3, 3⟩', '⟨−5, 1⟩', '⟨−4, −1⟩'], correct: 0, hint: '⟨x₂ − x₁, y₂ − y₁⟩.', why: '⟨−4 − (−1), −1 − 2⟩ = ⟨−3, −3⟩.', ref: {panel: 'component', what: 'Example 1', body: '<p>P(−1, 2) and Q(−4, −1). Find the position vector equal to PQ⃗.</p>'}},
+  {q: 'What is the position vector equal to PQ⃗ with P(−1, 2) and Q(−4, −1)?', opts: ['⟨−3, −3⟩', '⟨3, 3⟩', '⟨−5, 1⟩', '⟨−4, −1⟩'], correct: 0, hint: '⟨x₂ − x₁, y₂ − y₁⟩.', why: '⟨−4 − (−1), −1 − 2⟩ = ⟨−3, −3⟩.', ref: {panel: 'component', what: 'the points P(−1, 2) and Q(−4, −1)', body: '<p>P(−1, 2) and Q(−4, −1). Find the position vector equal to PQ⃗.</p>'}},
   {q: 'What is the magnitude of v = ⟨4, −5⟩?', opts: ['√41', '√31', '9', '1'], correct: 0, hint: '√(16 + 25).', why: '|v| = √(4² + (−5)²) = √41 ≈ 6.40.'},
   {q: 'What is the direction of v = ⟨4, −5⟩?', opts: ['≈ 308.7°', '≈ −51.3°', '≈ 231.3°', '≈ 51.3°'], correct: 0, hint: 'Quadrant IV: add 360°.', why: 'tan⁻¹(−5/4) ≈ −51.3°, and −51.3° + 360° ≈ 308.7°.', ref: {problem: 2, what: 'the same vector'}},
   {q: 'What is the direction of u = ⟨−5, 2⟩?', opts: ['≈ 158.2°', '≈ −21.8°', '≈ 21.8°', '≈ 338.2°'], correct: 0, hint: 'Quadrant II: add 180°.', why: 'tan⁻¹(2/(−5)) ≈ −21.8°, and −21.8° + 180° ≈ 158.2°.'},
-  {q: 'For u = ⟨5, −2⟩ and v = ⟨−1, 7⟩, u + v = ?', opts: ['⟨4, 5⟩', '⟨6, −9⟩', '⟨4, −9⟩', '⟨−5, −14⟩'], correct: 0, hint: 'Add matching components.', why: '⟨5 + (−1), −2 + 7⟩ = ⟨4, 5⟩.', ref: {panel: 'operations', what: 'Example 3', body: '<p>u = ⟨5, −2⟩ and v = ⟨−1, 7⟩. Find u + v and u − v.</p>'}},
+  {q: 'For u = ⟨5, −2⟩ and v = ⟨−1, 7⟩, u + v = ?', opts: ['⟨4, 5⟩', '⟨6, −9⟩', '⟨4, −9⟩', '⟨−5, −14⟩'], correct: 0, hint: 'Add matching components.', why: '⟨5 + (−1), −2 + 7⟩ = ⟨4, 5⟩.', ref: {panel: 'operations', what: 'the vectors u = ⟨5, −2⟩ and v = ⟨−1, 7⟩', body: '<p>u = ⟨5, −2⟩ and v = ⟨−1, 7⟩. Find u + v and u − v.</p>'}},
   {q: 'For the same u and v, u − v = ?', opts: ['⟨6, −9⟩', '⟨4, 5⟩', '⟨−6, 9⟩', '⟨6, 5⟩'], correct: 0, hint: 'u + (−v) with −v = ⟨1, −7⟩.', why: '⟨5 + 1, −2 − 7⟩ = ⟨6, −9⟩.', ref: {problem: 5, what: 'the same u and v'}},
   {q: 'For v = ⟨7, −3⟩, which is −4v and how does its direction compare with v?', opts: ['⟨−28, 12⟩, opposite direction', '⟨−28, −12⟩, same direction', '⟨28, −12⟩, opposite direction', '⟨−28, 12⟩, same direction'], correct: 0, hint: 'k &lt; 0 reverses the direction.', why: '−4⟨7, −3⟩ = ⟨−28, 12⟩, which points in the opposite direction (≈ 156.8° vs ≈ 336.8°).'},
   {q: 'What is the unit vector in the direction of ⟨−3, −4⟩?', opts: ['⟨−3/5, −4/5⟩', '⟨3/5, 4/5⟩', '⟨−3, −4⟩/25', '⟨−1, −1⟩'], correct: 0, hint: 'Divide by |v| = 5.', why: '⟨−3, −4⟩/5 = ⟨−3/5, −4/5⟩.'},
   {q: 'Write the vector of length 9 at 120° in i, j form.', opts: ['−(9/2)i + (9√3/2)j', '(9/2)i + (9√3/2)j', '−(9√3/2)i + (9/2)j', '−9i + 9j'], correct: 0, hint: '9(cos 120° i + sin 120° j).', why: 'cos 120° = −1/2 and sin 120° = √3/2, so v = −(9/2)i + (9√3/2)j.'},
-  {q: 'Find the angle between v = ⟨3, 8⟩ and w = ⟨−2, 6⟩.', opts: ['≈ 39°', '≈ 51°', '≈ 129°', '≈ 90°'], correct: 0, hint: 'v · w = 42, |v| = √73, |w| = 2√10.', why: 'cos θ = 42/(√73 · 2√10) ≈ 0.777, so θ ≈ 39°.', ref: {panel: 'dot', what: 'Example 7', body: '<p>Find the angle between <b>v = ⟨3, 8⟩</b> and <b>w = ⟨−2, 6⟩</b>.</p>'}},
+  {q: 'Find the angle between v = ⟨3, 8⟩ and w = ⟨−2, 6⟩.', opts: ['≈ 39°', '≈ 51°', '≈ 129°', '≈ 90°'], correct: 0, hint: 'v · w = 42, |v| = √73, |w| = 2√10.', why: 'cos θ = 42/(√73 · 2√10) ≈ 0.777, so θ ≈ 39°.', ref: {panel: 'dot', what: 'the vectors v = ⟨3, 8⟩ and w = ⟨−2, 6⟩', body: '<p>Find the angle between <b>v = ⟨3, 8⟩</b> and <b>w = ⟨−2, 6⟩</b>.</p>'}},
   {q: 'If v · w = 0 (both nonzero), then v and w are…', opts: ['perpendicular', 'parallel', 'equal', 'unit vectors'], correct: 0, hint: 'cos θ = 0.', why: 'cos θ = 0 means θ = 90°.'}
 ]);
 })();

@@ -7,9 +7,9 @@ const ANGLE_WIN = {xmin: -1.5, xmax: 1.5, ymin: -1.3, ymax: 1.3, labels: false, 
 const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 
 /* ---------- 01 · standard position ---------- */
-const STD_PRE = [['60', 'Example 1 (i) · 60°'], ['-45', 'Example 1 (ii) · −45°'], ['150', 'Example 1 (iii) · 150°'], ['-150', 'Example 1 (iv) · −150°'],
-  ['30', 'Checkpoint 1 · 30°'], ['-30', 'Checkpoint 1 · −30°'], ['135', 'Checkpoint 1 · 135°'], ['-135', 'Checkpoint 1 · −135°'], ['240', 'Checkpoint 1 · 240°'],
-  ['-240', 'Checkpoint 1 · −240°'], ['300', 'Checkpoint 1 · 300°'], ['-300', 'Checkpoint 1 · −300°'], ['90', 'Quadrantal · 90°'], ['405', 'More than one turn · 405°'], ['-450', 'More than one turn · −450°']];
+const STD_PRE = [['60', '60°'], ['-45', '−45°'], ['150', '150°'], ['-150', '−150°'],
+  ['30', '30°'], ['-30', '−30°'], ['135', '135°'], ['-135', '−135°'], ['240', '240°'],
+  ['-240', '−240°'], ['300', '300°'], ['-300', '−300°'], ['90', 'Quadrantal · 90°'], ['405', 'More than one turn · 405°'], ['-450', 'More than one turn · −450°']];
 let cont = 60;
 const std = CA.lab('std-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Angle', value: '60', options: STD_PRE}, {type: 'range', key: 'deg', label: 'θ =', min: -720, max: 720, step: 5, value: 60, fmt: v => fmt(v) + '°'}],
@@ -81,9 +81,9 @@ const conv = CA.lab('conv-lab', {
 });
 
 /* ---------- 03 · coterminal and reference angles ---------- */
-const COT_PRE = [['925', 'deg', 'Example 3 (i a) · 925°'], ['-405', 'deg', 'Example 3 (i b) · −405°'], ['32π/13', 'rad', 'Example 3 (ii a) · 32π/13'], ['-17π/6', 'rad', 'Example 3 (ii b) · −17π/6'],
-  ['255', 'deg', 'Example 4 (a) · 255°'], ['3π/5', 'rad', 'Example 4 (b) · 3π/5'], ['667', 'deg', 'Example 4 (c) · 667°'],
-  ['861', 'deg', 'Checkpoint 3 · 861°'], ['-297', 'deg', 'Checkpoint 3 · −297°'], ['32π/5', 'rad', 'Checkpoint 3 · 32π/5'], ['-12π/7', 'rad', 'Checkpoint 3 · −12π/7']];
+const COT_PRE = [['925', 'deg', '925°'], ['-405', 'deg', '−405°'], ['32π/13', 'rad', '32π/13'], ['-17π/6', 'rad', '−17π/6'],
+  ['255', 'deg', '255°'], ['3π/5', 'rad', '3π/5'], ['667', 'deg', '667°'],
+  ['861', 'deg', '861°'], ['-297', 'deg', '−297°'], ['32π/5', 'rad', '32π/5'], ['-12π/7', 'rad', '−12π/7']];
 CA.lab('cot-lab', {
   controls: [{type: 'select', key: 'pre', label: 'Angle', value: '0', options: COT_PRE.map((p, i) => [String(i), p[2]]).concat([['own', 'Type your own']])},
     {type: 'seg', key: 'unit', label: 'Unit', value: 'deg', options: [['deg', 'Degrees'], ['rad', 'Radians']]}, {type: 'text', key: 'val', label: 'θ =', value: '925', placeholder: '925 or 32π/13'}],
@@ -185,12 +185,12 @@ document.getElementById('wheel-play').addEventListener('click', e => { playing =
 /* ---------- guided problems ---------- */
 CA.guided('51', [
   {q: 'Convert 225° to radians.', opts: ['5π/4', '4π/5', '5π/8', '225π'], correct: 0, hint: 'Multiply by π/180° and simplify 225/180.', why: '225° × π/180° = 225π/180 = 5π/4.'},
-  {q: 'Convert −5π/6 to degrees.', opts: ['−150°', '−300°', '150°', '−216°'], correct: 0, hint: 'Multiply by 180°/π.', why: '−5π/6 × 180°/π = −5 × 30° = −150°.', ref: {panel: 'radians', what: 'the conversion rule', body: '<p>Radians → degrees: multiply by 180°/π. Example 2 (ii) in the notes converts −5π/6.</p>'}},
-  {q: 'Which angle between 0° and 360° is coterminal with 925°?', opts: ['205°', '565°', '155°', '25°'], correct: 0, hint: 'Subtract 360° until the result is less than 360°.', why: '925° − 360° = 565°, and 565° − 360° = 205°.', ref: {panel: 'coterminal', what: 'Example 3 (i a)', body: '<p>Find the angle between 0° and 360° that is coterminal with <b>925°</b>.</p>'}},
-  {q: 'Which angle between 0° and 360° is coterminal with −405°?', opts: ['315°', '45°', '−45°', '225°'], correct: 0, hint: 'Add 360° until the result is positive.', why: '−405° + 360° = −45°, and −45° + 360° = 315°.', ref: {panel: 'coterminal', what: 'Example 3 (i b)', body: '<p>Find the angle between 0° and 360° that is coterminal with <b>−405°</b>.</p>'}},
-  {q: 'What is the reference angle of 255°?', opts: ['75°', '15°', '105°', '255°'], correct: 0, hint: '255° is in Quadrant III.', why: 'In Quadrant III, θ′ = θ − 180° = 255° − 180° = 75°.', ref: {panel: 'coterminal', what: 'Example 4 (a)', body: '<p>Find the reference angle of <b>255°</b>.</p>'}},
+  {q: 'Convert −5π/6 to degrees.', opts: ['−150°', '−300°', '150°', '−216°'], correct: 0, hint: 'Multiply by 180°/π.', why: '−5π/6 × 180°/π = −5 × 30° = −150°.', ref: {panel: 'radians', what: 'the conversion rule', body: '<p>Radians → degrees: multiply by 180°/π. For example, −5π/6 · 180°/π = −150°.</p>'}},
+  {q: 'Which angle between 0° and 360° is coterminal with 925°?', opts: ['205°', '565°', '155°', '25°'], correct: 0, hint: 'Subtract 360° until the result is less than 360°.', why: '925° − 360° = 565°, and 565° − 360° = 205°.', ref: {panel: 'coterminal', what: 'the angle 925°', body: '<p>Find the angle between 0° and 360° that is coterminal with <b>925°</b>.</p>'}},
+  {q: 'Which angle between 0° and 360° is coterminal with −405°?', opts: ['315°', '45°', '−45°', '225°'], correct: 0, hint: 'Add 360° until the result is positive.', why: '−405° + 360° = −45°, and −45° + 360° = 315°.', ref: {panel: 'coterminal', what: 'the angle −405°', body: '<p>Find the angle between 0° and 360° that is coterminal with <b>−405°</b>.</p>'}},
+  {q: 'What is the reference angle of 255°?', opts: ['75°', '15°', '105°', '255°'], correct: 0, hint: '255° is in Quadrant III.', why: 'In Quadrant III, θ′ = θ − 180° = 255° − 180° = 75°.', ref: {panel: 'coterminal', what: 'the reference angle of 255°', body: '<p>Find the reference angle of <b>255°</b>.</p>'}},
   {q: 'What is the reference angle of 3π/5?', opts: ['2π/5', '3π/5', 'π/5', '8π/5'], correct: 0, hint: '3π/5 is between π/2 and π.', why: 'Quadrant II: θ′ = π − 3π/5 = 2π/5.'},
-  {q: 'Find the arc length on a circle of radius 10 cm cut off by a central angle of 60°.', opts: ['10π/3 ≈ 10.47 cm', '600 cm', '50π/3 ≈ 52.36 cm', '5π/3 ≈ 5.24 cm'], correct: 0, hint: 'Convert 60° to π/3 first.', why: 's = rθ = 10 · π/3 = 10π/3 ≈ 10.47 cm.', ref: {panel: 'arc-sector', what: 'Example 5', body: '<p>Radius <b>10 cm</b>, central angle <b>60°</b>. Find the arc length and the sector area.</p>'}},
+  {q: 'Find the arc length on a circle of radius 10 cm cut off by a central angle of 60°.', opts: ['10π/3 ≈ 10.47 cm', '600 cm', '50π/3 ≈ 52.36 cm', '5π/3 ≈ 5.24 cm'], correct: 0, hint: 'Convert 60° to π/3 first.', why: 's = rθ = 10 · π/3 = 10π/3 ≈ 10.47 cm.', ref: {panel: 'arc-sector', what: 'the 10 cm sector', body: '<p>Radius <b>10 cm</b>, central angle <b>60°</b>. Find the arc length and the sector area.</p>'}},
   {q: 'Find the area of the sector of a circle of radius 10 cm with central angle 60°.', opts: ['50π/3 ≈ 52.36 cm²', '10π/3 ≈ 10.47 cm²', '100π/3 ≈ 104.72 cm²', '3000 cm²'], correct: 0, hint: 'A = ½r²θ with θ in radians.', why: 'A = ½(10)²(π/3) = 50π/3 ≈ 52.36 cm².', ref: {problem: 7, what: 'the same circle and angle'}},
   {q: 'A wheel turns at 30 revolutions per minute. What is its angular speed?', opts: ['60π rad/min', '30π rad/min', '15π rad/min', '60 rad/min'], correct: 0, hint: 'One revolution is 2π radians.', why: 'ω = 2πN = 2π(30) = 60π radians per minute.'},
   {q: 'Which angle is negative and has its terminal side in Quadrant III?', opts: ['−150°', '−30°', '150°', '210°'], correct: 0, hint: 'Turn clockwise from the positive x-axis.', why: 'Turning 150° clockwise passes the negative y-axis (−90°) and stops in Quadrant III. −30° ends in Quadrant IV, and 150° and 210° are positive.'}

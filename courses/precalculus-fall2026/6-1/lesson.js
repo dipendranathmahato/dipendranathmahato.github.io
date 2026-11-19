@@ -39,14 +39,14 @@ CA.lab('per-lab', {
 
 /* ---------- 03 · sinusoid lab ---------- */
 const WP = [
-  {label: 'Example 2 · y = 4 sin x', fn: 'sin', A: '4', B: '1', C: '0', D: '0'}, {label: 'Checkpoint 2 · y = −3 sin x', fn: 'sin', A: '-3', B: '1', C: '0', D: '0'},
-  {label: 'Example 3 · y = sin(4x)', fn: 'sin', A: '1', B: '4', C: '0', D: '0'}, {label: 'Checkpoint 3 · y = cos(2x)', fn: 'cos', A: '1', B: '2', C: '0', D: '0'},
-  {label: 'Checkpoint 3 · y = cos(x/2)', fn: 'cos', A: '1', B: '1/2', C: '0', D: '0'}, {label: 'Checkpoint 3 · y = 5 sin(πx)', fn: 'sin', A: '5', B: 'π', C: '0', D: '0'},
-  {label: 'Checkpoint 3 · y = −2 cos(x/4)', fn: 'cos', A: '-2', B: '1/4', C: '0', D: '0'}, {label: 'Example 4 (a) · y = sin(2x − π/3)', fn: 'sin', A: '1', B: '2', C: 'π/3', D: '0'},
-  {label: 'Example 4 (b) · y = cos(x/2 + π/4)', fn: 'cos', A: '1', B: '1/2', C: '-π/4', D: '0'}, {label: 'Checkpoint 4 · y = sin(πx + π/6)', fn: 'sin', A: '1', B: 'π', C: '-π/6', D: '0'},
-  {label: 'Checkpoint 4 · y = cos(3x − 2)', fn: 'cos', A: '1', B: '3', C: '2', D: '0'}, {label: 'Example 5 (a) · y = sin x + 3', fn: 'sin', A: '1', B: '1', C: '0', D: '3'},
-  {label: 'Example 5 (b) · y = cos x − 2', fn: 'cos', A: '1', B: '1', C: '0', D: '-2'}, {label: 'Checkpoint 5 · y = 2 sin(4x − 1) + 5', fn: 'sin', A: '2', B: '4', C: '1', D: '5'},
-  {label: 'Checkpoint 5 · y = −cos(x + π) − 1', fn: 'cos', A: '-1', B: '1', C: '-π', D: '-1'}
+  {label: 'y = 4 sin x', fn: 'sin', A: '4', B: '1', C: '0', D: '0'}, {label: 'y = −3 sin x', fn: 'sin', A: '-3', B: '1', C: '0', D: '0'},
+  {label: 'y = sin(4x)', fn: 'sin', A: '1', B: '4', C: '0', D: '0'}, {label: 'y = cos(2x)', fn: 'cos', A: '1', B: '2', C: '0', D: '0'},
+  {label: 'y = cos(x/2)', fn: 'cos', A: '1', B: '1/2', C: '0', D: '0'}, {label: 'y = 5 sin(πx)', fn: 'sin', A: '5', B: 'π', C: '0', D: '0'},
+  {label: 'y = −2 cos(x/4)', fn: 'cos', A: '-2', B: '1/4', C: '0', D: '0'}, {label: 'y = sin(2x − π/3)', fn: 'sin', A: '1', B: '2', C: 'π/3', D: '0'},
+  {label: 'y = cos(x/2 + π/4)', fn: 'cos', A: '1', B: '1/2', C: '-π/4', D: '0'}, {label: 'y = sin(πx + π/6)', fn: 'sin', A: '1', B: 'π', C: '-π/6', D: '0'},
+  {label: 'y = cos(3x − 2)', fn: 'cos', A: '1', B: '3', C: '2', D: '0'}, {label: 'y = sin x + 3', fn: 'sin', A: '1', B: '1', C: '0', D: '3'},
+  {label: 'y = cos x − 2', fn: 'cos', A: '1', B: '1', C: '0', D: '-2'}, {label: 'y = 2 sin(4x − 1) + 5', fn: 'sin', A: '2', B: '4', C: '1', D: '5'},
+  {label: 'y = −cos(x + π) − 1', fn: 'cos', A: '-1', B: '1', C: '-π', D: '-1'}
 ];
 const nx = v => CA.niceX(v);
 CA.waveLab('wave-lab', {fns: ['sin', 'cos'], presets: WP, readouts: [['amp', 'Amplitude'], ['per', 'Period'], ['ph', 'Phase shift'], ['mid', 'Midline'], ['rng', 'Range']],
@@ -92,10 +92,10 @@ newDet();
 CA.guided('61', [
   {q: 'If sin x = 0.341, what is sin(x + 2π)?', opts: ['0.341', '−0.341', '0.341 + 2π', '0.659'], correct: 0, hint: 'Sine has period 2π.', why: 'sin(x + 2π) = sin x = 0.341.'},
   {q: 'If cos x = −3/7, what is cos(x + 4π)?', opts: ['−3/7', '3/7', '−3/7 + 4π', '4/7'], correct: 0, hint: '4π is two periods.', why: 'cos(x + 4π) = cos(x + 2π + 2π) = cos x = −3/7.'},
-  {q: 'What is the amplitude of y = −3 sin x?', opts: ['3', '−3', '6', '1/3'], correct: 0, hint: 'Amplitude = |A|.', why: '|−3| = 3. The negative sign reflects the graph; it does not make the amplitude negative.', ref: {panel: 'sinusoid', what: 'Checkpoint 2', body: '<p>For <b>y = −3 sin x</b>, find A, the amplitude, and the maximum and minimum values.</p>'}},
+  {q: 'What is the amplitude of y = −3 sin x?', opts: ['3', '−3', '6', '1/3'], correct: 0, hint: 'Amplitude = |A|.', why: '|−3| = 3. The negative sign reflects the graph; it does not make the amplitude negative.', ref: {panel: 'sinusoid', what: 'the graph of y = −3 sin x', body: '<p>For <b>y = −3 sin x</b>, find A, the amplitude, and the maximum and minimum values.</p>'}},
   {q: 'What is the period of y = sin(4x)?', opts: ['π/2', '4π', '8π', '2π'], correct: 0, hint: 'P = 2π/|B|.', why: 'P = 2π/4 = π/2: the graph is compressed horizontally.'},
   {q: 'What is the period of y = −2 cos(x/4)?', opts: ['8π', 'π/2', '2π', '4π'], correct: 0, hint: 'B = 1/4.', why: 'P = 2π ÷ (1/4) = 8π: a horizontal stretch.'},
-  {q: 'What is the phase shift of y = sin(2x − π/3)?', opts: ['π/6 to the right', 'π/3 to the right', 'π/6 to the left', '2π/3 to the right'], correct: 0, hint: 'Phase shift = C/B.', why: 'C = π/3 and B = 2, so C/B = π/6 &gt; 0: π/6 to the right.', ref: {panel: 'sinusoid', what: 'Example 4 (a)', body: '<p>Find the phase shift and its direction for <b>y = sin(2x − π/3)</b>.</p>'}},
+  {q: 'What is the phase shift of y = sin(2x − π/3)?', opts: ['π/6 to the right', 'π/3 to the right', 'π/6 to the left', '2π/3 to the right'], correct: 0, hint: 'Phase shift = C/B.', why: 'C = π/3 and B = 2, so C/B = π/6 &gt; 0: π/6 to the right.', ref: {panel: 'sinusoid', what: 'the graph of y = sin(2x − π/3)', body: '<p>Find the phase shift and its direction for <b>y = sin(2x − π/3)</b>.</p>'}},
   {q: 'What is the phase shift of y = cos(x/2 + π/4)?', opts: ['π/2 to the left', 'π/4 to the left', 'π/8 to the left', 'π/2 to the right'], correct: 0, hint: 'Write x/2 + π/4 as Bx − C: C = −π/4.', why: 'C/B = (−π/4)/(1/2) = −π/2: π/2 to the left.', ref: {problem: 6, what: 'the same rule'}},
   {q: 'What is the midline of y = sin x + 3?', opts: ['y = 3', 'y = 1', 'y = 4', 'x = 3'], correct: 0, hint: 'The midline is y = D.', why: 'D = 3, so the graph shifts up 3 and the midline is y = 3.'},
   {q: 'What is the range of y = 2 sin(4x − 1) + 5?', opts: ['[3, 7]', '[−2, 2]', '[5, 7]', '[−1, 1]'], correct: 0, hint: 'Midline ± amplitude.', why: 'Midline y = 5 and amplitude 2, so the outputs run from 3 to 7.'},

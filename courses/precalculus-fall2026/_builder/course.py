@@ -3,6 +3,7 @@ section titles, motivating questions, and the bridges that connect one section t
 import datetime as dt
 
 COURSE = "MATH 2412"
+NAME = "Precalculus · Section 804"  # three Precalculus sections this fall; these pages are for Section 804
 BASE = "/courses/precalculus-fall2026/"
 TEXTBOOK = "https://openstax.org/books/precalculus-2e/pages/"  # syllabus: OpenStax Precalculus 2e
 WEEK1 = dt.date(2026, 8, 24)  # Monday of week 1 (classes start Wednesday, Aug 26)

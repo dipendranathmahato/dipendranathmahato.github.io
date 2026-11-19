@@ -951,3 +951,6 @@ html[data-theme="dark"] .course-page .ca-calc-key{background:#2b3644;color:#e3eb
 html[data-theme="dark"] .course-page .ca-quiz-fig svg{border-color:#3c4b5d}
 html[data-theme="dark"] .course-page .ca-drag-hint{color:#ffb08e}
 @media(max-width:700px){.course-page .ca-two-col{grid-template-columns:1fr}}
+
+/* course home title: section name on line 1, page kind on line 2 */
+.course-page .ca-hero h1 .ca-h1-sub{display:block;font-size:.6em;font-weight:750;letter-spacing:0;opacity:.92;margin-top:6px}
