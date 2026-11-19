@@ -1,0 +1,41 @@
+<p class="ca-lede">As a point travels around the unit circle, its y-coordinate rises and falls between −1 and 1 and then repeats. Plotting that height against the angle unrolls the circle into the <b>sine wave</b>; plotting the x-coordinate gives the <b>cosine wave</b>. Four numbers A, B, C, and D then stretch, squeeze, slide, and lift the wave.</p>
+<div class="ca-goals"><b>Learning objectives</b> Graph variations of y = sin x and y = cos x; use phase shifts of sine and cosine curves.</div>
+
+<section class="ca-panel" id="unroll"><h3>01 · Unrolling the unit circle</h3>
+<p>Move x from 0 to 2π. The point on the circle (left) and the point on the graph (right) always have the same height for sine, or the same x-coordinate value for cosine.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-film"></i> INTERACTIVE · TRACE ONE PERIOD</div>
+<div id="unroll-lab"></div>
+</section>
+
+<section class="ca-panel" id="periodic"><h3>02 · Periodic functions and their features</h3>
+<div class="ca-definition"><strong>Definitions · Periodic function and period</strong>
+<p>A function f is <b>periodic</b> if there is a horizontal shift P with <b>f(x + P) = f(x)</b> for every x in the domain. The smallest such positive P is the <b>period</b>. Sine and cosine have period <b>2π</b>, so sin(x + 2π) = sin x and cos(x + 4π) = cos x.</p>
+<ul><li><b>Domain:</b> all real numbers, (−∞, ∞). <b>Range:</b> [−1, 1]. <b>Period:</b> 2π.</li><li>y = sin x is <b>odd</b>: its graph is symmetric about the origin. y = cos x is <b>even</b>: its graph is symmetric about the y-axis.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right"></i> INTERACTIVE · SHIFT THE GRAPH UNTIL IT LANDS ON ITSELF</div>
+<p>The dashed curve is y = f(x + P). Find every shift P that makes it land exactly on the original graph.</p>
+<div id="per-lab"></div>
+</section>
+
+<section class="ca-panel" id="sinusoid"><h3>03 · y = A sin(Bx − C) + D and y = A cos(Bx − C) + D</h3>
+<div class="ca-definition"><strong>What each number does</strong>
+<div class="ca-formula-grid"><div><b>A · amplitude</b>Amplitude = |A| = ½(max − min). |A| &gt; 1 stretches vertically; |A| &lt; 1 compresses; A &lt; 0 also reflects over the midline.</div><div><b>B · period</b>P = 2π/|B|. |B| &gt; 1 compresses horizontally; |B| &lt; 1 stretches.</div><div><b>C · phase shift</b>Phase shift = C/B. If C/B &gt; 0 the graph shifts right; if C/B &lt; 0 it shifts left.</div><div><b>D · vertical shift</b>D &gt; 0 shifts up, D &lt; 0 shifts down. The <b>midline</b> is y = D.</div></div></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-sliders"></i> INTERACTIVE · SINUSOID LAB WITH FIVE KEY POINTS</div>
+<p>Choose a preset, or type your own A, B, C, D (π can be typed as <b>pi</b>). The dashed gray curve is the parent graph; the green points split one period into four equal parts.</p>
+<div id="wave-lab"></div>
+<aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>The phase shift is C/B, not C.</b> In y = sin(2x − π/3) the graph shifts π/6 to the right, not π/3: factor out B, sin(2(x − π/6)).</li><li><b>Read C with its sign from Bx − C.</b> In cos(x/2 + π/4), C = −π/4, so the shift is (−π/4)/(1/2) = −π/2: π/2 to the left.</li></ul></aside>
+</section>
+
+<section class="ca-panel" id="detective"><h3>04 · Graph detective</h3>
+<p>Read the amplitude, the period, and the midline from the graph. Then check. Press <b>New graph</b> for another one.</p>
+<div id="det-lab"></div>
+</section>
+
+<!--GUIDED|Graphs of the Sine and Cosine Functions|Original problems on periodicity, amplitude, period, phase shift, and midline. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Graphs of the Sine and Cosine Functions
+Q: Find the period of y = 5 sin(πx) and of y = −2 cos(x/4), and say whether each is a horizontal stretch or compression of the parent graph.
+A: y = 5 sin(πx): P = 2π/π = 2 &lt; 2π, a compression. y = −2 cos(x/4): P = 2π/(1/4) = 8π &gt; 2π, a stretch.
+Q: Find the phase shift and its direction for y = sin(πx + π/6) and y = cos(3x − 2).
+A: sin(πx + π/6): B = π, C = −π/6, C/B = −1/6, so 1/6 unit to the left. cos(3x − 2): B = 3, C = 2, C/B = 2/3, so 2/3 unit to the right.
+Q: Find the vertical shift and the midline of y = 2 sin(4x − 1) + 5 and y = −cos(x + π) − 1.
+A: D = 5: up 5, midline y = 5 (range [3, 7]). D = −1: down 1, midline y = −1 (range [−2, 0]).
+-->

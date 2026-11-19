@@ -1,0 +1,49 @@
+<p class="ca-lede">Right-triangle trigonometry needs a 90° angle. Most triangles, such as the one formed by two observers and a bird, or two tracking stations and a satellite, are <b>oblique</b>: no angle is 90°. The <b>Law of Sines</b> relates each side to the sine of the angle across from it, and solves an oblique triangle whenever we know an angle together with the side opposite it.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use the Law of Sines to solve oblique triangles; find the area of an oblique triangle using the sine function; solve applied problems using the Law of Sines.</div>
+
+<section class="ca-panel" id="law"><h3>01 · The Law of Sines</h3>
+<div class="ca-definition"><strong>Law of Sines</strong>
+<p>In a triangle with angles α, β, γ opposite sides a, b, c,</p>
+<p class="ca-formula">sin α / a = sin β / b = sin γ / c,  or equivalently  a / sin α = b / sin β = c / sin γ.</p>
+<p><b>Solving</b> a triangle means finding all three sides and all three angles. The Law of Sines works for <b>ASA</b> (two angles and the included side), <b>AAS</b> (two angles and a side opposite one of them), and <b>SSA</b> (two sides and an angle opposite one of them).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-hand-pointer"></i> INTERACTIVE · DRAG VERTEX C</div>
+<p>Drag the top vertex anywhere above side c. The three ratios side / sin(opposite angle) change, but they always stay equal to each other.</p>
+<div id="law-lab"></div>
+</section>
+
+<section class="ca-panel" id="asa-aas"><h3>02 · ASA and AAS triangles</h3>
+<div class="ca-definition"><strong>Procedure</strong>
+<ol><li>Draw and label the triangle.</li><li>Find the third angle: α + β + γ = 180°.</li><li>Use the ratio of a <b>known angle and its opposite known side</b> to find each remaining side.</li></ol></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-calculator"></i> INTERACTIVE · ASA / AAS SOLVER</div>
+<p>The presets include word problems with birdwatchers, radar stations, a satellite, and a lake.</p>
+<div id="aas-lab"></div>
+<aside class="ca-remember" role="note"><div class="ca-remember-heading"><i class="fa-solid fa-bookmark"></i> POINT TO REMEMBER</div><p>With α = 40°, β = 78°, c = 7, the side b uses sin β: b = 7 sin 78°/sin 62° ≈ <b>7.8</b>. Check: the largest angle (78°) must face the longest side, and 7.8 &gt; 7 &gt; 5.1.</p></aside>
+</section>
+
+<section class="ca-panel" id="ssa"><h3>03 · SSA: the ambiguous case</h3>
+<div class="ca-definition"><strong>How many triangles?</strong>
+<p>Given a, b, and α (opposite a), let h = b sin α be the height from C to the line through A. When α is acute:</p>
+<ul><li>a &lt; h: <b>no triangle</b> (side a cannot reach the base).</li><li>a = h: <b>one right triangle</b>.</li><li>h &lt; a &lt; b: <b>two triangles</b>, with β₂ = 180° − β₁.</li><li>a ≥ b: <b>one triangle</b>.</li></ul>
+<p>When α is obtuse there is one triangle if a &gt; b and none otherwise. With a calculator: if sin β = (b sin α)/a &gt; 1 there is no triangle.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-compass-drafting"></i> INTERACTIVE · SWING SIDE a</div>
+<p>Side a swings around C like a compass. Every place it meets the base line is a possible vertex B.</p>
+<div id="ssa-lab"></div>
+</section>
+
+<section class="ca-panel" id="area"><h3>04 · The area of an oblique triangle</h3>
+<div class="ca-definition"><strong>Area from two sides and the included angle</strong>
+<p class="ca-formula">Area = ½ ab sin γ = ½ bc sin α = ½ ac sin β</p>
+<p>The factor b sin α is the height of the triangle, so this is ½ · base · height in disguise.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-vector-square"></i> INTERACTIVE · AREA WITH SINE</div>
+<div id="area-lab"></div>
+</section>
+
+<!--GUIDED|Non-right Triangles: Law of Sines|Original problems on the Law of Sines, the ambiguous case, applications, and area. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Non-right Triangles: Law of Sines
+Q: Solve the triangle with β = 52°, γ = 96°, a = 15. Round to the nearest tenth.
+A: α = 180° − 52° − 96° = 32°. b = 15 sin 52°/sin 32° ≈ 22.3 and c = 15 sin 96°/sin 32° ≈ 28.2.
+Q: How many triangles have α = 34°, a = 6, b = 9? Solve them.
+A: h = 9 sin 34° ≈ 5.03 &lt; 6 &lt; 9, so two. sin β = 9 sin 34°/6 ≈ 0.8388: β₁ ≈ 57.0°, γ₁ ≈ 89.0°, c₁ ≈ 10.7; β₂ ≈ 123.0°, γ₂ ≈ 23.0°, c₂ ≈ 4.2.
+Q: Find the area of triangle ABC with γ = 62°, a = 28, b = 20.
+A: Area = ½(28)(20) sin 62° ≈ 247.2 square units.
+-->

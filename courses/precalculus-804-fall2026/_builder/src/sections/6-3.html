@@ -1,0 +1,47 @@
+<p class="ca-lede">Knowing an angle gives its sine. The inverse question, “which angle has sine 1/2?”, has infinitely many answers: π/6, 5π/6, 13π/6, …. To get a function we must agree on <b>one</b> answer. We do that by <b>restricting the domain</b> of sine, cosine, and tangent to an interval where each is one-to-one. Then sin⁻¹, cos⁻¹, and tan⁻¹ return an angle in that interval.</p>
+<div class="ca-goals"><b>Learning objectives</b> Understand and use the inverse sine, cosine, and tangent functions; find exact values of expressions involving them; use a calculator to evaluate inverse trigonometric functions; find exact values of composite functions with inverse trigonometric functions.</div>
+
+<section class="ca-panel" id="restrict"><h3>01 · Restricting the domain</h3>
+<div class="ca-definition"><strong>Restricted domains and the inverse functions</strong>
+<div class="ca-scroll-x"><table class="ca-data-table"><tr><th>function</th><th>restricted domain</th><th>range</th><th>inverse</th><th>domain of inverse</th><th>range of inverse</th></tr>
+<tr><td>y = sin x</td><td>[−π/2, π/2]</td><td>[−1, 1]</td><td>y = sin⁻¹x = arcsin x</td><td>[−1, 1]</td><td>[−π/2, π/2]</td></tr>
+<tr><td>y = cos x</td><td>[0, π]</td><td>[−1, 1]</td><td>y = cos⁻¹x = arccos x</td><td>[−1, 1]</td><td>[0, π]</td></tr>
+<tr><td>y = tan x</td><td>(−π/2, π/2)</td><td>(−∞, ∞)</td><td>y = tan⁻¹x = arctan x</td><td>(−∞, ∞)</td><td>(−π/2, π/2)</td></tr></table></div>
+<p>In general f(a) = b ⟺ f⁻¹(b) = a. The inputs of an inverse trig function are <b>ratios</b>; its outputs are <b>angles</b>. Note that sin⁻¹x means the inverse function, not 1/sin x.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-rotate"></i> INTERACTIVE · FAIL THE TEST, RESTRICT, REFLECT</div>
+<p>The full graph (gray) fails the horizontal line test. The restricted piece (orange) passes it. Slide the reflection to flip that piece over y = x and get the inverse.</p>
+<div id="res-lab"></div>
+</section>
+
+<section class="ca-panel" id="evaluate"><h3>02 · Evaluating sin⁻¹, cos⁻¹, and tan⁻¹</h3>
+<div class="ca-definition"><strong>Procedure</strong>
+<ol><li>To find sin⁻¹(a), ask: which angle <b>in [−π/2, π/2]</b> has sine a? For cos⁻¹(a), look in <b>[0, π]</b>; for tan⁻¹(a), look in <b>(−π/2, π/2)</b>.</li><li>If a is a special value, use the unit circle. Otherwise use a calculator (radian or degree mode as asked).</li><li>A negative input sends sin⁻¹ and tan⁻¹ into Quadrant IV (negative angles) and cos⁻¹ into Quadrant II.</li></ol></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-circle-half-stroke"></i> INTERACTIVE · WHERE CAN THE ANSWER BE?</div>
+<p>The highlighted arc is the only place the answer may lie. Pick a preset, or type a value such as <b>−√3/2</b>, <b>1/2</b>, or <b>0.7439</b>.</p>
+<div id="inv-lab"></div>
+</section>
+
+<section class="ca-panel" id="compose"><h3>03 · Compositions of a function and its inverse</h3>
+<div class="ca-definition"><strong>Rules</strong>
+<ul><li>sin(sin⁻¹x) = x and cos(cos⁻¹x) = x for −1 ≤ x ≤ 1 (undefined otherwise); tan(tan⁻¹x) = x for every x.</li><li>sin⁻¹(sin x) = x only for x in [−π/2, π/2]; cos⁻¹(cos x) = x only for x in [0, π]; tan⁻¹(tan x) = x only for x in (−π/2, π/2).</li><li>If x is outside the restricted domain, find the angle θ <b>inside</b> it with f(θ) = f(x). Then f⁻¹(f(x)) = θ.</li><li>For f⁻¹(g(x)): evaluate the inner value g(x) first, then the inverse.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-diagram-next"></i> INTERACTIVE · INSIDE OUT</div>
+<div id="comp-lab"></div>
+</section>
+
+<section class="ca-panel" id="triangle"><h3>04 · f(g⁻¹(x)) with a reference triangle</h3>
+<div class="ca-definition"><strong>Procedure</strong>
+<ol><li>Let θ = g⁻¹(a). Then g(θ) = a and θ is in the range of g⁻¹; decide its quadrant from the sign of a.</li><li>Write a as a ratio of x, y, and r, place the point in that quadrant, and find the missing side with x² + y² = r².</li><li>Evaluate f(θ) from x, y, and r, with the sign that matches the quadrant.</li></ol></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-draw-polygon"></i> INTERACTIVE · BUILD THE TRIANGLE</div>
+<p>Pick a preset expression.</p>
+<div id="tri-lab"></div>
+</section>
+
+<!--GUIDED|Inverse Trigonometric Functions|Original problems on restricted ranges, exact and calculator values, and compositions. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Inverse Trigonometric Functions
+Q: Evaluate cos⁻¹(0), sin⁻¹(−√3/2), and tan⁻¹(√3/3); then use a calculator for cos⁻¹(−0.1374) and tan⁻¹(−4.0152).
+A: cos⁻¹(0) = π/2; sin⁻¹(−√3/2) = −π/3; tan⁻¹(√3/3) = π/6. cos⁻¹(−0.1374) ≈ 1.7086; tan⁻¹(−4.0152) ≈ −1.3260.
+Q: Evaluate sin⁻¹(sin(5π/4)), cos⁻¹(cos(2π/7)), and tan⁻¹(tan(9π/10)).
+A: sin(5π/4) = −√2/2 = sin(−π/4), so −π/4. 2π/7 is in [0, π], so 2π/7. tan(9π/10) = tan(−π/10), so −π/10.
+Q: Evaluate cos(tan⁻¹(−9/4)), sin(cos⁻¹(2/3)), and tan(sin⁻¹(−3/7)).
+A: tan⁻¹(−9/4) is in Quadrant IV with x = 4, y = −9, r = √97: cos = 4√97/97. cos⁻¹(2/3): x = 2, r = 3, y = √5: sin = √5/3. sin⁻¹(−3/7): y = −3, r = 7, x = 2√10: tan = −3√10/20.
+-->
