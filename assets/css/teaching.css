@@ -84,3 +84,45 @@ html[data-theme="dark"] #teaching #panel-utrgv .term-role,html[data-theme="dark"
 
 /* College Algebra — Tulane card layout with UTRGV identity */
 .utrgv-full-card{border:1px solid #ecb99f!important;border-radius:15px!important;padding:16px!important;background:#fffaf7!important;margin-bottom:15px!important}.utrgv-full-card>.teach-summary{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;flex-wrap:wrap!important;gap:14px!important}.utrgv-full-card .summer-notes-link{margin:0!important;display:inline-flex;align-items:center;gap:9px;background:linear-gradient(105deg,#b7390d,#e44c17)!important;color:white!important;border-radius:11px;padding:13px 17px!important;white-space:normal;text-decoration:none;font-weight:800}.utrgv-info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 12px}.utrgv-info-box{border:1px solid #ebc8b5;border-radius:12px;background:#fff5ef;padding:15px;min-width:0;line-height:1.5}.utrgv-info-box h4{color:#b83b14;font-size:.95rem;margin:0 0 9px}.utrgv-info-box b{display:block}.utrgv-info-box p{margin:6px 0;font-size:.87rem;overflow-wrap:anywhere}.utrgv-info-box a{color:#aa3b17}.utrgv-schedule{margin:12px 0}.utrgv-schedule summary{display:inline-flex;gap:8px;align-items:center;cursor:pointer;border:1px solid #b83b14;color:#a73e18;border-radius:10px;padding:11px 14px;font-weight:750;list-style:none}.utrgv-schedule summary::-webkit-details-marker{display:none}.utrgv-schedule-inner{background:#fff7f1;border:1px solid #eed2c3;padding:13px;border-radius:9px;margin-top:10px;line-height:1.55}.utrgv-full-card .teach-main{min-width:220px}@media(max-width:900px){.utrgv-info-grid{grid-template-columns:1fr}.utrgv-full-card .summer-notes-link{white-space:normal}}
+
+/* Tulane Calculus I cards: same layout as the UTRGV cards, in Tulane green */
+#teaching .tulane-full-card{border-color:#9dc9b6!important;background:#f3faf6!important}
+#teaching .tulane-full-card .summer-notes-link{background:linear-gradient(105deg,#00563c,#007a54)!important;border-color:#006747!important;box-shadow:0 5px 18px rgba(0,103,71,.22)}
+#teaching .tulane-full-card .summer-notes-link:hover{filter:brightness(1.1)}
+#teaching .tulane-full-card .utrgv-info-box{border-color:#bcdccd;background:#eaf5ef}
+#teaching .tulane-full-card .utrgv-info-box h4,#teaching .tulane-full-card .utrgv-info-box a{color:#006747}
+#teaching .tulane-full-card .utrgv-schedule-trigger{color:#006747;border-color:#006747}
+#teaching .tulane-full-card .utrgv-schedule-trigger:hover{background:#e3f2ea}
+.tulane-schedule-overlay .summer-modal-head{background:linear-gradient(110deg,#004d35,#007a54)}
+.tulane-schedule-overlay .summer-schedule-intro a{color:#006747}
+.tulane-schedule-overlay .summer-compact-table tbody tr.schedule-exam-row{background:#e1f1e8!important;color:#004b33;border-left:5px solid #006747}
+.tulane-schedule-overlay .summer-compact-table tbody tr.schedule-exam-row td{border-color:#bfdccd}
+html[data-theme=dark] .tulane-schedule-overlay .summer-compact-table tbody tr.schedule-exam-row{background:#173a2d!important;color:#b5ecd3}
+html[data-theme=dark] .tulane-schedule-overlay .summer-compact-table tbody tr.schedule-exam-row td{border-color:#2d5c49}
+html[data-theme=dark] .tulane-schedule-overlay .summer-schedule-intro a{color:#95dec0}
+
+/* Dark mode for the full course cards (UTRGV and Tulane) */
+html[data-theme=dark] #teaching .utrgv-full-card{background:#241d1a!important;border-color:#7a4a35!important}
+html[data-theme=dark] #teaching .utrgv-info-box{background:#2d2420;border-color:#6b4433}
+html[data-theme=dark] #teaching .utrgv-info-box h4,html[data-theme=dark] #teaching .utrgv-info-box a{color:#ffb48c}
+html[data-theme=dark] #teaching .utrgv-schedule-trigger{color:#ffb48c;border-color:#c86a44}
+html[data-theme=dark] #teaching .utrgv-schedule-trigger:hover{background:#3a2a22}
+html[data-theme=dark] #teaching .tulane-full-card{background:#15241f!important;border-color:#3a7961!important}
+html[data-theme=dark] #teaching .tulane-full-card .utrgv-info-box{background:#1b2e27;border-color:#33604f}
+html[data-theme=dark] #teaching .tulane-full-card .utrgv-info-box h4,html[data-theme=dark] #teaching .tulane-full-card .utrgv-info-box a{color:#95dec0}
+html[data-theme=dark] #teaching .tulane-full-card .utrgv-schedule-trigger{color:#95dec0;border-color:#3f8c6f}
+html[data-theme=dark] #teaching .tulane-full-card .utrgv-schedule-trigger:hover{background:#1f3a30}
+
+/* Dark mode for the course schedule windows */
+html[data-theme=dark] .summer-schedule-window{background:#0f172a;color:#e5e7eb}
+html[data-theme=dark] .summer-table-wrap{border-color:#334155}
+html[data-theme=dark] .summer-compact-table th,html[data-theme=dark] .summer-compact-table td{border-bottom-color:#263244}
+
+/* Key-point strip on a course card (Summer 2025 Calculus I module discussions) */
+#teaching .tulane-key-point{display:flex;gap:12px;align-items:flex-start;margin:12px 0 14px;padding:12px 15px;border:1px solid #9dc9b6;border-left:5px solid #006747;border-radius:12px;background:#e6f3ec;color:#17322a}
+#teaching .tulane-key-point>i{color:#006747;font-size:1.15rem;margin-top:3px}
+#teaching .tulane-key-point p{margin:0;line-height:1.55;font-size:.93rem}
+#teaching .tulane-key-point b{color:#004d35}
+#teaching .tulane-key-point a{color:#006747;font-weight:700}
+html[data-theme=dark] #teaching .tulane-key-point{background:#1a2c25;border-color:#33604f;border-left-color:#3fae84;color:#dbe7e1}
+html[data-theme=dark] #teaching .tulane-key-point>i,html[data-theme=dark] #teaching .tulane-key-point b,html[data-theme=dark] #teaching .tulane-key-point a{color:#95dec0}

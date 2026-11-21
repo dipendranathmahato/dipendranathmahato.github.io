@@ -135,7 +135,7 @@
   const FOOTER = `
 <div class="footer">
           © <span id="year"></span> Copyright @ Dipendranath Mahato —
-          Made with <a href="https://pages.github.com/">GitHub Pages</a> · Enhanced with <a href="https://chatgpt.com/">ChatGPT</a>.
+          Made with <a href="https://pages.github.com/">GitHub Pages</a> · Enhanced with <a href="https://chatgpt.com/">ChatGPT</a> and <a href="https://claude.ai/">Claude</a>.
         </div>
 `;
   function mount(selector, markup) {
