@@ -1,0 +1,44 @@
+<p class="ca-lede">So far we found the slope of the tangent line one point at a time. Doing it at every x produces a new function: the <b>derivative function</b> f′, which sends each input a to the slope of the tangent line at x = a. Its graph tells us where f rises, where it falls, and where its tangent line is horizontal.</p>
+<div class="ca-goals"><b>Learning objectives</b> Define f′(x) as a function and use the notations f′(x), dy/dx, y′, d/dx f(x); relate the sign of f′ to where f increases and decreases; sketch the graph of f′ from the graph of f; recognize where a function is not differentiable; compute higher derivatives.</div>
+
+<section class="ca-panel" id="function"><h3>01 · The derivative function</h3>
+<div class="ca-definition"><strong>Definition and notation</strong>
+<p>The <b>derivative function</b> of f is <b>f′(x) = lim<sub>h→0</sub> (f(x + h) − f(x))/h</b>, defined for every x where the limit exists. For y = f(x) we write <b>f′(x), y′, dy/dx, d/dx f(x)</b>.</p>
+<div class="ca-formula-grid ca-math-labels"><div><b>f′(a) = 0</b>horizontal tangent at x = a</div><div><b>f′(x) &gt; 0 on an interval</b>f is increasing there</div><div><b>f′(x) &lt; 0 on an interval</b>f is decreasing there</div><div><b>f′(a) undefined</b>for example a corner, a cusp, a vertical tangent, or a break in the graph</div></div>
+<p>A horizontal tangent is where f <i>can</i> change direction, but it does not have to: f(x) = x³ has f′(0) = 0 and is increasing on both sides of 0.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-chart-line"></i> INTERACTIVE · TRACE THE SLOPE FUNCTION</div>
+<p>Move the point along the upper graph. The lower graph records the slope of the tangent line at each x. Choose a function, or type your own.</p>
+<div id="trace-lab"></div>
+</section>
+
+<section class="ca-panel" id="sketch"><h3>02 · Sketching f′ from the graph of f</h3>
+<div class="ca-definition"><strong>Read the slope piece by piece</strong>
+<p>For the function graphed below: from (−1, −1) to (4, 5) f increases along a curve, so f′ &gt; 0 and decreasing; at (4, 5) the tangent is horizontal, so f′(4) = 0; from (4, 5) to (7, 2) f decreases, so f′ &lt; 0; from (7, 2) to (11, 4) f is a straight line with slope (4 − 2)/(11 − 7) = 1/2, so f′ = 1/2; from (11, 4) to (17, 9) f increases more and more steeply, so f′ &gt; 0 and growing. At (7, 2) the graph has a <b>corner</b>, so f′(7) does not exist.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-pencil"></i> INTERACTIVE · SKETCH IT, THEN CHECK</div>
+<p>Slide x from left to right and watch the slope. Turn on "show f′" to compare with your sketch.</p>
+<div id="sketch-lab"></div>
+</section>
+
+<section class="ca-panel" id="differentiable"><h3>03 · Where is f differentiable?</h3>
+<div class="ca-definition"><strong>Differentiability</strong>
+<p>f is <b>differentiable at a</b> if f′(a) exists. <b>If f is differentiable at a, then f is continuous at a.</b> The converse fails: a continuous function can have a corner (|x| at 0), a cusp (x<sup>2/3</sup> at 0), or a vertical tangent (∛x at 0), and a function is never differentiable where it is discontinuous. Zoom in on a differentiable point and the graph looks like a straight line; zoom in on a corner and it stays a corner.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-magnifying-glass-plus"></i> INTERACTIVE · ZOOM IN</div>
+<div id="diff-lab"></div>
+</section>
+
+<section class="ca-panel" id="higher"><h3>04 · Higher derivatives</h3>
+<div class="ca-definition"><strong>Second, third, … derivatives</strong>
+<p>The derivative of f′ is the <b>second derivative</b> f″(x) = d²y/dx²; then f‴, f⁽⁴⁾, …, f⁽ⁿ⁾ = dⁿy/dxⁿ. If s(t) is position, s′(t) is velocity and s″(t) is acceleration.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-layer-group"></i> INTERACTIVE · DERIVATIVE AFTER DERIVATIVE</div>
+<div id="higher-lab"></div>
+</section>
+
+<!--GUIDED|The Derivative as a Function|Original problems on the derivative function, graphs of f and f′, differentiability, and higher derivatives. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|The Derivative as a Function
+Q: Use the definition to find f′(x) for f(x) = x² − 3x.
+A: (f(x + h) − f(x))/h = ((x + h)² − 3(x + h) − x² + 3x)/h = (2xh + h² − 3h)/h = 2x + h − 3 → 2x − 3.
+Q: Where on its graph does f(x) = x² − 3x have a horizontal tangent, and where is it increasing?
+A: f′(x) = 2x − 3 = 0 at x = 3/2, so the tangent is horizontal at (3/2, −9/4). f′(x) &gt; 0 for x &gt; 3/2, so f is increasing on (3/2, ∞) and decreasing on (−∞, 3/2).
+Q: Is f(x) = |x − 2| differentiable at x = 2? Is it continuous there?
+A: It is continuous (the graph has no break), but the slope is −1 on the left and 1 on the right: a corner, so f′(2) does not exist.
+-->

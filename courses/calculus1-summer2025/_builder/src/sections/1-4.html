@@ -1,0 +1,87 @@
+<p class="ca-lede">An inverse function runs a function backwards: if f sends a to b, then f⁻¹ sends b back to a. Only one-to-one functions have inverses, so for the trigonometric functions we first restrict the domain. The inverse trigonometric functions will matter later, when we differentiate and integrate.</p>
+<div class="ca-goals"><b>Learning objectives</b> Explain when a function has an inverse; find an inverse from a formula; relate the graphs of f and f⁻¹; verify inverses by composition; restrict a domain to make a function one-to-one; state the domains and ranges of the six inverse trigonometric functions and evaluate them.</div>
+
+<section class="ca-panel" id="swap"><h3>01 · What an inverse does</h3>
+<div class="ca-definition"><strong>Idea · Reversing a function</strong>
+<p>Reversing a function swaps every ordered pair (x, y) to (y, x). The result is a function only if no <b>output</b> of the original was repeated. Such a function is called <b>one-to-one</b>, and its reversal is the <b>inverse function f⁻¹</b>.</p>
+<p>Formally, g = f⁻¹ when <b>f⁻¹(f(x)) = x</b> for all x in the domain of f and <b>f(f⁻¹(y)) = y</b> for all y in the range of f. A one-to-one function has an inverse; a constant function, which sends every input to the same output, does not.</p><p>Careful: f⁻¹(x) is <b>not</b> 1/f(x). The −1 is a label, not an exponent.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-right-left"></i> INTERACTIVE · SWAP AND CHECK</div>
+<div id="swap-lab"></div>
+</section>
+
+<section class="ca-panel" id="find-inverse"><h3>02 · Find the inverse from a formula</h3>
+<div class="ca-definition"><strong>How to find f⁻¹</strong>
+<p>1. Check that f is one-to-one, and write y = f(x). &nbsp;2. Solve for x in terms of y. &nbsp;3. Interchange x and y. &nbsp;4. Write f⁻¹(x) for the result. (Swapping first and solving second gives the same answer.)</p><p>For example, y = 3x − 4 gives x = (y + 4)/3, so <b>f⁻¹(x) = x/3 + 4/3</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-person-walking-arrow-loop-left"></i> INTERACTIVE · STEP BY STEP</div>
+<p>Choose a function and reveal the algebra one step at a time. Then test the answer: f⁻¹ should send f(x) back to x.</p>
+<div id="find-lab"></div>
+</section>
+
+<section class="ca-panel" id="mirror"><h3>03 · The graph of an inverse: reflect over y = x</h3>
+<div class="ca-definition"><strong>Facts · Graphs, domains, and ranges</strong>
+<p>If (a, b) is on the graph of f, then (b, a) is on the graph of f⁻¹. So the two graphs are <b>reflections of each other over the line y = x</b>, and the <b>domain and range switch</b>: domain of f⁻¹ = range of f, and range of f⁻¹ = domain of f.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-clone"></i> INTERACTIVE · MIRROR POINT</div>
+<p>Slide the point along the graph of f. Its mirror image (b, a) traces the graph of f⁻¹.</p>
+<div id="mirror-lab"></div>
+</section>
+
+<section class="ca-panel" id="verify"><h3>04 · Verify inverses by composition</h3>
+<div class="ca-definition"><strong>Test · Inverses undo each other</strong>
+<p>f and g are inverses exactly when <b>f(g(x)) = x</b> and <b>g(f(x)) = x</b> for every x in the appropriate domains.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-check-double"></i> INTERACTIVE · DO THEY UNDO EACH OTHER?</div>
+<div id="verify-lab"></div>
+</section>
+
+<section class="ca-panel" id="restrict"><h3>05 · Restrict the domain to make a function one-to-one</h3>
+<p>The parabola h(x) = (x − 2)² − 1 fails the horizontal line test. Keep only one half of it, either x ≥ 2 or x ≤ 2, and the restricted function has an inverse.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-scissors"></i> INTERACTIVE · KEEP HALF THE PARABOLA</div>
+<div id="restrict-lab"></div>
+</section>
+
+<section class="ca-panel" id="inverse-trig"><h3>06 · Inverse sine, cosine, and tangent</h3>
+<div class="ca-definition"><strong>Restricted domains and the inverse functions</strong>
+<div class="ca-scroll-x"><table class="ca-data-table"><tr><th>function</th><th>restricted domain</th><th>range</th><th>inverse</th><th>domain of inverse</th><th>range of inverse</th></tr>
+<tr><td>y = sin x</td><td>[−π/2, π/2]</td><td>[−1, 1]</td><td>y = sin⁻¹x = arcsin x</td><td>[−1, 1]</td><td>[−π/2, π/2]</td></tr>
+<tr><td>y = cos x</td><td>[0, π]</td><td>[−1, 1]</td><td>y = cos⁻¹x = arccos x</td><td>[−1, 1]</td><td>[0, π]</td></tr>
+<tr><td>y = tan x</td><td>(−π/2, π/2)</td><td>(−∞, ∞)</td><td>y = tan⁻¹x = arctan x</td><td>(−∞, ∞)</td><td>(−π/2, π/2)</td></tr></table></div>
+<p>In general f(a) = b ⟺ f⁻¹(b) = a. The inputs of an inverse trig function are <b>ratios</b>; its outputs are <b>angles</b>. Note that sin⁻¹x means the inverse function, not 1/sin x.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-rotate"></i> INTERACTIVE · FAIL THE TEST, RESTRICT, REFLECT</div>
+<p>The full graph (gray) fails the horizontal line test. The restricted piece (orange) passes it. Slide the reflection to flip that piece over y = x and get the inverse.</p>
+<div id="res-lab"></div>
+</section>
+
+<section class="ca-panel" id="all-six-inverse"><h3>07 · All six inverse trigonometric functions</h3>
+<div class="ca-definition"><strong>Domains and ranges</strong>
+<div class="ca-scroll-x"><table class="ca-data-table"><tr><th>inverse</th><th>domain</th><th>range</th></tr>
+<tr><td>sin⁻¹x</td><td>[−1, 1]</td><td>[−π/2, π/2]</td></tr><tr><td>cos⁻¹x</td><td>[−1, 1]</td><td>[0, π]</td></tr><tr><td>tan⁻¹x</td><td>(−∞, ∞)</td><td>(−π/2, π/2)</td></tr>
+<tr><td>cot⁻¹x</td><td>(−∞, ∞)</td><td>(0, π)</td></tr><tr><td>csc⁻¹x</td><td>(−∞, −1] ∪ [1, ∞)</td><td>[−π/2, 0) ∪ (0, π/2]</td></tr><tr><td>sec⁻¹x</td><td>(−∞, −1] ∪ [1, ∞)</td><td>[0, π/2) ∪ (π/2, π]</td></tr></table></div>
+<p>Each range is the restricted domain of the original function: a piece on which it is one-to-one and takes every one of its values once.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-clone"></i> INTERACTIVE · RESTRICTED PIECE AND ITS MIRROR IMAGE</div>
+<div id="invsix-lab"></div>
+</section>
+
+<section class="ca-panel" id="evaluate"><h3>08 · Evaluating sin⁻¹, cos⁻¹, and tan⁻¹</h3>
+<div class="ca-definition"><strong>Procedure</strong>
+<ol><li>To find sin⁻¹(a), ask: which angle <b>in [−π/2, π/2]</b> has sine a? For cos⁻¹(a), look in <b>[0, π]</b>; for tan⁻¹(a), look in <b>(−π/2, π/2)</b>.</li><li>If a is a special value, use the unit circle. Otherwise use a calculator (radian or degree mode as asked).</li><li>A negative input sends sin⁻¹ and tan⁻¹ into Quadrant IV (negative angles) and cos⁻¹ into Quadrant II.</li></ol></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-circle-half-stroke"></i> INTERACTIVE · WHERE CAN THE ANSWER BE?</div>
+<p>The highlighted arc is the only place the answer may lie. Pick a preset, or type a value such as <b>−√3/2</b>, <b>1/2</b>, or <b>0.7439</b>.</p>
+<div id="inv-lab"></div>
+</section>
+
+<section class="ca-panel" id="compose"><h3>09 · Compositions of a function and its inverse</h3>
+<div class="ca-definition"><strong>Rules</strong>
+<ul><li>sin(sin⁻¹x) = x and cos(cos⁻¹x) = x for −1 ≤ x ≤ 1 (undefined otherwise); tan(tan⁻¹x) = x for every x.</li><li>sin⁻¹(sin x) = x only for x in [−π/2, π/2]; cos⁻¹(cos x) = x only for x in [0, π]; tan⁻¹(tan x) = x only for x in (−π/2, π/2).</li><li>If x is outside the restricted domain, find the angle θ <b>inside</b> it with f(θ) = f(x). Then f⁻¹(f(x)) = θ.</li><li>For f⁻¹(g(x)): evaluate the inner value g(x) first, then the inverse.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-diagram-next"></i> INTERACTIVE · INSIDE OUT</div>
+<div id="comp-lab"></div>
+</section>
+
+
+<!--GUIDED|Inverse Functions|Original problems on finding and graphing inverses and on the inverse trigonometric functions. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Inverse Functions
+Q: Find the inverse of f(x) = 3x − 4 and check it.
+A: y = 3x − 4 gives x = (y + 4)/3, so f⁻¹(x) = x/3 + 4/3. Check: f(f⁻¹(x)) = 3(x/3 + 4/3) − 4 = x and f⁻¹(f(x)) = (3x − 4)/3 + 4/3 = x.
+Q: Why does f(x) = x² not have an inverse on (−∞, ∞), and how can we fix that?
+A: f(2) = f(−2) = 4, so f is not one-to-one. On the restricted domain [0, ∞) it is one-to-one, with inverse f⁻¹(x) = √x.
+Q: Evaluate sin⁻¹(−1/2), cos⁻¹(−√2/2), and tan⁻¹(√3).
+A: sin⁻¹(−1/2) = −π/6 (in [−π/2, π/2]); cos⁻¹(−√2/2) = 3π/4 (in [0, π]); tan⁻¹(√3) = π/3.
+-->

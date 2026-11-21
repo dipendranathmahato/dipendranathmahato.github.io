@@ -1,0 +1,40 @@
+<p class="ca-lede">We know the areas of rectangles, and of triangles and trapezoids, which can be cut into rectangles. For a region under a curve such as y = x² on [0, 4] no formula applies. We cover the region with n thin rectangles, add their areas, and let n grow. Adding many terms needs a compact notation and a few sum formulas, so we start there.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use sigma notation and the formulas for 1 + 2 + ⋯ + n, the sum of squares, and the sum of cubes; compute left-endpoint, right-endpoint, and midpoint approximations; decide when an approximation overestimates or underestimates; find an exact area as the limit of Riemann sums.</div>
+
+<section class="ca-panel" id="sigma"><h3>01 · Sigma notation and sum formulas</h3>
+<div class="ca-definition"><strong>Sigma notation</strong>
+<p>Σ<sub>i=1</sub><sup>n</sup> aᵢ = a₁ + a₂ + ⋯ + aₙ. Constants factor out, Σ c·aᵢ = c Σ aᵢ, and sums split, Σ (aᵢ ± bᵢ) = Σ aᵢ ± Σ bᵢ.</p>
+<div class="ca-formula-grid ca-math-labels"><div><b>sum of the first n integers</b>1 + 2 + ⋯ + n = n(n + 1)/2</div><div><b>sum of squares</b>1² + 2² + ⋯ + n² = n(n + 1)(2n + 1)/6</div><div><b>sum of cubes</b>1³ + 2³ + ⋯ + n³ = [n(n + 1)/2]²</div><div><b>a constant</b>Σ<sub>i=1</sub><sup>n</sup> c = nc</div></div></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-calculator"></i> INTERACTIVE · ADD THE TERMS, CHECK THE FORMULA</div>
+<div id="sum-lab"></div>
+</section>
+
+<section class="ca-panel" id="endpoint"><h3>02 · Left, right, and midpoint approximations</h3>
+<div class="ca-definition"><strong>Riemann sums with equal widths</strong>
+<p>Divide [a, b] into n subintervals of width <b>Δx = (b − a)/n</b> with endpoints x₀ = a, x₁, …, xₙ = b. The rectangle over [xᵢ₋₁, xᵢ] has height f at the left endpoint, the right endpoint, or the midpoint:</p>
+<p class="ca-center"><b>Lₙ = Σ<sub>i=1</sub><sup>n</sup> f(xᵢ₋₁)Δx, &nbsp; Rₙ = Σ<sub>i=1</sub><sup>n</sup> f(xᵢ)Δx, &nbsp; Mₙ = Σ<sub>i=1</sub><sup>n</sup> f((xᵢ₋₁ + xᵢ)/2)Δx.</b></p>
+<p>Example: y = x² on [0, 4] with n = 4, Δx = 1. L₄ = (0 + 1 + 4 + 9)·1 = <b>14</b> and R₄ = (1 + 4 + 9 + 16)·1 = <b>30</b>. Since x² is increasing on [0, 4], L₄ underestimates and R₄ overestimates: 14 ≤ A ≤ 30. (For a function that rises and falls, the true area need not lie between Lₙ and Rₙ.)</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-chart-column"></i> INTERACTIVE · CHOOSE THE HEIGHTS AND THE NUMBER OF RECTANGLES</div>
+<div id="riem-lab"></div>
+</section>
+
+<section class="ca-panel" id="exact"><h3>03 · The exact area as a limit</h3>
+<div class="ca-definition"><strong>Let n → ∞</strong>
+<p>For y = x² on [0, 4]: Δx = 4/n and xᵢ = 4i/n, so</p>
+<p class="ca-center">Rₙ = Σ<sub>i=1</sub><sup>n</sup> (4i/n)² · (4/n) = (4³/n³) Σ i² = (4³/n³) · n(n + 1)(2n + 1)/6,</p>
+<p>and similarly Lₙ = (4³/n³)·(n − 1)n(2n − 1)/6. Both approach (4³/6)·2 = <b>64/3</b> as n → ∞, and the area is trapped between them, so <b>A = 64/3</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · THE CALCULATION, STEP BY STEP</div>
+<div id="limit-steps"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-to-dot"></i> INTERACTIVE · THE TWO FORMULAS CLOSE IN</div>
+<div id="squeeze-lab"></div>
+</section>
+
+<!--GUIDED|Approximating Areas|Original problems on sigma notation, Riemann sums, and limits of sums. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Approximating Areas
+Q: Compute L₄ and R₄ for f(x) = x² on [0, 4].
+A: Δx = 1. L₄ = f(0) + f(1) + f(2) + f(3) = 0 + 1 + 4 + 9 = 14 and R₄ = f(1) + f(2) + f(3) + f(4) = 1 + 4 + 9 + 16 = 30.
+Q: Write Rₙ for f(x) = x² on [0, 4] in closed form and find its limit.
+A: Rₙ = (64/n³)·n(n + 1)(2n + 1)/6 = (64/6)(1 + 1/n)(2 + 1/n) → (64/6)·2 = 64/3.
+Q: When does a left-endpoint sum overestimate the area?
+A: When f is decreasing: the left endpoint is then the highest point of each strip, so each rectangle reaches above the curve.
+-->

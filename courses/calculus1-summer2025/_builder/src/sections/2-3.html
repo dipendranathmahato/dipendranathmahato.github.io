@@ -1,0 +1,52 @@
+<p class="ca-lede">Tables and graphs suggest the value of a limit; the <b>limit laws</b> let us compute it exactly. For polynomials and many other functions the limit is found by direct substitution. When substitution gives 0/0 we use algebra (factoring and canceling, or multiplying by a conjugate) to find a simpler function with the same limit. The Squeeze Theorem handles functions trapped between two others.</p>
+<div class="ca-goals"><b>Learning objectives</b> State and use the limit laws; evaluate limits by direct substitution; recognize the indeterminate form 0/0; evaluate limits by factoring and canceling and by multiplying by conjugates; find limits of piecewise functions; use the Squeeze Theorem.</div>
+
+<section class="ca-panel" id="laws"><h3>01 · The limit laws</h3>
+<div class="ca-definition"><strong>Limit laws</strong>
+<p>Start with lim<sub>x→a</sub> x = a and lim<sub>x→a</sub> c = c. Let f and g be defined for all x ≠ a on some open interval containing a, with lim<sub>x→a</sub> f(x) = L and lim<sub>x→a</sub> g(x) = M. Then</p>
+<div class="ca-formula-grid"><div><b>sum, difference, constant multiple</b>lim (f(x) ± g(x)) = L ± M<br>lim c·f(x) = c·L</div><div><b>product and quotient</b>lim f(x)·g(x) = L·M<br>lim f(x)/g(x) = L/M if M ≠ 0</div><div><b>powers and roots</b>lim (f(x))ⁿ = Lⁿ<br>lim ⁿ√f(x) = ⁿ√L (L ≥ 0 if n is even)</div><div><b>consequence</b>for a polynomial or a rational function with nonzero denominator at a: lim f(x) = f(a) (direct substitution)</div></div></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-list-ol"></i> INTERACTIVE · ONE LAW AT A TIME</div>
+<div id="law-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-keyboard"></i> INTERACTIVE · TRY DIRECT SUBSTITUTION</div>
+<p>Type a function of x and a number a (you may type pi, sqrt( ), sin( ), e^x, ln( ), and so on). The explorer substitutes x = a and checks the values nearby.</p>
+<div id="sub-lab"></div>
+</section>
+
+<section class="ca-panel" id="factor"><h3>02 · The form 0/0: factor and cancel</h3>
+<div class="ca-definition"><strong>Indeterminate form</strong>
+<p>If substituting x = a gives <b>0/0</b>, the expression is <b>indeterminate</b>: the limit may be any number, or may not exist. For a rational function, factor numerator and denominator and cancel the common factor (x − a). The simplified function agrees with f for all x ≠ a, so it has the same limit; now substitute. For example, (x² − 2x)/(x² − 4) = x(x − 2)/((x + 2)(x − 2)) = x/(x + 2) for x ≠ 2, so the limit at 2 is 2/4 = 1/2.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-scissors"></i> INTERACTIVE · CANCEL THE COMMON FACTOR</div>
+<div id="factor-lab"></div>
+</section>
+
+<section class="ca-panel" id="conjugate"><h3>03 · The form 0/0 with roots: multiply by the conjugate</h3>
+<div class="ca-definition"><strong>Conjugates</strong>
+<p>For a − b with a, b &gt; 0, (√a − √b)(√a + √b) = a − b. When a limit with a square root gives 0/0, multiply the numerator and the denominator by the <b>conjugate</b> of the expression with the root. The root disappears from that part, a common factor appears, and it cancels.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-square-root-variable"></i> INTERACTIVE · RATIONALIZE, CANCEL, SUBSTITUTE</div>
+<div id="conj-lab"></div>
+</section>
+
+<section class="ca-panel" id="piecewise"><h3>04 · Limits of piecewise functions</h3>
+<div class="ca-definition"><strong>Use the piece on each side</strong>
+<p>At a point where the formula changes, compute the left-hand limit with the formula for x &lt; a and the right-hand limit with the formula for x &gt; a. The limit exists only if they agree.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-code-branch"></i> INTERACTIVE · LEFT PIECE, RIGHT PIECE</div>
+<div id="pwl-lab"></div>
+</section>
+
+<section class="ca-panel" id="squeeze"><h3>05 · The Squeeze Theorem</h3>
+<div class="ca-definition"><strong>Squeeze Theorem</strong>
+<p>Suppose f(x) ≤ g(x) ≤ h(x) for all x ≠ a in an open interval containing a, and lim<sub>x→a</sub> f(x) = L = lim<sub>x→a</sub> h(x). Then <b>lim<sub>x→a</sub> g(x) = L</b>.</p>
+<p>For example, −1 ≤ sin(1/x) ≤ 1 for x ≠ 0, so −x² ≤ x² sin(1/x) ≤ x². Since lim<sub>x→0</sub> (−x²) = 0 = lim<sub>x→0</sub> x², the Squeeze Theorem gives lim<sub>x→0</sub> x² sin(1/x) = 0. The same theorem, applied to areas in the unit circle, proves lim<sub>x→0</sub> (sin x)/x = 1.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-magnifying-glass-plus"></i> INTERACTIVE · ZOOM IN ON THE SQUEEZE</div>
+<div id="squeeze-lab"></div>
+</section>
+
+<!--GUIDED|The Limit Laws|Original problems on the limit laws, factoring, conjugates, piecewise limits, and the Squeeze Theorem. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|The Limit Laws
+Q: Evaluate lim<sub>x→2</sub> (2x² − 3x + 1)/(x³ + 4) and name the laws you use.
+A: The denominator's limit is 2³ + 4 = 12 ≠ 0, so by the quotient law the limit is (2·4 − 3·2 + 1)/12 = 3/12 = 1/4 (sum, constant multiple, and power laws for each part).
+Q: Evaluate lim<sub>x→5</sub> (√(x + 4) − 3)/(x − 5).
+A: Substitution gives 0/0. Multiply by (√(x + 4) + 3)/(√(x + 4) + 3): the numerator becomes (x + 4) − 9 = x − 5, which cancels, leaving 1/(√(x + 4) + 3) → 1/6.
+Q: For f(x) = 4x − 3 if x &lt; 2 and (x − 3)² if x ≥ 2, find the limits at 2.
+A: lim<sub>x→2⁻</sub> f(x) = 4·2 − 3 = 5 and lim<sub>x→2⁺</sub> f(x) = (2 − 3)² = 1. They differ, so lim<sub>x→2</sub> f(x) does not exist.
+-->

@@ -1,0 +1,43 @@
+<p class="ca-lede">The first derivative tells us where a graph rises and falls; the second derivative tells us how it bends. Together they locate local maxima and minima and the points where the graph changes from bending upward to bending downward. Note that f′ alone is not enough to draw the graph accurately: two functions can increase on the same intervals and still look very different.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use the sign of f′ to find intervals of increase and decrease; apply the first derivative test; use the sign of f″ to determine concavity; find inflection points; apply the second derivative test and recognize when it is inconclusive.</div>
+
+<section class="ca-panel" id="first"><h3>01 · Increasing, decreasing, and the first derivative test</h3>
+<div class="ca-definition"><strong>The sign of f′</strong>
+<p>Let f be continuous on an interval I and differentiable inside it. If <b>f′(x) &gt; 0</b> on I, then f is <b>increasing</b> on I; if <b>f′(x) &lt; 0</b>, then f is <b>decreasing</b>. (The converse needs care: x³ is increasing even though f′(0) = 0.)</p>
+<p><b>First derivative test.</b> Let c be a critical point of a continuous f. If f′ changes from + to − at c, f has a <b>local maximum</b> at c; if from − to +, a <b>local minimum</b>; if f′ has the same sign on both sides, <b>no local extremum</b>.</p>
+<p>Example: f(x) = 2x³ − 3x² has f′(x) = 6x² − 6x = 6x(x − 1), with critical points 0 and 1. f′ &gt; 0 on (−∞, 0) and (1, ∞), f′ &lt; 0 on (0, 1): increasing on (−∞, 0) ∪ (1, ∞), decreasing on (0, 1), local max f(0) = 0, local min f(1) = −1.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-signs-post"></i> INTERACTIVE · SIGN CHART OF f′</div>
+<div id="first-lab"></div>
+</section>
+
+<section class="ca-panel" id="concavity"><h3>02 · Concavity and inflection points</h3>
+<div class="ca-definition"><strong>Concave up and concave down</strong>
+<p>Let f be differentiable on an interval I. f is <b>concave up</b> on I if f′ is increasing on I, and <b>concave down</b> if f′ is decreasing. If f″ exists: <b>f″ &gt; 0 on I ⟹ concave up</b>, <b>f″ &lt; 0 on I ⟹ concave down</b>.</p>
+<p>A point where a continuous f <b>changes concavity</b> is an <b>inflection point</b>; there f″ = 0 or f″ is undefined. (f″ = 0 alone is not enough: x⁴ has f″(0) = 0 but is concave up on both sides.) For f(x) = 2x³ − 3x²: f″(x) = 12x − 6 is negative for x &lt; 1/2 and positive for x &gt; 1/2, so f is concave down on (−∞, 1/2), concave up on (1/2, ∞), and (1/2, −1/2) is an inflection point.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-bezier-curve"></i> INTERACTIVE · TANGENT LINES ABOVE AND BELOW</div>
+<p>On a concave-up piece the tangent line lies below the graph; on a concave-down piece it lies above.</p>
+<div id="concave-lab"></div>
+</section>
+
+<section class="ca-panel" id="second"><h3>03 · The second derivative test</h3>
+<div class="ca-definition"><strong>Second derivative test</strong>
+<p>Suppose f′(c) = 0 and f″ is continuous near c.</p>
+<ul><li>If <b>f″(c) &gt; 0</b>, f has a <b>local minimum</b> at c (concave up, like ∪).</li><li>If <b>f″(c) &lt; 0</b>, f has a <b>local maximum</b> at c (concave down, like ∩).</li><li>If <b>f″(c) = 0</b>, the test is <b>inconclusive</b>: use the first derivative test.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-vial"></i> INTERACTIVE · TEST EACH CRITICAL POINT</div>
+<div id="second-lab"></div>
+</section>
+
+<section class="ca-panel" id="shapes"><h3>04 · Reading the shape from the signs</h3>
+<div class="ca-lab-kicker"><i class="fa-solid fa-puzzle-piece"></i> WHICH SHAPE?</div>
+<div id="shape-cards"></div>
+</section>
+
+<!--GUIDED|Derivatives and the Shape of a Graph|Original problems on increasing and decreasing intervals, concavity, and the derivative tests. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Derivatives and the Shape of a Graph
+Q: For f(x) = 2x³ − 3x², find the intervals of increase and decrease and the local extrema.
+A: f′(x) = 6x(x − 1). f′ &gt; 0 on (−∞, 0) and (1, ∞), f′ &lt; 0 on (0, 1). Increasing on (−∞, 0) ∪ (1, ∞), decreasing on (0, 1); local max f(0) = 0, local min f(1) = −1.
+Q: Find the concavity and the inflection point of the same function.
+A: f″(x) = 12x − 6, negative for x &lt; 1/2 and positive for x &gt; 1/2. Concave down on (−∞, 1/2), concave up on (1/2, ∞); inflection point (1/2, −1/2).
+Q: Why is the second derivative test inconclusive for f(x) = x⁴ at 0?
+A: f′(0) = 0 and f″(0) = 0. The first derivative test settles it: f′(x) = 4x³ changes from − to +, so 0 is a local minimum. (For x³, also f″(0) = 0, but there is no extremum.)
+-->

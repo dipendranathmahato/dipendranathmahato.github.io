@@ -1,0 +1,42 @@
+<p class="ca-lede">Differentiation takes a function and gives its rate of change. Often we need to go the other way: from a velocity to a position, or from a rate to a total. A function F with F′ = f is an <b>antiderivative</b> of f. There is never just one: adding a constant does not change the derivative, so the antiderivatives of f form a whole family F(x) + C.</p>
+<div class="ca-goals"><b>Learning objectives</b> Find antiderivatives by reversing differentiation rules; explain the + C and the family of antiderivatives; use the notation ∫ f(x) dx and the basic formulas; check an antiderivative by differentiating; solve initial-value problems.</div>
+
+<section class="ca-panel" id="definition"><h3>01 · Antiderivatives and the + C</h3>
+<div class="ca-definition"><strong>Definition</strong>
+<p>F is an <b>antiderivative</b> of f on an interval I if <b>F′(x) = f(x)</b> for all x in I. If F is one antiderivative, then every antiderivative has the form <b>F(x) + C</b> for a constant C (two functions with the same derivative on an interval differ by a constant).</p>
+<p>Example: for f(x) = x², try F(x) = Ax³. Then F′(x) = 3Ax², and 3Ax² = x² gives A = 1/3. So F(x) = x³/3 works, and so does x³/3 + 100: the general antiderivative is <b>x³/3 + C</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-layer-group"></i> INTERACTIVE · A FAMILY OF CURVES WITH THE SAME SLOPES</div>
+<p>The short segments show the slope f(x) at each point (a slope field). Every curve F(x) + C follows them; changing C only shifts the curve up or down.</p>
+<div id="family-lab"></div>
+</section>
+
+<section class="ca-panel" id="formulas"><h3>02 · Indefinite integrals and basic formulas</h3>
+<div class="ca-definition"><strong>Notation and formulas</strong>
+<p>The <b>indefinite integral</b> ∫ f(x) dx = F(x) + C denotes the general antiderivative. Each differentiation rule, read backwards, gives an integration formula:</p>
+<div class="ca-formula-grid ca-math-labels"><div><b>powers</b>∫ xⁿ dx = xⁿ⁺¹/(n + 1) + C, n ≠ −1<br>∫ x⁻¹ dx = ln|x| + C</div><div><b>exponentials</b>∫ eˣ dx = eˣ + C<br>∫ e<sup>mx</sup> dx = e<sup>mx</sup>/m + C (m ≠ 0)<br>∫ aˣ dx = aˣ/ln a + C</div><div><b>trigonometric</b>∫ cos x dx = sin x + C, ∫ sin x dx = −cos x + C<br>∫ sec²x dx = tan x + C, ∫ sec x tan x dx = sec x + C</div><div><b>inverse trigonometric</b>∫ dx/√(1 − x²) = sin⁻¹x + C<br>∫ dx/(1 + x²) = tan⁻¹x + C</div></div>
+<p>Also ∫ (f ± g) dx = ∫ f dx ± ∫ g dx and ∫ k f dx = k ∫ f dx.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · GUESS, DIFFERENTIATE, ADJUST</div>
+<div id="anti-steps"></div>
+</section>
+
+<section class="ca-panel" id="check"><h3>03 · Check an antiderivative by differentiating</h3>
+<p>Type an integrand f and your antiderivative F. The explorer compares F′ with f at many points. Try 5cos(3x) with (5/3)sin(3x), or x e^(x^2) with (1/2)e^(x^2).</p>
+<div id="anti-check"></div>
+</section>
+
+<section class="ca-panel" id="ivp"><h3>04 · Initial-value problems</h3>
+<div class="ca-definition"><strong>Pick one member of the family</strong>
+<p>An <b>initial-value problem</b> gives F′ (or F″) and the value of F at one point. Find the general antiderivative, then use the given value to find C. Example: F′(x) = 1/√x = x<sup>−1/2</sup> and F(1) = 5. Then F(x) = x<sup>1/2</sup>/(1/2) + C = 2√x + C, and 2√1 + C = 5 gives C = 3: <b>F(x) = 2√x + 3</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-bullseye"></i> INTERACTIVE · HIT THE GIVEN POINT</div>
+<div id="ivp-lab"></div>
+</section>
+
+<!--GUIDED|Antiderivatives|Original problems on antiderivatives, indefinite integrals, and initial-value problems. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Antiderivatives
+Q: Find the general antiderivative of 5 cos 3x.
+A: Try A sin 3x: its derivative is 3A cos 3x, so 3A = 5 and A = 5/3. The answer is (5/3) sin 3x + C.
+Q: Find ∫ e<sup>mx</sup> dx for a constant m ≠ 0.
+A: (A e<sup>mx</sup>)′ = Am e<sup>mx</sup>, so A = 1/m: ∫ e<sup>mx</sup> dx = e<sup>mx</sup>/m + C.
+Q: Solve F′(x) = 1/√x, F(1) = 5.
+A: F(x) = 2√x + C, and F(1) = 2 + C = 5 gives C = 3. So F(x) = 2√x + 3.
+-->

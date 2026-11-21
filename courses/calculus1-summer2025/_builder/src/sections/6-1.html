@@ -1,0 +1,38 @@
+<p class="ca-lede">The definite integral gives the area between a curve and the x-axis. The same idea gives the area between two curves: slice the region into thin rectangles whose height is the distance between the curves, add, and take the limit. Depending on the shape, it is easier to slice vertically (integrate in x) or horizontally (integrate in y).</p>
+<div class="ca-goals"><b>Learning objectives</b> Find the area between two curves as ∫ (upper − lower) dx; find the limits of integration from the points of intersection; split the integral where the curves cross; integrate with respect to y as ∫ (right − left) dy when that is simpler.</div>
+
+<section class="ca-panel" id="dx"><h3>01 · Area between curves: slicing vertically</h3>
+<div class="ca-definition"><strong>Upper minus lower</strong>
+<p>If f and g are continuous and <b>f(x) ≥ g(x)</b> on [a, b], the area of the region between y = f(x) (upper), y = g(x) (lower), x = a, and x = b is</p>
+<p class="ca-center"><b>A = ∫<sub>a</sub><sup>b</sup> [f(x) − g(x)] dx</b>.</p>
+<p>Each vertical rectangle has height f(xᵢ*) − g(xᵢ*) and width Δx; this is a Riemann sum. For an <b>enclosed</b> region no interval is given: the limits a and b are the x-coordinates of the points where the curves meet.</p>
+<p>Example: y = x + 4 and y = x² − 2x. Setting x + 4 = x² − 2x gives x² − 3x − 4 = (x + 1)(x − 4) = 0, so x = −1 and x = 4, and the line is on top between them: A = ∫<sub>−1</sub><sup>4</sup> [(x + 4) − (x² − 2x)] dx = ∫<sub>−1</sub><sup>4</sup> (−x² + 3x + 4) dx = <b>125/6</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-ruler-vertical"></i> INTERACTIVE · THE REPRESENTATIVE RECTANGLE</div>
+<div id="between-lab"></div>
+</section>
+
+<section class="ca-panel" id="crossing"><h3>02 · When the curves cross</h3>
+<div class="ca-definition"><strong>Split at the crossings</strong>
+<p>If the curves cross inside [a, b], the upper curve changes. The area is ∫<sub>a</sub><sup>b</sup> |f(x) − g(x)| dx: split the interval at each crossing and use (upper − lower) on each piece. For y = cos x and y = sin x on [0, π]: they cross at x = π/4, cos x is on top on [0, π/4], and sin x is on top on [π/4, π], so A = ∫<sub>0</sub><sup>π/4</sup> (cos x − sin x) dx + ∫<sub>π/4</sub><sup>π</sup> (sin x − cos x) dx = (√2 − 1) + (1 + √2) = <b>2√2</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<div id="cross-steps"></div>
+</section>
+
+<section class="ca-panel" id="dy"><h3>03 · Slicing horizontally: integrating in y</h3>
+<div class="ca-definition"><strong>Right minus left</strong>
+<p>If the region is bounded by x = f(y) on the right and x = g(y) on the left, with <b>f(y) ≥ g(y)</b> for c ≤ y ≤ d, then</p>
+<p class="ca-center"><b>A = ∫<sub>c</sub><sup>d</sup> [f(y) − g(y)] dy</b>.</p>
+<p>Example: the region enclosed by x = y²/2 − 3 and y = x − 1. Write the line as x = y + 1; then y²/2 − 3 = y + 1 gives (y − 4)(y + 2) = 0, so the curves meet at (5, 4) and (−1, −2). Slicing horizontally: A = ∫<sub>−2</sub><sup>4</sup> [(y + 1) − (y²/2 − 3)] dy = <b>18</b>. Slicing vertically also works, but the lower boundary changes at x = −1, so it takes two integrals and a substitution.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-ruler-horizontal"></i> INTERACTIVE · SLICE IT BOTH WAYS</div>
+<div id="dy-lab"></div>
+</section>
+
+<!--GUIDED|Areas between Curves|Original problems on areas between curves in x and in y. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Areas between Curves
+Q: Find the area enclosed by y = x + 4 and y = x² − 2x.
+A: They meet at x = −1 and x = 4, and the line is on top. A = ∫<sub>−1</sub><sup>4</sup> (−x² + 3x + 4) dx = [−x³/3 + 3x²/2 + 4x]<sub>−1</sub><sup>4</sup> = 56/3 − (−13/6) = 125/6.
+Q: Find the area between y = cos x and y = sin x on [0, π].
+A: Split at π/4: ∫<sub>0</sub><sup>π/4</sup> (cos x − sin x) dx + ∫<sub>π/4</sub><sup>π</sup> (sin x − cos x) dx = (√2 − 1) + (1 + √2) = 2√2.
+Q: Find the area enclosed by x = y²/2 − 3 and y = x − 1.
+A: In y: ∫<sub>−2</sub><sup>4</sup> [(y + 1) − (y²/2 − 3)] dy = [−y³/6 + y²/2 + 4y]<sub>−2</sub><sup>4</sup> = 40/3 − (−14/3) = 18.
+-->

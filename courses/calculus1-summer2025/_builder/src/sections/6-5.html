@@ -1,0 +1,50 @@
+<p class="ca-lede">Integrals add up quantities that change from point to point. A rod whose density varies, a disk that is denser near the center, a spring that pushes back harder the more it is stretched, and water that must be lifted different distances from different depths: in each case we cut the object or the motion into small pieces, approximate each piece by a constant, add, and take the limit. The result is a definite integral.</p>
+<div class="ca-goals"><b>Learning objectives</b> Find the mass of a thin rod from a linear density; find the mass of a disk from a radial density; compute the work done by a variable force, including springs (Hooke's law); set up and compute the work needed to pump liquid out of a tank.</div>
+
+<section class="ca-panel" id="rod"><h3>01 · Mass of a thin rod</h3>
+<div class="ca-definition"><strong>Linear density</strong>
+<p>A thin rod lies along the x-axis from x = a to x = b. If its density (mass per unit length) is a constant ρ, its mass is ρ(b − a). If the density ρ(x) changes from point to point, cut [a, b] into n pieces; the piece [xᵢ₋₁, xᵢ] has mass mᵢ ≈ ρ(xᵢ*)Δx. Adding gives a Riemann sum, and in the limit</p>
+<p class="ca-center"><b>m = lim<sub>n→∞</sub> Σ ρ(xᵢ*)Δx = ∫<sub>a</sub><sup>b</sup> ρ(x) dx</b>.</p>
+<p>Example: a rod on [π/2, π] with density ρ(x) = sin x has mass ∫<sub>π/2</sub><sup>π</sup> sin x dx = [−cos x]<sub>π/2</sub><sup>π</sup> = 1 − 0 = <b>1</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-grip-lines"></i> INTERACTIVE · DENSER IS DARKER</div>
+<div id="rod-lab"></div>
+</section>
+
+<section class="ca-panel" id="disk"><h3>02 · Mass of a disk with radial density</h3>
+<div class="ca-definition"><strong>Thin rings</strong>
+<p>A thin disk of radius r is centered at the origin, and its density depends only on the distance x from the center: ρ(x) (mass per unit area). Cut [0, r] into pieces; each piece sweeps out a thin ring with inner radius xᵢ₋₁ and outer radius xᵢ, of area π(xᵢ² − xᵢ₋₁²) = π(xᵢ + xᵢ₋₁)Δx ≈ 2πxᵢ*Δx. Its mass is about 2πxᵢ*ρ(xᵢ*)Δx, so</p>
+<p class="ca-center"><b>m = ∫<sub>0</sub><sup>r</sup> 2πx ρ(x) dx</b>.</p>
+<p>Example: ρ(x) = 3x + 2 and r = 2: m = 2π∫<sub>0</sub><sup>2</sup> (3x² + 2x) dx = 2π[x³ + x²]<sub>0</sub><sup>2</sup> = <b>24π</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-circle-dot"></i> INTERACTIVE · ADD UP THE RINGS</div>
+<div id="disk-lab"></div>
+</section>
+
+<section class="ca-panel" id="work"><h3>03 · Work done by a variable force</h3>
+<div class="ca-definition"><strong>Work</strong>
+<p>A constant force F moving an object a distance d does work W = Fd. If the force F(x) varies as the object moves along the x-axis from a to b, then</p>
+<p class="ca-center"><b>W = ∫<sub>a</sub><sup>b</sup> F(x) dx</b>.</p>
+<div class="ca-scroll-x"><table class="ca-data-table"><tr><th>system</th><th>length</th><th>force</th><th>work</th></tr><tr><td>metric</td><td>meters (m)</td><td>newtons (N)</td><td>joules (J)</td></tr><tr><td>English</td><td>feet (ft)</td><td>pounds (lb)</td><td>foot-pounds (ft-lb)</td></tr></table></div>
+<p><b>Hooke's law:</b> the force needed to stretch or compress a spring x units from its natural (equilibrium) length is <b>F(x) = kx</b>, where k &gt; 0 is the spring constant.</p>
+<p>Example: a force of 30 N stretches a spring 5 cm = 0.05 m, so 30 = k(0.05) and k = 600 N/m. To stretch it an additional 20 cm (from 0.05 m to 0.25 m): W = ∫<sub>0.05</sub><sup>0.25</sup> 600x dx = 300[x²]<sub>0.05</sub><sup>0.25</sup> = 300(0.0625 − 0.0025) = <b>18 J</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right-to-line"></i> INTERACTIVE · STRETCH THE SPRING</div>
+<div id="spring-lab"></div>
+</section>
+
+<section class="ca-panel" id="pumping"><h3>04 · Work done in pumping</h3>
+<div class="ca-definition"><strong>A working rule</strong>
+<ol><li>Sketch the tank and choose a coordinate: here x is the depth below the top.</li><li>Find the volume of a representative thin layer of liquid at depth xᵢ*.</li><li>Multiply by the weight density of the liquid to get the force needed to lift it (water: 62.4 lb/ft³).</li><li>Find the distance the layer must be lifted.</li><li>Multiply force by distance to get the work for that layer.</li><li>Add the work for all layers: a Riemann sum.</li><li>Take the limit to get an integral, and evaluate it.</li></ol>
+<p>Example: a tank is an inverted cone of height 12 ft and top radius 4 ft, full of water. Water is pumped over the top edge until 4 ft of water remain. A layer at depth x has radius r with r/(12 − x) = 4/12 (similar triangles), so r = 4 − x/3; its volume is about π(4 − x/3)²Δx and its weight 62.4π(4 − x/3)²Δx, and it is lifted x ft. The layers to remove run from x = 0 to x = 8, so</p>
+<p class="ca-center"><b>W = ∫<sub>0</sub><sup>8</sup> 62.4π x(4 − x/3)² dx = 62.4π · 512/3 = 10,649.6π ≈ 33,457 ft-lb</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-faucet-drip"></i> INTERACTIVE · EMPTY THE TANK</div>
+<div id="pump-lab"></div>
+</section>
+
+<!--GUIDED|Physical Applications|Original problems on mass, density, and work. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Physical Applications
+Q: A rod on [π/2, π] has density ρ(x) = sin x. What is its mass?
+A: m = ∫<sub>π/2</sub><sup>π</sup> sin x dx = [−cos x]<sub>π/2</sub><sup>π</sup> = 1.
+Q: A disk of radius 2 has radial density ρ(x) = 3x + 2. What is its mass?
+A: m = ∫<sub>0</sub><sup>2</sup> 2πx(3x + 2) dx = 2π[x³ + x²]<sub>0</sub><sup>2</sup> = 24π.
+Q: A force of 30 N stretches a spring 5 cm. How much work stretches it an additional 20 cm?
+A: k = 30/0.05 = 600 N/m, and W = ∫<sub>0.05</sub><sup>0.25</sup> 600x dx = 300(0.25² − 0.05²) = 18 J.
+-->

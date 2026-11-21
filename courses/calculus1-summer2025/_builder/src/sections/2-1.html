@@ -1,0 +1,42 @@
+<p class="ca-lede">Calculus grew out of two problems. The <b>tangent problem</b> asks for the slope of the line that just touches a curve at a point. The <b>area problem</b> asks for the area of a region with a curved boundary. Neither can be solved with one computation: we approximate, improve the approximation, and ask what number the approximations approach. That number is a <b>limit</b>.</p>
+<div class="ca-goals"><b>Learning objectives</b> Describe the tangent problem and approximate a tangent slope with secant slopes; describe the area problem and approximate an area with rectangles; relate average and instantaneous velocity; explain why both problems lead to limits.</div>
+
+<section class="ca-panel" id="tangent"><h3>01 · The tangent problem</h3>
+<div class="ca-definition"><strong>From secant lines to the tangent line</strong>
+<p>For a straight line y = mx + c through (x₁, y₁) and (x₂, y₂), the slope is m = (y₂ − y₁)/(x₂ − x₁). For a curve y = f(x) and a point P = (a, f(a)) on it, we want the slope of the <b>tangent line</b> at P.</p>
+<ol><li>Choose another point Q = (a + h, f(a + h)) on the curve.</li><li>Draw the <b>secant line</b> through P and Q. Its slope is m<sub>sec</sub> = (f(a + h) − f(a))/h.</li><li>Move Q toward P along the curve (let h → 0).</li><li>The secant slopes approach the slope of the tangent line. This is the idea of a <b>limit</b>.</li></ol></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-person-walking-arrow-right"></i> INTERACTIVE · MOVE Q TOWARD P</div>
+<p>Slide h toward 0 from either side, or drag Q along the curve. The table shows the secant slopes for smaller and smaller h.</p>
+<div id="secant-lab"></div>
+</section>
+
+<section class="ca-panel" id="velocity"><h3>02 · Average and instantaneous velocity</h3>
+<div class="ca-definition"><strong>Velocity is a slope</strong>
+<p>If s(t) is the position of an object at time t, its <b>average velocity</b> on [a, a + h] is (s(a + h) − s(a))/h: the slope of a secant line of the position graph. The <b>instantaneous velocity</b> at t = a is the number these averages approach as h → 0: the slope of the tangent line.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-baseball"></i> INTERACTIVE · A BALL THROWN UPWARD</div>
+<p>A ball is thrown straight up; its height after t seconds is s(t) = −16t² + 64t feet. Shrink the time interval to find the velocity at one instant.</p>
+<div id="vel-lab"></div>
+</section>
+
+<section class="ca-panel" id="area"><h3>03 · The area problem</h3>
+<div class="ca-definition"><strong>From rectangles to area</strong>
+<p>We know the areas of rectangles (ab), triangles (½bh), trapezoids (½(a + b)h), and circles (πr²). To find the area under a curve y = f(x) ≥ 0 from x = a to x = b, divide [a, b] into n strips of width Δx = (b − a)/n, approximate each strip by a rectangle, and add. <b>The narrower the rectangles, the better the approximation</b>; the area is the limit of these sums as n → ∞.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-chart-column"></i> INTERACTIVE · MORE AND NARROWER RECTANGLES</div>
+<div id="area-lab"></div>
+</section>
+
+<section class="ca-panel" id="applications"><h3>04 · Where the two problems lead</h3>
+<div class="ca-formula-grid"><div><b>the tangent problem → derivatives</b>slopes and rates of change: velocity and acceleration of a moving particle; optimization (finding maxima and minima)</div><div><b>the area problem → integrals</b>areas and volumes; total accumulation, such as distance traveled from a velocity, or total change from a rate</div></div>
+<p class="ca-muted">Both problems are answered by limits, which we define in Section 2.2. The Fundamental Theorem of Calculus (Chapter 5) shows that the two problems are inverse to each other.</p>
+<div id="app-cards"></div>
+</section>
+
+<!--GUIDED|A Preview of Calculus|Original problems on secant slopes, velocity, and rectangle approximations. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|A Preview of Calculus
+Q: For f(x) = x², find the slope of the secant line through P = (1, 1) and Q = (1 + h, (1 + h)²). What happens as h → 0?
+A: m<sub>sec</sub> = ((1 + h)² − 1)/h = (2h + h²)/h = 2 + h for h ≠ 0. As h → 0 the slopes approach 2, the slope of the tangent line at (1, 1).
+Q: For s(t) = −16t² + 64t, find the average velocity on [1, 1 + h] and the instantaneous velocity at t = 1.
+A: s(1 + h) − s(1) = −16(1 + 2h + h²) + 64 + 64h − 48 = 32h − 16h², so the average velocity is 32 − 16h ft/s. As h → 0 it approaches 32 ft/s.
+Q: Use 4 right-endpoint rectangles to estimate the area under y = x² on [0, 2].
+A: Δx = 0.5 and the right endpoints are 0.5, 1, 1.5, 2: R₄ = 0.5(0.25 + 1 + 2.25 + 4) = 3.75. The exact area is 8/3 ≈ 2.667; more rectangles give better estimates.
+-->

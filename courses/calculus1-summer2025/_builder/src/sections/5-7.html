@@ -1,0 +1,36 @@
+<p class="ca-lede">The derivatives of sin⁻¹x, tan⁻¹x, and sec⁻¹x are algebraic functions: 1/√(1 − x²), 1/(1 + x²), and 1/(x√(x² − 1)). Read backwards, they let us integrate expressions with a² − u², a² + u², and u² − a², which appear often and have no simpler antiderivatives.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use the three integration formulas that give inverse trigonometric functions, with a constant a; match an integrand to the right form, factoring out constants or substituting when needed; evaluate definite integrals with exact values such as π/6 and 5π/12.</div>
+
+<section class="ca-panel" id="formulas"><h3>01 · The three formulas</h3>
+<div class="ca-definition"><strong>Integrals that give inverse trigonometric functions (a &gt; 0)</strong>
+<div class="ca-formula-grid ca-math-labels"><div><b>1 · sine</b>∫ du/√(a² − u²) = sin⁻¹(u/a) + C</div><div><b>2 · tangent</b>∫ du/(a² + u²) = (1/a) tan⁻¹(u/a) + C</div><div><b>3 · secant</b>∫ du/(u√(u² − a²)) = (1/a) sec⁻¹(|u|/a) + C</div><div><b>remember the ranges</b>sin⁻¹: [−π/2, π/2]; tan⁻¹: (−π/2, π/2): tan⁻¹x is the unique θ in (−π/2, π/2) with tan θ = x</div></div>
+<p>Each formula can be checked by differentiating; for example d/du [(1/a) tan⁻¹(u/a)] = (1/a) · (1/a)/(1 + u²/a²) = 1/(a² + u²).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-chart-area"></i> INTERACTIVE · THE AREA IS AN ANGLE</div>
+<p>The area under each integrand from 0 to x equals the inverse trigonometric function at x: watch the area and the angle grow together.</p>
+<div id="area-lab"></div>
+</section>
+
+<section class="ca-panel" id="matching"><h3>02 · Matching the form</h3>
+<div class="ca-definition"><strong>Getting the integrand into shape</strong>
+<p>Identify a² and u². If the coefficient of the variable is not 1, either substitute (u = 3x, du = 3 dx) or factor the constant out first. Both methods give the same answer; for example</p>
+<p class="ca-center">∫ 8 dx/(16 + 9x²) = (8/3)∫ du/(16 + u²) (u = 3x) = (8/3)(1/4) tan⁻¹(u/4) + C = <b>(2/3) tan⁻¹(3x/4) + C</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<div id="inv-steps"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-tags"></i> WHICH FORMULA?</div>
+<div id="form-cards"></div>
+</section>
+
+<section class="ca-panel" id="check"><h3>03 · Practice: check your antiderivative</h3>
+<p>Try 1/(4 + x^2) with (1/2)arctan(x/2), or 1/sqrt(25 - x^2) with arcsin(x/5).</p>
+<div id="inv-check"></div>
+</section>
+
+<!--GUIDED|Integrals Resulting in Inverse Trigonometric Functions|Original problems on the three inverse trigonometric integration formulas. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Integrals Resulting in Inverse Trigonometric Functions
+Q: Evaluate ∫<sub>0</sub><sup>1/2</sup> dx/√(1 − x²).
+A: Formula 1 with a = 1: sin⁻¹x |<sub>0</sub><sup>1/2</sup> = sin⁻¹(1/2) − sin⁻¹0 = π/6.
+Q: Evaluate ∫<sub>−1</sub><sup>1/√3</sup> dx/(1 + x²).
+A: tan⁻¹x |<sub>−1</sub><sup>1/√3</sup> = π/6 − (−π/4) = 5π/12.
+Q: Evaluate ∫<sub>2</sub><sup>6</sup> dx/(x√(x² − 4)).
+A: Formula 3 with a = 2: ½[sec⁻¹(|x|/2)]<sub>2</sub><sup>6</sup> = ½(sec⁻¹3 − sec⁻¹1) = ½cos⁻¹(1/3) ≈ 0.6155, because sec⁻¹y = cos⁻¹(1/y) and sec⁻¹1 = 0.
+-->

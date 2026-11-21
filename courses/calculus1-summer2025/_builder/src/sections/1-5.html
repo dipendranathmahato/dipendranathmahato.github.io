@@ -1,0 +1,90 @@
+<p class="ca-lede">Exponential functions describe quantities that grow or decay by a fixed percentage, such as a balance earning 4% a year: after t years, P₀ dollars become P₀(1.04)ᵗ. Their inverses are the logarithmic functions. The natural base e will be the star of calculus, because the graph of eˣ has slope exactly 1 where it crosses the y-axis.</p>
+<div class="ca-goals"><b>Learning objectives</b> Identify exponential functions and their graphs; compare exponential and power growth; simplify with the laws of exponents; explain where e comes from; define logarithms as inverses of exponentials; use the properties of logarithms and the change-of-base formula; solve exponential and logarithmic equations.</div>
+
+<section class="ca-panel" id="exp-def"><h3>01 · Exponential functions</h3>
+<div class="ca-definition"><strong>Definition · Exponential function</strong>
+<p>f(x) = a·bˣ, where the <b>initial value</b> a ≠ 0 and the <b>base</b> b &gt; 0, b ≠ 1. For f(x) = bˣ itself, the domain is (−∞, ∞), the range is (0, ∞), and the graph passes through (0, 1); it increases if b &gt; 1 and decreases if 0 &lt; b &lt; 1. In general the domain is (−∞, ∞); the range is (0, ∞) if a &gt; 0 and (−∞, 0) if a &lt; 0; the y-intercept is (0, a); the horizontal asymptote is y = 0.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-chart-line"></i> INTERACTIVE · THE FOUR SHAPES OF a·bˣ</div>
+<p>Change a and b. Watch the table: each step to the right <b>multiplies</b> the output by b. The signs of a and the size of b give four different shapes.</p>
+<div id="exp-lab"></div>
+</section>
+
+<section class="ca-panel" id="growth"><h3>02 · Exponential growth beats power growth</h3>
+<div class="ca-definition"><strong>bˣ versus xⁿ</strong>
+<p>In a power function xⁿ the variable is the <b>base</b>; in an exponential function bˣ the variable is the <b>exponent</b>. For small x a power can be larger, but for every b &gt; 1 and every n, <b>bˣ eventually overtakes xⁿ and stays ahead</b>. For example, 2ˣ = x² at x = 2 and x = 4, and 2ˣ &gt; x² for all x &gt; 4.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-flag-checkered"></i> INTERACTIVE · RACE bˣ AGAINST xⁿ</div>
+<p>Pick a base and a power, then widen the window. The green points are the crossings.</p>
+<div id="growth-lab"></div>
+</section>
+
+<section class="ca-panel" id="laws"><h3>03 · Laws of exponents</h3>
+<div class="ca-definition"><strong>For a, b &gt; 0 and all real x, y</strong>
+<div class="ca-formula-grid"><div><b>products and quotients</b>bˣ · bʸ = bˣ⁺ʸ<br>bˣ / bʸ = bˣ⁻ʸ<br>b⁻ˣ = 1/bˣ, b⁰ = 1</div><div><b>powers</b>(bˣ)ʸ = bˣʸ<br>(ab)ˣ = aˣbˣ<br>(a/b)ˣ = aˣ/bˣ</div></div></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · SIMPLIFY AND CHECK WITH NUMBERS</div>
+<p>The first example is (x³y⁻¹)²/(xy²)⁻² = x⁸y². Change the test values: both forms always give the same number.</p>
+<div id="laws-lab"></div>
+</section>
+
+<section class="ca-panel" id="number-e"><h3>04 · The number e</h3>
+<div class="ca-definition"><strong>The natural base e</strong>
+<p>As n grows without bound, (1 + 1/n)ⁿ approaches an irrational number, <b>e ≈ 2.718282</b>. It was introduced by Jacob Bernoulli in 1683 and later named by Leonhard Euler. The function f(x) = eˣ is the <b>natural exponential function</b>. Continuous compounding at rate r gives A(t) = Pe<sup>rt</sup>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-infinity"></i> INTERACTIVE · WATCH (1 + 1/n)ⁿ CLOSE IN ON e</div>
+<div id="e-lab"></div>
+</section>
+
+<section class="ca-panel" id="slope"><h3>05 · Why e is natural: slope 1 at x = 0</h3>
+<div class="ca-definition"><strong>The slope of y = bˣ at (0, 1)</strong>
+<p>Every graph y = bˣ passes through (0, 1). The slope of the secant line through (0, 1) and (h, bʰ) is (bʰ − 1)/h. As h → 0 these slopes approach the slope of the <b>tangent line</b> at (0, 1). That slope is about 0.69 for b = 2 and about 1.10 for b = 3, and it is <b>exactly 1 for b = e</b>. We will prove this when we study derivatives.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-chart-line"></i> INTERACTIVE · FIND THE BASE WITH SLOPE 1</div>
+<div id="slope0-lab"></div>
+</section>
+
+<section class="ca-panel" id="log-def"><h3>06 · Logarithmic functions</h3>
+<div class="ca-definition"><strong>Definition · Logarithm</strong>
+<p>For b &gt; 0, b ≠ 1, and x &gt; 0: <b>y = log<sub>b</sub> x ⇔ b<sup>y</sup> = x</b>. So log<sub>b</sub> x is the inverse function of bˣ: log<sub>b</sub>(bˣ) = x for all x and b<sup>log<sub>b</sub> x</sup> = x for x &gt; 0. The <b>natural logarithm</b> is ln x = log<sub>e</sub> x, so ln(eˣ) = x and e<sup>ln x</sup> = x. The <span class="ca-part-base">base</span> stays the base, the <span class="ca-part-exp">logarithm is the exponent</span>, and the <span class="ca-part-val">argument is the result of the power</span>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-right-left"></i> INTERACTIVE · THE TWO FORMS SIDE BY SIDE</div>
+<p>Pick a base and an exponent. The colors show where each part moves.</p>
+<div id="conv-lab"></div>
+</section>
+
+<section class="ca-panel" id="reflect"><h3>07 · The graph of a logarithm</h3>
+<div class="ca-definition"><strong>Characteristics of y = log<sub>b</sub> x</strong>
+<p>Domain (0, ∞) and range (−∞, ∞), the reverse of y = bˣ. Vertical asymptote x = 0. Key points <b>(1/b, −1)</b>, <b>(1, 0)</b> (the x-intercept), and <b>(b, 1)</b>. No y-intercept. Increasing if b &gt; 1, decreasing if 0 &lt; b &lt; 1.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-rotate"></i> INTERACTIVE · REFLECT bˣ OVER y = x</div>
+<p>Slide the reflection from 0% to 100% to watch each point (x, y) travel to (y, x).</p>
+<div id="refl-lab"></div>
+</section>
+
+<section class="ca-panel" id="rules"><h3>08 · Properties of logarithms</h3>
+<div class="ca-definition"><strong>Rules (b &gt; 0, b ≠ 1, M &gt; 0, N &gt; 0)</strong>
+<p>log<sub>b</sub>1 = 0 and log<sub>b</sub>b = 1.</p><p><b>Product:</b> log<sub>b</sub>(MN) = log<sub>b</sub>M + log<sub>b</sub>N. <b>Quotient:</b> log<sub>b</sub>(M/N) = log<sub>b</sub>M − log<sub>b</sub>N. <b>Power:</b> log<sub>b</sub>(Mⁿ) = n·log<sub>b</sub>M.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-scale-balanced"></i> INTERACTIVE · TEST A RULE WITH NUMBERS</div>
+<p>Pick a rule and some numbers. Both sides always agree. Then try a <b>common mistake</b> and watch the two sides disagree.</p>
+<div id="rule-lab"></div>
+</section>
+
+<section class="ca-panel" id="change-base"><h3>09 · The change-of-base formula</h3>
+<div class="ca-definition"><strong>Change of base</strong>
+<p>For M &gt; 0 and bases b, n (positive, not 1): log<sub>b</sub>M = log<sub>n</sub>M / log<sub>n</sub>b. With a calculator, use <b>log<sub>b</sub>M = log M / log b = ln M / ln b</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-calculator"></i> INTERACTIVE · ANY BASE ON A CALCULATOR</div>
+<div id="cob-lab"></div>
+</section>
+
+<section class="ca-panel" id="solve"><h3>10 · Solving exponential and logarithmic equations</h3>
+<div class="ca-definition"><strong>Strategy</strong>
+<ol><li>Use the properties to combine everything into a single exponential or a single logarithm on each side.</li><li>Undo it: take ln of both sides of an exponential equation; exponentiate both sides of a logarithmic equation.</li><li>Solve the resulting algebraic equation.</li><li>Check each answer in the original equation: a logarithm needs a <b>positive</b> argument.</li></ol></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-magnifying-glass"></i> INTERACTIVE · SOLVE STEP BY STEP</div>
+<p>The first equation is ln(2x) − ln(x⁶) = 0.</p>
+<div id="solve-lab"></div>
+</section>
+
+
+<!--GUIDED|Exponential and Logarithmic Functions|Original problems on exponential functions, e, logarithms, and their properties. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Exponential and Logarithmic Functions
+Q: Simplify (x³y⁻¹)² / (xy²)⁻² for x, y &gt; 0.
+A: (x³y⁻¹)² = x⁶y⁻² and (xy²)⁻² = x⁻²y⁻⁴, so the quotient is x⁶⁻⁽⁻²⁾y⁻²⁻⁽⁻⁴⁾ = x⁸y².
+Q: What is special about e?
+A: e = lim (1 + 1/m)ᵐ as m → ∞ ≈ 2.718282, and it is the only base for which the tangent line to y = bˣ at (0, 1) has slope 1.
+Q: Solve ln(2x) − ln(x⁶) = 0.
+A: ln(2x/x⁶) = 0 gives 2/x⁵ = 1, so x⁵ = 2 and x = ⁵√2 ≈ 1.1487. It is positive, so it is in the domain.
+-->
