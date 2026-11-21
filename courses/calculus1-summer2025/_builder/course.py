@@ -3,25 +3,25 @@ bridges that connect one section to the next. The lesson content is the same for
 only the TERM block below (folder, dates, meetings, weeks) changes from one course to the next."""
 import datetime as dt
 
-# ---------------------------------------------------------------- TERM (Summer 2025, section 01)
+# ---------------------------------------------------------------- TERM (Fall 2024, section 12)
 COURSE = "MATH 1210"
-SECTION = "01"
-TERM = "Summer 2025"
-SLUG = "calculus-i-summer2025"
+SECTION = "12"
+TERM = "Fall 2024"
+SLUG = "calculus1-fall2024"
 BASE = f"/courses/{SLUG}/"
 NAME = "Calculus I"
 UNIVERSITY = "Tulane University"
-UNI_SUB = "Summer 2025 · Online"
-HERO_LINE = "TULANE UNIVERSITY · SUMMER 2025 · MATH 1210-01"
-MEETINGS = ["Mon–Fri · 11:00 AM–12:45 PM", "Online (Zoom)", "May 27 – June 27, 2025"]
-WEEK1 = dt.date(2025, 5, 26)  # Monday of week 1 (classes start Tuesday, May 27)
+UNI_SUB = "Fall 2024"
+HERO_LINE = "TULANE UNIVERSITY · FALL 2024 · MATH 1210-12"
+MEETINGS = ["Mon, Wed & Fri · 9:00–9:50 AM", "Howard-Tilton Library B11", "Recitation (MATH 1211-22) · Tue 8:00–9:15 AM · B10"]
+WEEK1 = dt.date(2024, 8, 19)  # Monday of week 1 (first class Monday, August 19)
 # week of the course in which each section is taught (from the syllabus calendar)
-WEEKS = {"1.1": 1, "1.2": 1, "1.3": 1, "1.4": 1, "1.5": 1, "2.1": 1, "2.2": 1,
-         "2.3": 2, "2.4": 2, "3.1": 2, "3.2": 2, "3.3": 2, "3.5": 2, "3.6": 2,
-         "3.9": 3, "3.4": 3, "4.2": 3, "4.3": 3, "4.5": 3, "4.7": 3, "4.6": 3, "4.8": 3, "4.10": 3,
-         "5.1": 4, "5.2": 4, "5.3": 4, "5.4": 4, "5.5": 4, "5.6": 4,
-         "5.7": 5, "6.1": 5, "6.5": 5}
-SCHEDULE_NOTE = "Exam dates, knowledge checks, reviews, and TA sessions are in the syllabus and the Course Foundations panel."
+WEEKS = {"1.1": 1, "1.2": 1, "1.3": 2, "1.4": 2, "1.5": 2, "2.1": 3, "2.2": 3,
+         "2.3": 4, "2.4": 4, "3.1": 5, "3.2": 5, "3.3": 5, "3.5": 6, "3.6": 6,
+         "3.9": 7, "3.4": 8, "4.2": 8, "4.3": 9, "4.5": 9, "4.7": 10, "4.6": 10, "4.8": 10, "4.10": 11,
+         "5.1": 11, "5.2": 11, "5.3": 12, "5.4": 13, "5.5": 13, "5.6": 13,
+         "5.7": 14, "6.1": 14, "6.5": 14}
+SCHEDULE_NOTE = "Midterm dates, recitations, knowledge checks, and review days are in the syllabus and the Course Foundations panel."
 # ---------------------------------------------------------------- end of TERM block
 
 TEXTBOOK = "https://openstax.org/books/calculus-volume-1/pages/"  # syllabus: Calculus Volume 1 (Strang and Herman, OpenStax)
