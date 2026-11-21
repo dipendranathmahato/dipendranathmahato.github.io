@@ -1,0 +1,53 @@
+<p class="ca-lede">A wind of 20 mph from the west and a wind of 20 mph from the north are not the same, even though their sizes match. Quantities like velocity and force need both a <b>magnitude</b> and a <b>direction</b>. A <b>vector</b> captures both as an arrow, and in components ⟨a, b⟩ we can add vectors, stretch them, measure them, and find the angle between them.</p>
+<div class="ca-goals"><b>Learning objectives</b> View vectors geometrically; find magnitude and direction; perform vector addition and scalar multiplication; find the component form of a vector; find the unit vector in the direction of v; perform operations with vectors in terms of i and j; find the dot product of two vectors.</div>
+
+<section class="ca-panel" id="component"><h3>01 · Vectors and position vectors</h3>
+<div class="ca-definition"><strong>Definitions</strong>
+<ul><li>A <b>vector</b> is a directed line segment from an initial point to a terminal point. The vector from P to Q is written PQ⃗ or with a bold letter such as <b>v</b>.</li><li><b>Equal vectors</b> have the same magnitude and the same direction, wherever they are drawn.</li><li>A <b>position vector</b> starts at (0, 0) and ends at (a, b); it is written ⟨a, b⟩.</li><li>The vector from C(x₁, y₁) to D(x₂, y₂) equals the position vector <b>⟨x₂ − x₁, y₂ − y₁⟩</b>.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-up-down-left-right"></i> INTERACTIVE · DRAG P AND Q</div>
+<p>Drag the initial point P or the terminal point Q (they snap to the grid). The blue arrow is the equal position vector.</p>
+<div id="pq-lab"></div>
+</section>
+
+<section class="ca-panel" id="magnitude"><h3>02 · Magnitude and direction</h3>
+<div class="ca-definition"><strong>For v = ⟨a, b⟩</strong>
+<ul><li><b>Magnitude:</b> |v| = √(a² + b²).</li><li><b>Direction</b> (measured counterclockwise from the positive x-axis): θ = tan⁻¹(b/a) in Quadrant I; tan⁻¹(b/a) + 180° in Quadrants II and III; tan⁻¹(b/a) + 360° in Quadrant IV.</li></ul>
+<p>Always sketch the vector first: the calculator's tan⁻¹ only returns angles between −90° and 90°.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-compass"></i> INTERACTIVE · DRAG THE TIP OF v</div>
+<p>Each preset gives an initial and a terminal point.</p>
+<div id="md-lab"></div>
+</section>
+
+<section class="ca-panel" id="operations"><h3>03 · Adding, subtracting, and scaling vectors</h3>
+<div class="ca-definition"><strong>Operations with u = ⟨a, b⟩ and v = ⟨c, d⟩</strong>
+<div class="ca-formula-grid"><div><b>sum</b>u + v = ⟨a + c, b + d⟩: place v's tail at u's tip (tip-to-tail).</div><div><b>difference</b>u − v = u + (−v) = ⟨a − c, b − d⟩, where −v = ⟨−c, −d⟩ has the same length and the opposite direction.</div><div><b>scalar multiple</b>kv = ⟨kc, kd⟩: |kv| = |k||v|; same direction if k &gt; 0, opposite if k &lt; 0.</div><div><b>i and j form</b>i = ⟨1, 0⟩, j = ⟨0, 1⟩, so ⟨a, b⟩ = ai + bj and the operations act on the coefficients.</div></div></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-plus-minus"></i> INTERACTIVE · VECTOR CALCULATOR</div>
+<p>Drag the tips of u and v or pick a preset. Results appear in both ⟨ , ⟩ and i, j form.</p>
+<div id="op-lab"></div>
+</section>
+
+<section class="ca-panel" id="unit"><h3>04 · Unit vectors and magnitude–direction form</h3>
+<div class="ca-definition"><strong>Definitions</strong>
+<ul><li>A <b>unit vector</b> has magnitude 1. The unit vector in the direction of v ≠ 0 is <b>u = v / |v|</b>.</li><li>A vector with magnitude |v| and direction θ is <b>v = |v|(cos θ i + sin θ j)</b>.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-circle-dot"></i> INTERACTIVE · NORMALIZE A VECTOR</div>
+<div id="unit-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-location-arrow"></i> INTERACTIVE · FROM LENGTH AND ANGLE TO COMPONENTS</div>
+<div id="ld-lab"></div>
+</section>
+
+<section class="ca-panel" id="dot"><h3>05 · The dot product and the angle between vectors</h3>
+<div class="ca-definition"><strong>Dot product</strong>
+<ul><li>v · w = ac + bd for v = ⟨a, b⟩ and w = ⟨c, d⟩. The result is a <b>scalar</b> (a number), not a vector.</li><li>The angle between v and w: θ = cos⁻¹( (v · w) / (|v||w|) ).</li><li>v and w are <b>perpendicular</b> (θ = 90°) exactly when v · w = 0.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-angle-left"></i> INTERACTIVE · DRAG THE TWO VECTORS</div>
+<div id="dot-lab"></div>
+</section>
+
+<!--GUIDED|Vectors|Original problems on components, magnitude and direction, vector arithmetic, unit vectors, and the dot product. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Vectors
+Q: Find the magnitude and direction of the vector from P(3, 7) to Q(1, 1).
+A: v = ⟨1 − 3, 1 − 7⟩ = ⟨−2, −6⟩. |v| = √40 = 2√10. Quadrant III: θ = tan⁻¹(3) + 180° ≈ 251.6°.
+Q: Given v = ⟨−4, 4⟩ and w = ⟨6, −5⟩, find 3v − 2w.
+A: 3v = ⟨−12, 12⟩ and 2w = ⟨12, −10⟩, so 3v − 2w = ⟨−24, 22⟩ = −24i + 22j.
+Q: Find the angle between v = ⟨−2, −5⟩ and w = ⟨9, −1⟩.
+A: v · w = −18 + 5 = −13; |v| = √29 and |w| = √82. θ = cos⁻¹(−13/(√29 · √82)) ≈ 105.5°.
+-->

@@ -1,0 +1,48 @@
+<p class="ca-lede">The Law of Sines needs an angle together with its opposite side. When we know <b>two sides and the angle between them</b> (SAS), or <b>all three sides</b> (SSS), no such pair is available. The <b>Law of Cosines</b> handles these cases. It is the Pythagorean Theorem with a correction term that depends on the cosine of the angle.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use the Law of Cosines to solve oblique triangles; solve applied problems using the Law of Cosines; use Heron's formula to find the area of a triangle.</div>
+
+<section class="ca-panel" id="law"><h3>01 · The Law of Cosines</h3>
+<div class="ca-definition"><strong>Law of Cosines</strong>
+<div class="ca-formula-grid"><div><b>to find a side</b>a² = b² + c² − 2bc cos α<br>b² = a² + c² − 2ac cos β<br>c² = a² + b² − 2ab cos γ</div><div><b>to find an angle</b>α = cos⁻¹((b² + c² − a²)/(2bc))<br>β = cos⁻¹((a² + c² − b²)/(2ac))<br>γ = cos⁻¹((a² + b² − c²)/(2ab))</div></div>
+<p>The square of a side equals the sum of the squares of the other two sides, minus twice their product times the cosine of the <b>included</b> angle.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-scale-balanced"></i> INTERACTIVE · PYTHAGORAS PLUS A CORRECTION</div>
+<p>Change the angle γ between sides a and b. At γ = 90° the correction is 0 and you get the Pythagorean Theorem; an acute γ makes c shorter, an obtuse γ makes it longer.</p>
+<div id="law-lab"></div>
+</section>
+
+<section class="ca-panel" id="sas"><h3>02 · SAS: two sides and the included angle</h3>
+<div class="ca-definition"><strong>Procedure</strong>
+<ol><li>Use the Law of Cosines to find the third side.</li><li>Use the Law of Cosines (or the Law of Sines) to find a second angle. Finding the <b>smaller</b> angle first avoids the ambiguous case.</li><li>Find the last angle with α + β + γ = 180°.</li></ol></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-calculator"></i> INTERACTIVE · SAS SOLVER</div>
+<p>The presets include a word problem about a bus trip.</p>
+<div id="sas-lab"></div>
+</section>
+
+<section class="ca-panel" id="sss"><h3>03 · SSS: three sides</h3>
+<div class="ca-definition"><strong>Procedure</strong>
+<p>First check the <b>triangle inequality</b>: each side must be shorter than the sum of the other two. Then find two angles with the inverse-cosine forms and the third from the angle sum. The largest angle is across from the longest side; finding it with cos⁻¹ also tells you whether the triangle is obtuse.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-ruler"></i> INTERACTIVE · SSS SOLVER</div>
+<div id="sss-lab"></div>
+</section>
+
+<section class="ca-panel" id="heron"><h3>04 · Heron's formula</h3>
+<div class="ca-definition"><strong>Area from three sides</strong>
+<p class="ca-formula">Area = √(s(s − a)(s − b)(s − c)),  where s = ½(a + b + c) is the semi-perimeter.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-vector-square"></i> INTERACTIVE · TWO WAYS TO THE SAME AREA</div>
+<div id="her-lab"></div>
+</section>
+
+<section class="ca-panel" id="which"><h3>05 · Which law do I use?</h3>
+<p>Decide from the given information alone, before computing anything.</p>
+<div id="which-cards"></div>
+</section>
+
+<!--GUIDED|Non-right Triangles: Law of Cosines|Original problems on the Law of Cosines, SAS and SSS triangles, navigation, and Heron's formula. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Non-right Triangles: Law of Cosines
+Q: Solve the triangle with β = 106°, a = 11, c = 16.
+A: b² = 11² + 16² − 2(11)(16) cos 106° ≈ 474.0, so b ≈ 21.8. α = cos⁻¹((b² + c² − a²)/(2bc)) ≈ 29.1°, and γ ≈ 180° − 106° − 29.1° ≈ 44.9°.
+Q: Solve the triangle with a = 35, b = 29, c = 21.
+A: α = cos⁻¹((29² + 21² − 35²)/(2 · 29 · 21)) ≈ 87.3°, β = cos⁻¹((35² + 21² − 29²)/(2 · 35 · 21)) ≈ 55.9°, γ ≈ 36.8°.
+Q: Find the area of the triangle with a = 18, b = 24, c = 27.
+A: s = 34.5; Area = √(34.5 · 16.5 · 10.5 · 7.5) ≈ 211.7 square units.
+-->

@@ -1,0 +1,65 @@
+<p class="ca-lede">Sine and cosine are the coordinates y and x of a point on the unit circle. Dividing one coordinate by the other, or taking reciprocals, gives four more functions: <b>tangent, cotangent, secant, and cosecant</b>. Together the six functions are linked by a small set of <b>fundamental identities</b> and by their <b>even and odd</b> symmetries.</p>
+<div class="ca-goals"><b>Learning objectives</b> Find exact values of secant, cosecant, tangent, and cotangent of π/3, π/4, and π/6; use reference angles to evaluate them; use the even and odd properties; recognize and use the fundamental identities; evaluate trigonometric functions with a calculator.</div>
+
+<section class="ca-panel" id="six"><h3>01 · Six functions from one point</h3>
+<div class="ca-definition"><strong>Definitions · The other four functions</strong>
+<p>If (x, y) is the point where the terminal side of t meets the <b>unit circle</b>, then</p>
+<div class="ca-formula-grid"><div><b>tangent</b>tan t = y/x, x ≠ 0</div><div><b>cotangent</b>cot t = x/y, y ≠ 0</div><div><b>secant</b>sec t = 1/x, x ≠ 0</div><div><b>cosecant</b>csc t = 1/y, y ≠ 0</div></div>
+<p>When a denominator is 0 the function is <b>undefined</b> at that angle; for example, tan(π/2) and sec(π/2) are undefined because x = 0.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-table-list"></i> INTERACTIVE · ALL SIX VALUES AT A SPECIAL ANGLE</div>
+<p>The default is the point (1/2, −√3/2), which is the angle 5π/3 (300°).</p>
+<div id="six-lab"></div>
+</section>
+
+<section class="ca-panel" id="any-circle"><h3>02 · Points on a circle of radius r</h3>
+<div class="ca-definition"><strong>When the radius is not 1</strong>
+<p>If (x, y) is on the circle x² + y² = r², the ratios use r:</p>
+<div class="ca-formula-grid"><div><b>sine and cosine</b>sin t = y/r, cos t = x/r</div><div><b>tangent and cotangent</b>tan t = y/x, cot t = x/y</div><div><b>secant and cosecant</b>sec t = r/x, csc t = r/y</div></div>
+<p>Use the circle's equation to find a missing coordinate, and the quadrant to choose its sign.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-circle-nodes"></i> INTERACTIVE · FIND THE MISSING COORDINATE, THEN ALL SIX</div>
+<p>The default is t in Quadrant IV with endpoint (2, y) on x² + y² = 10.</p>
+<div id="pt-lab"></div>
+</section>
+
+<section class="ca-panel" id="table"><h3>03 · The special-angle table</h3>
+<p>Complete the table for the first-quadrant special angles. Use the points (√3/2, 1/2), (√2/2, √2/2), and (1/2, √3/2), then check.</p>
+<div class="ca-scroll-x"><table class="ca-data-table ca-select-table" id="tab-table" aria-label="Special angle table"></table></div>
+<div class="ca-controls"><button type="button" class="ca-btn" id="tab-check">Check the table</button><button type="button" class="ca-btn ca-btn-outline" id="tab-fill">Show the answers</button><button type="button" class="ca-btn ca-btn-outline" id="tab-clear">Clear</button></div>
+<div class="ca-feedback" id="tab-out" aria-live="polite">Choose a value in each cell, then check.</div>
+</section>
+
+<section class="ca-panel" id="even-odd"><h3>04 · Even and odd functions</h3>
+<div class="ca-definition"><strong>Definitions · Even and odd</strong>
+<p>A function is <b>even</b> if f(−x) = f(x); its graph is symmetric about the y-axis. A function is <b>odd</b> if f(−x) = −f(x); its graph is symmetric about the origin.</p>
+<ul><li><b>Even:</b> cos(−x) = cos x and sec(−x) = sec x.</li><li><b>Odd:</b> sin(−x) = −sin x, tan(−x) = −tan x, csc(−x) = −csc x, cot(−x) = −cot x.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-up-down"></i> INTERACTIVE · REFLECT t TO −t</div>
+<p>The angle −t is the reflection of t across the x-axis: x stays the same and y changes sign. That is exactly why cosine is even and sine is odd.</p>
+<div id="eo-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-layer-group"></i> SORT THE SIX FUNCTIONS</div>
+<div id="eo-cards"></div>
+</section>
+
+<section class="ca-panel" id="identities"><h3>05 · Fundamental identities and simplifying</h3>
+<div class="ca-definition"><strong>Fundamental identities</strong>
+<div class="ca-formula-grid"><div><b>quotient</b>tan x = sin x / cos x<br>cot x = cos x / sin x</div><div><b>reciprocal</b>sec x = 1/cos x, csc x = 1/sin x<br>cot x = 1/tan x</div></div>
+<p>To simplify, first use the even–odd properties to remove negative angles, then rewrite in terms of sine and cosine.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WALK THROUGH THE SIMPLIFICATION</div>
+<div id="id-proof"></div>
+</section>
+
+<section class="ca-panel" id="calculator"><h3>06 · Evaluating with a calculator</h3>
+<div class="ca-definition"><strong>Calculator tips</strong>
+<p>Calculators have keys for sin, cos, and tan only. Use the reciprocal identities for the others: <b>csc x = 1 ÷ sin x</b>, <b>sec x = 1 ÷ cos x</b>, <b>cot x = 1 ÷ tan x</b>. Do <b>not</b> use the sin⁻¹ key for csc: sin⁻¹ is the inverse function (Section 6.3), not the reciprocal. Always check whether the calculator is in <b>degree</b> or <b>radian</b> mode.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-calculator"></i> INTERACTIVE · KEYSTROKES AND MODE</div>
+<div id="calc-lab"></div>
+</section>
+
+<!--GUIDED|The Other Trigonometric Functions|Original problems on the six functions, undefined values, even and odd properties, identities, and calculator values. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|The Other Trigonometric Functions
+Q: The point (−√2/2, √2/2) is on the unit circle at angle t. Find all six trigonometric values of t.
+A: sin t = √2/2, cos t = −√2/2, tan t = −1, cot t = −1, sec t = −√2, csc t = √2.
+Q: An angle t in Quadrant III has endpoint (x, −4) on x² + y² = 20. Find all six values.
+A: x² = 20 − 16 = 4 and x &lt; 0, so x = −2; r = √20 = 2√5. sin t = −2√5/5, cos t = −√5/5, tan t = 2, cot t = 1/2, sec t = −√5, csc t = −√5/2.
+Q: Simplify sin x (csc(−x) + cot x).
+A: csc(−x) = −csc x, so sin x(−csc x + cot x) = −sin x · (1/sin x) + sin x · (cos x/sin x) = −1 + cos x = cos x − 1.
+-->
