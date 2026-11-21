@@ -10,7 +10,7 @@ SRC = ROOT / "src"
 # to the folder above it. Use --preview to write a throwaway copy into _builder/out/ instead.
 OUT = ROOT / "out" / C.SLUG if "--preview" in sys.argv else ROOT.parent
 BASE = C.BASE
-SITE_TEMPLATE_VERSION = "269f880fda8c"
+SITE_TEMPLATE_VERSION = "2f53293d857a"
 
 SITE_CONTROLS = (ROOT / "src" / "site-controls.js").read_text()
 
@@ -40,6 +40,37 @@ def shell(title, desc, main, scripts):
             '<div class="ca">' + main + '</div><div class="footer" data-shared-template="footer"></div></section></main></div>\n'
             f'<script defer src="/assets/js/site-template.js?v={SITE_TEMPLATE_VERSION}"></script>\n'
             f'<script id="ca-shared-site-controls">{SITE_CONTROLS}</script>\n' + scripts + '\n</body></html>\n')
+
+
+MODULES = getattr(C, "MODULES", None)  # Canvas modules with discussion forums (courses that define them)
+
+
+def module_of(sid):
+    for n, ids in (MODULES or {}).items():
+        if sid in ids:
+            return n
+    return None
+
+
+def module_note(sid):
+    """Short reminder of the module discussion at the end of a section page."""
+    n = module_of(sid)
+    if n is None:
+        return ''
+    secs = ' · '.join(f'<a href="{BASE}{C.by_id(x)["slug"]}/"{" aria-current=page" if x == sid else ""}>{C.label(x)} {C.by_id(x)["title"]}</a>'
+                      for x in MODULES[n])
+    return (f'<aside class="ca-discuss-note" aria-label="Module {n} discussion"><i aria-hidden="true" class="fa-solid fa-comments ca-discuss-note-icon"></i><div>'
+            f'<small>Module {n} discussion · Canvas</small><p>{C.MODULE_NOTE}</p>'
+            f'<p class="ca-discuss-note-secs"><b>Sections in Module {n}:</b> {secs}</p>'
+            f'<a class="ca-discuss-link" href="{BASE}#module-discussions">How the module discussions work <i class="fa-solid fa-arrow-right"></i></a></div></aside>')
+
+
+def module_map():
+    rows = []
+    for n, ids in MODULES.items():
+        links = ''.join(f'<a href="{BASE}{C.by_id(x)["slug"]}/">{C.label(x)} {C.by_id(x)["title"]}</a>' for x in ids)
+        rows.append(f'<li><b>Module {n}</b>{links}</li>')
+    return f'<ol class="ca-discuss-map">{"".join(rows)}</ol>'
 
 
 def panels(body):
@@ -104,7 +135,7 @@ def section_page(sid):
     body = expand_macros((SRC / "sections" / f'{s["slug"]}.html').read_text(), num)
     sub = panels(body)
     hero = (f'<header class="ca-hero ca-hero-section"><span class="ca-eyebrow"><i class="fa-solid fa-book-open-reader"></i> {C.COURSE} {C.NAME.upper()} · '
-            f'WEEK {s["week"]} · {C.label(sid).upper()}</span><h1>{s["title"]}</h1><p class="ca-hero-question">{s["q"]}</p>'
+            f'WEEK {s["week"]}{f" · MODULE {module_of(sid)}" if module_of(sid) else ""} · {C.label(sid).upper()}</span><h1>{s["title"]}</h1><p class="ca-hero-question">{s["q"]}</p>'
             f'<div class="ca-hero-links"><a class="ca-hero-home" href="{BASE}"><i class="fa-solid fa-house"></i> Course home</a>'
             f'<a href="{s["book"]}" rel="noopener" target="_blank"><i class="fa-solid fa-book"></i> Textbook reading · Section {C.number(sid)}</a></div></header>')
     bridge_from = ''
@@ -122,7 +153,7 @@ def section_page(sid):
     pager = '<nav class="ca-pager" aria-label="Section pages">' + (f'<a href="{BASE}{prev["slug"]}/">← {C.label(prev["id"])} · {prev["title"]}</a>' if prev else '<span></span>') + \
             (f'<a href="{BASE}{nxt["slug"]}/">{C.label(nxt["id"])} · {nxt["title"]} →</a>' if nxt else '') + '</nav>'
     main = (hero + '<div class="ca-layout">' + toc(sid, sub) + '<div class="ca-content">' + bridge_from +
-            f'<article class="ca-lesson" id="lesson-{num}">' + body + '</article>' + bridge_next + pager + '</div></div>')
+            f'<article class="ca-lesson" id="lesson-{num}">' + body + '</article>' + module_note(sid) + bridge_next + pager + '</div></div>')
     title = f'{C.label(sid)} {s["title"]} · {C.NAME} | Dipendranath Mahato'
     desc = f'Interactive notes for {C.NAME} ({C.COURSE}, {C.UNIVERSITY}, {C.TERM}), {C.label(sid)}: {re.sub("<[^>]+>", "", s["blurb"])}'
     core = OUT / "assets" / "calc-core.js"
@@ -157,7 +188,7 @@ def home_page():
         for s in secs:
             a, b, _ = dates(s["week"])
             cards.append(f'<a class="ca-sec-card" id="sec-{s["slug"]}" href="{BASE}{s["slug"]}/" data-start="{a.isoformat()}" data-end="{b.isoformat()}" data-label="{C.label(s["id"])}">'
-                         f'<small>SECTION {C.label(s["id"]).upper()}<span class="ca-week-tag">Week {s["week"]}</span></small><b>{s["title"]}</b><span>{s["blurb"]}</span>'
+                         f'<small>SECTION {C.label(s["id"]).upper()}<span class="ca-week-tag">Week {s["week"]}{f" · Module {module_of(s['id'])}" if module_of(s['id']) else ""}</span></small><b>{s["title"]}</b><span>{s["blurb"]}</span>'
                          f'<em><i class="fa-solid fa-circle-question"></i> {re.sub("<[^>]+>", "", s["q"])}</em></a>')
         cnum, ctitle = name.split(' · ', 1)
         chapters.append(f'<section class="ca-unit" id="chapter-{ch}" aria-labelledby="chapter-{ch}-h"><div class="ca-unit-head"><span><i class="fa-solid {icon}"></i> {cnum}</span>'
@@ -172,7 +203,10 @@ def home_page():
                 f'<ol>{"".join(sched)}</ol><p class="ca-note">{C.SCHEDULE_NOTE}</p></details>')
 
     foundations = (SRC / "foundations-dialog.html").read_text()
-    main = (hero + '<div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open any section below, or use the course map on each section page to move between sections.</span></div>'
+    discuss = ''
+    if MODULES and (SRC / "discussion-panel.html").exists():
+        discuss = (SRC / "discussion-panel.html").read_text().replace('<!--MODULE-MAP-->', module_map())
+    main = (hero + discuss + '<div class="ca-chapter-notice" role="note"><i aria-hidden="true" class="fa-solid fa-circle-info"></i><span>Open any section below, or use the course map on each section page to move between sections.</span></div>'
             + intro + '<div class="ca-roadmap" id="sections">' + ''.join(chapters) + '</div>' + schedule + foundations)
     grades = (SRC / "grade-calculator.js").read_text()
     # Runs in the visitor's browser on every visit: marks the sections scheduled for the current week and shows the
