@@ -34,6 +34,8 @@
 }
 
 /* ===== DARK MODE SPECIFIC OVERRIDES ===== */
+/* html too: the light gradient on html otherwise shows in the strip above the navigation bar */
+html[data-theme="dark"],
 [data-theme="dark"] body {
   background: radial-gradient(circle at top left, #0f172a 0, transparent 55%),
               radial-gradient(circle at bottom right, #111827 0, transparent 55%),
