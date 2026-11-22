@@ -49,11 +49,12 @@ const IV = [
   {t: 'f(x) = 1/x on [−3, −0.5]', f: x => 1 / x, a: -3, b: -0.5, inclA: true, inclB: true, win: {xmin: -3.5, xmax: 0.5, ymin: -2.5, ymax: 0.5}}
 ];
 CA.lab('interval-lab', {
-  controls: [{type: 'select', key: 'p', label: 'Function and interval', value: '0', options: IV.map((v, i) => [String(i), v.t])}, {type: 'range', key: 'u', label: 'Point t in the interval', min: 0, max: 100, step: 1, value: 0, fmt: v => v + '%'}],
+  controls: [{type: 'select', key: 'p', label: 'Function and interval', value: '0', options: IV.map((v, i) => [String(i), v.t])}, {type: 'range', key: 'u', label: 'Slide t', min: 0, max: 1, step: 0.05, value: 0, fmt: v => num(v, 2)}],
   plot: {w: 520, h: 340}, plotLabel: 'Function on an interval with a moving point', readouts: [['t', 't'], ['ft', 'f(t)'], ['chk', 'What to check'], ['c', 'Continuous at t?']]
-}, (lab, st) => {
-  const I = IV[+st.p], P = lab.plane(Object.assign({equal: false}, I.win));
-  let t = I.a + (I.b - I.a) * st.u / 100; if (!I.inclA && st.u === 0) t = I.a + (I.b - I.a) * 0.01; if (!I.inclB && st.u === 100) t = I.b - (I.b - I.a) * 0.01;
+}, (lab, st, key) => {
+  const I = IV[+st.p], P = lab.plane(Object.assign({equal: false}, I.win)), h = CA.niceStep(I.b - I.a);
+  if (key === null || key === 'p') CA.setRange(st, 'u', {min: I.inclA ? I.a : I.a + h, max: I.inclB ? I.b : I.b - h, step: h, value: I.a});  // t moves through the interval itself; an excluded endpoint is not reachable
+  const t = st.u;
   P.curve(I.f, {color: 'blue', width: 3.4, from: I.a + (I.inclA ? 0 : 1e-3), to: I.b});
   P.point(I.a, Number.isFinite(I.f(I.a)) ? I.f(I.a) : I.win.ymin, {color: 'blue', r: 6, filled: I.inclA && Number.isFinite(I.f(I.a))}).point(I.b, I.f(I.b), {color: 'blue', r: 6, filled: I.inclB});
   P.vline(t, {color: 'green', dash: '3 4', width: 1.4}).point(t, I.f(t), {color: 'orange', r: 7}).render();
