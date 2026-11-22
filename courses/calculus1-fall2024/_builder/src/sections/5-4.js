@@ -23,17 +23,19 @@ const NV = [
   {t: 'v(t) = e^(−t) − 0.2 on [0, 5]', v: t => Math.exp(-t) - 0.2, a: 0, b: 5, netT: '−e<sup>−5</sup>', distT: null}
 ];
 CA.lab('net-lab', {
-  controls: [{type: 'select', key: 'p', label: 'Velocity', value: '0', options: NV.map((s, i) => [String(i), s.t])}, {type: 'range', key: 'u', label: 'Up to time t', min: 0, max: 100, step: 1, value: 100, fmt: v => v + '%'}],
+  controls: [{type: 'select', key: 'p', label: 'Velocity', value: '0', options: NV.map((s, i) => [String(i), s.t])}, {type: 'range', key: 'u', label: 'Up to time t', min: 0, max: 1, step: 0.05, value: 1, fmt: v => num(v, 2)}],
   plot: {w: 560, h: 260}, plotLabel: 'Velocity; blue moves forward, red moves backward', legend: [['blue', 'forward (v > 0)'], ['red', 'backward (v < 0)'], ['purple', 'position s(t) − s(a) (lower graph)']],
   bottom: '<svg id="net-svg2" role="img" aria-label="Position graph"></svg>', readouts: [['t', 't'], ['n', 'net displacement ∫v dt'], ['d', 'distance ∫|v| dt']]
-}, (lab, st) => {
-  const N = NV[+st.p], T = N.a + (N.b - N.a) * st.u / 100, Y = CA.fitY(N.v, N.a, N.b), w = (N.b - N.a) * 0.04, P = lab.plane({xmin: N.a - w, xmax: N.b + w, ymin: Y.ymin, ymax: Y.ymax, equal: false, xname: 't', yname: 'v'});
+}, (lab, st, key) => {
+  const N = NV[+st.p], h = CA.niceStep(N.b - N.a);
+  if (key === null || key === 'p') CA.setRange(st, 'u', {min: N.a, max: N.b, step: h, value: N.b});  // t moves through [a, b] itself
+  const full = N.b - st.u < h / 2 + 1e-9, T = full ? N.b : st.u, Y = CA.fitY(N.v, N.a, N.b), w = (N.b - N.a) * 0.04, P = lab.plane({xmin: N.a - w, xmax: N.b + w, ymin: Y.ymin, ymax: Y.ymax, equal: false, xname: 't', yname: 'v'});
   if (T > N.a) CA.shade(P, N.v, N.a, T, {split: true, samples: 300});
   P.curve(N.v, {color: 'text', width: 2.8, from: N.a, to: N.b}).vline(T, {color: 'orange', width: 1.8}).render();
   const S = t => I(N.v, N.a, t), svg2 = document.getElementById('net-svg2'); CA.placeBelow(lab.svg, svg2);
   const YS = CA.fitY(S, N.a, N.b), Q = new CA.Plane(svg2, {xmin: N.a - w, xmax: N.b + w, ymin: YS.ymin, ymax: YS.ymax, w: 560, h: 200, equal: false, xname: 't', yname: 's'});
   Q.curve(S, {color: 'purple', width: 3, from: N.a, to: N.b, samples: 300}).point(T, S(T), {color: 'orange', r: 7}).render();
-  const net = S(T), dist = I(t => Math.abs(N.v(t)), N.a, T), full = st.u === 100;
+  const net = S(T), dist = I(t => Math.abs(N.v(t)), N.a, T);
   lab.read('t', num(T, 4)); lab.read('n', (full ? N.netT + ' ≈ ' : '') + num(net, 5)); lab.read('d', (full && N.distT ? N.distT + ' ≈ ' : '') + num(dist, 5));
   lab.out(Math.abs(net - dist) < 1e-6 ? 'The object never moved backward, so displacement and distance are equal.' : 'Backward motion (red) subtracts from the displacement but adds to the distance traveled.');
 });

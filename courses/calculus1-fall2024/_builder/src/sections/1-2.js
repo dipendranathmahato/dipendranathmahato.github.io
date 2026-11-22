@@ -22,17 +22,32 @@ const MONO = [
   {t: 'f(x) = 3 (constant) on [−3, 3]', f: () => 3, a: -3, b: 3, note: 'f(x₁) = f(x₂) always: a constant function is neither strictly increasing nor strictly decreasing.'}
 ];
 CA.lab('mono-lab', {
-  controls: [{type: 'select', key: 'p', label: 'Function', value: '0', options: MONO.map((m, i) => [String(i), m.t])}, {type: 'range', key: 'u', label: 'x₁ at', min: 0, max: 100, step: 1, value: 20, fmt: v => v + '%'}, {type: 'range', key: 'v', label: 'x₂ at', min: 0, max: 100, step: 1, value: 60, fmt: v => v + '%'}],
-  plot: {w: 560, h: 380}, plotLabel: 'Graph colored where it increases and decreases', legend: [['green', 'increasing'], ['red', 'decreasing'], ['blue', 'constant']], readouts: [['x', 'x₁ · x₂'], ['f', 'f(x₁) · f(x₂)'], ['cmp', 'Comparison']]
+  controls: [{type: 'select', key: 'p', label: 'Function', value: '0', options: MONO.map((m, i) => [String(i), m.t])},
+    {type: 'range', key: 'u', label: 'x₁', min: 0, max: 1, step: 0.05, value: 0, fmt: v => num(v, 2)},
+    {type: 'range', key: 'v', label: 'x₂', min: 0, max: 1, step: 0.05, value: 1, fmt: v => num(v, 2)}],
+  plot: {w: 560, h: 380}, plotLabel: 'Graph colored where it increases and decreases', legend: [['green', 'increasing'], ['red', 'decreasing'], ['blue', 'constant']],
+  readouts: [['x', 'Inputs (x₁ &lt; x₂)'], ['f', 'Outputs'], ['cmp', 'Comparison']]
 }, (lab, st, key) => {
-  const M = MONO[+st.p], f = M.f, w = M.b - M.a; let u = st.u, v = st.v;
-  if (u >= v) { if (key === 'u') { u = Math.max(0, v - 1); st.set('u', u, true); } else { v = Math.min(100, u + 1); st.set('v', v, true); } }
-  const x1 = M.a + w * u / 100, x2 = M.a + w * v / 100, y1 = f(x1), y2 = f(x2), Y = CA.fitY(f, M.a, M.b, {pad: 0.2});
+  const M = MONO[+st.p], f = M.f, w = M.b - M.a, h = CA.niceStep(w);
+  if (key === null || key === 'p') {        // the sliders move through the actual x-values of the interval
+    CA.setRange(st, 'u', {min: M.a, max: M.b, step: h, value: M.a + w * 0.2});
+    CA.setRange(st, 'v', {min: M.a, max: M.b, step: h, value: M.a + w * 0.6});
+  }
+  if (st.u >= st.v) {                       // keep x₁ to the left of x₂
+    if (key === 'u') st.set('u', Math.max(M.a, +(st.v - h).toFixed(6)), true);
+    else st.set('v', Math.min(M.b, +(st.u + h).toFixed(6)), true);
+    if (st.u >= st.v) st.set('u', Math.max(M.a, +(st.v - h).toFixed(6)), true);
+  }
+  const x1 = st.u, x2 = st.v, y1 = f(x1), y2 = f(x2), Y = CA.fitY(f, M.a, M.b, {pad: 0.2});
   const P = lab.plane({xmin: M.a - w * 0.12, xmax: M.b + w * 0.12, ymin: Y.ymin, ymax: Y.ymax});
   runs(f, M.a, M.b).forEach(r => P.curve(f, {color: r.s > 0 ? 'green' : r.s < 0 ? 'red' : 'blue', width: 3.6, from: r.a, to: r.b}));
-  [[x1, y1, 'x₁'], [x2, y2, 'x₂']].forEach(([x, y, l]) => P.seg(x, 0, x, y, {color: 'gray', dash: true, width: 1.4}).point(x, y, {color: 'orange', r: 7, label: `f(${l})`}));
+  [[x1, y1, 'x₁'], [x2, y2, 'x₂']].forEach(([x, y, l]) => {
+    P.seg(x, 0, x, y, {color: 'gray', dash: true, width: 1.4}).point(x, y, {color: 'orange', r: 7, label: `f(${l})`});
+    P.point(x, 0, {color: 'orange', r: 4.5}).label(x, 0, l, {color: 'orange', size: 15, dx: 0, anchor: 'middle', dy: y >= 0 ? 34 : -12});
+  });
   P.render();
-  lab.read('x', `${num(x1, 3)} &lt; ${num(x2, 3)}`); lab.read('f', `${num(y1, 3)} · ${num(y2, 3)}`);
+  lab.read('x', `x₁ = ${num(x1, 2)}<br>x₂ = ${num(x2, 2)}`);
+  lab.read('f', `f(x₁) = ${num(y1, 3)}<br>f(x₂) = ${num(y2, 3)}`);
   const c = Math.abs(y1 - y2) < 1e-9 ? '=' : y1 < y2 ? '&lt;' : '&gt;'; lab.read('cmp', `f(x₁) ${c} f(x₂)`);
   lab.out(M.note);
 });
