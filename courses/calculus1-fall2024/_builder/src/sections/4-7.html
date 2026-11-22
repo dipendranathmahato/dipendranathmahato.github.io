@@ -1,0 +1,31 @@
+<p class="ca-lede">Optimization problems ask for the best choice: the largest area for a given fence, the cheapest can for a given volume, the closest point on a curve. Calculus turns each one into the problem of finding an absolute maximum or minimum of a function of one variable, which we already know how to do.</p>
+<div class="ca-goals"><b>Learning objectives</b> Identify the quantity to optimize and the variables; use a constraint to write the objective as a function of one variable; find the feasible interval; find and justify the absolute maximum or minimum; answer the question that was asked.</div>
+
+<section class="ca-panel" id="strategy"><h3>01 · A strategy</h3>
+<ol class="ca-steps-list"><li><b>Introduce all variables.</b> Draw a picture and label it.</li><li><b>Decide what to maximize or minimize</b>, and write a formula for it (the objective).</li><li><b>Use the constraint</b> to write the objective as a function of <b>one</b> variable, and find the interval of values that make sense.</li><li><b>Use calculus:</b> find the critical points; compare with the endpoints, or use the first or second derivative test.</li><li><b>Answer the question</b>, with units: sometimes the dimensions, sometimes the optimal value.</li></ol>
+<div class="ca-definition"><strong>Example · the garden</strong>
+<p>A rectangular garden is enclosed by 100 ft of fencing. Let the sides be x and y. Maximize A = xy subject to 2x + 2y = 100, so y = 50 − x and A(x) = x(50 − x) = 50x − x² on [0, 50]. A′(x) = 50 − 2x = 0 at x = 25, and A″(x) = −2 &lt; 0, so this is a maximum. The garden is a <b>25 ft × 25 ft square with area 625 ft²</b>.</p></div>
+</section>
+
+<section class="ca-panel" id="explore"><h3>02 · Explore the problems</h3>
+<p>For each problem, move the slider to try different choices, then compare with the calculus answer. The left graph is the picture; the right graph is the objective function.</p>
+<div class="ca-lab-kicker"><i class="fa-solid fa-trophy"></i> INTERACTIVE · FIND THE BEST CHOICE</div>
+<div id="opt-lab"></div>
+</section>
+
+<section class="ca-panel" id="closest"><h3>03 · Distance problems</h3>
+<div class="ca-definition"><strong>Minimize the square of the distance</strong>
+<p>To find the point on y = √(x + 2), x ≥ −2, closest to (5, 0): a point on the curve is (x, √(x + 2)), at distance D(x) = √((x − 5)² + (x + 2)) = √(x² − 9x + 27). D′(x) = (2x − 9)/(2√(x² − 9x + 27)) = 0 at x = 9/2 (the expression under the root is never 0). D′ &lt; 0 for x &lt; 9/2 and D′ &gt; 0 for x &gt; 9/2, so the closest point is <b>(4.5, √6.5)</b>. Since √ is increasing, minimizing D² = x² − 9x + 27 gives the same x with less work.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-location-crosshairs"></i> INTERACTIVE · SLIDE THE POINT ALONG THE CURVE</div>
+<div id="dist-lab"></div>
+</section>
+
+<!--GUIDED|Applied Optimization Problems|Original problems on setting up and solving optimization problems. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Applied Optimization Problems
+Q: Find two positive numbers x and y with x + 2y = 50 for which (x + 1)(y + 2) is as large as possible.
+A: x = 50 − 2y, so the objective is φ(y) = (51 − 2y)(y + 2) = −2y² + 47y + 102. φ′(y) = −4y + 47 = 0 gives y = 47/4, and φ″ = −4 &lt; 0 confirms a maximum. Then x = 50 − 47/2 = 53/2.
+Q: A box with no lid is made from a 12 in × 12 in sheet by cutting squares of side x from the corners. Which x gives the largest volume?
+A: V(x) = x(12 − 2x)² on [0, 6]. V′(x) = (12 − 2x)(12 − 6x) = 0 at x = 2 (x = 6 gives V = 0). V(2) = 2 · 8² = 128 in³ is the maximum.
+Q: Why is it enough to minimize D² instead of D in a distance problem?
+A: D ≥ 0 and the square root is increasing, so D is smallest exactly where D² is smallest. D² has no square root, so its derivative is simpler.
+-->

@@ -1,0 +1,52 @@
+<p class="ca-lede">For f(x) = aˣ the difference quotient factors as aˣ · (aʰ − 1)/h, and the second factor does not depend on x. So the derivative of an exponential function is a constant multiple of the function itself, and the constant is ln a. For a = e the constant is 1: eˣ is its own derivative. Because logarithms are inverses of exponentials, their derivatives follow from the inverse function rule.</p>
+<div class="ca-goals"><b>Learning objectives</b> Differentiate eˣ and aˣ, with the chain rule; differentiate ln x and logₐ x, with the chain rule; simplify with the properties of logarithms before differentiating; use logarithmic differentiation for functions such as xˣ.</div>
+
+<section class="ca-panel" id="exponential"><h3>01 · Derivatives of exponential functions</h3>
+<div class="ca-definition"><strong>Exponential functions</strong>
+<p>For a &gt; 0: (aˣ)′ = lim<sub>h→0</sub> (a<sup>x + h</sup> − aˣ)/h = aˣ · lim<sub>h→0</sub> (aʰ − 1)/h = aˣ ln a. In particular <b>(eˣ)′ = eˣ</b> and <b>(aˣ)′ = aˣ ln a</b>. With the chain rule: <b>(e<sup>g(x)</sup>)′ = e<sup>g(x)</sup> g′(x)</b> and (a<sup>g(x)</sup>)′ = a<sup>g(x)</sup> ln a · g′(x).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-scale-balanced"></i> INTERACTIVE · SLOPE ÷ HEIGHT IS CONSTANT</div>
+<div id="ratio-lab"></div>
+</section>
+
+<section class="ca-panel" id="exp-examples"><h3>02 · Exponentials with the other rules</h3>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<div id="exp-steps"></div>
+</section>
+
+<section class="ca-panel" id="logarithm"><h3>03 · Derivatives of logarithmic functions</h3>
+<div class="ca-definition"><strong>Logarithms</strong>
+<p>Differentiate a<sup>logₐx</sup> = x with the chain rule: a<sup>logₐx</sup> ln a · (logₐx)′ = 1, that is, x ln a · (logₐx)′ = 1. So</p>
+<p class="ca-center"><b>(ln x)′ = 1/x</b> and <b>(logₐx)′ = 1/(x ln a)</b> for x &gt; 0.</p>
+<p>Also (ln|x|)′ = 1/x for x ≠ 0, and by the chain rule <b>(ln g(x))′ = g′(x)/g(x)</b>. The domain of a logarithm is always x &gt; 0 (or g(x) &gt; 0).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-chart-line"></i> INTERACTIVE · TRACE THE SLOPE OF A LOGARITHM</div>
+<div id="log-trace"></div>
+</section>
+
+<section class="ca-panel" id="properties"><h3>04 · Simplify with log properties first</h3>
+<div class="ca-definition"><strong>Before differentiating</strong>
+<p>ln(MN) = ln M + ln N, ln(M/N) = ln M − ln N, and ln(Mⁿ) = n ln M turn products, quotients, powers, and roots into sums and multiples, which are much easier to differentiate.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · TWO WAYS TO THE SAME ANSWER</div>
+<div id="log-steps"></div>
+</section>
+
+<section class="ca-panel" id="log-diff"><h3>05 · Logarithmic differentiation</h3>
+<div class="ca-definition"><strong>Method</strong>
+<p>For y = f(x)<sup>g(x)</sup>, or a long product and quotient: (1) take ln of both sides; (2) expand with log properties; (3) differentiate implicitly: y′/y = …; (4) multiply by y. Neither the power rule (constant exponent) nor the exponential rule (constant base) applies to xˣ, but this method does.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<div id="logdiff-steps"></div>
+</section>
+
+<section class="ca-panel" id="check"><h3>06 · Practice: check your own derivative</h3>
+<p>Try x^2 e^(-x), 2^(cos(x)), ln(x^2 + 1), or x^x (for x &gt; 0).</p>
+<div id="exp-check"></div>
+</section>
+
+<!--GUIDED|Derivatives of Exponential and Logarithmic Functions|Original problems on exponential and logarithmic derivatives and logarithmic differentiation. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Derivatives of Exponential and Logarithmic Functions
+Q: Differentiate x²e⁻ˣ and 2<sup>cos x</sup>.
+A: (x²e⁻ˣ)′ = 2xe⁻ˣ − x²e⁻ˣ = (2x − x²)e⁻ˣ. (2<sup>cos x</sup>)′ = 2<sup>cos x</sup> ln 2 · (−sin x).
+Q: Find the derivative of ln(⁷√(x + 1)/(x⁷ + 1)).
+A: First simplify: (1/7)ln(x + 1) − ln(x⁷ + 1). Then the derivative is 1/(7(x + 1)) − 7x⁶/(x⁷ + 1).
+Q: Differentiate y = xˣ for x &gt; 0.
+A: ln y = x ln x, so y′/y = ln x + 1 and y′ = xˣ(ln x + 1).
+-->

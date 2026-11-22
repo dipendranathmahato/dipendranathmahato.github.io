@@ -1,0 +1,42 @@
+<p class="ca-lede">The average rate of change of f between two points is the slope of a secant line. To get the rate of change at a single point, move the second point along the curve toward the first. The limit of the secant slopes is the slope of the tangent line: the <b>derivative</b>.</p>
+<div class="ca-goals"><b>Learning objectives</b> Write the difference quotient for the slope of a secant line; define the derivative f′(a) as a limit in two equivalent forms; compute f′(a) from the definition; find the equation of the tangent line at a point; interpret f′(a) as an instantaneous rate of change.</div>
+
+<section class="ca-panel" id="definition"><h3>01 · From secant slope to derivative</h3>
+<div class="ca-definition"><strong>Definition · The derivative at a point</strong>
+<p>The slope of the secant line through (a, f(a)) and (b, f(b)) is the <b>average rate of change</b> Δy/Δx = (f(b) − f(a))/(b − a). Let f be defined on an open interval containing a. The <b>derivative of f at a</b> (the slope of the tangent line) is</p>
+<p class="ca-center"><b>f′(a) = lim<sub>x→a</sub> (f(x) − f(a))/(x − a) = lim<sub>h→0</sub> (f(a + h) − f(a))/h</b>,</p>
+<p>provided the limit exists. It is the <b>instantaneous rate of change</b> of f with respect to x at x = a. (Put x = a + h to pass from one form to the other.)</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-person-walking-arrow-right"></i> INTERACTIVE · SHRINK h</div>
+<div id="dq-lab"></div>
+</section>
+
+<section class="ca-panel" id="from-definition"><h3>02 · Computing f′(a) from the definition</h3>
+<div class="ca-definition"><strong>Strategy</strong>
+<p>Write the difference quotient, simplify until the factor (x − a) or h cancels, then take the limit by substitution. For f(x) = x² at a = 3: (x² − 9)/(x − 3) = (x + 3)(x − 3)/(x − 3) = x + 3 → 6, so <b>f′(3) = 6</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES, ONE STEP AT A TIME</div>
+<div id="def-steps"></div>
+</section>
+
+<section class="ca-panel" id="tangent-line"><h3>03 · The equation of the tangent line</h3>
+<div class="ca-definition"><strong>Tangent line at (a, f(a))</strong>
+<p>The tangent line passes through (a, f(a)) with slope f′(a). In point-slope form: <b>y − f(a) = f′(a)(x − a)</b>. For f(x) = x² at x = 3 the point is (3, 9) and the slope is 6, so y − 9 = 6(x − 3), that is, <b>y = 6x − 9</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-pen-ruler"></i> INTERACTIVE · BUILD THE TANGENT LINE</div>
+<div id="tl-lab"></div>
+</section>
+
+<section class="ca-panel" id="rate"><h3>04 · The derivative as a rate of change</h3>
+<div class="ca-definition"><strong>Units of f′(a)</strong>
+<p>If y = f(x), then f′(a) is measured in <b>units of y per unit of x</b>. If s(t) is a position in meters at time t seconds, s′(a) is the velocity in meters per second. If C(x) is the cost in dollars of making x items, C′(a) is the rate at which cost grows, in dollars per item.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-tags"></i> WHAT DOES THE DERIVATIVE MEASURE?</div>
+<div id="rate-cards"></div>
+</section>
+
+<!--GUIDED|Defining the Derivative|Original problems on difference quotients, derivatives from the definition, and tangent lines. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Defining the Derivative
+Q: Use the definition to find f′(3) for f(x) = x², and the tangent line at x = 3.
+A: f′(3) = lim<sub>x→3</sub> (x² − 9)/(x − 3) = lim<sub>x→3</sub> (x + 3) = 6. The point is (3, 9), so y − 9 = 6(x − 3), or y = 6x − 9.
+Q: Using lim<sub>h→0</sub> (eʰ − 1)/h = 1, show that the derivative of f(x) = eˣ is eˣ.
+A: f′(x) = lim<sub>h→0</sub> (e<sup>x + h</sup> − eˣ)/h = lim<sub>h→0</sub> eˣ(eʰ − 1)/h = eˣ · lim<sub>h→0</sub> (eʰ − 1)/h = eˣ · 1 = eˣ.
+Q: For f(x) = 1/x, find f′(2) from the definition.
+A: (f(2 + h) − f(2))/h = (1/(2 + h) − 1/2)/h = (2 − (2 + h))/(2h(2 + h)) = −1/(2(2 + h)) → −1/4. So f′(2) = −1/4.
+-->

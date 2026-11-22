@@ -1,0 +1,49 @@
+<p class="ca-lede">Limits such as lim<sub>x→1</sub> (ln x)/(2x − 2) and lim<sub>x→∞</sub> eˣ/x lead to the forms 0/0 and ∞/∞, which say nothing about the answer by themselves. L’Hôpital’s rule replaces the quotient by the quotient of the derivatives, which is often easy to evaluate. Other indeterminate forms, 0 · ∞, ∞ − ∞, 1<sup>∞</sup>, 0⁰, and ∞⁰, are first rewritten as one of these two.</p>
+<div class="ca-goals"><b>Learning objectives</b> Recognize the indeterminate forms; apply L’Hôpital’s rule to 0/0 and ∞/∞, repeatedly if needed; rewrite 0 · ∞ and ∞ − ∞ as quotients; use logarithms for 1<sup>∞</sup>, 0⁰, and ∞⁰; compare the growth rates of logarithms, powers, and exponentials.</div>
+
+<section class="ca-panel" id="rule"><h3>01 · L’Hôpital’s rule</h3>
+<div class="ca-definition"><strong>L’Hôpital’s rule</strong>
+<p>Suppose f and g are differentiable near c (except possibly at c), g′(x) ≠ 0 near c, and lim<sub>x→c</sub> f(x) = lim<sub>x→c</sub> g(x) = 0 or both limits are ±∞. Then</p>
+<p class="ca-center"><b>lim<sub>x→c</sub> f(x)/g(x) = lim<sub>x→c</sub> f′(x)/g′(x)</b></p>
+<p>if the right side exists (or is ±∞). The same holds for one-sided limits and for c = ±∞. <b>Basic indeterminate forms:</b> 0/0 and ∞/∞. <b>Other forms:</b> 0 · ∞, 1<sup>∞</sup>, 0⁰, ∞ − ∞, ∞⁰.</p></div>
+<aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> BE CAREFUL</div><ul><li>It looks like a fraction, but it is <b>not</b> the quotient rule: differentiate the numerator and the denominator <b>separately</b>.</li><li>Check the form first. lim<sub>x→0</sub> (x + 1)/(x + 2) = 1/2 by substitution; using the rule there would give the wrong answer 1.</li><li>Do not apply the rule directly to the other indeterminate forms: rewrite them first.</li></ul></aside>
+<div class="ca-lab-kicker"><i class="fa-solid fa-magnifying-glass-plus"></i> INTERACTIVE · WHY THE RULE WORKS</div>
+<p>Near c, both f and g look like their tangent lines through (c, 0). The ratio of two lines through the same point is the ratio of their slopes.</p>
+<div id="zoom-lab"></div>
+</section>
+
+<section class="ca-panel" id="basic"><h3>02 · The forms 0/0 and ∞/∞</h3>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<div id="basic-steps"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-list-check"></i> IS THE RULE ALLOWED?</div>
+<div id="form-cards"></div>
+</section>
+
+<section class="ca-panel" id="other"><h3>03 · Other indeterminate forms</h3>
+<div class="ca-definition"><strong>Rewrite first</strong>
+<div class="ca-formula-grid ca-math-labels"><div><b>0 · ∞</b>write f·g as f/(1/g) or g/(1/f) to get 0/0 or ∞/∞</div><div><b>∞ − ∞</b>combine into one fraction, or factor out the dominant term</div><div><b>1<sup>∞</sup>, 0⁰, ∞⁰</b>let y = f(x)<sup>g(x)</sup>; then ln y = g(x) ln f(x) is a 0 · ∞ form. Find lim ln y = L; then lim y = e<sup>L</sup> (ln is continuous)</div></div></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<div id="other-steps"></div>
+</section>
+
+<section class="ca-panel" id="numeric"><h3>04 · Check a limit numerically</h3>
+<p>Type an expression and where x goes. The table shows values closer and closer to the target, a good check on an answer found with the rule.</p>
+<div id="num-lab"></div>
+</section>
+
+<section class="ca-panel" id="growth"><h3>05 · Growth rates</h3>
+<div class="ca-definition"><strong>Which grows faster?</strong>
+<p>f grows <b>more rapidly</b> than g as x → ∞ if lim f(x)/g(x) = ∞ (equivalently g/f → 0). L’Hôpital’s rule shows that for every p &gt; 0 and every n, <b>ln x ≪ xᵖ ≪ eˣ</b>: lim (ln x)/xᵖ = 0 and lim xⁿ/eˣ = 0.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-gauge-high"></i> INTERACTIVE · THE RATIO TELLS THE WINNER</div>
+<div id="growth-lab"></div>
+</section>
+
+<!--GUIDED|L’Hôpital’s Rule|Original problems on indeterminate forms and L’Hôpital’s rule. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|L’Hôpital’s Rule
+Q: Find lim<sub>x→0</sub> (sin 3x)/(tan 4x).
+A: 0/0, so by L’Hôpital: lim 3 cos 3x/(4 sec²4x) = 3/4.
+Q: Find lim<sub>x→∞</sub> x e<sup>−x²</sup>.
+A: 0 · ∞. Rewrite as x/e<sup>x²</sup> (∞/∞) and apply the rule: 1/(2x e<sup>x²</sup>) → 0.
+Q: Find lim<sub>x→∞</sub> x<sup>1/x</sup>.
+A: ∞⁰. Let y = x<sup>1/x</sup>, so ln y = (ln x)/x → (1/x)/1 = 0 by L’Hôpital. Hence y → e⁰ = 1.
+-->

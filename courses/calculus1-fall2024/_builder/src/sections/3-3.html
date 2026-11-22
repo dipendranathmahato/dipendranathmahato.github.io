@@ -1,0 +1,51 @@
+<p class="ca-lede">Computing every derivative from the limit definition is slow. A handful of rules, each proved once from the definition, lets us differentiate any polynomial, power, product, or quotient directly. Often the most important step is rewriting the function first: roots as fractional powers, and quotients by a single power of x as sums.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use the constant, power, sum and difference, and constant-multiple rules; rewrite roots and reciprocals as powers before differentiating; use the product rule and understand where it comes from; use the quotient rule; combine the rules and check an answer.</div>
+
+<section class="ca-panel" id="basic"><h3>01 · The basic rules</h3>
+<div class="ca-definition"><strong>Rules</strong>
+<div class="ca-formula-grid ca-math-labels"><div><b>constant and identity</b>d/dx (c) = 0, d/dx (x) = 1</div><div><b>power rule</b>d/dx (xⁿ) = n xⁿ⁻¹ (any real n)</div><div><b>sum and difference</b>d/dx (f ± g) = f′ ± g′</div><div><b>constant multiple</b>d/dx (c·f) = c·f′</div></div>
+<p>The power rule works for every real exponent, so rewrite first: ⁿ√(xᵐ) = x<sup>m/n</sup> and 1/xⁿ = x⁻ⁿ.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-superscript"></i> INTERACTIVE · THE POWER RULE FOR ANY EXPONENT</div>
+<div id="power-lab"></div>
+</section>
+
+<section class="ca-panel" id="rewrite"><h3>02 · Rewrite, then differentiate</h3>
+<div class="ca-definition"><strong>Two habits</strong>
+<p><b>Roots become powers:</b> 5√(x³) − 2∛(x¹¹) = 5x<sup>3/2</sup> − 2x<sup>11/3</sup>. <b>Divide out a single power of x:</b> (x³ + 4)(x² + 1)/x = (x⁵ + x³ + 4x² + 4)/x = x⁴ + x² + 4x + 4x⁻¹. Then the power rule does the rest.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<div id="rewrite-steps"></div>
+</section>
+
+<section class="ca-panel" id="product"><h3>03 · The product rule</h3>
+<div class="ca-definition"><strong>Product rule</strong>
+<p class="ca-center"><b>d/dx [f(x)g(x)] = f′(x)g(x) + f(x)g′(x)</b></p>
+<p>Proof idea: with A(x) = f(x)g(x), add and subtract f(x)g(x + h) in the numerator: A(x + h) − A(x) = [f(x + h) − f(x)]g(x + h) + f(x)[g(x + h) − g(x)]. Divide by h and let h → 0. The derivative of a product is <b>not</b> the product of the derivatives.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-vector-square"></i> INTERACTIVE · A GROWING RECTANGLE</div>
+<p>Think of f(x)g(x) as the area of a rectangle with width f(x) and height g(x). When x grows by h, the area grows by two strips and a tiny corner.</p>
+<div id="area-prod-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · PRODUCT RULE EXAMPLES</div>
+<div id="prod-steps"></div>
+</section>
+
+<section class="ca-panel" id="quotient"><h3>04 · The quotient rule</h3>
+<div class="ca-definition"><strong>Quotient rule</strong>
+<p class="ca-center"><b>d/dx [f(x)/g(x)] = (g(x)f′(x) − f(x)g′(x))/[g(x)]²</b>, where g(x) ≠ 0.</p>
+<p>A way to remember it: <b>“low d-high minus high d-low, over low low.”</b> The order in the numerator matters because of the minus sign.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · QUOTIENT RULE EXAMPLES</div>
+<div id="quot-steps"></div>
+</section>
+
+<section class="ca-panel" id="check"><h3>05 · Practice: check your own derivative</h3>
+<p>Differentiate a function by hand, then type it here. The explorer compares your formula with the slope of f at many points. Try (x² + 1)/(x − 3), x³√x, or (2x + 1)(x² − 5).</p>
+<div id="check-lab"></div>
+</section>
+
+<!--GUIDED|Differentiation Rules|Original problems on the power, sum, product, and quotient rules. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Differentiation Rules
+Q: Differentiate h(x) = 5√(x³) − 2∛(x¹¹).
+A: h(x) = 5x<sup>3/2</sup> − 2x<sup>11/3</sup>, so h′(x) = (15/2)x<sup>1/2</sup> − (22/3)x<sup>8/3</sup>.
+Q: Differentiate g(x) = (x³ + 4)(x² + 1)/x.
+A: g(x) = x⁴ + x² + 4x + 4x⁻¹, so g′(x) = 4x³ + 2x + 4 − 4/x².
+Q: Differentiate (x² + 1)/(x − 3) with the quotient rule.
+A: ((x − 3)(2x) − (x² + 1)(1))/(x − 3)² = (x² − 6x − 1)/(x − 3)².
+-->

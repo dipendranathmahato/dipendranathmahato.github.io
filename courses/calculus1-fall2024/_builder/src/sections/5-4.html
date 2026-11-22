@@ -1,0 +1,49 @@
+<p class="ca-lede">Every derivative formula, read backwards, is an integration formula. With the Fundamental Theorem, these give exact values of definite integrals. Applied to a rate of change, the theorem says something concrete: integrating a rate over an interval gives the <b>net change</b> of the quantity, for example the displacement of a moving object from its velocity.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use the basic integration formulas; apply the net change theorem; distinguish net displacement from total distance traveled; use symmetry to integrate even and odd functions over [−a, a].</div>
+
+<section class="ca-panel" id="formulas"><h3>01 · Basic integration formulas</h3>
+<div class="ca-scroll-x"><table class="ca-data-table"><tr><th>differentiation formula</th><th>indefinite integral</th></tr>
+<tr><td>d/dx (k) = 0, d/dx (kx) = k</td><td>∫ k dx = kx + C</td></tr>
+<tr><td>d/dx (xⁿ) = nxⁿ⁻¹</td><td>∫ xⁿ dx = xⁿ⁺¹/(n + 1) + C, n ≠ −1</td></tr>
+<tr><td>d/dx (ln|x|) = 1/x</td><td>∫ (1/x) dx = ln|x| + C</td></tr>
+<tr><td>d/dx (eˣ) = eˣ</td><td>∫ eˣ dx = eˣ + C</td></tr>
+<tr><td>d/dx (sin x) = cos x</td><td>∫ cos x dx = sin x + C</td></tr>
+<tr><td>d/dx (cos x) = −sin x</td><td>∫ sin x dx = −cos x + C</td></tr>
+<tr><td>d/dx (tan x) = sec²x</td><td>∫ sec²x dx = tan x + C</td></tr>
+<tr><td>d/dx (csc x) = −csc x cot x</td><td>∫ csc x cot x dx = −csc x + C</td></tr>
+<tr><td>d/dx (sec x) = sec x tan x</td><td>∫ sec x tan x dx = sec x + C</td></tr>
+<tr><td>d/dx (cot x) = −csc²x</td><td>∫ csc²x dx = −cot x + C</td></tr>
+<tr><td>d/dx (sin⁻¹x) = 1/√(1 − x²)</td><td>∫ dx/√(1 − x²) = sin⁻¹x + C</td></tr>
+<tr><td>d/dx (tan⁻¹x) = 1/(1 + x²)</td><td>∫ dx/(1 + x²) = tan⁻¹x + C</td></tr>
+<tr><td>d/dx (sec⁻¹|x|) = 1/(x√(x² − 1))</td><td>∫ dx/(x√(x² − 1)) = sec⁻¹|x| + C</td></tr></table></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-puzzle-piece"></i> MATCH EACH INTEGRAL</div>
+<div id="formula-cards"></div>
+</section>
+
+<section class="ca-panel" id="net"><h3>02 · The net change theorem</h3>
+<div class="ca-definition"><strong>Net change theorem</strong>
+<p>This is Part 2 of the Fundamental Theorem applied to a rate: <b>∫<sub>a</sub><sup>b</sup> F′(x) dx = F(b) − F(a)</b>, the <b>net change</b> of F from a to b. Since velocity is v(t) = s′(t),</p>
+<p class="ca-center"><b>∫<sub>a</sub><sup>b</sup> v(t) dt = s(b) − s(a)</b> = net displacement, &nbsp; <b>∫<sub>a</sub><sup>b</sup> |v(t)| dt</b> = total distance traveled.</p>
+<p>Example: a decelerating car has v(t) = −t/5 + 20 m/s. From t = 0 to t = 100 it travels ∫<sub>0</sub><sup>100</sup> (−t/5 + 20) dt = [−t²/10 + 20t]<sub>0</sub><sup>100</sup> = −1000 + 2000 = <b>1000 m</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-route"></i> INTERACTIVE · DISPLACEMENT VERSUS DISTANCE</div>
+<div id="net-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<div id="net-steps"></div>
+</section>
+
+<section class="ca-panel" id="symmetry"><h3>03 · Even and odd functions</h3>
+<div class="ca-definition"><strong>Symmetric intervals</strong>
+<p>If f is <b>even</b> (f(−x) = f(x)), then ∫<sub>−a</sub><sup>a</sup> f(x) dx = 2∫<sub>0</sub><sup>a</sup> f(x) dx: the two halves are mirror images. If f is <b>odd</b> (f(−x) = −f(x)), then ∫<sub>−a</sub><sup>a</sup> f(x) dx = 0: the area below the axis cancels the area above.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-left-right"></i> INTERACTIVE · USE THE SYMMETRY</div>
+<div id="sym-lab"></div>
+</section>
+
+<!--GUIDED|Integration Formulas and the Net Change Theorem|Original problems on basic integrals, net change, and symmetry. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Integration Formulas and the Net Change Theorem
+Q: Compute ∫<sub>0</sub><sup>8</sup> e<sup>−x</sup> dx.
+A: d/dx(−e<sup>−x</sup>) = e<sup>−x</sup>, so the integral is [−e<sup>−x</sup>]<sub>0</sub><sup>8</sup> = −e<sup>−8</sup> + 1 = 1 − e<sup>−8</sup>.
+Q: For v(t) = (t − 1)²(t − 2) on [0, 3], find the net displacement and the total distance.
+A: Net: ∫<sub>0</sub><sup>3</sup> (t³ − 4t² + 5t − 2) dt = 81/4 − 36 + 45/2 − 6 = 3/4. v &lt; 0 on (0, 2) and v &gt; 0 on (2, 3), so the distance is −∫<sub>0</sub><sup>2</sup> v dt + ∫<sub>2</sub><sup>3</sup> v dt = 2/3 + 17/12 = 25/12.
+Q: Evaluate ∫<sub>−2</sub><sup>2</sup> (x³ + 3x²) dx.
+A: x³ is odd, so its integral is 0; 3x² is even, so ∫<sub>−2</sub><sup>2</sup> 3x² dx = 2∫<sub>0</sub><sup>2</sup> 3x² dx = 2(8) = 16.
+-->

@@ -1,0 +1,37 @@
+<p class="ca-lede">The derivative y′ = f′(x) = lim<sub>Δx→0</sub> Δy/Δx measures how fast y changes compared with x. In this section we use that idea in three settings: estimating an amount of change, describing motion (position, velocity, speed, acceleration), and marginal rates in economics.</p>
+<div class="ca-goals"><b>Learning objectives</b> Estimate an amount of change with f(a + h) ≈ f(a) + f′(a)h; relate position, velocity, speed, and acceleration; decide when an object moves forward or backward; decide when its velocity increases or decreases and when it speeds up or slows down; interpret marginal cost and revenue.</div>
+
+<section class="ca-panel" id="change"><h3>01 · Amount of change and average rate</h3>
+<div class="ca-definition"><strong>Estimating change with the derivative</strong>
+<p>The <b>amount of change</b> of f from a to a + h is f(a + h) − f(a), and the <b>average rate of change</b> is (f(a + h) − f(a))/h. For small h the average rate is close to f′(a), so</p>
+<p class="ca-center"><b>f(a + h) − f(a) ≈ f′(a) · h</b>, that is, f(a + h) ≈ f(a) + f′(a)h.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-ruler-combined"></i> INTERACTIVE · ACTUAL CHANGE VERSUS ESTIMATE</div>
+<div id="change-lab"></div>
+</section>
+
+<section class="ca-panel" id="motion"><h3>02 · Position, velocity, speed, and acceleration</h3>
+<div class="ca-definition"><strong>Motion on a line</strong>
+<div class="ca-formula-grid ca-math-labels"><div><b>position</b>s(t), the location at time t</div><div><b>velocity</b>v(t) = s′(t) (instantaneous, not average)</div><div><b>speed</b>|v(t)|</div><div><b>acceleration</b>a(t) = v′(t) = s″(t)</div></div>
+<ul><li><b>Moving forward</b> (s increasing) ⟺ v(t) &gt; 0; <b>moving backward</b> ⟺ v(t) &lt; 0.</li><li><b>Velocity increasing</b> ⟺ a(t) &gt; 0; <b>velocity decreasing</b> ⟺ a(t) &lt; 0.</li><li><b>Speeding up</b> ⟺ v and a have the <b>same</b> sign; <b>slowing down</b> ⟺ v and a have <b>opposite</b> signs.</li></ul></div>
+<aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> BE CAREFUL</div><ul><li><b>Velocity increasing is not the same as speeding up.</b> If v = −5 and then v = −2, the velocity increased but the speed dropped from 5 to 2: the object slowed down.</li><li>For s(t) = 4t/(t² + 4), t ≥ 0: v = −4(t² − 4)/(t² + 4)² and a = 8t(t² − 12)/(t² + 4)³. On (0, 2) v &gt; 0 and a &lt; 0: <b>slowing down</b>. On (2, 2√3) both are negative: <b>speeding up</b>. On (2√3, ∞) v &lt; 0, a &gt; 0: <b>slowing down</b>.</li></ul></aside>
+<div class="ca-lab-kicker"><i class="fa-solid fa-person-running"></i> INTERACTIVE · WATCH THE PARTICLE</div>
+<p>The dot moves along the track above the graphs. The table below sorts the time intervals by the signs of v and a.</p>
+<div id="motion-lab"></div>
+</section>
+
+<section class="ca-panel" id="marginal"><h3>03 · Marginal cost and revenue</h3>
+<div class="ca-definition"><strong>Marginal functions</strong>
+<p>If C(x) is the cost of producing x items, the <b>marginal cost</b> is C′(x). Since C(x + 1) − C(x) ≈ C′(x) · 1, the marginal cost approximates the cost of producing one more item. Marginal revenue R′(x) and marginal profit P′(x) are defined the same way.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-coins"></i> INTERACTIVE · ONE MORE ITEM</div>
+<div id="marginal-lab"></div>
+</section>
+
+<!--GUIDED|Derivatives as Rates of Change|Original problems on estimating change, motion, and marginal analysis. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Derivatives as Rates of Change
+Q: For s(t) = 4t/(t² + 4), t ≥ 0, when is the object moving forward and when backward?
+A: v(t) = s′(t) = −4(t² − 4)/(t² + 4)² = −4(t − 2)(t + 2)/(t² + 4)². For 0 &lt; t &lt; 2, v &gt; 0 (forward); for t &gt; 2, v &lt; 0 (backward).
+Q: For the same object, when is it speeding up and when slowing down?
+A: a(t) = 8t(t² − 12)/(t² + 4)³ is negative on (0, 2√3) and positive for t &gt; 2√3. Same signs (speeding up) on (2, 2√3); opposite signs (slowing down) on (0, 2) and (2√3, ∞).
+Q: If C(x) = 0.02x² + 5x + 300 dollars, estimate the cost of the 101st item.
+A: C′(x) = 0.04x + 5, so C′(100) = $9. (Exactly, C(101) − C(100) = $9.02.)
+-->

@@ -1,0 +1,70 @@
+<p class="ca-lede">Most functions in calculus belong to a few families: lines, polynomials, power and rational functions, roots, and the transcendental functions (trigonometric, exponential, logarithmic). In this section we describe how a function behaves (increasing, decreasing, one-to-one, even or odd), how to combine two functions, and how shifts and stretches move a graph.</p>
+<div class="ca-goals"><b>Learning objectives</b> Decide where a function increases or decreases; find slopes and equations of lines; test whether a function is one-to-one; combine and compose functions; recognize even and odd functions; identify polynomials, power, algebraic, and transcendental functions; solve quadratic equations; transform graphs.</div>
+
+<section class="ca-panel" id="monotone"><h3>01 · Increasing, decreasing, and constant</h3>
+<div class="ca-definition"><strong>Increasing and decreasing on an interval I</strong>
+<ul><li>f is <b>increasing</b> on I if x₁ &lt; x₂ in I implies f(x₁) ≤ f(x₂), and <b>strictly increasing</b> if it implies f(x₁) &lt; f(x₂).</li><li>f is <b>decreasing</b> on I if x₁ &lt; x₂ implies f(x₁) ≥ f(x₂), and <b>strictly decreasing</b> if it implies f(x₁) &gt; f(x₂).</li><li>A <b>constant</b> function f(x) = c has f(x₁) = f(x₂) for all inputs, so it is neither strictly increasing nor strictly decreasing.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrow-trend-up"></i> INTERACTIVE · COMPARE f(x₁) AND f(x₂)</div>
+<p>Move x₁ and x₂. Green parts of the graph rise from left to right; red parts fall.</p>
+<div id="mono-lab"></div>
+</section>
+
+<section class="ca-panel" id="lines"><h3>02 · Lines and slope</h3>
+<div class="ca-definition"><strong>Equations of a line</strong>
+<p>The line through (x₁, y₁) and (x₂, y₂) has slope <b>m = (y₂ − y₁)/(x₂ − x₁)</b>.</p>
+<ul><li>Slope-intercept form: <b>y = mx + b</b>, with y-intercept (0, b).</li><li>Standard form: <b>ax + by = c</b>.</li><li>m &gt; 0: increasing; m &lt; 0: decreasing; m = 0: constant (horizontal). A vertical line x = k has undefined slope and is not a function.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-hand-pointer"></i> INTERACTIVE · DRAG TWO POINTS</div>
+<div id="line-lab"></div>
+</section>
+
+<section class="ca-panel" id="one-to-one"><h3>03 · One-to-one functions</h3>
+<div class="ca-definition"><strong>One-to-one (injective)</strong>
+<p>f is <b>one-to-one</b> if different inputs always give different outputs: x₁ ≠ x₂ implies f(x₁) ≠ f(x₂). Graphically, every <b>horizontal line</b> meets the graph at most once. Strictly increasing and strictly decreasing functions are one-to-one.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-grip-lines"></i> INTERACTIVE · HORIZONTAL LINE TEST</div>
+<div id="hlt-lab"></div>
+</section>
+
+<section class="ca-panel" id="combine"><h3>04 · Combining and composing functions</h3>
+<div class="ca-definition"><strong>Algebra of functions and composition</strong>
+<p>(f + g)(x) = f(x) + g(x), (f − g)(x) = f(x) − g(x), (f · g)(x) = f(x)g(x), and (f/g)(x) = f(x)/g(x) where g(x) ≠ 0.</p>
+<p>The <b>composition</b> g ∘ f ("g composed with f") is (g ∘ f)(x) = g(f(x)): f acts first, then g acts on f(x). It is defined when the outputs of f are inputs of g.</p></div>
+<div class="ca-mistake"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> BE CAREFUL</div><ul><li><b>Order matters:</b> in general (f ∘ g)(x) ≠ (g ∘ f)(x).</li><li><b>Composition is not multiplication:</b> (f · g)(x) = f(x)g(x), but (f ∘ g)(x) = f(g(x)).</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-link"></i> INTERACTIVE · f(x) = 3x + 1 AND g(x) = x² − 7</div>
+<div id="comb-lab"></div>
+</section>
+
+<section class="ca-panel" id="even-odd"><h3>05 · Even and odd functions</h3>
+<div class="ca-definition"><strong>Symmetry</strong>
+<ul><li>f is <b>even</b> if f(−x) = f(x) for all x in the domain: the graph is symmetric about the y-axis.</li><li>f is <b>odd</b> if f(−x) = −f(x) for all x in the domain: the graph is symmetric about the origin.</li><li>To test, replace x by −x and simplify. Many functions are neither.</li></ul>
+<p>For example, xⁿ is even when n is even and odd when n is odd.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right"></i> INTERACTIVE · REPLACE x BY −x</div>
+<div id="eo-lab"></div>
+</section>
+
+<section class="ca-panel" id="polynomials"><h3>06 · Polynomials and the quadratic formula</h3>
+<div class="ca-definition"><strong>Polynomial functions</strong>
+<p>A <b>polynomial</b> is f(x) = aₙxⁿ + aₙ₋₁xⁿ⁻¹ + ⋯ + a₁x + a₀ with aₙ ≠ 0. Its <b>degree</b> is n and its <b>leading coefficient</b> is aₙ. Degree 2 is quadratic and degree 3 is cubic. For example, x² + 6x + 9 is quadratic with leading coefficient 1, and 100x⁴⁷ + 8 has degree 47 and leading coefficient 100.</p>
+<p>The roots of ax² + bx + c = 0 are <b>x = (−b ± √(b² − 4ac))/(2a)</b>. The <b>discriminant</b> b² − 4ac decides how many real roots there are.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-square-root-variable"></i> INTERACTIVE · THE QUADRATIC FORMULA</div>
+<div id="quad-lab"></div>
+</section>
+
+<section class="ca-panel" id="families"><h3>07 · Power, algebraic, and transcendental functions; transformations</h3>
+<div class="ca-definition"><strong>More families</strong>
+<ul><li><b>Power functions</b> f(x) = axᵇ, such as x⁴, √x = x^(1/2), and 1/x = x⁻¹.</li><li><b>Algebraic functions</b> are built from polynomials with +, −, ×, ÷, and roots: rational functions p(x)/q(x) with q(x) ≠ 0, and root functions √(p(x)) with p(x) ≥ 0. For example, (3x − 1)/(5x + 2) has domain x ≠ −2/5 and range y ≠ 3/5, and √(4 − x²) has domain [−2, 2] and range [0, 2].</li><li><b>Transcendental functions</b> are not algebraic. The most common are the trigonometric, exponential, and logarithmic functions.</li><li>The <b>absolute value</b> |x| is −x for x &lt; 0 and x for x ≥ 0.</li></ul></div>
+<div class="ca-definition"><strong>Transformations (c &gt; 0)</strong>
+<div class="ca-formula-grid"><div><b>shifts</b>f(x) + c: up c · f(x) − c: down<br>f(x + c): left c · f(x − c): right</div><div><b>stretches and reflections</b>c·f(x): vertical stretch (c &gt; 1) or compression (0 &lt; c &lt; 1)<br>f(cx): horizontal compression (c &gt; 1) or stretch (0 &lt; c &lt; 1)<br>−f(x): reflect in the x-axis · f(−x): reflect in the y-axis</div></div></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-up-down-left-right"></i> INTERACTIVE · y = a · f(x − h) + k</div>
+<p>The default is y = 2|x − 3| + 4: the graph of |x| stretched by 2, moved right 3 and up 4. Its range is [4, ∞).</p>
+<div id="trans-lab"></div>
+</section>
+
+<!--GUIDED|Basic Classes of Functions|Original problems on lines, one-to-one functions, composition, symmetry, polynomials, and transformations. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Basic Classes of Functions
+Q: Show that f(x) = √(x² + 7) is not one-to-one but g(x) = x³ − 8 is.
+A: f(1) = √8 = f(−1) with 1 ≠ −1, so f is not one-to-one. For g, if x₁ ≠ x₂ then x₁³ ≠ x₂³ (cubing is strictly increasing), so x₁³ − 8 ≠ x₂³ − 8: g is one-to-one.
+Q: For f(x) = 3x + 1 and g(x) = x² − 7, find (f ∘ g)(x) and (g ∘ f)(x).
+A: (f ∘ g)(x) = f(x² − 7) = 3(x² − 7) + 1 = 3x² − 20. (g ∘ f)(x) = g(3x + 1) = (3x + 1)² − 7 = 9x² + 6x − 6. They are different.
+Q: Is f(x) = x³ + x + 1 even, odd, or neither? What are the domain and range of y = 2|x − 3| + 4?
+A: f(−x) = −x³ − x + 1, which is neither f(x) nor −f(x) = −x³ − x − 1, so f is neither. For y = 2|x − 3| + 4 the domain is (−∞, ∞); since |x − 3| ≥ 0, y ≥ 4, so the range is [4, ∞).
+-->

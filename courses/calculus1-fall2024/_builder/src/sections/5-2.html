@@ -1,0 +1,49 @@
+<p class="ca-lede">In Section 5.1 the limit of rectangle sums gave the area under a positive function. The same limit makes sense for any continuous function, positive or not; it is called the <b>definite integral</b>. Where the graph is below the x-axis the rectangles have negative heights, so the integral measures <b>net signed area</b>: area above the axis counts as positive and area below counts as negative.</p>
+<div class="ca-goals"><b>Learning objectives</b> Define the definite integral as a limit of Riemann sums and use its notation; interpret it as net signed area; evaluate integrals from geometry; distinguish net signed area from total area; use the properties of the definite integral; find the average value of a function.</div>
+
+<section class="ca-panel" id="definition"><h3>01 · The definite integral as net signed area</h3>
+<div class="ca-definition"><strong>Definition</strong>
+<p>If f is defined on [a, b], the <b>definite integral</b> of f from a to b is</p>
+<p class="ca-center"><b>∫<sub>a</sub><sup>b</sup> f(x) dx = lim<sub>n→∞</sub> Σ<sub>i=1</sub><sup>n</sup> f(xᵢ*) Δx</b>,</p>
+<p>provided the limit exists and is the same for every choice of sample points xᵢ* (then f is <b>integrable</b>; every continuous function is). In particular ∫<sub>a</sub><sup>b</sup> f(x) dx = lim Lₙ = lim Rₙ. Here f is the <b>integrand</b>, a and b are the <b>limits of integration</b>, and x is a dummy variable: ∫<sub>a</sub><sup>b</sup> f(x) dx = ∫<sub>a</sub><sup>b</sup> f(t) dt.</p>
+<p>A <b>definite integral</b> is a number (a net signed area); an <b>indefinite integral</b> ∫ f(x) dx is a family of functions (the antiderivatives).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-plus-minus"></i> INTERACTIVE · POSITIVE AND NEGATIVE RECTANGLES</div>
+<div id="signed-lab"></div>
+</section>
+
+<section class="ca-panel" id="geometry"><h3>02 · Integrals from geometry</h3>
+<div class="ca-definition"><strong>Use known areas</strong>
+<p>When the region is made of triangles, rectangles, and pieces of circles, the integral can be found without any limit. In the graph below, f on [−4, 0] is the lower half of the circle of radius 2 centered at (−2, 0), and on [0, 4] it is a triangle with base 4 and height 2. The semicircle has area ½π(2²) = 2π and lies below the axis; the triangle has area ½(4)(2) = 4. So <b>∫<sub>−4</sub><sup>4</sup> f(x) dx = −2π + 4</b>, while the total area is 2π + 4.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shapes"></i> INTERACTIVE · MOVE THE LIMITS OF INTEGRATION</div>
+<div id="geo-lab"></div>
+</section>
+
+<section class="ca-panel" id="properties"><h3>03 · Properties of the definite integral</h3>
+<div class="ca-definition"><strong>Properties</strong>
+<div class="ca-formula-grid ca-math-labels"><div><b>zero width</b>∫<sub>a</sub><sup>a</sup> f(x) dx = 0</div><div><b>reversing the limits</b>∫<sub>b</sub><sup>a</sup> f(x) dx = −∫<sub>a</sub><sup>b</sup> f(x) dx</div><div><b>additivity</b>∫<sub>a</sub><sup>b</sup> f dx = ∫<sub>a</sub><sup>c</sup> f dx + ∫<sub>c</sub><sup>b</sup> f dx</div><div><b>linearity</b>∫ (f ± g) = ∫ f ± ∫ g and ∫ c f = c ∫ f</div></div>
+<p><b>Comparison:</b> if f(x) ≥ g(x) on [a, b], then ∫<sub>a</sub><sup>b</sup> f(x) dx ≥ ∫<sub>a</sub><sup>b</sup> g(x) dx; if m ≤ f(x) ≤ M on [a, b], then m(b − a) ≤ ∫<sub>a</sub><sup>b</sup> f(x) dx ≤ M(b − a).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-scissors"></i> INTERACTIVE · SPLIT THE INTERVAL</div>
+<div id="add-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-calculator"></i> INTERACTIVE · USE THE PROPERTIES</div>
+<p>Given ∫<sub>1</sub><sup>3</sup> f = 7, ∫<sub>1</sub><sup>6</sup> f = 17, ∫<sub>1</sub><sup>3</sup> g = −3, and ∫<sub>1</sub><sup>6</sup> g = 0.</p>
+<div id="prop-steps"></div>
+</section>
+
+<section class="ca-panel" id="average"><h3>04 · The average value of a function</h3>
+<div class="ca-definition"><strong>Average value</strong>
+<p>The average of n numbers is their sum divided by n. Averaging f at many evenly spaced points and letting n → ∞ gives</p>
+<p class="ca-center"><b>f<sub>ave</sub> = (1/(b − a)) ∫<sub>a</sub><sup>b</sup> f(x) dx</b>.</p>
+<p>Geometrically, the rectangle of height f<sub>ave</sub> over [a, b] has the same net area as the region under f.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-water"></i> INTERACTIVE · LEVEL THE GRAPH</div>
+<div id="avg-lab"></div>
+</section>
+
+<!--GUIDED|The Definite Integral|Original problems on net signed area, geometry, properties, and average value. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|The Definite Integral
+Q: What is the difference between ∫<sub>−4</sub><sup>4</sup> f(x) dx and the total area for the semicircle-and-triangle graph?
+A: The integral counts the semicircle below the axis as negative: −2π + 4 ≈ −2.28. The total area counts both as positive: 2π + 4 ≈ 10.28.
+Q: Given ∫<sub>1</sub><sup>3</sup> f = 7, ∫<sub>1</sub><sup>6</sup> f = 17, ∫<sub>1</sub><sup>3</sup> g = −3, ∫<sub>1</sub><sup>6</sup> g = 0, find ∫<sub>3</sub><sup>6</sup> (2f + g).
+A: ∫<sub>3</sub><sup>6</sup> f = 17 − 7 = 10 and ∫<sub>3</sub><sup>6</sup> g = 0 − (−3) = 3, so the answer is 2(10) + 3 = 23.
+Q: Find the average value of f(x) = x² on [0, 4].
+A: ∫<sub>0</sub><sup>4</sup> x² dx = 64/3 (Section 5.1), so f<sub>ave</sub> = (64/3)/4 = 16/3.
+-->

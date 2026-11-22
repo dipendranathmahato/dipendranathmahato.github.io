@@ -1,0 +1,40 @@
+<p class="ca-lede">The chain rule says d/dx f(g(x)) = f′(g(x))·g′(x). Read backwards, it says that an integrand of the form f′(g(x))·g′(x) has antiderivative f(g(x)). <b>Substitution</b> organizes this: name the inside function u = g(x), replace g′(x) dx by du, and the integral becomes a simpler one in u.</p>
+<div class="ca-goals"><b>Learning objectives</b> Recognize an integrand of the form f′(g(x))g′(x); choose a substitution u = g(x) and rewrite the integral in u, adjusting constants; return to the original variable; evaluate definite integrals by substitution, either back-substituting or changing the limits.</div>
+
+<section class="ca-panel" id="idea"><h3>01 · Reversing the chain rule</h3>
+<div class="ca-definition"><strong>Substitution</strong>
+<p>From the chain rule, ∫ f′(g(x)) g′(x) dx = f(g(x)) + C. Put <b>u = g(x)</b>; then du/dx = g′(x), that is, <b>du = g′(x) dx</b> (the differential of u), and</p>
+<p class="ca-center"><b>∫ f′(g(x)) g′(x) dx = ∫ f′(u) du = f(u) + C = f(g(x)) + C</b>.</p>
+<ol><li>Choose u, usually the "inside" function whose derivative also appears (up to a constant factor).</li><li>Rewrite the whole integral in terms of u and du; no x may remain.</li><li>Integrate with respect to u.</li><li>Substitute back u = g(x).</li></ol></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-hand-pointer"></i> INTERACTIVE · CHOOSE u AND SEE WHAT HAPPENS</div>
+<p>For each integral, try the different choices of u. A good choice leaves only u and du.</p>
+<div id="choose-lab"></div>
+</section>
+
+<section class="ca-panel" id="examples"><h3>02 · Worked examples</h3>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · STEP BY STEP</div>
+<div id="sub-steps"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-check-double"></i> INTERACTIVE · CHECK YOUR ANSWER</div>
+<p>Differentiate your answer, or let the explorer do it. Try ∫ x(x² + 1)⁵ dx with your antiderivative.</p>
+<div id="sub-check"></div>
+</section>
+
+<section class="ca-panel" id="definite"><h3>03 · Substitution in definite integrals</h3>
+<div class="ca-definition"><strong>Two methods</strong>
+<p><b>Method 1:</b> find an antiderivative in x first (substitute back), then use the original limits. <b>Method 2:</b> change the limits along with the variable: if u = g(x), then</p>
+<p class="ca-center"><b>∫<sub>a</sub><sup>b</sup> f(g(x)) g′(x) dx = ∫<sub>g(a)</sub><sup>g(b)</sup> f(u) du</b>,</p>
+<p>and never return to x. Example: ∫<sub>0</sub><sup>1</sup> 3/√(6x + 5) dx with u = 6x + 5, du = 6 dx: x = 0 gives u = 5 and x = 1 gives u = 11, so the integral is ∫<sub>5</sub><sup>11</sup> ½u<sup>−1/2</sup> du = u<sup>1/2</sup>|<sub>5</sub><sup>11</sup> = <b>√11 − √5</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right"></i> INTERACTIVE · TWO REGIONS, ONE AREA</div>
+<p>The region under the original integrand on [a, b] and the region under the new integrand on [g(a), g(b)] look different but have the same area.</p>
+<div id="def-lab"></div>
+</section>
+
+<!--GUIDED|Substitution|Original problems on choosing u, rewriting, and definite integrals by substitution. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Substitution
+Q: Compute ∫ (7x + 9)⁸ dx.
+A: u = 7x + 9, du = 7 dx, so dx = du/7: ∫ u⁸ du/7 = u⁹/63 + C = (7x + 9)⁹/63 + C.
+Q: Compute ∫ cos²θ sin θ dθ.
+A: u = cos θ, du = −sin θ dθ: ∫ u²(−du) = −u³/3 + C = −cos³θ/3 + C.
+Q: Evaluate ∫<sub>0</sub><sup>1</sup> 3/√(6x + 5) dx by changing the limits.
+A: u = 6x + 5, du = 6 dx; u runs from 5 to 11. ∫<sub>5</sub><sup>11</sup> (3/√u)(du/6) = ∫<sub>5</sub><sup>11</sup> ½u<sup>−1/2</sup> du = √u |<sub>5</sub><sup>11</sup> = √11 − √5.
+-->

@@ -1,0 +1,66 @@
+<p class="ca-lede">Calculus is the study of how functions change, so we begin with functions themselves. A function is a rule that turns each allowed input into exactly one output. In this section we read functions from formulas, tables, and graphs, find their domains and ranges, and get comfortable with the notation we will use all semester.</p>
+<div class="ca-goals"><b>Learning objectives</b> Use function notation and evaluate functions; find the domain and range of a function and write them in interval or set-builder notation; read functions from tables and graphs; use the vertical line test; work with piecewise-defined functions; find zeros and intercepts.</div>
+
+<section class="ca-panel" id="concept"><h3>01 · What makes a rule a function?</h3>
+<div class="ca-definition"><strong>Function</strong>
+<p>A <b>function</b> f is a relation between a set of inputs and a set of permissible outputs that assigns to <b>every</b> input <b>exactly one</b> output. We write y = f(x): y is the value of f at x. Because a function sends each element of the input set to one element of the output set, functions are also called <b>mappings</b>.</p>
+<ul><li>The set of inputs is the <b>domain</b>. The set of outputs that actually occur is the <b>range</b>.</li><li>A <b>codomain</b> is any set that contains the range, for example all real numbers.</li><li>x is the <b>independent variable</b> and y is the <b>dependent variable</b>. On a graph we plot the points (x, f(x)).</li></ul></div>
+<div class="ca-remember"><div class="ca-remember-heading"><i class="fa-solid fa-bookmark"></i> POINT TO REMEMBER</div><p>Two inputs may share an output: f(1) = 4 and f(−1) = 4 is fine for f(x) = x². What a function cannot do is send <b>one</b> input to <b>two</b> outputs. If a list of data contains f(1) = 3 and f(1) = 5, it is not a function.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-diagram-project"></i> INTERACTIVE · MAPPING DIAGRAMS</div>
+<p>Pick a relation. Each arrow sends an input (left) to an output (right). Decide whether the relation is a function, then read the domain and range.</p>
+<div id="map-lab"></div>
+</section>
+
+<section class="ca-panel" id="domain"><h3>02 · Domain, range, and interval notation</h3>
+<div class="ca-definition"><strong>Finding the domain of a formula</strong>
+<p>Unless a domain is given, the domain of f(x) is the set of all real x for which the formula makes sense. Check two things first:</p>
+<ol><li><b>Denominators:</b> we cannot divide by 0. For 3/(x² − 1), exclude x = ±1.</li><li><b>Square roots:</b> the expression under √ must be ≥ 0. For √(4 − 3x), require 4 − 3x ≥ 0, so x ≤ 4/3.</li></ol>
+<p>The <b>range</b> is the set of outputs f(x) as x runs through the domain. For f(x) = x² − 4 the range is [−4, ∞), because x² ≥ 0.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-ruler-horizontal"></i> INTERACTIVE · DOMAIN AND RANGE FROM THE GRAPH</div>
+<p>The domain is shaded on the x-axis (orange) and the range on the y-axis (green). Read the reasoning, then compare the set-builder and interval forms.</p>
+<div id="dom-lab"></div>
+<div class="ca-definition"><strong>Set-builder and interval notation</strong>
+<p>{x | x has some property} is read "the set of x such that x has the property." Intervals use parentheses for endpoints that are <b>not</b> included and brackets for endpoints that are:</p>
+<div class="ca-formula-grid"><div><b>open and closed</b>(a, b) = {x | a &lt; x &lt; b}<br>[a, b] = {x | a ≤ x ≤ b}</div><div><b>half-open and unbounded</b>[a, b) = {x | a ≤ x &lt; b}<br>[a, ∞) = {x | x ≥ a}, (−∞, ∞) = ℝ</div></div></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-arrows-left-right-to-line"></i> INTERACTIVE · BUILD AN INTERVAL</div>
+<div id="int-lab"></div>
+</section>
+
+<section class="ca-panel" id="evaluate"><h3>03 · Evaluating functions</h3>
+<div class="ca-definition"><strong>Evaluating f</strong>
+<p>To evaluate f at an input, replace <b>every</b> x in the formula by that input, in parentheses, and simplify. The input can be a number, a letter, or an expression such as b + 1 or x + h.</p>
+<p>A function can also be given by a <b>table</b> of values or by a <b>graph</b>; f(a) is then read from the row x = a, or from the height of the graph above x = a.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-keyboard"></i> INTERACTIVE · f(x) = x² + 4x + 3</div>
+<p>Choose an input. Watch the substitution happen in parentheses.</p>
+<div id="eval-lab"></div>
+<aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>f(b + 1) is not f(b) + 1.</b> Substitute the whole expression: f(b + 1) = (b + 1)² + 4(b + 1) + 3 = b² + 6b + 8.</li><li><b>Square the whole input.</b> For f(x) = x², f(−3) = (−3)² = 9, not −3² = −9.</li></ul></aside>
+</section>
+
+<section class="ca-panel" id="piecewise"><h3>04 · Piecewise functions and the vertical line test</h3>
+<div class="ca-definition"><strong>Piecewise-defined function</strong>
+<p>A <b>piecewise-defined</b> function uses different formulas on different parts of its domain. To evaluate it, first decide <b>which piece</b> the input belongs to, then use that formula.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-puzzle-piece"></i> INTERACTIVE · WHICH PIECE?</div>
+<div id="pw-lab"></div>
+<div class="ca-definition"><strong>Vertical line test</strong>
+<p>A set of points in the plane is the graph of a function exactly when <b>every vertical line</b> meets it <b>at most once</b>. If some vertical line meets it twice, one input has two outputs.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-grip-lines-vertical"></i> INTERACTIVE · SLIDE A VERTICAL LINE</div>
+<div id="vlt-lab"></div>
+</section>
+
+<section class="ca-panel" id="intercepts"><h3>05 · Zeros and intercepts</h3>
+<div class="ca-definition"><strong>Zeros and intercepts</strong>
+<p>A <b>zero</b> of f is an input x with f(x) = 0; on the graph it is an <b>x-intercept</b>. The <b>y-intercept</b> is the point (0, f(0)), and it exists only when 0 is in the domain.</p>
+<p>Useful fact: √A = 0 exactly when A = 0, and x² = a² gives x = ±a.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-crosshairs"></i> INTERACTIVE · FIND THE INTERCEPTS</div>
+<div id="icpt-lab"></div>
+</section>
+
+<!--GUIDED|Review of Functions|Original problems on domains, ranges, notation, piecewise functions, and intercepts. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Review of Functions
+Q: Find the domain of f(x) = (2x + 5)/(3x² + 4) and of g(x) = √(4 − 3x). Write both in interval notation.
+A: 3x² + 4 ≥ 4 for every real x, so the denominator is never 0 and the domain of f is (−∞, ∞). For g we need 4 − 3x ≥ 0, so x ≤ 4/3: the domain is (−∞, 4/3].
+Q: Let f(x) = −x for x &lt; 4, f(4) = 0, and f(x) = x² for x &gt; 4. Find f(−2), f(4), and f(5).
+A: −2 &lt; 4 uses the first piece: f(−2) = 2. f(4) = 0 by the middle piece. 5 &gt; 4 uses the last piece: f(5) = 25.
+Q: Find the zeros and the y-intercept of f(x) = √(x² − 1).
+A: √(x² − 1) = 0 gives x² = 1, so the zeros are x = ±1. f(0) = √(−1) is not a real number, so 0 is not in the domain and there is no y-intercept.
+-->

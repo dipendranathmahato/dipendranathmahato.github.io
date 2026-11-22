@@ -1,0 +1,41 @@
+<p class="ca-lede">Because (eˣ)′ = eˣ and (ln|x|)′ = 1/x, exponential functions and the reciprocal function are easy to integrate. Combined with substitution, they handle a large family of integrals: anything of the form e<sup>g(x)</sup>·g′(x) or g′(x)/g(x).</p>
+<div class="ca-goals"><b>Learning objectives</b> Integrate e<sup>ax</sup>, b<sup>ax</sup>, 1/x, ln x, and log<sub>b</sub> x; combine these rules with substitution; recognize ∫ g′(x)/g(x) dx = ln|g(x)| + C; interpret ln x as an area; solve an applied problem with an exponential rate.</div>
+
+<section class="ca-panel" id="rules"><h3>01 · The rules</h3>
+<div class="ca-definition"><strong>Exponential and logarithmic integrals</strong>
+<div class="ca-formula-grid ca-math-labels"><div><b>exponentials</b>∫ e<sup>ax</sup> dx = e<sup>ax</sup>/a + C<br>∫ b<sup>ax</sup> dx = b<sup>ax</sup>/(a ln b) + C</div><div><b>reciprocal</b>∫ x<sup>−1</sup> dx = ∫ dx/x = ln|x| + C</div><div><b>logarithms</b>∫ ln x dx = x(ln x − 1) + C<br>∫ log<sub>b</sub> x dx = (x/ln b)(ln x − 1) + C</div><div><b>with substitution</b>∫ e<sup>g(x)</sup>g′(x) dx = e<sup>g(x)</sup> + C<br>∫ g′(x)/g(x) dx = ln|g(x)| + C</div></div>
+<p>Each rule can be checked by differentiating; for example (x ln x − x)′ = ln x + x·(1/x) − 1 = ln x.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-check-double"></i> INTERACTIVE · CHECK A RULE OR YOUR OWN ANSWER</div>
+<div id="exp-check"></div>
+</section>
+
+<section class="ca-panel" id="exponential"><h3>02 · Exponential integrands</h3>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<div id="exp-steps"></div>
+</section>
+
+<section class="ca-panel" id="logarithmic"><h3>03 · Integrals that give logarithms</h3>
+<div class="ca-definition"><strong>ln x as an area</strong>
+<p>By the Fundamental Theorem, <b>ln x = ∫<sub>1</sub><sup>x</sup> dt/t</b> for x &gt; 0: the area under y = 1/t from 1 to x (counted negative when x &lt; 1). Properties of ln become facts about areas: for example, the area from a to ab equals the area from 1 to b, which is why ln(ab) = ln a + ln b.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-chart-area"></i> INTERACTIVE · THE AREA UNDER 1/t</div>
+<div id="ln-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · g′(x)/g(x) EXAMPLES</div>
+<div id="log-steps"></div>
+</section>
+
+<section class="ca-panel" id="application"><h3>04 · An application: price and demand</h3>
+<div class="ca-definition"><strong>Recover a function from its rate</strong>
+<p>A store finds that the price p (in dollars) at which it can sell x tubes of toothpaste per week changes at the rate p′(x) = −0.015e<sup>−0.01x</sup>. At a price of $2.35 it sells 50 tubes per week. Integrating, p(x) = ∫ −0.015e<sup>−0.01x</sup> dx = 1.5e<sup>−0.01x</sup> + C. From p(50) = 2.35: C = 2.35 − 1.5e<sup>−0.5</sup> ≈ 1.44, so <b>p(x) ≈ 1.5e<sup>−0.01x</sup> + 1.44</b>. To sell 100 tubes per week, the price should be p(100) = 1.5e<sup>−1</sup> + 1.44 ≈ <b>$1.99</b>. (Rounding e<sup>−0.5</sup> to 0.6 gives C = 1.45 and about $2.00.)</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-tags"></i> INTERACTIVE · THE PRICE-DEMAND CURVE</div>
+<div id="price-lab"></div>
+</section>
+
+<!--GUIDED|Integrals Involving Exponential and Logarithmic Functions|Original problems on exponential and logarithmic integrals. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Integrals Involving Exponential and Logarithmic Functions
+Q: Find an antiderivative of eˣ√(1 + eˣ).
+A: u = 1 + eˣ, du = eˣ dx: ∫ √u du = (2/3)u<sup>3/2</sup> + C = (2/3)(1 + eˣ)<sup>3/2</sup> + C.
+Q: Evaluate ∫ 3x²e<sup>2x³</sup> dx.
+A: u = 2x³, du = 6x² dx, so 3x² dx = du/2: ½∫ eᵘ du = ½e<sup>2x³</sup> + C.
+Q: Find ∫ dx/(x + 2) for x ≠ −2.
+A: u = x + 2, du = dx: ∫ du/u = ln|u| + C = ln|x + 2| + C.
+-->

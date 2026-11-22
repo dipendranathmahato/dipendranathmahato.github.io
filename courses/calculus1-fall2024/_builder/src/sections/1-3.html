@@ -1,0 +1,78 @@
+<p class="ca-lede">Calculus measures angles in <b>radians</b>. With radians, the six trigonometric functions become functions of a real number t, defined from the point where the angle t meets the unit circle. In this section we review radian measure, the six functions and where they are undefined, the special values, the basic identities, and the graphs with their periods.</p>
+<div class="ca-goals"><b>Learning objectives</b> Convert between degrees and radians; define sine and cosine from the unit circle; define tangent, cotangent, secant, and cosecant and find where they are undefined; recall the special values; use the Pythagorean identities; recognize the six graphs and their periods.</div>
+
+
+<section class="ca-panel" id="radians"><h3>01 · Radian measure</h3>
+<div class="ca-definition"><strong>Two units for one rotation</strong>
+<p>One <b>degree</b> (1°) is 1/360 of a full rotation, so a full circle is 360°. One <b>radian</b> is the central angle whose arc has the <b>same length as the radius</b>. A full circle is 2π radians, so <b>180° = π radians</b> and 1 radian = 180°/π ≈ 57.3°.</p>
+<ul><li><b>Degrees → radians:</b> multiply by π/180°.</li><li><b>Radians → degrees:</b> multiply by 180°/π.</li></ul></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-ruler-combined"></i> INTERACTIVE · WHAT IS ONE RADIAN?</div>
+<p>Lay copies of the radius along the circle. Each radius-length of arc adds one radian to the central angle.</p>
+<div id="rad-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-right-left"></i> INTERACTIVE · CONVERTER WITH STEPS</div>
+<p>Type an angle such as <b>45</b>, <b>−55</b>, or <b>530</b> in degrees, or <b>5π/6</b>, <b>−3π/2</b>, or <b>2</b> in radians. Type π as <b>π</b> or <b>pi</b>.</p>
+<div id="conv-lab"></div>
+<aside class="ca-mistake" role="note"><div class="ca-mistake-heading"><i aria-hidden="true" class="fa-solid fa-triangle-exclamation"></i> COMMON MISTAKES</div><ul><li><b>Simplify the fraction:</b> 45° = 45π/180 = π/4, not 45π/180.</li><li><b>No degree sign on radians:</b> write 5π/6 or 5π/6 rad, never 5π/6°.</li><li><b>“2” means 2 radians</b> (about 114.6°), not 2°.</li></ul></aside>
+</section>
+
+<section class="ca-panel" id="unit-circle"><h3>02 · Sine and cosine on the unit circle</h3>
+<div class="ca-definition"><strong>Definitions · Unit circle, sine, and cosine</strong>
+<p>The <b>unit circle</b> has center (0, 0) and radius 1; its equation is <b>x² + y² = 1</b>.</p>
+<p>If t is a real number and the terminal side of the angle t meets the unit circle at the point (x, y), then <b>cos t = x</b> and <b>sin t = y</b>. So every point on the unit circle can be written as <b>(cos t, sin t)</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-circle-dot"></i> INTERACTIVE · DRAG THE POINT AROUND THE UNIT CIRCLE</div>
+<p>Drag the point or use the slider. The horizontal leg of the triangle is cos t and the vertical leg is sin t. Watch the signs change from quadrant to quadrant.</p>
+<div id="uc-lab"></div>
+<div class="ca-sign-grid" id="sign-grid" aria-live="polite"></div>
+</section>
+
+<section class="ca-panel" id="six"><h3>03 · The six trigonometric functions</h3>
+<div class="ca-definition"><strong>Definitions · The other four functions</strong>
+<p>If (x, y) is the point where the terminal side of t meets the <b>unit circle</b>, then</p>
+<div class="ca-formula-grid"><div><b>tangent</b>tan t = y/x, x ≠ 0</div><div><b>cotangent</b>cot t = x/y, y ≠ 0</div><div><b>secant</b>sec t = 1/x, x ≠ 0</div><div><b>cosecant</b>csc t = 1/y, y ≠ 0</div></div>
+<p>When a denominator is 0 the function is <b>undefined</b> at that angle; for example, tan(π/2) and sec(π/2) are undefined because x = 0.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-table-list"></i> INTERACTIVE · ALL SIX VALUES AT A SPECIAL ANGLE</div>
+<p>The default is the point (1/2, −√3/2), which is the angle 5π/3 (300°).</p>
+<div id="six-lab"></div>
+</section>
+
+<section class="ca-panel" id="special"><h3>04 · Special values</h3>
+<div class="ca-definition"><strong>Values to know · First-quadrant special angles</strong>
+<div class="ca-scroll-x"><table class="ca-data-table"><tr><th>t</th><th>0</th><th>π/6 (30°)</th><th>π/4 (45°)</th><th>π/3 (60°)</th><th>π/2 (90°)</th></tr><tr><th>cos t</th><td>1</td><td>√3/2</td><td>√2/2</td><td>1/2</td><td>0</td></tr><tr><th>sin t</th><td>0</td><td>1/2</td><td>√2/2</td><td>√3/2</td><td>1</td></tr></table></div>
+<p><b>Domain and range:</b> y = cos t and y = sin t are defined for <b>all real numbers</b>, and their outputs always lie in <b>[−1, 1]</b>, because the coordinates of a point on the unit circle are between −1 and 1.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-table-cells"></i> INTERACTIVE · EXPLORE, THEN QUIZ YOURSELF</div>
+<p><b>Explore:</b> press any angle to see its point. <b>Quiz:</b> press “Quiz me” and choose the coordinates of the highlighted angle. Every point is a first-quadrant point with signs changed.</p>
+<div id="sp-lab"></div>
+</section>
+
+<section class="ca-panel" id="identities"><h3>05 · Trigonometric identities</h3>
+<div class="ca-definition"><strong>Basic identities</strong>
+<div class="ca-formula-grid"><div><b>reciprocal and quotient</b>sec t = 1/cos t, csc t = 1/sin t<br>tan t = sin t/cos t, cot t = cos t/sin t = 1/tan t</div><div><b>Pythagorean</b>sin²t + cos²t = 1<br>1 + tan²t = sec²t<br>1 + cot²t = csc²t</div></div>
+<p>Divide sin²t + cos²t = 1 by cos²t to get 1 + tan²t = sec²t, and by sin²t to get 1 + cot²t = csc²t. Sine and tangent are odd (sin(−t) = −sin t); cosine is even (cos(−t) = cos t).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-square-root-variable"></i> INTERACTIVE · FIND THE MISSING VALUE</div>
+<p>If you know one of sin t, cos t and the quadrant of t, the identity sin²t + cos²t = 1 gives the other. The first preset is cos t = 7/25 with t in Quadrant IV.</p>
+<div id="pyth-lab"></div>
+</section>
+
+<section class="ca-panel" id="graphs"><h3>06 · Graphs and periods</h3>
+<div class="ca-definition"><strong>Periodic functions</strong>
+<p>A function f is <b>periodic</b> with period P &gt; 0 if f(x + P) = f(x) for all x, and P is the smallest such number. Sine, cosine, secant, and cosecant have period <b>2π</b>; tangent and cotangent have period <b>π</b>. The graphs of tangent and secant have vertical asymptotes where cos x = 0, and those of cotangent and cosecant where sin x = 0.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-film"></i> INTERACTIVE · UNROLL THE UNIT CIRCLE</div>
+<p>Move x from 0 to 2π. The point on the circle and the point on the graph always have the same height (sine) or the same x-coordinate value (cosine).</p>
+<div id="unroll-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-wave-square"></i> INTERACTIVE · ALL SIX GRAPHS</div>
+<p>For each graph, note the period, the domain (where are the asymptotes?), the range, and the symmetry.</p>
+<div id="six-graph-lab"></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-puzzle-piece"></i> MATCH THE GRAPH</div>
+<div id="sc-cards"></div>
+</section>
+
+
+<!--GUIDED|Trigonometric Functions|Original problems on radians, the unit circle, the six functions, identities, and periods. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Trigonometric Functions
+Q: Convert 225° to radians and 7π/6 to degrees.
+A: 225° · π/180° = 225π/180 = 5π/4. 7π/6 · 180°/π = 7 · 30° = 210°.
+Q: Where are tan t and csc t undefined?
+A: tan t = sin t/cos t is undefined where cos t = 0, at t = π/2 + kπ. csc t = 1/sin t is undefined where sin t = 0, at t = kπ (k an integer).
+Q: If sin t = −3/5 and t is in Quadrant III, find cos t, tan t, and sec t.
+A: cos²t = 1 − 9/25 = 16/25, and cosine is negative in Quadrant III, so cos t = −4/5. Then tan t = (−3/5)/(−4/5) = 3/4 and sec t = −5/4. Check: 1 + tan²t = 1 + 9/16 = 25/16 = sec²t.
+-->

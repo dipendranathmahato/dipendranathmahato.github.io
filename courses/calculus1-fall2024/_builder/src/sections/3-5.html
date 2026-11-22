@@ -1,0 +1,53 @@
+<p class="ca-lede">Look at the graph of sin x and track the slope of its tangent lines: slope 1 at x = 0, slope 0 at the top (x = π/2), slope −1 at x = π, slope 0 at the bottom. These slopes trace out the graph of cos x. From d/dx sin x = cos x and d/dx cos x = −sin x, the quotient rule gives the derivatives of the other four trigonometric functions.</p>
+<div class="ca-goals"><b>Learning objectives</b> Explain why the derivative of sin x is cos x; state the derivatives of all six trigonometric functions; find tangent lines to trigonometric graphs; combine the trigonometric derivatives with the product and quotient rules; compute higher derivatives of sine and cosine.</div>
+
+<section class="ca-panel" id="sine"><h3>01 · The slope of sin x is cos x</h3>
+<div class="ca-definition"><strong>Sine and cosine</strong>
+<p class="ca-center"><b>d/dx (sin x) = cos x</b> and <b>d/dx (cos x) = −sin x</b>.</p>
+<p>The proof uses the limit definition, the sum formula sin(x + h) = sin x cos h + cos x sin h, and the two limits lim<sub>h→0</sub> (sin h)/h = 1 and lim<sub>h→0</sub> (cos h − 1)/h = 0. (Angles are in radians; with degrees these formulas would need an extra factor.)</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-wave-square"></i> INTERACTIVE · TRACE THE SLOPE OF A TRIGONOMETRIC GRAPH</div>
+<div id="trig-trace"></div>
+</section>
+
+<section class="ca-panel" id="six"><h3>02 · Derivatives of the six functions</h3>
+<div class="ca-definition"><strong>Formulas</strong>
+<div class="ca-formula-grid ca-math-labels"><div><b>sine and cosine</b>(sin x)′ = cos x<br>(cos x)′ = −sin x</div><div><b>tangent and cotangent</b>(tan x)′ = sec²x<br>(cot x)′ = −csc²x</div><div><b>secant and cosecant</b>(sec x)′ = sec x tan x<br>(csc x)′ = −csc x cot x</div><div><b>a pattern</b>the three “co” functions (cos, cot, csc) have derivatives with a minus sign</div></div>
+<p>For example, tan x = sin x/cos x, so by the quotient rule (tan x)′ = (cos x · cos x − sin x · (−sin x))/cos²x = (cos²x + sin²x)/cos²x = 1/cos²x = sec²x.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-puzzle-piece"></i> MATCH EACH FUNCTION WITH ITS DERIVATIVE</div>
+<div id="six-cards"></div>
+</section>
+
+<section class="ca-panel" id="tangent"><h3>03 · Tangent lines to trigonometric graphs</h3>
+<div class="ca-definition"><strong>Example</strong>
+<p>For f(x) = 6 sin x at x = π/6: the point is (π/6, 6 · ½) = (π/6, 3); the slope is f′(π/6) = 6 cos(π/6) = 6 · √3/2 = 3√3. So y − 3 = 3√3(x − π/6), that is, <b>y = 3√3 x + 3 − √3π/2</b>.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-pen-ruler"></i> INTERACTIVE · BUILD THE TANGENT LINE</div>
+<div id="trig-tl"></div>
+</section>
+
+<section class="ca-panel" id="rules"><h3>04 · With the product and quotient rules</h3>
+<div class="ca-lab-kicker"><i class="fa-solid fa-shoe-prints"></i> INTERACTIVE · WORKED EXAMPLES</div>
+<p>Watch the distributive step in the second example: the factor (1 + t) multiplies both terms of the bracket.</p>
+<div id="trig-steps"></div>
+</section>
+
+<section class="ca-panel" id="higher"><h3>05 · Higher derivatives of sine and cosine</h3>
+<div class="ca-definition"><strong>A cycle of four</strong>
+<p>sin x → cos x → −sin x → −cos x → sin x → … The derivatives repeat every four steps, so the n-th derivative depends only on the remainder of n divided by 4.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-rotate"></i> INTERACTIVE · ANY ORDER OF DERIVATIVE</div>
+<div id="cycle-lab"></div>
+</section>
+
+<section class="ca-panel" id="check"><h3>06 · Practice: check your own derivative</h3>
+<p>Try x² cos x, sec x tan x, or (sin x)/(1 + cos x).</p>
+<div id="trig-check"></div>
+</section>
+
+<!--GUIDED|Derivatives of Trigonometric Functions|Original problems on the six derivative formulas, tangent lines, and higher derivatives. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Derivatives of Trigonometric Functions
+Q: Find the tangent line to f(x) = 6 sin x at x = π/6.
+A: f(π/6) = 3 and f′(π/6) = 6 cos(π/6) = 3√3, so y − 3 = 3√3(x − π/6), or y = 3√3 x + 3 − √3π/2.
+Q: Differentiate t cos t/(1 + t).
+A: By the quotient rule, ((1 + t)(cos t − t sin t) − t cos t)/(1 + t)² = (cos t − t sin t − t² sin t)/(1 + t)².
+Q: Find d⁷⁴/dx⁷⁴ (sin x).
+A: 74 = 4 · 18 + 2, so the 74th derivative equals the 2nd derivative: −sin x.
+-->

@@ -1,0 +1,38 @@
+<p class="ca-lede">Where does a function reach its highest or lowest value? On a closed interval a continuous function always has a largest and a smallest value, and they can only occur at a few candidate points: where the derivative is zero, where it does not exist, or at the endpoints. Checking those candidates is the <b>closed interval method</b>.</p>
+<div class="ca-goals"><b>Learning objectives</b> Distinguish absolute and local extrema; state the Extreme Value Theorem; find critical points; state Fermat's theorem correctly, including what it does not say; use the closed interval method to find absolute extrema.</div>
+
+<section class="ca-panel" id="extrema"><h3>01 · Absolute and local extrema</h3>
+<div class="ca-definition"><strong>Definitions</strong>
+<p>Let f be defined on an interval I and let c be in I. f has an <b>absolute maximum</b> at c if f(c) ≥ f(x) for all x in I, and an <b>absolute minimum</b> at c if f(c) ≤ f(x) for all x in I. f has a <b>local maximum</b> at c if f(c) ≥ f(x) for all x in some open interval containing c, and a <b>local minimum</b> if f(c) ≤ f(x) there.</p>
+<p><b>Extreme Value Theorem.</b> If f is <b>continuous</b> on a <b>closed, bounded</b> interval [a, b], then f has both an absolute maximum and an absolute minimum on [a, b]. Without these hypotheses an extremum may fail to exist.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-mountain-sun"></i> INTERACTIVE · WHICH EXTREMA EXIST?</div>
+<div id="ext-lab"></div>
+</section>
+
+<section class="ca-panel" id="critical"><h3>02 · Critical points and Fermat's theorem</h3>
+<div class="ca-definition"><strong>Critical point</strong>
+<p>c is a <b>critical point</b> of f if c is in the domain of f and <b>f′(c) = 0 or f′(c) is undefined</b>.</p>
+<p><b>Fermat's theorem.</b> If f has a local extremum at c and f is differentiable at c, then <b>f′(c) = 0</b>. So local extrema can only occur at critical points.</p>
+<p>The converse is <b>false</b>: f′(c) = 0 does not guarantee an extremum. For f(x) = x³, f′(0) = 0 but 0 is neither a local maximum nor a local minimum. And at a critical point where f′ is undefined there may be an extremum (|x| at 0) or not (∛x at 0).</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-magnifying-glass"></i> INTERACTIVE · FIND THE CRITICAL POINTS</div>
+<p>Pick a function or type your own. Critical points are marked; each is classified by looking at f′ on both sides.</p>
+<div id="crit-lab"></div>
+</section>
+
+<section class="ca-panel" id="closed"><h3>03 · The closed interval method</h3>
+<div class="ca-definition"><strong>Absolute extrema of a continuous f on [a, b]</strong>
+<ol><li>Find the critical points of f in (a, b) and evaluate f at each.</li><li>Evaluate f at the endpoints a and b.</li><li>The largest of these values is the absolute maximum; the smallest is the absolute minimum.</li></ol>
+<p>Example: f(x) = −x² + 3x − 2 on [1, 3]. f′(x) = −2x + 3 = 0 at x = 3/2. Candidates: f(1) = 0, f(3/2) = 1/4, f(3) = −2. Absolute maximum 1/4 at x = 3/2; absolute minimum −2 at x = 3.</p></div>
+<div class="ca-lab-kicker"><i class="fa-solid fa-table-list"></i> INTERACTIVE · TABLE OF CANDIDATES</div>
+<div id="civ-lab"></div>
+</section>
+
+<!--GUIDED|Maxima and Minima|Original problems on extrema, critical points, and the closed interval method. Open a hint if you need one, check your answers, then try another set.-->
+<!--WRAP|Maxima and Minima
+Q: Find the absolute extrema of f(x) = −x² + 3x − 2 on [1, 3].
+A: f′(x) = −2x + 3 = 0 gives x = 3/2. f(1) = 0, f(3/2) = 1/4, f(3) = −2. Absolute maximum 1/4 at x = 3/2, absolute minimum −2 at x = 3.
+Q: Does f′(c) = 0 mean f has a local extremum at c?
+A: No. Fermat's theorem only says that a local extremum at a point of differentiability has f′(c) = 0. For f(x) = x³, f′(0) = 0 but f is increasing through 0.
+Q: Why does f(x) = 1/x have no absolute maximum on (0, 1]?
+A: The interval is not closed (0 is missing) and f is unbounded near 0, so the Extreme Value Theorem does not apply. f does have an absolute minimum, 1, at x = 1.
+-->
