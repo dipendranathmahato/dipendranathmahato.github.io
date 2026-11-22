@@ -353,6 +353,14 @@ CA.controls = (box, specs, onChange) => {
   return state;
 };
 
+/* Re-range a slider so it moves through the actual values of a variable (x, t, c, ...), e.g. when the
+   function changes. step: a tidy step for the interval; value is snapped to the step. Returns the value. */
+CA.setRange = (st, key, {min, max, step, value}) => {
+  const el = st.input(key), v = Math.min(max, Math.max(min, +(min + Math.round((value - min) / step) * step).toFixed(6)));
+  el.min = min; el.max = max; el.step = step; st.set(key, v, true); return st[key];
+};
+CA.niceStep = w => w <= 2 ? 0.02 : w <= 5 ? 0.05 : w <= 12 ? 0.1 : w <= 30 ? 0.25 : 1;
+
 /* ---------- lab: controls + optional graph, readouts, feedback, steps ---------- */
 CA.lab = (id, spec, update) => {
   const box = $(id); if (!box) throw new Error('missing lab ' + id);
