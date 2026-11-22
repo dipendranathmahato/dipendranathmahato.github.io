@@ -50,10 +50,12 @@ const AD = [
   {t: 'f(x) = 3 − x on [0, 5]', f: x => 3 - x, a: 0, b: 5, win: {xmin: -0.5, xmax: 5.5, ymin: -2.5, ymax: 3.5}}
 ];
 CA.lab('add-lab', {
-  controls: [{type: 'select', key: 'p', label: 'Function', value: '0', options: AD.map((s, i) => [String(i), s.t])}, {type: 'range', key: 'c', label: 'Split point c (as % of [a, b])', min: 0, max: 100, step: 1, value: 40, fmt: v => v + '%'}],
+  controls: [{type: 'select', key: 'p', label: 'Function', value: '0', options: AD.map((s, i) => [String(i), s.t])}, {type: 'range', key: 'c', label: 'Split point c', min: 0, max: 1, step: 0.05, value: 0, fmt: v => num(v, 2)}],
   plot: {w: 540, h: 320}, plotLabel: 'An integral split at c', legend: [['orange', '∫ from a to c'], ['purple', '∫ from c to b']], readouts: [['l', '∫ a to c'], ['r', '∫ c to b'], ['s', 'sum'], ['t', '∫ a to b']]
-}, (lab, st) => {
-  const A = AD[+st.p], c = A.a + (A.b - A.a) * st.c / 100, P = lab.plane(Object.assign({equal: false}, A.win));
+}, (lab, st, key) => {
+  const A = AD[+st.p];
+  if (key === null || key === 'p') CA.setRange(st, 'c', {min: A.a, max: A.b, step: CA.niceStep(A.b - A.a), value: A.a + (A.b - A.a) * 0.4});  // c moves through [a, b] itself
+  const c = st.c, P = lab.plane(Object.assign({equal: false}, A.win));
   if (c > A.a) CA.shade(P, A.f, A.a, c, {color: 'orange', fillOpacity: 0.3}); if (c < A.b) CA.shade(P, A.f, c, A.b, {color: 'purple', fillOpacity: 0.3});
   P.curve(A.f, {color: 'text', width: 2.8}).vline(c, {color: 'green', width: 2}).render();
   const l = I(A.f, A.a, c), r = I(A.f, c, A.b);
